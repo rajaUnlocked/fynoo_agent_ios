@@ -33,6 +33,12 @@
 		CEAD29EA250632BB008B1F9C /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD29E8250632BB008B1F9C /* NavigationView.swift */; };
 		CEAD29ED25063FA2008B1F9C /* TargetprogressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD29EB25063FA2008B1F9C /* TargetprogressTableViewCell.swift */; };
 		CEAD29EE25063FA2008B1F9C /* TargetprogressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29EC25063FA2008B1F9C /* TargetprogressTableViewCell.xib */; };
+		CEAD29F125069D58008B1F9C /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD29EF25069D58008B1F9C /* DescriptionTableViewCell.swift */; };
+		CEAD29F225069D58008B1F9C /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29F025069D58008B1F9C /* DescriptionTableViewCell.xib */; };
+		CEAD29F525069F9D008B1F9C /* AgentListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD29F325069F9C008B1F9C /* AgentListTableViewCell.swift */; };
+		CEAD29F625069F9D008B1F9C /* AgentListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29F425069F9C008B1F9C /* AgentListTableViewCell.xib */; };
+		CEAD29F92506A43D008B1F9C /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD29F72506A43D008B1F9C /* VideoTableViewCell.swift */; };
+		CEAD29FA2506A43D008B1F9C /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29F82506A43D008B1F9C /* VideoTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +95,12 @@
 		CEAD29E8250632BB008B1F9C /* NavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		CEAD29EB25063FA2008B1F9C /* TargetprogressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetprogressTableViewCell.swift; sourceTree = "<group>"; };
 		CEAD29EC25063FA2008B1F9C /* TargetprogressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TargetprogressTableViewCell.xib; sourceTree = "<group>"; };
+		CEAD29EF25069D58008B1F9C /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		CEAD29F025069D58008B1F9C /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		CEAD29F325069F9C008B1F9C /* AgentListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentListTableViewCell.swift; sourceTree = "<group>"; };
+		CEAD29F425069F9C008B1F9C /* AgentListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentListTableViewCell.xib; sourceTree = "<group>"; };
+		CEAD29F72506A43D008B1F9C /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
+		CEAD29F82506A43D008B1F9C /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
 		D386675BEC93A1C2372A22B2 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_Services_Fynoo_ServicesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4CA97958AA8EC290CFD6F1 /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,6 +260,12 @@
 				CEAD29E32506324F008B1F9C /* TargetViewController.xib */,
 				CEAD29EB25063FA2008B1F9C /* TargetprogressTableViewCell.swift */,
 				CEAD29EC25063FA2008B1F9C /* TargetprogressTableViewCell.xib */,
+				CEAD29EF25069D58008B1F9C /* DescriptionTableViewCell.swift */,
+				CEAD29F025069D58008B1F9C /* DescriptionTableViewCell.xib */,
+				CEAD29F325069F9C008B1F9C /* AgentListTableViewCell.swift */,
+				CEAD29F425069F9C008B1F9C /* AgentListTableViewCell.xib */,
+				CEAD29F72506A43D008B1F9C /* VideoTableViewCell.swift */,
+				CEAD29F82506A43D008B1F9C /* VideoTableViewCell.xib */,
 			);
 			path = "Target&Commision";
 			sourceTree = "<group>";
@@ -371,11 +389,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FFDE21925012171006C5EBD /* LaunchScreen.storyboard in Resources */,
+				CEAD29F625069F9D008B1F9C /* AgentListTableViewCell.xib in Resources */,
 				CEAD29EE25063FA2008B1F9C /* TargetprogressTableViewCell.xib in Resources */,
 				CEAD29E9250632BB008B1F9C /* NavigationView.xib in Resources */,
 				2FFDE21625012171006C5EBD /* Assets.xcassets in Resources */,
 				2FFDE2422501225A006C5EBD /* AgentDashboardViewController.xib in Resources */,
+				CEAD29F225069D58008B1F9C /* DescriptionTableViewCell.xib in Resources */,
 				CEAD29E52506324F008B1F9C /* TargetViewController.xib in Resources */,
+				CEAD29FA2506A43D008B1F9C /* VideoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,7 +524,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEAD29F125069D58008B1F9C /* DescriptionTableViewCell.swift in Sources */,
 				CEAD29EA250632BB008B1F9C /* NavigationView.swift in Sources */,
+				CEAD29F525069F9D008B1F9C /* AgentListTableViewCell.swift in Sources */,
 				2FFDE2412501225A006C5EBD /* AgentDashboardViewController.swift in Sources */,
 				CEAD29ED25063FA2008B1F9C /* TargetprogressTableViewCell.swift in Sources */,
 				2FFDE20D25012166006C5EBD /* AppDelegate.swift in Sources */,
@@ -518,6 +541,7 @@
 				2F07D1AF2505FD7700193658 /* HeaderHeightSingleton.swift in Sources */,
 				2F07D1B12505FDBA00193658 /* UserData.swift in Sources */,
 				2F07D1AB2505F89100193658 /* ServerCalls.swift in Sources */,
+				CEAD29F92506A43D008B1F9C /* VideoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
