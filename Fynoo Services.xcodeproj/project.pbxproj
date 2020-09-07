@@ -27,6 +27,12 @@
 		63E947059D50F42AFE72D845 /* Pods_Fynoo_Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E89E5AF83143A45B24DCCC /* Pods_Fynoo_Services.framework */; };
 		9477D55E58751BD981EB4DD7 /* Pods_Fynoo_ServicesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EAB192AFDB0E07EFF42A46 /* Pods_Fynoo_ServicesTests.framework */; };
 		AA65A497F7F52AFD47E0676C /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D386675BEC93A1C2372A22B2 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */; };
+		CEAD29E42506324F008B1F9C /* TargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD29E22506324F008B1F9C /* TargetViewController.swift */; };
+		CEAD29E52506324F008B1F9C /* TargetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29E32506324F008B1F9C /* TargetViewController.xib */; };
+		CEAD29E9250632BB008B1F9C /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29E7250632BB008B1F9C /* NavigationView.xib */; };
+		CEAD29EA250632BB008B1F9C /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD29E8250632BB008B1F9C /* NavigationView.swift */; };
+		CEAD29ED25063FA2008B1F9C /* TargetprogressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD29EB25063FA2008B1F9C /* TargetprogressTableViewCell.swift */; };
+		CEAD29EE25063FA2008B1F9C /* TargetprogressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29EC25063FA2008B1F9C /* TargetprogressTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +83,12 @@
 		62E89E5AF83143A45B24DCCC /* Pods_Fynoo_Services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_Services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		779305A106C1A50CCEE64B69 /* Pods-Fynoo Services.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services.debug.xcconfig"; sourceTree = "<group>"; };
 		89EAB192AFDB0E07EFF42A46 /* Pods_Fynoo_ServicesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_ServicesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEAD29E22506324F008B1F9C /* TargetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetViewController.swift; sourceTree = "<group>"; };
+		CEAD29E32506324F008B1F9C /* TargetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TargetViewController.xib; sourceTree = "<group>"; };
+		CEAD29E7250632BB008B1F9C /* NavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
+		CEAD29E8250632BB008B1F9C /* NavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		CEAD29EB25063FA2008B1F9C /* TargetprogressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetprogressTableViewCell.swift; sourceTree = "<group>"; };
+		CEAD29EC25063FA2008B1F9C /* TargetprogressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TargetprogressTableViewCell.xib; sourceTree = "<group>"; };
 		D386675BEC93A1C2372A22B2 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_Services_Fynoo_ServicesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4CA97958AA8EC290CFD6F1 /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,6 +194,8 @@
 		2FFDE23C2501221B006C5EBD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CEAD29E6250632BB008B1F9C /* NavigationBar */,
+				CEAD29E1250631EE008B1F9C /* Target&Commision */,
 				2FFDE23D2501221B006C5EBD /* DashboardModule */,
 			);
 			path = ViewControllers;
@@ -225,6 +239,26 @@
 				89EAB192AFDB0E07EFF42A46 /* Pods_Fynoo_ServicesTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEAD29E1250631EE008B1F9C /* Target&Commision */ = {
+			isa = PBXGroup;
+			children = (
+				CEAD29E22506324F008B1F9C /* TargetViewController.swift */,
+				CEAD29E32506324F008B1F9C /* TargetViewController.xib */,
+				CEAD29EB25063FA2008B1F9C /* TargetprogressTableViewCell.swift */,
+				CEAD29EC25063FA2008B1F9C /* TargetprogressTableViewCell.xib */,
+			);
+			path = "Target&Commision";
+			sourceTree = "<group>";
+		};
+		CEAD29E6250632BB008B1F9C /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				CEAD29E7250632BB008B1F9C /* NavigationView.xib */,
+				CEAD29E8250632BB008B1F9C /* NavigationView.swift */,
+			);
+			path = NavigationBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,8 +371,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FFDE21925012171006C5EBD /* LaunchScreen.storyboard in Resources */,
+				CEAD29EE25063FA2008B1F9C /* TargetprogressTableViewCell.xib in Resources */,
+				CEAD29E9250632BB008B1F9C /* NavigationView.xib in Resources */,
 				2FFDE21625012171006C5EBD /* Assets.xcassets in Resources */,
 				2FFDE2422501225A006C5EBD /* AgentDashboardViewController.xib in Resources */,
+				CEAD29E52506324F008B1F9C /* TargetViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,11 +503,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEAD29EA250632BB008B1F9C /* NavigationView.swift in Sources */,
 				2FFDE2412501225A006C5EBD /* AgentDashboardViewController.swift in Sources */,
+				CEAD29ED25063FA2008B1F9C /* TargetprogressTableViewCell.swift in Sources */,
 				2FFDE20D25012166006C5EBD /* AppDelegate.swift in Sources */,
 				2F07D1A92505F89100193658 /* ModalController.swift in Sources */,
 				2FFDE20F25012166006C5EBD /* SceneDelegate.swift in Sources */,
 				2F07D1AA2505F89100193658 /* ModalClass.swift in Sources */,
+				CEAD29E42506324F008B1F9C /* TargetViewController.swift in Sources */,
 				2F07D1B52505FE9E00193658 /* UIView+IBDesignables.swift in Sources */,
 				2F07D1AD2505FC8600193658 /* Banner.swift in Sources */,
 				2F07D1B32505FE1C00193658 /* Singleton.swift in Sources */,
@@ -643,7 +683,9 @@
 			baseConfigurationReference = 779305A106C1A50CCEE64B69 /* Pods-Fynoo Services.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 94V2SEBR29;
 				INFOPLIST_FILE = "Fynoo Services/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -651,6 +693,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sendan.Fynoo-Services";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Fynoo_Service_Dev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -661,7 +704,9 @@
 			baseConfigurationReference = 550022F8A8E6B1A446ABE40D /* Pods-Fynoo Services.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 94V2SEBR29;
 				INFOPLIST_FILE = "Fynoo Services/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -669,6 +714,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sendan.Fynoo-Services";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Fynoo_Service_Dev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
