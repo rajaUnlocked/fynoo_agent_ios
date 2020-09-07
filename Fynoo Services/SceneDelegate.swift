@@ -15,27 +15,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var nav = UINavigationController()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
+   
         guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
         
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window!.backgroundColor = UIColor.white
         let bounds = UIScreen.main.bounds
         let width = bounds.size.width
         let height = bounds.size.height
         ModalController.saveTheContent(width as AnyObject, WithKey: "width")
         ModalController.saveTheContent(height as AnyObject, WithKey: "height")
-      
+        
         UIApplication.shared.statusBarStyle = .default
-
-//        selecting_local.DoTheSwizzling()
+ //       selecting_local.DoTheSwizzling()
         
         let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
         nav = UINavigationController.init(rootViewController: vc)
-        
         IQKeyboardManager.shared.enable = true
-        self.window!.rootViewController = nav
-        self.window!.makeKeyAndVisible()
+ //       nav.interactivePopGestureRecognizer?.isEnabled = true
+//        nav.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
         nav.setNavigationBarHidden(true, animated: false)
         
         if #available(iOS 13.0, *) {
