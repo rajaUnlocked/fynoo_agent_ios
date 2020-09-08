@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UIApplication.shared.statusBarStyle = .default
  //       selecting_local.DoTheSwizzling()
         
-        let vc = TargetViewController(nibName: "TargetViewController", bundle: nil)
+        let vc = CommisionsViewController(nibName: "CommisionsViewController", bundle: nil)
         nav = UINavigationController.init(rootViewController: vc)
         IQKeyboardManager.shared.enable = true
  //       nav.interactivePopGestureRecognizer?.isEnabled = true

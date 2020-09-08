@@ -18,6 +18,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - MBProgressHUD (~> 1.1.0)
   - ObjectMapper
+  - SDWebImage
   - SDWebImage (~> 5.0)
   - SideMenu (~> 5.0)
   - SwiftyGif
@@ -43,6 +44,6 @@ SPEC CHECKSUMS:
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
   SwiftyGif: b85c6b33a9411859d9e1db998b6a8214aea942df
 
-PODFILE CHECKSUM: 0dbfdcb0b90b50c126861ee084bfe8c33839ab18
+PODFILE CHECKSUM: 1496950426761df1d21b74c943379952885e85ae
 
 COCOAPODS: 1.8.4

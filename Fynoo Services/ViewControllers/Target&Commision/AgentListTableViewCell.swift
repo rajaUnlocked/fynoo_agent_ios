@@ -9,7 +9,12 @@
 import UIKit
 
 class AgentListTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var pricelbl: UILabel!
+    
+    @IBOutlet weak var userimg: UIImageView!
+    @IBOutlet weak var starlbl: UILabel!
+    @IBOutlet weak var currencylbl: UILabel!
+    @IBOutlet weak var agentname: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
