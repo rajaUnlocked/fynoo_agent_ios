@@ -16,7 +16,8 @@ protocol ProfileDetailTableViewCellDelegate {
 }
 class ProfileDetailTableViewCell: UITableViewCell {
     var delegate:ProfileDetailTableViewCellDelegate?
-  
+    @IBOutlet weak var editHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var likeLbl: UILabel!
     @IBOutlet weak var productLbl: UILabel!
     @IBOutlet weak var BRANCHlBL: UILabel!
@@ -32,16 +33,16 @@ class ProfileDetailTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-        BRANCHlBL.font = UIFont(name:"\(fontNameLight)",size:11)
-        likeLbl.font = UIFont(name:"\(fontNameLight)",size:11)
-        productLbl.font = UIFont(name:"\(fontNameLight)",size:11)
-        followerlBL.font = UIFont(name:"\(fontNameLight)",size:11)
-        followers.font = UIFont(name:"\(fontNameLight)",size:16)
-        products.font = UIFont(name:"\(fontNameLight)",size:16)
-
-        likes.font = UIFont(name:"\(fontNameLight)",size:16)
-        branches.font = UIFont(name:"\(fontNameLight)",size:16)
-        editProfileTitle.font = UIFont(name:"\(fontNameLight)",size:13)
+//        BRANCHlBL.font = UIFont(name:"\(fontNameLight)",size:11)
+//        likeLbl.font = UIFont(name:"\(fontNameLight)",size:11)
+//        productLbl.font = UIFont(name:"\(fontNameLight)",size:11)
+//        followerlBL.font = UIFont(name:"\(fontNameLight)",size:11)
+//        followers.font = UIFont(name:"\(fontNameLight)",size:16)
+//        products.font = UIFont(name:"\(fontNameLight)",size:16)
+//
+//        likes.font = UIFont(name:"\(fontNameLight)",size:16)
+//        branches.font = UIFont(name:"\(fontNameLight)",size:16)
+//        editProfileTitle.font = UIFont(name:"\(fontNameLight)",size:13)
 
 
 

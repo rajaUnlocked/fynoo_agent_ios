@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SectionHeader" customModule="Fynoo_Services" customModuleProvider="target">
+            <connections>
+                <outlet property="sectionText" destination="zma-9Y-9g3" id="1ok-HZ-GKh"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="370" height="166"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkI-se-Pjq">
+                    <rect key="frame" x="0.0" y="0.0" width="370" height="0.5"/>
+                    <color key="backgroundColor" red="0.69803921570000005" green="0.69803921570000005" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="6Bm-BV-ZMY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLX-zp-HBs">
+                    <rect key="frame" x="0.0" y="165.5" width="370" height="0.5"/>
+                    <color key="backgroundColor" red="0.69803921570000005" green="0.69803921570000005" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="b06-Ia-aQ3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zma-9Y-9g3">
+                    <rect key="frame" x="15" y="97.5" width="33.5" height="15"/>
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="13"/>
+                    <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="dkI-se-Pjq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="0.10000000000000001" id="InQ-he-gwq"/>
+                <constraint firstAttribute="trailing" secondItem="gLX-zp-HBs" secondAttribute="trailing" constant="0.10000000000000001" id="Sgc-m1-ZF3"/>
+                <constraint firstAttribute="trailing" secondItem="dkI-se-Pjq" secondAttribute="trailing" constant="0.10000000000000001" id="XPy-9B-eic"/>
+                <constraint firstItem="dkI-se-Pjq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="0.10000000000000001" id="ccX-GJ-AGX"/>
+                <constraint firstItem="gLX-zp-HBs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="0.10000000000000001" id="j3v-Ej-oU9"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="gLX-zp-HBs" secondAttribute="bottom" constant="0.10000000000000001" id="rFM-Hr-OQX"/>
+                <constraint firstItem="zma-9Y-9g3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="s4V-Xf-q9h"/>
+                <constraint firstItem="zma-9Y-9g3" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="v8C-KW-X1J"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="11.594202898550726" y="-119.86607142857142"/>
+        </view>
+    </objects>
+</document>
