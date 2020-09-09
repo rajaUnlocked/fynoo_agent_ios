@@ -46,7 +46,7 @@ extension CommisionsViewController:UITableViewDataSource,UITableViewDelegate
 {
     @objc func clickVideoClicked(_ sender:UIButton)
     {
-        if self.commisionlist?.data?.services?[sender.tag].media_type ?? 0 == 0
+        if self.commisionlist?.data?.services?[sender.tag].media_type ?? 0 == 1
                        {
             if let url = URL(string:  self.commisionlist?.data?.services?[sender.tag].video_file ?? ""){
                                
