@@ -27,6 +27,12 @@
 		63E947059D50F42AFE72D845 /* Pods_Fynoo_Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E89E5AF83143A45B24DCCC /* Pods_Fynoo_Services.framework */; };
 		9477D55E58751BD981EB4DD7 /* Pods_Fynoo_ServicesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EAB192AFDB0E07EFF42A46 /* Pods_Fynoo_ServicesTests.framework */; };
 		AA65A497F7F52AFD47E0676C /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D386675BEC93A1C2372A22B2 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */; };
+		F4C4DC572507943A0075F520 /* UserProfileDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4C4DC562507943A0075F520 /* UserProfileDetailsViewController.xib */; };
+		F4C4DC59250794490075F520 /* UserProfileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4DC58250794490075F520 /* UserProfileDetailsViewController.swift */; };
+		F4C4DC5C250794A50075F520 /* ProfileDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4C4DC5B250794A50075F520 /* ProfileDetailTableViewCell.xib */; };
+		F4C4DC5E250794B20075F520 /* ProfileDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4DC5D250794B20075F520 /* ProfileDetailTableViewCell.swift */; };
+		F4C4DC602507951B0075F520 /* ProfileNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4C4DC5F2507951A0075F520 /* ProfileNameTableViewCell.xib */; };
+		F4C4DC622507952C0075F520 /* ProfileNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4DC612507952C0075F520 /* ProfileNameTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +84,12 @@
 		779305A106C1A50CCEE64B69 /* Pods-Fynoo Services.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services.debug.xcconfig"; sourceTree = "<group>"; };
 		89EAB192AFDB0E07EFF42A46 /* Pods_Fynoo_ServicesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_ServicesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D386675BEC93A1C2372A22B2 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_Services_Fynoo_ServicesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4C4DC562507943A0075F520 /* UserProfileDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileDetailsViewController.xib; sourceTree = "<group>"; };
+		F4C4DC58250794490075F520 /* UserProfileDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDetailsViewController.swift; sourceTree = "<group>"; };
+		F4C4DC5B250794A50075F520 /* ProfileDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileDetailTableViewCell.xib; sourceTree = "<group>"; };
+		F4C4DC5D250794B20075F520 /* ProfileDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailTableViewCell.swift; sourceTree = "<group>"; };
+		F4C4DC5F2507951A0075F520 /* ProfileNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileNameTableViewCell.xib; sourceTree = "<group>"; };
+		F4C4DC612507952C0075F520 /* ProfileNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileNameTableViewCell.swift; sourceTree = "<group>"; };
 		FA4CA97958AA8EC290CFD6F1 /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,6 +194,7 @@
 		2FFDE23C2501221B006C5EBD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F4C4DC55250793FB0075F520 /* Profile */,
 				2FFDE23D2501221B006C5EBD /* DashboardModule */,
 			);
 			path = ViewControllers;
@@ -225,6 +238,27 @@
 				89EAB192AFDB0E07EFF42A46 /* Pods_Fynoo_ServicesTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4C4DC55250793FB0075F520 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F4C4DC5A250794960075F520 /* TableViewCell */,
+				F4C4DC58250794490075F520 /* UserProfileDetailsViewController.swift */,
+				F4C4DC562507943A0075F520 /* UserProfileDetailsViewController.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F4C4DC5A250794960075F520 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				F4C4DC612507952C0075F520 /* ProfileNameTableViewCell.swift */,
+				F4C4DC5F2507951A0075F520 /* ProfileNameTableViewCell.xib */,
+				F4C4DC5D250794B20075F520 /* ProfileDetailTableViewCell.swift */,
+				F4C4DC5B250794A50075F520 /* ProfileDetailTableViewCell.xib */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,7 +371,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FFDE21925012171006C5EBD /* LaunchScreen.storyboard in Resources */,
+				F4C4DC5C250794A50075F520 /* ProfileDetailTableViewCell.xib in Resources */,
+				F4C4DC602507951B0075F520 /* ProfileNameTableViewCell.xib in Resources */,
 				2FFDE21625012171006C5EBD /* Assets.xcassets in Resources */,
+				F4C4DC572507943A0075F520 /* UserProfileDetailsViewController.xib in Resources */,
 				2FFDE2422501225A006C5EBD /* AgentDashboardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,8 +504,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FFDE2412501225A006C5EBD /* AgentDashboardViewController.swift in Sources */,
+				F4C4DC622507952C0075F520 /* ProfileNameTableViewCell.swift in Sources */,
 				2FFDE20D25012166006C5EBD /* AppDelegate.swift in Sources */,
+				F4C4DC59250794490075F520 /* UserProfileDetailsViewController.swift in Sources */,
 				2F07D1A92505F89100193658 /* ModalController.swift in Sources */,
+				F4C4DC5E250794B20075F520 /* ProfileDetailTableViewCell.swift in Sources */,
 				2FFDE20F25012166006C5EBD /* SceneDelegate.swift in Sources */,
 				2F07D1AA2505F89100193658 /* ModalClass.swift in Sources */,
 				2F07D1B52505FE9E00193658 /* UIView+IBDesignables.swift in Sources */,
