@@ -17,7 +17,7 @@ pod 'SideMenu', '~> 5.0'
 pod 'AlamofireObjectMapper'
 pod 'ObjectMapper'
 pod 'SwiftyGif'
-
+pod 'SDWebImage'
   target 'Fynoo ServicesTests' do
     inherit! :search_paths
     # Pods for testing
