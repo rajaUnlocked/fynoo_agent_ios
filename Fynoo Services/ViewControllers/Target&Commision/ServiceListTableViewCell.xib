@@ -46,17 +46,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target marketing involves breaking a and then concentrating your marketing" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Wh-be-23h">
-                                <rect key="frame" x="75" y="46" width="150" height="27"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="YHT-oa-Xq2"/>
-                                </constraints>
+                                <rect key="frame" x="75" y="46" width="125" height="27"/>
                                 <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="10"/>
                                 <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50-70  %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVY-hl-s4Q">
-                                <rect key="frame" x="232" y="42.5" width="71" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="209" y="40.5" width="94" height="25.5"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="22"/>
                                 <color key="textColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -64,10 +61,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="RVY-hl-s4Q" firstAttribute="centerY" secondItem="nBo-N6-y7i" secondAttribute="centerY" id="2bZ-08-vw9"/>
+                            <constraint firstItem="9kV-Bc-qGM" firstAttribute="width" secondItem="dex-4Z-8k1" secondAttribute="width" multiplier="0.372204" id="2iF-3g-kD9"/>
                             <constraint firstItem="8Wh-be-23h" firstAttribute="bottom" secondItem="nBo-N6-y7i" secondAttribute="bottom" constant="-5" id="BXW-uQ-Ao0"/>
                             <constraint firstItem="8Wh-be-23h" firstAttribute="top" secondItem="9kV-Bc-qGM" secondAttribute="bottom" id="KdS-dt-XFT"/>
+                            <constraint firstItem="8Wh-be-23h" firstAttribute="width" secondItem="dex-4Z-8k1" secondAttribute="width" multiplier="0.4" id="MLb-Q4-a4n"/>
                             <constraint firstItem="8Wh-be-23h" firstAttribute="leading" secondItem="nBo-N6-y7i" secondAttribute="trailing" constant="10" id="OxP-NK-NED"/>
                             <constraint firstAttribute="trailing" secondItem="RVY-hl-s4Q" secondAttribute="trailing" constant="10" id="RDZ-6U-79J"/>
+                            <constraint firstItem="RVY-hl-s4Q" firstAttribute="width" secondItem="dex-4Z-8k1" secondAttribute="width" multiplier="0.3" id="USE-IL-sX7"/>
                             <constraint firstItem="nBo-N6-y7i" firstAttribute="leading" secondItem="dex-4Z-8k1" secondAttribute="leading" constant="15" id="hyq-ey-fH4"/>
                             <constraint firstItem="9kV-Bc-qGM" firstAttribute="centerY" secondItem="G0K-8Y-R3k" secondAttribute="centerY" id="i5i-ZI-kf2"/>
                             <constraint firstItem="9kV-Bc-qGM" firstAttribute="leading" secondItem="G0K-8Y-R3k" secondAttribute="trailing" constant="10" id="nfH-d6-785"/>

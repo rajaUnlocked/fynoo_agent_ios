@@ -54,8 +54,8 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
         {
             return 2
         }
-        
-        return self.targetlist?.data?.top_five_agent?.count ?? 0
+         
+        return ((self.targetlist?.data?.total_target ?? 0) == 0 ? 0:self.targetlist?.data?.top_five_agent?.count ?? 0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,6 +67,15 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
                 let attributedString : NSMutableAttributedString = NSMutableAttributedString(string: "\( "\(self.targetlist?.data?.target_to_be_achive ?? 0) /  ")\(self.targetlist?.data?.total_target ?? 0)")
                 attributedString.setColor(color: #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1), forText: "\(self.targetlist?.data?.total_target ?? 0)")
                 cell.countlbl.attributedText = attributedString
+                cell.progressvw.isHidden = false
+                cell.targetimg.isHidden = false
+                if self.targetlist?.data?.total_target ?? 0 == 0
+                {
+                    cell.progressvw.isHidden = true
+                    cell.targetimg.isHidden = true
+                 cell.countlbl.text = "No Target Activated"
+                }
+               
                 cell.progressvw.progress = Float(self.targetlist?.data?.target_to_be_achive ?? 0)
                 return cell
             }
@@ -74,7 +83,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell", for: indexPath) as! DescriptionTableViewCell
                 cell.topconst.constant = 10
                 cell.toplbl.isHidden = false
-                cell.descriplbl.text = self.targetlist?.data?.target_content?[0].top_content ?? ""
+                cell.descriplbl.text = self.targetlist?.data?.top_content ?? ""
                 return cell
             }
         }
@@ -85,7 +94,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell", for: indexPath) as! DescriptionTableViewCell
                 cell.toplbl.isHidden = true
                 cell.topconst.constant = -30
-                cell.descriplbl.text = self.targetlist?.data?.target_content?[0].mid_content ?? ""
+                cell.descriplbl.text = self.targetlist?.data?.mid_content ?? ""
                 return cell
             }
             else{
@@ -112,9 +121,9 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
         {
             if indexPath.row == 1
             {
-                if self.targetlist?.data?.target_content?[0].media_type ?? 0 == 1
+                if self.targetlist?.data?.media_type ?? 0 == 1
                 {
-                    if let url = URL(string: self.targetlist?.data?.target_content?[0].video_file ?? ""){
+                    if let url = URL(string: self.targetlist?.data?.video_file ?? ""){
                         
                        let player = AVPlayer(url: url)
                        let avController = AVPlayerViewController()
@@ -130,7 +139,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
                 }
                 else
                 {
-                    if let url = URL(string: self.targetlist?.data?.target_content?[0].video_url ?? "") {
+                    if let url = URL(string: self.targetlist?.data?.video_url ?? "") {
                         UIApplication.shared.open(url)
                     }
                 }
@@ -140,6 +149,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1
         {
+          
             return 70
         }
         else if indexPath.section == 2
@@ -153,6 +163,10 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
         else{
             if indexPath.row == 0
             {
+                if targetlist?.data?.total_target ?? 0 == 0
+                          {
+                            return 60
+                          }
                 return 80
             }
             return UITableView.automaticDimension
