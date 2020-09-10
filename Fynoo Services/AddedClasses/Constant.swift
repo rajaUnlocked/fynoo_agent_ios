@@ -23,6 +23,8 @@ class Constant: NSObject {
 
 enum Service {
     static let userProfileData = Constant.BASE_URL + "businessapi/v1/GetUserDetails/"
-      static let commisionlist = Constant.BASE_URL + "agentapis/v2/agent_commision/"
-     static let targetlist = Constant.BASE_URL + "target_master_api/v2/target/"
+    static let commisionlist = Constant.BASE_URL + "agentapis/v2/agent_commision/"
+    static let targetlist = Constant.BASE_URL + "target_master_api/v2/target/"
+    static let getProfile = Constant.BASE_URL + "agentapis/v2/agent_profile/"
+    
 }

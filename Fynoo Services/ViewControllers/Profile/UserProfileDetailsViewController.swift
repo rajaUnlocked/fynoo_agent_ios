@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import ObjectMapper
 class UserProfileDetailsViewController: UIViewController {
     
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var tableVw: UITableView!
     var isEdit = false
     var isPersonal = false
+    var profileInfo : ProfileModal?
+    var agentInfo = AgentProfile()
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
 
     var personalDetail = ["Name","Gender","Dob","Education","Major"]
@@ -35,10 +38,53 @@ class UserProfileDetailsViewController: UIViewController {
 
 
         headerView.titleHeader.text = "Profile"
-        tableVw.delegate = self
-        tableVw.dataSource = self
-        tableVw.reloadData()
+        getProfileData()
     }
+    
+    func getProfileData(){
+        let parameter = ["user_id":"1079",
+        "lang_code":"EN"]
+        ServerCalls.postRequest(Service.getProfile, withParameters: parameter) { (response, success) in
+            if let value = response as? NSDictionary{
+                let error = value.object(forKey: "error") as! Int
+                if error == 0{
+                    if let body = response as? [String: Any] {
+                        self.profileInfo  = Mapper<ProfileModal>().map(JSON: body)
+                        self.agentInfo.businessName = self.profileInfo?.data?.basic_information?[0].business_name ?? ""
+                        self.agentInfo.Email = self.profileInfo?.data?.basic_information?[0].email ?? ""
+                        self.agentInfo.country = self.profileInfo?.data?.basic_information?[0].country ?? ""
+                        self.agentInfo.countryId = self.profileInfo?.data?.basic_information?[0].country_id ?? 0
+                        self.agentInfo.city = self.profileInfo?.data?.basic_information?[0].city ?? ""
+                        self.agentInfo.cityId = self.profileInfo?.data?.basic_information?[0].city_id ?? 0
+                        self.agentInfo.Email = self.profileInfo?.data?.basic_information?[0].email ?? ""
+                        self.agentInfo.mobileNo = self.profileInfo?.data?.basic_information?[0].mobile_number ?? ""
+                        self.agentInfo.mobileCode = self.profileInfo?.data?.basic_information?[0].mobile_code ?? ""
+                        self.agentInfo.phoneNo = self.profileInfo?.data?.basic_information?[0].phone_number ?? ""
+                        self.agentInfo.phCode = self.profileInfo?.data?.basic_information?[0].phone_code ?? ""
+                        self.agentInfo.maroof = self.profileInfo?.data?.basic_information?[0].maroof_link ?? ""
+                        self.agentInfo.bankname = self.profileInfo?.data?.bank_information?[0].bank_name ?? ""
+                         // self.agentInfo.cardHolderName = self.profileInfo?.data?.bank_information?[0]. ?? ""
+                        
+                        self.agentInfo.bankId = self.profileInfo?.data?.bank_information?[0].bank_id ?? 0
+                       self.agentInfo.iban = self.profileInfo?.data?.bank_information?[0].account_iban_nbr ?? ""
+                        self.agentInfo.vatNo = self.profileInfo?.data?.vat_no ?? ""
+                        
+        
+                        self.tableVw.delegate = self
+                        self.tableVw.dataSource = self
+                        self.tableVw.reloadData()
+                    }
+                }else{
+                    let msg =  value.object(forKey: "error_description") as! String
+                    ModalController.showNegativeCustomAlertWith(title: "", msg: msg)
+                    
+                }
+                
+            }
+        }
+        
+    }
+    
     
 }
 
@@ -83,7 +129,21 @@ extension UserProfileDetailsViewController : UITableViewDelegate{
                 }
             }
         case 1:
-            return 120
+            
+            if ((profileInfo?.data?.service_list_data!.count)) != nil{
+                let count = profileInfo?.data?.service_list_data?.count
+                if count! % 2 == 0{
+                    let val = (count!/2)
+                    return (CGFloat(60 * val))
+                   
+                }else{
+                    let val = (count!-1)/2
+                    return (CGFloat((60*val)+60))
+                }
+            }else{
+                return 0
+            }
+           // return 120
         case 4:
             
             if isPersonal{
@@ -181,6 +241,8 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             
         case 1:
             let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileServiceTableViewCell",for: indexPath) as! ProfileServiceTableViewCell
+            cell.isForLanguage = false
+            cell.serviceList = profileInfo?.data?.service_list_data
             return cell
             
         case 2:
@@ -241,11 +303,10 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             
             return cell
         }else{
-            let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
-            cell.entryLbl.attributedText = ModalController.setStricColor(str: "Password *", str1: "Password", str2:" *" )
-            
-            cell.headingLbl.text = "* * * * * * * *"
-            cell.headingLbl.isUserInteractionEnabled = false
+            let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileServiceTableViewCell",for: indexPath) as! ProfileServiceTableViewCell
+
+            cell.isForLanguage = true
+           
             return cell
         }
     }
@@ -261,7 +322,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     
     func personalCell(indexPath : IndexPath) -> UITableViewCell{
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
-      //  cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(personalDetail[indexPath.row]) *", str1: "\(personalDetail[indexPath.row])", str2:" *" )
+       cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(personalDetail[indexPath.row]) *", str1: "\(personalDetail[indexPath.row])", str2:" *" )
         return cell
         
     }
@@ -271,17 +332,18 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(bankDetail[indexPath.row]) *", str1: "\(bankDetail[indexPath.row])", str2:" *" )
         
         if indexPath.row == 0{
-            
+            cell.headingLbl.text = agentInfo.bankname
         }else if indexPath.row == 1{
             
         }else if indexPath.row == 2{
-            
+            cell.headingLbl.text = agentInfo.iban
         }
         return cell
     }
     func BasicInfoCell(indexPath : IndexPath) -> UITableViewCell{
         
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
+        
         
         cell.headingLbl.tag = indexPath.row
         cell.contentView.insertSubview(cell.rotateVw, aboveSubview:cell.selectBtn )
@@ -295,15 +357,19 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         }
         cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(basicInfo[indexPath.row]) *", str1: "\(basicInfo[indexPath.row])", str2:" *" )
         if indexPath.row == 0{
-            
+            cell.headingLbl.text = agentInfo.businessName
             
         }else if indexPath.row == 1{
+            cell.headingLbl.text = agentInfo.Email
             
         }else if indexPath.row == 2{
-            
+            cell.headingLbl.text = agentInfo.country
         }else if indexPath.row == 3{
+            cell.headingLbl.text = agentInfo.city
             
         }else if indexPath.row == 4{
+            cell.mobileCode.text = agentInfo.mobileCode
+            cell.headingLbl.text = agentInfo.mobileNo
             cell.widthImg.constant = 20
             cell.flagImg.isHidden = false
             cell.codeBtn.isHidden = false
@@ -313,6 +379,8 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.mobileCodeWidth.constant = 30
             
         }else if indexPath.row == 5{
+            cell.mobileCode.text = agentInfo.phCode
+            cell.headingLbl.text = agentInfo.phoneNo
             cell.widthImg.constant = 20
             cell.flagImg.isHidden = false
             cell.codeBtn.isHidden = false
@@ -321,7 +389,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.mobileCode.isHidden = false
             cell.mobileCodeWidth.constant = 30
         }else if indexPath.row == 6{
-            
+            cell.headingLbl.text = agentInfo.maroof
         }
         
         return cell
@@ -330,7 +398,15 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         if indexPath.row == 0{
             let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
             cell.entryLbl.attributedText = ModalController.setStricColor(str: "VAT Number *", str1: "VAT Number", str2:" *" )
-            
+            cell.flagImg.isHidden = true
+            cell.mobileCode.isHidden = true
+            cell.mobileCodeWidth.constant = 0
+            cell.widthImg.constant = 0
+            cell.codeBtn.isHidden = true
+            cell.codeBtnWidth.constant = 0
+            cell.headingLbl.keyboardType = .default
+            cell.headingLbl.isHidden = false
+            cell.headingLbl.text = agentInfo.vatNo
             return cell
         }else{
             let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileVatTableViewCell",for: indexPath) as! ProfileVatTableViewCell

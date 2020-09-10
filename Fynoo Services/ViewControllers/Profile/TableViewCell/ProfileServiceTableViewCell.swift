@@ -12,7 +12,8 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
   
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    var serviceList : [service_list_data]?
+    var isForLanguage = false
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -20,6 +21,18 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
         collectionView.delegate = self
         collectionView.dataSource = self
 
+
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            if isForLanguage{
+                layout.scrollDirection = .horizontal
+                
+            }else{
+                layout.scrollDirection = .vertical
+            }
+            
+        }
+
+      
         // Initialization code
     }
 
@@ -30,21 +43,36 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-          return 6
+        if isForLanguage{
+            return 4
+        }else{
+             return serviceList!.count
+        }
+       
       }
       
-      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-                      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileServiceViewCell", for: indexPath) as! ProfileServiceViewCell
-        
-        return cell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileServiceViewCell", for: indexPath) as! ProfileServiceViewCell
+        if isForLanguage {
+            
+        }else{
+            cell.serviceName.text = serviceList?[indexPath.row].service_name ?? ""
 
-      }
+        }
+        return cell
+        
+    }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenSize = collectionView.frame.width
-        
-        let size = CGSize(width: (screenSize - 40)/2  , height: 50)
-        return size
+        if isForLanguage{
+            let size = CGSize(width: (screenSize - 40)/4  , height: 50)
+               return size
+        }else{
+            let size = CGSize(width: (screenSize - 40)/2  , height: 50)
+               return size
+        }
+   
         
         
     }

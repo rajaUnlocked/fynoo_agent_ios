@@ -64,6 +64,7 @@
 		CEE357A32507585F0097069D /* ServiceListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE357A12507585F0097069D /* ServiceListTableViewCell.swift */; };
 		CEE357A42507585F0097069D /* ServiceListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE357A22507585F0097069D /* ServiceListTableViewCell.xib */; };
 		CEE357A6250769AD0097069D /* TargetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE357A5250769AD0097069D /* TargetModel.swift */; };
+		F415E772250A221900DEF755 /* ProfileModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F415E771250A221900DEF755 /* ProfileModal.swift */; };
 		F4828C8E2508AA2C006B85D8 /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4828C8D2508AA2C006B85D8 /* SectionHeader.xib */; };
 		F4828C902508AA8F006B85D8 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828C8F2508AA8F006B85D8 /* SectionHeader.swift */; };
 		F4828C922508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4828C912508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib */; };
@@ -170,6 +171,7 @@
 		CEE357A22507585F0097069D /* ServiceListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceListTableViewCell.xib; sourceTree = "<group>"; };
 		CEE357A5250769AD0097069D /* TargetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetModel.swift; sourceTree = "<group>"; };
 		D386675BEC93A1C2372A22B2 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_Services_Fynoo_ServicesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F415E771250A221900DEF755 /* ProfileModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModal.swift; sourceTree = "<group>"; };
 		F4828C8D2508AA2C006B85D8 /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
 		F4828C8F2508AA8F006B85D8 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SectionHeader.swift; path = "/Users/ind-sen-lp-046/Desktop/fynoo_agent_ios/Fynoo Services/ViewControllers/Profile/TableViewCell/SectionHeader.swift"; sourceTree = "<absolute>"; };
 		F4828C912508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileEnteriesTableViewCell.xib; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 				F4828C8F2508AA8F006B85D8 /* SectionHeader.swift */,
 				F4C4DC562507943A0075F520 /* UserProfileDetailsViewController.xib */,
 				F4828C8D2508AA2C006B85D8 /* SectionHeader.xib */,
+				F415E771250A221900DEF755 /* ProfileModal.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -734,6 +737,7 @@
 				2F07D1A82505F89100193658 /* Constant.swift in Sources */,
 				2F07D1AF2505FD7700193658 /* HeaderHeightSingleton.swift in Sources */,
 				2F07D1B12505FDBA00193658 /* UserData.swift in Sources */,
+				F415E772250A221900DEF755 /* ProfileModal.swift in Sources */,
 				2F07D1AB2505F89100193658 /* ServerCalls.swift in Sources */,
 				CEE3579F250751020097069D /* CommisionsViewController.swift in Sources */,
 				CEAD29F92506A43D008B1F9C /* VideoTableViewCell.swift in Sources */,

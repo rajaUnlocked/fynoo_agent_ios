@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileServiceViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var serviceName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
