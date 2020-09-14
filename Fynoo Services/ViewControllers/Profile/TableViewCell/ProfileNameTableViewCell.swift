@@ -24,9 +24,9 @@ class ProfileNameTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-        nameLbl.font = UIFont(name:"\(fontNameLight)",size:12)
-           fynooIdLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+//        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+//        nameLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+//           fynooIdLbl.font = UIFont(name:"\(fontNameLight)",size:12)
 //        self.profileImage.roundCornerNormal(radius: self.profileImage.frame.size.we)
         profileImage.layer.borderWidth = 1.0
         profileImage.layer.masksToBounds = false

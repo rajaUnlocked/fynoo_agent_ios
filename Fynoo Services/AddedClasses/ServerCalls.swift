@@ -17,7 +17,7 @@ class ServerCalls: NSObject {
                
                     let pdfData = try! Data(contentsOf: pdfurl.asURL())
                      
-            multipartFormData.append(pdfData, withName: "document", fileName: pdfname, mimeType:"application/pdf")
+            multipartFormData.append(pdfData, withName: pdfname, fileName: pdfname, mimeType:"application/pdf")
             
                     for (key, value) in parameters {
                         let val = "\(value)"

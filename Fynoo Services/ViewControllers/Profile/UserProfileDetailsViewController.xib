@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserProfileDetailsViewController" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
+                <outlet property="headerView" destination="WbO-ZH-GfI" id="ypV-sT-Sap"/>
                 <outlet property="tableVw" destination="RZj-ts-7fT" id="ReA-hJ-aYD"/>
                 <outlet property="topViewHeightConstraint" destination="8EK-rb-DI9" id="3dc-EJ-LRV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -23,7 +24,7 @@
                     <rect key="frame" x="0.0" y="50" width="320" height="430"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WbO-ZH-GfI">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WbO-ZH-GfI" customClass="NavigationView" customModule="Fynoo_Services" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfP-H8-X1a">

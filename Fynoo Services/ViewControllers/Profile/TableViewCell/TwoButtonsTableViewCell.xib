@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="103" id="KGk-i7-Jjw" customClass="TwoButtonsTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="328" height="103"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="328" height="103"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKj-UE-pHC">
+                        <rect key="frame" x="208" y="38.5" width="100" height="26"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="4ke-MY-mgi"/>
+                            <constraint firstAttribute="width" constant="100" id="ZgN-Vu-KuQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="13"/>
+                        <state key="normal" title="Save">
+                            <color key="titleColor" red="0.38039215686274508" green="0.75294117647058822" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.38039215686274508" green="0.75294117647058822" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cpj-NP-FHQ">
+                        <rect key="frame" x="100" y="38.5" width="100" height="26"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="Rs5-GA-xA7"/>
+                            <constraint firstAttribute="height" constant="26" id="wEA-04-YLB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="13"/>
+                        <state key="normal" title="Cancel">
+                            <color key="titleColor" red="0.92549019607843142" green="0.29019607843137252" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.92549019607843142" green="0.29019607843137252" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Cpj-NP-FHQ" firstAttribute="centerY" secondItem="MKj-UE-pHC" secondAttribute="centerY" id="1JU-no-LeE"/>
+                    <constraint firstAttribute="trailing" secondItem="MKj-UE-pHC" secondAttribute="trailing" constant="20" id="Hyn-OB-Ggm"/>
+                    <constraint firstItem="MKj-UE-pHC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fue-rf-Hkf"/>
+                    <constraint firstItem="MKj-UE-pHC" firstAttribute="leading" secondItem="Cpj-NP-FHQ" secondAttribute="trailing" constant="8" id="zju-Le-qpU"/>
+                </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                </userDefinedRuntimeAttributes>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cancel" destination="Cpj-NP-FHQ" id="5su-Qd-vwS"/>
+                <outlet property="save" destination="MKj-UE-pHC" id="cu7-RK-b6c"/>
+            </connections>
+            <point key="canvasLocation" x="143.47826086956522" y="86.049107142857139"/>
+        </tableViewCell>
+    </objects>
+</document>
