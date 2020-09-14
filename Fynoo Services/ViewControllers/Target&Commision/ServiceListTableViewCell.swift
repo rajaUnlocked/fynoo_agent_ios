@@ -17,7 +17,11 @@ class ServiceListTableViewCell: UITableViewCell {
     @IBOutlet weak var servicename: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+          let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+      self.descriprange.font = UIFont(name:"\(fontNameLight)",size:20)
+           self.servicedescrip.font = UIFont(name:"\(fontNameLight)",size:10)
+           self.servicename.font = UIFont(name:"\(fontNameLight)",size:16)
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

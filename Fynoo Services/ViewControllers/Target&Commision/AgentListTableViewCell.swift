@@ -17,7 +17,12 @@ class AgentListTableViewCell: UITableViewCell {
     @IBOutlet weak var agentname: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+          let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+            self.agentname.font = UIFont(name:"\(fontNameLight)",size:16)
+            self.currencylbl.font = UIFont(name:"\(fontNameLight)",size:8)
+            self.pricelbl.font = UIFont(name:"\(fontNameLight)",size:12)
+            self.starlbl.font = UIFont(name:"\(fontNameLight)",size:8)
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

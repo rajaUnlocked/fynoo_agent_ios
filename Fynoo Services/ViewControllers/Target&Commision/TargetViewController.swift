@@ -73,7 +73,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
                 {
                     cell.progressvw.isHidden = true
                     cell.targetimg.isHidden = true
-                 cell.countlbl.text = "No Target Activated"
+                    cell.countlbl.text = "No Target Activated".localized
                 }
                
                 cell.progressvw.progress = Float(self.targetlist?.data?.target_to_be_achive ?? 0)
