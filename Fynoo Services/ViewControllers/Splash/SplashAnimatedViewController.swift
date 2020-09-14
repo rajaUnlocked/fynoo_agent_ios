@@ -216,47 +216,33 @@ class SplashAnimatedViewController: UIViewController, VersionPopupViewController
                               userTypeStr = userid.data!.user_type
                         
                          var isNewUser = ""
-                         if userTypeStr == "BO" {
+                         if userTypeStr == "AI" || userTypeStr == "AC" {
                             isNewUser = ModalController.toString(userid.data!.is_new_user as AnyObject)
                               if isNewUser == "1" {
                                 
                                 if userData.error_description == "Verification Pending" {
-//                                    let vc = VerifyAccountViewController(nibName: "VerifyAccountViewController", bundle: nil)
-//
-//                                    vc.mobile = userData.data!.mobile_number
-//                                    vc.emailId = userData.data!.email
-//                                    vc.fynooId = userData.data!.fynoo_id
-                                    
-                                    let vc = UserProfileDetailsViewController(nibName: "UserProfileDetailsViewController", bundle: nil)
+                                    let vc = VerifyAccountViewController(nibName: "VerifyAccountViewController", bundle: nil)
+
+                                    vc.mobile = userData.data!.mobile_number
+                                    vc.emailId = userData.data!.email
+                                    vc.fynooId = userData.data!.fynoo_id
                                     self.navigationController?.pushViewController(vc, animated: true)
                                 }else{
-//                        let vc = SubcriptionPackageListViewController(nibName: "SubcriptionPackageListViewController", bundle: nil)
-//                                vc.isfromVerify = true
-//                                self.navigationController?.pushViewController(vc, animated: true)
-                                    let vc = UserProfileDetailsViewController(nibName: "UserProfileDetailsViewController", bundle: nil)
+
+                                    let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
                                     self.navigationController?.pushViewController(vc, animated: true)
                                 }
                             }else {
-//                                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//                                let vc = appDelegate.createTabBarMethod()
-//                                  vc.modalPresentationStyle = .fullScreen
-//                                  self.present(vc, animated: true, completion: nil)
-                                let vc = UserProfileDetailsViewController(nibName: "UserProfileDetailsViewController", bundle: nil)
-                                self.navigationController?.pushViewController(vc, animated: true)
+let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
+self.navigationController?.pushViewController(vc, animated: true)
                                 }
                          }else{
-//                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//                          let vc = appDelegate.createTabBarMethod()
-//                            vc.modalPresentationStyle = .fullScreen
-//                            self.present(vc, animated: true, completion: nil)
-                            let vc = UserProfileDetailsViewController(nibName: "UserProfileDetailsViewController", bundle: nil)
-                            self.navigationController?.pushViewController(vc, animated: true)
+let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
+self.navigationController?.pushViewController(vc, animated: true)
                     }
             }else{
-//                        let vc = LoginNewDesignViewController(nibName: "LoginNewDesignViewController", bundle: nil)
-//                        self.navigationController?.pushViewController(vc, animated: false)
-            let vc = UserProfileDetailsViewController(nibName: "UserProfileDetailsViewController", bundle: nil)
-            self.navigationController?.pushViewController(vc, animated: true)
+                        let vc = LoginNewDesignViewController(nibName: "LoginNewDesignViewController", bundle: nil)
+                        self.navigationController?.pushViewController(vc, animated: false)
             }
         }
 }

@@ -18,6 +18,10 @@ pod 'AlamofireObjectMapper'
 pod 'ObjectMapper'
 pod 'SwiftyGif'
 pod 'SDWebImage'
+pod 'iOSDropDown'
+pod 'MTPopup'
+pod 'KWVerificationCodeView'
+
   target 'Fynoo ServicesTests' do
     inherit! :search_paths
     # Pods for testing
