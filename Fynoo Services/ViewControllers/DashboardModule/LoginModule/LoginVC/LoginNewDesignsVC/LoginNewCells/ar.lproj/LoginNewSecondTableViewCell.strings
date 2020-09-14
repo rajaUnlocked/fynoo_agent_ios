@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "PLEASE LOGIN TO CONTINUE"; ObjectID = "8hb-wO-R5R"; */
+"8hb-wO-R5R.text" = "فضلا، قم بالتسجل للمتابعة";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "MAM-id-Ome"; */
+"MAM-id-Ome.normalTitle" = "دخول";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "UZF-Wi-hMk"; */
+"UZF-Wi-hMk.text" = "كلمة المرور";
+
+/* Class = "UILabel"; text = "User Type"; ObjectID = "c07-3P-CQx"; */
+"c07-3P-CQx.text" = "نوع المستخدم";
+
+/* Class = "UILabel"; text = "User Email"; ObjectID = "nA4-CB-HY7"; */
+"nA4-CB-HY7.text" = "البريد الإلكتروني";
+
+/* Class = "UILabel"; text = "Remember Me"; ObjectID = "w96-6T-x8r"; */
+"w96-6T-x8r.text" = "تذكرني";
