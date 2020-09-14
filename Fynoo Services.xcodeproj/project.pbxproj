@@ -23,6 +23,7 @@
 		2F74CB5A250A365F00DE21EF /* SplashAnimatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F74CB53250A365F00DE21EF /* SplashAnimatedViewController.swift */; };
 		2F74CB5B250A365F00DE21EF /* VersionPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F74CB55250A365F00DE21EF /* VersionPopupViewController.xib */; };
 		2F74CB5C250A365F00DE21EF /* VersionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F74CB56250A365F00DE21EF /* VersionPopupViewController.swift */; };
+		2F84638C250F67900084EB32 /* selecting_local.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F84638B250F67900084EB32 /* selecting_local.swift */; };
 		2FFDE20D25012166006C5EBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDE20C25012166006C5EBD /* AppDelegate.swift */; };
 		2FFDE20F25012166006C5EBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDE20E25012166006C5EBD /* SceneDelegate.swift */; };
 		2FFDE21625012171006C5EBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FFDE21525012171006C5EBD /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		63E947059D50F42AFE72D845 /* Pods_Fynoo_Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E89E5AF83143A45B24DCCC /* Pods_Fynoo_Services.framework */; };
 		9477D55E58751BD981EB4DD7 /* Pods_Fynoo_ServicesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EAB192AFDB0E07EFF42A46 /* Pods_Fynoo_ServicesTests.framework */; };
 		AA65A497F7F52AFD47E0676C /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D386675BEC93A1C2372A22B2 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */; };
+		CE8E8595250F4C3800B74A9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE8E8597250F4C3800B74A9E /* Localizable.strings */; };
 		CEAD29E42506324F008B1F9C /* TargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD29E22506324F008B1F9C /* TargetViewController.swift */; };
 		CEAD29E52506324F008B1F9C /* TargetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29E32506324F008B1F9C /* TargetViewController.xib */; };
 		CEAD29E9250632BB008B1F9C /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29E7250632BB008B1F9C /* NavigationView.xib */; };
@@ -113,6 +115,7 @@
 		2F74CB53250A365F00DE21EF /* SplashAnimatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashAnimatedViewController.swift; sourceTree = "<group>"; };
 		2F74CB55250A365F00DE21EF /* VersionPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VersionPopupViewController.xib; sourceTree = "<group>"; };
 		2F74CB56250A365F00DE21EF /* VersionPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionPopupViewController.swift; sourceTree = "<group>"; };
+		2F84638B250F67900084EB32 /* selecting_local.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = selecting_local.swift; sourceTree = "<group>"; };
 		2FFDE20925012166006C5EBD /* Fynoo Services.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fynoo Services.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FFDE20C25012166006C5EBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FFDE20E25012166006C5EBD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +137,9 @@
 		62E89E5AF83143A45B24DCCC /* Pods_Fynoo_Services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_Services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		779305A106C1A50CCEE64B69 /* Pods-Fynoo Services.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services.debug.xcconfig"; sourceTree = "<group>"; };
 		89EAB192AFDB0E07EFF42A46 /* Pods_Fynoo_ServicesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_ServicesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE8E8594250F4C1B00B74A9E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		CE8E8596250F4C3800B74A9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CE8E8598250F4C4200B74A9E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CEAD29E22506324F008B1F9C /* TargetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetViewController.swift; sourceTree = "<group>"; };
 		CEAD29E32506324F008B1F9C /* TargetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TargetViewController.xib; sourceTree = "<group>"; };
 		CEAD29E7250632BB008B1F9C /* NavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
@@ -212,6 +218,7 @@
 		2F07D1A32505F89100193658 /* AddedClasses */ = {
 			isa = PBXGroup;
 			children = (
+				2F84638B250F67900084EB32 /* selecting_local.swift */,
 				2F07D1B42505FE9E00193658 /* UIView+IBDesignables.swift */,
 				2F07D1B22505FE1B00193658 /* Singleton.swift */,
 				2F07D1B02505FDBA00193658 /* UserData.swift */,
@@ -249,6 +256,7 @@
 		2FFDE20025012166006C5EBD = {
 			isa = PBXGroup;
 			children = (
+				CE8E8597250F4C3800B74A9E /* Localizable.strings */,
 				2FFDE20B25012166006C5EBD /* Fynoo Services */,
 				2FFDE22225012172006C5EBD /* Fynoo ServicesTests */,
 				2FFDE22D25012173006C5EBD /* Fynoo ServicesUITests */,
@@ -524,6 +532,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 2FFDE20025012166006C5EBD;
 			productRefGroup = 2FFDE20A25012166006C5EBD /* Products */;
@@ -554,6 +563,7 @@
 				CEE3579A250740800097069D /* Gilroy-ExtraBold.otf in Resources */,
 				CEAD29F625069F9D008B1F9C /* AgentListTableViewCell.xib in Resources */,
 				CEE3578A250740800097069D /* Roboto-Light.ttf in Resources */,
+				CE8E8595250F4C3800B74A9E /* Localizable.strings in Resources */,
 				CEE3578F250740800097069D /* Segoe UI Italic.ttf in Resources */,
 				CEAD29EE25063FA2008B1F9C /* TargetprogressTableViewCell.xib in Resources */,
 				CEE35795250740800097069D /* seguisb.ttf in Resources */,
@@ -711,6 +721,7 @@
 				2F74CB58250A365F00DE21EF /* LogoAnimationView.swift in Sources */,
 				2F74CB5A250A365F00DE21EF /* SplashAnimatedViewController.swift in Sources */,
 				2F74CB59250A365F00DE21EF /* UIView+Constraints.swift in Sources */,
+				2F84638C250F67900084EB32 /* selecting_local.swift in Sources */,
 				CEAD29EA250632BB008B1F9C /* NavigationView.swift in Sources */,
 				CEAD29F525069F9D008B1F9C /* AgentListTableViewCell.swift in Sources */,
 				CEE357A6250769AD0097069D /* TargetModel.swift in Sources */,
@@ -773,8 +784,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				2FFDE21825012171006C5EBD /* Base */,
+				CE8E8594250F4C1B00B74A9E /* ar */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CE8E8597250F4C3800B74A9E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE8E8596250F4C3800B74A9E /* en */,
+				CE8E8598250F4C4200B74A9E /* ar */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -784,6 +805,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -844,6 +866,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

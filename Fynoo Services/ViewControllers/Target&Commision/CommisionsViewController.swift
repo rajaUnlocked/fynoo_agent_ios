@@ -46,7 +46,7 @@ extension CommisionsViewController:UITableViewDataSource,UITableViewDelegate
 {
     @objc func clickVideoClicked(_ sender:UIButton)
     {
-        if self.commisionlist?.data?.services?[sender.tag].media_type ?? 0 == 1
+        if self.commisionlist?.data?.services?[sender.tag].media_type ?? 0 == 0
                        {
             if let url = URL(string:  self.commisionlist?.data?.services?[sender.tag].video_file ?? ""){
                                
@@ -94,6 +94,7 @@ extension CommisionsViewController:UITableViewDataSource,UITableViewDelegate
             let cell = tabvw.dequeueReusableCell(withIdentifier: "ServiceListTableViewCell", for: indexPath) as! ServiceListTableViewCell
             cell.servicename.text = self.commisionlist?.data?.services?[indexPath.row - 2].service_name ?? ""
              cell.servicedescrip.text = self.commisionlist?.data?.services?[indexPath.row - 2].service_description ?? ""
+               cell.descriprange.text = self.commisionlist?.data?.services?[indexPath.row - 2].service_range ?? ""
             cell.serviceimg.sd_setImage(with: URL(string: self.commisionlist?.data?.services?[indexPath.row - 2].service_icon ?? ""), placeholderImage: UIImage(named: "placeholder"))
             cell.clickvideo.tag = indexPath.row - 2
             cell.clickvideo.addTarget(self, action: #selector(clickVideoClicked(_:)), for: .touchUpInside)
@@ -111,6 +112,6 @@ extension CommisionsViewController:UITableViewDataSource,UITableViewDelegate
                    {
                     return UITableView.automaticDimension
                }
-          return 60
+          return 70
     }
 }
