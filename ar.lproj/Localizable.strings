@@ -2,3 +2,1048 @@
 // font
 "LightFontName" = "SSTArabic-Light";
 "BoldFontName" = "SSTArabic-Bold";
+
+
+/////////////////////////             TAP PAYMENT             /////////////////////////
+
+// MARK: Common
+"common_edit"    = "تعديل";
+"common_cancel"    = "إلغاء";
+
+// MARK: Pay Button Titles
+
+"btn_pay_title_generic"    = "ادفع";
+"btn_pay_title_amount"    = "ادفع %@";
+
+// MARK: Save Button Title
+
+"btn_save_title" = "احفظ البطاقة";
+"btn_save_action_title" = "احفظ البطاقة";
+
+// MARK: Payment Option Group Titles
+
+"payment_options_group_title_recent" = "مستخدم حديثاً";
+"payment_options_group_title_others" = "آخر";
+
+// MARK: Card Input Fields Placeholders
+
+"card_input_card_number_placeholder"         = "رقم البطاقة";
+"card_input_expiration_date_placeholder"     = "شش/سس";
+"card_input_cvv_placeholder"                 = "الرمز الأمني";
+"card_input_cardholder_name_placeholder"    = "الاسم الموجود على البطاقة";
+"card_input_address_on_card_placeholder"    = "عنوان الدفع";
+
+// MARK: Save Card Placeholders
+
+"save_card_promotion_text"        = "لدفع آمن و سريع، قم بحفظ بطاقتك";
+"saved_cards_usage_description"    = "البطاقات المحفوظة لن تستخدم إلا بموافقتك، يمكنك مسح معلومات البطاقات في أي وقت.";
+
+// MARK: Screen Titles
+
+"currency_selection_screen_title"     = "اختر العملة";
+"card_scanning_screen_title"        = "تصوير البطاقة";
+"payment_screen_title_payment"        = "ادفع";
+"payment_screen_title_card_saving"    = "أدخل تفاصيل البطاقة";
+
+// MARK: Search Bar
+
+"search_bar_placeholder" = "بحث";
+
+// MARK: OTP Screen
+
+"otp_guide_text"    = "الرجاء إدخال الرقم المرسل إلى %@";
+"btn_confirm_title"    = "تأكيد";
+"btn_resend_title"    = "إعادة إرسال";
+
+
+// MARK: -
+// MARK: Alert: Delete Card
+
+"alert_delete_card_title"                 = "حذف البطاقة";
+"alert_delete_card_message"             = "هل أنت متأكد من حذف البطاقة %@?";
+"alert_delete_card_btn_cancel_title"    = "إلغاء";
+"alert_delete_card_btn_delete_title"     = "حذف";
+
+// MARK: Alert: Extra Charges
+
+"alert_extra_charges_title"             = "تأكيد الرسوم الإضافية";
+"alert_extra_charges_message"             = "سوف تتم إضافة  %@ لهذا النوع العملية، إجمالي المبلغ المطلوب   %@";
+"alert_extra_charges_btn_cancel_title"     = "إلغاء";
+"alert_extra_charges_btn_confirm_title"    = "تأكيد";
+
+// MARK: Alert: Cancel Payment (status undefined)
+
+"alert_cancel_payment_status_undefined_title"                 = "إلغاء عملية الدفع";
+"alert_cancel_payment_status_undefined_message"                = "هل تود إلغاء عملية الدفع؟ حالة العملية ستصبح غير معرّفة";
+"alert_cancel_payment_status_undefined_btn_no_title"        = "لا";
+"alert_cancel_payment_status_undefined_btn_confirm_title"    = "تأكيد";
+
+// MARK: Alert: Cancel Payment (just cancel)
+
+"alert_cancel_payment_title"                 = "إلغاء عملية الدفع";
+"alert_cancel_payment_message"                 = "هل تود إلغاء عملية الدفع؟";
+"alert_cancel_payment_btn_no_title"         = "لا";
+"alert_cancel_payment_btn_confirm_title"    = "تأكيد";
+
+// MARK: Alert: Error
+
+"alert_error_1103_message"    = "Required inputs are invalid.";
+"alert_error_1103_title"     = "Invalid Input";
+
+"alert_error_1104_message"     = "Customer ID is missing.";
+"alert_error_1104_title"     = "Missing Customer ID";
+
+"alert_error_1108_message"    = "Save card feature is disabled.";
+"alert_error_1108_title"     = "Save Card";
+
+"alert_error_1109_message"     = "Non-3D secure transactions are forbidden.";
+"alert_error_1109_title"     = "3D Secure";
+
+"alert_error_1112_message"     = "Authorize ID is missing.";
+"alert_error_1112_title"     = "Authorize ID";
+
+"alert_error_1113_message"     = "Authorize ID is invalid.";
+"alert_error_1113_title"     = "Authorize ID";
+
+"alert_error_1114_message"     = "Please check authorize status.";
+"alert_error_1114_title"     = "Authorize Status";
+
+"alert_error_1115_message"     = "Authorize ID not found.";
+"alert_error_1115_title"     = "Authorize ID";
+
+"alert_error_1116_message"     = "Save card feature is not supported.";
+"alert_error_1116_title"     = "Save Card";
+
+"alert_error_1117_message"     = "Amount is invalid.";
+"alert_error_1117_title"     = "Amount";
+
+"alert_error_1118_message"     = "Invalid currency.";
+"alert_error_1118_title"     = "Currency";
+
+"alert_error_1119_message"     = "Unsupported currency.";
+"alert_error_1119_title"     = "Currency";
+
+"alert_error_1126_message"     = "Source is already used.";
+"alert_error_1126_title"     = "Source Used";
+
+"alert_error_1129_message"     = "Customer ID or customer information is required.";
+"alert_error_1129_title"     = "Customer Information";
+
+"alert_error_1130_message"     = "Customer first name is missing.";
+"alert_error_1130_title"     = "First Name";
+
+"alert_error_1131_message"     = "Customer first name is invalid.";
+"alert_error_1131_title"     = "First Name";
+
+"alert_error_1132_message"     = "Customer last name is missing.";
+"alert_error_1132_title"     = "Last Name";
+
+"alert_error_1133_message"     = "Customer last name is invalid.";
+"alert_error_1133_title"     = "Last Name";
+
+"alert_error_1134_message"     = "Customer middle name is invalid.";
+"alert_error_1134_title"     = "Middle Name";
+
+"alert_error_1135_message"     = "Phone number is missing.";
+"alert_error_1135_title"     = "Phone Number";
+
+"alert_error_1136_message"     = "Phone number country code is invalid.";
+"alert_error_1136_title"     = "Phone Number";
+
+"alert_error_1137_message"     = "Phone number is invalid.";
+"alert_error_1137_title"     = "Phone Number";
+
+"alert_error_1138_message"     = "Email address is invalid.";
+"alert_error_1138_title"     = "Email Address";
+
+"alert_error_1139_message"     = "Customer information is missing. Either email or phone number should be provided.";
+"alert_error_1139_title"     = "Customer Information";
+
+"alert_error_1140_message"     = "Invalid card number.";
+"alert_error_1140_title"     = "Card Number";
+
+"alert_error_1141_message"     = "Invalid expiration date.";
+"alert_error_1141_title"     = "Expiration Date";
+
+"alert_error_1142_message"     = "Charge ID is missing.";
+"alert_error_1142_title"     = "Charge ID";
+
+"alert_error_1143_message"     = "Charge ID is invalid.";
+"alert_error_1143_title"     = "Charge ID";
+
+"alert_error_1144_message"     = "Charge ID not found.";
+"alert_error_1144_title"     = "Charge ID";
+
+"alert_error_1145_message"     = "Authentication type is missing.";
+"alert_error_1145_title"     = "Authentication Type";
+
+"alert_error_1146_message"     = "Authentication type is invalid.";
+"alert_error_1146_title"     = "Authentication Type";
+
+"alert_error_1147_message"     = "Confirmation code is missing.";
+"alert_error_1147_title"     = "Confirmation Code";
+
+"alert_error_1148_message"     = "Confirmation code is invalid.";
+"alert_error_1148_title"     = "Confirmation Code";
+
+"alert_error_1149_message"     = "Currency code is not matching with existing currency code.";
+"alert_error_1149_title"     = "Currency Code";
+
+"alert_error_1150_message"     = "Capture amount exceeds with outstanding authorized amount.";
+"alert_error_1150_title"     = "Capture Amount";
+
+"alert_error_1151_message"     = "Gateway timed out.";
+"alert_error_1151_title"     = "Gateway Timeout";
+
+"alert_error_1152_message"     = "Invalid authorize auto schedule type.";
+"alert_error_1152_title"     = "Auto Schedule";
+
+"alert_error_1153_message"     = "Invalid authorize auto schedule time.";
+"alert_error_1153_title"     = "Auto Schedule";
+
+"alert_error_2101_message"     = "Server is currently unavailable. Please try again later.";
+"alert_error_2101_title"     = "Server Unavailable";
+
+"alert_error_2102_message"     = "Server is currently unavailable. Please try again later.";
+"alert_error_2102_title"     = "Server Unavailable";
+
+"alert_error_2104_message"     = "You have provided invalid API key.";
+"alert_error_2104_title"     = "API Key";
+
+"alert_error_2105_message"     = "API credentials are missing.";
+"alert_error_2105_title"     = "API Credentials";
+
+"alert_error_2106_message"     = "Public API key given. Please use secret API key instead.";
+"alert_error_2106_title"     = "API Key";
+
+"alert_error_3100_message"     = "Insufficient permissions.";
+"alert_error_3100_title"     = "Permission Denied";
+
+"alert_error_8000_message"     = "Country code is invalid.";
+"alert_error_8000_title"     = "Country Code";
+
+"alert_error_8001_message"     = "Amount modificator type is invalid.";
+"alert_error_8001_title"     = "Amount Modificator Type";
+
+"alert_error_8002_message"     = "Measurement unit is invalid.";
+"alert_error_8002_title"     = "Measurement Unit";
+
+"alert_error_8003_message"     = "Measurement is invalid.";
+"alert_error_8003_title"     = "Measurement";
+
+"alert_error_8004_message"     = "Failed to deserialize an enum.";
+"alert_error_8004_title"     = "Serialization";
+
+"alert_error_8100_message"     = "Serialization error has occured.";
+"alert_error_8100_title"     = "Serialization";
+
+"alert_error_8200_message"     = "Network error has occured.";
+"alert_error_8200_title"     = "Network";
+
+"alert_error_8302_message"    = "This card already exists.";
+"alert_error_8302_title"    = "Card Exists";
+
+"alert_error_8400_message"    = "This card is not supported.";
+"alert_error_8400_title"    = "Card Not Supported";
+
+"alert_error_8401_message"    = "CVV code is invalid.";
+"alert_error_8401_title"    = "CVV";
+
+"alert_error_8402_message"    = "Address on card is invalid.";
+"alert_error_8402_title"    = "Card Address";
+
+"alert_error_8403_message"    = "Cardholder name is invalid.";
+"alert_error_8403_title"    = "Cardholder Name";
+
+"alert_error_9999_message"     = "An unknown error has occured.";
+"alert_error_9999_title"     = "Unknown Error";
+
+"alert_error_btn_retry_title"    = "Retry";
+"alert_error_btn_dismiss_title"    = "Dismiss";
+"alert_error_btn_report_title"    = "Report";
+
+// MARK: Payment Statuses
+
+"payment_status_initiated"         = "Initiated";
+"payment_status_in_progress"    = "In Progress";
+"payment_status_abandoned"         = "Abandoned";
+"payment_status_cancelled"         = "Cancelled";
+"payment_status_failed"         = "Failed";
+"payment_status_declined"         = "Declined";
+"payment_status_restricted"     = "Restricted";
+"payment_status_captured"         = "Captured";
+"payment_status_authorized"     = "Authorized";
+"payment_status_unknown"        = "Unknown";
+"payment_status_void"             = "Void";
+
+"payment_status_alert_successful"    = "تم اتمام العملية بنجاح";
+"payment_status_alert_failed"        = "فشل عملية الدفع";
+
+/////////////////////////             TAP PAYMENT             /////////////////////////
+
+
+
+"Are you registered in VAT?" = " هل تم التسجيل في ضريبة القيمة المضافة؟";
+"Verification"="التحقق";
+"Upload VAT Registration Certificate" = "ارفع شهادة التسجيل بضريبة القيمة المضافة";
+"A to Z"="تصاعدي";
+"Z to A"="تنازلي";
+"Lowest to Highest Price"="من الأقل إلى الأعلى سعراً";
+"Highest to Lowest Price"="من الأعلى إلى الأقل سعراً";
+
+"Take Photo" = "التقاط صورة";
+"Fynoo Gallery" = "مكتبة فينو";
+"Device Gallery" = "مكتبة الصور";
+"Drop Shipping Sales :  "="مبيعات :   Drop Shipping";
+"Drop Shipping Earning :  "="أرباح :   Drop Shipping";
+"Add Commission"="إضافة عمولة";
+"By Category" = "الفئة";
+"By Product" = "المنتج" ;
+"Apply Commission Type"="تفعيل عمولة عن طريق";
+"Add/Apply Commissin"="إضافة/تفعيل عمولة";
+"Manage Commission"="إدارة العمولات";
+"Add New Commission"="إضافة عمولة جديدة";
+"Commission Master" = "بوابة إدارة العمولات";
+"Please enter valid Email" = "تأكد من إدخال بريد إلكتروني صحيح";
+"Please enter Email" = "الرجاء إدخال البريد الإلكتروني";
+"Please enter password" = "الرجاء إدخال كلمة المرور";
+"Enter platform name" = "الرجاء إدخال اسم المنصة";
+
+"hello" = "مرحبا";
+
+// BSIMAGE PICKER - MULTIPLE IMAGE PICKER
+"BSImagePicker.Done" = "Done";
+
+//validation SignUp
+"Please enter name"="الرجاء إدخال الاسم";
+"Please enter Email"="الرجاء إدخال البريد الإلكتروني";
+"Please enter confirm email"="الرجاء إدخال تأكيد البريد الإلكتروني";
+"Please enter country"="الرجاء  اختيار الدولة";
+"Please enter city"="الرجاء اختيار المدينة";
+"Please enter mobile number"="الرجاء إدخال رقم الجوال ";
+"Please enter password"="الرجاء إدخال كلمة المرور";
+"Please enter confirm password"="الرجاء إدخال تأكيد كلمة المرور";
+
+"Please enter valid Email"="تأكد من إدخال بريد إلكتروني صحيح";
+"Please enter valid confirm Email"="تأكد من إدخال بريد إلكتروني صحيح";
+"Email and confirm email do not match"="البريد الإلكتروني غير متطابق";
+
+"Please enter 8 digit password"="يجب أن تحتوي كلمة المرور على 8 خانات ";
+"Please enter 8 digit confirm password"="يجب أن تحتوي كلمة المرور على 8 خانات ";
+"Password and confirm password do not match"="كلمة المرور غير متطابقة";
+"Please check user policy"="الرجاء الموافقة على سياسة الاستخدام";
+"Please enter valid OTP"="الرجاء إدخال رمز التحقق";
+
+//Forget Password
+"Business Owner" = "صاحب العمل";
+"Agent Company" = "شركة الوكيل";
+"Agent Individual" = "الوكيل الفردي";
+"Forget Password" = "نسيت كلمة المرور";
+"Country" = "نسيت كلمة المرور";
+"Sign Up" = "تسجيل";
+"Reset Password" = "إعادة تعيين كلمة المرور";
+
+// Business Type List
+"Business Type List" = "قائمة نوع العمل";
+"Search Business Type" = "بحث نوع العمل";
+"Select Your Business Type" = "اختر نوع النشاط";
+
+// Main Branch
+"Open Now" = "مفتوح الآن";
+"Closed Now" = "مغلق الآن";
+"Always open" = "مفتوح دائماً";
+"Add Images" = "إضافة صور";
+"Create Branch" = "إنشاء الفرع";
+"Business Details" = "تفاصيل النشاط";
+"Business Type" = "نوع النشاط";
+"Platform Type" = "نوع المنصة";
+"Business Timing" = "أوقات العمل";
+"Store Pictures" = "صورة المتجر";
+"  Business / Branch Name" = "إسم النشاط / الفرع  ";
+"  Email" = "البريد الإلكتروني  ";
+"  Mobile Number" = "رقم الجوال  ";
+"  WhatsApp Number" = "رقم الواتسب  ";
+"  Phone Number" = "رقم الهاتف  ";
+"  Description" = "الوصف  ";
+"Exterior" = "صور الواجهة";
+"Interior" = "الصور الداخلية";
+"  Video URL" = "رابط الفيديو  ";
+"Sunday" = "الأحد";
+"Monday" = "الإثنين";
+"Tuesday" = "الثلاثاء";
+"Wednesday" = "الأربعاء";
+"Thursday" = "الخميس";
+"Friday" = "الجمعة";
+"Saturday" = "السبت";
+ "Add your business hours to" = "أضف أوقات العمل الى ";
+"so it's easy for people to plan a visit." = " ليتمكن عملائك من زيارة فرعك";
+"   Update Your Business Hours So Search Results Show When Your Location Is Open." = "   قم بتحديث أوقات العمل ليتم إدارج متجرك في قائمة البحث عندما يكون مفتوح";
+"UNLIMITED" = "لامحدود" ;
+ 
+ 
+ 
+"Please upload branch logo" = "الرجاء رفع صورة الشعار";
+"File uploaded successfully" = "تم رفع الصورة بنجاح";
+"Please enter branch name" = "الرجاء إدخال اسم الفرع";
+"Please add description" = "الرجاء إدخال وصف الفرع";
+"Please select business type" = "الرجاء اختيار نوع النشاط";
+"Please select atleast one business type" = "الرجاء اختيار نشاط واحد على الأقل";
+"Please select platform type" = "الرجاء اختيار نوع المنصة";
+"Please select business timing" = "الرجاء تحديد أوقات العمل";
+"Please select the days and fill the time" = "الرجاء تحديد أيام العمل";
+"Please fill the time slot for selected day" = "الرجاء اختيار وقت العمل لليوم المُحدد";
+"Slot already created" = "تم تحديد هذا الوقت مُسبقاً";
+"Please add location" = "الرجاء تحديد موقع الفرع";
+"Please select address" = "الرجاء تحديد الموقع على الخريطة";
+"Enter the location description" = "الرجاء إدخال وصف الموقع";
+"Select market" = "الرجاء اختيار السوق";
+"Enter market/shop name" = "الرجاء إدخال اسم السوق";
+"Select mall" = "الرجاء اختيار المجمع التجاري";
+"Enter mall/shop name" = "الرجاء إدخال اسم المجمع التجاري";
+"Please add store pictures" = "الرجاء رفع صور للمتجر";
+"Enter valid link" = "تأكد من إدخال رابط صحيح";
+"Are you sure you want to deactivate your branch?" = "هل أنت متأكد من رغبتك في إلغاء التفعيل؟";
+"Main branch can't be deactivated" = "لا يمكنك إلغاء تفعيل الفرع الئيسي";
+"Are you sure you want to delete this branch?" = "هل أنت متأكد من رغبتك في إلحذف؟";
+"Main branch cannot be deleted" = "لا يمكنك حذف الفرع الرئيسي";
+"" = "";
+
+// Business location
+
+"Welcome, Let's Select Your Plan"= "مرحبا ، دعنا نختار خطتك";
+"Store in Road"="متجر في الطريق";
+"Store in Mall"="متجر في مول";
+"Store in Market"= "متجر في السوق";
+"Save"="حفظ";
+"Cancel"= "إلغاء";
+"Location"="موقعك";
+"Add Business Location" = "إضافة موقع العمل";
+"Add Your Business Location"="قم بإضافة موقع عملك";
+
+//Sign Up
+"Welcome, Let's Create An Account"="مرحبا، أنشئ حسابك الآن";
+"Business Owner"="صاحب عمل";
+"User Policy"="سياسة المستخدم";
+"Login"="دخول";
+
+//"I'v Agreed to the user policy"
+
+//SignUp Agent company
+"Agent Company Registration" = "تسجيل شركة الوكيل";
+
+//Profile Page
+"Profile"="الملف الشخصي";
+"ID"="رقم التعريف";
+"Followers"="المتابعين";
+"Branches"="الفروع";
+"Products"="المنتجات";
+"Likes"="الإعجابات";
+"Edit Profile"="تحرير الملف الشخصي";
+"Current Password"="كلمة المرور الحالية";
+"New Password"="كلمة مرور جديدة";
+"Confirm Password"="تأكيد كلمة المرور";
+
+  
+//Side Menu
+"User Profile"="ملف المستخدم";
+"Branches"="الفروع";
+"Products"="المنتجات";
+"Orders"="الطلبات";
+"Invoices"="الفواتير";
+"Returns"="المنتجات المسترجعة";
+"FBA Shipment"="شحنة FBA";
+"Drop Shipping"="Drop Shipping";
+"Services"="الخدمات";
+"Promotions"="العروض الدعائية";
+"Subscription"="الاشتراك";
+"Product Photo Studio"="استوديو صور المنتج";
+"Help"="مساعدة";
+"Seller Support"="دعم البائع";
+"Send Us App Feedback"="أرسل تقييم التطبيق";
+"Change Language"="تغيير اللغة";
+"Sign Out"="تسجيل خروج";
+"Discount Codes"="كود الخصم";
+
+
+//Dashboard
+"Hello"="مرحباً";
+"ID"="رقم المعرف";
+"Home"="الرئيسية";
+"Your business is launched on Fynoo. Congrats!"="مبروك!. تمت عملية تفعيل نشاطك لدى فينو بنجاح.";
+"Learn how to get your first order"="تعرف على طريقة الحصول على الطلب";
+"Previous 7 days"="آخر 7 أيام";
+"Last Year"="العام الماضي";
+"Manage Branches"="إدارة الفروع";
+"Manage Product"="إدارة المنتجات";
+"Manage Order"="إدارة الطلبات";
+"Manage Returns"="إدارة المنتجات المسترجعة";
+"Manage FBA Shipment"="إدارة شحنة FBA";
+"Manage Drop Shipping"="إدارة Drop Shipping";
+"Manage Discount Code"="إدارة أكواد الخصم";
+"Manage Services"="إدارة الخدمات";
+
+//Product
+"No. of Branches:  " = "عدد الفروع  ";
+"Status:  " = "الحالة  ";
+"Available:  " = "متوفر  ";
+
+
+ 
+//Profile
+"Name" = "الاسم";
+"Email" = "البريد الإلكتروني";
+"Country" = "البلد";
+"City" = "المدينة";
+"Mobile No." = "رقم الجوال";
+"Maroof Link" = "رابط معروف";
+"Password" = "كلمة المرور";
+"Save" = "حفظ";
+"Cancel" = "إلغاء";
+"Profile" = "الملف الشخصي";
+"Confirm Password" = "تأكيد كلمة المرور";
+"New Password" = "كلمة مرور جديدة";
+"Current Password" = "كلمة المرور الحالية";
+"Agent Personal Registration" = "بيانات الوكيل - شخص";
+"Services" = "الخدمات المقدمة";
+"Personal Details" = "البيانات الشخصية";
+"Basic Information" = "المعلومات الأساسية";
+"Bank Details" = "تفاصيل الحساب البنكي";
+"Vat Information" = "بيانات ضريبة القيمة المضافة";
+"Cancel" = "إلغاء" ;
+"https://www.maroof.com/" = "https://www.maroof.com/";
+"Error" = "Error";
+"Connection Error" = "Connection Error";
+"please select logo." = "please select logo." ;
+"please select a service." = "please select a service.";
+"please select minimum one service." = "please select minimum one service." ;
+"Select - Date of Birth" = "Select - Date of Birth";
+"Done" = "Done" ;
+"Please select education first" = "Please select education first";
+"Please select country first" = "Please select country first" ;
+"Email Sent Success" = "Email Sent Success" ;
+"I've agreed to the" = "I've agreed to the";
+"SA" = "SA";
+"Male" = "Male";
+"Female" = "Female" ;
+"Warranty & Support" = "Warranty & Support";
+"Product Description" = "Product Description";
+
+
+// subscriptionPackage List
+"Welcome, Let's Select Your Plan" = "مرحبا، لنختار الباقة المناسبة لك";
+"SAR" = "ر.س.";
+"Trial" = "تجربة";
+"unlimited" = "لامحدود" ;
+"Apply" = "تطبيق";
+"Year" = "سنة";
+"Month" = "شهر";
+"SAR " = "صار ";
+"Pay" = "إدفع";
+
+"/Month" = "/Month";
+"/Year" = "/Year" ;
+"BRONZE" = "برونزي";
+
+
+//like
+"New"="جديد";
+"This week" = "هذا الاسبوع";
+"Earlier"="سابقاً";
+"This Month"="هذا الشهر";
+"This Year"="هذه السنة";
+"35m"="منذ 35دقيقة";
+"1d"="منذ يوم";
+"2d"="منذ يومان";
+"3d"="منذ ثلاثة أيام";
+"Branch"="الفرع";
+
+// Subscription History
+"Search"= "بحث";
+"Subscription History"="تاريخ الإشتراكات";
+"Amount:"="المبلغ:";
+"to"="الى";
+"Date:"="التاريخ:";
+"Time Period:"="المدة الزمنية:";
+"Download Invoice"="تحميل فاتورة";
+"Days"="يوم";
+
+"Applied" = "Applied";
+"Please enter the agent discount code." = "Please enter the agent discount code.";
+"Are you sure you want to remove this coupon ?" = "Are you sure you want to remove this coupon ?";
+"Dismiss" = "Dismiss";
+"agent" = "agent";
+"admin" = "admin" ;
+"YEAR" = "YEAR";
+"MONTH" = "MONTH" ;
+"bronze" = "البرونزية";
+"/mo" = "/mo" ;
+"/yr" = "/yr" ;
+"unlimited" = "unlimited" ;
+
+"Flat" = "Flat" ;
+"Discount" = "Discount";
+"% Discount" = "% Discount";
+"Expiry On" = "Expiry On" ;
+"Info" = "Info" ;
+"No data found." = "No data found.";
+"Total" = "Total" ;
+"(Inclusive of VAT)" = "(Inclusive of VAT)";
+"Remaining Amount" = "Remaining Amount" ;
+"Sub Total" = "Sub Total" ;
+"SAR " = "SAR ";
+
+"Start your Trial" = "Start your Trial";
+"Pay" = "Pay";
+"Plan Name :" = "Plan Name :";
+"Offer Available" = "Offer Available" ;
+"Subscription Duration : " =  "Subscription Duration : ";
+"only for" = "only for" ;
+"subscription, it should expire on" = "subscription, it should expire on" ;
+"(+)" = "(+)" ;
+"(-)" = "(-)" ;
+"PAY" = "PAY" ;
+"error" = "error";
+"Please select any payment method." = "Please select any payment method.";
+"COD is not available for this." = "COD is not available for this." ;
+"START TRIAL" = "START TRIAL";
+"PROCEED TO PAY" = "PROCEED TO PAY";
+"Original Price" = "Original Price";
+"Fynoo Discount" = "Fynoo Discount";
+"Estimated VAT" = "Estimated VAT";
+"Left amount from previous subscription" = "Left amount from previous subscription";
+"Coupon Value" = "Coupon Value";
+"Remaining of Total" = "Remaining of Total";
+"Use the wallet amount" = "Use the wallet amount";
+"Paying through Wallet" = "Paying through Wallet";
+"Pay Online" = "Pay Online";
+
+"SAR " = "صار ";
+
+"Time Period :  TRIAL"="الفترة الزمنية: التجربة";
+
+//Alert
+"YES"="نعم";
+"NO"="لا";
+
+//Branch Detail
+"Open Now"="مفتوح الآن";
+"Closed Now"="Closed Now";
+"Always Closed"="Always Closed";
+"Always Open"="مفتوح دائماً";
+"Online Store"="متجر إلكتروني";
+"Store On Map"="متجر على الخريطة";
+"Permanently Closed"="مغلق دائماً";
+"Products"="المنتجات";
+
+//Product
+"Subscription Products:"="متنتجات الاشتراك";
+"Active Products:"="منتجات فعالة";
+"Inactive Products:"="منتجات غير فعالة";
+"Add Product"="إضافة منتج";
+"ACTIVE"="نشط";
+"INACTIVE"="غير نشط";
+"DRAFT"="مسودة";
+"Delete Product"="Delete Product";
+"Creation:  "="إنشاء:  ";
+
+"Search The Business Type"="Search The Business Type";
+"Manage Products" = "إدارة المنتجات";
+"General Information" = "المعلومات العامة";
+"Type" = "النوع";
+"Product" = "منتج";
+"Service" = "خدمة";
+"General Information" = "المعلومات العامة";
+"Scan Bar Code" = "مسح الرمز الشريطي";
+"Currency" = "العملة";
+"Product/Service Name" = "اسم المنتج/الخدمة";
+"Select Branch" = "اختر الفرع";
+"Description" = "وصف المنتج/الخدمة";
+"Product Availiblity" = "تواجد المنتج";
+"Online" = "عبر الانترنت";
+"In Store" = "في المتجر";
+"Product/Service Pictures" = "صور المنتج/الخدمة";
+"Main" = "الرئيسية";
+"Video URL" = "فيديو URL";
+"Save As Draft" = "حفظ كمسودة";
+"Next" = "التالي";
+"Select Image From" = "اختر صورة من";
+"Take Photo" = "التقاط صورة";
+"Fynoo Gallery" = "مكتبة فينو";
+"Device Gallery" = "مكتبة الصور";
+"View Photo" = "مشاهدة الصورة";
+"View Images" = "مشاهدة الصور";
+"Status" = "الحالة";
+"Active" = "منشّط";
+"No of Branches" = "عدد الفروع";
+"Specification" = "المواصفات";
+"Sale In" = "نوع البيع";
+"Retail" = "بالتجزئة";
+"Wholesale" = "بالجملة";
+"Payment Mode" = "طريقة الدفع";
+"COD" = "الدفع عند الاستلام";
+"Product Return Policy Retail (Days)" = "سياسية الاسترجاع لبيع التجزئة (الأيام)";
+"Product Return Policy Wholesale (Days)" = "سياسية الاسترجاع لبيع الجملة (الأيام)";
+"Stock Qty" = "كمية المخزون";
+"Product Delivery Days" = "المدة الزمنية للتوصيل (أيام)";
+"Retail" = "البيع بالتجزئة";
+"Wholesale" = "البيع بالجملة ";
+"Retail Pricing" = "تسعير بيع التجزئة";
+"Quantity" = "الكمية";
+"That can be Bought" = "المتوفرة للبيع";
+"Min" = "الأدنى";
+"Max" = "الأقصى";
+"Regular Price" = "السعر العادي";
+"Discount" = "الخصم";
+"Net Selling Price" = "صافي سعر البيع";
+"VAT" = "ضريبة القيمة المضافة";
+"Final Price" = "السعر النهائي";
+"Categories" = "التصنيفات";
+"Dimension" = "الأبعاد";
+"Weight" = "الوزن";
+"Grams" = "جرام";
+"Height" = "الطول";
+"Centimeter" = "سنتيمتر";
+"Width" = "العرض";
+"Technical Description" = "المواصفات الفنية";
+"OR" = "أو";
+"Technical Description Attachment" = "مرفق المواصفات الفنية";
+"Add" = "إضافة";
+"Variant" = "متفاوت";
+"Warranty and Support Section" = "قسم المساعدة والضمان ";
+"Add Feature" = "إضافة خاصية";
+"What is this?" = "ما هذا؟";
+"Discount Price" = "السعر بعد الخصم";
+"Vat Percentage" = "نسبة ضريبة القيمة المضافة";
+"Vat Amount" = "مقدار ضريبة القيمة المضافة";
+"Final Price " = "السعر النهائي";
+"Max Qty" = "الحد الأعلى للكمية";
+"That Can be Bought" = "المتوفرة للببع";
+"Min Qty" = "الحد الأدنى للكمية";
+"Product Return Policy (Days)" = "سياسة الاسترجاع (الأيام)";
+"SAR" = "ر.س.";
+"Field Same As Online" = "ملء الحقول تلقائيا";
+"VAr" = "vat";
+// databank
+"Do You Want To Sell This Product's Data Information to Fynoo Data Bank?" = "هل تريد بيع بيانات هذا المنتج إلى بنك البيانات الخاص بفينو؟";
+"Product Data Bank" = "بنك البيانات";
+"Purchase Product Data" = "شراء بيانات منتج";
+"Product Listing" = "عرض حسب";
+"By Product" = "المنتج";
+"By Category" = "الفئة";
+"Fynoo Product Data Bank" = "بنك البيانات الخاص بفينو";
+"Purchased Product Data" = "البيانات التي تم شراؤها";
+"Product Data  For Sale" = "البيانات المعروضة للبيع";
+"Available" = "متوفر";
+"View Details" = "المزيد";
+"View Gallery" = "عرض الصور";
+"Price" = "السعر";
+"SAR" = "ر.س.";
+"Add" = "إضافة";
+"ADD" = "إضافة";
+"Product Created" = "المنتجات المُنشأة";
+"Products Created" = "عدد المنتجات";
+"No of Purchases" = "عدد عمليات الشراء";
+"Status" = "الحالة";
+"Pending" = "معلق";
+"Expired" = "منتهي الصلاحية";
+"Rejected" = "مرفوض";
+"Product Description" = "وصف المنتج";
+//Price History
+;"تاريخ السعر" = "Price History"
+"View Price" = "عرض السعر";
+"Between" = "بين";
+"Till Now" = "حتى الآن";
+"Slab Level" = "باقة بيع مستوى";
+
+"Quantity" = "الكمية";
+"That can be Bought" = "بالإمكان إحضارها";
+"Min" = "الحد الأدنى";
+"Max" = "الحد الأعلى";
+"Regular Price" = "السعر العادي";
+"Discount" = "الخصم";
+
+
+"Extra Promotion"="ترقية إضافية";
+"Net Selling Price"="صافي سعر البيع";
+"VAT"="ضريبة القيمة المضافة";
+"Final Price"="السعر النهائي";
+"Price Detail" = "تفاصيل السعر";
+"Wholesale Price"="سعر الجملة";
+"Edit Product"="تعديل المنتج";
+"Add Similar Product"="إضافة منتج مماثل";
+"Add Variant Product"="إضافة منتج مختلف";
+
+
+
+
+
+
+// Stock Update (Inventory)
+"Date Created"="تاريخ الإضافة";
+"Available Quantity"="الكمية المتوفرة";
+"Date updated"="تاريخ التحديث";
+"Stock Update"="تحديث المخزون";
+"Manage Inventory"="إدارة المخزون";
+
+
+// newProductView
+"Product Details" = "تفاصيل المنتج";
+"Ratings & Reviews" = "التعليقات والتقييم";
+"Warranty & Support" = "الضمان والدعم";
+"Save " = "حفظ ";
+"Save " = "حفظ ";
+"Product Delivery Days" = "أيام توصيل المنتج" ;
+"Payment Mode" = "طريقة الدفع";
+"Delivery Option" = "طريقة التوصيل";
+"More Details" = "المزيد";
+"Pieces" = "حبة";
+"Product Description" = "وصف المنتج";
+"review" = "تقييم";
+"OUT OF STOCK" = "نفذ من المخزون" ;
+"ADD TO CART" = "أضف الى العربة" ;
+"Go To Store" = "الذهاب للمتجر" ;
+"End in" = "يتنهي خلال";
+"d" = "أيام";
+"h" = "ساعات";
+"m" = "دقائق";
+"s" = "ثواني";
+"Variant Products" = "منتجات مطابقة" ;
+"Return Policy" = "سياسة الاستبدال والاسترجاع" ;
+"Over" = "أكثر من" ;
+"people likes this product." = "شخصب أعجبهم هذا المنتج";
+
+
+"Retail Price: " = "Retail Price: ";
+"Min. Order:" = "Min. Order:";
+"(Vat Included)" = "(Vat Included)";
+"% OFF" = "% OFF";
+"Instore Quantity" = "Instore Quantity";
+"Specifications" = "Specifications";
+"Hide Details" = "Hide Details";
+"rating and" = "rating and";
+"k" = "k";
+"Check Out This Product" = "Check Out This Product";
+"No Return Policy" =  "No Return Policy";
+"Earn by sharing the product. You will get commission when your friend buys it using your shared link." = "Earn by sharing the product. You will get commission when your friend buys it using your shared link." ;
+"Check Out This Product" = "Check Out This Product";
+"Click here to know more" = "Click here to know more";
+"Scan this QR code to know more about" = "Scan this QR code to know more about";
+
+// productDiscount
+"Amount off in (SAR)" = "خصم بالريال السعودي";
+"Manage Discount" = "إدارة الخصومات" ;
+"Apply Discount Type" =  "تفعيل خصم عن طريق";
+"By Category" = "الفئة";
+"By Product" = "المنتج" ;
+
+
+"Discount Value" = "Discount Value";
+"Discount Type" = "Discount Type";
+"Percentage off in (%)" = "Percentage off in (%)";
+"%" = "%";
+"Select Date" = "Select Date";
+"100" = "100";
+"0" = "0";
+"Are you sure you want to activate the discount ?";
+"No" = "No";
+"Yes" = "Yes";
+"Are you sure you want to activate the discount ?" = "Are you sure you want to activate the discount ?";
+"No discount found." = "No discount found.";
+"You can not apply this discount." = "You can not apply this discount." ;
+"Discount Master" = "Discount Master" ;
+"1" = "1";
+"OFF" = "OFF";
+"2" = "2";
+"Quantity upto:" = "Quantity upto:";
+"Apply Discount Type:" =  "Apply Discount Type:";
+"Product" = "Product";
+"Add/Apply your discount." = "Add/Apply your discount.";
+"Add/Apply Discount" = "Add/Apply Discount";
+"Please Select By Cateogry in Apply Discount Type." = "Please Select By Cateogry in Apply Discount Type.";
+"Price:" = "Price:";
+"Discounted Price:" = "Discounted Price:" ;
+"Discounted Value:" = "Discounted Value:" ;
+"3" = "3";
+"Recent Transaction" = "Recent Transaction" ;
+"Go Back" = "Go Back";
+"Only active products added in Online store in retail mode will appear here"; = "Only active products added in Online store in retail mode will appear here";
+"Manage your Products" = "Manage your Products";
+"Message" = "Message";
+"Are you sure you want to delete this discount." = "Are you sure you want to delete this discount.";
+"Are you sure you want to deactivate this discount ?" = "Are you sure you want to deactivate this discount ?";
+
+"Deactivating this discount will also remove the discount from selected products. Are you sure?" = "Deactivating this discount will also remove the discount from selected products. Are you sure?";
+"Activating this discount will also add the discount on selected products. Are you sure?" = "Activating this discount will also add the discount on selected products. Are you sure?";
+"Please select a category" = "Please select a category";
+"Please select at least one product" = "Please select at least one product";
+"Are your sure you want to apply the discount on selected products?" = "Are your sure you want to apply the discount on selected products?";
+"Are you sure you want to stop this discount on all products?" = "Are you sure you want to stop this discount on all products?";
+"Are you sure you want to apply this discount on all products?" = "Are you sure you want to apply this discount on all products?";
+"Please select start date first." = "Please select start date first.";
+
+
+// orderManagement
+
+"Manage Orders" = "إدارة الطلبات";
+"Courier Delivery" = "شركة شحن";
+"Self Delivery by Business Owner" = "توصيل عن طريق صاحب العمل";
+"Agent Delivery" = "وكيل";
+"Invoices" = "الفواتير";
+"Tracking Details" = "تفاصيل تتبع المنتج";
+"Order Status" = "حالة الطلب";
+"Price Details" = "تفاصيل السعر";
+"Business Owner to Customer" = "من صاحب العمل الى العميل";
+"Self Delivery By Business Owner" = "توصيل عن طريق صاحب العمل";
+"Company Name" = "اسم الشركة";
+"Tracking Number" = "اسم الشركة";
+"Short link" = "الرابط القصير";
+"Website link" = "موقع شركة الشحن";
+"Order Placed Date" = "تاريخ انشاء الطلب";
+"Order Accepted Date" = "تاريخ قبول الطلب";
+"Shipped Date" = "تاريخ الشحن";
+"Delivered Date" = "تاريخ التوصيل";
+"Type" = "النوع";
+"Regular Price" = "السعر العادي";
+"Discount Price" = "السعر بعد الخصم";
+"Promotional Price" = "السعر الترويجي";
+"Net Selling Price" = "صافي سعر البيع";
+"Product Vat" = "ضريبة القيمة المضافة للمنتج";
+"Final Price for Customer" = "السعر النهائي للعميل";
+"Cancelled By Business Owner Date" = "تاريخ إلغاء الطلب بواسطة صاحب العمل";
+"Cancelled By Customer Date" = "تاريخ إلغاء الطلب بواسطة العميل";
+"Submit" = "إتمام";
+
+
+
+"Oops! No Order Found" = "Oops! No Order Found";
+"Go Back" = "Go Back";
+"Search by Order Id, Product Title" = "Search by Order Id, Product Title";
+"Confirm to Accept" = "Confirm to Accept";
+"Please perform accept/reject on all products." = "Please perform accept/reject on all products.";
+"Customer has chosen Self Pick-Up, Do you want to accept?" = "Customer has chosen Self Pick-Up, Do you want to accept?";
+"Order Detail" = "Order Detail";
+"Order Id:" = "Order Id:";
+"Address :" = "Address :";
+"Qty:" = "Qty:";
+"Have you packed your product?" = "Have you packed your product?";
+"Enter the OTP sent to" = "Enter the OTP sent to";
+"Have you left your branch for delivery ?" = "Have you left your branch for delivery ?";
+"Is order is successfully delivered ?" = "Is order is successfully delivered ?";
+"Have you left your branch for delivery ?" = "Have you left your branch for delivery ?";
+"Fill Courier Details" = "Fill Courier Details";
+"Is Product Deliver ?" = "Is Product Deliver ?";
+"Go for Self Delivery" = "Go for Self Delivery";
+"Enter OTP" = "Enter OTP";
+"Product Packed" = "Product Packed";
+"Cancellation Details" = "Cancellation Details";
+"Customer mobile number" = "Customer mobile number";
+"Self pick up by customer" = "Self pick up by customer";
+"Waiting for Shipping Date" = "Waiting for Shipping Date";
+"Details" = "Details";
+"Reason For Cancellation" = "Reason For Cancellation";
+"Courier Details" = "Courier Details";
+"http://www.domain.com" = "http://www.domain.com";
+"http://www.domain.com/courier" = "http://www.domain.com/courier";
+"Enter Tracking Number" = "Enter Tracking Number";
+"Verify & Deliver" = "Verify & Deliver";
+"OTP Verification" = "OTP Verification";
+
+"Oops! No Reason Found" = "Oops! No Reason Found";
+"Cancel Reason" = "Cancel Reason";
+"Are your sure you want to reject?" = "Are your sure you want to reject?";
+"Are you sure you want to cancel this product?" = "Are you sure you want to cancel this product?";
+"Please select one Reason..." = "Please select one Reason...";
+
+// Drop Shipping
+"Commission Name"="Commission Name";
+"Select Product"="اختر المنتج";
+"Commission Type"="Commission Type";
+"Commission Value"="Commission Value";
+"Quantity Upto"="كمية تصل إلى ";
+"Start Date & Time"="تاريخ ووقت البدء";
+"End Date & Time"="تاريخ ووقت الانتهاء";
+
+"Commission of in (SAR)"="Commission of in (SAR)";
+"Commission of in Percent(%)"="Commission of in Percent(%)";
+"You can edit only end date"="You can edit only end date";
+"Percent cannot be greater than 100"="Percent cannot be greater than 100";
+"Please enter a valid number"="Please enter a valid number";
+"Please enter commission name"="Please enter commission name";
+"Please enter commission value"="Please enter commission value";
+"Please enter the max qty of product on which the  commission cab be applied "="Please enter the max qty of product on which the  commission cab be applied ";
+"Please select the commission type from 'commission type' field"="Please select the commission type from 'commission type' field";
+"Please select start date and time"="Please select start date and time";
+"Please select end date and time"="Please select end date and time";
+"StartDate Cannot be greater than enddate"="StartDate Cannot be greater than enddate";
+"Please select start date first"="Please select start date first";
+
+
+
+"Only active products added in Online store will appear here"="Only active products added in Online store will appear here";
+//"Please add/apply commission"="Please add/apply commission";
+"No Product Found"="No Product Found";
+"Please select atleast a product"="Please select atleast a product";
+"10% Fynoo Drop Shipping commission will be applicable "="سيتم تطبيق 10% عمولة Fynoo Drop Shipping ";
+
+"By Category"="الفئة";
+"By Product"="المنتج";
+"Please select By Category in Apply Commission Type"="Please select By Category in Apply Commission Type";
+"Manage Drop Shipping"="إدارة Drop Shipping";
+"Sales Product"="Sales Product";
+"Drop Shipping Sales :  "="مبيعات :   Drop Shipping";
+"Drop Shipping Earning :  "="أرباح :   Drop Shipping";
+"Add Commission"="إضافة عمولة";
+
+"Price:"="السعر:";
+"Commission:"="العمولة:";
+"Date:"="التاريخ:";
+"%"="%";
+"You cannot apply this commission"="You cannot apply this commission";
+"Commission cannot be applied"="Commission cannot be applied";
+
+"Are you sure you want to activate your Commission?"="Are you sure you want to activate your Commission?";
+"Are you sure you want to deactivate your commission?"="Are you sure you want to deactivate your commission?";
+"Are you sure you want to deactivate this commission?"="Are you sure you want to deactivate this commission?";
+"Are you sure you want to activate this commission?"="Are you sure you want to activate this commission?";
+
+"Verify Your Account"="تحقق من حسابك";
+"Please wait 00s Before Requesting another SMS/Email Code"="الرجاء الانتظار 00ثانية قبل طلب رمز تحقق جديد";
+"Resend OTP"="إعادة إرسال رمز تحقق";
+"OTP"="رمز التحقق";
+
+
+
+
+// Gallery
+
+
+"Welcome, Let's Select Your Gallery"="معرض الصور الخاص بك";
+"Please select an Image"="Please select an Image";
+"No Data Found"="لا يوجد صور لعرضها";
+"No Product Found"="No Product Found";
+"View Images"="عرض الصورة";
+"Upload Images"="رفع الصور";
+"Take Photo"="التقاط صورة";
+"Device Gallery"="مكتبة الصور";
+"Fynoo Gallery"="Fynoo Gallery";
+"Check Out This Image"="Check Out This Image";
+"Are you sure you want to delete this image"="Are you sure you want to delete this image";
+
+
+"Please enter valid Email" = "تأكد من إدخال بريد إلكتروني صحيح";
+"Please enter Email" = "الرجاء إدخال البريد الإلكتروني";
+"Please enter password" = "الرجاء إدخال كلمة المرور";
+
+//sorting
+
+// filters
+"Product Data Bank"="بنك البيانات";
+"Purchased Product Data"= "شراء بيانات منتج";
+"Manage Drop Shipping"="إدارة Drop Shipping";
+"Manage Commission"="إدارة العمولات";
+"Manage Discount"="إدارة الخصومات";
+"Manage Branches"="إدارة الفروع";
+"Manage Products"="إدارة المنتجات";
+"Product"="المنتج";
+
+

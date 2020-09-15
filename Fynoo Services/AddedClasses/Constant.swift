@@ -101,6 +101,7 @@ class Constant: NSObject {
     static let getAppVersion : String = "common/getAppVersion/";
     static let ForgotPswd: String = "customerapi/v2/forgot_password/"
     static let ResetPswd: String = "customerapi/v2/reset_password/"
+    static let get_user_type: String = "customerapi/v2/get_user_type/"
 }
 
 enum Service {

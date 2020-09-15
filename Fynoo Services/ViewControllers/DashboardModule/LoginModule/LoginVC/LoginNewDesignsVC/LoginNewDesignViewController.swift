@@ -596,98 +596,141 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
         let emailStr = cell.emailField.text!
         let passwordStr = cell.passwordField.text!
         
-        if typeStr == "Business Owner".localized {
-            logInViewModal.selectUserType = "BO"
-        }else if typeStr == "Agent Company".localized {
-            logInViewModal.selectUserType = "AC"
-        }else if typeStr == "Agent Individual".localized {
-            logInViewModal.selectUserType = "AI"
-        }
+//        if typeStr == "Business Owner".localized {
+//            logInViewModal.selectUserType = "BO"
+//        }else if typeStr == "Agent Company".localized {
+//            logInViewModal.selectUserType = "AC"
+//        }else if typeStr == "Agent Individual".localized {
+//            logInViewModal.selectUserType = "AI"
+//        }
+        logInViewModal.selectUserType = "AGENT"
         logInViewModal.email = emailStr
         logInViewModal.password = passwordStr
         
         let(isEmail, message) = logInViewModal.normalLoginValidation()
-
-        
-        
+                
         if isEmail {
             print(isEmail)
             ModalClass.startLoading(self.view)
-            logInViewModal.loginOtp { (success, response) in
-                print("response:-",response)
+            
+            
+            
+            
+            
+    
+    var apiType = ""
+            
+            let str = "\(Constant.BASE_URL)\(Constant.get_user_type)"
+            let parameters = [
+                "email": emailStr,
+                "lang_code":HeaderHeightSingleton.shared.LanguageSelected
+            ]
+            print("request -",parameters)
+            ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
                 ModalClass.stopLoading()
-                if success{
+                if success == true {
                     let ResponseDict : NSDictionary = (response as? NSDictionary)!
-                    if let value = response?.object(forKey: "error_description") as? String{
+                    print("ResponseDictionary %@",ResponseDict)
+                    let x = ResponseDict.object(forKey: "error") as! Bool
+                    if x {
+                        ModalController.showNegativeCustomAlertWith(title: "", msg: (ResponseDict.object(forKey: "error_description") as? String)!)
+                        ModalClass.stopLoading()
+                        return
+                    }
+                    else{
+                        apiType = (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "user_type") as! String
                         
-                        if(self.isRememberSelected)
-                        {
-                            ModalController.saveTheContent(emailStr as AnyObject, WithKey: "rememberEmail")
-                            ModalController.saveTheContent(passwordStr as AnyObject, WithKey: "rememberPassword")
-                            ModalController.saveTheContent(typeStr as AnyObject, WithKey: "rememberType")
-                        }
-                        else{
-                            ModalController.removeTheContentForKey("rememberEmail")
-                            ModalController.removeTheContentForKey("rememberPassword")
-                            ModalController.removeTheContentForKey("rememberType")
-                        }
+                        self.logInViewModal.selectUserType = apiType
                         
-                        ModalController.showSuccessCustomAlertWith(title: "", msg: value)
-                        let results = (ResponseDict.object(forKey: "data") as! NSDictionary)
-                        AuthorisedUser.shared.setAuthorisedUser(with:response as Any)
                         
-                        let userID:String = ModalController.toString(results.object(forKey: "id") as AnyObject)
-                        Singleton.shared.setUserId(UserId: "\(userID)")
                         
-                        var userType = ""
-                        var isNewUser = ""
-                        
-                        if let fynooUserType = results.object(forKey: "user_type") as? String {
-                            userType = fynooUserType
-                        }
-                        isNewUser = ModalController.toString(results.object(forKey: "is_new_user") as AnyObject)
-                        
-                        print("userType:-", userType)
-                        print("isNewUser:-", isNewUser)
-                        
-                        if userType == "BO" &&  value == "Verification Pending"{
-                            let vc = VerifyAccountViewController(nibName: "VerifyAccountViewController", bundle: nil)
-                            
-                            vc.mobile = (response?.object(forKey: "data") as! NSDictionary).object(forKey: "mobile_number") as! String
-                            vc.emailId = (response?.object(forKey: "data") as! NSDictionary).object(forKey: "email") as! String
-                            vc.fynooId = (response!.object(forKey: "data") as? NSDictionary)?.object(forKey: "fynoo_id") as! String
-                            self.navigationController?.pushViewController(vc, animated: true)
-                        }else{
-                        if userType == "AI" || userType == "AC" {
-                            if isNewUser == "1" {
-                                
-                                let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
-                                self.navigationController?.pushViewController(vc, animated: true)
-                            }else {
-                                let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
-                                self.navigationController?.pushViewController(vc, animated: true)
+                        self.logInViewModal.loginOtp { (success, response) in
+                            print("response:-",response)
+                            ModalClass.stopLoading()
+                            if success{
+                                let ResponseDict : NSDictionary = (response as? NSDictionary)!
+                                if let value = response?.object(forKey: "error_description") as? String{
+                                    
+                                    if(self.isRememberSelected)
+                                    {
+                                        ModalController.saveTheContent(emailStr as AnyObject, WithKey: "rememberEmail")
+                                        ModalController.saveTheContent(passwordStr as AnyObject, WithKey: "rememberPassword")
+                                        ModalController.saveTheContent(typeStr as AnyObject, WithKey: "rememberType")
+                                    }
+                                    else{
+                                        ModalController.removeTheContentForKey("rememberEmail")
+                                        ModalController.removeTheContentForKey("rememberPassword")
+                                        ModalController.removeTheContentForKey("rememberType")
+                                    }
+                                    
+                                    ModalController.showSuccessCustomAlertWith(title: "", msg: value)
+                                    let results = (ResponseDict.object(forKey: "data") as! NSDictionary)
+                                    AuthorisedUser.shared.setAuthorisedUser(with:response as Any)
+                                    
+                                    let userID:String = ModalController.toString(results.object(forKey: "id") as AnyObject)
+                                    Singleton.shared.setUserId(UserId: "\(userID)")
+                                    
+                                    var userType = ""
+                                    var isNewUser = ""
+                                    
+                                    if let fynooUserType = results.object(forKey: "user_type") as? String {
+                                        userType = fynooUserType
+                                    }
+                                    isNewUser = ModalController.toString(results.object(forKey: "is_new_user") as AnyObject)
+                                    
+                                    print("userType:-", userType)
+                                    print("isNewUser:-", isNewUser)
+                                    
+                                    if (userType == "AI" || userType == "AC") &&  value == "Verification Pending"{
+                                        let vc = VerifyAccountViewController(nibName: "VerifyAccountViewController", bundle: nil)
+                                        
+                                        vc.mobile = (response?.object(forKey: "data") as! NSDictionary).object(forKey: "mobile_number") as! String
+                                        vc.emailId = (response?.object(forKey: "data") as! NSDictionary).object(forKey: "email") as! String
+                                        vc.fynooId = (response!.object(forKey: "data") as? NSDictionary)?.object(forKey: "fynoo_id") as! String
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                    }else{
+                                    if userType == "AI" || userType == "AC" {
+                                        if isNewUser == "1" {
+                                            
+                                            let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
+                                            self.navigationController?.pushViewController(vc, animated: true)
+                                        }else {
+                                            let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
+                                            self.navigationController?.pushViewController(vc, animated: true)
+                                        }
+                                    }else {
+                                        let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                    }
+                                    }
+                                }
+                            }else{
+                                if let value = response?.object(forKey: "error_description") as? String{
+                                    ModalController.showNegativeCustomAlertWith(title: "", msg: value)
+                                    if value == "Verification Pending"{
+                                        let vc = VerifyAccountViewController(nibName: "VerifyAccountViewController", bundle: nil)
+                                        
+                                        vc.mobile = (response?.object(forKey: "data") as! NSDictionary).object(forKey: "mobile_number") as! String
+                                        vc.emailId = (response?.object(forKey: "data") as! NSDictionary).object(forKey: "email") as! String
+                                        vc.fynooId = (response!.object(forKey: "data") as? NSDictionary)?.object(forKey: "fynoo_id") as! String
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                        //self.navigationController?.pushViewController(vc, animated: true)
+                                    }
+                                }
                             }
-                        }else {
-                            let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
-                            self.navigationController?.pushViewController(vc, animated: true)
-                        }
                         }
                     }
                 }else{
-                    if let value = response?.object(forKey: "error_description") as? String{
-                        ModalController.showNegativeCustomAlertWith(title: "", msg: value)
-                        if value == "Verification Pending"{
-                            let vc = VerifyAccountViewController(nibName: "VerifyAccountViewController", bundle: nil)
-                            
-                            vc.mobile = (response?.object(forKey: "data") as! NSDictionary).object(forKey: "mobile_number") as! String
-                            vc.emailId = (response?.object(forKey: "data") as! NSDictionary).object(forKey: "email") as! String
-                            vc.fynooId = (response!.object(forKey: "data") as? NSDictionary)?.object(forKey: "fynoo_id") as! String
-                            self.navigationController?.pushViewController(vc, animated: true)
-                            //self.navigationController?.pushViewController(vc, animated: true)
-                        }
+                    if response == nil {
+                        print ("connection error")
+                        ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                    }else{
+                        print ("data not in proper json")
                     }
                 }
             }
+            
+            
         }else{
             
             ModalController.showNegativeCustomAlertWith(title: "", msg: message)
