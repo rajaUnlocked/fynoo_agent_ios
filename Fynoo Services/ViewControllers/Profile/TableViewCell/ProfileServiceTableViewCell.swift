@@ -14,6 +14,8 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
     @IBOutlet weak var collectionView: UICollectionView!
     var serviceList : [service_list_data]?
     var isForLanguage = false
+    var agentinfo = AgentProfile()
+    var layout = UICollectionViewFlowLayout()
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -22,15 +24,10 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
         collectionView.dataSource = self
 
 
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            if isForLanguage{
-                layout.scrollDirection = .horizontal
-                
-            }else{
-                layout.scrollDirection = .vertical
-            }
-            
-        }
+           if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+               layout.scrollDirection = .horizontal
+           }
+        
 
       
         // Initialization code
@@ -50,12 +47,28 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
         }
        
       }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if agentinfo.serviceArr.contains(serviceList?[indexPath.row].service_id){
+                
+            agentinfo.serviceArr.remove(serviceList?[indexPath.row].service_id ?? 0 )
+
+        }else{
+             agentinfo.serviceArr.add(serviceList?[indexPath.row].service_id ?? 0)
+        }
+        collectionView.reloadData()
+    }
       
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileServiceViewCell", for: indexPath) as! ProfileServiceViewCell
         if isForLanguage {
             
         }else{
+            if agentinfo.serviceArr.contains(serviceList?[indexPath.row].service_id){
+                cell.imgCheck.image = UIImage(named: "tick")
+            }else{
+                cell.imgCheck.image = UIImage(named: "uncheck")
+            }
             cell.serviceName.text = serviceList?[indexPath.row].service_name ?? ""
 
         }
@@ -66,7 +79,7 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenSize = collectionView.frame.width
         if isForLanguage{
-            let size = CGSize(width: (screenSize - 40)/4  , height: 50)
+            let size = CGSize(width: (screenSize - 40)/3  , height: 50)
                return size
         }else{
             let size = CGSize(width: (screenSize - 40)/2  , height: 50)

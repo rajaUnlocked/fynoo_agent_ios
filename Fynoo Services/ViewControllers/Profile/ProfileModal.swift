@@ -43,7 +43,9 @@ class AgentProfile : NSObject{
     var dob = ""
     var education = ""
     var major = ""
+    var ibanLenght = 0
     
+    var serviceArr = NSMutableArray()
 }
 
 
@@ -55,7 +57,7 @@ class ProfileModal : Mappable{
     var error = ""
     var error_code  = ""
     var error_description = ""
-    var data : ProfileData?
+    var data : ProfileDataInfo?
     
     required init?(map: Map) {}
     
@@ -68,61 +70,36 @@ class ProfileModal : Mappable{
     }
     
 }
+class ProfileDataInfo : Mappable{
+    
+    var user_data : ProfileData?
+    var service_list_data : [service_list_data]?
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        
+        service_list_data <- map["service_list_data"]
+        user_data <- map["user_data"]
+    }
+    
+}
+
 
 class ProfileData : Mappable{
-    
+    var ac_holder_name = ""
     var total_branches  = 0
     var total_follower = 0
     var total_likes = 0
     var total_products = 0
     var user_type = ""
     var vat_no = ""
-    var bank_information : [bank_information]?
-    var basic_information : [basic_information]?
-    var service_list_data : [service_list_data]?
-    required init?(map: Map) {}
-    
-    func mapping(map: Map) {
-        
-        total_branches <- map["total_branches"]
-        total_follower <- map["total_follower"]
-        total_likes <- map["total_likes"]
-        total_products <- map["total_products"]
-        user_type <- map["user_type"]
-        vat_no <- map["vat_no"]
-        
-        bank_information <- map["bank_information"]
-        basic_information <- map["basic_information"]
-        service_list_data <- map["service_list_data"]
-    }
-    
-}
-
-class bank_information : Mappable{
-    
-    
     var bank_details_id = 0
     var full_name = ""
     var bank_id = 0
     var bank_name = ""
     var account_iban_nbr = ""
-    
-    required init?(map: Map) {}
-    
-    func mapping(map: Map) {
-        
-        bank_details_id <- map["bank_details_id"]
-        full_name <- map["full_name"]
-        bank_id <- map["bank_id"]
-        account_iban_nbr <- map["account_iban_nbr"]
-        bank_name <- map["bank_name"]
-    }
-    
-}
-
-class basic_information : Mappable{
-    
-    
+    var iban_no = ""
     var business_name = ""
     var city = ""
     var city_id = 0
@@ -141,10 +118,27 @@ class basic_information : Mappable{
     var name = ""
     var phone_code = ""
     var phone_number = ""
+    var vat_certificate = ""
+    
     required init?(map: Map) {}
     
     func mapping(map: Map) {
+        ac_holder_name <- map["ac_holder_name"]
+
+        vat_certificate <- map["vat_certificate"]
+        iban_no <- map["iban_no"]
+        bank_details_id <- map["bank_details_id"]
+        full_name <- map["full_name"]
+        bank_id <- map["bank_id"]
+        account_iban_nbr <- map["account_iban_nbr"]
+        bank_name <- map["bank_name"]
         
+        total_branches <- map["total_branches"]
+        total_follower <- map["total_follower"]
+        total_likes <- map["total_likes"]
+        total_products <- map["total_products"]
+        user_type <- map["user_type"]
+        vat_no <- map["vat_no"]
         business_name <- map["business_name"]
         city <- map["city"]
         city_id <- map["city_id"]
@@ -169,6 +163,8 @@ class basic_information : Mappable{
     }
     
 }
+
+
 
 class service_list_data : Mappable{
     
