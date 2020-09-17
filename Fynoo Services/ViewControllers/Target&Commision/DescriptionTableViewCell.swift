@@ -10,6 +10,7 @@ import UIKit
 
 class DescriptionTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var topdescripConst: NSLayoutConstraint!
     @IBOutlet weak var topconst: NSLayoutConstraint!
     @IBOutlet weak var descriplbl: UILabel!
     @IBOutlet weak var toplbl: UILabel!

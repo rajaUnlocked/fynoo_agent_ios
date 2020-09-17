@@ -81,12 +81,14 @@ extension CommisionsViewController:UITableViewDataSource,UITableViewDelegate
         else if indexPath.row == 1{
             let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell", for: indexPath) as! DescriptionTableViewCell
             cell.toplbl.text = "Commission"
+            cell.topdescripConst.constant = -8
             cell.descriplbl.text = self.commisionlist?.data?.top_content ?? ""
             return cell
         }
         else if indexPath.row == (self.commisionlist?.data?.services?.count ?? 0) + 2{
                    let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell", for: indexPath) as! DescriptionTableViewCell
              cell.toplbl.text = "Note:"
+               cell.topdescripConst.constant = 0
              cell.descriplbl.text = self.commisionlist?.data?.bottom_content ?? ""
                    return cell
                }
