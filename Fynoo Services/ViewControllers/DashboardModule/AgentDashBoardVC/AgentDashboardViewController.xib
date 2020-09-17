@@ -15,6 +15,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AgentDashboardViewController" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
                 <outlet property="tableVw" destination="acc-ra-9eB" id="BtG-bh-CB2"/>
+                <outlet property="topVwHeightCons" destination="8OT-mZ-NeB" id="dZw-Zk-IQo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

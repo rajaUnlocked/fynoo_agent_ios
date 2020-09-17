@@ -12,6 +12,7 @@ import SideMenu
 class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableVw: UITableView!
+    @IBOutlet weak var topVwHeightCons: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +82,11 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
     
     func configureHeaderUI() {
-//        self.headerHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight) - 10
+ //       self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
+        var heightCon = CGFloat(HeaderHeightSingleton.shared.headerHeight)
+        if heightCon < 106 {
+            self.topVwHeightCons.constant = 185
+        }
     }
     
     func registerCellNibs(){
