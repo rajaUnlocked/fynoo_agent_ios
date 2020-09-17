@@ -165,27 +165,54 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
             ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.WrongemailAddress.localized)
             return
         }
-        forgotPasswordAPI()
         
+        
+        
+        
+        ModalClass.startLoading(self.view)
+        let str = "\(Constant.BASE_URL)\(Constant.get_user_type)"
+        let parameters = [
+            "email": emailtxtFld.text!,
+            "lang_code":HeaderHeightSingleton.shared.LanguageSelected
+        ]
+        print("request -",parameters)
+        ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
+      //      ModalClass.stopLoading()
+            if success == true {
+                let ResponseDict : NSDictionary = (response as? NSDictionary)!
+                print("ResponseDictionary %@",ResponseDict)
+                let x = ResponseDict.object(forKey: "error") as! Bool
+                if x {
+                    ModalController.showNegativeCustomAlertWith(title: "", msg: (ResponseDict.object(forKey: "error_description") as? String)!)
+                    ModalClass.stopLoading()
+                    return
+                }
+                else{
+                   var apiType = (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "user_type") as! String
+                    self.forgotPasswordAPI(type: apiType)
+                    
+                        }
+                    }
+        }
     }
     
     
     
     
-    func forgotPasswordAPI(){
+    func forgotPasswordAPI(type : String){
 
         
-        ModalClass.startLoading(self.view)
+//        ModalClass.startLoading(self.view)
         let str = "\(Constant.BASE_URL)\(Constant.ForgotPswd)"
         
-        var type = ""
-        if userTypeDropDown.text! == "Business Owner".localized {
-            type = "BO"
-        }else if userTypeDropDown.text! == "Agent Company".localized {
-            type = "AC"
-        }else if userTypeDropDown.text! == "Agent Individual".localized {
-            type = "AI"
-        }
+//        var type = ""
+//        if userTypeDropDown.text! == "Business Owner".localized {
+//            type = "BO"
+//        }else if userTypeDropDown.text! == "Agent Company".localized {
+//            type = "AC"
+//        }else if userTypeDropDown.text! == "Agent Individual".localized {
+//            type = "AI"
+//        }
         
         
         let parameters = [

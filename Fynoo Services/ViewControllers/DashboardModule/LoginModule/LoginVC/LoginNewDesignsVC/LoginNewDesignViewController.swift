@@ -627,7 +627,7 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
             ]
             print("request -",parameters)
             ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
-                ModalClass.stopLoading()
+        //        ModalClass.stopLoading()
                 if success == true {
                     let ResponseDict : NSDictionary = (response as? NSDictionary)!
                     print("ResponseDictionary %@",ResponseDict)

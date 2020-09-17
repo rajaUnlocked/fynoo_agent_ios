@@ -27,9 +27,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         ModalController.saveTheContent(width as AnyObject, WithKey: "width")
         ModalController.saveTheContent(height as AnyObject, WithKey: "height")
         
+        AuthorisedUser.shared.getAuthorisedUserCheck()
         UIApplication.shared.statusBarStyle = .default
         selecting_local.DoTheSwizzling()
+        UITextField.appearance().tintColor = .gray
         
+        if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
+            if value[0]=="ar"{
+                HeaderHeightSingleton.shared.LanguageSelected = "AR"
+            }
+            else if value[0]=="en"{
+                HeaderHeightSingleton.shared.LanguageSelected = "EN"
+            }
+        }
         
         let vc = BasedUrlViewController(nibName: "BasedUrlViewController", bundle: nil)
  //       let vc = SplashAnimatedViewController(nibName: "SplashAnimatedViewController", bundle: nil)
