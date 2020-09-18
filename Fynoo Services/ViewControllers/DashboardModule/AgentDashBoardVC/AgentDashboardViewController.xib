@@ -14,8 +14,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AgentDashboardViewController" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
+                <outlet property="availableBalanceLbl" destination="oLP-as-OXK" id="WIj-MO-c4x"/>
+                <outlet property="notifyLbl" destination="bUf-rX-9hF" id="BrJ-2n-ph3"/>
+                <outlet property="profileImg" destination="x5t-e2-1ak" id="OcI-D6-GBA"/>
+                <outlet property="qrcode" destination="rZL-Vp-xtg" id="MQZ-uE-Hyi"/>
                 <outlet property="tableVw" destination="acc-ra-9eB" id="BtG-bh-CB2"/>
                 <outlet property="topVwHeightCons" destination="8OT-mZ-NeB" id="dZw-Zk-IQo"/>
+                <outlet property="userDetails" destination="bsz-if-q90" id="ad2-Ag-aqX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,6 +45,9 @@
                                 <constraint firstAttribute="width" constant="25" id="lY8-T5-WE1"/>
                             </constraints>
                             <state key="normal" image="barCode_new"/>
+                            <connections>
+                                <action selector="qrcodeBtn:" destination="-1" eventType="touchUpInside" id="cTe-du-IvF"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONV-D2-IDE">
                             <rect key="frame" x="422" y="50" width="22" height="22"/>
@@ -48,6 +56,9 @@
                                 <constraint firstAttribute="height" constant="22" id="pyk-Wz-obE"/>
                             </constraints>
                             <state key="normal" image="notify_new"/>
+                            <connections>
+                                <action selector="notificationBtnClicked:" destination="-1" eventType="touchUpInside" id="G2c-bB-HOF"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99k" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUf-rX-9hF">
                             <rect key="frame" x="424" y="72" width="18" height="13"/>
@@ -98,10 +109,9 @@
                             <inset key="contentEdgeInsets" minX="7" minY="7" maxX="7" maxY="7"/>
                         </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-fynoo_NEW" translatesAutoresizingMaskIntoConstraints="NO" id="57Z-Hd-snJ">
-                            <rect key="frame" x="172.5" y="34" width="120" height="56"/>
+                            <rect key="frame" x="172.5" y="50" width="120" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="hVS-cX-9VT"/>
-                                <constraint firstAttribute="height" constant="56" id="nRA-BZ-Mdq"/>
                             </constraints>
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TopDesgin" translatesAutoresizingMaskIntoConstraints="NO" id="0Yn-BD-yrq">
@@ -152,6 +162,9 @@ ID:245636737838</string>
                                 <constraint firstAttribute="height" constant="91" id="4gz-M7-l2n"/>
                                 <constraint firstAttribute="width" constant="84" id="GwG-5z-PzX"/>
                             </constraints>
+                            <connections>
+                                <action selector="cameraClicked:" destination="-1" eventType="touchUpInside" id="pK4-05-s3I"/>
+                            </connections>
                         </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallet" translatesAutoresizingMaskIntoConstraints="NO" id="UCx-mb-USz">
                             <rect key="frame" x="296" y="142" width="22" height="18"/>
@@ -180,7 +193,7 @@ ID:245636737838</string>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6,540.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLP-as-OXK">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLP-as-OXK">
                             <rect key="frame" x="352" y="166" width="63" height="19"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="19" id="WXJ-A7-5cP"/>
@@ -236,13 +249,14 @@ ID:245636737838</string>
                         <constraint firstAttribute="trailing" secondItem="Yn9-Ya-Ybp" secondAttribute="trailing" id="dmp-iz-5sD"/>
                         <constraint firstItem="x5t-e2-1ak" firstAttribute="leading" secondItem="pFj-Ca-374" secondAttribute="trailing" constant="10" id="dqY-AX-V9N"/>
                         <constraint firstItem="0p8-Mt-vyJ" firstAttribute="leading" secondItem="Pas-aK-SCi" secondAttribute="leading" id="e6d-0F-Kou"/>
+                        <constraint firstItem="57Z-Hd-snJ" firstAttribute="top" secondItem="pFj-Ca-374" secondAttribute="top" id="gBs-QI-Wsq"/>
                         <constraint firstItem="sWS-xh-Ag8" firstAttribute="top" secondItem="rZL-Vp-xtg" secondAttribute="bottom" constant="69" id="gGp-ND-PCS"/>
-                        <constraint firstItem="57Z-Hd-snJ" firstAttribute="top" secondItem="Pas-aK-SCi" secondAttribute="top" constant="34" id="i9k-UE-Ylr"/>
                         <constraint firstAttribute="bottom" secondItem="oLP-as-OXK" secondAttribute="bottom" constant="15" id="j1R-By-6Ax"/>
                         <constraint firstItem="MUb-tr-pwH" firstAttribute="top" secondItem="Pam-mh-1Em" secondAttribute="bottom" constant="6" id="jgM-Uq-hlV"/>
                         <constraint firstItem="57Z-Hd-snJ" firstAttribute="centerX" secondItem="Pas-aK-SCi" secondAttribute="centerX" id="n85-Mh-lU7"/>
                         <constraint firstItem="MUb-tr-pwH" firstAttribute="leading" secondItem="Pas-aK-SCi" secondAttribute="leading" id="pef-ag-x5i"/>
                         <constraint firstItem="oLP-as-OXK" firstAttribute="leading" secondItem="r49-Yo-Nxk" secondAttribute="trailing" constant="13" id="pt0-XI-6e4"/>
+                        <constraint firstItem="0Yn-BD-yrq" firstAttribute="top" secondItem="57Z-Hd-snJ" secondAttribute="bottom" constant="8" id="qgs-tl-1qH"/>
                         <constraint firstItem="Yn9-Ya-Ybp" firstAttribute="leading" secondItem="Pas-aK-SCi" secondAttribute="leading" id="tEL-zs-kQa"/>
                         <constraint firstItem="sWS-xh-Ag8" firstAttribute="leading" secondItem="UCx-mb-USz" secondAttribute="trailing" constant="9" id="vDX-XV-aAV"/>
                         <constraint firstAttribute="bottom" secondItem="0p8-Mt-vyJ" secondAttribute="bottom" constant="3" id="vng-Ts-IWX"/>

@@ -13,6 +13,20 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
 
     @IBOutlet weak var tableVw: UITableView!
     @IBOutlet weak var topVwHeightCons: NSLayoutConstraint!
+    @IBOutlet weak var qrcode: UIButton!
+    @IBOutlet weak var notifyLbl: UILabel!
+    @IBOutlet weak var profileImg: UIImageView!
+    @IBOutlet var userDetails: UILabel!
+//    let val1 = "Hello".localized
+//    let val2 = "ID".localized
+//    self.userDetails.text = "\(val1) \(self.homeGraph?.data?.user_details?.user_name ?? "")\n \(val2): \(self.homeGraph?.data?.user_details?.fynoo_id ?? "")"
+    @IBOutlet weak var availableBalanceLbl: UILabel!
+    
+    var agentInfoArray = NSMutableArray()
+    var bannerArray = NSMutableArray()
+    var servicesArray = NSMutableArray()
+    var mandatoryArray = NSMutableArray()
+    var dataDict = NSDictionary()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +34,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         sideMenuCode()
         configureHeaderUI()
         registerCellNibs()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.dashboardAPI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,7 +111,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         tableVw.register(UINib(nibName: "DashboardWalletTableViewCell", bundle: nil), forCellReuseIdentifier: "DashboardWalletTableViewCell");
         tableVw.register(UINib(nibName: "ProgressDashboardTableViewCell", bundle: nil), forCellReuseIdentifier: "ProgressDashboardTableViewCell");
         tableVw.register(UINib(nibName: "ServicesDashboardTableViewCell", bundle: nil), forCellReuseIdentifier: "ServicesDashboardTableViewCell");
-        
+        tableVw.register(UINib(nibName: "DropShipDashboardTableViewCell", bundle: nil), forCellReuseIdentifier: "DropShipDashboardTableViewCell");
+        tableVw.register(UINib(nibName: "MultiBannerTableViewCell", bundle: nil), forCellReuseIdentifier: "MultiBannerTableViewCell");
     }
     
     @IBAction func sideMenuBtn(_ sender: Any) {
@@ -229,11 +248,26 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     
     //MARK:-- TABLE DATA SOURCE DELEGATES
     func numberOfSections(in tableView: UITableView) -> Int{
-        return 3
+        if dataDict.count == 0 {
+         return 0
+        }else{
+        return 5
+        }
     }
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 3 {
+            return mandatoryArray.count
+        }else if section == 4 {
+            if bannerArray.count > 0 {
+                return 1
+            }else{
+                return 0
+            }
+        }
+        else{
         return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -241,22 +275,29 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
             return DashboardWalletCell(index: indexPath)
         }else if indexPath.section == 1 {
             return ProgressDashboardCell(index: indexPath)
-        }else{
+        }else if indexPath.section == 2 {
             return ServicesDashboardCell(index: indexPath)
+        }else if indexPath.section == 3 {
+            return DropShipDashboardCell(index: indexPath)
+        }else{
+            return multiBannerCell(index: indexPath)
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 170
         }else if indexPath.section == 1{
             return 120
+        }else if indexPath.section == 2{
+            return 450 + 10
+        }else if indexPath.section == 3{
+            return 175
         }else{
-            return 500
+            return getHeightDynamicForMultipleBanner(index: indexPath)
         }
     }
     
@@ -264,6 +305,9 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     func DashboardWalletCell(index : IndexPath) -> UITableViewCell {
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "DashboardWalletTableViewCell",for: index) as! DashboardWalletTableViewCell
         cell.selectionStyle = .none
+        cell.walletLbl.text = "\(dataDict.object(forKey: "wallet_balance") as! NSNumber)"
+        cell.holdingLBl.text = "\(dataDict.object(forKey: "holding_amount") as! NSNumber)"
+        cell.inprocessLbl.text = "\(dataDict.object(forKey: "payment_in_progress") as! NSNumber)"
         return cell
     }
     
@@ -281,6 +325,180 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         cell.setupCollectionVw()
         cell.collectionVw.reloadData()
         return cell
+    }
+    
+    func DropShipDashboardCell(index : IndexPath) -> UITableViewCell {
+        let cell = self.tableVw.dequeueReusableCell(withIdentifier: "DropShipDashboardTableViewCell",for: index) as! DropShipDashboardTableViewCell
+        cell.selectionStyle = .none
+        cell.titleLbl.text = (mandatoryArray.object(at: index.item) as! NSDictionary).object(forKey: "service_name") as! String
+        cell.img.sd_setImage(with: URL(string: "\((mandatoryArray.object(at: index.item) as! NSDictionary).object(forKey: "service_icon") as! String)"), placeholderImage: UIImage(named: ""))
+        return cell
+    }
+    
+    func multiBannerCell(index : IndexPath) -> UITableViewCell {
+        let cell = self.tableVw.dequeueReusableCell(withIdentifier: "MultiBannerTableViewCell",for: index) as! MultiBannerTableViewCell
+        cell.selectionStyle = .none
+        cell.multiBannerArray = bannerArray
+        cell.setBanner()
+        return cell
+    }
+    
+    func getHeightDynamicForMultipleBanner(index : IndexPath) -> CGFloat {
+        if bannerArray.count > 0 {
+            let width = UIScreen.main.bounds.size.width - 20
+            let widthEsti = 835 / width
+            let height = 500 / widthEsti
+            return height + 50
+        }else{
+            return 0
+        }
+    }
+    
+    @IBAction func qrcodeBtn(_ sender: Any) {
+//        let vc = BranchQrCodePopupViewController(nibName: "BranchQrCodePopupViewController", bundle: nil)
+//        vc.isType = true
+//        vc.url = homeGraph?.data?.bo_qr_code ?? ""
+//        vc.urlPass =  homeGraph?.data?.main_branch_url ?? ""
+//        vc.businessName = homeGraph?.data?.main_branch_name ?? ""
+//        let popup = PopupDialog(viewController: vc,
+//                                buttonAlignment: .horizontal,
+//                                transitionStyle: .bounceDown,
+//                                tapGestureDismissal: true,
+//                                panGestureDismissal: false)
+//
+//        self.present(popup, animated: true, completion: nil)
+    }
+    
+    @IBAction func notificationBtnClicked(_ sender: Any) {
+//        let vc = NotificationNewViewController(nibName: "NotificationNewViewController", bundle: nil)
+//        //vc.showBack = true
+//        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func cameraClicked(_ sender: Any) {
+        
+//        let vc = BranchBottomPopUpController(nibName: "BranchBottomPopUpController", bundle: nil)
+//        vc.choosenOption = { (string) in
+//            OpenGallery.shared.delegate = self
+//            OpenGallery.shared.viewControl = self
+//            if string == "Take Photo"{
+//
+//                OpenGallery.shared.openCamera()
+//
+//            }else if string == "Device Gallery"{
+//                OpenGallery.shared.viewControl = self
+//                OpenGallery.shared.openGallery()
+//
+//            }
+//            if string == "Fynoo Gallery"{
+//                let vc = BussinessGalleryViewController(nibName: "BussinessGalleryViewController", bundle: nil)
+//                vc.isTypeFrom = "Profile"
+//                vc.delegate = self
+//                self.navigationController?.pushViewController(vc, animated: true)
+//            }
+//        }
+//
+//        let popupController = MTPopupController(rootViewController: vc)
+//        popupController.autoAdjustKeyboardEvent = false
+//        popupController.style = .bottomSheet
+//        popupController.navigationBarHidden = true
+//        popupController.hidesCloseButton = false
+//        let blurEffect = UIBlurEffect(style: .dark)
+//        popupController.backgroundView = UIVisualEffectView(effect: blurEffect)
+//        popupController.backgroundView?.alpha = 0.6
+//        popupController.backgroundView?.onClick {
+//            popupController.dismiss()
+//        }
+//        popupController.present(in: self)
+        
+        //        let alert = UIAlertController(title: "Message", message: "", preferredStyle: .actionSheet)
+        //        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+        //            self.accessCamera()
+        //        }))
+        //        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { (action) in
+        //            self.accessGallery()
+        //        }))
+        //        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        //        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    // MARK: - AGENT DASHBOARD API
+    func dashboardAPI()
+    {
+        let user_id:UserData = AuthorisedUser.shared.getAuthorisedUser()
+        var userID = "\(user_id.data!.id)"
+        ModalClass.startLoading(self.view)
+        let str = "\(Constant.BASE_URL)\(Constant.agent_dashboard)"
+        let parameters = [
+            "user_id": userID,
+            "lang_code":HeaderHeightSingleton.shared.LanguageSelected
+        ]
+        print("request -",parameters)
+        ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
+            ModalClass.stopLoading()
+            if success == true {
+                let ResponseDict : NSDictionary = (response as? NSDictionary)!
+                print("ResponseDictionary %@",ResponseDict)
+                let x = ResponseDict.object(forKey: "error") as! Bool
+                if x {
+                    ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "error_description") as? String)!, msg: "")
+                    self.agentInfoArray.removeAllObjects()
+                    self.bannerArray.removeAllObjects()
+                    self.servicesArray.removeAllObjects()
+                    self.mandatoryArray.removeAllObjects()
+                    self.dataDict = NSDictionary()
+                    self.tableVw.reloadData()
+                }
+                else{
+                    
+                    self.agentInfoArray.removeAllObjects()
+                    self.bannerArray.removeAllObjects()
+                    self.servicesArray.removeAllObjects()
+                    self.mandatoryArray.removeAllObjects()
+                    self.dataDict = NSDictionary()
+                    
+                    let results1 = (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "agent_information") as! NSArray
+                    for var i in (0..<results1.count){
+                        let dict : NSDictionary = NSDictionary(dictionary: results1.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
+                        self.agentInfoArray.add(dict)
+                    }
+
+                    let results2 = (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "banner_list") as! NSArray
+                    for var i in (0..<results2.count){
+                        let dict : NSDictionary = NSDictionary(dictionary: results2.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
+                        self.bannerArray.add(dict)
+                    }
+
+                    let results3 = (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "services") as! NSArray
+                    for var i in (0..<results3.count){
+                        let dict : NSDictionary = NSDictionary(dictionary: results3.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
+                        self.servicesArray.add(dict)
+                    }
+                    
+                    let results5 = (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "manadatory_services") as! NSArray
+                    for var i in (0..<results5.count){
+                        let dict : NSDictionary = NSDictionary(dictionary: results3.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
+                        self.mandatoryArray.add(dict)
+                    }
+                    
+                    let results4 = (ResponseDict.object(forKey: "data") as! NSDictionary)
+                    let dict : NSDictionary = NSDictionary(dictionary: results4).RemoveNullValueFromDic()
+                    self.dataDict = dict
+                    
+                    self.availableBalanceLbl.text = "\(self.dataDict.object(forKey: "available_amount") as! NSNumber)"
+                    
+                    self.tableVw.reloadData()
+                }
+            }else{
+                if response == nil {
+                    print ("connection error")
+                    ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                }else{
+                    print ("data not in proper json")
+                }
+            }
+        }
     }
 }
 

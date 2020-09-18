@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommonPopupViewController" customModule="Fynoo_Services" customModuleProvider="target">
+            <connections>
+                <outlet property="noOutlet" destination="Qas-ye-hTM" id="Xmb-km-XQ3"/>
+                <outlet property="popupBG" destination="tjd-C6-dXY" id="MpK-Yn-JyS"/>
+                <outlet property="titleLbl" destination="0Vq-1D-okQ" id="bFR-Zp-HqY"/>
+                <outlet property="yesOutlet" destination="7zH-VW-hIC" id="2Ny-Up-q6m"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="0xU-xO-6Ou">
+            <rect key="frame" x="0.0" y="0.0" width="378" height="249"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C90-hJ-naC">
+                    <rect key="frame" x="39" y="46.5" width="300" height="200"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activate_service_popup" translatesAutoresizingMaskIntoConstraints="NO" id="tjd-C6-dXY">
+                            <rect key="frame" x="-2.5" y="10" width="305" height="180"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="180" id="jpD-eP-Yy8"/>
+                                <constraint firstAttribute="width" constant="305" id="kuV-8Q-oor"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7zH-VW-hIC">
+                            <rect key="frame" x="32.5" y="130" width="100" height="24"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="0E4-iW-KWm"/>
+                                <constraint firstAttribute="width" constant="100" id="LUE-F5-DVm"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                            <size key="titleShadowOffset" width="5" height="5"/>
+                            <state key="normal" title="Yes">
+                                <color key="titleColor" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                                    <point key="value" x="0.0" y="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="yesClicked:" destination="-1" eventType="touchUpInside" id="b9u-l0-c7B"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vq-1D-okQ">
+                            <rect key="frame" x="26" y="65" width="248" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="w5t-mW-mSY"/>
+                            </constraints>
+                            <string key="text">Are you sure you want to activate
+this service?</string>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                            <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qas-ye-hTM">
+                            <rect key="frame" x="162.5" y="130" width="100" height="24"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="K9v-Nj-7o0"/>
+                                <constraint firstAttribute="width" constant="100" id="zIJ-t3-TsN"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                            <state key="normal" title="No">
+                                <color key="titleColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                                    <point key="value" x="0.0" y="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="noClicked:" destination="-1" eventType="touchUpInside" id="vzZ-CL-ydy"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="8MF-7N-ePv"/>
+                        <constraint firstItem="7zH-VW-hIC" firstAttribute="top" secondItem="0Vq-1D-okQ" secondAttribute="bottom" constant="25" id="DUn-Gd-EkU"/>
+                        <constraint firstItem="Qas-ye-hTM" firstAttribute="centerY" secondItem="7zH-VW-hIC" secondAttribute="centerY" id="GvL-go-z3G"/>
+                        <constraint firstItem="tjd-C6-dXY" firstAttribute="top" secondItem="0Vq-1D-okQ" secondAttribute="bottom" constant="-95" id="Hax-L3-1BA"/>
+                        <constraint firstItem="0Vq-1D-okQ" firstAttribute="leading" secondItem="C90-hJ-naC" secondAttribute="leading" constant="26" id="O7F-hu-ckc"/>
+                        <constraint firstItem="tjd-C6-dXY" firstAttribute="centerX" secondItem="C90-hJ-naC" secondAttribute="centerX" id="QEK-bl-NeC"/>
+                        <constraint firstItem="Qas-ye-hTM" firstAttribute="leading" secondItem="7zH-VW-hIC" secondAttribute="trailing" constant="30" id="UZ2-Xr-ZUb"/>
+                        <constraint firstItem="0Vq-1D-okQ" firstAttribute="centerX" secondItem="tjd-C6-dXY" secondAttribute="centerX" id="WoD-fD-don"/>
+                        <constraint firstItem="7zH-VW-hIC" firstAttribute="leading" secondItem="tjd-C6-dXY" secondAttribute="leading" constant="35" id="Yb5-za-rQo"/>
+                        <constraint firstAttribute="height" constant="200" id="oTK-v9-49o"/>
+                        <constraint firstAttribute="trailing" secondItem="0Vq-1D-okQ" secondAttribute="trailing" constant="26" id="rPK-N0-QiO"/>
+                        <constraint firstItem="tjd-C6-dXY" firstAttribute="centerY" secondItem="C90-hJ-naC" secondAttribute="centerY" id="z5H-pP-Xd5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="C90-hJ-naC" firstAttribute="centerY" secondItem="ufJ-qM-6Gb" secondAttribute="centerY" id="86L-hG-41m"/>
+                <constraint firstItem="C90-hJ-naC" firstAttribute="centerX" secondItem="ufJ-qM-6Gb" secondAttribute="centerX" id="bTh-mR-fAu"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="ufJ-qM-6Gb"/>
+            <point key="canvasLocation" x="111.59420289855073" y="-130.91517857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="activate_service_popup" width="969" height="582"/>
+    </resources>
+</document>

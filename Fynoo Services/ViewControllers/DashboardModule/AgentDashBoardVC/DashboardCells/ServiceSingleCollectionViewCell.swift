@@ -14,6 +14,8 @@ class ServiceSingleCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.bgVw.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 150)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        self.bgVw.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: (screenWidth / 2) - 30 )
     }
 }

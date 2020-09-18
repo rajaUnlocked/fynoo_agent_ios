@@ -10,6 +10,10 @@ import UIKit
 
 class DashboardWalletTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var walletLbl: UILabel!
+    @IBOutlet weak var holdingLBl: UILabel!
+    @IBOutlet weak var inprocessLbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

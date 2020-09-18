@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F0230BE2514902B004F1B0B /* DictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0230BD2514902A004F1B0B /* DictionaryExt.swift */; };
+		2F0230C22514E477004F1B0B /* CommonPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0230C02514E477004F1B0B /* CommonPopupViewController.swift */; };
+		2F0230C32514E477004F1B0B /* CommonPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0230C12514E477004F1B0B /* CommonPopupViewController.xib */; };
 		2F07D1A82505F89100193658 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07D1A42505F89100193658 /* Constant.swift */; };
 		2F07D1A92505F89100193658 /* ModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07D1A52505F89100193658 /* ModalController.swift */; };
 		2F07D1AA2505F89100193658 /* ModalClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07D1A62505F89100193658 /* ModalClass.swift */; };
@@ -73,6 +76,12 @@
 		2F84643B250F83910084EB32 /* PopUpBelowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F846431250F83910084EB32 /* PopUpBelowViewController.xib */; };
 		2F84643F250F83910084EB32 /* PopUpViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F846436250F83910084EB32 /* PopUpViewCell.swift */; };
 		2F846441250F83910084EB32 /* PopUpBelowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F846438250F83910084EB32 /* PopUpBelowViewController.swift */; };
+		2F964B6E25136B05005FFEDC /* DropShipDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F964B6C25136B05005FFEDC /* DropShipDashboardTableViewCell.swift */; };
+		2F964B6F25136B05005FFEDC /* DropShipDashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F964B6D25136B05005FFEDC /* DropShipDashboardTableViewCell.xib */; };
+		2F964B752513751B005FFEDC /* MultiBannerVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F964B712513751B005FFEDC /* MultiBannerVw.swift */; };
+		2F964B762513751B005FFEDC /* MultiBannerVw.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F964B722513751B005FFEDC /* MultiBannerVw.xib */; };
+		2F964B772513751B005FFEDC /* MultiBannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F964B732513751B005FFEDC /* MultiBannerTableViewCell.swift */; };
+		2F964B782513751B005FFEDC /* MultiBannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F964B742513751B005FFEDC /* MultiBannerTableViewCell.xib */; };
 		2FEB12032511EC930012FE98 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB11F82511EC930012FE98 /* SideMenuViewController.swift */; };
 		2FEB12042511EC930012FE98 /* SideMenuSecondTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2FEB11FA2511EC930012FE98 /* SideMenuSecondTableViewCell.strings */; };
 		2FEB12052511EC930012FE98 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB11FD2511EC930012FE98 /* SideMenuTableViewCell.swift */; };
@@ -181,6 +190,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F0230BD2514902A004F1B0B /* DictionaryExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExt.swift; sourceTree = "<group>"; };
+		2F0230C02514E477004F1B0B /* CommonPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPopupViewController.swift; sourceTree = "<group>"; };
+		2F0230C12514E477004F1B0B /* CommonPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonPopupViewController.xib; sourceTree = "<group>"; };
 		2F07D1A42505F89100193658 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		2F07D1A52505F89100193658 /* ModalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalController.swift; sourceTree = "<group>"; };
 		2F07D1A62505F89100193658 /* ModalClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalClass.swift; sourceTree = "<group>"; };
@@ -259,6 +271,12 @@
 		2F846432250F83910084EB32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PopUpBelowViewController.xib; sourceTree = "<group>"; };
 		2F846436250F83910084EB32 /* PopUpViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewCell.swift; sourceTree = "<group>"; };
 		2F846438250F83910084EB32 /* PopUpBelowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpBelowViewController.swift; sourceTree = "<group>"; };
+		2F964B6C25136B05005FFEDC /* DropShipDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShipDashboardTableViewCell.swift; sourceTree = "<group>"; };
+		2F964B6D25136B05005FFEDC /* DropShipDashboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropShipDashboardTableViewCell.xib; sourceTree = "<group>"; };
+		2F964B712513751B005FFEDC /* MultiBannerVw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiBannerVw.swift; sourceTree = "<group>"; };
+		2F964B722513751B005FFEDC /* MultiBannerVw.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiBannerVw.xib; sourceTree = "<group>"; };
+		2F964B732513751B005FFEDC /* MultiBannerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiBannerTableViewCell.swift; sourceTree = "<group>"; };
+		2F964B742513751B005FFEDC /* MultiBannerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiBannerTableViewCell.xib; sourceTree = "<group>"; };
 		2FEB11F82511EC930012FE98 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		2FEB11FB2511EC930012FE98 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/SideMenuSecondTableViewCell.strings; sourceTree = "<group>"; };
 		2FEB11FC2511EC930012FE98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SideMenuSecondTableViewCell.strings; sourceTree = "<group>"; };
@@ -392,9 +410,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F0230BF2514E459004F1B0B /* CommonPopupVC */ = {
+			isa = PBXGroup;
+			children = (
+				2F0230C02514E477004F1B0B /* CommonPopupViewController.swift */,
+				2F0230C12514E477004F1B0B /* CommonPopupViewController.xib */,
+			);
+			path = CommonPopupVC;
+			sourceTree = "<group>";
+		};
 		2F07D1A32505F89100193658 /* AddedClasses */ = {
 			isa = PBXGroup;
 			children = (
+				2F0230BD2514902A004F1B0B /* DictionaryExt.swift */,
 				2F84638B250F67900084EB32 /* selecting_local.swift */,
 				2F07D1B42505FE9E00193658 /* UIView+IBDesignables.swift */,
 				2F07D1B22505FE1B00193658 /* Singleton.swift */,
@@ -559,6 +587,17 @@
 			path = PopUpBelowVC;
 			sourceTree = "<group>";
 		};
+		2F964B702513751B005FFEDC /* MultiBannerCells */ = {
+			isa = PBXGroup;
+			children = (
+				2F964B712513751B005FFEDC /* MultiBannerVw.swift */,
+				2F964B722513751B005FFEDC /* MultiBannerVw.xib */,
+				2F964B732513751B005FFEDC /* MultiBannerTableViewCell.swift */,
+				2F964B742513751B005FFEDC /* MultiBannerTableViewCell.xib */,
+			);
+			path = MultiBannerCells;
+			sourceTree = "<group>";
+		};
 		2FEB11F72511EC930012FE98 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -604,6 +643,7 @@
 		2FEB122025120DF80012FE98 /* DashboardCells */ = {
 			isa = PBXGroup;
 			children = (
+				2F964B702513751B005FFEDC /* MultiBannerCells */,
 				2FEB122125120E0F0012FE98 /* DashboardWalletTableViewCell.swift */,
 				2FEB122225120E0F0012FE98 /* DashboardWalletTableViewCell.xib */,
 				2FEB1225251215F50012FE98 /* ProgressDashboardTableViewCell.swift */,
@@ -612,6 +652,8 @@
 				2FEB122A251225A30012FE98 /* ServicesDashboardTableViewCell.xib */,
 				2FEB122D251229AF0012FE98 /* ServiceSingleCollectionViewCell.swift */,
 				2FEB122E251229AF0012FE98 /* ServiceSingleCollectionViewCell.xib */,
+				2F964B6C25136B05005FFEDC /* DropShipDashboardTableViewCell.swift */,
+				2F964B6D25136B05005FFEDC /* DropShipDashboardTableViewCell.xib */,
 			);
 			path = DashboardCells;
 			sourceTree = "<group>";
@@ -688,6 +730,7 @@
 		2FFDE23D2501221B006C5EBD /* DashboardModule */ = {
 			isa = PBXGroup;
 			children = (
+				2F0230BF2514E459004F1B0B /* CommonPopupVC */,
 				2FEB12172511F1530012FE98 /* LogoutPopup */,
 				2FEB120A2511F0010012FE98 /* UnderDev */,
 				2FEB11F72511EC930012FE98 /* SideMenu */,
@@ -953,6 +996,7 @@
 				F4828C922508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib in Resources */,
 				CEE3578C250740800097069D /* Poppins-Light.ttf in Resources */,
 				2FFDE21925012171006C5EBD /* LaunchScreen.storyboard in Resources */,
+				2F964B782513751B005FFEDC /* MultiBannerTableViewCell.xib in Resources */,
 				2F8463DC250F6EBC0084EB32 /* LoginIntroSecond.strings in Resources */,
 				2F74CB4E250A365300DE21EF /* logo-animeted.gif in Resources */,
 				F4828CB02508FFBC006B85D8 /* TwoButtonsTableViewCell.xib in Resources */,
@@ -969,6 +1013,7 @@
 				CEE3578F250740800097069D /* Segoe UI Italic.ttf in Resources */,
 				2F846419250F7F1C0084EB32 /* ForgotPasswordViewController.strings in Resources */,
 				2F846393250F6D270084EB32 /* BasedUrlViewController.xib in Resources */,
+				2F964B6F25136B05005FFEDC /* DropShipDashboardTableViewCell.xib in Resources */,
 				CEAD29EE25063FA2008B1F9C /* TargetprogressTableViewCell.xib in Resources */,
 				2F846439250F83910084EB32 /* PopUpBelowViewController.strings in Resources */,
 				CEE35795250740800097069D /* seguisb.ttf in Resources */,
@@ -992,9 +1037,11 @@
 				F4C4DC602507951B0075F520 /* ProfileNameTableViewCell.xib in Resources */,
 				2FFDE21625012171006C5EBD /* Assets.xcassets in Resources */,
 				2F8463DB250F6EBC0084EB32 /* LoginIntroFourth.strings in Resources */,
+				2F0230C32514E477004F1B0B /* CommonPopupViewController.xib in Resources */,
 				F4C4DC572507943A0075F520 /* UserProfileDetailsViewController.xib in Resources */,
 				2FFDE2422501225A006C5EBD /* AgentDashboardViewController.xib in Resources */,
 				2FEB12082511EC930012FE98 /* SideMenuTableViewCell.xib in Resources */,
+				2F964B762513751B005FFEDC /* MultiBannerVw.xib in Resources */,
 				CEE35798250740800097069D /* Roboto-Bold.ttf in Resources */,
 				2F84643A250F83910084EB32 /* PopUpViewCell.xib in Resources */,
 				CEE35791250740800097069D /* RobotoSlab-Bold.ttf in Resources */,
@@ -1153,6 +1200,7 @@
 				CEE357A32507585F0097069D /* ServiceListTableViewCell.swift in Sources */,
 				2F74CB58250A365F00DE21EF /* LogoAnimationView.swift in Sources */,
 				2F74CB5A250A365F00DE21EF /* SplashAnimatedViewController.swift in Sources */,
+				2F0230BE2514902B004F1B0B /* DictionaryExt.swift in Sources */,
 				2F74CB59250A365F00DE21EF /* UIView+Constraints.swift in Sources */,
 				2F84638C250F67900084EB32 /* selecting_local.swift in Sources */,
 				F4828CB22508FFCD006B85D8 /* TwoButtonsTableViewCell.swift in Sources */,
@@ -1176,6 +1224,7 @@
 				2F8463CF250F6EBC0084EB32 /* LoginNewFirstTableViewCell.swift in Sources */,
 				2F74CB5C250A365F00DE21EF /* VersionPopupViewController.swift in Sources */,
 				2FEB122325120E0F0012FE98 /* DashboardWalletTableViewCell.swift in Sources */,
+				2F964B752513751B005FFEDC /* MultiBannerVw.swift in Sources */,
 				2F07D1AA2505F89100193658 /* ModalClass.swift in Sources */,
 				2F8463D7250F6EBC0084EB32 /* LoginNewDesignViewController.swift in Sources */,
 				2FEB12132511F0010012FE98 /* UnderDevelopmentViewController.swift in Sources */,
@@ -1183,6 +1232,7 @@
 				2F8463E8250F6EBC0084EB32 /* LoginIntroSecond.swift in Sources */,
 				2F846392250F6D270084EB32 /* BasedUrlViewController.swift in Sources */,
 				2F8463E9250F6EBC0084EB32 /* LoginIntroFirst.swift in Sources */,
+				2F0230C22514E477004F1B0B /* CommonPopupViewController.swift in Sources */,
 				F4828C9B2508C574006B85D8 /* ProfileVatTableViewCell.swift in Sources */,
 				CEAD29E42506324F008B1F9C /* TargetViewController.swift in Sources */,
 				2F8463D4250F6EBC0084EB32 /* LoginNewSecondTableViewCell.swift in Sources */,
@@ -1203,6 +1253,7 @@
 				2FEB122B251225A30012FE98 /* ServicesDashboardTableViewCell.swift in Sources */,
 				2F8463E1250F6EBC0084EB32 /* LoginIntroFourth.swift in Sources */,
 				2F07D1A82505F89100193658 /* Constant.swift in Sources */,
+				2F964B6E25136B05005FFEDC /* DropShipDashboardTableViewCell.swift in Sources */,
 				2F07D1AF2505FD7700193658 /* HeaderHeightSingleton.swift in Sources */,
 				2F07D1B12505FDBA00193658 /* UserData.swift in Sources */,
 				F415E772250A221900DEF755 /* ProfileModal.swift in Sources */,
@@ -1213,6 +1264,7 @@
 				F4828CA02508DF3E006B85D8 /* ProfileServiceTableViewCell.swift in Sources */,
 				2FEB12032511EC930012FE98 /* SideMenuViewController.swift in Sources */,
 				2FEB121A2511F1530012FE98 /* SignOutViewController.swift in Sources */,
+				2F964B772513751B005FFEDC /* MultiBannerTableViewCell.swift in Sources */,
 				2F84641D250F80570084EB32 /* LoginModal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

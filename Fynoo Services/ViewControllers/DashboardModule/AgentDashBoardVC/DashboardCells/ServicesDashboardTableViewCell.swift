@@ -45,11 +45,11 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
-            let size = CGSize(width: (screenWidth / 2) - 50 , height: 150 )
+            let size = CGSize(width: (screenWidth / 2) - 30 , height: 150 )
             if let layout = self.collectionVw.collectionViewLayout as? UICollectionViewFlowLayout{
                 let width = UIScreen.main.bounds.width
                 layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-                layout.minimumInteritemSpacing = 10
+                layout.minimumInteritemSpacing = 0
                 layout.minimumLineSpacing = 0
             }
             return size

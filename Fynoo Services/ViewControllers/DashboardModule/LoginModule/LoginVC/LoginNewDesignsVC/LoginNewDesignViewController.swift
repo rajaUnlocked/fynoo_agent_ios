@@ -288,6 +288,7 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
 //        }
 //    }
     func selectStore(store:String?){
+        return
            if store=="arabic"{
                UserDefaults.standard.set(["ar","en"], forKey: "AppleLanguages")
             HeaderHeightSingleton.shared.LanguageSelected = "AR"
