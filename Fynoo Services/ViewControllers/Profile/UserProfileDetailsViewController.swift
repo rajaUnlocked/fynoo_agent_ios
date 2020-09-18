@@ -26,7 +26,8 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
               tableVw.reloadData()
               print(Str,vat)
     }
-    
+    var SectImage:UIImage?
+
     func cancel() {
         isEdit = false
         tableVw.reloadData()
@@ -34,11 +35,17 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     }
     
   
+    var ismobile = true
+
+    var mobilNoo = ""
+    var value = ""
     
+    var phNoo = ""
+    var phVAL = ""
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var tableVw: UITableView!
     var isEdit = false
-    var isPersonal = false
+    var isPersonal = true
     var profileInfo : ProfileModal?
     var agentInfo = AgentProfile()
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
@@ -100,16 +107,30 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
             }
             ACTIVATION.removeLast()
         }
+        let split = agentInfo.maroof.split(separator: "/")
+             print(split)
+             var last  = String(split.suffix(1).joined(separator: [" "]))
+             print(last)
+            
+        var isvatUpload = 0
+        if pdfVat != agentInfo.vatCertificate{
+            isvatUpload = 1
+        }
+        agentInfo.vatNo = agentInfo.vatNo.replacingOccurrences(of: " ", with: "")
         
-        print(ACTIVATION)
-        let parameter = ["user_id":"1075","lang_code":"EN","user_type":"AC","service_id":ACTIVATION,"name":agentInfo.businessName,"email":agentInfo.Email,"country_id":agentInfo.countryId,"dob":"","city_id":agentInfo.cityId,"mobile_code":agentInfo.mobileCode,"mobile_number":agentInfo.mobileNo,"phone_code":agentInfo.phCode,"phone_number":agentInfo.phoneNo,"maroof_link":agentInfo.maroof,"bank_details_id":agentInfo.bankId,"bank_name":agentInfo.bankname,"card_holder_name":agentInfo.cardHolderName,"iban_no":agentInfo.iban,"vat_no":agentInfo.vatNo,"password":"","education_id":"","major_id":""] as [String : Any]
+            print(ACTIVATION)
+        let mobile = agentInfo.mobileNo.replacingOccurrences(of: " ", with: "")
+        let phone = agentInfo.phoneNo.replacingOccurrences(of: " ", with: "")
+        let parameter = ["user_id":"1106","lang_code":"EN","user_type":"AI","service_id":ACTIVATION,"name":agentInfo.name,"email":agentInfo.Email,"country_id":agentInfo.countryId,"dob":self.agentInfo.dob,"city_id":agentInfo.cityId,"mobile_code":agentInfo.mobileCode,"mobile_number":mobile,"phone_code":agentInfo.phCode,"phone_number":phone,"maroof_link":last,"bank_details_id":agentInfo.bankId,"bank_id":agentInfo.bankId,"bank_name":agentInfo.bankname,"card_holder_name":agentInfo.cardHolderName,"iban_no":agentInfo.iban,"vat_no":agentInfo.vatNo,"password":"","education_id":agentInfo.educationId,"major_id":agentInfo.majorId,"is_vat_upload":"\(isvatUpload)"] as [String : Any]
         
         print(parameter)
         ModalClass.startLoading(self.view)
-        let pfurl=URL(string:pdfVat)!
-        ServerCalls.PdfFileUpload(inputUrl: Service.updateProfile, parameters: parameter, pdfname: "vat_certificate", pdfurl: pfurl) { (response, success, resp) in
+        ServerCalls.PdfFileUpload(inputUrl: Service.updateProfile, parameters: parameter, pdfname: "vat_certificate", pdfurl: pdfVat) { (response, success, resp) in
             ModalClass.stopLoading()
             if success{
+                
+                self.isEdit = false
+                self.tableVw.reloadData()
                 print(response)
             }
         }
@@ -155,6 +176,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
 
                 if error == 0{
                     self.agentInfo.bankname = (value.object(forKey: "data") as! NSDictionary).object(forKey: "bank_name") as! String
+                    self.agentInfo.bankId = (value.object(forKey: "data") as! NSDictionary).object(forKey: "id") as! Int
                     self.tableVw.reloadData()
                     
                 }else{
@@ -193,7 +215,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     }
     
     func getProfileData(){
-        let parameter = ["user_id":"1075",
+        let parameter = ["user_id":"1106",
         "lang_code":"EN"]
         ServerCalls.postRequest(Service.getProfile, withParameters: parameter) { (response, success) in
             if let value = response as? NSDictionary{
@@ -215,33 +237,56 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                         }
                                                 
                        
-
+                        self.agentInfo.name = self.profileInfo?.data?.user_data?.name ?? ""
                         self.agentInfo.Email = self.profileInfo?.data?.user_data?.email ?? ""
                         self.agentInfo.country = self.profileInfo?.data?.user_data?.country ?? ""
                         self.agentInfo.countryId = self.profileInfo?.data?.user_data?.country_id ?? 0
                         self.agentInfo.city = self.profileInfo?.data?.user_data?.city ?? ""
                         self.agentInfo.cityId = self.profileInfo?.data?.user_data?.city_id ?? 0
                         self.agentInfo.Email = self.profileInfo?.data?.user_data?.email ?? ""
-                        self.agentInfo.mobileNo = self.profileInfo?.data?.user_data?.mobile_number ?? ""
+                        let mobile  = self.profileInfo?.data?.user_data?.mobile_number ?? ""
+                        self.agentInfo.mobileNo = self.customStringFormatting(of: mobile)
                         self.agentInfo.mobileCode = self.profileInfo?.data?.user_data?.mobile_code ?? ""
-                        self.agentInfo.phoneNo = self.profileInfo?.data?.user_data?.phone_number ?? ""
+                        let phone = self.profileInfo?.data?.user_data?.phone_number ?? ""
+                        self.agentInfo.phoneNo =  self.customStringFormatting(of: phone)
+                        
+                        
                         self.agentInfo.phCode = self.profileInfo?.data?.user_data?.phone_code ?? ""
+                        self.agentInfo.phFlag = self.profileInfo?.data?.user_data?.phone_flag ?? ""
                         self.agentInfo.maroof = "https://www.maroof.com/"
                         self.agentInfo.maroof +=  self.profileInfo?.data?.user_data?.maroof_link ?? ""
                         self.agentInfo.bankname = self.profileInfo?.data?.user_data?.bank_name ?? ""
                         self.agentInfo.cardHolderName = self.profileInfo?.data?.user_data?.ac_holder_name ?? ""
-                        
+                        self.agentInfo.ibanLenght = 24
                         self.agentInfo.bankId = self.profileInfo?.data?.user_data?.bank_id ?? 0
                         self.agentInfo.iban = self.profileInfo?.data?.user_data?.iban_no ?? ""
                         print(self.profileInfo?.data?.user_data?.account_iban_nbr ?? "","kjkjkjjkj")
-                        self.agentInfo.vatNo = self.profileInfo?.data?.user_data?.vat_no ?? ""
+                        let vals = self.profileInfo?.data?.user_data?.vat_no ?? ""
+                        self.agentInfo.vatNo =  self.customStringFormatting(of: vals)
+
+                        
                         self.pdfVat = self.profileInfo?.data?.user_data?.vat_certificate ?? ""
                         
+                        self.agentInfo.gender = self.profileInfo?.data?.user_data?.gender ?? ""
+                        self.agentInfo.dob = self.profileInfo?.data?.user_data?.dob ?? ""
+
+                        self.agentInfo.education = self.profileInfo?.data?.user_data?.education ?? ""
+                        self.agentInfo.educationId = self.profileInfo?.data?.user_data?.education_new ?? 0
+
+                        self.agentInfo.major = self.profileInfo?.data?.user_data?.education_major ?? ""
+                        self.agentInfo.majorId = self.profileInfo?.data?.user_data?.education_major_id ?? 0
+
+                        self.agentInfo.mobileFlag = self.profileInfo?.data?.user_data?.mobile_flag ?? ""
                         
+                        self.agentInfo.mobileLength = self.profileInfo?.data?.user_data?.mobile_length ?? 0
+                        
+                        self.agentInfo.phoneLength = self.profileInfo?.data?.user_data?.phone_length ?? 0
+
+                        self.agentInfo.dob = self.profileInfo?.data?.user_data?.dob ?? ""
                         
                         if self.pdfVat != ""{
                             let url = URL(string: self.pdfVat)
-                            self.pdfImage = self.pdfThumbnail(url: url!)!
+                            //self.pdfImage = self.pdfThumbnail(url: url!)!
                         }else{
                             self.pdfImage = UIImage(named:"dottedrectangle")!
                         }
@@ -268,7 +313,41 @@ extension UserProfileDetailsViewController : UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
-        if indexPath.section == 5{
+        if isPersonal {
+            
+            if indexPath.section == 2{
+                if indexPath.row == 2{
+                    let curr_date = Calendar.current.date(byAdding: .year, value: 0, to: Date())
+                    
+                    
+                    
+                    
+                 
+                    DatePickerDialog().show("Select Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", minimumDate: nil, datePickerMode: .dateAndTime) {
+                        (date) -> Void in
+                        if let dt = date {
+                            
+                            let formatter = DateFormatter()
+                            formatter.locale = Locale(identifier: "en_US_POSIX")
+                            formatter.dateFormat = "MMM dd,yyyy"
+                            let date = formatter.string(from: dt)
+                            
+                            self.agentInfo.dob = date
+                            self.tableVw.reloadData()
+                           // let date1 = formatter.date(from:date)
+                         
+                            
+                            
+                        }
+                    }
+                    
+                    
+                }
+            }
+            
+        }
+        
+        if indexPath.section == 4{
             let vc = VatpopnewchangeViewController(nibName: "VatpopnewchangeViewController", bundle: nil)
             vc.delegate = self
             if self.agentInfo.vatNo != ""{
@@ -429,6 +508,9 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         case 0:
             if indexPath.row == 0{
                 let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileNameTableViewCell",for: indexPath) as! ProfileNameTableViewCell
+                cell.delegate = self
+                cell.profileImage.sd_setImage(with: URL(string:self.profileInfo!.data?.user_data?.profile_image ?? ""), placeholderImage: UIImage(named: "profile_white"))
+
                 return cell
                 
             }else{
@@ -519,6 +601,8 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         }else{
             let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileServiceTableViewCell",for: indexPath) as! ProfileServiceTableViewCell
 
+            cell.viewControl = self
+            cell.languageList = self.profileInfo?.data?.language_list
             cell.isForLanguage = true
             cell.collectionView.reloadData()
             return cell
@@ -537,6 +621,24 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     func personalCell(indexPath : IndexPath) -> UITableViewCell{
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
        cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(personalDetail[indexPath.row]) *", str1: "\(personalDetail[indexPath.row])", str2:" *" )
+        
+        
+        if indexPath.row == 0{
+            cell.headingLbl.text = agentInfo.name
+            
+        }else if indexPath.row == 1{
+            cell.headingLbl.text = agentInfo.gender
+        }
+        else if indexPath.row == 2 {
+            cell.headingLbl.text = agentInfo.dob
+            
+        }
+        else if indexPath.row == 3{
+            cell.headingLbl.text = agentInfo.education
+        }
+        else if indexPath.row == 4{
+            cell.headingLbl.text = agentInfo.major
+        }
         return cell
         
     }
@@ -545,22 +647,51 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
         cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(bankDetail[indexPath.row]) *", str1: "\(bankDetail[indexPath.row])", str2:" *" )
         cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        cell.headingLbl.isHidden = false
+        cell.codeBtnWidth.constant = 0
+        cell.widthImg.constant = 0
+        cell.mobileCodeWidth.constant = 0
+        cell.selectBtn.isHidden = true
         cell.headingLbl.isUserInteractionEnabled = true
-
+        
         if indexPath.row == 0{
             
             cell.headingLbl.text = agentInfo.bankname
             cell.headingLbl.tag = 1000
             cell.headingLbl.delegate=self
         }else if indexPath.row == 1{
-             cell.headingLbl.tag = 1001
+            cell.headingLbl.tag = 1001
             cell.headingLbl.text = agentInfo.cardHolderName
         }else if indexPath.row == 2{
             cell.headingLbl.tag = 1002
             cell.headingLbl.delegate = self
             cell.headingLbl.text = agentInfo.iban
+            cell.headingLbl.delegate = self
+            cell.headingLbl.isHidden = false
+            cell.codeBtnWidth.constant = 0
+            cell.widthImg.constant = 0
+            cell.mobileCodeWidth.constant = 0
+            cell.selectBtn.isHidden = true
         }
         return cell
+    }
+    @objc func codeClicked(_ sender : UIButton){
+        
+        if sender.tag == 1098{
+            let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
+            vc.delegate = self
+            ismobile = false
+            vc.isForCounrtyCode = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
+            vc.delegate = self
+            ismobile = true
+            vc.isForCounrtyCode = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+       
+        
     }
     func BasicInfoCell(indexPath : IndexPath) -> UITableViewCell{
         
@@ -568,6 +699,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         
         cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
 
+        
         cell.contentView.insertSubview(cell.rotateVw, aboveSubview:cell.selectBtn )
         cell.widthImg.constant = 0
         cell.flagImg.isHidden = true
@@ -578,56 +710,104 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             
         }
         cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(basicInfo[indexPath.row]) *", str1: "\(basicInfo[indexPath.row])", str2:" *" )
-        if indexPath.row == 0{
-            cell.headingLbl.tag = 0
+        
+        print(basicInfo[indexPath.row],"sd")
+        if "Email" == basicInfo[indexPath.row]{
+            cell.contentView.insertSubview(cell.rotateVw, aboveSubview:cell.selectBtn )
+            cell.headingLbl.tag = 5
             cell.headingLbl.delegate = self
-            cell.headingLbl.text = agentInfo.businessName
+            cell.headingLbl.isHidden = false
+            cell.codeBtnWidth.constant = 0
+            cell.widthImg.constant = 0
+            cell.mobileCodeWidth.constant = 0
+            cell.selectBtn.isHidden = true
+
             
-        }else if indexPath.row == 1{
-            cell.headingLbl.tag = 1
+            //            cell.headingLbl.tag = 1
+            //            print(agentInfo.Email)
+            //            cell.headingLbl.text = agentInfo.Email
+            //            cell.headingLbl.isHidden = false
+            //            cell.contentView.insertSubview(cell.rotateVw, aboveSubview:cell.selectBtn )
             cell.headingLbl.text = agentInfo.Email
-            
-        }else if indexPath.row == 2{
+
+        }
+        if "Country" == basicInfo[indexPath.row]{
             cell.contentView.insertSubview(cell.selectBtn, aboveSubview: cell.rotateVw)
             cell.selectBtn.isHidden = false
             cell.selectBtn.tag = 2
             cell.selectBtn.addTarget(self, action: #selector(selectCityCountry(_:)), for: .touchUpInside)
             cell.headingLbl.isUserInteractionEnabled = false
             cell.headingLbl.text = agentInfo.country
-            
-        }else if indexPath.row == 3{
+        }
+        if "City" == basicInfo[indexPath.row]{
             cell.contentView.insertSubview(cell.selectBtn, aboveSubview: cell.rotateVw)
             cell.selectBtn.isHidden = false
             cell.selectBtn.tag = 3
             cell.selectBtn.addTarget(self, action: #selector(selectCityCountry(_:)), for: .touchUpInside)
             cell.headingLbl.isUserInteractionEnabled = false
             cell.headingLbl.text = agentInfo.city
-            
-        }else if indexPath.row == 4{
+        }
+        
+        
+        if "Mobile Number" == basicInfo[indexPath.row]{
             cell.mobileCode.text = agentInfo.mobileCode
             cell.headingLbl.text = agentInfo.mobileNo
+            cell.codeBtn.tag = 1099
+            cell.codeBtn.addTarget(self, action: #selector(codeClicked(_:)), for: .touchUpInside)
+            cell.headingLbl.delegate = self
+            cell.flagImg.sd_setImage(with: URL(string: agentInfo.mobileFlag), placeholderImage: UIImage(named: "productplaceholder"))
             cell.widthImg.constant = 20
             cell.flagImg.isHidden = false
             cell.codeBtn.isHidden = false
             cell.codeBtnWidth.constant = 22
-            cell.mobileCode.text = "+91"
             cell.mobileCode.isHidden = false
             cell.mobileCodeWidth.constant = 30
+            cell.headingLbl.delegate = self
+            cell.headingLbl.tag = 3000
+        }
+        
+        if "Maroof Link" ==  basicInfo[indexPath.row]{
+            cell.headingLbl.tag = 5
+            cell.headingLbl.delegate = self
+            cell.headingLbl.text = agentInfo.maroof
+            cell.codeBtnWidth.constant = 0
+            cell.widthImg.constant = 0
+            cell.mobileCodeWidth.constant = 0
+
+        }
+        if "Business Name" == basicInfo[indexPath.row]{
+            cell.headingLbl.tag = 0
+            cell.headingLbl.delegate = self
+            cell.headingLbl.text = agentInfo.businessName
+        }
+        if indexPath.row == 0{
+           
+            
+        }else if indexPath.row == 2{
+          
+            
+        }else if indexPath.row == 3{
+           
+            
+        }else if indexPath.row == 4{
+          
             
         }else if indexPath.row == 5{
             cell.mobileCode.text = agentInfo.phCode
             cell.headingLbl.text = agentInfo.phoneNo
+            cell.codeBtn.tag = 1098
+            cell.codeBtn.addTarget(self, action: #selector(codeClicked(_:)), for: .touchUpInside)
+            cell.flagImg.sd_setImage(with: URL(string: agentInfo.phFlag), placeholderImage: UIImage(named: "productplaceholder"))
+            cell.headingLbl.delegate = self
             cell.widthImg.constant = 20
             cell.flagImg.isHidden = false
             cell.codeBtn.isHidden = false
             cell.codeBtnWidth.constant = 22
-            cell.mobileCode.text = "+91"
             cell.mobileCode.isHidden = false
             cell.mobileCodeWidth.constant = 30
+            cell.headingLbl.tag = 3001
         }else if indexPath.row == 6{
-            cell.headingLbl.tag = 5
-            cell.headingLbl.delegate = self
-            cell.headingLbl.text = agentInfo.maroof
+         
         }
         
         return cell
@@ -695,6 +875,23 @@ extension UserProfileDetailsViewController : ProfileDetailTableViewCellDelegate{
 }
 
 extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
+    func selectedCountryCode(countryCode: NSMutableDictionary) {
+        if ismobile {
+            print(countryCode)
+            agentInfo.mobileNo = ""
+            agentInfo.mobileCode = countryCode.value(forKey: "mobile_code") as! String
+            agentInfo.mobileFlag = countryCode.value(forKey: "country_flag") as! String
+            agentInfo.mobileLength = countryCode.value(forKey: "mobile_length") as! Int
+        }else{
+            agentInfo.phoneNo = ""
+            agentInfo.phCode = countryCode.value(forKey: "mobile_code") as! String
+            agentInfo.phFlag = countryCode.value(forKey: "country_flag") as! String
+            agentInfo.phoneLength = countryCode.value(forKey: "mobile_length") as! Int
+        }
+        tableVw.reloadData()
+
+    }
+    
     func selectedCategoryMethod(countryDict: NSMutableDictionary, tag: Int) {
         
         if countryDict.count != 0{
@@ -794,6 +991,46 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
             let updateText =  str!.replacingCharacters(in: stringRange, with: string)
             return (updateText.count) < agentInfo.ibanLenght+val+5
         }
+            
+        if textField.tag == 3000{
+            let currentCount =  textField.text!.count
+            print(currentCount,"currentCount")
+            let textCount = textField.text?.replacingOccurrences(of: " ", with: "").count
+            let val = currentCount-textCount!
+            print(val,"val")
+            
+            let str = textField.text
+            
+            print(agentInfo.mobileLength)
+            
+            guard let stringRange = Range(range,in: str!) else{
+                return false
+            }
+            let updateText =  str!.replacingCharacters(in: stringRange, with: string)
+            return (updateText.count) < agentInfo.mobileLength+val+1
+        }
+        
+        if textField.tag == 3001{
+            let currentCount =  textField.text!.count
+            let textCount = textField.text?.replacingOccurrences(of: " ", with: "").count
+            let val = currentCount-textCount!
+            
+            
+            let str = textField.text
+            
+            
+            
+            guard let stringRange = Range(range,in: str!) else{
+                return false
+            }
+            let updateText =  str!.replacingCharacters(in: stringRange, with: string)
+            return (updateText.count) < agentInfo.phoneLength+val+1
+        }
+              
+            
+        if textField.tag == 3001{
+            return true
+        }
         else{
             return true
         }
@@ -833,6 +1070,40 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
             agentInfo.bankname = textField.text!
            
             
+        case 3000:
+            if mobilNoo != ""{
+                value = textField.text!
+                mobilNoo = value.replacingOccurrences(of: " ", with: "")
+                value = customStringFormatting(of: mobilNoo)
+                
+            }else{
+                
+                value = customStringFormatting(of: textField.text!)
+                mobilNoo = value.replacingOccurrences(of: " ", with: "")
+                
+            }
+                       
+                       agentInfo.mobileNo = value
+               
+            textField.text = value
+            
+            
+        case 3001:
+            if  phNoo != ""{
+                phVAL = textField.text!
+                phNoo = phVAL.replacingOccurrences(of: " ", with: "")
+                phVAL = customStringFormatting(of: phNoo)
+                
+            }else{
+                
+                phVAL = customStringFormatting(of: textField.text!)
+                phNoo = phVAL.replacingOccurrences(of: " ", with: "")
+                
+            }
+                       
+                       agentInfo.phoneNo = phVAL
+               
+            textField.text = phVAL
             case 1001:
                     agentInfo.cardHolderName = textField.text!
         default:
@@ -840,4 +1111,75 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
         }
         
     }
+    func customStringFormatting(of str: String) -> String {
+           return str.chunk(n: 3)
+               .map{ String($0) }.joined(separator: " ")
+       }
+}
+extension UserProfileDetailsViewController : ProfileNameTableViewCellDelegate,OpenGalleryDelegate{
+    func gallery(img: UIImage, imgtype: String) {
+          SectImage = img
+              UploadProfileImage_API()
+    }
+    func UploadProfileImage_API()
+     {
+     let str = "\(Constant.BASE_URL)\(Constant.UpdateProfile_Image)"
+    
+    let param = [
+     "user_id":"1106"
+     ]
+     
+     
+     ModalClass.startLoading(self.view)
+     ServerCalls.fileUploadAPINew(inputUrl: str, parameters: param, imageName: "image", imageFile: SectImage!) { (response, success, resp) in
+     
+     ModalClass.stopLoading()
+         if let value = response as? NSDictionary{
+             let msg = value.object(forKey: "error_description") as! String
+             let error = value.object(forKey: "error_code") as! Int
+             if error == 100{
+                 
+                 ModalController.showNegativeCustomAlertWith(title:" Error", msg: msg)
+             }else{
+                   ModalController.showSuccessCustomAlertWith(title:"", msg: msg)
+                 AuthorisedUser.shared.user?.data?.profile_image = ((value.object(forKey: "data") as! NSDictionary).object(forKey: "image_url") as! String)
+               
+                 self.getProfileData()
+                 
+             }
+         }
+         else{
+             ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+         }
+     }
+     
+     }
+    func editImage() {
+        OpenGallery.shared.delegate = self
+        OpenGallery.shared.viewControl = self
+        let alert = UIAlertController(title: "", message: "Choose Option", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Camera", style: .default , handler:{ (UIAlertAction)in
+            
+            OpenGallery.shared.openCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Galley", style: .default , handler:{ (UIAlertAction)in
+            print("User click Edit button")
+            
+            OpenGallery.shared.viewControl = self
+            OpenGallery.shared.openGallery()
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .destructive, handler:{ (UIAlertAction)in
+            print("User click Dismiss button")
+        }))
+        
+        self.present(alert, animated: true, completion: {
+            print("completion block")
+        })
+    }
+    
+    
 }

@@ -10,7 +10,24 @@ import UIKit
 
 class SearchCategoryTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var catName: UILabel!
+    @IBOutlet weak var img: UIImageView!
+    
+    @IBOutlet weak var countryCode: UILabel!{
+        didSet {
+//            countryCode.textColor = Constant.Grey_TEXT_COLOR
+//            countryCode.font = UIFont(name:"\(Constant.FONT_Light)",size:14)
+        }
+    }
+    
+    @IBOutlet weak var imgWidth: NSLayoutConstraint!
+    
+    @IBOutlet weak var catName: UILabel!{
+        didSet {
+//            catName.textColor = Constant.Grey_TEXT_COLOR
+//            catName.font = UIFont(name:"\(Constant.FONT_Light)",size:12)
+        }
+    }
+    
     @IBOutlet weak var tickImage: UIImageView!
     
     override func awakeFromNib() {

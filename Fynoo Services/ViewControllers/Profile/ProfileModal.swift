@@ -14,7 +14,8 @@ import ObjectMapper
 
 class AgentProfile : NSObject{
     //basic Info
-    var businessName = ""
+    var name = ""
+    var businessName = "ffjdfgh"
     var Email = ""
     var country = ""
     var countryId = 0
@@ -23,6 +24,8 @@ class AgentProfile : NSObject{
     var mobileNo = ""
     var mobileCode = ""
     var mobileFlag = ""
+    var mobileLength = 0
+    var phoneLength = 0
     var phoneNo = ""
     var phCode  = ""
     var phFlag = ""
@@ -30,7 +33,7 @@ class AgentProfile : NSObject{
     
     //bankDetail
     var bankname = ""
-    var cardHolderName = ""
+    var cardHolderName = "hgsdsd"
     var iban = ""
     var bankId = 0
     //vat
@@ -38,10 +41,11 @@ class AgentProfile : NSObject{
     var vatCertificate = ""
     
     //personal
-    var name = ""
     var gender = ""
     var dob = ""
     var education = ""
+    var educationId = 0
+    var majorId = 0
     var major = ""
     var ibanLenght = 0
     
@@ -74,13 +78,31 @@ class ProfileDataInfo : Mappable{
     
     var user_data : ProfileData?
     var service_list_data : [service_list_data]?
+      var language_list : [language_lists]?
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        language_list <- map["language_list"]
+
+        service_list_data <- map["service_list_data"]
+        user_data <- map["user_data"]
+    }
+    
+}
+class language_lists : Mappable{
+    
+    var id = 0
+    var lang_id = ""
+    var lang_name = ""
     
     required init?(map: Map) {}
     
     func mapping(map: Map) {
         
-        service_list_data <- map["service_list_data"]
-        user_data <- map["user_data"]
+        id <- map["id"]
+        lang_id <- map["lang_id"]
+        lang_name <- map["lang_name"]
     }
     
 }
@@ -106,12 +128,12 @@ class ProfileData : Mappable{
     var country = ""
     var country_id = 0
     var dob = ""
-    var education_id = 0
-    var education_name = ""
+    var education_new = 0
+    var education = ""
     var email = ""
     var gender = ""
-    var major_id = 0
-    var major_name = ""
+    var education_major_id = 0
+    var education_major = ""
     var maroof_link = ""
     var mobile_code = ""
     var mobile_number = ""
@@ -119,10 +141,19 @@ class ProfileData : Mappable{
     var phone_code = ""
     var phone_number = ""
     var vat_certificate = ""
-    
+    var mobile_flag = ""
+    var phone_flag = ""
+    var mobile_length = 0
+    var phone_length = 0
+    var profile_image = ""
     required init?(map: Map) {}
     
     func mapping(map: Map) {
+        profile_image <- map["profile_image"]
+        mobile_length <- map["mobile_length"]
+        phone_length <- map["phone_length"]
+        phone_flag <- map["phone_flag"]
+        mobile_flag <- map["mobile_flag"]
         ac_holder_name <- map["ac_holder_name"]
 
         vat_certificate <- map["vat_certificate"]
@@ -146,13 +177,13 @@ class ProfileData : Mappable{
         country_id <- map["country_id"]
         
         dob <- map["dob"]
-        education_id <- map["education_id"]
-        education_name <- map["education_name"]
+        education_new <- map["education_new"]
+        education <- map["education"]
         email <- map["email"]
         gender <- map["gender"]
         
-        major_id <- map["major_id"]
-        major_name <- map["major_name"]
+        education_major <- map["education_major"]
+        education_major_id <- map["education_major_id"]
         maroof_link <- map["maroof_link"]
         mobile_code <- map["mobile_code"]
         mobile_number <- map["mobile_number"]

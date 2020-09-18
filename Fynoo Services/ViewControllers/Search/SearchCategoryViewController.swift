@@ -16,7 +16,7 @@ protocol SearchCategoryViewControllerDelegate: class {
     func selectedMajorEducationMethod(educationDict : NSMutableDictionary)
     func selectedCurrency(currency : NSMutableDictionary)
     func selectedBankMethod(bankDict : NSMutableDictionary)
-    func selectetCourierCompanyMethod(courierCompanyDict : NSMutableDictionary)
+    func selectedCountryCode(countryCode : NSMutableDictionary)
 }
 
 class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
@@ -25,7 +25,13 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var shadowVw: UIView!
     @IBOutlet weak var searchVw: UIView!
-    @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var searchField: UITextField!{
+        didSet {
+//            searchField.textColor = Constant.Grey_TEXT_COLOR
+//            searchField.font = UIFont(name:"\(Constant.FONT_Light)",size:13)
+        }
+    }
+    var langArr : NSMutableArray = NSMutableArray()
     @IBOutlet weak var tableVw: UITableView!
     var countryListArray : NSMutableArray = NSMutableArray()
     var selectedCountryDict : NSMutableDictionary = NSMutableDictionary()
@@ -37,9 +43,10 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
     var isForEducationList : Bool = false
     var isForMajorEducationList : Bool = false
     var currencyLists : Bool = false
-    var isFromCourierCompany:Bool = false
+    var isForCounrtyCode=false
     var selectedOLDCountryDict : NSDictionary = NSDictionary()
     var selectedCountryID  = ""
+    var isForLanguage = false
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUiMethod()
@@ -70,20 +77,26 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
              self.searchField.placeholder = "Enter Currency"
               bankListAPI()
         }
-        else if isForMajorEducationList {
+        else if isForMajorEducationList  {
             self.customHeader.titleHeader.text = "Select Major Education"
             print("majorDict-", self.selectedOLDCountryDict)
             let array =  selectedOLDCountryDict.object(forKey: "list_value") as! NSArray
             self.countryListArray = NSMutableArray(array: array)
             self.tableVw.reloadData()
             
-        }else if isFromCourierCompany {
-            self.customHeader.titleHeader.text = "Select Courier Company"
-             self.searchField.placeholder = "Enter Courier Company"
-           //   courierCompanyListAPI()
         }
-        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-        searchField.font = UIFont(name:"\(fontNameLight)",size:12)
+        
+        else if isForCounrtyCode {
+            self.customHeader.titleHeader.text = "Select Country Code"
+            self.countryAPI()
+             self.tableVw.reloadData()
+        }
+        
+        else if isForLanguage{
+            self.customHeader.titleHeader.text = "Select Language"
+            self.languageApi()
+            self.tableVw.reloadData()
+        }
         customHeader.viewControl = self
     }
     func setupUiMethod(){
@@ -130,6 +143,8 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
       }
     func registerCellNibs(){
         tableVw.register(UINib(nibName: "SearchCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchCategoryTableViewCell");
+        tableVw.register(UINib(nibName: "TwoButtonsTableViewCell", bundle: nil), forCellReuseIdentifier: "TwoButtonsTableViewCell");
+
     }
     
     @IBAction func doneClicked(_ sender: Any) {
@@ -140,24 +155,23 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
         self.navigationController?.popViewController(animated: true)
         if self.isForCountry{
             self.delegate?.selectedCategoryMethod(countryDict: self.selectedCountryDict,tag:self.tag)
-            
         }else if self.isForBankList {
             self.delegate?.selectedBankMethod(bankDict: self.selectedCountryDict)
-            
         } else if self.isForCity {
             self.delegate?.selectedCityMethod(cityDict: self.selectedCountryDict)
-            
         }else if self.isForEducationList {
             self.delegate?.selectedEducationMethod(educationDict: self.selectedCountryDict)
         }
         else if self.isForMajorEducationList {
-            self.delegate?.selectedMajorEducationMethod(educationDict: self.selectedCountryDict)
+        self.delegate?.selectedMajorEducationMethod(educationDict: self.selectedCountryDict)
         }
+            
         else if self.currencyLists {
             self.delegate?.selectedCurrency(currency: self.selectedCountryDict)
-            
-        } else if self.isFromCourierCompany {
-            self.delegate?.selectetCourierCompanyMethod(courierCompanyDict: self.selectedCountryDict)
+        }
+        else if self.isForCounrtyCode{
+            self.delegate?.selectedCurrency(currency: self.selectedCountryDict)
+
         }
     }
     
@@ -167,10 +181,17 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
     
     // MARK: - TableView DataSource Delegates
     func numberOfSections(in tableView: UITableView) -> Int{
+        if isForLanguage{
+            return 2
+        }
         return 1
     }
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if section == 1{
+            return 1
+        }
         if filterListArray.count > 0 || searchField.text!.count > 0 {
             return self.filterListArray.count
         }else{
@@ -178,38 +199,50 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
+    @objc func saveChange(){
+        
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 1{
+            
+            let cell = self.tableVw.dequeueReusableCell(withIdentifier: "TwoButtonsTableViewCell",for: indexPath) as! TwoButtonsTableViewCell
+            cell.cancel.isHidden = true
+            cell.save.addTarget(self, action: #selector(saveChange), for: .touchUpInside)
+            return cell
+        }else{
+            
+        }
         return countryCell(index: indexPath)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if filterListArray.count > 0 || searchField.text!.count > 0 {
+        if filterListArray.count > 0 || searchField.text!.count > 0{
             selectedCountryDict = self.filterListArray.object(at: indexPath.row) as! NSMutableDictionary
         }else{
             selectedCountryDict = NSMutableDictionary(dictionary: self.countryListArray.object(at: indexPath.row) as! NSDictionary)
         }
-        //    self.tableVw.reloadData()
+    //    self.tableVw.reloadData()
         self.navigationController?.popViewController(animated: true)
         if self.isForCountry{
-        self.delegate?.selectedCategoryMethod(countryDict: self.selectedCountryDict, tag: self.tag)
-            
+            self.delegate?.selectedCategoryMethod(countryDict: self.selectedCountryDict, tag: self.tag)
         }else if self.isForBankList {
             self.delegate?.selectedBankMethod(bankDict: self.selectedCountryDict)
-            
         } else if self.isForCity {
             self.delegate?.selectedCityMethod(cityDict: self.selectedCountryDict)
-            
         }else if self.isForEducationList {
             self.delegate?.selectedEducationMethod(educationDict: self.selectedCountryDict)
         }
         else if self.isForMajorEducationList {
-            self.delegate?.selectedMajorEducationMethod(educationDict: self.selectedCountryDict)
+        self.delegate?.selectedMajorEducationMethod(educationDict: self.selectedCountryDict)
+        }
             
-        }else if self.currencyLists {
+        else if self.currencyLists {
             self.delegate?.selectedCurrency(currency: self.selectedCountryDict)
+        }
+        else if self.isForCounrtyCode{
+            self.delegate?.selectedCountryCode(countryCode: self.selectedCountryDict)
             
-        }else if self.isFromCourierCompany {
-            self.delegate?.selectetCourierCompanyMethod(courierCompanyDict: self.selectedCountryDict)
         }
     }
     
@@ -221,11 +254,10 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
     // MARK: - TableView Cells Return
     func countryCell(index : IndexPath) -> UITableViewCell {
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "SearchCategoryTableViewCell",for: index) as! SearchCategoryTableViewCell
-        
-         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-        cell.catName.font = UIFont(name:"\(fontNameLight)",size:12)
-        
         cell.selectionStyle = .none
+        cell.imgWidth.constant = 0
+        
+       
         if filterListArray.count > 0 || searchField.text!.count > 0 {
             if isForCountry{
             cell.catName.text = "\((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "country_name") as! String)"
@@ -241,17 +273,22 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
                 
             }else if isForMajorEducationList{
                 cell.catName.text = "\((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "education_major") as! String)"
-                
-            }else if isFromCourierCompany{
-                cell.catName.text = "\((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "company_name") as! String)"
             }
+            else if isForCounrtyCode{
+                cell.imgWidth.constant = 20
+                cell.countryCode.isHidden = false
+                cell.img.isHidden = false
+                cell.catName.text = "\((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "country_name") as! String)"
+                let str = (self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "country_flag") as! String
+                cell.img.sd_setImage(with: URL(string: "\(str)"), placeholderImage: UIImage(named: "branch_logo_temp"))
+                cell.countryCode.text = "\((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "mobile_code") as! String)"
+            }
+            
             if (self.filterListArray.object(at: index.row) as! NSDictionary) == self.selectedCountryDict {
                 cell.tickImage.isHidden = false
             }else{
                 cell.tickImage.isHidden = true
             }
-            
-            
         }else{
             if isForCountry{
         cell.catName.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "country_name") as! String)"
@@ -270,9 +307,25 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
             }
             else if isForMajorEducationList {
                 cell.catName.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "education_major") as! String)"
+            }
+            
+            else if isForCounrtyCode {
+                  cell.imgWidth.constant = 20
+                cell.countryCode.isHidden = false
+                cell.img.isHidden = false
+                cell.catName.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "country_name") as! String)"
+                let str = (self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "country_flag") as! String
+               cell.img.sd_setImage(with: URL(string: "\(str)"), placeholderImage: UIImage(named: "branch_logo_temp"))
+                cell.countryCode.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "mobile_code") as! String)"
                 
-            }else if isFromCourierCompany {
-                cell.catName.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "company_name") as! String)"
+            }
+            
+            else if isForLanguage{
+                cell.imgWidth.constant = 0
+                cell.countryCode.isHidden = true
+                cell.img.isHidden = true
+                cell.catName.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "name") as! String)"
+                cell.tickImage.isHidden = false
             }
             
         if (self.countryListArray.object(at: index.row) as! NSDictionary) == self.selectedCountryDict {
@@ -283,6 +336,48 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
        }
         return cell
     }
+    
+    func languageApi()
+    {
+        ModalClass.startLoading(self.view)
+        let device_id = UIDevice.current.identifierForVendor!.uuidString
+        let str = "\(Service.languageList)"
+        let parameters = [
+            "device_id": "\(device_id)",
+            "device_type": "ios","lang_code":HeaderHeightSingleton.shared.LanguageSelected
+        ]
+        print("request -",parameters)
+        ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
+            ModalClass.stopLoading()
+            if success == true {
+                let ResponseDict : NSDictionary = (response as? NSDictionary)!
+                print("ResponseDictionary %@",ResponseDict)
+                let x = ResponseDict.object(forKey: "error") as! Bool
+                if x {
+                    ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "msg") as? String)!, msg: "")
+                }
+                else{
+                    let results = (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "lang_list") as! NSArray
+                    
+                    for var i in (0..<results.count){
+                        let dict : NSDictionary = NSDictionary(dictionary: results.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
+                        self.countryListArray.add(dict)
+                    }
+                    self.tableVw.reloadData()
+                }
+            }else{
+                if response == nil {
+                    print ("connection error")
+                    ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                }else{
+                    print ("data not in proper json")
+                }
+            }
+        }
+    }
+
+    
+    
     
     // MARK: - Country API
     func countryAPI()
@@ -457,48 +552,6 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
 
-    // MARK: - courierCompanyList API
-//      func courierCompanyListAPI(){
-//          ModalClass.startLoading(self.view)
-//          let str = "\(orderManagementApi.courierComapany_list)"
-//          let parameters = [
-//               "lang_code": HeaderHeightSingleton.shared.LanguageSelected
-//               ]
-//                ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
-//              ModalClass.stopLoading()
-//              if success == true {
-//
-//                  let ResponseDict : NSDictionary = (response as? NSDictionary)!
-//                  print("ResponseDictionary %@",ResponseDict)
-//                  let x = ResponseDict.object(forKey: "error") as! Bool
-//                  if x {
-//                 ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "msg") as? String)!, msg: "")
-//                  }
-//                  else{
-//                    let results = (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "company_list") as! NSArray
-//
-//                    for var i in (0..<results.count){
-//                        let dict : NSDictionary = NSDictionary(dictionary: results.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
-//                        self.countryListArray.add(dict)
-//                    }
-//
-//                    print(self.countryListArray,"df")
-//                    self.tableVw.reloadData()
-//                }
-//              }else{
-//                  if response == nil {
-//                      print ("connection error")
-//                      ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
-//                  }else{
-//                      print ("data not in proper json")
-//                  }
-//              }
-//          }
-//      }
-    
-    
-    
-    
     @objc func textFieldDidChange(_ textField: UITextField) {
         if let textStr = textField.text {
             if self.countryListArray.count == 0{
@@ -515,10 +568,11 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
                 countryOr = "education_type"
             }else if isForMajorEducationList {
                 countryOr = "education_major"
-            }else if currencyLists {
+            }
+            else if currencyLists {
                 countryOr = "currency"
-            }else if isFromCourierCompany {
-                countryOr = "company_name"
+            }else if isForCounrtyCode{
+                 countryOr = "country_name"
             }
             let searchPredicate = NSPredicate(format: "\(countryOr) CONTAINS[C] %@", textStr)
             let array = (countryListArray as NSArray).filtered(using: searchPredicate)
@@ -529,6 +583,7 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
             }
             if(array.count == 0){
                 self.filterListArray.removeAllObjects()
+                
             } else {
                 self.filterListArray.removeAllObjects()
                 for var i in (0..<array.count)

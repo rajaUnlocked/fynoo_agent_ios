@@ -89,7 +89,8 @@ enum ValidationMessages {
 
 class Constant: NSObject {
     
-    
+    static let UpdateProfile_Image : String = "agentapis/v2/update_profile_photo/";
+
 //      static var BASE_URL : String = "http://43.241.61.141:9003/"
       //  static var BASE_URL : String = "http://43.241.61.141:9005/"
     static let vatlengthlist: String = "product_api/getVatLength/"
@@ -109,7 +110,8 @@ class Constant: NSObject {
 }
 
 enum Service {
-  
+    
+    static let languageList = Constant.BASE_URL + "agentapi/v1/agent_language_list/"
     static let userProfileData = Constant.BASE_URL + "businessapi/v1/GetUserDetails/"
     static let commisionlist = Constant.BASE_URL + "agentapis/v2/agent_commision/"
     static let targetlist = Constant.BASE_URL + "target_master_api/v2/target/"

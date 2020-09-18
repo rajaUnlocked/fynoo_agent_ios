@@ -67,9 +67,9 @@
 		F415E772250A221900DEF755 /* ProfileModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F415E771250A221900DEF755 /* ProfileModal.swift */; };
 		F419CA57250B6F59008087FA /* SearchCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F419CA56250B6F59008087FA /* SearchCategoryViewController.swift */; };
 		F419CA59250B6F61008087FA /* SearchCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F419CA58250B6F61008087FA /* SearchCategoryViewController.xib */; };
-		F419CA5B250B6FFB008087FA /* SearchCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F419CA5A250B6FFB008087FA /* SearchCategoryTableViewCell.swift */; };
-		F419CA5D250B7005008087FA /* SearchCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F419CA5C250B7005008087FA /* SearchCategoryTableViewCell.xib */; };
 		F419CA5F250B7196008087FA /* DictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F419CA5E250B7195008087FA /* DictionaryExt.swift */; };
+		F46CC70925134A550069EBEE /* SearchCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46CC70825134A550069EBEE /* SearchCategoryTableViewCell.swift */; };
+		F46CC70B25134A5E0069EBEE /* SearchCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46CC70A25134A5E0069EBEE /* SearchCategoryTableViewCell.xib */; };
 		F4828C8E2508AA2C006B85D8 /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4828C8D2508AA2C006B85D8 /* SectionHeader.xib */; };
 		F4828C902508AA8F006B85D8 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828C8F2508AA8F006B85D8 /* SectionHeader.swift */; };
 		F4828C922508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4828C912508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib */; };
@@ -92,6 +92,8 @@
 		F4CEC2FD2511D351003C35E8 /* VatpopnewchangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4CEC2FC2511D351003C35E8 /* VatpopnewchangeViewController.xib */; };
 		F4CEC2FF2511D9FF003C35E8 /* UploadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CEC2FE2511D9FE003C35E8 /* UploadImage.swift */; };
 		F4CEC3012511DDCC003C35E8 /* branchsmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CEC3002511DDCC003C35E8 /* branchsmodel.swift */; };
+		F4D1915C2514C17E0098B12D /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D1915B2514C17E0098B12D /* DatePickerDialog.swift */; };
+		F4EC04A02514D19C005AF7B0 /* OpenGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EC049F2514D19B005AF7B0 /* OpenGallery.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,9 +185,9 @@
 		F415E771250A221900DEF755 /* ProfileModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModal.swift; sourceTree = "<group>"; };
 		F419CA56250B6F59008087FA /* SearchCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCategoryViewController.swift; sourceTree = "<group>"; };
 		F419CA58250B6F61008087FA /* SearchCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCategoryViewController.xib; sourceTree = "<group>"; };
-		F419CA5A250B6FFB008087FA /* SearchCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCategoryTableViewCell.swift; sourceTree = "<group>"; };
-		F419CA5C250B7005008087FA /* SearchCategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		F419CA5E250B7195008087FA /* DictionaryExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExt.swift; sourceTree = "<group>"; };
+		F46CC70825134A550069EBEE /* SearchCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		F46CC70A25134A5E0069EBEE /* SearchCategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		F4828C8D2508AA2C006B85D8 /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
 		F4828C8F2508AA8F006B85D8 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SectionHeader.swift; path = "/Users/ind-sen-lp-046/Desktop/fynoo_agent_ios/Fynoo Services/ViewControllers/Profile/TableViewCell/SectionHeader.swift"; sourceTree = "<absolute>"; };
 		F4828C912508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileEnteriesTableViewCell.xib; sourceTree = "<group>"; };
@@ -208,6 +210,8 @@
 		F4CEC2FC2511D351003C35E8 /* VatpopnewchangeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VatpopnewchangeViewController.xib; sourceTree = "<group>"; };
 		F4CEC2FE2511D9FE003C35E8 /* UploadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImage.swift; sourceTree = "<group>"; };
 		F4CEC3002511DDCC003C35E8 /* branchsmodel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = branchsmodel.swift; sourceTree = "<group>"; };
+		F4D1915B2514C17E0098B12D /* DatePickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
+		F4EC049F2514D19B005AF7B0 /* OpenGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGallery.swift; sourceTree = "<group>"; };
 		FA4CA97958AA8EC290CFD6F1 /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -246,7 +250,9 @@
 				2F07D1B22505FE1B00193658 /* Singleton.swift */,
 				2F07D1B02505FDBA00193658 /* UserData.swift */,
 				2F07D1AE2505FD7700193658 /* HeaderHeightSingleton.swift */,
+				F4EC049F2514D19B005AF7B0 /* OpenGallery.swift */,
 				F419CA5E250B7195008087FA /* DictionaryExt.swift */,
+				F4D1915B2514C17E0098B12D /* DatePickerDialog.swift */,
 				2F07D1AC2505FC8600193658 /* Banner.swift */,
 				2F07D1A42505F89100193658 /* Constant.swift */,
 				2F07D1A52505F89100193658 /* ModalController.swift */,
@@ -316,6 +322,7 @@
 		2FFDE23C2501221B006C5EBD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F4EC04A12514D2A0005AF7B0 /* PopUp */,
 				F4CEC2F92511D340003C35E8 /* VatInfo */,
 				F419CA55250B6F4B008087FA /* Search */,
 				CEAD29E6250632BB008B1F9C /* NavigationBar */,
@@ -427,8 +434,8 @@
 		F419CA55250B6F4B008087FA /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				F419CA5C250B7005008087FA /* SearchCategoryTableViewCell.xib */,
-				F419CA5A250B6FFB008087FA /* SearchCategoryTableViewCell.swift */,
+				F46CC70A25134A5E0069EBEE /* SearchCategoryTableViewCell.xib */,
+				F46CC70825134A550069EBEE /* SearchCategoryTableViewCell.swift */,
 				F419CA58250B6F61008087FA /* SearchCategoryViewController.xib */,
 				F419CA56250B6F59008087FA /* SearchCategoryViewController.swift */,
 			);
@@ -476,6 +483,13 @@
 				F4CEC2FA2511D34B003C35E8 /* VatpopnewchangeViewController.swift */,
 			);
 			path = VatInfo;
+			sourceTree = "<group>";
+		};
+		F4EC04A12514D2A0005AF7B0 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PopUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -610,8 +624,8 @@
 				F4828CA12508DF3E006B85D8 /* ProfileServiceTableViewCell.xib in Resources */,
 				CEE3578B250740800097069D /* sst-arabic-bold.ttf in Resources */,
 				CEE35790250740800097069D /* Segoe UI.ttf in Resources */,
+				F46CC70B25134A5E0069EBEE /* SearchCategoryTableViewCell.xib in Resources */,
 				CEE3579C250740800097069D /* sst-arabic-light.ttf in Resources */,
-				F419CA5D250B7005008087FA /* SearchCategoryTableViewCell.xib in Resources */,
 				CEE35797250740800097069D /* Roboto-Italic.ttf in Resources */,
 				CEE3578D250740800097069D /* Roboto-Regular.ttf in Resources */,
 				F4C4DC5C250794A50075F520 /* ProfileDetailTableViewCell.xib in Resources */,
@@ -773,10 +787,12 @@
 				2FFDE20D25012166006C5EBD /* AppDelegate.swift in Sources */,
 				F4C4DC59250794490075F520 /* UserProfileDetailsViewController.swift in Sources */,
 				2F07D1A92505F89100193658 /* ModalController.swift in Sources */,
+				F46CC70925134A550069EBEE /* SearchCategoryTableViewCell.swift in Sources */,
 				F4C4DC5E250794B20075F520 /* ProfileDetailTableViewCell.swift in Sources */,
 				2FFDE20F25012166006C5EBD /* SceneDelegate.swift in Sources */,
 				F419CA57250B6F59008087FA /* SearchCategoryViewController.swift in Sources */,
 				2F07D1AA2505F89100193658 /* ModalClass.swift in Sources */,
+				F4D1915C2514C17E0098B12D /* DatePickerDialog.swift in Sources */,
 				F4828C9B2508C574006B85D8 /* ProfileVatTableViewCell.swift in Sources */,
 				CEAD29E42506324F008B1F9C /* TargetViewController.swift in Sources */,
 				F4828C942508B27E006B85D8 /* ProfileEnteriesTableViewCell.swift in Sources */,
@@ -790,10 +806,10 @@
 				2F07D1B12505FDBA00193658 /* UserData.swift in Sources */,
 				F415E772250A221900DEF755 /* ProfileModal.swift in Sources */,
 				2F07D1AB2505F89100193658 /* ServerCalls.swift in Sources */,
-				F419CA5B250B6FFB008087FA /* SearchCategoryTableViewCell.swift in Sources */,
 				CEE3579F250751020097069D /* CommisionsViewController.swift in Sources */,
 				CEAD29F92506A43D008B1F9C /* VideoTableViewCell.swift in Sources */,
 				F4828CA02508DF3E006B85D8 /* ProfileServiceTableViewCell.swift in Sources */,
+				F4EC04A02514D19C005AF7B0 /* OpenGallery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

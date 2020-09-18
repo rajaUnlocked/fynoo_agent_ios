@@ -22,14 +22,14 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="Jtn-ad-LsY">
-                        <rect key="frame" x="10" y="58" width="30" height="30"/>
+                        <rect key="frame" x="10" y="63" width="20" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="U5i-Xr-t6f"/>
-                            <constraint firstAttribute="width" constant="30" id="umX-3L-3LS"/>
+                            <constraint firstAttribute="height" constant="20" id="U5i-Xr-t6f"/>
+                            <constraint firstAttribute="width" constant="20" id="umX-3L-3LS"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQd-1F-FAt">
-                        <rect key="frame" x="49" y="65.5" width="33.5" height="15"/>
+                        <rect key="frame" x="39" y="65.5" width="33.5" height="15"/>
                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="13"/>
                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
