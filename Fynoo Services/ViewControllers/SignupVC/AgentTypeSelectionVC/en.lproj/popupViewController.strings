@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Join with us to increase your income"; ObjectID = "1AM-kc-AeK"; */
+"1AM-kc-AeK.text" = "Join with us to increase your income";
+
+/* Class = "UILabel"; text = "For Agent"; ObjectID = "DZP-nS-Bgt"; */
+"DZP-nS-Bgt.text" = "For Agent";
+
+/* Class = "UIButton"; normalTitle = "Company"; ObjectID = "UWF-cj-YlS"; */
+"UWF-cj-YlS.normalTitle" = "Company";
+
+/* Class = "UILabel"; text = "An integrated platform for digital commerce"; ObjectID = "YNW-pE-8aw"; */
+"YNW-pE-8aw.text" = "An integrated platform for digital commerce";
+
+/* Class = "UIButton"; normalTitle = "Personal"; ObjectID = "v9c-vh-H1e"; */
+"v9c-vh-H1e.normalTitle" = "Personal";

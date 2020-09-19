@@ -21,6 +21,7 @@ pod 'SDWebImage'
 pod 'iOSDropDown'
 pod 'MTPopup'
 pod 'KWVerificationCodeView'
+pod 'PopupDialog', '~> 1.1'
 
   target 'Fynoo ServicesTests' do
     inherit! :search_paths

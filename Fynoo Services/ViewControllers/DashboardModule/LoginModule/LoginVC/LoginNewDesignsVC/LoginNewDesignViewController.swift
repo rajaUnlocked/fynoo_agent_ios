@@ -738,6 +738,11 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func signupBtnClicked(){
+        
+        let viewController = popupViewController()
+//              viewController.delegate = self
+              self.navigationController?.pushViewController(viewController, animated: true)
+        
 //        let vc = SignUPViewController(nibName: "SignUPViewController", bundle: nil)
 //        self.navigationController?.pushViewController(vc, animated: true)
     }

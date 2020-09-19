@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "Confirm Password"; ObjectID = "5Bn-Dk-buo"; */
+"5Bn-Dk-buo.text" = "Confirm Password";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "5cZ-56-Dbz"; */
+"5cZ-56-Dbz.text" = "Password";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "Caj-aB-dmg"; */
+"Caj-aB-dmg.text" = "Country";
+
+/* Class = "UILabel"; text = "Maroof Link"; ObjectID = "Gga-qG-ohT"; */
+"Gga-qG-ohT.text" = "Maroof Link";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "Lld-P8-K2G"; */
+"Lld-P8-K2G.text" = "Email";
+
+/* Class = "UIButton"; normalTitle = "City"; ObjectID = "X03-ca-K40"; */
+"X03-ca-K40.normalTitle" = "City";
+
+/* Class = "UILabel"; text = "Phone Number"; ObjectID = "Xqm-Og-sKx"; */
+"Xqm-Og-sKx.text" = "Phone Number";
+
+/* Class = "UILabel"; text = "City"; ObjectID = "cR6-9u-dpb"; */
+"cR6-9u-dpb.text" = "City";
+
+/* Class = "UILabel"; text = "Mobile Number"; ObjectID = "cxr-pg-c0G"; */
+"cxr-pg-c0G.text" = "Mobile Number";
+
+/* Class = "UILabel"; text = "Confirm Email"; ObjectID = "vUD-i3-Scc"; */
+"vUD-i3-Scc.text" = "Confirm Email";
+
+/* Class = "UILabel"; text = "Business Name"; ObjectID = "wNQ-7u-SDJ"; */
+"wNQ-7u-SDJ.text" = "Business Name";

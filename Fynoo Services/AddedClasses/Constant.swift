@@ -91,17 +91,27 @@ enum ValidationMessages {
 class Constant: NSObject {
     
     
-//      static var BASE_URL : String = "http://43.241.61.141:9003/"
-      //  static var BASE_URL : String = "http://43.241.61.141:9005/"
+    //      static var BASE_URL : String = "http://43.241.61.141:9003/"
+    //  static var BASE_URL : String = "http://43.241.61.141:9005/"
     
-     static var BASE_URL : String = "http://61.95.220.248:9092/"
-//      static var BASE_URL : String = "http://61.95.220.248:9095/"  //CLIENT URL FOR NOW
+    static var BASE_URL : String = "http://61.95.220.248:9092/"
+    //      static var BASE_URL : String = "http://61.95.220.248:9095/"  //CLIENT URL FOR NOW
     
- 
+    
     static let getAppVersion : String = "common/getAppVersion/";
     static let ForgotPswd: String = "customerapi/v2/forgot_password/"
     static let ResetPswd: String = "customerapi/v2/reset_password/"
     static let get_user_type: String = "customerapi/v2/get_user_type/"
+    
+    // MARK:- AgentAPIs
+    
+    static let Country_List : String = "common/getCountry/";
+    static let City_List : String = "common/getCity/";
+    static let Bank_List : String = "businessapi/v2/bank_list/";
+    static let Education_List : String = "businessapi/v3/education_list/";
+    static let Service_List : String = "agentapi/v1/agentservices/";
+    static let bankIdentifier_List : String = "businessapi/v2/search_iban_number/";
+    static let upload_file : String = "businessapi/v2/uploadimage/";
 }
 
 enum Service {

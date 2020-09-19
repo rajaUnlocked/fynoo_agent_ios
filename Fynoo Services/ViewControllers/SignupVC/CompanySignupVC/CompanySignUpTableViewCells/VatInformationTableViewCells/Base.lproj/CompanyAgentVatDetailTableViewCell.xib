@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CompanyAgentVatDetailTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agM-6D-uw5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you registered in VAT ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmg-lU-IQa">
+                                <rect key="frame" x="28" y="10" width="145.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="zNL-cI-CyQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfb-F3-FZo">
+                                <rect key="frame" x="10" y="43" width="80" height="25"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVJ-3u-Hs9" customClass="CardbUTTON">
+                                        <rect key="frame" x="16" y="-5" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="AcK-h7-rZN"/>
+                                            <constraint firstAttribute="height" constant="35" id="luZ-Vj-TeY"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" image="vatUnselected"/>
+                                        <state key="selected" image="vatSelected"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="yesBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bEG-aW-jdZ"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzj-EI-sOn">
+                                        <rect key="frame" x="53" y="3.5" width="18.5" height="14"/>
+                                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                        <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="0Of-hs-lcO"/>
+                                    <constraint firstItem="dVJ-3u-Hs9" firstAttribute="centerY" secondItem="hfb-F3-FZo" secondAttribute="centerY" id="7Kf-ud-3ih"/>
+                                    <constraint firstItem="zzj-EI-sOn" firstAttribute="centerY" secondItem="dVJ-3u-Hs9" secondAttribute="centerY" constant="-2" id="SxZ-uy-um8"/>
+                                    <constraint firstItem="dVJ-3u-Hs9" firstAttribute="leading" secondItem="hfb-F3-FZo" secondAttribute="leading" constant="16" id="hDJ-m1-1VZ"/>
+                                    <constraint firstAttribute="height" constant="25" id="ioa-Mi-MYh"/>
+                                    <constraint firstItem="zzj-EI-sOn" firstAttribute="leading" secondItem="dVJ-3u-Hs9" secondAttribute="trailing" constant="2" id="x7T-DM-NVj"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e64-bg-FmY">
+                                <rect key="frame" x="10" y="80" width="80" height="25"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uue-cl-yFm" customClass="CardbUTTON">
+                                        <rect key="frame" x="16" y="-5" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="Mrf-L5-hpO"/>
+                                            <constraint firstAttribute="height" constant="35" id="do1-qB-Qal"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" image="vatUnselected"/>
+                                        <state key="selected" image="vatSelected"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="noBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ght-3P-yfS"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8d-fZ-oEO">
+                                        <rect key="frame" x="53" y="3.5" width="27" height="14"/>
+                                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                        <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="f8d-fZ-oEO" firstAttribute="centerY" secondItem="uue-cl-yFm" secondAttribute="centerY" constant="-2" id="2Dx-ia-T6s"/>
+                                    <constraint firstItem="uue-cl-yFm" firstAttribute="centerY" secondItem="e64-bg-FmY" secondAttribute="centerY" id="5DM-Dp-pi1"/>
+                                    <constraint firstAttribute="height" constant="25" id="5vB-oi-T1O"/>
+                                    <constraint firstItem="uue-cl-yFm" firstAttribute="leading" secondItem="e64-bg-FmY" secondAttribute="leading" constant="16" id="9eD-B1-Gos"/>
+                                    <constraint firstAttribute="trailing" secondItem="f8d-fZ-oEO" secondAttribute="trailing" id="B3i-44-pYa"/>
+                                    <constraint firstAttribute="width" constant="80" id="Knm-LA-BPk"/>
+                                    <constraint firstItem="f8d-fZ-oEO" firstAttribute="leading" secondItem="uue-cl-yFm" secondAttribute="trailing" constant="2" id="lnC-ug-gcu"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yeu-fz-Qpi">
+                                <rect key="frame" x="100" y="38" width="210" height="35"/>
+                                <subviews>
+                                    <textField opaque="NO" tag="1011" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your VAT Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6pv-DS-Dlk">
+                                        <rect key="frame" x="10" y="8.5" width="190" height="18.5"/>
+                                        <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="10"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6pv-DS-Dlk" secondAttribute="trailing" constant="10" id="Nz7-Sd-4S7"/>
+                                    <constraint firstItem="6pv-DS-Dlk" firstAttribute="leading" secondItem="Yeu-fz-Qpi" secondAttribute="leading" constant="10" id="WYP-F4-r3n"/>
+                                    <constraint firstItem="6pv-DS-Dlk" firstAttribute="centerY" secondItem="Yeu-fz-Qpi" secondAttribute="centerY" id="cJI-RM-N9G"/>
+                                    <constraint firstAttribute="height" constant="35" id="tjh-0o-DN5"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.40000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="e64-bg-FmY" firstAttribute="leading" secondItem="agM-6D-uw5" secondAttribute="leading" constant="10" id="2f0-eF-ch9"/>
+                            <constraint firstItem="vmg-lU-IQa" firstAttribute="leading" secondItem="agM-6D-uw5" secondAttribute="leading" constant="28" id="ClP-LH-xf6"/>
+                            <constraint firstAttribute="trailing" secondItem="Yeu-fz-Qpi" secondAttribute="trailing" constant="10" id="GCy-tg-dis"/>
+                            <constraint firstItem="e64-bg-FmY" firstAttribute="top" secondItem="hfb-F3-FZo" secondAttribute="bottom" constant="12" id="Vbo-0P-NDh"/>
+                            <constraint firstItem="hfb-F3-FZo" firstAttribute="leading" secondItem="agM-6D-uw5" secondAttribute="leading" constant="10" id="dwx-P0-dba"/>
+                            <constraint firstItem="Yeu-fz-Qpi" firstAttribute="leading" secondItem="hfb-F3-FZo" secondAttribute="trailing" constant="10" id="hVJ-5R-kqB"/>
+                            <constraint firstItem="hfb-F3-FZo" firstAttribute="top" secondItem="vmg-lU-IQa" secondAttribute="bottom" constant="12" id="nhK-D6-fG2"/>
+                            <constraint firstItem="Yeu-fz-Qpi" firstAttribute="centerY" secondItem="hfb-F3-FZo" secondAttribute="centerY" id="yBE-Gb-aSQ"/>
+                            <constraint firstItem="vmg-lU-IQa" firstAttribute="top" secondItem="agM-6D-uw5" secondAttribute="top" constant="10" id="yV8-S7-3c8"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.40000000000000002"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.83137254901960778" green="0.83137254901960778" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="agM-6D-uw5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Hkc-Sz-cWm"/>
+                    <constraint firstAttribute="trailing" secondItem="agM-6D-uw5" secondAttribute="trailing" id="S5o-mQ-hz7"/>
+                    <constraint firstAttribute="bottom" secondItem="agM-6D-uw5" secondAttribute="bottom" id="b3v-c5-9Rf"/>
+                    <constraint firstItem="agM-6D-uw5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eDO-lt-yuz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="mainView" destination="agM-6D-uw5" id="dlG-aM-JQI"/>
+                <outlet property="noBtn" destination="uue-cl-yFm" id="lcR-C5-jKi"/>
+                <outlet property="noView" destination="e64-bg-FmY" id="irj-8r-tJq"/>
+                <outlet property="vatNumberTxtFld" destination="6pv-DS-Dlk" id="4P4-rO-Yid"/>
+                <outlet property="vatNumberView" destination="Yeu-fz-Qpi" id="mfB-aX-4J4"/>
+                <outlet property="yesBtn" destination="dVJ-3u-Hs9" id="yfZ-Zx-wRJ"/>
+                <outlet property="yesView" destination="hfb-F3-FZo" id="YLu-TE-fGH"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="104.46428571428571"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="vatSelected" width="50" height="50"/>
+        <image name="vatUnselected" width="118" height="118"/>
+    </resources>
+</document>

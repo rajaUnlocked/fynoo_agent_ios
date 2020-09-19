@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "City"; ObjectID = "7I2-74-9SU"; */
+"7I2-74-9SU.text" = "City";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "7Q3-oX-sHw"; */
+"7Q3-oX-sHw.text" = "Country";
+
+/* Class = "UILabel"; text = "Maroof Link"; ObjectID = "9KL-Xz-zF6"; */
+"9KL-Xz-zF6.text" = "Maroof Link";
+
+/* Class = "UILabel"; text = "Mobile Number"; ObjectID = "GPW-h0-e9a"; */
+"GPW-h0-e9a.text" = "Mobile Number";
+
+/* Class = "UIButton"; normalTitle = "City"; ObjectID = "Myz-KC-OPR"; */
+"Myz-KC-OPR.normalTitle" = "City";
+
+/* Class = "UILabel"; text = "Confirm Email"; ObjectID = "RxM-aL-hOh"; */
+"RxM-aL-hOh.text" = "Confirm Email";
+
+/* Class = "UILabel"; text = "Confirm Password"; ObjectID = "Vhv-Oc-d6b"; */
+"Vhv-Oc-d6b.text" = "Confirm Password";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "i9Z-Um-Oro"; */
+"i9Z-Um-Oro.text" = "Password";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "sd3-Yw-6Il"; */
+"sd3-Yw-6Il.text" = "Email";
