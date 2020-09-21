@@ -334,6 +334,7 @@
 "Please check user policy"="الرجاء الموافقة على سياسة الاستخدام";
 "Please enter valid OTP"="الرجاء إدخال رمز التحقق";
 
+
 //Forget Password
 "Business Owner" = "صاحب العمل";
 "Agent Company" = "شركة الوكيل";
@@ -430,6 +431,7 @@
 
 //SignUp Agent company
 "Agent Company Registration" = "تسجيل شركة الوكيل";
+"Uploaded VAT Certificate" = "Uploaded VAT Certificate";
 
 //Profile Page
 "Profile"="الملف الشخصي";

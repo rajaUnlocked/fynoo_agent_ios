@@ -1,6 +1,12 @@
 
+/* Class = "UILabel"; text = "Uploaded VAT Certificate"; ObjectID = "2Jo-mD-abC"; */
+"2Jo-mD-abC.text" = "Uploaded VAT Certificate";
+
 /* Class = "UITextField"; placeholder = "Enter Your VAT Number"; ObjectID = "6pv-DS-Dlk"; */
 "6pv-DS-Dlk.placeholder" = "Enter Your VAT Number";
+
+/* Class = "UILabel"; text = "Add"; ObjectID = "9aE-Hl-nHp"; */
+"9aE-Hl-nHp.text" = "Add";
 
 /* Class = "UILabel"; text = "No"; ObjectID = "f8d-fZ-oEO"; */
 "f8d-fZ-oEO.text" = "No";

@@ -166,7 +166,6 @@
 		F62E4AEB25148EC60021CEE0 /* popupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4AA525148EC60021CEE0 /* popupViewController.swift */; };
 		F62E4AEC25148EC60021CEE0 /* CompanyRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4AA825148EC60021CEE0 /* CompanyRegViewController.swift */; };
 		F62E4AED25148EC60021CEE0 /* CompanyRegViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AA925148EC60021CEE0 /* CompanyRegViewController.xib */; };
-		F62E4AEE25148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AAC25148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.strings */; };
 		F62E4AEF25148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AAF25148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.xib */; };
 		F62E4AF025148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4AB125148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.swift */; };
 		F62E4AF125148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AB325148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.strings */; };
@@ -413,8 +412,6 @@
 		F62E4AA525148EC60021CEE0 /* popupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popupViewController.swift; sourceTree = "<group>"; };
 		F62E4AA825148EC60021CEE0 /* CompanyRegViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyRegViewController.swift; sourceTree = "<group>"; };
 		F62E4AA925148EC60021CEE0 /* CompanyRegViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyRegViewController.xib; sourceTree = "<group>"; };
-		F62E4AAD25148EC60021CEE0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
-		F62E4AAE25148EC60021CEE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
 		F62E4AB025148EC60021CEE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CompanyAgentVatDetailTableViewCell.xib; sourceTree = "<group>"; };
 		F62E4AB125148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyAgentVatDetailTableViewCell.swift; sourceTree = "<group>"; };
 		F62E4AB425148EC60021CEE0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/AgentCompanyUserPolicyTableViewCell.strings; sourceTree = "<group>"; };
@@ -461,6 +458,8 @@
 		F62E4B1A251498C40021CEE0 /* SearchCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		F62E4B1F25149A7D0021CEE0 /* DictionaryExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExt.swift; sourceTree = "<group>"; };
 		F62E4B2125149B360021CEE0 /* DatePickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
+		F647705325187CFB00ED2BD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
+		F647705525187CFF00ED2BD0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
 		FA4CA97958AA8EC290CFD6F1 /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -986,9 +985,8 @@
 		F62E4AAB25148EC60021CEE0 /* VatInformationTableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				F62E4AAC25148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.strings */,
-				F62E4AAF25148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.xib */,
 				F62E4AB125148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.swift */,
+				F62E4AAF25148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.xib */,
 			);
 			path = VatInformationTableViewCells;
 			sourceTree = "<group>";
@@ -1244,7 +1242,6 @@
 				F4828C9D2508C57F006B85D8 /* ProfileVatTableViewCell.xib in Resources */,
 				F62E4AEA25148EC60021CEE0 /* popupViewController.xib in Resources */,
 				2F8463E5250F6EBC0084EB32 /* LoginIntroFirst.xib in Resources */,
-				F62E4AEE25148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.strings in Resources */,
 				2F84642B250F82850084EB32 /* SuccesssViewController.xib in Resources */,
 				CEE35792250740800097069D /* Segoe UI Bold.ttf in Resources */,
 				2F74CB5B250A365F00DE21EF /* VersionPopupViewController.xib in Resources */,
@@ -1833,19 +1830,12 @@
 			name = popupViewController.xib;
 			sourceTree = "<group>";
 		};
-		F62E4AAC25148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F62E4AAD25148EC60021CEE0 /* ar */,
-				F62E4AAE25148EC60021CEE0 /* en */,
-			);
-			name = CompanyAgentVatDetailTableViewCell.strings;
-			sourceTree = "<group>";
-		};
 		F62E4AAF25148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F62E4AB025148EC60021CEE0 /* Base */,
+				F647705325187CFB00ED2BD0 /* en */,
+				F647705525187CFF00ED2BD0 /* ar */,
 			);
 			name = CompanyAgentVatDetailTableViewCell.xib;
 			sourceTree = "<group>";

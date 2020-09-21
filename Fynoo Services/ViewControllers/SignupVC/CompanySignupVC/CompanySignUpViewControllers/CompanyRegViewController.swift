@@ -12,6 +12,9 @@ protocol companybackbtnDelegate {
    func activeBoAction()
 }
 class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,CompanyRegTableViewCellDelegate,AgentProfileImageTableViewCellDelegate,ImageSelectPopUpDialogViewControllerDelegate,UITextFieldDelegate,CompanyAgentBasicInformationTableViewCellDelegate,SearchCategoryViewControllerDelegate,CompanyAgentBankDetailsTableViewCellDelegate,CompanyAgentVatDetailTableViewCellDelegate,AgentCompanyUserPolicyTableViewCellDelegate {
+    
+   
+    
    
     func loginClickedd(_ sender: Any) {
         var isLoginThere = false
@@ -451,6 +454,14 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
         self.tabView.reloadRows(at: [IndexPath(row: 0, section: 5)], with: .none)
         
     }
+    
+    func AddVatDocumentClicked(_ sender: Any) {
+        
+    }
+       
+    func RemoveVatDocumentClicked(_ sender: Any) {
+        
+    }
     func userPolicySelected(_ sender: Any){
         if(isUserPolicySelected){
 
@@ -681,7 +692,11 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
            if indexPath.row == 0 {
               return 50
         }else {
-              return 120
+            if isVatYesClicked {
+                return 370
+            }else{
+                return 120
+            }
          }
         }else {
             return 130
@@ -1031,16 +1046,21 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
         cell.mainView.clipsToBounds = true
         cell.mainView.layer.borderWidth = 0.5
         cell.mainView.borderColor =  UIColor.init(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+         cell.vatDocumentHeightConstant.constant = 0
+        
           cell.vatNumberTxtFld.addTarget(self, action: #selector(CompanyRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        
          if isVatYesClicked {
             cell.yesBtn.isSelected = true
              cell.vatNumberView.isHidden = false
              agentSignUPModal.isVatSelected = cell.yesBtn.isSelected
+            cell.vatDocumentHeightConstant.constant = 244
             
             }else{
             cell.yesBtn.isSelected = false
             cell.vatNumberView.isHidden = true
              agentSignUPModal.isVatSelected = cell.yesBtn.isSelected
+             cell.vatDocumentHeightConstant.constant = 0
           }
         
         if isVatNoClicked {

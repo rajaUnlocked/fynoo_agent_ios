@@ -12,6 +12,8 @@ import PopupDialog
 
 class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate ,CompanyRegTableViewCellDelegate,AgentProfileImageTableViewCellDelegate,ImageSelectPopUpDialogViewControllerDelegate,UITextFieldDelegate,SearchCategoryViewControllerDelegate,CompanyAgentBankDetailsTableViewCellDelegate,CompanyAgentVatDetailTableViewCellDelegate,AgentCompanyUserPolicyTableViewCellDelegate,agentPersonalDetailsTableViewCellDelegate,PersonalAgentBasicInformationTableViewCellDelegate {
     
+   
+    
     func loginClickedd(_ sender: Any) {
          var isLoginThere = false
                
@@ -574,6 +576,14 @@ func showHideConfirmPassword(_ sender: Any){
         self.tabView.reloadRows(at: [IndexPath(row: 0, section: 6)], with: .none)
     }
     
+    func AddVatDocumentClicked(_ sender: Any) {
+        
+    }
+       
+    func RemoveVatDocumentClicked(_ sender: Any) {
+        
+    }
+       
     func userPolicySelected(_ sender: Any) {
         if(isUserPolicySelected){
             isUserPolicySelected = false
