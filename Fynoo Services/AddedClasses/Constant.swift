@@ -25,7 +25,7 @@ enum ValidationMessages {
      static let confPassss = "Please enter confirm password"
     static let confPass = "Please enter 8 digit confirm password"
     static let policy = "Please check user policy"
-    static let vat = "Please enter valid vat no"
+    static let vat = "Please select vat option."
     static let mobileLength = "Please enter valid mobile number"
     static let mobileContainArabic = "Mobile Number must not contain Arabic Numbers"
     static let phoneNumber = "Please enter valid phone number"
@@ -52,9 +52,11 @@ enum ValidationMessages {
     static let compareConfirmPassword = "Your Password & Confirm Password Does Not Match"
     static let bankName = "Please select your bank name."
     static let bankAccountHolderName = "Please enter your bank account holder name."
+    static let agentName_compare = "Your Business Name & Acount Holder Name Does Not Match"
     static let bankAccountNumber = "Please enter your IBAN No."
     static let validIbanNumber = "Please enter valid IBAN No."
     static let vatNumber = "Please enter valid vat Number."
+     static let vat_certificate = "Please submit vat certificate."
     static let NickName = "Please enter your Nick Name."
     static let Name = "Please enter your name."
     static let validName = "Please enter valid name."
@@ -112,6 +114,7 @@ class Constant: NSObject {
     static let Service_List : String = "agentapi/v1/agentservices/";
     static let bankIdentifier_List : String = "businessapi/v2/search_iban_number/";
     static let upload_file : String = "businessapi/v2/uploadimage/";
+    static let vatInfo_Data : String = "product_api/getVatLength/";
 }
 
 enum Service {

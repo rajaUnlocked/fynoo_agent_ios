@@ -188,35 +188,34 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
         self.dismiss(animated: true, completion: nil)
     }
    
-    func serviceAPI()
-    {
-    ModalClass.startLoading(self.view)
-    let device_id = UIDevice.current.identifierForVendor!.uuidString
-    let str = "\(Constant.BASE_URL)\(Constant.Service_List)"
-    let parameters = [
-    "lang_code":HeaderHeightSingleton.shared.LanguageSelected
-    ]
-    print("request -",parameters)
-    ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
-    ModalClass.stopLoading()
-    if success == true {
-    self.AgentSERVICE = try! JSONDecoder().decode(AgentService.self, from: resp as! Data )
-        if self.AgentSERVICE!.error! {
-            ModalController.showNegativeCustomAlertWith(title:"Error".localized, msg: "")
-    }
-    else{
-            self.tabView.reloadData()
-    }
-    }else{
-    if response == nil
-    {
-    print ("connection error")
-        ModalController.showNegativeCustomAlertWith(title: "Connection Error".localized, msg: "")
-    }else{
-    print ("data not in proper json")
-    }
-    }
-    }
+    func serviceAPI(){
+        ModalClass.startLoading(self.view)
+        let str = "\(Constant.BASE_URL)\(Constant.Service_List)"
+        let parameters = [
+            "lang_code":HeaderHeightSingleton.shared.LanguageSelected
+        ]
+        print("request -",parameters)
+        ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
+            ModalClass.stopLoading()
+            if success == true {
+                self.AgentSERVICE = try! JSONDecoder().decode(AgentService.self, from: resp as! Data )
+                self.personalAgentSignUPModal.personalAgentName_CompareCode = ModalController.toString(self.AgentSERVICE?.data?.compare_code as Any)
+                if self.AgentSERVICE!.error! {
+                    ModalController.showNegativeCustomAlertWith(title:"Error".localized, msg: "")
+                }
+                else{
+                    self.tabView.reloadData()
+                }
+            }else{
+                if response == nil
+                {
+                    print ("connection error")
+                    ModalController.showNegativeCustomAlertWith(title: "Connection Error".localized, msg: "")
+                }else{
+                    print ("data not in proper json")
+                }
+            }
+        }
     }
     
     func bankNameApi(identifier:String) {
@@ -577,7 +576,14 @@ func showHideConfirmPassword(_ sender: Any){
     }
     
     func AddVatDocumentClicked(_ sender: Any) {
-        
+        let failVC = ImageSelectPopUpDialogViewController(nibName: "ImageSelectPopUpDialogViewController", bundle: nil)
+        let popup = PopupDialog(viewController: failVC,
+                                buttonAlignment: .horizontal,
+                                transitionStyle: .fadeIn,
+                                tapGestureDismissal: true,
+                                panGestureDismissal: false)
+        failVC.delegate = self
+        present(popup, animated: true, completion: nil)
     }
        
     func RemoveVatDocumentClicked(_ sender: Any) {
@@ -795,6 +801,10 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
             serviceCellHeight = 160
         }else if serviceCount ==  11 || serviceCount == 12 {
             serviceCellHeight = 190
+        }else if serviceCount ==  13 || serviceCount == 14 {
+            serviceCellHeight = 220
+        }else if serviceCount ==  15 || serviceCount == 16 {
+            serviceCellHeight = 230
         }
         
         if indexPath.section == 0 {
@@ -1227,17 +1237,24 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         cell.mainView.layer.borderWidth = 0.5
         cell.mainView.borderColor =  UIColor.init(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         
+        cell.vatDocumentHeightConstant.constant = 0
+        cell.documentMainView.isHidden = true
+        
         cell.vatNumberTxtFld.addTarget(self, action: #selector(PersonalRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
         if isVatYesClicked {
             cell.yesBtn.isSelected = true
             cell.vatNumberView.isHidden = false
             personalAgentSignUPModal.isVatSelected = cell.yesBtn.isSelected
+            cell.vatDocumentHeightConstant.constant = 244
+            cell.documentMainView.isHidden = false
             
         }else{
             cell.yesBtn.isSelected = false
             cell.vatNumberView.isHidden = true
             personalAgentSignUPModal.isVatSelected = cell.yesBtn.isSelected
+            cell.vatDocumentHeightConstant.constant = 0
+            cell.documentMainView.isHidden = true
         }
         
         if isVatNoClicked {

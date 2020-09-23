@@ -48,13 +48,6 @@ class CompanyAgentVatDetailTableViewCell: UITableViewCell {
         self.vatNumberTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: vatNumberView)
         
-        var yourViewBorder = CAShapeLayer()
-        yourViewBorder.strokeColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
-        yourViewBorder.lineDashPattern = [4, 4]
-        yourViewBorder.frame = self.documentInnerView.bounds
-        yourViewBorder.fillColor = nil
-        yourViewBorder.path = UIBezierPath(rect: self.documentInnerView.bounds).cgPath
-        self.documentInnerView.layer.addSublayer(yourViewBorder)
     }
     
     func SetFont(){

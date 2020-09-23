@@ -5,23 +5,7 @@
 //  Created by Sendan IT on 14/09/19.
 //  Copyright © 2019 Sendan. All rights reserved.
 //
-//struct AgentService:Decodable {
-//    var error:Bool
-//    var data : [DAta]
-//}
-//
-//struct DAta:Decodable{
-//    var service_id:Int
-//    var service_name:String
-//    var service_icon:String
-//
-//    init(service_id:Int,service_name:String,service_icon:String) {
-//        self.service_id = service_id
-//      self.service_name = service_name
-//        self.service_icon = service_icon
-//    }
-//
-//}
+
 struct AgentService:Decodable {
     
      let error : Bool?
@@ -32,13 +16,16 @@ struct AgentService:Decodable {
 
 struct fynooAgentServices:Decodable {
     
- let services_list : [AgentServices_list]?
+    let services_list : [AgentServices_list]?
+    let compare_code : String?
+    let age_limit : String?
 }
 
 struct AgentServices_list:Decodable {
     let service_id : Int?
     let service_name : String?
     let service_icon : String?
+    let service_code : String?
 
 
 }

@@ -35,11 +35,14 @@ class AgentSignUPModal: NSObject {
     var agentbankAccountHolderName = ""
     var agentbankAccountNumber = ""
     var agentConfirmEmail = ""
-     var agentVatNumber = ""
+    var agentVatNumber = ""
     var isPolicySelected = false
-     var isVatSelected = false
+    var isVatSelected = false
     var isVatNotSelected = false
     
+    var vatDocumentUrl:URL?
+    var vatLength:Int = 0
+     var agentName_CompareCode = ""
     
     func normalAgentSignUPValidation() -> (Bool, String) {
         var isFilled = false
@@ -47,10 +50,10 @@ class AgentSignUPModal: NSObject {
         var message = ""
         
         if imageID == 0 {
-                   return (isFilled, ValidationMessages.companyLogo)
-               }
+            return (isFilled, ValidationMessages.companyLogo)
+        }
         if appDelegate?.selectServiceStr.count == 0 {
-             return (isFilled, ValidationMessages.services)
+            return (isFilled, ValidationMessages.services)
         }
         if agentBussinessName == "" {
             return (isFilled, ValidationMessages.businessName)
@@ -95,17 +98,17 @@ class AgentSignUPModal: NSObject {
             }
         }
         if !agentPhoneNumber.containArabicNumber {
-                   return (isFilled, ValidationMessages.ContactNumberArabicNumber)
-               }
+            return (isFilled, ValidationMessages.ContactNumberArabicNumber)
+        }
         if phoneMinLength > 0 && PhoneMaxLength > 0 && agentPhoneNumber != "" {
             agentPhoneNumber = agentPhoneNumber.replacingOccurrences(of: " ", with: "")
             if (agentPhoneNumber.count <  phoneMinLength) ||  (agentPhoneNumber.count > PhoneMaxLength)  {
                 return (isFilled, ValidationMessages.phoneNumber)
             }
         }
-    
+        
         if  agentMaroofLink.count > 0 && !agentMaroofLink.containArabicNumber {
-         return (isFilled, ValidationMessages.maroofArabicNumber)
+            return (isFilled, ValidationMessages.maroofArabicNumber)
         }
         if agentPassword == "" {
             return (isFilled, ValidationMessages.password)
@@ -115,7 +118,7 @@ class AgentSignUPModal: NSObject {
         }
         if agentPassword.count < 8 {
             
-             return (isFilled, ValidationMessages.passwordCount)
+            return (isFilled, ValidationMessages.passwordCount)
         }
         if agentConfirmPassword == "" {
             return (isFilled, ValidationMessages.agentConfirmPassword)
@@ -132,31 +135,36 @@ class AgentSignUPModal: NSObject {
             
         }
         if agentbankName == "" {
-              return (isFilled, ValidationMessages.validIbanNumber)
-          }
+            return (isFilled, ValidationMessages.validIbanNumber)
+        }
         if agentbankAccountHolderName == "" {
-          return (isFilled, ValidationMessages.bankAccountHolderName)
+            return (isFilled, ValidationMessages.bankAccountHolderName)
         }
+        
+        if (agentName_CompareCode == "YES".uppercased()) && (agentBussinessName != agentbankAccountNumber) {
+           return (isFilled, ValidationMessages.agentName_compare)
+        }
+        
         if ModalController.isValidName(title: agentbankAccountHolderName) == false {
-                   return (isFilled, ValidationMessages.validAccountName)
+            return (isFilled, ValidationMessages.validAccountName)
         }
-          if agentbankAccountNumber == "" {
-              return (isFilled, ValidationMessages.bankAccountNumber)
-          }
+        if agentbankAccountNumber == "" {
+            return (isFilled, ValidationMessages.bankAccountNumber)
+        }
         if !agentbankAccountNumber.containArabicNumber {
-                   return (isFilled, ValidationMessages.ibanArabicNumber)
+            return (isFilled, ValidationMessages.ibanArabicNumber)
         }
         agentbankAccountNumber = agentbankAccountNumber.replacingOccurrences(of: " ", with: "")
-          if agentbankAccountNumber.count != 24 {
-              return (isFilled, ValidationMessages.validIbanNumber)
-          }
-          
-          let ibanBool = ModalController.isValidIBAN(ibanStr: agentbankAccountNumber, length: 24, countryType: "SA")
-          if ibanBool == false
-          {
-              ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validIbanNumber)
-              return (isFilled, ValidationMessages.validIbanNumber)
-          }
+        if agentbankAccountNumber.count != 24 {
+            return (isFilled, ValidationMessages.validIbanNumber)
+        }
+        
+        let ibanBool = ModalController.isValidIBAN(ibanStr: agentbankAccountNumber, length: 24, countryType: "SA")
+        if ibanBool == false
+        {
+            ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validIbanNumber)
+            return (isFilled, ValidationMessages.validIbanNumber)
+        }
         if agentbankAccountNumber != "" {
             agentbankAccountNumber = agentbankAccountNumber.replacingOccurrences(of: " ", with: "")
             if agentbankAccountNumber.count !=  24 {
@@ -164,29 +172,32 @@ class AgentSignUPModal: NSObject {
                 return (isFilled, ValidationMessages.validIbanNumber)
             }
         }
-          if !isVatSelected && !isVatNotSelected {
+        if !isVatSelected && !isVatNotSelected {
             return (isFilled, ValidationMessages.vat)
-            }
+        }
         
         if isVatSelected == true && agentVatNumber == "" {
-           return (isFilled, ValidationMessages.vatNumber)
+            return (isFilled, ValidationMessages.vatNumber)
         }
+        if isVatSelected == true && vatDocumentUrl == nil {
+            return (isFilled, ValidationMessages.vat_certificate)
+        }        
         if !agentVatNumber.containArabicNumber {
-                   return (isFilled, ValidationMessages.vatArabicNumber)
+            return (isFilled, ValidationMessages.vatArabicNumber)
         }
-          if isVatSelected == true && agentVatNumber != "" {
+        if isVatSelected == true && agentVatNumber != "" {
             
             agentVatNumber = agentVatNumber.replacingOccurrences(of: " ", with: "")
-            if agentVatNumber.count !=  15 {
+            if agentVatNumber.count !=  vatLength {
                 ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.vatNumber)
-                 return (isFilled, ValidationMessages.vatNumber)
+                return (isFilled, ValidationMessages.vatNumber)
             }
         }
         
-          if !isPolicySelected {
-              return (isFilled, ValidationMessages.policy)
-          }
-        
+        if !isPolicySelected {
+            return (isFilled, ValidationMessages.policy)
+        }
+            
         else{
             isFilled = true
             isEmail = true
@@ -194,9 +205,77 @@ class AgentSignUPModal: NSObject {
         }
         return (isFilled, message)
     }
-
+    
+//    func agentSignUp(completion:@escaping(Bool, NSDictionary?) -> ()) {
+//
+//        let param = ["user_type":"AC",
+//                     "email":agentEmail,
+//                     "password":agentPassword,
+//                     "name":agentBussinessName,
+//                     "mobile_number":agentContactNumber,
+//                     "mobile_code":mobileCode,
+//                     "country_id":agentCountry,
+//                     "city_id":agentCity,
+//                     "bank_name":agentbankName,
+//                     "iban_no":agentbankAccountNumber,
+//                     "maroof_link":agentMaroofLink,
+//                     "user_img":imageID,
+//                     "gender":"",
+//                     "dob":"",
+//                     "education":"",
+//                     "education_major_id":"",
+//                     "phone_number":agentPhoneNumber,
+//                     "phone_code":phoneCode,
+//                     "ac_holder_name":agentbankAccountHolderName,
+//                     "bank_id":agentbankID,
+//                     "vat_number":agentVatNumber,
+//                     "services":ModalController.toString(appDelegate?.selectServiceStr as Any) ,
+//                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
+//                     "is_vat_available":ModalController.toString(appDelegate?.selectServiceStr as Any) ,
+//                     "vat_certificate":HeaderHeightSingleton.shared.LanguageSelected
+//            ] as [String : Any]
+//
+//        print(param)
+    //        ServerCalls.postRequest(Authentication.AgentsignUp, withParameters: param) { (response, success, resp) in
+    //            ModalClass.stopLoading()
+    //            if let value = response as? NSDictionary {
+    //                let msg = value.object(forKey: "error_description") as! String
+    //                let error = value.object(forKey: "error_code") as! Int
+    //                if error == 100{
+    //                    completion(false,value)
+    //                }else{
+    //
+    //                    //               AuthorisedUser.shared.setAuthorisedUser(with:response)
+    //
+    //                    completion(true,value)
+    //                }
+    //            }
+    //        }
+//    }
+    
     func agentSignUp(completion:@escaping(Bool, NSDictionary?) -> ()) {
-     
+        
+        let str = Authentication.AgentsignUp
+        
+        let pdfdoc = "vat_certificate"
+        
+        var pfurl : URL?
+        if pfurl == nil
+        {
+            pfurl = URL(string:"")
+        }else{
+            pfurl = vatDocumentUrl
+        }
+        
+        var vatAvailable:Int = 0
+
+        if isVatSelected{
+            vatAvailable = 1
+        }else{
+            vatAvailable = 0
+        }
+      
+        
         let param = ["user_type":"AC",
                      "email":agentEmail,
                      "password":agentPassword,
@@ -219,26 +298,34 @@ class AgentSignUPModal: NSObject {
                      "bank_id":agentbankID,
                      "vat_number":agentVatNumber,
                      "services":ModalController.toString(appDelegate?.selectServiceStr as Any) ,
-                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected] as [String : Any]
+                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
+                     "is_vat_available": vatAvailable
+//            ,"vat_certificate":vatDocumentUrl as Any
+            ] as [String : Any]
         
-        print(param)
-        ServerCalls.postRequest(Authentication.AgentsignUp, withParameters: param) { (response, success, resp) in
+        print("request -",param)
+        ServerCalls.PdfFileUpload(inputUrl: str, parameters: param, pdfname: pdfdoc, pdfurl: pfurl!) { (response, success, resp) in
+            
             ModalClass.stopLoading()
-            if let value = response as? NSDictionary{
+            if let value = response as? NSDictionary {
                 let msg = value.object(forKey: "error_description") as! String
                 let error = value.object(forKey: "error_code") as! Int
                 if error == 100{
                     completion(false,value)
                 }else{
-                    
-     //               AuthorisedUser.shared.setAuthorisedUser(with:response)
-                    
                     completion(true,value)
+                }
+            }else{
+                if response == nil {
+                    print ("connection error")
+                    ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                }else{
+                    
+                    print ("data not in proper json")
                 }
             }
         }
     }
-
 }
 
 // personalAgentModal
@@ -278,6 +365,10 @@ class PersonalAgentSignUPModal: NSObject {
     var personalAgentPolicySelected = false
     var isVatSelected = false
     var isVatNotSelected = false
+    
+    var personalVatDocumentUrl:URL?
+    var personalVatLength:Int = 0
+    var personalAgentName_CompareCode = ""
     
     func personalAgentValidation() -> (Bool, String) {
         var isFilled = false
@@ -376,6 +467,10 @@ class PersonalAgentSignUPModal: NSObject {
         if personalAgentbankAccountHolderName == "" {
               return (isFilled, ValidationMessages.bankAccountHolderName)
         }
+        
+        if (personalAgentName_CompareCode == "YES".uppercased()) && (personalAgentName != personalAgentbankAccountHolderName) {
+            return (isFilled, ValidationMessages.agentName_compare)
+        }
         if ModalController.isValidName(title: personalAgentbankAccountHolderName) == false {
         return (isFilled, ValidationMessages.validAccountName)
          }
@@ -407,6 +502,10 @@ class PersonalAgentSignUPModal: NSObject {
             }
         if isVatSelected == true && personalAgentVatNumber == "" {
             return (isFilled, ValidationMessages.vatNumber)
+        }
+        
+        if isVatSelected == true && personalVatDocumentUrl == nil {
+            return (isFilled, ValidationMessages.vat_certificate)
         }
         if !personalAgentVatNumber.containArabicNumber {
             

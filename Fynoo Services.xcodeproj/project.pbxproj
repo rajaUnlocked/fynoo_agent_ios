@@ -206,6 +206,7 @@
 		F62E4B1E251498C40021CEE0 /* SearchCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4B1A251498C40021CEE0 /* SearchCategoryTableViewCell.swift */; };
 		F62E4B2025149A7D0021CEE0 /* DictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4B1F25149A7D0021CEE0 /* DictionaryExt.swift */; };
 		F62E4B2225149B370021CEE0 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4B2125149B360021CEE0 /* DatePickerDialog.swift */; };
+		F6B14CA8251B387300F9F03E /* VatInfoModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B14CA7251B387200F9F03E /* VatInfoModal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -460,6 +461,7 @@
 		F62E4B2125149B360021CEE0 /* DatePickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
 		F647705325187CFB00ED2BD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
 		F647705525187CFF00ED2BD0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
+		F6B14CA7251B387200F9F03E /* VatInfoModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatInfoModal.swift; sourceTree = "<group>"; };
 		FA4CA97958AA8EC290CFD6F1 /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1093,6 +1095,7 @@
 				F62E4B12251498390021CEE0 /* ImageUpload.swift */,
 				F62E4B0E251493A30021CEE0 /* AgentService.swift */,
 				F62E4B0F251493A40021CEE0 /* AgentSignUPModal.swift */,
+				F6B14CA7251B387200F9F03E /* VatInfoModal.swift */,
 			);
 			path = AgentModalClasses;
 			sourceTree = "<group>";
@@ -1481,6 +1484,7 @@
 				F62E4B0625148EC60021CEE0 /* PersonalAgentBasicInformationTableViewCell.swift in Sources */,
 				2F84642A250F82850084EB32 /* SuccesssViewController.swift in Sources */,
 				2F07D1A92505F89100193658 /* ModalController.swift in Sources */,
+				F6B14CA8251B387300F9F03E /* VatInfoModal.swift in Sources */,
 				F62E4B10251493A40021CEE0 /* AgentService.swift in Sources */,
 				F62E4B0225148EC60021CEE0 /* CompanyAgentBasicInformationTableViewCell.swift in Sources */,
 				F4C4DC5E250794B20075F520 /* ProfileDetailTableViewCell.swift in Sources */,

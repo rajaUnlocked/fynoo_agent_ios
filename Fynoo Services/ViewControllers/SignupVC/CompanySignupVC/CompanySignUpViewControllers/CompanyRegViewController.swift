@@ -8,13 +8,12 @@
 
 import UIKit
 import PopupDialog
+import MobileCoreServices
+
 protocol companybackbtnDelegate {
    func activeBoAction()
 }
-class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,CompanyRegTableViewCellDelegate,AgentProfileImageTableViewCellDelegate,ImageSelectPopUpDialogViewControllerDelegate,UITextFieldDelegate,CompanyAgentBasicInformationTableViewCellDelegate,SearchCategoryViewControllerDelegate,CompanyAgentBankDetailsTableViewCellDelegate,CompanyAgentVatDetailTableViewCellDelegate,AgentCompanyUserPolicyTableViewCellDelegate {
-    
-   
-    
+class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,CompanyRegTableViewCellDelegate,AgentProfileImageTableViewCellDelegate,ImageSelectPopUpDialogViewControllerDelegate,UITextFieldDelegate,CompanyAgentBasicInformationTableViewCellDelegate,SearchCategoryViewControllerDelegate,CompanyAgentBankDetailsTableViewCellDelegate,CompanyAgentVatDetailTableViewCellDelegate,AgentCompanyUserPolicyTableViewCellDelegate,UIDocumentPickerDelegate {
    
     func loginClickedd(_ sender: Any) {
         var isLoginThere = false
@@ -88,23 +87,31 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
     @IBOutlet weak var downImage: UIImageView!
     var isImageUploaded:Bool = false
      var agentSignUPModal = AgentSignUPModal()
-        override func viewDidLoad() {
+    
+    var isFromVatDocument:Bool = false
+     var documentImageSize = NSMutableArray()
+    var size = 0.0
+     var vatInformationModal = AgentVatInformationModal()
+     var agentVatInfoDatas : VatInfoModal?
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         appDelegate.selectServiceStr = ""
         self.serviceAPI()
+        self.getVatInfoAPI()
         self.registerAgentNotifications()
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         }
         downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
-            
+        
         self.tabView.delegate = self
         self.tabView.dataSource = self
-
+        
         self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         self.view.bringSubviewToFront(headerView)
-            maroofLink = "https://www.maroof.com/".localized;
-            ibanPrefix = "SA".localized;
+        maroofLink = "https://www.maroof.com/".localized;
+        ibanPrefix = "SA".localized;
         
         tabView.register(UINib(nibName: "CompanyRegTableViewCell", bundle: nil), forCellReuseIdentifier: "CompanyRegTableViewCell")
         tabView.register(UINib(nibName: "AgentCompanyServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "AgentCompanyServicesTableViewCell")
@@ -119,7 +126,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
         self.showButton.tag = 1001
         self.showConfirmButton.tag = 1002
         self.tabView.separatorStyle = .none
-            self.headerView.titleHeader.text = "Welcome, Let's Create An Account".localized
+        self.headerView.titleHeader.text = "Welcome, Let's Create An Account".localized
         headerView.viewControl = self
     }
     
@@ -172,7 +179,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
        let compressData = tempImage.jpegData(compressionQuality: 0.8) //max value is 1.0 and minimum is 0.0
        let compressedImage = UIImage(data: compressData!)
         tempImage = compressedImage
-        
+       
 //        self.selectedImage = tempImage
 //        if tempImage.size.width > 414{
 //
@@ -204,6 +211,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
             ModalClass.stopLoading()
             if success == true {
                 self.AgentSERVICE = try! JSONDecoder().decode(AgentService.self, from: resp as! Data )
+                self.agentSignUPModal.agentName_CompareCode = ModalController.toString(self.AgentSERVICE?.data?.compare_code as Any) 
                 if self.AgentSERVICE!.error! {
                     ModalController.showNegativeCustomAlertWith(title:"Error".localized, msg: "")
                 }
@@ -221,6 +229,22 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
             }
         }
     }
+    
+    func getVatInfoAPI() {
+        
+        vatInformationModal.getAgentVatInfoApi() { (success, response) in
+            ModalClass.stopLoading()
+            if success{
+                self.agentVatInfoDatas = response
+                self.agentSignUPModal.vatLength = self.agentVatInfoDatas?.data?.vat_length ?? 0
+            }else{
+                ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.agentVatInfoDatas?.error_description! ?? "")")
+               
+            }
+            self.tabView.reloadData()
+        }
+    }
+  
     
     func bankNameApi(identifier:String) {
         let str = "\(Constant.BASE_URL)\(Constant.bankIdentifier_List)"
@@ -388,7 +412,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
     }
     func AgentselectCity(_ sender: Any){
         let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
-        if self.selectedAgentCountryDict.count == 0{
+        if self.selectedAgentCountryDict.count == 0 {
             ModalController.showNegativeCustomAlertWith(title: "Please select country first".localized, msg: "")
             return
         }
@@ -442,6 +466,8 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
     }
     
     func AgentselectNoOnVat(_ sender: Any) {
+//        isFromVatDocument = false
+//        self.agentSignUPModal.vatDocumentUrl = nil
         if(isVatNoClicked){
             
             isVatNoClicked = false
@@ -457,9 +483,76 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
     
     func AddVatDocumentClicked(_ sender: Any) {
         
+        let importMenu = UIDocumentPickerViewController(documentTypes: ["com.microsoft.word.doc","org.openxmlformats.wordprocessingml.document", kUTTypePDF as String], in: UIDocumentPickerMode.import)
+        
+        if #available(iOS 11.0, *) {
+            importMenu.allowsMultipleSelection = true
+        }
+        
+        importMenu.delegate = self
+        importMenu.modalPresentationStyle = .formSheet
+        
+        present(importMenu, animated: true)
+        
+    }
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        print("document:-", urls.first as Any)
+
+        
+        size = 0.0
+        let siz = fileSize(forURL:  urls.first!)
+        documentImageSize.add(siz)
+        if documentImageSize.count > 0
+        {
+            for i in 0...(documentImageSize.count - 1)
+            {
+                let si = documentImageSize[i] as! Double
+                size = size + si
+            }
+        }
+        print(".......\(size)")
+        if size > agentVatInfoDatas?.data?.vat_file_size ?? 0.0
+        {
+            ModalController.showNegativeCustomAlertWith(title: "File Size is Greater Than \(agentVatInfoDatas?.data?.vat_file_size ?? 0.0) Mb Upload a lower size File.", msg: "")
+            return
+        }else{
+            self.isFromVatDocument = true
+            agentSignUPModal.vatDocumentUrl = urls.first
+            
+             self.tabView.reloadRows(at: [IndexPath(row: 1, section: 4)], with: .none)
+        }
+
+    }
+    
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func fileSize(forURL url: Any) -> Double {
+        var fileURL: URL?
+        var fileSize: Double = 0.0
+        if (url is URL) || (url is String)
+        {
+            if (url is URL) {
+                fileURL = url as? URL
+            }
+            else {
+                fileURL = URL(fileURLWithPath: url as! String)
+            }
+            var fileSizeValue = 0.0
+            try? fileSizeValue = (fileURL?.resourceValues(forKeys: [URLResourceKey.fileSizeKey]).allValues.first?.value as! Double?)!
+            if fileSizeValue > 0.0 {
+                fileSize = (Double(fileSizeValue) / (1024 * 1024))
+            }
+        }
+        return fileSize
     }
        
     func RemoveVatDocumentClicked(_ sender: Any) {
+        isFromVatDocument = false
+        self.agentSignUPModal.vatDocumentUrl = nil
+        self.tabView.reloadRows(at: [IndexPath(row: 1, section: 4)], with: .none)
         
     }
     func userPolicySelected(_ sender: Any){
@@ -666,7 +759,11 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
             serviceCellHeight = 160
         }else if serviceCount ==  11 || serviceCount == 12 {
             serviceCellHeight = 190
-        }        
+        }else if serviceCount ==  13 || serviceCount == 14 {
+            serviceCellHeight = 220
+        }else if serviceCount ==  15 || serviceCount == 16 {
+            serviceCellHeight = 230
+        }
         
         if indexPath.section == 0 {
           return 205
@@ -1046,21 +1143,28 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
         cell.mainView.clipsToBounds = true
         cell.mainView.layer.borderWidth = 0.5
         cell.mainView.borderColor =  UIColor.init(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+        
          cell.vatDocumentHeightConstant.constant = 0
+         cell.documentMainView.isHidden = true
+        cell.deleteDocuementBtn.isHidden = true
+        cell.vatDocumentImageView.contentMode = .scaleToFill
         
           cell.vatNumberTxtFld.addTarget(self, action: #selector(CompanyRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        
+        cell.vatNumberTxtFld.text = agentSignUPModal.agentVatNumber
          if isVatYesClicked {
             cell.yesBtn.isSelected = true
              cell.vatNumberView.isHidden = false
              agentSignUPModal.isVatSelected = cell.yesBtn.isSelected
             cell.vatDocumentHeightConstant.constant = 244
+            cell.documentMainView.isHidden = false
             
             }else{
             cell.yesBtn.isSelected = false
             cell.vatNumberView.isHidden = true
              agentSignUPModal.isVatSelected = cell.yesBtn.isSelected
              cell.vatDocumentHeightConstant.constant = 0
+            cell.documentMainView.isHidden = true
+            
           }
         
         if isVatNoClicked {
@@ -1072,6 +1176,26 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
               cell.noBtn.isSelected = false
             }
 
+        
+        if isFromVatDocument == true {
+            if self.agentSignUPModal.vatDocumentUrl?.absoluteString != "" {
+                cell.vatDocumentImageView.contentMode = .scaleAspectFill
+                cell.deleteDocuementBtn.isHidden = false
+ cell.vatDocumentImageView.image = drawPDFfromURL(url: self.agentSignUPModal.vatDocumentUrl! )
+            }
+            else {
+                 cell.vatDocumentImageView.contentMode = .scaleToFill
+                cell.deleteDocuementBtn.isHidden = true
+                cell.vatDocumentImageView.image = UIImage(named: "vatSample_image.png")
+            }
+        }else{
+            cell.vatDocumentImageView.contentMode = .scaleToFill
+            cell.deleteDocuementBtn.isHidden = true
+            cell.vatDocumentImageView.image = UIImage(named: "vatSample_image.png")
+        }
+
+        
+        
             cell.tag = index.row
             cell.delegate = self
             return cell
@@ -1107,6 +1231,25 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
             cell.delegate = self
             return cell
         }
+    
+    func drawPDFfromURL(url: URL) -> UIImage? {
+        guard let document = CGPDFDocument(url as CFURL) else { return nil }
+        guard let page = document.page(at: 1) else { return nil }
+
+        let pageRect = page.getBoxRect(.mediaBox)
+        let renderer = UIGraphicsImageRenderer(size: pageRect.size)
+        let img = renderer.image { ctx in
+            UIColor.white.set()
+            ctx.fill(pageRect)
+
+            ctx.cgContext.translateBy(x: 0.0, y: pageRect.size.height)
+            ctx.cgContext.scaleBy(x: 1.0, y: -1.0)
+
+            ctx.cgContext.drawPDFPage(page)
+        }
+
+        return img
+    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
