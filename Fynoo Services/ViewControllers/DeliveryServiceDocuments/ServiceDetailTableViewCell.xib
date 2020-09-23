@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="400" id="KGk-i7-Jjw" customClass="ServiceDetailTableViewCell" customModule="Fynoo_Services" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="433" height="419"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="433" height="419"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d07-cj-XeD">
+                        <rect key="frame" x="15" y="7" width="403" height="412"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload National Id / Iqama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZ7-bX-8S3">
+                                <rect key="frame" x="15" y="15" width="155" height="14"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport" translatesAutoresizingMaskIntoConstraints="NO" id="slj-YT-qIY">
+                                <rect key="frame" x="15" y="44" width="373" height="170"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="srX-UL-T6E"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIz-Dm-74h">
+                                <rect key="frame" x="15" y="229" width="373" height="83.5"/>
+                                <string key="text">Please make sure you follow the below guidelines:
+   Saudis: The applicant must hold a National Id Cards.
+   Non- Saudis: The applicant must be sponsored by a
+   licensed limo company, and the car must be authorized 
+   by the transport ministry (Yellow plate)  
+   Sons of Saudi females can apply.</string>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDq-rd-b2s">
+                                <rect key="frame" x="30" y="358" width="343" height="34"/>
+                                <color key="backgroundColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="MQq-GA-tTm"/>
+                                </constraints>
+                                <state key="normal" title="Upload &amp; Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNx-em-63f">
+                                <rect key="frame" x="15" y="44" width="373" height="170"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHn-PM-Jcg">
+                                <rect key="frame" x="356" y="36" width="22" height="22"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="OhE-Kc-zOr"/>
+                                    <constraint firstAttribute="width" constant="22" id="g3k-gw-shs"/>
+                                </constraints>
+                                <state key="normal" image="cross_new"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="slj-YT-qIY" firstAttribute="top" secondItem="TZ7-bX-8S3" secondAttribute="bottom" constant="15" id="09P-si-sv8"/>
+                            <constraint firstItem="KNx-em-63f" firstAttribute="centerY" secondItem="slj-YT-qIY" secondAttribute="centerY" id="0Ho-Uh-JbE"/>
+                            <constraint firstAttribute="trailing" secondItem="slj-YT-qIY" secondAttribute="trailing" constant="15" id="5Bg-ku-6Sd"/>
+                            <constraint firstItem="xHn-PM-Jcg" firstAttribute="top" secondItem="KNx-em-63f" secondAttribute="top" constant="-8" id="5qR-bi-q2N"/>
+                            <constraint firstAttribute="trailing" secondItem="DDq-rd-b2s" secondAttribute="trailing" constant="30" id="A7a-AJ-ywh"/>
+                            <constraint firstItem="KNx-em-63f" firstAttribute="width" secondItem="slj-YT-qIY" secondAttribute="width" id="EKV-db-OtM"/>
+                            <constraint firstItem="TZ7-bX-8S3" firstAttribute="leading" secondItem="d07-cj-XeD" secondAttribute="leading" constant="15" id="HqB-GV-k7G"/>
+                            <constraint firstItem="slj-YT-qIY" firstAttribute="leading" secondItem="d07-cj-XeD" secondAttribute="leading" constant="15" id="K4a-0N-Bb3"/>
+                            <constraint firstAttribute="trailing" secondItem="qIz-Dm-74h" secondAttribute="trailing" constant="15" id="Lkp-nc-cCw"/>
+                            <constraint firstItem="xHn-PM-Jcg" firstAttribute="trailing" secondItem="KNx-em-63f" secondAttribute="trailing" constant="-10" id="Mm8-yS-r8u"/>
+                            <constraint firstItem="qIz-Dm-74h" firstAttribute="top" secondItem="slj-YT-qIY" secondAttribute="bottom" constant="15" id="OGy-CA-qdf"/>
+                            <constraint firstItem="TZ7-bX-8S3" firstAttribute="top" secondItem="d07-cj-XeD" secondAttribute="top" constant="15" id="UWZ-xk-Qcv"/>
+                            <constraint firstAttribute="bottom" secondItem="DDq-rd-b2s" secondAttribute="bottom" constant="20" id="V7C-in-Tgu"/>
+                            <constraint firstItem="DDq-rd-b2s" firstAttribute="leading" secondItem="d07-cj-XeD" secondAttribute="leading" constant="30" id="aUP-Dn-9En"/>
+                            <constraint firstItem="KNx-em-63f" firstAttribute="height" secondItem="slj-YT-qIY" secondAttribute="height" id="iiQ-gw-CNe"/>
+                            <constraint firstItem="KNx-em-63f" firstAttribute="centerX" secondItem="slj-YT-qIY" secondAttribute="centerX" id="nvb-Fj-syh"/>
+                            <constraint firstItem="DDq-rd-b2s" firstAttribute="centerX" secondItem="qIz-Dm-74h" secondAttribute="centerX" id="put-l8-hAF"/>
+                            <constraint firstItem="qIz-Dm-74h" firstAttribute="leading" secondItem="d07-cj-XeD" secondAttribute="leading" constant="15" id="uVd-h5-L1T"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.69803921568627447" green="0.69803921568627447" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="d07-cj-XeD" secondAttribute="bottom" id="1c5-hs-rpE"/>
+                    <constraint firstAttribute="trailing" secondItem="d07-cj-XeD" secondAttribute="trailing" constant="15" id="GRj-Y0-anS"/>
+                    <constraint firstItem="d07-cj-XeD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="I5U-fp-hoC"/>
+                    <constraint firstItem="d07-cj-XeD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="XJO-ER-gqW"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="uploadimg" destination="KNx-em-63f" id="18X-7t-w1L"/>
+            </connections>
+            <point key="canvasLocation" x="161.59420289855075" y="126.22767857142857"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="cross_new" width="43" height="43"/>
+        <image name="passport" width="945" height="480"/>
+    </resources>
+</document>

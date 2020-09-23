@@ -128,6 +128,9 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         }
         
         @objc func sideMenuwalletClicked(_ notification: NSNotification) {
+            let vc = DeliveryDocumentViewController(nibName: "DeliveryDocumentViewController", bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         }
         
         @objc func sideMenuuserProfileClicked(_ notification: NSNotification) {
