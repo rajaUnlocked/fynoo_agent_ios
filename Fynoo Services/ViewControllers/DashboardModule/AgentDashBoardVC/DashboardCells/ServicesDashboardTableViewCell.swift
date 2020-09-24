@@ -8,9 +8,16 @@
 
 import UIKit
 
-class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+protocol ServicesDashboardTableViewCellDelegate: class {
+    func addServiceClickedHome(id : Int, name : String)
+}
 
+
+class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ServiceSingleCollectionViewCellDelegate {
+
+    weak var delegate: ServicesDashboardTableViewCellDelegate?
     @IBOutlet weak var collectionVw: UICollectionView!
+    var serviceArr = NSMutableArray()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +39,7 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return serviceArr.count
     }
      
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -57,6 +64,54 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
 
     func categoryCell(index : IndexPath) -> UICollectionViewCell {
     let cell = collectionVw.dequeueReusableCell(withReuseIdentifier: "ServiceSingleCollectionViewCell", for: index) as! ServiceSingleCollectionViewCell
+        
+        cell.nameLbl.text = "  \((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "service_name") as! String)"
+        cell.img.sd_setImage(with: URL(string: "\((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "service_icon") as! String)"), placeholderImage: UIImage(named: "moving-truck"))
+        
+        cell.countLbl.text = "\((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "inprogress_service_count") as! NSNumber)"
+        cell.totalCountLbl.text = "\((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "inprogress_service_count") as! NSNumber)"
+        
+        let opt = "\((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "is_opt") as! NSNumber)"
+        
+        if Int(opt) == 2 {
+            cell.plusImg.isHidden = false
+            cell.plusOutlet.isHidden = false
+            cell.totalCountLbl.isHidden = true
+            cell.img.alpha = 0.4
+            cell.nameLbl.alpha = 0.4
+            cell.inprocessLbl.isHidden = true
+        }else{
+            cell.img.alpha = 1.0
+            cell.nameLbl.alpha = 1.0
+            cell.plusImg.isHidden = true
+            cell.plusOutlet.isHidden = true
+            let serCount = "\((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "inprogress_service_count") as! NSNumber)"
+            
+            if serCount == "0" {
+                cell.totalCountLbl.isHidden = true
+                cell.inprocessLbl.isHidden = true
+            }else{
+                cell.totalCountLbl.isHidden = false
+                cell.inprocessLbl.isHidden = false
+            }
+        }
+        
+        
+        let is_active = "\((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "is_active") as! NSNumber)"
+        
+        if is_active == "1" {
+            cell.greenImg.image = UIImage(named: "green_service")
+        }else{
+            cell.greenImg.image = UIImage(named: "red_service")
+        }
+        
+        cell.serviceID = Int((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber)
+        
+        cell.delegate = self
         return cell
+    }
+    
+    func addServiceClicked(id : Int, name : String) {
+        self.delegate?.addServiceClickedHome(id: id, name: name)
     }
 }

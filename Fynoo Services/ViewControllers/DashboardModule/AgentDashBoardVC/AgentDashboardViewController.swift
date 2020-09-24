@@ -9,7 +9,7 @@
 import UIKit
 import SideMenu
 
-class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource {
+class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource, ServicesDashboardTableViewCellDelegate, CommonPopupViewControllerDelegate {
 
     @IBOutlet weak var tableVw: UITableView!
     @IBOutlet weak var topVwHeightCons: NSLayoutConstraint!
@@ -21,6 +21,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
 //    let val2 = "ID".localized
 //    self.userDetails.text = "\(val1) \(self.homeGraph?.data?.user_details?.user_name ?? "")\n \(val2): \(self.homeGraph?.data?.user_details?.fynoo_id ?? "")"
     @IBOutlet weak var availableBalanceLbl: UILabel!
+    var showWallet = false
+    @IBOutlet weak var arrowImg: UIImageView!
     
     var agentInfoArray = NSMutableArray()
     var bannerArray = NSMutableArray()
@@ -256,7 +258,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 3 {
+        if section == 0 {
+            if showWallet { return 1 } else { return 0 }
+        }
+        else if section == 3 {
             return mandatoryArray.count
         }else if section == 4 {
             if bannerArray.count > 0 {
@@ -293,7 +298,13 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         }else if indexPath.section == 1{
             return 120
         }else if indexPath.section == 2{
-            return 450 + 10
+            
+            let coo = self.servicesArray.count
+            let coo1 = coo/2
+            let coo2 = coo%2
+            let total = coo1+coo2
+            return (CGFloat((total*150) + 10))
+            
         }else if indexPath.section == 3{
             return 175
         }else{
@@ -305,9 +316,9 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     func DashboardWalletCell(index : IndexPath) -> UITableViewCell {
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "DashboardWalletTableViewCell",for: index) as! DashboardWalletTableViewCell
         cell.selectionStyle = .none
-        cell.walletLbl.text = "\(dataDict.object(forKey: "wallet_balance") as! NSNumber)"
-        cell.holdingLBl.text = "\(dataDict.object(forKey: "holding_amount") as! NSNumber)"
-        cell.inprocessLbl.text = "\(dataDict.object(forKey: "payment_in_progress") as! NSNumber)"
+        cell.walletLbl.text = "\(dataDict.object(forKey: "wallet_balance") as! Float)"
+        cell.holdingLBl.text = "\(dataDict.object(forKey: "holding_amount") as! Float)"
+        cell.inprocessLbl.text = "\(dataDict.object(forKey: "payment_in_progress") as! Float)"
         return cell
     }
     
@@ -316,12 +327,26 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         cell.selectionStyle = .none
         var transform : CGAffineTransform = CGAffineTransform(scaleX: 1.0, y: 4.0)
         cell.progressVW.transform = transform
+        
+        
+        let start = dataDict.object(forKey: "target_achived") as! Float
+        let end = dataDict.object(forKey: "target_to_be_achive") as! Float
+        let per = (start*100)/end
+        let perToSet = per/100
+        
+        cell.progressVW.setProgress(perToSet, animated: true)
+        cell.targetStartLbl.text = "\(dataDict.object(forKey: "target_achived") as! Float)/"
+        cell.targetEndLbl.text = "\(dataDict.object(forKey: "target_to_be_achive") as! Float)"
+        cell.endDate.text = "Wallet End Date: \(dataDict.object(forKey: "target_end_date") as! String)"
+        
         return cell
     }
     
     func ServicesDashboardCell(index : IndexPath) -> UITableViewCell {
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ServicesDashboardTableViewCell",for: index) as! ServicesDashboardTableViewCell
         cell.selectionStyle = .none
+        cell.delegate = self
+        cell.serviceArr = self.servicesArray
         cell.setupCollectionVw()
         cell.collectionVw.reloadData()
         return cell
@@ -486,9 +511,72 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     let dict : NSDictionary = NSDictionary(dictionary: results4).RemoveNullValueFromDic()
                     self.dataDict = dict
                     
-                    self.availableBalanceLbl.text = "\(self.dataDict.object(forKey: "available_amount") as! NSNumber)"
+                    self.availableBalanceLbl.text = "\(self.dataDict.object(forKey: "available_amount") as! Float)"
                     
                     self.tableVw.reloadData()
+                }
+            }else{
+                if response == nil {
+                    print ("connection error")
+                    ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                }else{
+                    print ("data not in proper json")
+                }
+            }
+        }
+    }
+    
+    @IBAction func walletDetailsBtn(_ sender: Any) {
+        if showWallet {
+            showWallet = false
+            self.arrowImg.image = UIImage(named: "down-arrow-3")
+        }else{
+            showWallet = true
+            self.arrowImg.image = UIImage(named: "up-arrow-3")
+        }
+        self.tableVw.reloadData()
+    }
+    
+    func addServiceClickedHome(id : Int, name : String) {
+        let vc = CommonPopupViewController(nibName: "CommonPopupViewController", bundle: nil)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        vc.delegate =  self
+        vc.name = name
+        vc.serviceID = id
+        vc.setUI()
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    func yesBtnClicked(name : String , id : Int) {
+        addServiceAPI(serviceID: id)
+    }
+    
+    // MARK: - ADD SERVICE API
+    func addServiceAPI(serviceID : Int)
+    {
+        let user_id:UserData = AuthorisedUser.shared.getAuthorisedUser()
+        var userID = "\(user_id.data!.id)"
+        ModalClass.startLoading(self.view)
+        let str = "\(Constant.BASE_URL)\(Constant.add_services)"
+        let parameters = [
+            "user_id": userID,
+            "services": "\(serviceID)",
+            "lang_code":HeaderHeightSingleton.shared.LanguageSelected
+        ]
+        print("request -",parameters)
+        ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
+            ModalClass.stopLoading()
+            if success == true {
+                let ResponseDict : NSDictionary = (response as? NSDictionary)!
+                print("ResponseDictionary %@",ResponseDict)
+                let x = ResponseDict.object(forKey: "error") as! Bool
+                if x {
+                    ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "error_description") as? String)!, msg: "")
+                }
+                else{
+                    ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "error_description") as? String)!, msg: "")
+                    self.dashboardAPI()
                 }
             }else{
                 if response == nil {

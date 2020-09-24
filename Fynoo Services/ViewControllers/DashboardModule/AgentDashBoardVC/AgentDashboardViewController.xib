@@ -14,6 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AgentDashboardViewController" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
+                <outlet property="arrowImg" destination="6nR-sv-rAL" id="ARp-MW-172"/>
                 <outlet property="availableBalanceLbl" destination="oLP-as-OXK" id="WIj-MO-c4x"/>
                 <outlet property="notifyLbl" destination="bUf-rX-9hF" id="BrJ-2n-ph3"/>
                 <outlet property="profileImg" destination="x5t-e2-1ak" id="OcI-D6-GBA"/>
@@ -202,10 +203,10 @@ ID:245636737838</string>
                             <color key="textColor" red="0.38039215686274508" green="0.75294117647058822" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DownArror_dashboard" translatesAutoresizingMaskIntoConstraints="NO" id="6nR-sv-rAL">
-                            <rect key="frame" x="429" y="172" width="12" height="7"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down-arrow-3" translatesAutoresizingMaskIntoConstraints="NO" id="6nR-sv-rAL">
+                            <rect key="frame" x="429" y="170" width="12" height="12"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="7" id="0Hl-s2-FDV"/>
+                                <constraint firstAttribute="height" constant="12" id="0Hl-s2-FDV"/>
                                 <constraint firstAttribute="width" constant="12" id="H82-lP-Lqh"/>
                             </constraints>
                         </imageView>
@@ -215,6 +216,9 @@ ID:245636737838</string>
                                 <constraint firstAttribute="width" constant="155" id="IQc-8D-PFa"/>
                                 <constraint firstAttribute="height" constant="50" id="aNN-DH-Wjw"/>
                             </constraints>
+                            <connections>
+                                <action selector="walletDetailsBtn:" destination="-1" eventType="touchUpInside" id="zK1-yf-xWC"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -225,7 +229,7 @@ ID:245636737838</string>
                         <constraint firstItem="kBJ-WK-2ha" firstAttribute="leading" secondItem="Pas-aK-SCi" secondAttribute="leading" constant="109" id="8Ae-WU-dNx"/>
                         <constraint firstAttribute="trailing" secondItem="sWS-xh-Ag8" secondAttribute="trailing" constant="24" id="8HJ-jd-gpU"/>
                         <constraint firstAttribute="height" constant="200" id="8OT-mZ-NeB"/>
-                        <constraint firstAttribute="bottom" secondItem="6nR-sv-rAL" secondAttribute="bottom" constant="21" id="BMK-Uh-E3Y"/>
+                        <constraint firstAttribute="bottom" secondItem="6nR-sv-rAL" secondAttribute="bottom" constant="18" id="BMK-Uh-E3Y"/>
                         <constraint firstItem="x5t-e2-1ak" firstAttribute="top" secondItem="pFj-Ca-374" secondAttribute="top" id="CCi-wd-LC7"/>
                         <constraint firstAttribute="bottom" secondItem="UCx-mb-USz" secondAttribute="bottom" constant="40" id="GQs-Yp-gSh"/>
                         <constraint firstItem="pFj-Ca-374" firstAttribute="leading" secondItem="Pas-aK-SCi" secondAttribute="leading" constant="14" id="GbP-wd-wDx"/>
@@ -293,10 +297,10 @@ ID:245636737838</string>
         </view>
     </objects>
     <resources>
-        <image name="DownArror_dashboard" width="12" height="7"/>
         <image name="TopDesgin" width="3796" height="424"/>
         <image name="barCode_new" width="16" height="16"/>
         <image name="camera_icon" width="60" height="60"/>
+        <image name="down-arrow-3" width="512" height="512"/>
         <image name="logo-fynoo_NEW" width="141" height="168"/>
         <image name="menu" width="22.5" height="16"/>
         <image name="notify_new" width="17" height="16.5"/>

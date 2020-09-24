@@ -84,7 +84,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="endDate" destination="O2q-3z-pxO" id="7Lg-3r-YeM"/>
                 <outlet property="progressVW" destination="xbF-LW-jXh" id="Vqt-9A-zNK"/>
+                <outlet property="targetEndLbl" destination="NoU-a6-ysC" id="lVN-bA-1W7"/>
+                <outlet property="targetStartLbl" destination="Lrd-HZ-qDu" id="Nbw-Xb-ALv"/>
             </connections>
             <point key="canvasLocation" x="139" y="125"/>
         </tableViewCell>

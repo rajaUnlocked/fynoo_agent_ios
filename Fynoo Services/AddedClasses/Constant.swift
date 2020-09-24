@@ -103,6 +103,7 @@ class Constant: NSObject {
     static let ResetPswd: String = "customerapi/v2/reset_password/"
     static let get_user_type: String = "customerapi/v2/get_user_type/"
     static let agent_dashboard: String = "agentapis/v2/agent_dashboard/"
+    static let add_services: String = "agentapis/v2/add_services/"
 }
 
 enum Service {
