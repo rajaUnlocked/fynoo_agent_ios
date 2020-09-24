@@ -9,7 +9,11 @@
 import UIKit
 
 class ServiceDetailTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var title: UILabel!
+    
+    @IBOutlet weak var crossclicked: UIButton!
+    @IBOutlet weak var uploadbtn: UIButton!
+    @IBOutlet weak var detaillbl: UILabel!
     @IBOutlet weak var uploadimg: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()

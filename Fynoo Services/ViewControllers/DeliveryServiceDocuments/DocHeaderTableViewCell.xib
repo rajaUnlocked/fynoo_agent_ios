@@ -75,6 +75,7 @@
             <connections>
                 <outlet property="arrow" destination="4Zf-uW-c9n" id="5z8-ck-BvW"/>
                 <outlet property="edit" destination="Od1-Og-d7d" id="Q0K-K4-fdZ"/>
+                <outlet property="headerlbl" destination="ORA-on-Heh" id="JjY-Tz-ecD"/>
             </connections>
             <point key="canvasLocation" x="122.46376811594205" y="60.602678571428569"/>
         </tableViewCell>

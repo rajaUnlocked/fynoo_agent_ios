@@ -10,7 +10,7 @@ import UIKit
 import MTPopup
 import MobileCoreServices
 class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductViewControllerDelegate,OpenGalleryDelegate,UIDocumentPickerDelegate {
-
+    var imgArr = [UIImage]()
     @IBOutlet weak var tabvw: UITableView!
     @IBOutlet weak var headervw: NavigationView!
     var SelectedIndex = NSMutableArray()
@@ -28,11 +28,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
            tabvw.register(UINib(nibName: "ServiceHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceHeaderTableViewCell")
          tabvw.register(UINib(nibName: "DocHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "DocHeaderTableViewCell")
          tabvw.register(UINib(nibName: "ServiceDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceDetailTableViewCell")
-          
+        tabvw.register(UINib(nibName: "VehicleDescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "VehicleDescriptionTableViewCell")
+           tabvw.register(UINib(nibName: "UploadVehicleImageTableViewCell", bundle: nil), forCellReuseIdentifier: "UploadVehicleImageTableViewCell")
            
        }
     func gallery(img: UIImage, imgtype: String) {
-           print("bb,fb")
+        imgArr.append(img)
        }
     func information(Value: String) {
            print("")
@@ -75,6 +76,17 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
       func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
           controller.dismiss(animated: true, completion: nil)
       }
+     @objc func clickcrossed(_ sender:UIButton)
+     {
+        print("jbhekhjbklh")
+    }
+    
+    @objc func clickedvehicleUpload(_ sender:UIButton)
+        {
+          OpenGallery.shared.viewControl = self
+            OpenGallery.shared.openGallery()
+            OpenGallery.shared.delegate = self
+       }
     @objc func clickupload(_ sender:UIButton) {
            let vc = BottomPopupEditProductViewController(nibName: "BottomPopupEditProductViewController", bundle: nil)
            vc.delegate = self
@@ -114,6 +126,14 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         {
             return 1
         }
+        if section == 7
+        {
+          if SelectedIndex.contains(section)
+            {
+              return 8
+            }
+            return 1
+        }
         if SelectedIndex.contains(section)
         {
           return 2
@@ -128,6 +148,28 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             
         return cell
         }
+            if indexPath.section == 7
+                   {
+                    if indexPath.row == 0
+                               {
+                              let cell = tabvw.dequeueReusableCell(withIdentifier: "DocHeaderTableViewCell", for: indexPath) as! DocHeaderTableViewCell
+                                    cell.arrow.image = UIImage(named: "rightArrow_dash")
+                                   if SelectedIndex.contains(indexPath.section)
+                                   {
+                                       cell.arrow.image = UIImage(named: "down-arrow-2")
+                                   }
+                               return cell
+                               }
+                    else  if indexPath.row == 7{
+                        let cell = tabvw.dequeueReusableCell(withIdentifier: "UploadVehicleImageTableViewCell", for: indexPath) as! UploadVehicleImageTableViewCell
+                                         cell.uploadvehicle.addTarget(self, action: #selector(clickedvehicleUpload(_:)), for: .touchUpInside)
+
+                                          return cell
+                    }
+                    let cell = tabvw.dequeueReusableCell(withIdentifier: "VehicleDescriptionTableViewCell", for: indexPath) as! VehicleDescriptionTableViewCell
+                  
+                   return cell
+                   }
         else{
             if indexPath.row == 0
             {
@@ -139,10 +181,20 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 }
             return cell
             }
+                
             else{
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "ServiceDetailTableViewCell", for: indexPath) as! ServiceDetailTableViewCell
                 cell.uploadimg.addTarget(self, action: #selector(clickupload(_:)), for: .touchUpInside)
-                          return cell
+                cell.crossclicked.addTarget(self, action: #selector(clickcrossed(_:)), for: .touchUpInside)
+             
+                let html = "<html><body><h4>Please make sure you follow the below guidelines</h4><ul><li>Sons of Saudi Female can apply.</li><li>Saudi: The applicant must hold a National Id Card.</li><li>Non Saudi: The applicant must be sponsored by a licensed Limo company and car must be authorized by transport ministry.</li></ul></body></html>"
+                   let data = Data(html.utf8)
+               if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+                    cell.detaillbl.attributedText = attributedString
+                
+                }
+                
+                return cell
             }
         }
     }
@@ -159,9 +211,50 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         }
         tabvw.reloadData()
         }
+        if indexPath.section == 7
+        {
+            if indexPath.row > 0
+            {
+            let vc = BottomPopupEditProductViewController(nibName: "BottomPopupEditProductViewController", bundle: nil)
+            vc.delegate = self
+            vc.isfiletr = true
+            vc.nameAr = ["car","car","car","car","car","car"]
+            vc.nameArId = [1,1,1,1,1,1]
+            vc.namelock = [1,1,1,1,1,1]
+            let popupController = MTPopupController(rootViewController: vc)
+            popupController.autoAdjustKeyboardEvent = false
+            popupController.style = .bottomSheet
+            popupController.navigationBarHidden = true
+            popupController.hidesCloseButton = false
+            let blurEffect = UIBlurEffect(style: .dark)
+            popupController.backgroundView = UIVisualEffectView(effect: blurEffect)
+            popupController.backgroundView?.alpha = 0.6
+            popupController.backgroundView?.onClick {
+                popupController.dismiss()
+            }
+            popupController.present(in: self)
+            }
+        }
+       
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section > 0
+        if indexPath.section == 0
+        {
+            return 100
+        }
+        else if indexPath.section == 7
+        {
+            if indexPath.row == 0
+            {
+                return 57
+            }
+            if indexPath.row == 7
+                       {
+                           return 130
+                       }
+            return 90
+        }
+        else
         {
             if indexPath.row == 1
             {
@@ -169,7 +262,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             }
          return 57
         }
-        return 100
+      
     }
     
 }

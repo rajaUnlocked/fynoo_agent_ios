@@ -36,16 +36,29 @@
                                     <constraint firstAttribute="height" constant="170" id="srX-UL-T6E"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIz-Dm-74h">
-                                <rect key="frame" x="15" y="229" width="373" height="83.5"/>
-                                <string key="text">Please make sure you follow the below guidelines:
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIz-Dm-74h">
+                                <rect key="frame" x="15" y="229" width="373" height="84"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Please make sure you follow the below guidelines:
    Saudis: The applicant must hold a National Id Cards.
    Non- Saudis: The applicant must be sponsored by a
    licensed limo company, and the car must be authorized 
    by the transport ministry (Yellow plate)  
-   Sons of Saudi females can apply.</string>
-                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
-                                <nil key="textColor"/>
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="HelveticaNeue"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="   Sons of Saudi females can apply.">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDq-rd-b2s">
@@ -63,12 +76,12 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHn-PM-Jcg">
                                 <rect key="frame" x="356" y="36" width="22" height="22"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="OhE-Kc-zOr"/>
                                     <constraint firstAttribute="width" constant="22" id="g3k-gw-shs"/>
                                 </constraints>
-                                <state key="normal" image="cross_new"/>
+                                <state key="normal" image="cross"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -114,13 +127,17 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="crossclicked" destination="xHn-PM-Jcg" id="wv4-p5-n4p"/>
+                <outlet property="detaillbl" destination="qIz-Dm-74h" id="kyv-Jk-ffc"/>
+                <outlet property="title" destination="TZ7-bX-8S3" id="ATs-qx-xDG"/>
+                <outlet property="uploadbtn" destination="DDq-rd-b2s" id="E4m-FY-qLB"/>
                 <outlet property="uploadimg" destination="KNx-em-63f" id="18X-7t-w1L"/>
             </connections>
             <point key="canvasLocation" x="161.59420289855075" y="126.22767857142857"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="cross_new" width="43" height="43"/>
+        <image name="cross" width="54" height="54"/>
         <image name="passport" width="945" height="480"/>
     </resources>
 </document>
