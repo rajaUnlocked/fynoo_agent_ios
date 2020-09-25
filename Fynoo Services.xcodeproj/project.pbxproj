@@ -109,6 +109,7 @@
 		CE2EFB3F251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2EFB3D251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib */; };
 		CE2EFB42251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */; };
 		CE2EFB43251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2EFB41251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib */; };
+		CE3E9A59251E0B0300B60038 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E9A58251E0B0300B60038 /* ServiceModel.swift */; };
 		CE8E8595250F4C3800B74A9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE8E8597250F4C3800B74A9E /* Localizable.strings */; };
 		CEAD29E42506324F008B1F9C /* TargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD29E22506324F008B1F9C /* TargetViewController.swift */; };
 		CEAD29E52506324F008B1F9C /* TargetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29E32506324F008B1F9C /* TargetViewController.xib */; };
@@ -323,6 +324,7 @@
 		CE2EFB3D251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleDescriptionTableViewCell.xib; sourceTree = "<group>"; };
 		CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVehicleImageTableViewCell.swift; sourceTree = "<group>"; };
 		CE2EFB41251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadVehicleImageTableViewCell.xib; sourceTree = "<group>"; };
+		CE3E9A58251E0B0300B60038 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		CE8E8594250F4C1B00B74A9E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		CE8E8596250F4C3800B74A9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE8E8598250F4C4200B74A9E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -771,6 +773,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE3E9A57251E0AE300B60038 /* servicemodel */ = {
+			isa = PBXGroup;
+			children = (
+				CE3E9A58251E0B0300B60038 /* ServiceModel.swift */,
+			);
+			path = servicemodel;
+			sourceTree = "<group>";
+		};
 		CEAD29E1250631EE008B1F9C /* Target&Commision */ = {
 			isa = PBXGroup;
 			children = (
@@ -832,6 +842,7 @@
 		CEE72CA5251B369400B02DAF /* DeliveryServiceDocuments */ = {
 			isa = PBXGroup;
 			children = (
+				CE3E9A57251E0AE300B60038 /* servicemodel */,
 				CEE72CB6251B76AF00B02DAF /* Bottompopup */,
 				CEE72CA6251B36C400B02DAF /* DeliveryDocumentViewController.swift */,
 				CEE72CA7251B36C400B02DAF /* DeliveryDocumentViewController.xib */,
@@ -1242,6 +1253,7 @@
 				2F84638E250F69840084EB32 /* SectionHeader.swift in Sources */,
 				2FFDE2412501225A006C5EBD /* AgentDashboardViewController.swift in Sources */,
 				CEE72CC0251B795100B02DAF /* OpenGallery.swift in Sources */,
+				CE3E9A59251E0B0300B60038 /* ServiceModel.swift in Sources */,
 				CEAD29ED25063FA2008B1F9C /* TargetprogressTableViewCell.swift in Sources */,
 				CEE72CB0251B586400B02DAF /* DocHeaderTableViewCell.swift in Sources */,
 				2FEB1227251215F50012FE98 /* ProgressDashboardTableViewCell.swift in Sources */,

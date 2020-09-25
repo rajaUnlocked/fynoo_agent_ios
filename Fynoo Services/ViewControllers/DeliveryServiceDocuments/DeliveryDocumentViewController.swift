@@ -11,6 +11,9 @@ import MTPopup
 import MobileCoreServices
 class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductViewControllerDelegate,OpenGalleryDelegate,UIDocumentPickerDelegate {
     var imgArr = [UIImage]()
+    var service = ServiceModel()
+    var headerarr = ["National Id / Iqama","Driving License Front ","Car Registration","Car Insurance","Driving Authorization","Car Description"]
+    var servicelist:SeviceDocument?
     @IBOutlet weak var tabvw: UITableView!
     @IBOutlet weak var headervw: NavigationView!
     var SelectedIndex = NSMutableArray()
@@ -22,6 +25,20 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         tabvw.dataSource = self
         registernibs()
           //self.tabvw.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
+        
+        servicedocList_API()
+    }
+    func servicedocList_API()
+    {
+        ModalClass.startLoading(self.view)
+        service.getservicedocument { (success, response) in
+            ModalClass.stopLoading()
+            if success
+            {
+                self.servicelist = response
+                print("jhbfbhn")
+            }
+        }
     }
     func registernibs()
        {
@@ -107,11 +124,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                popupController.dismiss()
            }
            popupController.present(in: self)
-           
-           
-           
-           
-           
+      
            
        }
 
@@ -119,14 +132,14 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
 extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSource
 {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 8
+        return headerarr.count + 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0
         {
             return 1
         }
-        if section == 7
+        if section == headerarr.count
         {
           if SelectedIndex.contains(section)
             {
@@ -148,16 +161,18 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             
         return cell
         }
-            if indexPath.section == 7
+            if indexPath.section == headerarr.count
                    {
                     if indexPath.row == 0
                                {
                               let cell = tabvw.dequeueReusableCell(withIdentifier: "DocHeaderTableViewCell", for: indexPath) as! DocHeaderTableViewCell
+                                cell.headerlbl.text = headerarr[indexPath.section - 1]
                                     cell.arrow.image = UIImage(named: "rightArrow_dash")
                                    if SelectedIndex.contains(indexPath.section)
                                    {
                                        cell.arrow.image = UIImage(named: "down-arrow-2")
                                    }
+                                
                                return cell
                                }
                     else  if indexPath.row == 7{
@@ -175,6 +190,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             {
            let cell = tabvw.dequeueReusableCell(withIdentifier: "DocHeaderTableViewCell", for: indexPath) as! DocHeaderTableViewCell
                  cell.arrow.image = UIImage(named: "rightArrow_dash")
+                 cell.headerlbl.text = headerarr[indexPath.section - 1]
                 if SelectedIndex.contains(indexPath.section)
                 {
                     cell.arrow.image = UIImage(named: "down-arrow-2")
@@ -211,7 +227,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         }
         tabvw.reloadData()
         }
-        if indexPath.section == 7
+        if indexPath.section == headerarr.count
         {
             if indexPath.row > 0
             {
@@ -242,7 +258,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         {
             return 100
         }
-        else if indexPath.section == 7
+        else if indexPath.section == headerarr.count
         {
             if indexPath.row == 0
             {

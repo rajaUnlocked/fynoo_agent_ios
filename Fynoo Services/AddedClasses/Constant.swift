@@ -109,7 +109,7 @@ enum Service {
     static let commisionlist = Constant.BASE_URL + "agentapis/v2/agent_commision/"
     static let targetlist = Constant.BASE_URL + "target_master_api/v2/target/"
     static let getProfile = Constant.BASE_URL + "agentapis/v2/agent_profile/"
-    
+    static let getdocumentlist = Constant.BASE_URL + "agentapi/v1/get_vehicle_service_document/"
 }
 
 enum Authentication {
