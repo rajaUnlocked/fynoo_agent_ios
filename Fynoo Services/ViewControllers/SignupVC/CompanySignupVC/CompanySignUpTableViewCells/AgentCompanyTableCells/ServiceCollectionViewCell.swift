@@ -23,5 +23,4 @@ class ServiceCollectionViewCell: UICollectionViewCell {
         self.checkBoxBtn.isUserInteractionEnabled = false
         
     }
-
 }

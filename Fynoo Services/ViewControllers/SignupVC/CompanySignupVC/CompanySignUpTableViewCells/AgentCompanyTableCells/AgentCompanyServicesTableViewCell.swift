@@ -51,24 +51,36 @@ class AgentCompanyServicesTableViewCell: UITableViewCell,UICollectionViewDelegat
         return (AgentServicesOnCollection?.data?.services_list?.count) ?? 0
         
         }
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: agentServiceCellReuseId, for: indexPath) as! ServiceCollectionViewCell
-            
-         let serviceList = AgentServicesOnCollection?.data?.services_list![indexPath.item]
-            
-            cell.serviceTypeImage.sd_setImage(with: URL(string: serviceList?.service_icon ?? ""), placeholderImage: UIImage(named: "subscription_placeholder.png"))
-            if selectedArray.contains(serviceList?.service_id){
+        
+        let serviceList = AgentServicesOnCollection?.data?.services_list![indexPath.item]
+        
+        cell.serviceTypeImage.sd_setImage(with: URL(string: serviceList?.service_icon ?? ""), placeholderImage: UIImage(named: "subscription_placeholder.png"))
+        
+        if selectedArray.count > 0 {
+            cell.checkBoxBtn.setImage(UIImage(named: "uncheck") , for: .normal)
+        }else{
+            cell.checkBoxBtn.setImage(UIImage(named: "uncheck_red"), for: .normal)
+        }
+        
+        if selectedArray.contains(serviceList?.service_id){
             cell.checkBoxBtn.isSelected = true
+            
         }else{
             cell.checkBoxBtn.isSelected = false
+            
         }
-            cell.serviceNameLbl.text = serviceList?.service_name
-            
-            
-             cell.tag = indexPath.row
-                return cell
-       }
+        
+        
+        
+        cell.serviceNameLbl.text = serviceList?.service_name
+        
+        
+        cell.tag = indexPath.row
+        return cell
+    }
         
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
           

@@ -20,7 +20,7 @@ protocol SearchCategoryViewControllerDelegate: class {
 }
 
 class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
-     var tag = 0
+    var tag = 0
     @IBOutlet weak var customHeader: NavigationView!
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var shadowVw: UIView!
@@ -38,6 +38,9 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
     var isForMajorEducationList : Bool = false
     var currencyLists : Bool = false
     var isFromCourierCompany:Bool = false
+    var isFromCountryMobileCode:Bool = false
+    var isFromCountryPhoneCode:Bool = false
+    
     var selectedOLDCountryDict : NSDictionary = NSDictionary()
     var selectedCountryID  = ""
     override func viewDidLoad() {
@@ -51,13 +54,13 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
             countryAPI()
             
         }else if isForBankList {
-           self.customHeader.titleHeader.text = "Select Bank"
-               self.searchField.placeholder = "Enter Bank Name"
+            self.customHeader.titleHeader.text = "Select Bank"
+            self.searchField.placeholder = "Enter Bank Name"
             bankListAPI()
             
         }else if isForCity {
             self.customHeader.titleHeader.text = "Select City"
-             self.searchField.placeholder = "Enter City Name"
+            self.searchField.placeholder = "Enter City Name"
             cityAPI()
             
         }else if isForEducationList {
@@ -67,8 +70,8 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
             
         }else if currencyLists {
             self.customHeader.titleHeader.text = "Select Currency"
-             self.searchField.placeholder = "Enter Currency"
-              bankListAPI()
+            self.searchField.placeholder = "Enter Currency"
+            bankListAPI()
         }
         else if isForMajorEducationList {
             self.customHeader.titleHeader.text = "Select Major Education"
@@ -97,33 +100,33 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
         self.navigationController?.isNavigationBarHidden = true
     }
     func headerHeightMethod(){
-          if #available(iOS 11.0, *) {
-              let window = UIApplication.shared.keyWindow
-              let topPadding = window?.safeAreaInsets.top
-              let myIntValue = Int(topPadding!)
-              
-              if myIntValue > 0{
-                  let glblHeight = HeaderHeightSingleton.shared
-                  glblHeight.headerHeight = 120
-              }
-              
-          }
-          if #available(iOS 12.0, *) {
-              let window = UIApplication.shared.keyWindow
-              let topPadding = window?.safeAreaInsets.top
-              let myIntValue = Int(topPadding!)
-              
-              if myIntValue > 0{
-                  if myIntValue == 44{
-                      let glblHeight = HeaderHeightSingleton.shared
-                      glblHeight.headerHeight = 120
-                  }else{
-                      let glblHeight = HeaderHeightSingleton.shared
-                      glblHeight.headerHeight = 105
-                  }
-              }
-          }
-      }
+        if #available(iOS 11.0, *) {
+            let window = UIApplication.shared.keyWindow
+            let topPadding = window?.safeAreaInsets.top
+            let myIntValue = Int(topPadding!)
+            
+            if myIntValue > 0{
+                let glblHeight = HeaderHeightSingleton.shared
+                glblHeight.headerHeight = 120
+            }
+            
+        }
+        if #available(iOS 12.0, *) {
+            let window = UIApplication.shared.keyWindow
+            let topPadding = window?.safeAreaInsets.top
+            let myIntValue = Int(topPadding!)
+            
+            if myIntValue > 0{
+                if myIntValue == 44{
+                    let glblHeight = HeaderHeightSingleton.shared
+                    glblHeight.headerHeight = 120
+                }else{
+                    let glblHeight = HeaderHeightSingleton.shared
+                    glblHeight.headerHeight = 105
+                }
+            }
+        }
+    }
     func registerCellNibs(){
         tableVw.register(UINib(nibName: "SearchCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchCategoryTableViewCell");
     }
@@ -170,7 +173,7 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
         if filterListArray.count > 0 || searchField.text!.count > 0 {
             return self.filterListArray.count
         }else{
-        return self.countryListArray.count
+            return self.countryListArray.count
         }
     }
     
@@ -187,7 +190,7 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
         //    self.tableVw.reloadData()
         self.navigationController?.popViewController(animated: true)
         if self.isForCountry{
-        self.delegate?.selectedCategoryMethod(countryDict: self.selectedCountryDict, tag: self.tag)
+            self.delegate?.selectedCategoryMethod(countryDict: self.selectedCountryDict, tag: self.tag)
             
         }else if self.isForBankList {
             self.delegate?.selectedBankMethod(bankDict: self.selectedCountryDict)
@@ -218,19 +221,19 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
     func countryCell(index : IndexPath) -> UITableViewCell {
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "SearchCategoryTableViewCell",for: index) as! SearchCategoryTableViewCell
         
-         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         cell.catName.font = UIFont(name:"\(fontNameLight)",size:12)
         
         cell.selectionStyle = .none
         if filterListArray.count > 0 || searchField.text!.count > 0 {
             if isForCountry{
-            cell.catName.text = "\((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "country_name") as! String)"
+                cell.catName.text = "\((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "country_name") as! String)"
                 
             }else if isForBankList {
-            cell.catName.text = "\((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "bank_name") as! String)"
+                cell.catName.text = "\((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "bank_name") as! String)"
                 
             }else if isForCity{
-             cell.catName.text = "\((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "city_name") as! String)"
+                cell.catName.text = "\((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "city_name") as! String)"
                 
             }else if isForEducationList{
                 cell.catName.text = "\((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "education_type") as! String)"
@@ -250,10 +253,10 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
             
         }else{
             if isForCountry{
-        cell.catName.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "country_name") as! String)"
+                cell.catName.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "country_name") as! String)"
                 
             } else if isForBankList {
-                 cell.catName.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "bank_name") as! String)"
+                cell.catName.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "bank_name") as! String)"
             }
             else if currencyLists {
                 cell.catName.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "currency_code") as! String)"
@@ -271,12 +274,12 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
                 cell.catName.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "company_name") as! String)"
             }
             
-        if (self.countryListArray.object(at: index.row) as! NSDictionary) == self.selectedCountryDict {
-            cell.tickImage.isHidden = false
-        }else{
-            cell.tickImage.isHidden = true
+            if (self.countryListArray.object(at: index.row) as! NSDictionary) == self.selectedCountryDict {
+                cell.tickImage.isHidden = false
+            }else{
+                cell.tickImage.isHidden = true
+            }
         }
-       }
         return cell
     }
     
@@ -298,7 +301,7 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
                 print("ResponseDictionary %@",ResponseDict)
                 let x = ResponseDict.object(forKey: "error") as! Bool
                 if x {
-              ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "msg") as? String)!, msg: "")
+                    ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "msg") as? String)!, msg: "")
                 }
                 else{
                     let results = ResponseDict.object(forKey: "data") as! NSArray
@@ -318,7 +321,7 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
             }
         }
     }
- 
+    
     // MARK: - City API
     func cityAPI()
     {
@@ -339,7 +342,7 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
                 "country_id": selectedCountryID,"lang_code":HeaderHeightSingleton.shared.LanguageSelected
             ]
         }
-          
+        
         print("request -",parameters)
         ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
             ModalClass.stopLoading()
@@ -370,14 +373,14 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-     // MARK: - Bank API
+    // MARK: - Bank API
     func bankListAPI(){
         ModalClass.startLoading(self.view)
         let str = "\(Constant.BASE_URL)\(Constant.Bank_List)"
         let parameters = [
-             "lang_code": HeaderHeightSingleton.shared.LanguageSelected
-             ]
-              ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
+            "lang_code": HeaderHeightSingleton.shared.LanguageSelected
+        ]
+        ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
             ModalClass.stopLoading()
             if success == true {
                 
@@ -385,7 +388,7 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
                 print("ResponseDictionary %@",ResponseDict)
                 let x = ResponseDict.object(forKey: "error") as! Bool
                 if x {
-               ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "msg") as? String)!, msg: "")
+                    ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "msg") as? String)!, msg: "")
                 }
                 else{
                     let results = (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "bank_name_list") as! NSArray
@@ -400,9 +403,9 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
                             let dict : NSDictionary = NSDictionary(dictionary: results.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
                             self.countryListArray.add(dict)
                         }
-
+                        
                     }
-                   
+                    
                     print(self.countryListArray,"df")
                     self.tableVw.reloadData()
                 }
@@ -421,10 +424,10 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
     func EducationListAPI(){
         ModalClass.startLoading(self.view)
         let str = "\(Constant.BASE_URL)\(Constant.Education_List)"
-       let parameters = [
-                   "lang_code": HeaderHeightSingleton.shared.LanguageSelected
-                   ]
-      ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
+        let parameters = [
+            "lang_code": HeaderHeightSingleton.shared.LanguageSelected
+        ]
+        ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
             ModalClass.stopLoading()
             if success == true {
                 
@@ -479,7 +482,7 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
             
             if textField.text!.count > 0 && (array.count == 0){
                 ModalController.showNegativeCustomAlertWith(title: "", msg: "No result found")
-
+                
             }
             if(array.count == 0){
                 self.filterListArray.removeAllObjects()

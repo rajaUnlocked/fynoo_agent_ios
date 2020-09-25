@@ -13,7 +13,9 @@ protocol CompanyAgentBasicInformationTableViewCellDelegate: class {
     func AgentselectCountry(_ sender: Any)
     func AgentselectCity(_ sender: Any)
     func showHidePassword(_ sender: Any)
-    func showHideConfirmPassword(_ sender: Any)    
+    func showHideConfirmPassword(_ sender: Any)
+    func mobileCodeClicked(_ sender: Any)
+    func phoneCodeClicked(_ sender: Any)
 }
 class CompanyAgentBasicInformationTableViewCell: UITableViewCell {
     @IBOutlet var mainView: UIView!
@@ -48,7 +50,17 @@ class CompanyAgentBasicInformationTableViewCell: UITableViewCell {
     @IBOutlet weak var maroofView: UIView!
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var confirmPasswordView: UIView!
-     
+   
+    @IBOutlet weak var confirmPasswordGreenTickWIdhtConstant: NSLayoutConstraint!
+    @IBOutlet weak var mobileCodeDropDownBtn: UIButton!
+    @IBOutlet weak var phoneCodeDropDownBtn: UIButton!
+       
+    
+   
+    
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setShadowsInFields()
@@ -72,7 +84,6 @@ class CompanyAgentBasicInformationTableViewCell: UITableViewCell {
          self.confirmPasswordTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
         self.mobileCodeTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
         self.phoneCodeTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
-        self.nameTxtFld.tintColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
         
          ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: businessNameView)
          ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: emailView)
@@ -103,6 +114,14 @@ class CompanyAgentBasicInformationTableViewCell: UITableViewCell {
         self.delegate?.showHideConfirmPassword(self)
        }
     
+    @IBAction func mobileCodeDropDownClicked(_ sender: Any) {
+        self.delegate?.mobileCodeClicked(self)
+    }
+      
+    @IBAction func phoneCodeDropDownClicked(_ sender: Any) {
+        self.delegate?.phoneCodeClicked(self)
+        
+    }
     func setShadowsInFields(){
         
          let screenSize = UIScreen.main.bounds

@@ -56,7 +56,7 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
     var selectedArray:NSMutableArray = NSMutableArray()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var SelectedIndex:NSMutableArray = NSMutableArray()
-    var selectedAgentCountryDict : NSDictionary = NSDictionary()
+    var selectedAgentCountryDict : NSMutableDictionary = NSMutableDictionary()
     var selectedCityDict : NSMutableDictionary = NSMutableDictionary()
     var selectedBankDict : NSMutableDictionary = NSMutableDictionary()
     var selectedAgentEducationDict : NSDictionary = NSDictionary()

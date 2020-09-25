@@ -407,6 +407,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
         let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
         vc.delegate = self
         vc.isForCountry = true
+        vc.selectedCountryDict = self.selectedAgentCountryDict.mutableCopy() as! NSMutableDictionary
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -450,6 +451,21 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
             isConfirmPassword = true
         }
         self.tabView.reloadRows(at: [IndexPath(row: 1, section: 2)], with: .none)
+    }
+    
+    func mobileCodeClicked(_ sender: Any) {
+        let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
+        vc.delegate = self
+        vc.isFromCountryMobileCode = true
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
+    }
+    func phoneCodeClicked(_ sender: Any) {
+        let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
+        vc.delegate = self
+        vc.isFromCountryPhoneCode = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func AgentselectYesOnVat(_ sender: Any) {
@@ -934,7 +950,24 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
          cell.phoneNumberTxtFld.addTarget(self, action: #selector(CompanyRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
          cell.mobileTxtFld.addTarget(self, action: #selector(CompanyRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
          cell.maroofTxtFld.addTarget(self, action: #selector(CompanyRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-       
+        
+        if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
+            if value[0]=="ar"{
+                
+                cell.emailTxtFld.textAlignment = .left
+                cell.confirmTxtFld.textAlignment = .left
+                cell.maroofTxtFld.textAlignment = .left
+                cell.passwordTxtFld.textAlignment = .left
+                cell.confirmPasswordTxtFld.textAlignment = .left
+                
+            }else if value[0]=="en" {
+                cell.emailTxtFld.textAlignment = .left
+                cell.confirmTxtFld.textAlignment = .left
+                cell.maroofTxtFld.textAlignment = .left
+                cell.passwordTxtFld.textAlignment = .left
+                cell.confirmPasswordTxtFld.textAlignment = .left
+            }
+        }
         
         if agentSignUPModal.agentPassword != "" && agentSignUPModal.agentPassword.count >= 8 {
             ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.passwordView)
@@ -967,15 +1000,18 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
             if  (confirmEmail ==  email) && (companyEmail && companyConfirmEmail) {
                            if let imageView = self.view.viewWithTag(203) as? UIImageView{
                                imageView.isHidden = false
+                            cell.confirmPasswordGreenTickWIdhtConstant.constant = 22
                                imageView.image = UIImage(named:"greenTick")
                                }
                            }else{
                               if let imageView = self.view.viewWithTag(203) as? UIImageView{
+                                cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
                                  imageView.isHidden = true
                                }
                           }
                       }else{
                           if let imageView = self.view.viewWithTag(203) as? UIImageView{
+                            cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
                               imageView.isHidden = true
                           }
                       }
@@ -1586,6 +1622,7 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
                         if let imageView = self.view.viewWithTag(203) as? UIImageView{
                             imageView.isHidden = false
                             imageView.image = UIImage(named:"greenTick")
+                            cell.confirmPasswordGreenTickWIdhtConstant.constant = 22
                             if companyConfirmEmail {
                                 ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.confirmEmailView)
                             }else{
@@ -1595,18 +1632,21 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
                     }else{
                         if let imageView = self.view.viewWithTag(203) as? UIImageView{
                             imageView.isHidden = true
+                            cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
                             ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.confirmEmailView)
                         }
                     }
                 }else{
                     if let imageView = self.view.viewWithTag(203) as? UIImageView{
                         imageView.isHidden = true
+                        cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
                         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.confirmEmailView)
                     }
                 }
             }else{
                 if let imageView = self.view.viewWithTag(203) as? UIImageView{
                     imageView.isHidden = true
+                    cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
                     ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.confirmEmailView)
                 }
             }
@@ -1624,6 +1664,7 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
                     if confirmEmail == email {
                         if let imageView = self.view.viewWithTag(203) as? UIImageView {
                             imageView.isHidden = false
+                            cell.confirmPasswordGreenTickWIdhtConstant.constant = 22
                             imageView.image = UIImage(named:"greenTick")
                             if companyConfirmEmail {
                                 ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.confirmEmailView)
@@ -1634,18 +1675,21 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
                     }else{
                         if let imageView = self.view.viewWithTag(203) as? UIImageView{
                             imageView.isHidden = true
+                            cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
                             ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.confirmEmailView)
                         }
                     }
                 }else{
                     if let imageView = self.view.viewWithTag(203) as? UIImageView{
                         imageView.isHidden = true
+                        cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
                         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.confirmEmailView)
                     }
                 }
             }else{
                 if let imageView = self.view.viewWithTag(203) as? UIImageView{
                     imageView.isHidden = true
+                    cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
                     ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.confirmEmailView)
                 }
             }

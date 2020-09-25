@@ -49,9 +49,9 @@ class AgentSignUPModal: NSObject {
         var isEmail = false
         var message = ""
         
-        if imageID == 0 {
-            return (isFilled, ValidationMessages.companyLogo)
-        }
+//        if imageID == 0 {
+//            return (isFilled, ValidationMessages.companyLogo)
+//        }
         if appDelegate?.selectServiceStr.count == 0 {
             return (isFilled, ValidationMessages.services)
         }
