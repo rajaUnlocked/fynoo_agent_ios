@@ -38,6 +38,7 @@ class SignOutViewController: UIViewController {
                
         AuthorisedUser.shared.removeAuthorisedUser()
         ModalController.removeTheContentForKey("AgentDashboardData")
+        ModalController.removeTheContentForKey("profile_img")
         self.hidesBottomBarWhenPushed = true
         self.dismiss(animated: true, completion: nil)
         self.delegate?.popViewController()

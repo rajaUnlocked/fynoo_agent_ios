@@ -288,7 +288,6 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
 //        }
 //    }
     func selectStore(store:String?){
-        return
            if store=="arabic"{
                UserDefaults.standard.set(["ar","en"], forKey: "AppleLanguages")
             HeaderHeightSingleton.shared.LanguageSelected = "AR"
@@ -307,8 +306,12 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
        
        var window: UIWindow?
     func load_app(){
-        let rootviewcontroller: UIWindow = ((UIApplication.shared.delegate?.window)!)!
-        let appDelegate = UIApplication.shared.delegate as! SceneDelegate
+        
+   //     let rootviewcontroller: UIWindow = ((UIApplication.shared.delegate?.window)!)!
+  //      let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let rootviewcontroller: UIWindow = self.view.window!
+        let appDelegate = SceneDelegate()
         
         let obj = LoginNewDesignViewController()
         appDelegate.nav = UINavigationController.init(rootViewController:obj)

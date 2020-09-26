@@ -9,7 +9,8 @@
 import UIKit
 
 protocol ServiceSingleCollectionViewCellDelegate: class {
-    func addServiceClicked(id : Int, name : String)
+    func addServiceClicked(id : Int, name : String, index : Int)
+    func activateServiceClicked(id : Int, name : String, index : Int)
 }
 
 class ServiceSingleCollectionViewCell: UICollectionViewCell {
@@ -25,6 +26,7 @@ class ServiceSingleCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var plusOutlet: UIButton!
     @IBOutlet weak var totalCountLbl: UILabel!
     var serviceID = 0
+    var ind = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,10 +36,10 @@ class ServiceSingleCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func plusBtn(_ sender: Any) {
-        self.delegate?.addServiceClicked(id: serviceID, name: nameLbl.text!)
+        self.delegate?.addServiceClicked(id: serviceID, name: nameLbl.text!, index: ind)
     }
     
     @IBAction func serviceclicked(_ sender: Any) {
-    
+        self.delegate?.activateServiceClicked(id: serviceID, name: nameLbl.text!, index: ind)
     }
 }

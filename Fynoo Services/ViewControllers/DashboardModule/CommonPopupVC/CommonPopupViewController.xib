@@ -16,6 +16,7 @@
             <connections>
                 <outlet property="noOutlet" destination="Qas-ye-hTM" id="Xmb-km-XQ3"/>
                 <outlet property="popupBG" destination="tjd-C6-dXY" id="MpK-Yn-JyS"/>
+                <outlet property="serviceImg" destination="Xht-Sn-e4Y" id="z4T-0u-qfO"/>
                 <outlet property="titleLbl" destination="0Vq-1D-okQ" id="bFR-Zp-HqY"/>
                 <outlet property="view" destination="0xU-xO-6Ou" id="dRM-bt-DDc"/>
                 <outlet property="yesOutlet" destination="7zH-VW-hIC" id="2Ny-Up-q6m"/>
@@ -106,6 +107,13 @@ this service?</string>
                                 <action selector="noClicked:" destination="-1" eventType="touchUpInside" id="vzZ-CL-ydy"/>
                             </connections>
                         </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xht-Sn-e4Y">
+                            <rect key="frame" x="138" y="30" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="VdI-8a-BS6"/>
+                                <constraint firstAttribute="width" constant="24" id="lU1-jJ-Jt9"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -118,6 +126,8 @@ this service?</string>
                         <constraint firstItem="Qas-ye-hTM" firstAttribute="leading" secondItem="7zH-VW-hIC" secondAttribute="trailing" constant="30" id="UZ2-Xr-ZUb"/>
                         <constraint firstItem="0Vq-1D-okQ" firstAttribute="centerX" secondItem="tjd-C6-dXY" secondAttribute="centerX" id="WoD-fD-don"/>
                         <constraint firstItem="7zH-VW-hIC" firstAttribute="leading" secondItem="tjd-C6-dXY" secondAttribute="leading" constant="35" id="Yb5-za-rQo"/>
+                        <constraint firstItem="Xht-Sn-e4Y" firstAttribute="centerX" secondItem="tjd-C6-dXY" secondAttribute="centerX" id="h9O-Kb-POD"/>
+                        <constraint firstItem="0Vq-1D-okQ" firstAttribute="top" secondItem="Xht-Sn-e4Y" secondAttribute="bottom" constant="11" id="kbh-u4-SzQ"/>
                         <constraint firstAttribute="height" constant="200" id="oTK-v9-49o"/>
                         <constraint firstAttribute="trailing" secondItem="0Vq-1D-okQ" secondAttribute="trailing" constant="26" id="rPK-N0-QiO"/>
                         <constraint firstItem="tjd-C6-dXY" firstAttribute="centerY" secondItem="C90-hJ-naC" secondAttribute="centerY" id="z5H-pP-Xd5"/>

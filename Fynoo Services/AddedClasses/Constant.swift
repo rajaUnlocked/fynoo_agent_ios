@@ -104,6 +104,11 @@ class Constant: NSObject {
     static let get_user_type: String = "customerapi/v2/get_user_type/"
     static let agent_dashboard: String = "agentapis/v2/agent_dashboard/"
     static let add_services: String = "agentapis/v2/add_services/"
+    static let UpdateProfile_Image : String = "businessapi/v1/ChaneProfileImage/";
+    static let activate_services: String = "agentapis/v2/activate_services/"
+    static let deactivate_services: String = "agentapis/v2/deactivate_services/"
+    
+    
 }
 
 enum Service {

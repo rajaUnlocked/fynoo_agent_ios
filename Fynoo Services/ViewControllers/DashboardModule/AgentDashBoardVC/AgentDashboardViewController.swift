@@ -9,7 +9,7 @@
 import UIKit
 import SideMenu
 
-class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource, ServicesDashboardTableViewCellDelegate, CommonPopupViewControllerDelegate {
+class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource, ServicesDashboardTableViewCellDelegate, CommonPopupViewControllerDelegate ,UIImagePickerControllerDelegate, UINavigationControllerDelegate, OpenGalleryDelegate {
 
     @IBOutlet weak var tableVw: UITableView!
     @IBOutlet weak var topVwHeightCons: NSLayoutConstraint!
@@ -17,9 +17,6 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     @IBOutlet weak var notifyLbl: UILabel!
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet var userDetails: UILabel!
-//    let val1 = "Hello".localized
-//    let val2 = "ID".localized
-//    self.userDetails.text = "\(val1) \(self.homeGraph?.data?.user_details?.user_name ?? "")\n \(val2): \(self.homeGraph?.data?.user_details?.fynoo_id ?? "")"
     @IBOutlet weak var availableBalanceLbl: UILabel!
     var showWallet = false
     @IBOutlet weak var arrowImg: UIImageView!
@@ -29,6 +26,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     var servicesArray = NSMutableArray()
     var mandatoryArray = NSMutableArray()
     var dataDict = NSDictionary()
+    var imageId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -177,7 +175,6 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         
         
         func selectStore(store:String?){
-            return
             if store=="arabic"
             {
                 UserDefaults.standard.set(["ar","en"], forKey: "AppleLanguages")
@@ -195,21 +192,24 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                 
                 UIView.appearance().semanticContentAttribute = .forceLeftToRight
             }
-      //      load_app()
+            load_app()
         }
         
-        //   var window: UIWindow?
-//        func load_app(){
-//            let rootviewcontroller: UIWindow = ((UIApplication.shared.delegate?.window)!)!
-//            let appDelegate = UIApplication.shared.delegate as! SceneDelegate
-//            appDelegate.nav = UINavigationController.init(rootViewController: appDelegate.createTabBarMethod())
-//            appDelegate.nav.navigationBar.isHidden = true
-//            rootviewcontroller.rootViewController = appDelegate.nav
-//            rootviewcontroller.backgroundColor = UIColor(hue: 0.6477, saturation: 0.6314, brightness: 0.6077, alpha: 0.8)
-//            UIView.transition(with: rootviewcontroller, duration: 0.55001, options: .transitionFlipFromLeft, animations: { () -> Void in
-//            }) { (finished) -> Void in
-//                }
-//    }
+           var window: UIWindow?
+        func load_app(){
+            let rootviewcontroller: UIWindow = self.view.window!
+            let appDelegate = SceneDelegate()
+            
+            let obj = AgentDashboardViewController()
+            
+            appDelegate.nav = UINavigationController.init(rootViewController: obj)
+            appDelegate.nav.navigationBar.isHidden = true
+            rootviewcontroller.rootViewController = appDelegate.nav
+            rootviewcontroller.backgroundColor = UIColor(hue: 0.6477, saturation: 0.6314, brightness: 0.6077, alpha: 0.8)
+            UIView.transition(with: rootviewcontroller, duration: 0.55001, options: .transitionFlipFromLeft, animations: { () -> Void in
+            }) { (finished) -> Void in
+                }
+    }
         
         @objc func sideMenusignOutClicked(_ notification: NSNotification) {
                 let vc = SignOutViewController(nibName: "SignOutViewController", bundle: nil)
@@ -402,51 +402,111 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     
     @IBAction func cameraClicked(_ sender: Any) {
         
-//        let vc = BranchBottomPopUpController(nibName: "BranchBottomPopUpController", bundle: nil)
-//        vc.choosenOption = { (string) in
-//            OpenGallery.shared.delegate = self
-//            OpenGallery.shared.viewControl = self
-//            if string == "Take Photo"{
-//
-//                OpenGallery.shared.openCamera()
-//
-//            }else if string == "Device Gallery"{
-//                OpenGallery.shared.viewControl = self
-//                OpenGallery.shared.openGallery()
-//
-//            }
-//            if string == "Fynoo Gallery"{
-//                let vc = BussinessGalleryViewController(nibName: "BussinessGalleryViewController", bundle: nil)
-//                vc.isTypeFrom = "Profile"
-//                vc.delegate = self
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            }
-//        }
-//
-//        let popupController = MTPopupController(rootViewController: vc)
-//        popupController.autoAdjustKeyboardEvent = false
-//        popupController.style = .bottomSheet
-//        popupController.navigationBarHidden = true
-//        popupController.hidesCloseButton = false
-//        let blurEffect = UIBlurEffect(style: .dark)
-//        popupController.backgroundView = UIVisualEffectView(effect: blurEffect)
-//        popupController.backgroundView?.alpha = 0.6
-//        popupController.backgroundView?.onClick {
-//            popupController.dismiss()
-//        }
-//        popupController.present(in: self)
-        
-        //        let alert = UIAlertController(title: "Message", message: "", preferredStyle: .actionSheet)
-        //        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
-        //            self.accessCamera()
-        //        }))
-        //        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { (action) in
-        //            self.accessGallery()
-        //        }))
-        //        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        //        self.present(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Message", message: "", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+            OpenGallery.shared.delegate = self
+            OpenGallery.shared.viewControl = self
+            OpenGallery.shared.openCamera()
+        }))
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { (action) in
+            OpenGallery.shared.delegate = self
+            OpenGallery.shared.viewControl = self
+            OpenGallery.shared.openGallery()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
         
     }
+    
+    func openCamera(){
+        let imagePicker = UIImagePickerController()
+        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)){
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.allowsEditing = true
+            imagePicker.delegate = self
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        else{
+            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    func  openGallery()
+    {
+        let imagePicker = UIImagePickerController()
+        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary))
+        {
+            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+            imagePicker.allowsEditing = true
+            imagePicker.delegate = self
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            self.dismiss(animated: true, completion: nil)
+        }
+    
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            self.dismiss(animated: true, completion: nil)
+            guard let selectedImage = info[.originalImage] as? UIImage else {
+                print("Image not found!")
+                return
+            }
+          
+           let selectedImageNew = selectedImage.resizeWithWidth(width: 700)!
+            let compressData = selectedImageNew.jpegData(compressionQuality: 0.8) //max value is 1.0 and minimum is 0.0
+            let compressedImage = UIImage(data: compressData!)
+            
+            self.profileImg.image = compressedImage
+            UploadProfileImage_API()
+            
+    //        self.profileImg.image = selectedImage
+    //        UploadProfileImage_API(img: selectedImage)
+        }
+        
+        func gallery(img: UIImage, imgtype: String) {
+            self.profileImg.image = img
+            UploadProfileImage_API()
+        }
+    
+        func UploadProfileImage_API()
+        {
+            let str = "\(Constant.BASE_URL)\(Constant.UpdateProfile_Image)"
+            
+            let param = [
+                "user_id":Singleton.shared.getUserId(),"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"image_id":imageId
+            ]
+            
+            
+            ModalClass.startLoading(self.view)
+       
+            ServerCalls.fileUploadAPINew(inputUrl: str, parameters: param, imageName: "image", imageFile: self.profileImg.image!) { (response, success, resp) in
+                
+                ModalClass.stopLoading()
+                if let value = response as? NSDictionary{
+                    let msg = value.object(forKey: "error_description") as! String
+                    let error = value.object(forKey: "error_code") as! Int
+                    if error == 100{
+                        ModalController.showNegativeCustomAlertWith(title:" Error", msg: msg)
+                    }else{
+                        self.imageId = ""
+                        ModalController.showSuccessCustomAlertWith(title:"", msg: msg)
+                        AuthorisedUser.shared.user?.data?.profile_image = ((value.object(forKey: "data") as! NSDictionary).object(forKey: "image_url") as! String)
+                        
+                        let strIMage = (value.object(forKey: "data") as! NSDictionary).object(forKey: "image_url") as! String
+                        self.profileImg.sd_setImage(with: URL(string: strIMage), placeholderImage: UIImage(named: "profile_white"))
+                        
+                        ModalController.saveTheContent(strIMage as AnyObject, WithKey: "profile_img")
+                    }
+                }
+                else{
+                    ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                }
+            }
+            
+        }
     
     // MARK: - AGENT DASHBOARD API
     func dashboardAPI()
@@ -513,6 +573,18 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     
                     self.availableBalanceLbl.text = "\(self.dataDict.object(forKey: "available_amount") as! Float)"
                     
+                    let image =  ((self.dataDict.object(forKey: "agent_information") as! NSArray).object(at: 0) as! NSDictionary).object(forKey: "user_img") as! NSString
+                    
+                    self.profileImg.sd_setImage(with: URL(string: "\(image)"), placeholderImage: UIImage(named: "profile_white"))
+                    
+                    ModalController.saveTheContent(image, WithKey: "profile_img")
+                    
+                    let nameStr =  ((self.dataDict.object(forKey: "agent_information") as! NSArray).object(at: 0) as! NSDictionary).object(forKey: "name") as! NSString
+                    let idStr =  ((self.dataDict.object(forKey: "agent_information") as! NSArray).object(at: 0) as! NSDictionary).object(forKey: "fynoo_id") as! NSString
+                    let val1 = "Hello".localized
+                    let val2 = "ID".localized
+                    self.userDetails.text = "\(val1) \(nameStr)\n \(val2): \(idStr)"
+                    
                     self.tableVw.reloadData()
                 }
             }else{
@@ -537,12 +609,35 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         self.tableVw.reloadData()
     }
     
-    func addServiceClickedHome(id : Int, name : String) {
+    func addServiceClickedHome(id : Int, name : String, index : Int) {
         let vc = CommonPopupViewController(nibName: "CommonPopupViewController", bundle: nil)
         vc.modalPresentationStyle = .overFullScreen
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         vc.delegate =  self
         vc.name = name
+        vc.serviceID = id
+        vc.imgURL = "\((self.servicesArray.object(at: index) as! NSDictionary).object(forKey: "service_icon") as! String)"
+        vc.setUI()
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    func activateServiceClickedHome(id : Int, name : String, index : Int) {
+        let vc = CommonPopupViewController(nibName: "CommonPopupViewController", bundle: nil)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        vc.delegate =  self
+        vc.showActive = true
+        
+        let act = "\((self.servicesArray.object(at: index) as! NSDictionary).object(forKey: "is_active") as! NSNumber)"
+        
+        if Int(act) == 1 {
+            vc.isForActivate = false
+            vc.name = "Are you sure you want to deactivate this service?"
+        }else{
+            vc.isForActivate = true
+            vc.name = "Are you sure you want to activate this service?"
+        }
+        
         vc.serviceID = id
         vc.setUI()
         self.present(vc, animated: true, completion: nil)
@@ -550,6 +645,80 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     
     func yesBtnClicked(name : String , id : Int) {
         addServiceAPI(serviceID: id)
+    }
+    
+    func yesBtnForActivate(name : String , id : Int , forActivate : Bool) {
+        if forActivate {
+            let user_id:UserData = AuthorisedUser.shared.getAuthorisedUser()
+            var userID = "\(user_id.data!.id)"
+            ModalClass.startLoading(self.view)
+            let str = "\(Constant.BASE_URL)\(Constant.activate_services)"
+            let parameters = [
+                "user_id": userID,
+                "services": "\(id)",
+                "lang_code":HeaderHeightSingleton.shared.LanguageSelected
+            ]
+            print("request -",parameters)
+            ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
+                ModalClass.stopLoading()
+                if success == true {
+                    let ResponseDict : NSDictionary = (response as? NSDictionary)!
+                    print("ResponseDictionary %@",ResponseDict)
+                    let x = ResponseDict.object(forKey: "error") as! Bool
+                    if x {
+                        ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "error_description") as? String)!, msg: "")
+                    }
+                    else{
+                        ModalController.showSuccessCustomAlertWith(title: "", msg: (ResponseDict.object(forKey: "error_description") as? String)!)
+                        self.dashboardAPI()
+                    }
+                }else{
+                    if response == nil {
+                        print ("connection error")
+                        ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                    }else{
+                        print ("data not in proper json")
+                    }
+                }
+            }
+        }
+        
+        
+        
+        else{
+            let user_id:UserData = AuthorisedUser.shared.getAuthorisedUser()
+            var userID = "\(user_id.data!.id)"
+            ModalClass.startLoading(self.view)
+            let str = "\(Constant.BASE_URL)\(Constant.deactivate_services)"
+            let parameters = [
+                "user_id": userID,
+                "services": "\(id)",
+                "lang_code":HeaderHeightSingleton.shared.LanguageSelected
+            ]
+            print("request -",parameters)
+            ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
+                ModalClass.stopLoading()
+                if success == true {
+                    let ResponseDict : NSDictionary = (response as? NSDictionary)!
+                    print("ResponseDictionary %@",ResponseDict)
+                    let x = ResponseDict.object(forKey: "error") as! Bool
+                    if x {
+                        ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "error_description") as? String)!, msg: "")
+                    }
+                    else{
+                        ModalController.showSuccessCustomAlertWith(title: "", msg: (ResponseDict.object(forKey: "error_description") as? String)!)
+                        self.dashboardAPI()
+                    }
+                }else{
+                    if response == nil {
+                        print ("connection error")
+                        ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                    }else{
+                        print ("data not in proper json")
+                    }
+                }
+            }
+        }
     }
     
     // MARK: - ADD SERVICE API
@@ -575,7 +744,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "error_description") as? String)!, msg: "")
                 }
                 else{
-                    ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "error_description") as? String)!, msg: "")
+                    ModalController.showSuccessCustomAlertWith(title: "", msg: (ResponseDict.object(forKey: "error_description") as? String)!)
                     self.dashboardAPI()
                 }
             }else{

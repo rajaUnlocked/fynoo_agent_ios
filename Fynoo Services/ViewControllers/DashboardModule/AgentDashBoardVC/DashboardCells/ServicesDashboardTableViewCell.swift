@@ -9,7 +9,8 @@
 import UIKit
 
 protocol ServicesDashboardTableViewCellDelegate: class {
-    func addServiceClickedHome(id : Int, name : String)
+    func addServiceClickedHome(id : Int, name : String, index : Int)
+    func activateServiceClickedHome(id : Int, name : String, index : Int)
 }
 
 
@@ -47,6 +48,15 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            
+            let opt = "\((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "is_opt") as! NSNumber)"
+            
+            if Int(opt) == 2 {
+               
+                let nameStr = ((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_name") as! NSString) as String
+                let idInt = Int((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber)
+                self.delegate?.addServiceClickedHome(id: idInt, name: nameStr,index: indexPath.item)
+            }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -108,10 +118,21 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
         cell.serviceID = Int((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber)
         
         cell.delegate = self
+        cell.ind = index.item
         return cell
     }
     
-    func addServiceClicked(id : Int, name : String) {
-        self.delegate?.addServiceClickedHome(id: id, name: name)
+    func addServiceClicked(id : Int, name : String, index : Int) {
+        self.delegate?.addServiceClickedHome(id: id, name: name,index: index)
+    }
+    
+    func activateServiceClicked(id : Int, name : String, index : Int) {
+        
+        let opt = "\((serviceArr.object(at: index) as! NSDictionary).object(forKey: "is_opt") as! NSNumber)"
+        
+        if Int(opt) == 1 {
+            self.delegate?.activateServiceClickedHome(id: id, name: name, index: index)
+        }
+        
     }
 }
