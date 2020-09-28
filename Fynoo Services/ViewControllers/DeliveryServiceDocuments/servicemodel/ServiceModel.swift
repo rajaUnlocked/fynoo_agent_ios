@@ -10,7 +10,102 @@ import UIKit
 import Foundation
 import ObjectMapper
 
+
 class ServiceModel: NSObject {
+     var vehicleId = 1
+    func getvehicleName(completion:@escaping(Bool, VehicleName?) -> ()) {
+         
+                    let str = "\(Service.getvehiclename)"
+                    var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
+
+                                if userId == "0"{
+                                  userId = ""
+
+                                }
+                 let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"vehicle_brand_id":vehicleId] as [String : Any]
+                    print(str,parameters)
+                    ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
+
+
+                        if let value = response as? NSDictionary{
+                            let error = value.object(forKey: "error") as! Int
+                            if error == 0{
+                                if let body = response as? [String: Any] {
+                                    let val = Mapper<VehicleName>().map(JSON: response as! [String : Any])
+                                    completion(true, val)
+                                    return
+                                }
+                                completion(false,nil)
+                            }else{
+                                completion(false, nil)
+
+                            }
+
+                        }
+                    }
+                }
+    func getvehicleKind(completion:@escaping(Bool, VehicleKind?) -> ()) {
+
+                 let str = "\(Service.getvehiclekind)"
+                 var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
+
+                             if userId == "0"{
+                               userId = ""
+
+                             }
+              let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"registration_type_id":1] as [String : Any]
+                 print(str,parameters)
+                 ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
+
+
+                     if let value = response as? NSDictionary{
+                         let error = value.object(forKey: "error") as! Int
+                         if error == 0{
+                             if let body = response as? [String: Any] {
+                                 let val = Mapper<VehicleKind>().map(JSON: response as! [String : Any])
+                                 completion(true, val)
+                                 return
+                             }
+                             completion(false,nil)
+                         }else{
+                             completion(false, nil)
+
+                         }
+
+                     }
+                 }
+             }
+    func getservicetypecolor(completion:@escaping(Bool, TypeBrandColor?) -> ()) {
+
+              let str = "\(Service.gettypecolor)"
+              var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
+
+                          if userId == "0"{
+                            userId = ""
+
+                          }
+           let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected] as [String : Any]
+              print(str,parameters)
+              ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
+
+
+                  if let value = response as? NSDictionary{
+                      let error = value.object(forKey: "error") as! Int
+                      if error == 0{
+                          if let body = response as? [String: Any] {
+                              let val = Mapper<TypeBrandColor>().map(JSON: response as! [String : Any])
+                              completion(true, val)
+                              return
+                          }
+                          completion(false,nil)
+                      }else{
+                          completion(false, nil)
+
+                      }
+
+                  }
+              }
+          }
     func getservicedocument(completion:@escaping(Bool, SeviceDocument?) -> ()) {
 
            let str = "\(Service.getdocumentlist)"
@@ -20,7 +115,7 @@ class ServiceModel: NSObject {
                          userId = ""
 
                        }
-        let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":"308","primary_id":1] as [String : Any]
+        let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":"1121","primary_id":1] as [String : Any]
            print(str,parameters)
            ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
 
@@ -45,12 +140,11 @@ class ServiceModel: NSObject {
 
 }
 
-
-struct SeviceDocument : Mappable {
+struct VehicleName : Mappable {
     var error : Bool?
     var error_code : Int?
-    var data : [SeviceDocumentData]?
     var error_description : String?
+    var data : VehicleNameData?
 
     init?(map: Map) {
 
@@ -60,11 +154,185 @@ struct SeviceDocument : Mappable {
 
         error <- map["error"]
         error_code <- map["error_code"]
-        data <- map["data"]
         error_description <- map["error_description"]
+        data <- map["data"]
     }
 
 }
+struct VehicleNameData : Mappable {
+    var vehicle_kind : [Brand]?
+
+    init?(map: Map) {
+
+    }
+
+    mutating func mapping(map: Map) {
+
+        vehicle_kind <- map["vehicle_kind"]
+    }
+
+}
+
+//vehicle kind
+struct VehicleKind : Mappable {
+    var error : Bool?
+    var error_code : Int?
+    var error_description : String?
+    var data : VehicleKindData?
+
+    init?(map: Map) {
+
+    }
+
+    mutating func mapping(map: Map) {
+
+        error <- map["error"]
+        error_code <- map["error_code"]
+        error_description <- map["error_description"]
+        data <- map["data"]
+    }
+
+}
+struct VehicleKindData : Mappable {
+    var vehicle_kind : [Vehicle_kind]?
+
+    init?(map: Map) {
+
+    }
+
+    mutating func mapping(map: Map) {
+
+        vehicle_kind <- map["vehicle_kind"]
+    }
+
+}
+struct Vehicle_kind : Mappable {
+    var id : Int?
+    var name : String?
+    var image : String?
+
+    init?(map: Map) {
+
+    }
+
+    mutating func mapping(map: Map) {
+
+        id <- map["id"]
+        name <- map["name"]
+        image <- map["image"]
+    }
+
+}
+
+
+//type color
+struct TypeBrandColor : Mappable {
+    var error : Bool?
+    var error_code : Int?
+    var error_description : String?
+    var data : TypeBrandColorData?
+
+    init?(map: Map) {
+
+    }
+
+    mutating func mapping(map: Map) {
+
+        error <- map["error"]
+        error_code <- map["error_code"]
+        error_description <- map["error_description"]
+        data <- map["data"]
+    }
+
+}
+struct TypeBrandColorData : Mappable {
+    var registration_type : [Registration_type]?
+    var brand : [Brand]?
+    var vehicle_color : [Vehicle_color]?
+
+    init?(map: Map) {
+
+    }
+
+    mutating func mapping(map: Map) {
+
+        registration_type <- map["registration_type"]
+        brand <- map["brand"]
+        vehicle_color <- map["vehicle_color"]
+    }
+
+}
+struct Brand : Mappable {
+    var id : Int?
+    var name : String?
+
+    init?(map: Map) {
+
+    }
+
+    mutating func mapping(map: Map) {
+
+        id <- map["id"]
+        name <- map["name"]
+    }
+
+}
+struct Vehicle_color : Mappable {
+    var id : Int?
+    var name : String?
+
+    init?(map: Map) {
+
+    }
+
+    mutating func mapping(map: Map) {
+
+        id <- map["id"]
+        name <- map["name"]
+    }
+
+}
+struct Registration_type : Mappable {
+    var id : Int?
+    var name : String?
+    var year_count : Int?
+
+    init?(map: Map) {
+
+    }
+
+    mutating func mapping(map: Map) {
+
+        id <- map["id"]
+        name <- map["name"]
+        year_count <- map["year_count"]
+    }
+
+}
+
+
+
+
+struct SeviceDocument : Mappable {
+   var error : Bool?
+       var error_code : Int?
+       var data : [SeviceDocumentData]?
+       var error_description : String?
+
+       init?(map: Map) {
+
+       }
+
+       mutating func mapping(map: Map) {
+
+           error <- map["error"]
+           error_code <- map["error_code"]
+           data <- map["data"]
+           error_description <- map["error_description"]
+       }
+
+   }
+
 struct SeviceDocumentData : Mappable {
     var new_upload_enable : Bool?
     var new_upload_id : Int?

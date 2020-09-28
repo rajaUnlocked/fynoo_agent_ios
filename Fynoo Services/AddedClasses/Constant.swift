@@ -110,6 +110,9 @@ enum Service {
     static let targetlist = Constant.BASE_URL + "target_master_api/v2/target/"
     static let getProfile = Constant.BASE_URL + "agentapis/v2/agent_profile/"
     static let getdocumentlist = Constant.BASE_URL + "agentapi/v1/get_vehicle_service_document/"
+     static let gettypecolor = Constant.BASE_URL + "agentapi/v1/get_registration_brand_color/"
+     static let getvehiclekind = Constant.BASE_URL + "agentapi/v1/get_vehicle_kind/"
+      static let getvehiclename = Constant.BASE_URL + "agentapi/v1/get_vehicle_name/"
 }
 
 enum Authentication {

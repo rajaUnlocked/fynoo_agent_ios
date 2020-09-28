@@ -10,6 +10,8 @@ import UIKit
 
 class VehicleDescriptionTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var toplbl: UILabel!
+    @IBOutlet weak var txt: UITextField!
     @IBOutlet weak var vw: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()

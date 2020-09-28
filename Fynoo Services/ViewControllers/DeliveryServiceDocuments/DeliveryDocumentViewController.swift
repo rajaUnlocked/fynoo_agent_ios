@@ -10,10 +10,27 @@ import UIKit
 import MTPopup
 import MobileCoreServices
 class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductViewControllerDelegate,OpenGalleryDelegate,UIDocumentPickerDelegate {
-    var imgArr = [UIImage]()
+    var vehiclemodel = ServiceModel()
+    var txtArr = ["","","","","","","",""]
+    var imgArr = [String]()
+     var descriparr = [String]()
+       var registrationtypeArr = [String]()
+       var vehiclebrandArr = [String]()
+     var vehiclenameArr = [String]()
+     var vehiclenameidArr = [Int]()
+    var vehiclekindArr = [String]()
+        var vehiclekindidArr = [Int]()
+       var vehicleColorArr = [String]()
+    var registrationtypeidArr = [Int]()
+    var vehiclebrandidArr = [Int]()
+    var vehicleColoridArr = [Int]()
+    var vehicledescriparr = ["Registration Type ","Vehicle Brand ","Vehicle Name","Production Year","Vehicle Color","Vehicle kind","Maximum Load ","Plat Number"]
     var service = ServiceModel()
     var headerarr = ["National Id / Iqama","Driving License Front ","Car Registration","Car Insurance","Driving Authorization","Car Description"]
+      var vehiclenamelist:VehicleName?
     var servicelist:SeviceDocument?
+    var typecolorlist:TypeBrandColor?
+    var vehiclekind:VehicleKind?
     @IBOutlet weak var tabvw: UITableView!
     @IBOutlet weak var headervw: NavigationView!
     var SelectedIndex = NSMutableArray()
@@ -27,7 +44,73 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
           //self.tabvw.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
         
         servicedocList_API()
+        servicetypeColor_API()
     }
+    func vehicleKind_API(brandid:Int)
+          {
+          
+             ModalClass.startLoading(self.view)
+            vehiclemodel.vehicleId = 10
+              service.getvehicleKind { (success, response) in
+                  ModalClass.stopLoading()
+                  if success
+                  {
+                      self.vehiclekind = response
+                     for i in 0...(self.vehiclekind?.data?.vehicle_kind?.count ?? 0) - 1
+                     {
+                         self.vehiclekindArr.append(self.vehiclekind?.data?.vehicle_kind?[i].name ?? "")
+                         self.vehiclekindidArr.append(self.vehiclekind?.data?.vehicle_kind?[i].id ?? 0)
+                     }
+                   self.tabvw.reloadData()
+               }
+           }
+       }
+    func vehicleName_API(brandid:Int)
+       {
+       
+          ModalClass.startLoading(self.view)
+         vehiclemodel.vehicleId = 10
+           service.getvehicleName { (success, response) in
+               ModalClass.stopLoading()
+               if success
+               {
+                   self.vehiclenamelist = response
+                  for i in 0...(self.vehiclenamelist?.data?.vehicle_kind?.count ?? 0) - 1
+                  {
+                      self.vehiclenameArr.append(self.vehiclenamelist?.data?.vehicle_kind?[i].name ?? "")
+                      self.vehiclenameidArr.append(self.vehiclenamelist?.data?.vehicle_kind?[i].id ?? 0)
+                  }
+                self.tabvw.reloadData()
+            }
+        }
+    }
+    func servicetypeColor_API()
+     {
+        // ModalClass.startLoading(self.view)
+         service.getservicetypecolor { (success, response) in
+             ModalClass.stopLoading()
+             if success
+             {
+                 self.typecolorlist = response
+                for i in 0...(self.typecolorlist?.data?.registration_type?.count ?? 0) - 1
+                {
+                    self.registrationtypeArr.append(self.typecolorlist?.data?.registration_type?[i].name ?? "")
+                    self.registrationtypeidArr.append(self.typecolorlist?.data?.registration_type?[i].id ?? 0)
+                }
+                for i in 0...(self.typecolorlist?.data?.brand?.count ?? 0) - 1
+                               {
+                                   self.vehiclebrandArr.append(self.typecolorlist?.data?.brand?[i].name ?? "")
+                                self.vehiclebrandidArr.append(self.typecolorlist?.data?.brand?[i].id ?? 0)
+                               }
+                for i in 0...(self.typecolorlist?.data?.vehicle_color?.count ?? 0) - 1
+                               {
+                                   self.vehicleColorArr.append(self.typecolorlist?.data?.vehicle_color?[i].name ?? "")
+                                self.vehicleColoridArr.append(self.typecolorlist?.data?.vehicle_color?[i].id ?? 0)
+                               }
+                 self.tabvw.reloadData()
+             }
+         }
+     }
     func servicedocList_API()
     {
         ModalClass.startLoading(self.view)
@@ -36,7 +119,9 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             if success
             {
                 self.servicelist = response
-                print("jhbfbhn")
+                self.imgArr = [self.servicelist?.data?[0].national_id ?? "",self.servicelist?.data?[0].driving_license ?? "",self.servicelist?.data?[0].registration ?? "",self.servicelist?.data?[0].insurance ?? "",self.servicelist?.data?[0].authorization ?? ""]
+                 self.descriparr = [self.servicelist?.data?[0].national_id_content ?? "", "",self.servicelist?.data?[0].registration_content ?? "", "",self.servicelist?.data?[0].authorization_content ?? ""]
+                self.tabvw.reloadData()
             }
         }
     }
@@ -50,7 +135,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
            
        }
     func gallery(img: UIImage, imgtype: String) {
-        imgArr.append(img)
+        //imgArr.append(img)
        }
     func information(Value: String) {
            print("")
@@ -83,7 +168,16 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
        }
        
        func filterIdval(tag: Int, Value: String, id: Int) {
-           print("")
+        txtArr[tag] = Value
+        if tag == 0
+               {
+                   vehicleKind_API(brandid: id)
+               }
+        if tag == 1
+        {
+            vehicleName_API(brandid: id)
+        }
+        tabvw.reloadData()
        }
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
           ModalClass.startLoading(self.view)
@@ -143,7 +237,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         {
           if SelectedIndex.contains(section)
             {
-              return 8
+                return vehicledescriparr.count + 2
             }
             return 1
         }
@@ -175,14 +269,15 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                                 
                                return cell
                                }
-                    else  if indexPath.row == 7{
+                    else  if indexPath.row == vehicledescriparr.count + 1{
                         let cell = tabvw.dequeueReusableCell(withIdentifier: "UploadVehicleImageTableViewCell", for: indexPath) as! UploadVehicleImageTableViewCell
                                          cell.uploadvehicle.addTarget(self, action: #selector(clickedvehicleUpload(_:)), for: .touchUpInside)
-
+                        cell.vehicleimage.sd_setImage(with: URL(string:self.servicelist?.data?[0].vehicle_kind_image ?? ""), placeholderImage: UIImage(named: "passport"))
                                           return cell
                     }
                     let cell = tabvw.dequeueReusableCell(withIdentifier: "VehicleDescriptionTableViewCell", for: indexPath) as! VehicleDescriptionTableViewCell
-                  
+                    cell.toplbl.text = vehicledescriparr[indexPath.row - 1]
+                    cell.txt.text =  txtArr[indexPath.row - 1]
                    return cell
                    }
         else{
@@ -202,8 +297,8 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "ServiceDetailTableViewCell", for: indexPath) as! ServiceDetailTableViewCell
                 cell.uploadimg.addTarget(self, action: #selector(clickupload(_:)), for: .touchUpInside)
                 cell.crossclicked.addTarget(self, action: #selector(clickcrossed(_:)), for: .touchUpInside)
-             
-                let html = "<html><body><h4>Please make sure you follow the below guidelines</h4><ul><li>Sons of Saudi Female can apply.</li><li>Saudi: The applicant must hold a National Id Card.</li><li>Non Saudi: The applicant must be sponsored by a licensed Limo company and car must be authorized by transport ministry.</li></ul></body></html>"
+                cell.pswdimg.sd_setImage(with: URL(string: imgArr[indexPath.section - 1]), placeholderImage: UIImage(named: "passport"))
+                let html = descriparr[indexPath.section - 1]
                    let data = Data(html.utf8)
                if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
                     cell.detaillbl.attributedText = attributedString
@@ -232,11 +327,43 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             if indexPath.row > 0
             {
             let vc = BottomPopupEditProductViewController(nibName: "BottomPopupEditProductViewController", bundle: nil)
+                vc.tag1 = indexPath.row - 1
             vc.delegate = self
             vc.isfiletr = true
-            vc.nameAr = ["car","car","car","car","car","car"]
-            vc.nameArId = [1,1,1,1,1,1]
-            vc.namelock = [1,1,1,1,1,1]
+                vc.nameAr = ["car","car","car","car","car","car","car","car"]
+                vc.nameArId = [1,1,1,1,1,1,1,1]
+                vc.namelock = [1,1,1,1,1,1,1,1]
+                if indexPath.row == 1
+                {
+                    vc.nameAr = registrationtypeArr
+                    vc.nameArId = registrationtypeidArr
+                    vc.namelock = registrationtypeidArr
+                    
+                }
+        else if indexPath.row == 2
+                       {
+                           vc.nameAr = vehiclebrandArr
+                        vc.nameArId = vehiclebrandidArr
+                        vc.namelock = vehiclebrandidArr
+                       }
+                     else if indexPath.row == 3
+                  {
+                    vc.nameAr = vehiclenameArr
+                  vc.nameArId = vehiclenameidArr
+                 vc.namelock = vehiclenameidArr
+                 }
+                else if indexPath.row == 5
+                               {
+                                  vc.nameAr = vehicleColorArr
+                                vc.nameArId = vehicleColoridArr
+                                vc.namelock = vehicleColoridArr
+                               }
+                else if indexPath.row == 6
+                                              {
+                                                 vc.nameAr = vehiclekindArr
+                                               vc.nameArId = vehiclekindidArr
+                                               vc.namelock = vehiclekindidArr
+                                              }
             let popupController = MTPopupController(rootViewController: vc)
             popupController.autoAdjustKeyboardEvent = false
             popupController.style = .bottomSheet
@@ -264,7 +391,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             {
                 return 57
             }
-            if indexPath.row == 7
+            if indexPath.row == vehicledescriparr.count + 1
                        {
                            return 130
                        }
@@ -274,7 +401,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         {
             if indexPath.row == 1
             {
-               return 400
+                return UITableView.automaticDimension
             }
          return 57
         }

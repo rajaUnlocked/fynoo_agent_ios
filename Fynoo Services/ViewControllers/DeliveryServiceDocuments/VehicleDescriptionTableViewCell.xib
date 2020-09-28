@@ -52,7 +52,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="lsd-ft-wpU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down-arrow-2" translatesAutoresizingMaskIntoConstraints="NO" id="xim-zW-5Tg">
@@ -99,6 +99,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="toplbl" destination="eNb-kJ-Rot" id="HYA-47-2fQ"/>
+                <outlet property="txt" destination="Q41-Go-h7C" id="OM2-Iy-D5Z"/>
                 <outlet property="vw" destination="kg1-eI-BkC" id="M0M-tO-MDQ"/>
             </connections>
             <point key="canvasLocation" x="97.826086956521749" y="102.12053571428571"/>

@@ -148,6 +148,8 @@
 		CEE357A32507585F0097069D /* ServiceListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE357A12507585F0097069D /* ServiceListTableViewCell.swift */; };
 		CEE357A42507585F0097069D /* ServiceListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE357A22507585F0097069D /* ServiceListTableViewCell.xib */; };
 		CEE357A6250769AD0097069D /* TargetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE357A5250769AD0097069D /* TargetModel.swift */; };
+		CEE5945025221FEC00CB1E5A /* VehicleKindTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE5944E25221FEC00CB1E5A /* VehicleKindTableViewCell.swift */; };
+		CEE5945125221FEC00CB1E5A /* VehicleKindTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE5944F25221FEC00CB1E5A /* VehicleKindTableViewCell.xib */; };
 		CEE72CA8251B36C400B02DAF /* DeliveryDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE72CA6251B36C400B02DAF /* DeliveryDocumentViewController.swift */; };
 		CEE72CA9251B36C400B02DAF /* DeliveryDocumentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE72CA7251B36C400B02DAF /* DeliveryDocumentViewController.xib */; };
 		CEE72CAC251B405F00B02DAF /* ServiceHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE72CAA251B405F00B02DAF /* ServiceHeaderTableViewCell.swift */; };
@@ -365,6 +367,8 @@
 		CEE357A12507585F0097069D /* ServiceListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListTableViewCell.swift; sourceTree = "<group>"; };
 		CEE357A22507585F0097069D /* ServiceListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceListTableViewCell.xib; sourceTree = "<group>"; };
 		CEE357A5250769AD0097069D /* TargetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetModel.swift; sourceTree = "<group>"; };
+		CEE5944E25221FEC00CB1E5A /* VehicleKindTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleKindTableViewCell.swift; sourceTree = "<group>"; };
+		CEE5944F25221FEC00CB1E5A /* VehicleKindTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleKindTableViewCell.xib; sourceTree = "<group>"; };
 		CEE72CA6251B36C400B02DAF /* DeliveryDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDocumentViewController.swift; sourceTree = "<group>"; };
 		CEE72CA7251B36C400B02DAF /* DeliveryDocumentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryDocumentViewController.xib; sourceTree = "<group>"; };
 		CEE72CAA251B405F00B02DAF /* ServiceHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -868,6 +872,8 @@
 				CEE72CB8251B76AF00B02DAF /* BottomPopupTableViewCell.swift */,
 				CEE72CB9251B76AF00B02DAF /* BottomPopupTableViewCell.xib */,
 				CEE72CBA251B76AF00B02DAF /* BottomPopupEditProductViewController.swift */,
+				CEE5944E25221FEC00CB1E5A /* VehicleKindTableViewCell.swift */,
+				CEE5944F25221FEC00CB1E5A /* VehicleKindTableViewCell.xib */,
 			);
 			path = Bottompopup;
 			sourceTree = "<group>";
@@ -1098,6 +1104,7 @@
 				CEE35794250740800097069D /* Segoe UI Bold Italic.ttf in Resources */,
 				2F8463D0250F6EBC0084EB32 /* LoginNewFirstTableViewCell.xib in Resources */,
 				2F8463E7250F6EBC0084EB32 /* LoginIntroThird.xib in Resources */,
+				CEE5945125221FEC00CB1E5A /* VehicleKindTableViewCell.xib in Resources */,
 				2FEB12062511EC930012FE98 /* SideMenuSecondTableViewCell.xib in Resources */,
 				CEAD29FA2506A43D008B1F9C /* VideoTableViewCell.xib in Resources */,
 				2FEB122425120E0F0012FE98 /* DashboardWalletTableViewCell.xib in Resources */,
@@ -1276,6 +1283,7 @@
 				2F8463E0250F6EBC0084EB32 /* LoginIntroFifth.swift in Sources */,
 				2F8463E8250F6EBC0084EB32 /* LoginIntroSecond.swift in Sources */,
 				2F846392250F6D270084EB32 /* BasedUrlViewController.swift in Sources */,
+				CEE5945025221FEC00CB1E5A /* VehicleKindTableViewCell.swift in Sources */,
 				2F8463E9250F6EBC0084EB32 /* LoginIntroFirst.swift in Sources */,
 				F4828C9B2508C574006B85D8 /* ProfileVatTableViewCell.swift in Sources */,
 				CEAD29E42506324F008B1F9C /* TargetViewController.swift in Sources */,
