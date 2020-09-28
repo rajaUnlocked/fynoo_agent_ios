@@ -115,6 +115,7 @@ class Constant: NSObject {
     static let bankIdentifier_List : String = "businessapi/v2/search_iban_number/";
     static let upload_file : String = "businessapi/v2/uploadimage/";
     static let vatInfo_Data : String = "product_api/getVatLength/";
+     static let IBANLengthInfo_Data : String = "agentapi/v1/get_iban_length/";
 }
 
 enum Service {

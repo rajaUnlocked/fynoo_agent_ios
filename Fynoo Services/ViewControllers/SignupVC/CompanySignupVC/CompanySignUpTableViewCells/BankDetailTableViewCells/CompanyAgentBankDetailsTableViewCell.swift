@@ -26,7 +26,7 @@ class CompanyAgentBankDetailsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setShadowsInFields()
-       self.ibanNumberTxtFld.keyboardType = .asciiCapableNumberPad
+//       self.ibanNumberTxtFld.keyboardType = .asciiCapableNumberPad
         self.bankNameTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
         self.accountHolderNameTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
         self.ibanNumberTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)

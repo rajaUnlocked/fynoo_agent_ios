@@ -44,6 +44,8 @@ class AgentSignUPModal: NSObject {
     var vatLength:Int = 0
      var agentName_CompareCode = ""
     
+    var agentIBanLength:Int = 0
+    
     func normalAgentSignUPValidation() -> (Bool, String) {
         var isFilled = false
         var isEmail = false

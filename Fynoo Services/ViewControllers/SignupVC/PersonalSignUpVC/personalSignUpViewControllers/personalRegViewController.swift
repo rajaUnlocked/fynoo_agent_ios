@@ -502,6 +502,15 @@ func uploadProfileImagesAPI(){
         self.tabView.reloadSections(NSIndexSet(index: 4) as IndexSet, with: .none)
    
         }
+    
+    func selectedCountryCodeMethod(mobileCodeDict: NSMutableDictionary) {
+        
+    }
+        
+    func selectPhoneCodeMethod(phoneCodeDict: NSMutableDictionary) {
+        
+    }
+    
 func AgentselectCountry(_ sender: Any){
             
       let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)

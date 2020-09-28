@@ -17,6 +17,8 @@ protocol SearchCategoryViewControllerDelegate: class {
     func selectedCurrency(currency : NSMutableDictionary)
     func selectedBankMethod(bankDict : NSMutableDictionary)
     func selectetCourierCompanyMethod(courierCompanyDict : NSMutableDictionary)
+    func selectedCountryCodeMethod(mobileCodeDict : NSMutableDictionary)
+    func selectPhoneCodeMethod(phoneCodeDict : NSMutableDictionary)
 }
 
 class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
@@ -79,6 +81,18 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
             let array =  selectedOLDCountryDict.object(forKey: "list_value") as! NSArray
             self.countryListArray = NSMutableArray(array: array)
             self.tableVw.reloadData()
+            
+        }else if isFromCountryMobileCode {
+            self.customHeader.titleHeader.text = "Select Country"
+            self.searchField.placeholder = "Enter Country Name"
+            
+            countryAPI()
+            
+        }else if isFromCountryPhoneCode {
+            self.customHeader.titleHeader.text = "Select Country"
+            self.searchField.placeholder = "Enter Country Name"
+            
+            countryAPI()
             
         }
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
@@ -157,6 +171,12 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
             
         } else if self.isFromCourierCompany {
             self.delegate?.selectetCourierCompanyMethod(courierCompanyDict: self.selectedCountryDict)
+            
+        } else if self.isFromCountryMobileCode {
+            self.delegate?.selectedCountryCodeMethod(mobileCodeDict: self.selectedCountryDict)
+            
+        } else if self.isFromCountryPhoneCode {
+            self.delegate?.selectPhoneCodeMethod(phoneCodeDict: self.selectedCountryDict)
         }
     }
     
@@ -209,6 +229,12 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
             
         }else if self.isFromCourierCompany {
             self.delegate?.selectetCourierCompanyMethod(courierCompanyDict: self.selectedCountryDict)
+            
+        } else if self.isFromCountryMobileCode {
+            self.delegate?.selectedCountryCodeMethod(mobileCodeDict: self.selectedCountryDict)
+            
+        } else if self.isFromCountryPhoneCode {
+            self.delegate?.selectPhoneCodeMethod(phoneCodeDict: self.selectedCountryDict)
         }
     }
     
@@ -225,6 +251,12 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
         cell.catName.font = UIFont(name:"\(fontNameLight)",size:12)
         
         cell.selectionStyle = .none
+        cell.countryFlagImageView.isHidden = true
+        cell.countryFlgWidthConstant.constant = 0
+        cell.countryCodeLbl.isHidden = true
+        
+              
+        
         if filterListArray.count > 0 || searchField.text!.count > 0 {
             if isForCountry{
                 cell.catName.text = "\((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "country_name") as! String)"
@@ -243,15 +275,41 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
                 
             }else if isFromCourierCompany{
                 cell.catName.text = "\((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "company_name") as! String)"
+                
+            } else if self.isFromCountryMobileCode || self.isFromCountryPhoneCode {
+                
+                cell.countryFlagImageView.isHidden = false
+                cell.countryFlgWidthConstant.constant = 25
+                cell.countryCodeLbl.isHidden = false
+                cell.tickImage.isHidden = true
+                
+                cell.catName.text = "\((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "country_name") as! String)"
+                cell.countryCodeLbl.text = "\((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "mobile_code") as! String)"
+                
+                if let str = ((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "country_flag") as? String)  {
+                    if str.count > 0{
+                        
+                        cell.countryFlagImageView.sd_setImage(with: URL(string: str), placeholderImage: UIImage(named: "flag_placeholder.png"))
+                        
+                    }
+                }
+                
             }
+            
             if (self.filterListArray.object(at: index.row) as! NSDictionary) == self.selectedCountryDict {
                 cell.tickImage.isHidden = false
             }else{
                 cell.tickImage.isHidden = true
             }
             
+//            if (self.isFromCountryMobileCode || self.isFromCountryPhoneCode) && (self.filterListArray.object(at: index.row) as! NSDictionary) == self.selectedCountryDict {
+//                cell.contentView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+//            }else{
+//                cell.contentView.backgroundColor = .white
+//            }
             
         }else{
+            
             if isForCountry{
                 cell.catName.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "country_name") as! String)"
                 
@@ -272,6 +330,22 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
                 
             }else if isFromCourierCompany {
                 cell.catName.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "company_name") as! String)"
+                
+            }else if self.isFromCountryMobileCode || self.isFromCountryPhoneCode {
+                cell.countryFlagImageView.isHidden = false
+                cell.countryFlgWidthConstant.constant = 25
+                cell.countryCodeLbl.isHidden = false
+                cell.tickImage.isHidden = true
+                
+                cell.catName.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "country_name") as! String)"
+                cell.countryCodeLbl.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "mobile_code") as! String)"
+                
+                if let str = ((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "country_flag") as? String)  {
+                    if str.count > 0{
+                        
+                        cell.countryFlagImageView.sd_setImage(with: URL(string: str), placeholderImage: UIImage(named: "flag_placeholder.png"))
+                    }
+                }
             }
             
             if (self.countryListArray.object(at: index.row) as! NSDictionary) == self.selectedCountryDict {
@@ -279,7 +353,19 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
             }else{
                 cell.tickImage.isHidden = true
             }
+            
+//            if (self.isFromCountryMobileCode || self.isFromCountryPhoneCode) && (self.countryListArray.object(at: index.row) as! NSDictionary) == self.selectedCountryDict {
+//                cell.contentView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+//            }else{
+//                cell.contentView.backgroundColor = .white
+//            }
         }
+        
+        if self.isFromCountryMobileCode || self.isFromCountryPhoneCode {
+            cell.tickImage.isHidden = true
+        }
+                   
+        
         return cell
     }
     
@@ -462,7 +548,7 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
                 return
             }
             var countryOr = ""
-            if isForCountry{
+            if isForCountry || isFromCountryMobileCode || isFromCountryPhoneCode {
                 countryOr = "country_name"
             }else if isForBankList{
                 countryOr = "bank_name"
