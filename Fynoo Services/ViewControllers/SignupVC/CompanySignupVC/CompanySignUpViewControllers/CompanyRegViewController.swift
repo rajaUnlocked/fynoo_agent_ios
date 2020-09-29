@@ -469,7 +469,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
     func mobileCodeClicked(_ sender: Any) {
         let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
         vc.delegate = self
- //       vc.isFromCountryMobileCode = true
+        vc.isFromCountryMobileCode = true
          vc.selectedCountryDict = self.selectedCountryCodeDict
         self.navigationController?.pushViewController(vc, animated: true)
         
@@ -478,7 +478,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
     func phoneCodeClicked(_ sender: Any) {
         let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
         vc.delegate = self
- //       vc.isFromCountryPhoneCode = true
+        vc.isFromCountryPhoneCode = true
          vc.selectedCountryDict = self.selectedPhoneCodeDict
         self.navigationController?.pushViewController(vc, animated: true)
     }
