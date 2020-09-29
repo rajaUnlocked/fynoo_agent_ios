@@ -56,6 +56,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
         }
          
         return ((self.targetlist?.data?.total_target ?? 0) == 0 ? 0:self.targetlist?.data?.top_five_agent?.count ?? 0)
+      
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,7 +65,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
             if indexPath.row == 0
             {
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "TargetprogressTableViewCell", for: indexPath) as! TargetprogressTableViewCell
-                let attributedString : NSMutableAttributedString = NSMutableAttributedString(string: "\( "\(self.targetlist?.data?.target_to_be_achive ?? 0) /  ")\(self.targetlist?.data?.total_target ?? 0)")
+                let attributedString : NSMutableAttributedString = NSMutableAttributedString(string: "\(self.targetlist?.data?.target_to_be_achive ?? 0) /  \(self.targetlist?.data?.total_target ?? 0)")
                 attributedString.setColor(color: #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1), forText: "\(self.targetlist?.data?.total_target ?? 0)")
                 cell.countlbl.attributedText = attributedString
                 cell.progressvw.isHidden = false
@@ -75,7 +76,11 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
                     cell.targetimg.isHidden = true
                     cell.countlbl.text = "No Target Activated".localized
                 }
-               
+               else if self.targetlist?.data?.total_target ?? 0 == self.targetlist?.data?.target_to_be_achive ?? 0
+               {
+                cell.countlbl.text = "\(self.targetlist?.data?.target_to_be_achive ?? 0) /  \(self.targetlist?.data?.total_target ?? 0)"
+                cell.countlbl.textColor = #colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1)
+                }
                 cell.progressvw.progress = Float(self.targetlist?.data?.target_to_be_achive ?? 0)
                 return cell
             }
@@ -156,13 +161,14 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
         {
             if indexPath.row == 0
             {
-                return 100
+                return 80
             }
             return 250
         }
         else{
             if indexPath.row == 0
             {
+                
                 if targetlist?.data?.total_target ?? 0 == 0
                           {
                             return 60

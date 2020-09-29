@@ -41,7 +41,12 @@ class ModalController: NSObject {
         banner.dismissesOnTap = true
         banner.show(duration: 2.5)
     }
-    
+    static func convertUrltoImage(url:String) -> UIImage
+    {
+       let imageUrl = URL(string: url)!
+      let imageData = try! Data(contentsOf: imageUrl)
+      return UIImage(data: imageData)!
+    }
     // MARK: Appdelegate Object
     static func APPDELEGATE() -> AppDelegate{
         return UIApplication.shared.delegate as! AppDelegate;
