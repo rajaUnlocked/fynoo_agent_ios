@@ -159,20 +159,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
     @objc func methodOfReceivedNotificationChangeServiceIconClicked(_ notification: NSNotification) {
         self.tabView.reloadData()
     }
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//        self.dismiss(animated: true, completion: nil)
-//        guard let selectedImage = info[.originalImage] as? UIImage else {
-//            print("Image not found!")
-//            return
-//        }
-//
-//        let selectedImageNew = selectedImage.resizeWithWidth(width: 700)!
-//        let compressData = selectedImageNew.jpegData(compressionQuality: 0.8) //max value is 1.0 and minimum is 0.0
-//        let compressedImage = UIImage(data: compressData!)
-//
-//        self.profileImg.image = compressedImage
-//        UploadProfileImage_API(img: compressedImage!)
-//    }
+
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
@@ -187,16 +174,6 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
        let compressedImage = UIImage(data: compressData!)
         tempImage = compressedImage
        
-//        self.selectedImage = tempImage
-//        if tempImage.size.width > 414{
-//
-//            let factor = tempImage.size.width / 414
-//            tempImage =  tempImage.scaleProfileImageToSize(newSize: CGSize(width: 414, height: tempImage.size.height/factor))
-//        }else if tempImage.size.height > 812
-//        {
-//            let factor = tempImage.size.height / 812
-//            tempImage =  tempImage.scaleProfileImageToSize(newSize: CGSize(width: tempImage.size.width/factor, height: 812))
-//        }
         self.uploadProfileImagesAPI()
         dismiss(animated:true, completion: nil)
 
@@ -260,16 +237,12 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
                 self.agentIbanInfoDatas = response
                 self.agentSignUPModal.agentIBanLength = self.agentIbanInfoDatas?.data?.bank_number_length ?? 0
             }else{
-                ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.agentVatInfoDatas?.error_description! ?? "")")
+                ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.agentIbanInfoDatas?.error_description! ?? "")")
                
             }
-//            self.tabView.reloadData()
         }
     }
 
-    
-  
-    
     func bankNameApi(identifier:String) {
         let str = "\(Constant.BASE_URL)\(Constant.bankIdentifier_List)"
         let parameters = [
@@ -307,7 +280,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
                         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.bankNameView)
                         self.agentSignUPModal.agentbankName = ""
                     }
-                    //                    self.tabView.reloadRows(at: [IndexPath(row: 1, section: 3)], with: .none)
+                   
                 }
             }else{
                 if response == nil
@@ -330,7 +303,6 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
     func uploadProfileImagesAPI(){
         
         ModalClass.startLoading(self.view)
-        //    let device_id = UIDevice.current.identifierForVendor!.uuidString
         ServerCalls.fileUploadAPI(Imgtype:"",imagefrom:"user",img: tempImage) { (response, success, resp) in
             ModalClass.stopLoading()
             if success == true {
@@ -387,7 +359,6 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
         }else{
             print("no camera")
         }
-        
     }
     
     func gallerySelected() {
@@ -575,7 +546,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
         }else{
             self.isFromVatDocument = true
             agentSignUPModal.vatDocumentUrl = urls.first
-            
+             self.tabView.reloadRows(at: [IndexPath(row: 0, section: 4)], with: .none)
              self.tabView.reloadRows(at: [IndexPath(row: 1, section: 4)], with: .none)
         }
 
@@ -642,7 +613,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
                     if let value = (response?.object(forKey: "data") as? NSDictionary)?.object(forKey: "mail_status") as? String{
                         ModalController.showSuccessCustomAlertWith(title: "", msg: value)
                         
-                        if value == "Email Sent Success".localized{
+                        if value == "Email Sent Success".localized {
                             let vc = VerifyAccountViewController(nibName: "VerifyAccountViewController", bundle: nil)
                             vc.mobile = self.agentSignUPModal.agentPhoneNumber
                             vc.emailId = self.agentSignUPModal.agentEmail
@@ -756,10 +727,9 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
         let str = agentSignUPModal.agentbankAccountNumber.replacingOccurrences(of: " ", with: "")
         let vatStr = agentSignUPModal.agentVatNumber.replacingOccurrences(of: " ", with: "")
         
-        if  agentSignUPModal.imageID != 0 &&
-            appDelegate.selectServiceStr != "" && agentSignUPModal.agentBussinessName != ""  && agentSignUPModal.agentEmail != ""  && agentSignUPModal.agentConfirmEmail != ""  &&
+        if appDelegate.selectServiceStr != "" && agentSignUPModal.agentBussinessName != ""  && agentSignUPModal.agentEmail != ""  && agentSignUPModal.agentConfirmEmail != ""  &&
             agentSignUPModal.agentCountry != ""  && agentSignUPModal.agentCity != ""  && agentSignUPModal.agentContactNumber != "" &&
-            agentSignUPModal.agentPassword != ""  && agentSignUPModal.agentConfirmPassword != "" && (companyEmail && companyConfirmEmail) && (companyEmail == companyConfirmEmail) && mobileLength == mobileNumberWithoutGap.count && (agentSignUPModal.agentPassword == agentSignUPModal.agentConfirmPassword) && (agentSignUPModal.agentPassword.count >= 8 && agentSignUPModal.agentConfirmPassword.count  >= 8) && agentSignUPModal.agentbankName != ""  && agentSignUPModal.agentbankAccountHolderName != ""  && agentSignUPModal.agentbankAccountNumber != "" && str.count >= 24 && ((isVatYesClicked == true && vatStr.count >= 15) || isVatNoClicked) && isUserPolicySelected == true  {
+        agentSignUPModal.agentPassword != ""  && agentSignUPModal.agentConfirmPassword != "" && (companyEmail && companyConfirmEmail) && (companyEmail == companyConfirmEmail) && mobileLength == mobileNumberWithoutGap.count && (agentSignUPModal.agentPassword == agentSignUPModal.agentConfirmPassword) && (agentSignUPModal.agentPassword.count >= 8 && agentSignUPModal.agentConfirmPassword.count  >= 8) && agentSignUPModal.agentbankName != ""  && agentSignUPModal.agentbankAccountHolderName != ""  && agentSignUPModal.agentbankAccountNumber != "" && str.count >= agentSignUPModal.agentIBanLength && ((isVatYesClicked == true && vatStr.count >= agentSignUPModal.vatLength) || isVatNoClicked) && isUserPolicySelected == true  {
             
             if agentSignUPModal.agentPhoneNumber.count > 0  && (PhoneNumberWithoutGap.count < agentSignUPModal.phoneMinLength) {
                 everythingFilled = false
@@ -916,14 +886,14 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
             }
         }else if index.section == 3 {
             let str = agentSignUPModal.agentbankAccountNumber.replacingOccurrences(of: " ", with: "")
-            if agentSignUPModal.agentbankName != ""  && agentSignUPModal.agentbankAccountHolderName != ""  && agentSignUPModal.agentbankAccountNumber != "" && str.count >= 24 {
+            if agentSignUPModal.agentbankName != ""  && agentSignUPModal.agentbankAccountHolderName != ""  && agentSignUPModal.agentbankAccountNumber != "" && str.count >= agentSignUPModal.agentIBanLength {
                 cell.editImageView.image = UIImage(named: "section_filled.png")
             }else{
                 cell.editImageView.image = UIImage(named: "edit_red")
             }
         }else if index.section == 4 {
              let str = agentSignUPModal.agentVatNumber.replacingOccurrences(of: " ", with: "")
-            if (isVatYesClicked == true && str.count >= 15)  || isVatNoClicked == true {
+            if (isVatYesClicked == true && str.count >= agentSignUPModal.vatLength && agentSignUPModal.vatDocumentUrl != nil )  || isVatNoClicked == true {
                  cell.editImageView.image = UIImage(named: "section_filled.png")
             }else{
                 cell.editImageView.image = UIImage(named: "edit_red")
@@ -1243,10 +1213,10 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
         cell.delegate = self
         return cell
     }
-       func agentVatDetailCell(index : IndexPath) -> UITableViewCell {
-            
-            let cell = tabView.dequeueReusableCell(withIdentifier: "CompanyAgentVatDetailTableViewCell", for: index) as! CompanyAgentVatDetailTableViewCell
-            cell.selectionStyle = .none
+    func agentVatDetailCell(index : IndexPath) -> UITableViewCell {
+        
+        let cell = tabView.dequeueReusableCell(withIdentifier: "CompanyAgentVatDetailTableViewCell", for: index) as! CompanyAgentVatDetailTableViewCell
+        cell.selectionStyle = .none
         cell.vatNumberView.isHidden = true
         cell.vatNumberTxtFld.delegate = self
         cell.mainView.layer.cornerRadius = 5
@@ -1254,47 +1224,47 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
         cell.mainView.layer.borderWidth = 0.5
         cell.mainView.borderColor =  UIColor.init(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         
-         cell.vatDocumentHeightConstant.constant = 0
-         cell.documentMainView.isHidden = true
+        cell.vatDocumentHeightConstant.constant = 0
+        cell.documentMainView.isHidden = true
         cell.deleteDocuementBtn.isHidden = true
         cell.vatDocumentImageView.contentMode = .scaleToFill
         
-          cell.vatNumberTxtFld.addTarget(self, action: #selector(CompanyRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        cell.vatNumberTxtFld.addTarget(self, action: #selector(CompanyRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         cell.vatNumberTxtFld.text = agentSignUPModal.agentVatNumber
-         if isVatYesClicked {
+        if isVatYesClicked {
             cell.yesBtn.isSelected = true
-             cell.vatNumberView.isHidden = false
-             agentSignUPModal.isVatSelected = cell.yesBtn.isSelected
+            cell.vatNumberView.isHidden = false
+            agentSignUPModal.isVatSelected = cell.yesBtn.isSelected
             cell.vatDocumentHeightConstant.constant = 244
             cell.documentMainView.isHidden = false
             
-            }else{
+        }else{
             cell.yesBtn.isSelected = false
             cell.vatNumberView.isHidden = true
-             agentSignUPModal.isVatSelected = cell.yesBtn.isSelected
-             cell.vatDocumentHeightConstant.constant = 0
+            agentSignUPModal.isVatSelected = cell.yesBtn.isSelected
+            cell.vatDocumentHeightConstant.constant = 0
             cell.documentMainView.isHidden = true
             
-          }
+        }
         
         if isVatNoClicked {
-              cell.noBtn.isSelected = true
-             agentSignUPModal.isVatNotSelected = cell.noBtn.isSelected
-              
-              }else{
+            cell.noBtn.isSelected = true
             agentSignUPModal.isVatNotSelected = cell.noBtn.isSelected
-              cell.noBtn.isSelected = false
-            }
-
+            
+        }else{
+            agentSignUPModal.isVatNotSelected = cell.noBtn.isSelected
+            cell.noBtn.isSelected = false
+        }
+        
         
         if isFromVatDocument == true {
             if self.agentSignUPModal.vatDocumentUrl?.absoluteString != "" {
                 cell.vatDocumentImageView.contentMode = .scaleAspectFill
                 cell.deleteDocuementBtn.isHidden = false
- cell.vatDocumentImageView.image = drawPDFfromURL(url: self.agentSignUPModal.vatDocumentUrl! )
+                cell.vatDocumentImageView.image = drawPDFfromURL(url: self.agentSignUPModal.vatDocumentUrl! )
             }
             else {
-                 cell.vatDocumentImageView.contentMode = .scaleToFill
+                cell.vatDocumentImageView.contentMode = .scaleToFill
                 cell.deleteDocuementBtn.isHidden = true
                 cell.vatDocumentImageView.image = UIImage(named: "vatSample_image.png")
             }
@@ -1303,61 +1273,69 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
             cell.deleteDocuementBtn.isHidden = true
             cell.vatDocumentImageView.image = UIImage(named: "vatSample_image.png")
         }
-
         
+        let str = cell.vatNumberTxtFld.text?.replacingOccurrences(of: " ", with: "")
+        agentSignUPModal.agentVatNumber = str!
         
-            cell.tag = index.row
-            cell.delegate = self
-            return cell
+        if str!.count >= agentSignUPModal.vatLength  && cell.vatNumberTxtFld.text != "" &&  cell.vatNumberTxtFld.text!.containArabicNumber {
+            ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.vatNumberView)
+        }else{
+            ModalController.setViewBorderColor(color: #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.vatNumberView)
         }
+        
+        cell.tag = index.row
+        cell.delegate = self
+        return cell
+    }
 
-        func agentUserPolicyCell(index : IndexPath) -> UITableViewCell {
+    func agentUserPolicyCell(index : IndexPath) -> UITableViewCell {
+        
+        let cell = tabView.dequeueReusableCell(withIdentifier: "AgentCompanyUserPolicyTableViewCell", for: index) as! AgentCompanyUserPolicyTableViewCell
+        cell.selectionStyle = .none
+        
+        if everythingFilled == true {
+            cell.signUpBtn.setTitleColor(UIColor(red: 97/255, green: 192/255, blue: 136/255, alpha: 1), for: .normal)
+            cell.signUpBtn.layer.borderWidth = 0.5
+            cell.signUpBtn.borderColor =  UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1)
+        }else {
             
-            let cell = tabView.dequeueReusableCell(withIdentifier: "AgentCompanyUserPolicyTableViewCell", for: index) as! AgentCompanyUserPolicyTableViewCell
-            cell.selectionStyle = .none
-            if everythingFilled == true {
-                cell.signUpBtn.setTitleColor(UIColor(red: 97/255, green: 192/255, blue: 136/255, alpha: 1), for: .normal)
-                cell.signUpBtn.layer.borderWidth = 0.5
-                cell.signUpBtn.borderColor =  UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1)
-            }else {
-                
-                cell.signUpBtn.setTitleColor(UIColor(red: 236/255, green: 74/255, blue: 83/255, alpha: 1), for: .normal)
-                cell.signUpBtn.layer.borderWidth = 0.5
-                cell.signUpBtn.borderColor =  UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
-            }
-            
-            if isUserPolicySelected {
-                cell.checkBoxBtn.isSelected = true
+            cell.signUpBtn.setTitleColor(UIColor(red: 236/255, green: 74/255, blue: 83/255, alpha: 1), for: .normal)
+            cell.signUpBtn.layer.borderWidth = 0.5
+            cell.signUpBtn.borderColor =  UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
+        }
+        
+        if isUserPolicySelected {
+            cell.checkBoxBtn.isSelected = true
             agentSignUPModal.isPolicySelected = cell.checkBoxBtn.isSelected
-                         
-               }else{
-                cell.checkBoxBtn.isSelected = false
-                agentSignUPModal.isPolicySelected = cell.checkBoxBtn.isSelected
-            }
             
-            
-            
-            cell.tag = index.row
-            cell.delegate = self
-            return cell
+        }else{
+            cell.checkBoxBtn.isSelected = false
+            agentSignUPModal.isPolicySelected = cell.checkBoxBtn.isSelected
         }
+        
+        
+        
+        cell.tag = index.row
+        cell.delegate = self
+        return cell
+    }
     
     func drawPDFfromURL(url: URL) -> UIImage? {
         guard let document = CGPDFDocument(url as CFURL) else { return nil }
         guard let page = document.page(at: 1) else { return nil }
-
+        
         let pageRect = page.getBoxRect(.mediaBox)
         let renderer = UIGraphicsImageRenderer(size: pageRect.size)
         let img = renderer.image { ctx in
             UIColor.white.set()
             ctx.fill(pageRect)
-
+            
             ctx.cgContext.translateBy(x: 0.0, y: pageRect.size.height)
             ctx.cgContext.scaleBy(x: 1.0, y: -1.0)
-
+            
             ctx.cgContext.drawPDFPage(page)
         }
-
+        
         return img
     }
     
@@ -1365,13 +1343,11 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
         
         switch  textField.tag {
             
-            
         case 1000:
              let allowedCharecter = CharacterSet.letters
              let characterSet = CharacterSet(charactersIn: string)
              let allowedCharacter1 = CharacterSet.whitespaces
             return allowedCharecter.isSuperset(of: characterSet) || allowedCharacter1.isSuperset(of: characterSet)
-            
             
         case 1003:
             var lenght  = 2
@@ -2019,7 +1995,7 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
             let str = cell.vatNumberTxtFld.text?.replacingOccurrences(of: " ", with: "")
             agentSignUPModal.agentVatNumber = str!
             
-            if str!.count >= agentSignUPModal.vatLength  && cell.vatNumberTxtFld.text != "" &&  cell.vatNumberTxtFld.text!.containArabicNumber{
+            if str!.count >= agentSignUPModal.vatLength  && cell.vatNumberTxtFld.text != "" &&  cell.vatNumberTxtFld.text!.containArabicNumber {
                 ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.vatNumberView)
             }else{
                 ModalController.setViewBorderColor(color: #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.vatNumberView)
@@ -2029,13 +2005,13 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
             print("text")
         }
         
-        if (isVatYesClicked == true && agentSignUPModal.agentVatNumber.count >= 15 )  || isVatNoClicked == true {
+        if (isVatYesClicked == true && agentSignUPModal.agentVatNumber.count >= agentSignUPModal.vatLength && agentSignUPModal.vatDocumentUrl != nil )  || isVatNoClicked == true {
             self.tabView.reloadRows(at: [IndexPath(row: 0, section: 4)], with: .none)
         }else{
             self.tabView.reloadRows(at: [IndexPath(row: 0, section: 4)], with: .none)
         }
         
-        if agentSignUPModal.agentbankName != ""  && agentSignUPModal.agentbankAccountHolderName != ""  && agentSignUPModal.agentbankAccountNumber != "" && agentSignUPModal.agentbankAccountNumber.count >= 24 {
+        if agentSignUPModal.agentbankName != ""  && agentSignUPModal.agentbankAccountHolderName != ""  && agentSignUPModal.agentbankAccountNumber != "" && agentSignUPModal.agentbankAccountNumber.count >= agentSignUPModal.agentIBanLength {
             self.tabView.reloadRows(at: [IndexPath(row: 0, section: 3)], with: .none)
         }else{
             self.tabView.reloadRows(at: [IndexPath(row: 0, section: 3)], with: .none)

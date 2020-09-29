@@ -300,6 +300,7 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
                                //                         {
                                let vc = SuccesssViewController(nibName: "SuccesssViewController", bundle: nil)
                                vc.newUser = isNewUser
+                               vc.isFromAgentSignUp = true
                                self.navigationController?.pushViewController(vc, animated: false)
                                //                        }else {
                                //

@@ -157,11 +157,12 @@ class AgentSignUPModal: NSObject {
             return (isFilled, ValidationMessages.ibanArabicNumber)
         }
         agentbankAccountNumber = agentbankAccountNumber.replacingOccurrences(of: " ", with: "")
-        if agentbankAccountNumber.count != 24 {
+        if agentbankAccountNumber.count != agentIBanLength {
             return (isFilled, ValidationMessages.validIbanNumber)
         }
         
-        let ibanBool = ModalController.isValidIBAN(ibanStr: agentbankAccountNumber, length: 24, countryType: "SA")
+        let bankCode =  agentbankAccountNumber.substring(from: 0, to: 1)
+        let ibanBool = ModalController.isValidIBAN(ibanStr: agentbankAccountNumber, length: agentIBanLength, countryType: bankCode)
         if ibanBool == false
         {
             ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validIbanNumber)
@@ -169,7 +170,7 @@ class AgentSignUPModal: NSObject {
         }
         if agentbankAccountNumber != "" {
             agentbankAccountNumber = agentbankAccountNumber.replacingOccurrences(of: " ", with: "")
-            if agentbankAccountNumber.count !=  24 {
+            if agentbankAccountNumber.count !=  agentIBanLength {
                 ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validIbanNumber)
                 return (isFilled, ValidationMessages.validIbanNumber)
             }
@@ -207,76 +208,29 @@ class AgentSignUPModal: NSObject {
         }
         return (isFilled, message)
     }
-    
-//    func agentSignUp(completion:@escaping(Bool, NSDictionary?) -> ()) {
-//
-//        let param = ["user_type":"AC",
-//                     "email":agentEmail,
-//                     "password":agentPassword,
-//                     "name":agentBussinessName,
-//                     "mobile_number":agentContactNumber,
-//                     "mobile_code":mobileCode,
-//                     "country_id":agentCountry,
-//                     "city_id":agentCity,
-//                     "bank_name":agentbankName,
-//                     "iban_no":agentbankAccountNumber,
-//                     "maroof_link":agentMaroofLink,
-//                     "user_img":imageID,
-//                     "gender":"",
-//                     "dob":"",
-//                     "education":"",
-//                     "education_major_id":"",
-//                     "phone_number":agentPhoneNumber,
-//                     "phone_code":phoneCode,
-//                     "ac_holder_name":agentbankAccountHolderName,
-//                     "bank_id":agentbankID,
-//                     "vat_number":agentVatNumber,
-//                     "services":ModalController.toString(appDelegate?.selectServiceStr as Any) ,
-//                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
-//                     "is_vat_available":ModalController.toString(appDelegate?.selectServiceStr as Any) ,
-//                     "vat_certificate":HeaderHeightSingleton.shared.LanguageSelected
-//            ] as [String : Any]
-//
-//        print(param)
-    //        ServerCalls.postRequest(Authentication.AgentsignUp, withParameters: param) { (response, success, resp) in
-    //            ModalClass.stopLoading()
-    //            if let value = response as? NSDictionary {
-    //                let msg = value.object(forKey: "error_description") as! String
-    //                let error = value.object(forKey: "error_code") as! Int
-    //                if error == 100{
-    //                    completion(false,value)
-    //                }else{
-    //
-    //                    //               AuthorisedUser.shared.setAuthorisedUser(with:response)
-    //
-    //                    completion(true,value)
-    //                }
-    //            }
-    //        }
-//    }
-    
+ 
     func agentSignUp(completion:@escaping(Bool, NSDictionary?) -> ()) {
         
         let str = Authentication.AgentsignUp
         
         let pdfdoc = "vat_certificate"
         
-        var pfurl : URL?
-        if pfurl == nil
+        var pfurl : String? = vatDocumentUrl?.absoluteString
+        if pfurl == ""
         {
-            pfurl = URL(string:"")
+            pfurl = ""
         }else{
-            pfurl = vatDocumentUrl
+            pfurl = vatDocumentUrl?.absoluteString
         }
         
         var vatAvailable:Int = 0
 
-        if isVatSelected{
+        if isVatSelected {
             vatAvailable = 1
         }else{
             vatAvailable = 0
         }
-      
+      print("docURL:-", pfurl)
         
         let param = ["user_type":"AC",
                      "email":agentEmail,
@@ -306,7 +260,7 @@ class AgentSignUPModal: NSObject {
             ] as [String : Any]
         
         print("request -",param)
-        ServerCalls.PdfFileUpload(inputUrl: str, parameters: param, pdfname: pdfdoc, pdfurl: pfurl!) { (response, success, resp) in
+        ServerCalls.PdfFileUpload(inputUrl: str, parameters: param, pdfname: pdfdoc, pdfurl: pfurl ?? "") { (response, success, resp) in
             
             ModalClass.stopLoading()
             if let value = response as? NSDictionary {

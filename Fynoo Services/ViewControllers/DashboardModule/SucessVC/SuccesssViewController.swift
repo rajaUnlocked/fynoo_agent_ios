@@ -14,6 +14,7 @@ class SuccesssViewController: UIViewController {
     var timer: Timer?
     var counter = 60
     var newUser = ""
+    var isFromAgentSignUp = false
     
     
     @IBOutlet weak var titleLbl: UILabel!

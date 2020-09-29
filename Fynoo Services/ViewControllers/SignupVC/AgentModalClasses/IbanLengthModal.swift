@@ -43,8 +43,39 @@ class AgentIbanLengthModal: NSObject {
             }
         }
     }
-}
 
+    func savedSelectedLanguage(languageID:String, completion:@escaping(Bool, NSDictionary?) -> ()) {
+        
+        var param = [String:String]()
+        var url = ""
+        
+        param = [
+                 "user_id":Singleton.shared.getUserId(),
+                 "selected_lag":languageID,
+                 "lang_code":HeaderHeightSingleton.shared.LanguageSelected
+        ]
+        
+       url = "\(Constant.BASE_URL)\(Constant.saveSelected_Language)"
+        print(param)
+        print(url)
+        ServerCalls.postRequest(url, withParameters: param, completion: { (response, success) in
+            ModalClass.stopLoading()
+            if let value = response as? NSDictionary{
+                let error = value.object(forKey: "error") as! Int
+                if error == 0{
+                    if let body = response as? [String: Any] {
+                        print(body)
+                    }
+                    completion(true,value)
+                }else{
+                    completion(false, value)
+                }
+            }
+        })
+    }
+
+}
+  
 
 struct IbanLengthInfoModal : Mappable {
     

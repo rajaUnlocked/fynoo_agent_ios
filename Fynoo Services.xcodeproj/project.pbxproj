@@ -207,6 +207,10 @@
 		F62E4B2025149A7D0021CEE0 /* DictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4B1F25149A7D0021CEE0 /* DictionaryExt.swift */; };
 		F62E4B2225149B370021CEE0 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4B2125149B360021CEE0 /* DatePickerDialog.swift */; };
 		F64B439425220A5700B9C8CB /* IbanLengthModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64B439325220A5700B9C8CB /* IbanLengthModal.swift */; };
+		F658B3F92522ECAD00B37F63 /* LanguageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F658B3F72522ECAD00B37F63 /* LanguageSelectionViewController.swift */; };
+		F658B3FA2522ECAD00B37F63 /* LanguageSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F658B3F82522ECAD00B37F63 /* LanguageSelectionViewController.xib */; };
+		F658B3FD2522ECD000B37F63 /* LanguageSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F658B3FB2522ECD000B37F63 /* LanguageSelectionTableViewCell.swift */; };
+		F658B3FE2522ECD000B37F63 /* LanguageSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F658B3FC2522ECD000B37F63 /* LanguageSelectionTableViewCell.xib */; };
 		F6B14CA8251B387300F9F03E /* VatInfoModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B14CA7251B387200F9F03E /* VatInfoModal.swift */; };
 /* End PBXBuildFile section */
 
@@ -463,6 +467,10 @@
 		F647705325187CFB00ED2BD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
 		F647705525187CFF00ED2BD0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
 		F64B439325220A5700B9C8CB /* IbanLengthModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanLengthModal.swift; sourceTree = "<group>"; };
+		F658B3F72522ECAD00B37F63 /* LanguageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionViewController.swift; sourceTree = "<group>"; };
+		F658B3F82522ECAD00B37F63 /* LanguageSelectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageSelectionViewController.xib; sourceTree = "<group>"; };
+		F658B3FB2522ECD000B37F63 /* LanguageSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		F658B3FC2522ECD000B37F63 /* LanguageSelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageSelectionTableViewCell.xib; sourceTree = "<group>"; };
 		F6B14CA7251B387200F9F03E /* VatInfoModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatInfoModal.swift; sourceTree = "<group>"; };
 		FA4CA97958AA8EC290CFD6F1 /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -937,6 +945,7 @@
 		F62E4A9E25148EC60021CEE0 /* SignupVC */ = {
 			isa = PBXGroup;
 			children = (
+				F658B3F42522EC8A00B37F63 /* LanguageSelectionVC */,
 				F62E4B16251498C40021CEE0 /* SearchCategoryVC */,
 				F62E4B0D251492E70021CEE0 /* AgentModalClasses */,
 				F62E4A9F25148EC60021CEE0 /* AgentTypeSelectionVC */,
@@ -1106,12 +1115,39 @@
 		F62E4B16251498C40021CEE0 /* SearchCategoryVC */ = {
 			isa = PBXGroup;
 			children = (
-				F62E4B17251498C40021CEE0 /* SearchCategoryTableViewCell.xib */,
-				F62E4B18251498C40021CEE0 /* SearchCategoryViewController.xib */,
 				F62E4B19251498C40021CEE0 /* SearchCategoryViewController.swift */,
+				F62E4B18251498C40021CEE0 /* SearchCategoryViewController.xib */,
 				F62E4B1A251498C40021CEE0 /* SearchCategoryTableViewCell.swift */,
+				F62E4B17251498C40021CEE0 /* SearchCategoryTableViewCell.xib */,
 			);
 			path = SearchCategoryVC;
+			sourceTree = "<group>";
+		};
+		F658B3F42522EC8A00B37F63 /* LanguageSelectionVC */ = {
+			isa = PBXGroup;
+			children = (
+				F658B3F52522EC8A00B37F63 /* LanguageSelectionViewControllers */,
+				F658B3F62522EC8A00B37F63 /* LanguageSelectionCells */,
+			);
+			path = LanguageSelectionVC;
+			sourceTree = "<group>";
+		};
+		F658B3F52522EC8A00B37F63 /* LanguageSelectionViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F658B3F72522ECAD00B37F63 /* LanguageSelectionViewController.swift */,
+				F658B3F82522ECAD00B37F63 /* LanguageSelectionViewController.xib */,
+			);
+			path = LanguageSelectionViewControllers;
+			sourceTree = "<group>";
+		};
+		F658B3F62522EC8A00B37F63 /* LanguageSelectionCells */ = {
+			isa = PBXGroup;
+			children = (
+				F658B3FB2522ECD000B37F63 /* LanguageSelectionTableViewCell.swift */,
+				F658B3FC2522ECD000B37F63 /* LanguageSelectionTableViewCell.xib */,
+			);
+			path = LanguageSelectionCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1276,6 +1312,7 @@
 				CEAD29E9250632BB008B1F9C /* NavigationView.xib in Resources */,
 				F4828CA12508DF3E006B85D8 /* ProfileServiceTableViewCell.xib in Resources */,
 				F62E4AF225148EC60021CEE0 /* AgentProfileImageTableViewCell.strings in Resources */,
+				F658B3FE2522ECD000B37F63 /* LanguageSelectionTableViewCell.xib in Resources */,
 				CEE3578B250740800097069D /* sst-arabic-bold.ttf in Resources */,
 				CEE35790250740800097069D /* Segoe UI.ttf in Resources */,
 				CEE3579C250740800097069D /* sst-arabic-light.ttf in Resources */,
@@ -1315,6 +1352,7 @@
 				F62E4AFD25148EC60021CEE0 /* CompanyAgentBankDetailsTableViewCell.strings in Resources */,
 				2F8463D8250F6EBC0084EB32 /* LoginNewDesignViewController.xib in Resources */,
 				CEE357A42507585F0097069D /* ServiceListTableViewCell.xib in Resources */,
+				F658B3FA2522ECAD00B37F63 /* LanguageSelectionViewController.xib in Resources */,
 				2F8463CD250F6EBC0084EB32 /* LoginNewDesignViewController.strings in Resources */,
 				CEE35794250740800097069D /* Segoe UI Bold Italic.ttf in Resources */,
 				2F8463D0250F6EBC0084EB32 /* LoginNewFirstTableViewCell.xib in Resources */,
@@ -1469,6 +1507,7 @@
 				CEAD29EA250632BB008B1F9C /* NavigationView.swift in Sources */,
 				F62E4AF425148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.swift in Sources */,
 				2FEB122F251229AF0012FE98 /* ServiceSingleCollectionViewCell.swift in Sources */,
+				F658B3FD2522ECD000B37F63 /* LanguageSelectionTableViewCell.swift in Sources */,
 				CEAD29F525069F9D008B1F9C /* AgentListTableViewCell.swift in Sources */,
 				CEE357A6250769AD0097069D /* TargetModel.swift in Sources */,
 				F62E4AF925148EC60021CEE0 /* AgentCompanyServicesTableViewCell.swift in Sources */,
@@ -1477,6 +1516,7 @@
 				CEAD29ED25063FA2008B1F9C /* TargetprogressTableViewCell.swift in Sources */,
 				2FEB1227251215F50012FE98 /* ProgressDashboardTableViewCell.swift in Sources */,
 				F62E4B11251493A40021CEE0 /* AgentSignUPModal.swift in Sources */,
+				F658B3F92522ECAD00B37F63 /* LanguageSelectionViewController.swift in Sources */,
 				2F84643F250F83910084EB32 /* PopUpViewCell.swift in Sources */,
 				F62E4AEB25148EC60021CEE0 /* popupViewController.swift in Sources */,
 				F4C4DC622507952C0075F520 /* ProfileNameTableViewCell.swift in Sources */,

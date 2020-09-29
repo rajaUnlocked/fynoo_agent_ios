@@ -54,7 +54,7 @@ enum ValidationMessages {
     static let bankAccountHolderName = "Please enter your bank account holder name."
     static let agentName_compare = "Your Business Name & Acount Holder Name Does Not Match"
     static let bankAccountNumber = "Please enter your IBAN No."
-    static let validIbanNumber = "Please enter valid IBAN No."
+    static let validIbanNumber = "IBAN number does not belong to any bank."
     static let vatNumber = "Please enter valid vat Number."
      static let vat_certificate = "Please submit vat certificate."
     static let NickName = "Please enter your Nick Name."
@@ -116,6 +116,8 @@ class Constant: NSObject {
     static let upload_file : String = "businessapi/v2/uploadimage/";
     static let vatInfo_Data : String = "product_api/getVatLength/";
      static let IBANLengthInfo_Data : String = "agentapi/v1/get_iban_length/";
+    static let language_List : String = "agentapi/v1/agent_language_list/";
+     static let saveSelected_Language : String = "agentapi/v1/save_language/";
 }
 
 enum Service {

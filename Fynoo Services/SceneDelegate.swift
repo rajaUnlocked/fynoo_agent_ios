@@ -42,7 +42,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
 //        let vc = BasedUrlViewController(nibName: "BasedUrlViewController", bundle: nil)
-          let vc = CompanyRegViewController(nibName: "CompanyRegViewController", bundle: nil)
+//          let vc = CompanyRegViewController(nibName: "CompanyRegViewController", bundle: nil)
+        let vc = LanguageSelectionViewController(nibName: "LanguageSelectionViewController", bundle: nil)
  //       let vc = SplashAnimatedViewController(nibName: "SplashAnimatedViewController", bundle: nil)
         nav = UINavigationController.init(rootViewController: vc)
         IQKeyboardManager.shared.enable = true
