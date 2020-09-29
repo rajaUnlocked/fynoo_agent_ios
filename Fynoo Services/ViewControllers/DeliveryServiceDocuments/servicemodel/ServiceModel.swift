@@ -316,7 +316,7 @@ struct Registration_type : Mappable {
 struct SeviceDocument : Mappable {
    var error : Bool?
        var error_code : Int?
-       var data : [SeviceDocumentData]?
+       var data : SeviceDocumentData?
        var error_description : String?
 
        init?(map: Map) {
@@ -333,23 +333,39 @@ struct SeviceDocument : Mappable {
 
    }
 
-struct SeviceDocumentData : Mappable {
+struct SeviceDocumentData : Mappable  {
     var new_upload_enable : Bool?
     var new_upload_id : Int?
     var id : Int?
     var user_id : Int?
+    var full_name : String?
+    var iqama_no : String?
+    var dob : String?
+    var doe : String?
+    var show_iqama_section : Bool?
+    var iqama_length : Int?
     var national_id : String?
     var national_id_uploaded : Bool?
+    var national_id_file_type : String?
+    var national_id_file_size : Int?
     var national_id_content : String?
     var driving_license : String?
     var driving_license_uploaded : Bool?
+    var driving_license_file_type : String?
+    var driving_license_file_size : Int?
     var registration : String?
     var registration_uploaded : Bool?
+    var registration_file_type : String?
+    var registration_file_size : Int?
     var registration_content : String?
     var insurance : String?
     var insurance_uploaded : Bool?
+    var insurance_file_type : String?
+    var insurance_file_size : Int?
     var authorization : String?
     var authorization_uploaded : Bool?
+    var authorization_file_type : String?
+    var authorization_file_size : Int?
     var authorization_content : String?
     var registration_type_id : Int?
     var registration_type : String?
@@ -368,10 +384,14 @@ struct SeviceDocumentData : Mappable {
     var plate_no_min_length : Int?
     var plate_no_max_length : Int?
     var front_side : String?
+    var front_side_file_type : String?
+    var front_side_file_size : Int?
     var reason_for_rejection : String?
     var reason_for_change : String?
     var status : Int?
     var status_value : String?
+    var note : String?
+    var switch_vehicle : Bool?
 
     init?(map: Map) {
 
@@ -383,18 +403,34 @@ struct SeviceDocumentData : Mappable {
         new_upload_id <- map["new_upload_id"]
         id <- map["id"]
         user_id <- map["user_id"]
+        full_name <- map["full_name"]
+        iqama_no <- map["iqama_no"]
+        dob <- map["dob"]
+        doe <- map["doe"]
+        show_iqama_section <- map["show_iqama_section"]
+        iqama_length <- map["iqama_length"]
         national_id <- map["national_id"]
         national_id_uploaded <- map["national_id_uploaded"]
+        national_id_file_type <- map["national_id_file_type"]
+        national_id_file_size <- map["national_id_file_size"]
         national_id_content <- map["national_id_content"]
         driving_license <- map["driving_license"]
         driving_license_uploaded <- map["driving_license_uploaded"]
+        driving_license_file_type <- map["driving_license_file_type"]
+        driving_license_file_size <- map["driving_license_file_size"]
         registration <- map["registration"]
         registration_uploaded <- map["registration_uploaded"]
+        registration_file_type <- map["registration_file_type"]
+        registration_file_size <- map["registration_file_size"]
         registration_content <- map["registration_content"]
         insurance <- map["insurance"]
         insurance_uploaded <- map["insurance_uploaded"]
+        insurance_file_type <- map["insurance_file_type"]
+        insurance_file_size <- map["insurance_file_size"]
         authorization <- map["authorization"]
         authorization_uploaded <- map["authorization_uploaded"]
+        authorization_file_type <- map["authorization_file_type"]
+        authorization_file_size <- map["authorization_file_size"]
         authorization_content <- map["authorization_content"]
         registration_type_id <- map["registration_type_id"]
         registration_type <- map["registration_type"]
@@ -413,10 +449,15 @@ struct SeviceDocumentData : Mappable {
         plate_no_min_length <- map["plate_no_min_length"]
         plate_no_max_length <- map["plate_no_max_length"]
         front_side <- map["front_side"]
+        front_side_file_type <- map["front_side_file_type"]
+        front_side_file_size <- map["front_side_file_size"]
         reason_for_rejection <- map["reason_for_rejection"]
         reason_for_change <- map["reason_for_change"]
         status <- map["status"]
         status_value <- map["status_value"]
+        note <- map["note"]
+        switch_vehicle <- map["switch_vehicle"]
     }
 
 }
+

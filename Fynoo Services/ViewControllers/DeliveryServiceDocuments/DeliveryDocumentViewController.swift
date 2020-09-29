@@ -10,9 +10,12 @@ import UIKit
 import MTPopup
 import MobileCoreServices
 class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductViewControllerDelegate,OpenGalleryDelegate,UIDocumentPickerDelegate {
+    var tag1 = 0
     var vehiclemodel = ServiceModel()
     var txtArr = ["","","","","","","",""]
     var imgArr = [String]()
+    var imgIdArr = [Bool]()
+      var imglocalArr = [UIImage?]()
      var descriparr = [String]()
        var registrationtypeArr = [String]()
        var vehiclebrandArr = [String]()
@@ -119,8 +122,10 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             if success
             {
                 self.servicelist = response
-                self.imgArr = [self.servicelist?.data?[0].national_id ?? "",self.servicelist?.data?[0].driving_license ?? "",self.servicelist?.data?[0].registration ?? "",self.servicelist?.data?[0].insurance ?? "",self.servicelist?.data?[0].authorization ?? ""]
-                 self.descriparr = [self.servicelist?.data?[0].national_id_content ?? "", "",self.servicelist?.data?[0].registration_content ?? "", "",self.servicelist?.data?[0].authorization_content ?? ""]
+                self.imglocalArr = [nil,nil,nil,nil,nil]
+                self.imgArr = [self.servicelist?.data?.national_id ?? "",self.servicelist?.data?.driving_license ?? "",self.servicelist?.data?.registration ?? "",self.servicelist?.data?.insurance ?? "",self.servicelist?.data?.authorization ?? ""]
+                  self.imgIdArr = [self.servicelist?.data?.national_id_uploaded ?? false,self.servicelist?.data?.driving_license_uploaded ?? false,self.servicelist?.data?.registration_uploaded ?? false,self.servicelist?.data?.insurance_uploaded ?? false,self.servicelist?.data?.authorization_uploaded ?? false]
+                 self.descriparr = [self.servicelist?.data?.national_id_content ?? "", "",self.servicelist?.data?.registration_content ?? "", "",self.servicelist?.data?.authorization_content ?? ""]
                 self.tabvw.reloadData()
             }
         }
@@ -135,13 +140,16 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
            
        }
     func gallery(img: UIImage, imgtype: String) {
-        //imgArr.append(img)
+        
+        imglocalArr[tag1] = img
+        tabvw.reloadData()
        }
     func information(Value: String) {
            print("")
        }
        
        func actionPerform(tag: Int, index: Int) {
+        tag1 = index
            if tag == 0
            {
             
@@ -189,7 +197,8 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
       }
      @objc func clickcrossed(_ sender:UIButton)
      {
-        print("jbhekhjbklh")
+        imglocalArr[sender.tag] = nil
+        tabvw.reloadData()
     }
     
     @objc func clickedvehicleUpload(_ sender:UIButton)
@@ -203,7 +212,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
            vc.delegate = self
            vc.isproduct = true
            vc.iswarning = true
-           
+        vc.index = sender.tag
            vc.nameAr =  ["Device Gallery","Document"]
            vc.imgAr  = ["galery_Picture","dataEntryService"]
            let popupController = MTPopupController(rootViewController: vc)
@@ -272,7 +281,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                     else  if indexPath.row == vehicledescriparr.count + 1{
                         let cell = tabvw.dequeueReusableCell(withIdentifier: "UploadVehicleImageTableViewCell", for: indexPath) as! UploadVehicleImageTableViewCell
                                          cell.uploadvehicle.addTarget(self, action: #selector(clickedvehicleUpload(_:)), for: .touchUpInside)
-                        cell.vehicleimage.sd_setImage(with: URL(string:self.servicelist?.data?[0].vehicle_kind_image ?? ""), placeholderImage: UIImage(named: "passport"))
+                        cell.vehicleimage.sd_setImage(with: URL(string:self.servicelist?.data?.vehicle_kind_image ?? ""), placeholderImage: UIImage(named: "passport"))
                                           return cell
                     }
                     let cell = tabvw.dequeueReusableCell(withIdentifier: "VehicleDescriptionTableViewCell", for: indexPath) as! VehicleDescriptionTableViewCell
@@ -295,15 +304,41 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 
             else{
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "ServiceDetailTableViewCell", for: indexPath) as! ServiceDetailTableViewCell
+                cell.uploadimg.tag = indexPath.section - 1
+                cell.crossclicked.tag = indexPath.section - 1
                 cell.uploadimg.addTarget(self, action: #selector(clickupload(_:)), for: .touchUpInside)
                 cell.crossclicked.addTarget(self, action: #selector(clickcrossed(_:)), for: .touchUpInside)
-                cell.pswdimg.sd_setImage(with: URL(string: imgArr[indexPath.section - 1]), placeholderImage: UIImage(named: "passport"))
+                if imglocalArr[indexPath.section - 1] == nil
+                {
+                  cell.pswdimg.sd_setImage(with: URL(string: imgArr[indexPath.section - 1]), placeholderImage: UIImage(named: "passport"))
+                }
+                else{
+                    cell.pswdimg.image = imglocalArr[indexPath.section - 1]
+                }
+                if imgIdArr[indexPath.section - 1]
+                {
+                     cell.crossclicked.isHidden =  false
+                    cell.uploadimg.isUserInteractionEnabled = false
+                }
+                else{
+                    cell.crossclicked.isHidden =  true
+                   cell.uploadimg.isUserInteractionEnabled = true
+                }
+                if imglocalArr[indexPath.section - 1] == nil
+                {
+                    cell.crossclicked.isHidden =  true
+                    cell.uploadimg.isUserInteractionEnabled = true
+                }
                 let html = descriparr[indexPath.section - 1]
                    let data = Data(html.utf8)
                if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
-                    cell.detaillbl.attributedText = attributedString
-                
+                   
+              let font = UIFont(name: "Gilroy-Light", size: 12)
+              let attributedString = NSMutableAttributedString(attributedString: attributedString)
+                attributedString.addAttribute(.font, value:font!, range: NSRange(location: 0, length: attributedString.length))
+                cell.detaillbl.attributedText = attributedString
                 }
+                
                 
                 return cell
             }
