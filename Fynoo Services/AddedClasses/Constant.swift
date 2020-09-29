@@ -25,7 +25,7 @@ enum ValidationMessages {
      static let confPassss = "Please enter confirm password"
     static let confPass = "Please enter 8 digit confirm password"
     static let policy = "Please check user policy"
-    static let vat = "Please enter valid vat no"
+    static let vat = "Please select vat option."
     static let mobileLength = "Please enter valid mobile number"
     static let mobileContainArabic = "Mobile Number must not contain Arabic Numbers"
     static let phoneNumber = "Please enter valid phone number"
@@ -52,9 +52,11 @@ enum ValidationMessages {
     static let compareConfirmPassword = "Your Password & Confirm Password Does Not Match"
     static let bankName = "Please select your bank name."
     static let bankAccountHolderName = "Please enter your bank account holder name."
+    static let agentName_compare = "Your Business Name & Acount Holder Name Does Not Match"
     static let bankAccountNumber = "Please enter your IBAN No."
-    static let validIbanNumber = "Please enter valid IBAN No."
+    static let validIbanNumber = "IBAN number does not belong to any bank."
     static let vatNumber = "Please enter valid vat Number."
+     static let vat_certificate = "Please submit vat certificate."
     static let NickName = "Please enter your Nick Name."
     static let Name = "Please enter your name."
     static let validName = "Please enter valid name."
@@ -107,6 +109,13 @@ class Constant: NSObject {
 //      static var BASE_URL : String = "http://61.95.220.248:9095/"  //CLIENT URL FOR NOW
     
  
+    
+    //      static var BASE_URL : String = "http://43.241.61.141:9003/"
+    //  static var BASE_URL : String = "http://43.241.61.141:9005/"
+    
+    //      static var BASE_URL : String = "http://61.95.220.248:9095/"  //CLIENT URL FOR NOW
+    
+    
     static let getAppVersion : String = "common/getAppVersion/";
     static let ForgotPswd: String = "customerapi/v2/forgot_password/"
     static let ResetPswd: String = "customerapi/v2/reset_password/"
@@ -118,6 +127,20 @@ class Constant: NSObject {
     static let deactivate_services: String = "agentapis/v2/deactivate_services/"
     
     
+    
+    // MARK:- AgentAPIs
+    
+//    static let Country_List : String = "common/getCountry/";
+//    static let City_List : String = "common/getCity/";
+//    static let Bank_List : String = "businessapi/v2/bank_list/";
+//    static let Education_List : String = "businessapi/v3/education_list/";
+//    static let Service_List : String = "agentapi/v1/agentservices/";
+//    static let bankIdentifier_List : String = "businessapi/v2/search_iban_number/";
+    static let upload_file : String = "businessapi/v2/uploadimage/";
+    static let vatInfo_Data : String = "product_api/getVatLength/";
+     static let IBANLengthInfo_Data : String = "agentapi/v1/get_iban_length/";
+    static let language_List : String = "agentapi/v1/agent_language_list/";
+     static let saveSelected_Language : String = "agentapi/v1/save_language/";
 }
 
 enum Service {

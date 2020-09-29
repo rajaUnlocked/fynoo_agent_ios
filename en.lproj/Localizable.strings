@@ -966,6 +966,32 @@
 
 "Please enter valid OTP"="Please enter valid OTP";
 
+//Sign Up Agent
+"Agent Company Registration" ="Agent Company Registration";
+"Agent Personal Registration" ="Agent Personal Registration";
+"Services" = "Services";
+"Personal Details" = "Personal Details";
+"Basic Information" = "Basic Information";
+"Bank Details" = "Bank Details";
+"Vat Information" = "Vat Information";
+"https://www.maroof.com/" = "https://www.maroof.com/";
+"Error" = "Error";
+"Connection Error" = "Connection Error";
+"please select logo." = "please select logo." ;
+"please select a service." = "please select a service.";
+"please select minimum one service." = "please select minimum one service." ;
+"Select - Date of Birth" = "Select - Date of Birth";
+"Done" = "Done" ;
+"Cancel" = "Cancel" ;
+"Please select education first" = "Please select education first";
+"Please select country first" = "Please select country first" ;
+"Email Sent Success" = "Email Sent Success" ;
+"I've agreed to the" = "I've agreed to the";
+"SA" = "SA";
+"Male" = "Male";
+"Female" = "Female" ;
+"Uploaded VAT Certificate" = "Uploaded VAT Certificate";
+
 
 // sorting
 
@@ -984,3 +1010,5 @@
 "Manage Branches"="Manage Branches";
 "Manage Products"="Manage Products";
 "Product"="Product";
+
+
