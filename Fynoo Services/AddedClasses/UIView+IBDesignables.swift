@@ -164,14 +164,15 @@ extension UITextField{
 }
 
 @IBDesignable class CardView: UIView {
-    var cornnerRadius : CGFloat = 16
-    var shadowOfSetWidth : CGFloat = 10
-    var shadowOfSetHeight : CGFloat = 10
+    var cornnerRadius : CGFloat = 10
+    var shadowOfSetWidth : CGFloat = 0
+    var shadowOfSetHeight : CGFloat = 3
     
-    var shadowColour : UIColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
-    var shadowOpacity : CGFloat = 10
+    var shadowColour : UIColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+    var shadowOpacity : CGFloat = 0.5
     
     override func layoutSubviews() {
+       // self.backgroundColor = UIColor.lightGray
         layer.cornerRadius = cornnerRadius
         layer.shadowColor = shadowColour.cgColor
         layer.shadowOffset = CGSize(width: shadowOfSetWidth, height: shadowOfSetHeight)

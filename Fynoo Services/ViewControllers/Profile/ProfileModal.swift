@@ -50,6 +50,7 @@ class AgentProfile : NSObject{
     var ibanLenght = 0
     
     var serviceArr = NSMutableArray()
+    var langArr = NSMutableArray()
 }
 
 
@@ -218,6 +219,191 @@ class service_list_data : Mappable{
         service_id <- map["service_id"]
         service_name <- map["service_name"]
 
+    }
+    
+}
+
+
+
+
+class deliveryDashboard : Mappable{
+    
+    
+    var error = ""
+    var error_code  = ""
+    var error_description = ""
+    var data : DeliveryInfo?
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        
+        error <- map["error"]
+        error_code <- map["error_code"]
+        error_description <- map["error_description"]
+        data <- map["data"]
+    }
+    
+}
+
+class DeliveryInfo : Mappable{
+    
+    
+    var agent_information : agentInfo?
+    var del_accept_limit : acceptInfo?
+    var user_lang : [language_lists]?
+
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        
+        agent_information <- map["agent_information"]
+        del_accept_limit <- map["del_accept_limit"]
+        user_lang <- map["user_lang"]
+    }
+    
+}
+
+class acceptInfo : Mappable{
+    
+    
+    var today_cod = 0
+    var cod_id = 0
+
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        
+        today_cod <- map["today_cod"]
+        cod_id <- map["cod_id"]
+    }
+    
+}
+
+
+class agentInfo : Mappable{
+    
+    
+    var above_and_beyond = 0
+    var active_years = 0
+    var avg_rating = 0
+
+    var del_service_document_uploaded = 0
+    var del_service_status = 0
+    var excellent_service = 0
+    var fynoo_id = ""
+    var great_attitude = 0
+    var id = 0
+    var name = ""
+    var service_icon = ""
+    var total_earnings = 0
+    var total_rating = 0
+    var total_trips = 0
+    var u_image_id = 0
+    var user_img = 0
+    var very_helpful = 0
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        
+        above_and_beyond <- map["above_and_beyond"]
+        active_years <- map["active_years"]
+        avg_rating <- map["avg_rating"]
+        
+        del_service_document_uploaded <- map["del_service_document_uploaded"]
+        del_service_status <- map["del_service_status"]
+        excellent_service <- map["excellent_service"]
+        fynoo_id <- map["fynoo_id"]
+        id <- map["id"]
+        name <- map["name"]
+        service_icon <- map["service_icon"]
+        total_earnings <- map["total_earnings"]
+        total_rating <- map["total_rating"]
+        total_trips <- map["total_trips"]
+        u_image_id <- map["u_image_id"]
+        user_img <- map["user_img"]
+        very_helpful <- map["very_helpful"]
+    }
+    
+}
+
+class TripListInfo : Mappable{
+    
+    
+    var error = ""
+    var error_code  = ""
+    var error_description = ""
+    var data : tripData?
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        
+        error <- map["error"]
+        error_code <- map["error_code"]
+        error_description <- map["error_description"]
+        data <- map["data"]
+    }
+    
+}
+
+class tripData : Mappable{
+    
+    
+    var trip_list : [triplist]?
+   
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        
+        trip_list <- map["trip_list"]
+       
+    }
+    
+}
+
+class triplist : Mappable{
+    
+    
+    var avg_rating  = ""
+    var currency = ""
+    var final_price = ""
+    var id = 0
+    var name = ""
+    var order_address = ""
+   var order_date = ""
+    var order_id = ""
+    var order_qty = 0
+    var order_status = ""
+    var payment_mode = ""
+    var total_rating = ""
+    var user_img = ""
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        
+        avg_rating <- map["avg_rating"]
+        currency <- map["currency"]
+        final_price <- map["final_price"]
+        id <- map["id"]
+        
+        name <- map["name"]
+        order_address <- map["order_address"]
+        order_date <- map["order_date"]
+        order_id <- map["order_id"]
+        
+        order_qty <- map["order_qty"]
+        order_status <- map["order_status"]
+        payment_mode <- map["payment_mode"]
+        total_rating <- map["total_rating"]
+        user_img <- map["user_img"]
+        
+        
     }
     
 }

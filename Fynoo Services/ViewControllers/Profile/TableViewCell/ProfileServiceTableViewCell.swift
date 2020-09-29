@@ -46,6 +46,7 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
     var agentinfo = AgentProfile()
     var layout = UICollectionViewFlowLayout()
     var viewControl = UIViewController()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -84,6 +85,7 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
             let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
             vc.delegate = self
             vc.isForLanguage = true
+            vc.langArr = agentinfo.langArr
             viewControl.navigationController?.pushViewController(vc, animated: true)
         }else{
             if agentinfo.serviceArr.contains(serviceList?[indexPath.row].service_id){

@@ -68,8 +68,18 @@
 		F419CA57250B6F59008087FA /* SearchCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F419CA56250B6F59008087FA /* SearchCategoryViewController.swift */; };
 		F419CA59250B6F61008087FA /* SearchCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F419CA58250B6F61008087FA /* SearchCategoryViewController.xib */; };
 		F419CA5F250B7196008087FA /* DictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F419CA5E250B7195008087FA /* DictionaryExt.swift */; };
+		F438605325230BF200DE0BED /* AddAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438605125230BF200DE0BED /* AddAmountViewController.swift */; };
+		F438605425230BF200DE0BED /* AddAmountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438605225230BF200DE0BED /* AddAmountViewController.xib */; };
+		F44E35B1251C72C6002E41E2 /* AgentServiceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44E35AF251C72C6002E41E2 /* AgentServiceList.swift */; };
+		F44E35B2251C72C6002E41E2 /* AgentServiceList.xib in Resources */ = {isa = PBXBuildFile; fileRef = F44E35B0251C72C6002E41E2 /* AgentServiceList.xib */; };
+		F44E35B4251CACB3002E41E2 /* DataBankHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44E35B3251CACB3002E41E2 /* DataBankHeader.swift */; };
+		F44E35B6251CACBC002E41E2 /* DataBankHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F44E35B5251CACBB002E41E2 /* DataBankHeader.xib */; };
 		F46CC70925134A550069EBEE /* SearchCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46CC70825134A550069EBEE /* SearchCategoryTableViewCell.swift */; };
 		F46CC70B25134A5E0069EBEE /* SearchCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46CC70A25134A5E0069EBEE /* SearchCategoryTableViewCell.xib */; };
+		F46DB928251B23980061A232 /* TripAchievementViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46DB926251B23970061A232 /* TripAchievementViewCell.swift */; };
+		F46DB929251B23980061A232 /* TripAchievementViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46DB927251B23970061A232 /* TripAchievementViewCell.xib */; };
+		F472BA1C2519DF120094C13E /* AgentDeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F472BA1A2519DF120094C13E /* AgentDeliveryViewController.swift */; };
+		F472BA1D2519DF120094C13E /* AgentDeliveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F472BA1B2519DF120094C13E /* AgentDeliveryViewController.xib */; };
 		F4828C8E2508AA2C006B85D8 /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4828C8D2508AA2C006B85D8 /* SectionHeader.xib */; };
 		F4828C902508AA8F006B85D8 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828C8F2508AA8F006B85D8 /* SectionHeader.swift */; };
 		F4828C922508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4828C912508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib */; };
@@ -82,6 +92,8 @@
 		F4828CA52508DFA9006B85D8 /* ProfileServiceViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4828CA32508DFA9006B85D8 /* ProfileServiceViewCell.xib */; };
 		F4828CB02508FFBC006B85D8 /* TwoButtonsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4828CAF2508FFBC006B85D8 /* TwoButtonsTableViewCell.xib */; };
 		F4828CB22508FFCD006B85D8 /* TwoButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828CB12508FFCD006B85D8 /* TwoButtonsTableViewCell.swift */; };
+		F4A7E54B251A047D00ED8008 /* AgentDeliveryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A7E549251A047D00ED8008 /* AgentDeliveryTableViewCell.swift */; };
+		F4A7E54C251A047D00ED8008 /* AgentDeliveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A7E54A251A047D00ED8008 /* AgentDeliveryTableViewCell.xib */; };
 		F4C4DC572507943A0075F520 /* UserProfileDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4C4DC562507943A0075F520 /* UserProfileDetailsViewController.xib */; };
 		F4C4DC59250794490075F520 /* UserProfileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4DC58250794490075F520 /* UserProfileDetailsViewController.swift */; };
 		F4C4DC5C250794A50075F520 /* ProfileDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4C4DC5B250794A50075F520 /* ProfileDetailTableViewCell.xib */; };
@@ -186,8 +198,18 @@
 		F419CA56250B6F59008087FA /* SearchCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCategoryViewController.swift; sourceTree = "<group>"; };
 		F419CA58250B6F61008087FA /* SearchCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCategoryViewController.xib; sourceTree = "<group>"; };
 		F419CA5E250B7195008087FA /* DictionaryExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExt.swift; sourceTree = "<group>"; };
+		F438605125230BF200DE0BED /* AddAmountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAmountViewController.swift; sourceTree = "<group>"; };
+		F438605225230BF200DE0BED /* AddAmountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAmountViewController.xib; sourceTree = "<group>"; };
+		F44E35AF251C72C6002E41E2 /* AgentServiceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentServiceList.swift; sourceTree = "<group>"; };
+		F44E35B0251C72C6002E41E2 /* AgentServiceList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentServiceList.xib; sourceTree = "<group>"; };
+		F44E35B3251CACB3002E41E2 /* DataBankHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBankHeader.swift; sourceTree = "<group>"; };
+		F44E35B5251CACBB002E41E2 /* DataBankHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataBankHeader.xib; sourceTree = "<group>"; };
 		F46CC70825134A550069EBEE /* SearchCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		F46CC70A25134A5E0069EBEE /* SearchCategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCategoryTableViewCell.xib; sourceTree = "<group>"; };
+		F46DB926251B23970061A232 /* TripAchievementViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripAchievementViewCell.swift; sourceTree = "<group>"; };
+		F46DB927251B23970061A232 /* TripAchievementViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripAchievementViewCell.xib; sourceTree = "<group>"; };
+		F472BA1A2519DF120094C13E /* AgentDeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDeliveryViewController.swift; sourceTree = "<group>"; };
+		F472BA1B2519DF120094C13E /* AgentDeliveryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentDeliveryViewController.xib; sourceTree = "<group>"; };
 		F4828C8D2508AA2C006B85D8 /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
 		F4828C8F2508AA8F006B85D8 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SectionHeader.swift; path = "/Users/ind-sen-lp-046/Desktop/fynoo_agent_ios/Fynoo Services/ViewControllers/Profile/TableViewCell/SectionHeader.swift"; sourceTree = "<absolute>"; };
 		F4828C912508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileEnteriesTableViewCell.xib; sourceTree = "<group>"; };
@@ -200,6 +222,8 @@
 		F4828CA32508DFA9006B85D8 /* ProfileServiceViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileServiceViewCell.xib; sourceTree = "<group>"; };
 		F4828CAF2508FFBC006B85D8 /* TwoButtonsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoButtonsTableViewCell.xib; sourceTree = "<group>"; };
 		F4828CB12508FFCD006B85D8 /* TwoButtonsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoButtonsTableViewCell.swift; sourceTree = "<group>"; };
+		F4A7E549251A047D00ED8008 /* AgentDeliveryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDeliveryTableViewCell.swift; sourceTree = "<group>"; };
+		F4A7E54A251A047D00ED8008 /* AgentDeliveryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentDeliveryTableViewCell.xib; sourceTree = "<group>"; };
 		F4C4DC562507943A0075F520 /* UserProfileDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileDetailsViewController.xib; sourceTree = "<group>"; };
 		F4C4DC58250794490075F520 /* UserProfileDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDetailsViewController.swift; sourceTree = "<group>"; };
 		F4C4DC5B250794A50075F520 /* ProfileDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileDetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -322,6 +346,7 @@
 		2FFDE23C2501221B006C5EBD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F472BA192519DED60094C13E /* AgentDelivery */,
 				F4EC04A12514D2A0005AF7B0 /* PopUp */,
 				F4CEC2F92511D340003C35E8 /* VatInfo */,
 				F419CA55250B6F4B008087FA /* Search */,
@@ -440,6 +465,33 @@
 				F419CA56250B6F59008087FA /* SearchCategoryViewController.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		F438605025230BB800DE0BED /* PopupAmount */ = {
+			isa = PBXGroup;
+			children = (
+				F438605125230BF200DE0BED /* AddAmountViewController.swift */,
+				F438605225230BF200DE0BED /* AddAmountViewController.xib */,
+			);
+			path = PopupAmount;
+			sourceTree = "<group>";
+		};
+		F472BA192519DED60094C13E /* AgentDelivery */ = {
+			isa = PBXGroup;
+			children = (
+				F438605025230BB800DE0BED /* PopupAmount */,
+				F472BA1A2519DF120094C13E /* AgentDeliveryViewController.swift */,
+				F472BA1B2519DF120094C13E /* AgentDeliveryViewController.xib */,
+				F4A7E549251A047D00ED8008 /* AgentDeliveryTableViewCell.swift */,
+				F4A7E54A251A047D00ED8008 /* AgentDeliveryTableViewCell.xib */,
+				F46DB926251B23970061A232 /* TripAchievementViewCell.swift */,
+				F46DB927251B23970061A232 /* TripAchievementViewCell.xib */,
+				F44E35AF251C72C6002E41E2 /* AgentServiceList.swift */,
+				F44E35B0251C72C6002E41E2 /* AgentServiceList.xib */,
+				F44E35B3251CACB3002E41E2 /* DataBankHeader.swift */,
+				F44E35B5251CACBB002E41E2 /* DataBankHeader.xib */,
+			);
+			path = AgentDelivery;
 			sourceTree = "<group>";
 		};
 		F4C4DC55250793FB0075F520 /* Profile */ = {
@@ -603,9 +655,12 @@
 			files = (
 				CEE3579B250740800097069D /* RobotoSlab-Regular.ttf in Resources */,
 				CEE357A0250751020097069D /* CommisionsViewController.xib in Resources */,
+				F44E35B6251CACBC002E41E2 /* DataBankHeader.xib in Resources */,
 				CEE35789250740800097069D /* Roboto-Medium.ttf in Resources */,
+				F438605425230BF200DE0BED /* AddAmountViewController.xib in Resources */,
 				F4828CA52508DFA9006B85D8 /* ProfileServiceViewCell.xib in Resources */,
 				CEE3578E250740800097069D /* RobotoSlab-Thin.ttf in Resources */,
+				F46DB929251B23980061A232 /* TripAchievementViewCell.xib in Resources */,
 				F4828C922508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib in Resources */,
 				F4CEC2FD2511D351003C35E8 /* VatpopnewchangeViewController.xib in Resources */,
 				CEE3578C250740800097069D /* Poppins-Light.ttf in Resources */,
@@ -623,10 +678,12 @@
 				CEAD29E9250632BB008B1F9C /* NavigationView.xib in Resources */,
 				F4828CA12508DF3E006B85D8 /* ProfileServiceTableViewCell.xib in Resources */,
 				CEE3578B250740800097069D /* sst-arabic-bold.ttf in Resources */,
+				F472BA1D2519DF120094C13E /* AgentDeliveryViewController.xib in Resources */,
 				CEE35790250740800097069D /* Segoe UI.ttf in Resources */,
 				F46CC70B25134A5E0069EBEE /* SearchCategoryTableViewCell.xib in Resources */,
 				CEE3579C250740800097069D /* sst-arabic-light.ttf in Resources */,
 				CEE35797250740800097069D /* Roboto-Italic.ttf in Resources */,
+				F44E35B2251C72C6002E41E2 /* AgentServiceList.xib in Resources */,
 				CEE3578D250740800097069D /* Roboto-Regular.ttf in Resources */,
 				F4C4DC5C250794A50075F520 /* ProfileDetailTableViewCell.xib in Resources */,
 				F4C4DC602507951B0075F520 /* ProfileNameTableViewCell.xib in Resources */,
@@ -635,6 +692,7 @@
 				2FFDE2422501225A006C5EBD /* AgentDashboardViewController.xib in Resources */,
 				CEE35798250740800097069D /* Roboto-Bold.ttf in Resources */,
 				CEE35791250740800097069D /* RobotoSlab-Bold.ttf in Resources */,
+				F4A7E54C251A047D00ED8008 /* AgentDeliveryTableViewCell.xib in Resources */,
 				F4828C8E2508AA2C006B85D8 /* SectionHeader.xib in Resources */,
 				CEE35793250740800097069D /* RobotoSlab-Light.ttf in Resources */,
 				CEAD29F225069D58008B1F9C /* DescriptionTableViewCell.xib in Resources */,
@@ -773,21 +831,26 @@
 			files = (
 				CEAD29F125069D58008B1F9C /* DescriptionTableViewCell.swift in Sources */,
 				F4828CA42508DFA9006B85D8 /* ProfileServiceViewCell.swift in Sources */,
+				F472BA1C2519DF120094C13E /* AgentDeliveryViewController.swift in Sources */,
 				CEE357A32507585F0097069D /* ServiceListTableViewCell.swift in Sources */,
 				F4828C902508AA8F006B85D8 /* SectionHeader.swift in Sources */,
 				F4828CB22508FFCD006B85D8 /* TwoButtonsTableViewCell.swift in Sources */,
 				CEAD29EA250632BB008B1F9C /* NavigationView.swift in Sources */,
 				F4CEC2FB2511D34B003C35E8 /* VatpopnewchangeViewController.swift in Sources */,
 				CEAD29F525069F9D008B1F9C /* AgentListTableViewCell.swift in Sources */,
+				F46DB928251B23980061A232 /* TripAchievementViewCell.swift in Sources */,
 				CEE357A6250769AD0097069D /* TargetModel.swift in Sources */,
 				2FFDE2412501225A006C5EBD /* AgentDashboardViewController.swift in Sources */,
 				F4CEC3012511DDCC003C35E8 /* branchsmodel.swift in Sources */,
 				CEAD29ED25063FA2008B1F9C /* TargetprogressTableViewCell.swift in Sources */,
 				F4C4DC622507952C0075F520 /* ProfileNameTableViewCell.swift in Sources */,
+				F438605325230BF200DE0BED /* AddAmountViewController.swift in Sources */,
 				2FFDE20D25012166006C5EBD /* AppDelegate.swift in Sources */,
+				F44E35B1251C72C6002E41E2 /* AgentServiceList.swift in Sources */,
 				F4C4DC59250794490075F520 /* UserProfileDetailsViewController.swift in Sources */,
 				2F07D1A92505F89100193658 /* ModalController.swift in Sources */,
 				F46CC70925134A550069EBEE /* SearchCategoryTableViewCell.swift in Sources */,
+				F4A7E54B251A047D00ED8008 /* AgentDeliveryTableViewCell.swift in Sources */,
 				F4C4DC5E250794B20075F520 /* ProfileDetailTableViewCell.swift in Sources */,
 				2FFDE20F25012166006C5EBD /* SceneDelegate.swift in Sources */,
 				F419CA57250B6F59008087FA /* SearchCategoryViewController.swift in Sources */,
@@ -797,6 +860,7 @@
 				CEAD29E42506324F008B1F9C /* TargetViewController.swift in Sources */,
 				F4828C942508B27E006B85D8 /* ProfileEnteriesTableViewCell.swift in Sources */,
 				F419CA5F250B7196008087FA /* DictionaryExt.swift in Sources */,
+				F44E35B4251CACB3002E41E2 /* DataBankHeader.swift in Sources */,
 				2F07D1B52505FE9E00193658 /* UIView+IBDesignables.swift in Sources */,
 				2F07D1AD2505FC8600193658 /* Banner.swift in Sources */,
 				2F07D1B32505FE1C00193658 /* Singleton.swift in Sources */,

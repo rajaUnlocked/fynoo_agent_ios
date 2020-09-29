@@ -31,6 +31,7 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
 //            searchField.font = UIFont(name:"\(Constant.FONT_Light)",size:13)
         }
     }
+    var idArr = NSMutableArray()
     var langArr : NSMutableArray = NSMutableArray()
     @IBOutlet weak var tableVw: UITableView!
     var countryListArray : NSMutableArray = NSMutableArray()
@@ -201,6 +202,25 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
     
     @objc func saveChange(){
         
+        
+        for i in 0..<langArr.count{
+
+        }
+        var ACTIVATION = ""
+               if langArr.count > 0
+               {
+                   ACTIVATION.removeAll()
+                   for item in langArr{
+                       ACTIVATION = "\(item),\(ACTIVATION)"
+                   }
+                   ACTIVATION.removeLast()
+               }
+        let param = ["lang_code":"en","user_id":"1106","selected_lag":ACTIVATION]
+        ServerCalls.postRequest(Service.saveLanguage, withParameters: param) { (response, success) in
+            if success{
+                
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -217,33 +237,51 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if filterListArray.count > 0 || searchField.text!.count > 0{
-            selectedCountryDict = self.filterListArray.object(at: indexPath.row) as! NSMutableDictionary
-        }else{
-            selectedCountryDict = NSMutableDictionary(dictionary: self.countryListArray.object(at: indexPath.row) as! NSDictionary)
-        }
-    //    self.tableVw.reloadData()
-        self.navigationController?.popViewController(animated: true)
-        if self.isForCountry{
-            self.delegate?.selectedCategoryMethod(countryDict: self.selectedCountryDict, tag: self.tag)
-        }else if self.isForBankList {
-            self.delegate?.selectedBankMethod(bankDict: self.selectedCountryDict)
-        } else if self.isForCity {
-            self.delegate?.selectedCityMethod(cityDict: self.selectedCountryDict)
-        }else if self.isForEducationList {
-            self.delegate?.selectedEducationMethod(educationDict: self.selectedCountryDict)
-        }
-        else if self.isForMajorEducationList {
-        self.delegate?.selectedMajorEducationMethod(educationDict: self.selectedCountryDict)
-        }
-            
-        else if self.currencyLists {
-            self.delegate?.selectedCurrency(currency: self.selectedCountryDict)
-        }
-        else if self.isForCounrtyCode{
-            self.delegate?.selectedCountryCode(countryCode: self.selectedCountryDict)
+        
+        
+        if isForLanguage{
+            if langArr.contains(((self.countryListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "name") as! String)){
+                
+                langArr.remove(((self.countryListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "name") as! String))
+            }else{
+                langArr.add(((self.countryListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "name") as! String))
+            }
+            tableView.reloadData()
             
         }
+        else{
+            if filterListArray.count > 0 || searchField.text!.count > 0{
+                selectedCountryDict = self.filterListArray.object(at: indexPath.row) as! NSMutableDictionary
+            }else{
+                selectedCountryDict = NSMutableDictionary(dictionary: self.countryListArray.object(at: indexPath.row) as! NSDictionary)
+            }
+            //    self.tableVw.reloadData()
+            self.navigationController?.popViewController(animated: true)
+            if self.isForCountry{
+                self.delegate?.selectedCategoryMethod(countryDict: self.selectedCountryDict, tag: self.tag)
+            }else if self.isForBankList {
+                self.delegate?.selectedBankMethod(bankDict: self.selectedCountryDict)
+            } else if self.isForCity {
+                self.delegate?.selectedCityMethod(cityDict: self.selectedCountryDict)
+            }else if self.isForEducationList {
+                self.delegate?.selectedEducationMethod(educationDict: self.selectedCountryDict)
+            }
+            else if self.isForMajorEducationList {
+                self.delegate?.selectedMajorEducationMethod(educationDict: self.selectedCountryDict)
+            }
+                
+            else if self.currencyLists {
+                self.delegate?.selectedCurrency(currency: self.selectedCountryDict)
+            }
+            else if self.isForCounrtyCode{
+                self.delegate?.selectedCountryCode(countryCode: self.selectedCountryDict)
+                
+            }
+        }
+        
+        
+        
+       
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
@@ -320,19 +358,29 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
                 
             }
             
-            else if isForLanguage{
-                cell.imgWidth.constant = 0
-                cell.countryCode.isHidden = true
-                cell.img.isHidden = true
-                cell.catName.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "name") as! String)"
-                cell.tickImage.isHidden = false
-            }
+        
             
         if (self.countryListArray.object(at: index.row) as! NSDictionary) == self.selectedCountryDict {
             cell.tickImage.isHidden = false
         }else{
             cell.tickImage.isHidden = true
         }
+            
+            
+             if isForLanguage{
+                
+                print(langArr,"jyzg")
+                if langArr.contains(((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "name") as! String)){
+                    cell.tickImage.isHidden = false
+                    
+                }else{
+                    cell.tickImage.isHidden = true
+                    
+                }
+                cell.imgWidth.constant = 0
+                cell.countryCode.isHidden = true
+                cell.catName.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "name") as! String)"
+            }
        }
         return cell
     }
