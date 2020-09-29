@@ -86,14 +86,23 @@ enum ValidationMessages {
     static let shortLink = "Please enter valid tracking short link."
     static let companyWebsite = "Please select company website link."
     static let validCompanyWebsite = "Please select valid courier website link."
+
 }
 
 class Constant: NSObject {
     
-    
+    static let UpdateProfile_Image : String = "agentapis/v2/update_profile_photo/";
+
 //      static var BASE_URL : String = "http://43.241.61.141:9003/"
       //  static var BASE_URL : String = "http://43.241.61.141:9005/"
-    
+    static let vatlengthlist: String = "product_api/getVatLength/"
+
+    static let Country_List : String = "common/getCountry/";
+      static let City_List : String = "common/getCity/";
+      static let Bank_List : String = "businessapi/v2/bank_list/";
+      static let Education_List : String = "businessapi/v3/education_list/";
+      static let Service_List : String = "agentapi/v1/agentservices/";
+      static let bankIdentifier_List : String = "businessapi/v2/search_iban_number/";
      static var BASE_URL : String = "http://61.95.220.248:9092/"
 //      static var BASE_URL : String = "http://61.95.220.248:9095/"  //CLIENT URL FOR NOW
     
@@ -104,7 +113,7 @@ class Constant: NSObject {
     static let get_user_type: String = "customerapi/v2/get_user_type/"
     static let agent_dashboard: String = "agentapis/v2/agent_dashboard/"
     static let add_services: String = "agentapis/v2/add_services/"
-    static let UpdateProfile_Image : String = "businessapi/v1/ChaneProfileImage/";
+  //  static let UpdateProfile_Image : String = "businessapi/v1/ChaneProfileImage/";
     static let activate_services: String = "agentapis/v2/activate_services/"
     static let deactivate_services: String = "agentapis/v2/deactivate_services/"
     
@@ -112,6 +121,11 @@ class Constant: NSObject {
 }
 
 enum Service {
+    
+    
+    static let saveLanguage = Constant.BASE_URL + "agentapi/v1/save_language/"
+
+    static let languageList = Constant.BASE_URL + "agentapi/v1/agent_language_list/"
     static let userProfileData = Constant.BASE_URL + "businessapi/v1/GetUserDetails/"
     static let commisionlist = Constant.BASE_URL + "agentapis/v2/agent_commision/"
     static let targetlist = Constant.BASE_URL + "target_master_api/v2/target/"
@@ -120,6 +134,12 @@ enum Service {
      static let gettypecolor = Constant.BASE_URL + "agentapi/v1/get_registration_brand_color/"
      static let getvehiclekind = Constant.BASE_URL + "agentapi/v1/get_vehicle_kind/"
       static let getvehiclename = Constant.BASE_URL + "agentapi/v1/get_vehicle_name/"
+    static let tripList = Constant.BASE_URL + "agentapis/v2/service_trip_list/"
+    static let updateCod = Constant.BASE_URL + "agentapis/v2/update_cod_amount/"
+    static let deliveryDashboard = Constant.BASE_URL + "agentapis/v2/delivery_dashboard/"
+    static let updateProfile = Constant.BASE_URL + "agentapis/v2/update_agent_profile/"
+    static let getBankDetail = Constant.BASE_URL + "agentapi/v1/get_bank_name_by_identifier/"
+    static let getIbanLength = Constant.BASE_URL + "agentapi/v1/get_iban_length/"
 }
 
 enum Authentication {
@@ -170,5 +190,10 @@ enum Authentication {
      static let changeDiscountStatusOnProduct = Constant.BASE_URL +  "businessapi/v3/ChangeDiscountStatus/"
     static let editDiscountOnProduct = Constant.BASE_URL +  "businessapi/v3/BoToCustomerDiscountEdit/"
     
+    
+    
+    
+    
+
     
 }

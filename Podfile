@@ -22,6 +22,9 @@ pod 'iOSDropDown'
 pod 'MTPopup'
 pod 'KWVerificationCodeView'
 
+pod 'MTPopup'
+pod 'Cosmos', '~> 19.0'
+
   target 'Fynoo ServicesTests' do
     inherit! :search_paths
     # Pods for testing

@@ -10,23 +10,27 @@ import UIKit
 import Alamofire
 
 class ServerCalls: NSObject {
-    static func PdfFileUpload(inputUrl:String,parameters:[String:Any],pdfname: String,pdfurl:URL,completion:((AnyObject?,Bool,AnyObject?) -> Void)?){
+    static func PdfFileUpload(inputUrl:String,parameters:[String:Any],pdfname: String,pdfurl:String,completion:((AnyObject?,Bool,AnyObject?) -> Void)?){
            
-           Alamofire.upload(multipartFormData: { (multipartFormData) in
-                    
-               
-                    let pdfData = try! Data(contentsOf: pdfurl.asURL())
-                     
-            multipartFormData.append(pdfData, withName: pdfname, fileName: pdfname, mimeType:"application/pdf")
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
             
-                    for (key, value) in parameters {
-                        let val = "\(value)"
-                        multipartFormData.append(val.data(using: String.Encoding.utf8)!, withName: key)
-                        print("key",key,"value",val)
-                    }
-                    print("aa",multipartFormData)
-
-                }, to:inputUrl)
+            if pdfurl != ""{
+                let url = URL(string: pdfurl)
+                let pdfData = try! Data(contentsOf: url!.asURL())
+                
+                multipartFormData.append(pdfData, withName: pdfname, fileName: pdfname, mimeType:"application/pdf")
+            }
+            
+            
+            
+            for (key, value) in parameters {
+                let val = "\(value)"
+                multipartFormData.append(val.data(using: String.Encoding.utf8)!, withName: key)
+                print("key",key,"value",val)
+            }
+            print("aa",multipartFormData)
+            
+        }, to:inputUrl)
            { (result) in
                switch result {
                case .success(let upload, _, _ ):
