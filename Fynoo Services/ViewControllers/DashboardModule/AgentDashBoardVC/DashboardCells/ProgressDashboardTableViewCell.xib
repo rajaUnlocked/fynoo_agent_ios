@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProgressDashboardTableViewCell" id="KGk-i7-Jjw" customClass="ProgressDashboardTableViewCell" customModule="Fynoo_Services" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8000/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lrd-HZ-qDu">
+                        <rect key="frame" x="20" y="29" width="36" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="ZRS-tD-b8N"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                        <color key="textColor" red="0.92549019607843142" green="0.29019607843137252" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12000 SAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NoU-a6-ysC">
+                        <rect key="frame" x="58" y="29" width="58" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="feD-cQ-9oA"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                        <color key="textColor" red="0.38039215686274508" green="0.75294117647058822" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pro_dash" translatesAutoresizingMaskIntoConstraints="NO" id="M2h-ul-PaB">
+                        <rect key="frame" x="275" y="15" width="25" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="0dl-Pa-C5r"/>
+                            <constraint firstAttribute="width" constant="25" id="vzg-I1-Y4D"/>
+                        </constraints>
+                    </imageView>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xbF-LW-jXh">
+                        <rect key="frame" x="20" y="60" width="280" height="2"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="5Hi-fg-D4x"/>
+                        </constraints>
+                        <color key="progressTintColor" red="0.38039215686274508" green="0.75294117647058822" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </progressView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet End Date: 31/Aug/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2q-3z-pxO">
+                        <rect key="frame" x="103" y="84" width="197" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="xek-9o-9DS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
+                        <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="NoU-a6-ysC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="29" id="9DN-fe-IKa"/>
+                    <constraint firstItem="xbF-LW-jXh" firstAttribute="top" secondItem="Lrd-HZ-qDu" secondAttribute="bottom" constant="17" id="B1C-3v-RNm"/>
+                    <constraint firstAttribute="trailing" secondItem="xbF-LW-jXh" secondAttribute="trailing" constant="20" id="BfH-8K-Oan"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="O2q-3z-pxO" secondAttribute="trailing" constant="4" id="Epp-8D-gRc"/>
+                    <constraint firstItem="O2q-3z-pxO" firstAttribute="top" secondItem="xbF-LW-jXh" secondAttribute="bottom" constant="22" id="IJ5-bp-p6A"/>
+                    <constraint firstItem="Lrd-HZ-qDu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="29" id="IWJ-Hz-E79"/>
+                    <constraint firstItem="xbF-LW-jXh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="KkW-48-n3h"/>
+                    <constraint firstItem="Lrd-HZ-qDu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Quv-xg-VRO"/>
+                    <constraint firstItem="M2h-ul-PaB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="pG8-ks-ttn"/>
+                    <constraint firstItem="NoU-a6-ysC" firstAttribute="leading" secondItem="Lrd-HZ-qDu" secondAttribute="trailing" constant="2" id="xqm-cw-hKm"/>
+                    <constraint firstAttribute="trailing" secondItem="M2h-ul-PaB" secondAttribute="trailing" constant="20" id="zgT-oR-Bf1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="endDate" destination="O2q-3z-pxO" id="7Lg-3r-YeM"/>
+                <outlet property="progressVW" destination="xbF-LW-jXh" id="Vqt-9A-zNK"/>
+                <outlet property="targetEndLbl" destination="NoU-a6-ysC" id="lVN-bA-1W7"/>
+                <outlet property="targetStartLbl" destination="Lrd-HZ-qDu" id="Nbw-Xb-ALv"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="125"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="pro_dash" width="75" height="84"/>
+    </resources>
+</document>

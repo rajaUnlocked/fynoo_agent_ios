@@ -10,23 +10,27 @@ import UIKit
 import Alamofire
 
 class ServerCalls: NSObject {
-    static func PdfFileUpload(inputUrl:String,parameters:[String:Any],pdfname: String,pdfurl:URL,completion:((AnyObject?,Bool,AnyObject?) -> Void)?){
+    static func PdfFileUpload(inputUrl:String,parameters:[String:Any],pdfname: String,pdfurl:String,completion:((AnyObject?,Bool,AnyObject?) -> Void)?){
            
-           Alamofire.upload(multipartFormData: { (multipartFormData) in
-                    
-               
-                    let pdfData = try! Data(contentsOf: pdfurl.asURL())
-                     
-            multipartFormData.append(pdfData, withName: "document", fileName: pdfname, mimeType:"application/pdf")
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
             
-                    for (key, value) in parameters {
-                        let val = "\(value)"
-                        multipartFormData.append(val.data(using: String.Encoding.utf8)!, withName: key)
-                        print("key",key,"value",val)
-                    }
-                    print("aa",multipartFormData)
-
-                }, to:inputUrl)
+            if pdfurl != ""{
+                let url = URL(string: pdfurl)
+                let pdfData = try! Data(contentsOf: url!.asURL())
+                
+                multipartFormData.append(pdfData, withName: pdfname, fileName: pdfname, mimeType:"application/pdf")
+            }
+            
+            
+            
+            for (key, value) in parameters {
+                let val = "\(value)"
+                multipartFormData.append(val.data(using: String.Encoding.utf8)!, withName: key)
+                print("key",key,"value",val)
+            }
+            print("aa",multipartFormData)
+            
+        }, to:inputUrl)
            { (result) in
                switch result {
                case .success(let upload, _, _ ):
@@ -194,6 +198,39 @@ class ServerCalls: NSObject {
         }
         
     }
+    
+    static func fileUploadAPI(Imgtype: String,imagefrom:String ,img : UIImage, completion: ((AnyObject?,Bool,AnyObject?) -> Void)?)
+    {
+        let parameters = ["image_from":imagefrom,
+                       "image_type":Imgtype,
+        "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
+        let tempImage = img
+    let imageData = tempImage.jpegData(compressionQuality : 1)
+        
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(imageData!, withName: "image",fileName: "file.jpg", mimeType: "image/jpg")
+            for (key, value) in parameters {
+                multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+            } //Optional for extra parameters
+            
+        }, to:"\(Constant.BASE_URL)\(Constant.upload_file)")
+            
+        { (result) in
+            switch result {
+            case .success(let upload, _, _ ):
+                upload.uploadProgress(closure: { (progress) in
+                    print("Upload Progress: \(progress.fractionCompleted)")
+                })
+                upload.responseJSON { response in
+                    print(response.result.value)
+                    completion!(response.result.value as AnyObject,true,response.data as AnyObject)
+                }
+            case .failure(let encodingError):
+                completion!(nil,false,nil)
+            }
+        }
+    }
+
     
 //    static func fileUploadAPI(Imgtype: String,imagefrom:String ,img : UIImage, completion: ((AnyObject?,Bool,AnyObject?) -> Void)?)
 //    {

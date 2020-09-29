@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Account Holder Name"; ObjectID = "KoC-NB-IPY"; */
+"KoC-NB-IPY.text" = "الاسم كما يظهر في بطاقة الصراف";
+
+/* Class = "UILabel"; text = "IBAN Number"; ObjectID = "Use-1K-rQn"; */
+"Use-1K-rQn.text" = "رقم الآيبان";
+
+/* Class = "UILabel"; text = "Bank Name"; ObjectID = "qgw-rE-Bp4"; */
+"qgw-rE-Bp4.text" = "اسم البنك";

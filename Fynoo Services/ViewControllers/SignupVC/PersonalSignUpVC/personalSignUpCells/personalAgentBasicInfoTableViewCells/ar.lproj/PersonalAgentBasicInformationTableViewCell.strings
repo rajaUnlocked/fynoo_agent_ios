@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "City"; ObjectID = "7I2-74-9SU"; */
+"7I2-74-9SU.text" = "المدينة";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "7Q3-oX-sHw"; */
+"7Q3-oX-sHw.text" = "الدولة";
+
+/* Class = "UILabel"; text = "Maroof Link"; ObjectID = "9KL-Xz-zF6"; */
+"9KL-Xz-zF6.text" = "رابط معروف";
+
+/* Class = "UILabel"; text = "Mobile Number"; ObjectID = "GPW-h0-e9a"; */
+"GPW-h0-e9a.text" = "رقم الجوال";
+
+/* Class = "UIButton"; normalTitle = "City"; ObjectID = "Myz-KC-OPR"; */
+"Myz-KC-OPR.normalTitle" = "المدينة";
+
+/* Class = "UILabel"; text = "Confirm Email"; ObjectID = "RxM-aL-hOh"; */
+"RxM-aL-hOh.text" = "تأكيد البريد الالكتروني";
+
+/* Class = "UILabel"; text = "Confirm Password"; ObjectID = "Vhv-Oc-d6b"; */
+"Vhv-Oc-d6b.text" = "تأكيد كلمة المرور";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "i9Z-Um-Oro"; */
+"i9Z-Um-Oro.text" = "كلمة المرور ";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "sd3-Yw-6Il"; */
+"sd3-Yw-6Il.text" = "البريد الالكتروني";

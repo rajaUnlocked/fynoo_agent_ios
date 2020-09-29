@@ -17,6 +17,14 @@ pod 'SideMenu', '~> 5.0'
 pod 'AlamofireObjectMapper'
 pod 'ObjectMapper'
 pod 'SwiftyGif'
+pod 'SDWebImage'
+pod 'iOSDropDown'
+pod 'MTPopup'
+pod 'KWVerificationCodeView'
+pod 'PopupDialog', '~> 1.1'
+
+pod 'MTPopup'
+pod 'Cosmos', '~> 19.0'
 
   target 'Fynoo ServicesTests' do
     inherit! :search_paths

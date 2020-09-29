@@ -16,10 +16,12 @@ class ModalController: NSObject {
          UIAlertView.init(title: title, message: message , delegate: nil, cancelButtonTitle: "OK").show();
     }
     
-    static func setViewBorderColor(color:UIColor, view:UIView){
+    static func setViewBorderColor(color:UIColor, view:UIView) {
         view.borderColor = color
         
     }
+   
+    
     static func showSuccessCustomAlertWith(title: String, msg: String)
     {
         let banner = Banner(title: title, subtitle: msg, image: UIImage(named: "like_thumb"), backgroundColor: UIColor(red:48.00/255.0, green:174.0/255.0, blue:51.0/255.0, alpha:1.000))
@@ -41,7 +43,12 @@ class ModalController: NSObject {
         banner.dismissesOnTap = true
         banner.show(duration: 2.5)
     }
-    
+    static func convertUrltoImage(url:String) -> UIImage
+    {
+       let imageUrl = URL(string: url)!
+      let imageData = try! Data(contentsOf: imageUrl)
+      return UIImage(data: imageData)!
+    }
     // MARK: Appdelegate Object
     static func APPDELEGATE() -> AppDelegate{
         return UIApplication.shared.delegate as! AppDelegate;

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DataBankHeader" customModule="Fynoo_Services" customModuleProvider="target">
+            <connections>
+                <outlet property="firstLbl" destination="Oyp-yL-h8x" id="VaF-Aq-AtY"/>
+                <outlet property="productDataBank" destination="A4U-ST-T1e" id="beO-n1-1Kx"/>
+                <outlet property="productDataSale" destination="GMt-7O-g16" id="sDx-yp-MKO"/>
+                <outlet property="purchasedProduct" destination="yXI-NY-A9w" id="ajW-mW-Fjk"/>
+                <outlet property="scrollvw" destination="Ija-by-5wN" id="uif-hb-GRo"/>
+                <outlet property="secondLbl" destination="dbo-dP-0Ri" id="81g-Xo-98S"/>
+                <outlet property="thirdLbl" destination="9gC-pG-LWV" id="tei-jT-rFj"/>
+                <outlet property="viewWidth" destination="PBN-Ca-p3Z" id="zQj-z9-4a6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="471" height="59"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ija-by-5wN">
+                    <rect key="frame" x="1" y="9" width="471" height="40"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fs-4w-aPG">
+                            <rect key="frame" x="1" y="1" width="480" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oyp-yL-h8x">
+                                    <rect key="frame" x="0.0" y="0.0" width="160" height="1"/>
+                                    <color key="backgroundColor" red="0.90980392156862744" green="0.29411764705882354" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="kzx-hv-1kd"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4U-ST-T1e" userLabel="Fynoo Product Data Bank">
+                                    <rect key="frame" x="0.0" y="1" width="160" height="39"/>
+                                    <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                    <state key="normal" title="Fynoo Product Data Bank "/>
+                                </button>
+                                <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXI-NY-A9w">
+                                    <rect key="frame" x="160" y="1" width="160" height="39"/>
+                                    <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                    <state key="normal" title=" Purchased Product Data "/>
+                                </button>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbo-dP-0Ri">
+                                    <rect key="frame" x="160" y="0.0" width="160" height="1"/>
+                                    <color key="backgroundColor" red="0.90980392160000001" green="0.29411764709999999" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="RUM-3j-FJo"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMt-7O-g16">
+                                    <rect key="frame" x="319.5" y="1" width="160" height="39"/>
+                                    <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                    <state key="normal" title="Product Data For Sale"/>
+                                </button>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gC-pG-LWV">
+                                    <rect key="frame" x="319.5" y="0.0" width="160" height="1"/>
+                                    <color key="backgroundColor" red="0.90980392160000001" green="0.29411764709999999" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="kwV-kx-SmM"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="GMt-7O-g16" secondAttribute="trailing" constant="0.5" id="09K-LY-S0K"/>
+                                <constraint firstItem="Oyp-yL-h8x" firstAttribute="trailing" secondItem="A4U-ST-T1e" secondAttribute="trailing" id="5xQ-oT-mlB"/>
+                                <constraint firstItem="9gC-pG-LWV" firstAttribute="leading" secondItem="GMt-7O-g16" secondAttribute="leading" id="8ds-7l-CHh"/>
+                                <constraint firstItem="GMt-7O-g16" firstAttribute="bottom" secondItem="yXI-NY-A9w" secondAttribute="bottom" id="8wK-qa-c4c"/>
+                                <constraint firstItem="Oyp-yL-h8x" firstAttribute="top" secondItem="1fs-4w-aPG" secondAttribute="top" constant="0.10000000000000001" id="I8E-gY-ZB5"/>
+                                <constraint firstAttribute="height" constant="40" id="Kpe-Up-K6f"/>
+                                <constraint firstAttribute="width" constant="480" id="PBN-Ca-p3Z"/>
+                                <constraint firstItem="yXI-NY-A9w" firstAttribute="width" secondItem="1fs-4w-aPG" secondAttribute="width" multiplier="0.33333" id="T23-0J-eeg"/>
+                                <constraint firstItem="dbo-dP-0Ri" firstAttribute="leading" secondItem="yXI-NY-A9w" secondAttribute="leading" id="UMG-Uj-t4N"/>
+                                <constraint firstItem="GMt-7O-g16" firstAttribute="top" secondItem="yXI-NY-A9w" secondAttribute="top" id="Uzw-HI-5Wu"/>
+                                <constraint firstAttribute="bottom" secondItem="A4U-ST-T1e" secondAttribute="bottom" id="WIH-fF-NQP"/>
+                                <constraint firstItem="GMt-7O-g16" firstAttribute="leading" secondItem="yXI-NY-A9w" secondAttribute="trailing" constant="-0.5" id="YBL-5M-ntl"/>
+                                <constraint firstItem="dbo-dP-0Ri" firstAttribute="top" secondItem="1fs-4w-aPG" secondAttribute="top" constant="0.10000000000000001" id="Ynm-eU-Mre"/>
+                                <constraint firstItem="9gC-pG-LWV" firstAttribute="top" secondItem="1fs-4w-aPG" secondAttribute="top" constant="0.10000000000000001" id="fLI-Ft-GvD"/>
+                                <constraint firstItem="Oyp-yL-h8x" firstAttribute="leading" secondItem="A4U-ST-T1e" secondAttribute="leading" id="hK9-wc-fPr"/>
+                                <constraint firstItem="A4U-ST-T1e" firstAttribute="top" secondItem="1fs-4w-aPG" secondAttribute="top" constant="1" id="s2z-Pf-DTE"/>
+                                <constraint firstItem="dbo-dP-0Ri" firstAttribute="trailing" secondItem="yXI-NY-A9w" secondAttribute="trailing" id="t5D-cI-l5h"/>
+                                <constraint firstItem="A4U-ST-T1e" firstAttribute="leading" secondItem="1fs-4w-aPG" secondAttribute="leading" constant="0.10000000000000001" id="uaB-55-TTt"/>
+                                <constraint firstItem="yXI-NY-A9w" firstAttribute="top" secondItem="A4U-ST-T1e" secondAttribute="top" id="ugK-sA-qEH"/>
+                                <constraint firstItem="yXI-NY-A9w" firstAttribute="leading" secondItem="A4U-ST-T1e" secondAttribute="trailing" id="vIn-Mj-afU"/>
+                                <constraint firstItem="9gC-pG-LWV" firstAttribute="trailing" secondItem="GMt-7O-g16" secondAttribute="trailing" id="vJX-iI-97d"/>
+                                <constraint firstItem="A4U-ST-T1e" firstAttribute="width" secondItem="1fs-4w-aPG" secondAttribute="width" multiplier="0.33333" id="wSi-wE-nOd"/>
+                                <constraint firstItem="yXI-NY-A9w" firstAttribute="bottom" secondItem="A4U-ST-T1e" secondAttribute="bottom" id="zq7-01-o76"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="0zd-IK-22Q"/>
+                        <constraint firstItem="1fs-4w-aPG" firstAttribute="top" secondItem="Ija-by-5wN" secondAttribute="top" constant="1" id="4U1-zE-gYX"/>
+                        <constraint firstAttribute="bottom" secondItem="1fs-4w-aPG" secondAttribute="bottom" constant="1" id="JOm-MN-Nt1"/>
+                        <constraint firstItem="1fs-4w-aPG" firstAttribute="leading" secondItem="Ija-by-5wN" secondAttribute="leading" constant="1" id="OEg-aK-Mha"/>
+                        <constraint firstAttribute="trailing" secondItem="1fs-4w-aPG" secondAttribute="trailing" constant="1" id="ecK-XB-PSh"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Ija-by-5wN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="1" id="AdM-Xe-q8I"/>
+                <constraint firstAttribute="bottom" secondItem="Ija-by-5wN" secondAttribute="bottom" constant="10" id="Qxu-Bs-YwV"/>
+                <constraint firstItem="Ija-by-5wN" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="1" id="y27-8o-9uF"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="173.18840579710147" y="-124.21875"/>
+        </view>
+    </objects>
+</document>

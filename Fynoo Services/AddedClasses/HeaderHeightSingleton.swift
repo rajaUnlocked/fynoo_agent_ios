@@ -20,7 +20,7 @@ final class HeaderHeightSingleton {
     var headerHeight : Int = 0
     var LanguageSelected = "EN"
     var isOpen = false
- //   var Currency = "SAR".localized
+    var Currency = "SAR".localized
     var viewControl = UIViewController()
 }
 

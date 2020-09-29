@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VersionPopupViewController" customModule="Fynoo_Business" customModuleProvider="target">
+            <connections>
+                <outlet property="updateLaterOutlet" destination="sED-ZQ-sYm" id="JOP-WE-NEt"/>
+                <outlet property="updateNowLEad" destination="yNg-O3-5KI" id="ffn-cy-mpq"/>
+                <outlet property="updateNowOutlet" destination="5xp-rC-iVp" id="NzJ-bN-kbN"/>
+                <outlet property="view" destination="vaK-ox-hHW" id="Wfj-Ro-uak"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="vaK-ox-hHW">
+            <rect key="frame" x="0.0" y="0.0" width="378" height="249"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLV-Qk-CSe">
+                    <rect key="frame" x="39" y="46.5" width="300" height="200"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="version_bg" translatesAutoresizingMaskIntoConstraints="NO" id="zTQ-uG-Yql">
+                            <rect key="frame" x="-2.5" y="10" width="305" height="180"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="180" id="FLG-Wf-wWq"/>
+                                <constraint firstAttribute="width" constant="305" id="GJd-mk-lEu"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sED-ZQ-sYm">
+                            <rect key="frame" x="32.5" y="132" width="100" height="24"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="amN-RW-Hjr"/>
+                                <constraint firstAttribute="width" constant="100" id="vKh-mi-KcO"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                            <size key="titleShadowOffset" width="5" height="5"/>
+                            <state key="normal" title="Update Later">
+                                <color key="titleColor" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                                    <point key="value" x="0.0" y="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="updateLaterBtn:" destination="-1" eventType="touchUpInside" id="FGe-ZT-K4w"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccD-3o-yuU">
+                            <rect key="frame" x="16.5" y="69" width="267.5" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="eyP-67-aZN"/>
+                                <constraint firstAttribute="width" constant="267.5" id="hV9-D7-CfI"/>
+                            </constraints>
+                            <string key="text">New version available.
+Please update for better experience</string>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="15"/>
+                            <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xp-rC-iVp">
+                            <rect key="frame" x="162.5" y="132" width="100" height="24"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="5pV-WI-OOt"/>
+                                <constraint firstAttribute="width" constant="100" id="WNs-Yl-7bl"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                            <state key="normal" title="Update Now">
+                                <color key="titleColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                                    <point key="value" x="0.0" y="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="updateNowBtn:" destination="-1" eventType="touchUpInside" id="pkV-3b-LRm"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="sED-ZQ-sYm" firstAttribute="leading" secondItem="zTQ-uG-Yql" secondAttribute="leading" constant="35" id="AXR-nP-qch"/>
+                        <constraint firstAttribute="height" constant="200" id="GCL-NZ-1L9"/>
+                        <constraint firstItem="sED-ZQ-sYm" firstAttribute="top" secondItem="ccD-3o-yuU" secondAttribute="bottom" constant="23" id="Hj2-qx-79P"/>
+                        <constraint firstItem="zTQ-uG-Yql" firstAttribute="top" secondItem="ccD-3o-yuU" secondAttribute="bottom" constant="-99" id="OCA-KV-kKC"/>
+                        <constraint firstItem="zTQ-uG-Yql" firstAttribute="centerY" secondItem="CLV-Qk-CSe" secondAttribute="centerY" id="Vq9-KK-f8q"/>
+                        <constraint firstItem="ccD-3o-yuU" firstAttribute="centerX" secondItem="zTQ-uG-Yql" secondAttribute="centerX" id="bhP-zX-D1O"/>
+                        <constraint firstItem="zTQ-uG-Yql" firstAttribute="centerX" secondItem="CLV-Qk-CSe" secondAttribute="centerX" id="otY-Op-wzN"/>
+                        <constraint firstItem="5xp-rC-iVp" firstAttribute="centerY" secondItem="sED-ZQ-sYm" secondAttribute="centerY" id="xNk-nh-bux"/>
+                        <constraint firstItem="5xp-rC-iVp" firstAttribute="leading" secondItem="sED-ZQ-sYm" secondAttribute="trailing" constant="30" id="yNg-O3-5KI"/>
+                        <constraint firstAttribute="width" constant="300" id="zOH-kk-rAJ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="CLV-Qk-CSe" firstAttribute="centerX" secondItem="wZV-x0-TQj" secondAttribute="centerX" id="GYI-Hr-wSR"/>
+                <constraint firstItem="CLV-Qk-CSe" firstAttribute="centerY" secondItem="wZV-x0-TQj" secondAttribute="centerY" id="aYI-mn-5K2"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="wZV-x0-TQj"/>
+            <point key="canvasLocation" x="111.59420289855073" y="-130.91517857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="version_bg" width="646" height="424"/>
+    </resources>
+</document>

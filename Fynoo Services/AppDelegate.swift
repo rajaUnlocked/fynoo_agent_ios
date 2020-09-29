@@ -10,7 +10,9 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+//    var agentSignUPModal = AgentSignUPModal()
+//     var personalAgentSignUPModal = PersonalAgentSignUPModal()
+     var selectServiceStr:String = ""
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

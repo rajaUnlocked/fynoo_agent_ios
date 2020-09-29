@@ -63,9 +63,11 @@ class userInfo : Mappable {
     var total_product = 0
     var total_likes = 0
     var country_flag = ""
+    var phone_length = 0
     required init?(map: Map) {}
     
     func mapping(map: Map) {
+        phone_length <- map["phone_length"]
          country_flag <- map["country_flag"]
         total_branch <- map["total_branch"]
         total_follower <- map["total_follower"]
