@@ -9,9 +9,11 @@
 import UIKit
 import MTPopup
 import MobileCoreServices
-class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductViewControllerDelegate,OpenGalleryDelegate,UIDocumentPickerDelegate {
+class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductViewControllerDelegate,OpenGalleryDelegate,UIDocumentPickerDelegate,UITextFieldDelegate {
     var tag1 = 0
     var vehiclemodel = ServiceModel()
+    var topArr = ["Full Name","Date of Birth","National ID / Iqama ID","Date of Expiry"]
+    var toptxtArr = ["","","",""]
     var txtArr = ["","","","","","","",""]
     var imgArr = [String]()
     var imgIdArr = [Bool]()
@@ -49,6 +51,30 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         servicedocList_API()
         servicetypeColor_API()
     }
+    func NationalselectDOB(tag:Int){
+          let calendar = Calendar(identifier: .gregorian)
+                  let currentDate = Date()
+                  var components = DateComponents()
+                  components.calendar = calendar
+//                  components.year = -18
+//                  components.month = 12
+                  let maxDate = calendar.date(byAdding: components, to: currentDate)!
+
+                  let minDate = Calendar.current.date(from: DateComponents(year: 1900 , month: 1, day: 1))
+                  
+                  print(minDate as Any)
+                          
+          DatePickerDialog().show("Select - Date of Birth".localized, doneButtonTitle: "Done".localized, cancelButtonTitle: "Cancel".localized,  minimumDate: minDate, maximumDate: maxDate,  datePickerMode: .date){
+              (date) -> Void in
+              if let dt = date {
+                  let formatter = DateFormatter()
+                  formatter.dateFormat = "MMM dd,yyyy"
+                  print(formatter.string(from: dt))
+                self.toptxtArr[tag] = formatter.string(from: dt)
+                 self.tabvw.reloadSections(NSIndexSet(index: 1) as IndexSet, with: .none)
+              }
+          }
+      }
     func vehicleKind_API(brandid:Int)
           {
           
@@ -129,6 +155,40 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 self.tabvw.reloadData()
             }
         }
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    
+        let touchPoint = textField.convert(CGPoint.zero, to: tabvw)
+            let clickedBtn = tabvw.indexPathForRow(at: touchPoint)
+            let row = Int(clickedBtn!.row)
+        if ModalController.hasSpecialCharacters(str: string)
+        {
+          return false
+        }
+        var textstr = ""
+                  if let text1 = textField.text as NSString? {
+                      let txtAfterUpdate = text1.replacingCharacters(in: range, with: string)
+                      textstr = txtAfterUpdate
+               }
+        if row == 3
+        {
+            if textstr.count > 10
+            {
+                return false
+            }
+            if !textstr.containArabicNumber
+            {
+                return false
+            }
+            else
+            {
+                return true
+            }
+        }
+           
+          
+        toptxtArr[row - 1] = textstr
+        return true
     }
     func registernibs()
        {
@@ -242,6 +302,14 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         {
             return 1
         }
+        if section == 1
+               {
+               if SelectedIndex.contains(section)
+                          {
+                            return 6
+                          }
+                          return 1
+               }
         if section == headerarr.count
         {
           if SelectedIndex.contains(section)
@@ -282,6 +350,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                         let cell = tabvw.dequeueReusableCell(withIdentifier: "UploadVehicleImageTableViewCell", for: indexPath) as! UploadVehicleImageTableViewCell
                                          cell.uploadvehicle.addTarget(self, action: #selector(clickedvehicleUpload(_:)), for: .touchUpInside)
                         cell.vehicleimage.sd_setImage(with: URL(string:self.servicelist?.data?.vehicle_kind_image ?? ""), placeholderImage: UIImage(named: "passport"))
+                        
                                           return cell
                     }
                     let cell = tabvw.dequeueReusableCell(withIdentifier: "VehicleDescriptionTableViewCell", for: indexPath) as! VehicleDescriptionTableViewCell
@@ -301,11 +370,81 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 }
             return cell
             }
+                if indexPath.section == 1
+                {
+                 if indexPath.row <= 4
+            {
                 
+               let cell = tabvw.dequeueReusableCell(withIdentifier: "VehicleDescriptionTableViewCell", for: indexPath) as! VehicleDescriptionTableViewCell
+                cell.txt.delegate = self
+                cell.txt.keyboardType = .default
+                 cell.topconst.constant = -6
+                cell.txt.isUserInteractionEnabled = true
+                if indexPath.row == 2 || indexPath.row == 4
+                {
+                   cell.txt.isUserInteractionEnabled = false
+                }
+                if indexPath.row == 1
+                {
+                    cell.topconst.constant = 5
+                }
+                if indexPath.row == 3
+                               {
+                                cell.txt.keyboardType = .asciiCapableNumberPad
+                               }
+                cell.toplbl.text = topArr[indexPath.row - 1]
+                cell.txt.text = toptxtArr[indexPath.row - 1]
+                cell.downarrow.isHidden = true
+                return cell
+            }
+                    else{
+                             let cell = tabvw.dequeueReusableCell(withIdentifier: "ServiceDetailTableViewCell", for: indexPath) as! ServiceDetailTableViewCell
+                    cell.topconstant.constant = -10
+                             cell.uploadimg.tag = indexPath.section - 1
+                             cell.crossclicked.tag = indexPath.section - 1
+                             cell.uploadimg.addTarget(self, action: #selector(clickupload(_:)), for: .touchUpInside)
+                             cell.crossclicked.addTarget(self, action: #selector(clickcrossed(_:)), for: .touchUpInside)
+                             if imglocalArr[indexPath.section - 1] == nil
+                             {
+                               cell.pswdimg.sd_setImage(with: URL(string: imgArr[indexPath.section - 1]), placeholderImage: UIImage(named: "passport"))
+                             }
+                             else{
+                                 cell.pswdimg.image = imglocalArr[indexPath.section - 1]
+                             }
+                             if imgIdArr[indexPath.section - 1]
+                             {
+                                  cell.crossclicked.isHidden =  false
+                                 cell.uploadimg.isUserInteractionEnabled = false
+                             }
+                             else{
+                                 cell.crossclicked.isHidden =  true
+                                cell.uploadimg.isUserInteractionEnabled = true
+                             }
+                             if imglocalArr[indexPath.section - 1] == nil
+                             {
+                                 cell.crossclicked.isHidden =  true
+                                 cell.uploadimg.isUserInteractionEnabled = true
+                             }
+                             let html = descriparr[indexPath.section - 1]
+                                let data = Data(html.utf8)
+                            if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+                                
+                           let font = UIFont(name: "Gilroy-Light", size: 12)
+                           let attributedString = NSMutableAttributedString(attributedString: attributedString)
+                             attributedString.addAttribute(.font, value:font!, range: NSRange(location: 0, length: attributedString.length))
+                             cell.detaillbl.attributedText = attributedString
+                             }
+                             
+                             
+                             return cell
+                         }
+                     
+                }
             else{
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "ServiceDetailTableViewCell", for: indexPath) as! ServiceDetailTableViewCell
                 cell.uploadimg.tag = indexPath.section - 1
                 cell.crossclicked.tag = indexPath.section - 1
+                     cell.topconstant.constant = 7
                 cell.uploadimg.addTarget(self, action: #selector(clickupload(_:)), for: .touchUpInside)
                 cell.crossclicked.addTarget(self, action: #selector(clickcrossed(_:)), for: .touchUpInside)
                 if imglocalArr[indexPath.section - 1] == nil
@@ -356,6 +495,13 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
           SelectedIndex.add(indexPath.section)
         }
         tabvw.reloadData()
+        }
+        if indexPath.section == 1
+        {
+            if indexPath.row == 2 || indexPath.row == 4
+            {
+                NationalselectDOB(tag: indexPath.row - 1)
+            }
         }
         if indexPath.section == headerarr.count
         {
@@ -420,6 +566,18 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         {
             return 100
         }
+            if indexPath.section == 1
+                          {
+                            if indexPath.row == 0
+                                       {
+                                           return 57
+                                       }
+                            else  if indexPath.row <= 4
+                                       {
+                                           return 90
+                                       }
+                            return UITableView.automaticDimension
+                          }
         else if indexPath.section == headerarr.count
         {
             if indexPath.row == 0
@@ -443,4 +601,43 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
       
     }
     
+}
+enum viewBorder: String {
+    case Left = "borderLeft"
+    case Right = "borderRight"
+    case Top = "borderTop"
+    case Bottom = "borderBottom"
+}
+
+extension UIView {
+
+    func AddBorder(vBorder: viewBorder, color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.name = vBorder.rawValue
+        switch vBorder {
+            case .Left:
+                border.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+            case .Right:
+                border.frame = CGRect(x: self.frame.size.width - width, y: 0, width: width, height: self.frame.size.height)
+            case .Top:
+                border.frame = CGRect(x: 0, y: -5, width: self.frame.size.width, height: width)
+            case .Bottom:
+                border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: self.frame.size.width, height: width)
+        }
+        self.layer.addSublayer(border)
+    }
+
+    func removeBorder(border: viewBorder) {
+        var layerForRemove: CALayer?
+        for layer in self.layer.sublayers! {
+            if layer.name == border.rawValue {
+                layerForRemove = layer
+            }
+        }
+        if let layer = layerForRemove {
+            layer.removeFromSuperlayer()
+        }
+    }
+
 }
