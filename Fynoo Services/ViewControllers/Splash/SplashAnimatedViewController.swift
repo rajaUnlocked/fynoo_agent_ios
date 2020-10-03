@@ -207,6 +207,8 @@ class SplashAnimatedViewController: UIViewController, VersionPopupViewController
     }
     
     func setupNav() {
+        
+        
         if AuthorisedUser.shared.isAuthorised{
                         let userData:UserData = AuthorisedUser.shared.getAuthorisedUser()
                         
