@@ -45,6 +45,10 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
         checkForRememberUser()
     }
     override func viewWillAppear(_ animated: Bool) {
+        AuthorisedUser.shared.removeAuthorisedUser()
+        ModalController.removeTheContentForKey("AgentDashboardData")
+        ModalController.removeTheContentForKey("profile_img")
+        
         if  HeaderHeightSingleton.shared.LanguageSelected == "AR"{
             arabicText.font = UIFont(name: "KFGQPC Uthmanic Script HAFS", size: 25)
             centers.constant = 40
@@ -135,6 +139,7 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func setupUI() {
+        
         self.selectedType = "Business Owner".localized
         let  userType = ModalController.getTheContentForKey("rememberType") as? String
         if let user = userType {
