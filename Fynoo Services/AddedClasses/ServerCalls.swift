@@ -171,7 +171,7 @@ class ServerCalls: NSObject {
             
             
             let imageData = imageFile.jpegData(compressionQuality : 1)
-            multipartFormData.append(imageData!, withName: imageName, fileName: "file.jpg", mimeType: "image/jpg")
+            multipartFormData.append(imageData!, withName: imageName, fileName: imageName, mimeType: "image/jpg")
             
             
             for (key, value) in parameters {

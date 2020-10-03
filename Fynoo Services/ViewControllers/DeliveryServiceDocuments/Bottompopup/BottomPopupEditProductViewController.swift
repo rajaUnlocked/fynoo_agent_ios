@@ -62,7 +62,7 @@ class BottomPopupEditProductViewController: UIViewController ,UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+    
         let cell = tabView.dequeueReusableCell(withIdentifier: "BottomPopupTableViewCell", for: indexPath) as! BottomPopupTableViewCell
         cell.delegate = self
         cell.selectionStyle = .none
