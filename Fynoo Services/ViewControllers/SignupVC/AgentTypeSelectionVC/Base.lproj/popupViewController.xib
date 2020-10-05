@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,11 +12,14 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="popupViewController" customModule="Fynoo_Business" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="popupViewController" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
                 <outlet property="backBtn" destination="Jed-2d-4Dg" id="8DI-5f-ifr"/>
                 <outlet property="bgImage" destination="uTr-yn-zFJ" id="BLb-oO-C5o"/>
                 <outlet property="companyBtnOutlet" destination="UWF-cj-YlS" id="FLl-Jn-E62"/>
+                <outlet property="digitalLbl" destination="YNW-pE-8aw" id="NJB-Yo-pvr"/>
+                <outlet property="headerAgentLbl" destination="DZP-nS-Bgt" id="0h6-ao-aF1"/>
+                <outlet property="joinLlb" destination="1AM-kc-AeK" id="IHI-vE-Hah"/>
                 <outlet property="personalBtnOutlet" destination="v9c-vh-H1e" id="9bQ-WG-ae6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -74,7 +76,7 @@
                         <constraint firstAttribute="height" constant="13" id="cbb-s2-kYc"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="11"/>
-                    <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TopDesgin" translatesAutoresizingMaskIntoConstraints="NO" id="EI2-Wd-CQj">
@@ -105,7 +107,7 @@
                             </constraints>
                             <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
                             <state key="normal" title="Company">
-                                <color key="titleColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -130,7 +132,7 @@
                             </constraints>
                             <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
                             <state key="normal" title="Personal">
-                                <color key="titleColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">

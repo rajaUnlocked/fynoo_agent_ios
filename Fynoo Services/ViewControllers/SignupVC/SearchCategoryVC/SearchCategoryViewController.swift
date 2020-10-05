@@ -97,6 +97,10 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
         }
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         searchField.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.customHeader.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
+        searchField.textColor = Constant.Black_TEXT_COLOR
+        self.customHeader.titleHeader.textColor = Constant.Black_TEXT_COLOR
+        
         customHeader.viewControl = self
     }
     func setupUiMethod(){

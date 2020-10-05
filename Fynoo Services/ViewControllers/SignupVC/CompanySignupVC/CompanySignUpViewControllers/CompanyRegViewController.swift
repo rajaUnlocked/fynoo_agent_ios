@@ -9,18 +9,17 @@
 import UIKit
 import PopupDialog
 import MobileCoreServices
-
+import MTPopup
 protocol companybackbtnDelegate {
    func activeBoAction()
 }
-class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,CompanyRegTableViewCellDelegate,AgentProfileImageTableViewCellDelegate,ImageSelectPopUpDialogViewControllerDelegate,UITextFieldDelegate,CompanyAgentBasicInformationTableViewCellDelegate,SearchCategoryViewControllerDelegate,CompanyAgentBankDetailsTableViewCellDelegate,CompanyAgentVatDetailTableViewCellDelegate,AgentCompanyUserPolicyTableViewCellDelegate,UIDocumentPickerDelegate {
+class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,CompanyRegTableViewCellDelegate,AgentProfileImageTableViewCellDelegate,ImageSelectPopUpDialogViewControllerDelegate,UITextFieldDelegate,CompanyAgentBasicInformationTableViewCellDelegate,SearchCategoryViewControllerDelegate,CompanyAgentBankDetailsTableViewCellDelegate,CompanyAgentVatDetailTableViewCellDelegate,AgentCompanyUserPolicyTableViewCellDelegate,UIDocumentPickerDelegate,DiscountTypePopUpViewControllerDelegate {
+   
+    
     func selectedCountryCode(countryCode: NSMutableDictionary) {
         
     }
     
-    
-   
-   
     func loginClickedd(_ sender: Any) {
         var isLoginThere = false
         
@@ -139,6 +138,11 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
         self.tabView.separatorStyle = .none
         self.headerView.titleHeader.text = "Welcome, Let's Create An Account".localized
         headerView.viewControl = self
+        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+              
+        self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
+        self.headerView.titleHeader.textColor = Constant.Black_TEXT_COLOR
     }
     
     @objc func showPassword(_ sender: UIButton) {
@@ -177,8 +181,9 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
        let compressData = tempImage.jpegData(compressionQuality: 0.8) //max value is 1.0 and minimum is 0.0
        let compressedImage = UIImage(data: compressData!)
         tempImage = compressedImage
-       
-        self.uploadProfileImagesAPI()
+        agentSignUPModal.ProfileImage = compressedImage
+        self.isImageUploaded = true
+//        self.uploadProfileImagesAPI()
         dismiss(animated:true, completion: nil)
 
     }
@@ -343,16 +348,40 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
         
     }
     func profileImageSelected(){
-        let failVC = ImageSelectPopUpDialogViewController(nibName: "ImageSelectPopUpDialogViewController", bundle: nil)
-        let popup = PopupDialog(viewController: failVC,
-                                buttonAlignment: .horizontal,
-                                transitionStyle: .fadeIn,
-                                tapGestureDismissal: true,
-                                panGestureDismissal: false)
-        failVC.delegate = self
-        present(popup, animated: true, completion: nil)
+        let vc = DiscountTypePopUpViewController(nibName: "DiscountTypePopUpViewController", bundle: nil)
+            vc.delegate = self
+            let popupController = MTPopupController(rootViewController: vc)
+            popupController.autoAdjustKeyboardEvent = false
+            popupController.style = .bottomSheet
+            popupController.navigationBarHidden = true
+            popupController.hidesCloseButton = false
+            let blurEffect = UIBlurEffect(style: .dark)
+            popupController.backgroundView = UIVisualEffectView(effect: blurEffect)
+            popupController.backgroundView?.alpha = 0.6
+            popupController.backgroundView?.onClick {
+                popupController.dismiss()
+            }
+            popupController.present(in: self)
+        
+        
+        
+        
+//        let failVC = ImageSelectPopUpDialogViewController(nibName: "ImageSelectPopUpDialogViewController", bundle: nil)
+//        let popup = PopupDialog(viewController: failVC,
+//                                buttonAlignment: .horizontal,
+//                                transitionStyle: .fadeIn,
+//                                tapGestureDismissal: true,
+//                                panGestureDismissal: false)
+//        failVC.delegate = self
+//        present(popup, animated: true, completion: nil)
     }
-    
+    func selectedDiscountOption(str: String) {
+        if str == "Take Photo" {
+            self.cameraSelected()
+        }else if str == "Device Gallery" {
+            self.gallerySelected()
+        }
+       }
     func cameraSelected() {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let cam = UIImagePickerController()
@@ -604,9 +633,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
         if maroofLink == "https://www.maroof.com/".localized {
             agentSignUPModal.agentMaroofLink = ""
         }
-//        if ibanPrefix == "SA".localized {
-//        agentSignUPModal.agentbankAccountNumber = ""
-//        }
+
         let(isFilled, message) = agentSignUPModal.normalAgentSignUPValidation()
         
         if isFilled{
@@ -621,6 +648,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
                             let vc = VerifyAccountViewController(nibName: "VerifyAccountViewController", bundle: nil)
                             vc.mobile = self.agentSignUPModal.agentPhoneNumber
                             vc.emailId = self.agentSignUPModal.agentEmail
+                            vc.isFromAgent = true
                             vc.fynooId = (response!.object(forKey: "data") as? NSDictionary)?.object(forKey: "fynoo_id") as! String
                             self.navigationController?.pushViewController(vc, animated: true)
                         }
@@ -733,7 +761,7 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
         
         if appDelegate.selectServiceStr != "" && agentSignUPModal.agentBussinessName != ""  && agentSignUPModal.agentEmail != ""  && agentSignUPModal.agentConfirmEmail != ""  &&
             agentSignUPModal.agentCountry != ""  && agentSignUPModal.agentCity != ""  && agentSignUPModal.agentContactNumber != "" &&
-        agentSignUPModal.agentPassword != ""  && agentSignUPModal.agentConfirmPassword != "" && (companyEmail && companyConfirmEmail) && (companyEmail == companyConfirmEmail) && mobileLength == mobileNumberWithoutGap.count && (agentSignUPModal.agentPassword == agentSignUPModal.agentConfirmPassword) && (agentSignUPModal.agentPassword.count >= 8 && agentSignUPModal.agentConfirmPassword.count  >= 8) && agentSignUPModal.agentbankName != ""  && agentSignUPModal.agentbankAccountHolderName != ""  && agentSignUPModal.agentbankAccountNumber != "" && str.count >= agentSignUPModal.agentIBanLength && ((isVatYesClicked == true && vatStr.count >= agentSignUPModal.vatLength) || isVatNoClicked) && isUserPolicySelected == true  {
+        agentSignUPModal.agentPassword != ""  && agentSignUPModal.agentConfirmPassword != "" && (companyEmail && companyConfirmEmail) && (companyEmail == companyConfirmEmail) && mobileLength == mobileNumberWithoutGap.count && (agentSignUPModal.agentPassword == agentSignUPModal.agentConfirmPassword) && (agentSignUPModal.agentPassword.count >= 8 && agentSignUPModal.agentConfirmPassword.count  >= 8) && agentSignUPModal.agentbankName != ""  && agentSignUPModal.agentbankAccountHolderName != ""  && agentSignUPModal.agentbankAccountNumber != "" && str.count >= agentSignUPModal.agentIBanLength && ((isVatYesClicked == true && vatStr.count >= agentSignUPModal.vatLength && agentSignUPModal.vatDocumentUrl != nil ) || isVatNoClicked) && isUserPolicySelected == true  {
             
             if agentSignUPModal.agentPhoneNumber.count > 0  && (PhoneNumberWithoutGap.count < agentSignUPModal.phoneMinLength) {
                 everythingFilled = false
@@ -871,21 +899,17 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
             let mobileLength  = agentSignUPModal.mobileLength
             
             if agentSignUPModal.agentBussinessName != ""  && agentSignUPModal.agentEmail != ""  && agentSignUPModal.agentConfirmEmail != ""  &&
-                agentSignUPModal.agentCountry != ""  && agentSignUPModal.agentCity != ""  && agentSignUPModal.agentContactNumber != ""  &&
-            agentSignUPModal.agentPassword != ""  && agentSignUPModal.agentConfirmPassword != "" && (companyEmail && companyConfirmEmail) && (companyEmail == companyConfirmEmail) && mobileLength == mobileNumberWithoutGap.count && (agentSignUPModal.agentPassword == agentSignUPModal.agentConfirmPassword) && (agentSignUPModal.agentPassword.count >= 8 && agentSignUPModal.agentConfirmPassword.count  >= 8) {
-//                print("cellenterBasicInfoFirstMendatoryCondition")
+                agentSignUPModal.agentCountry != ""  && agentSignUPModal.agentCity != ""  && agentSignUPModal.agentContactNumber != ""  && agentSignUPModal.mobileCode != ""  &&
+                agentSignUPModal.agentPassword != ""  && agentSignUPModal.agentConfirmPassword != "" && (companyEmail && companyConfirmEmail) && (companyEmail == companyConfirmEmail) && mobileLength == mobileNumberWithoutGap.count && (agentSignUPModal.agentPassword == agentSignUPModal.agentConfirmPassword) && (agentSignUPModal.agentPassword.count >= 8 && agentSignUPModal.agentConfirmPassword.count  >= 8) {
                 
-                if agentSignUPModal.agentPhoneNumber.count > 0  && (PhoneNumberWithoutGap.count < agentSignUPModal.phoneMinLength) {
+                if agentSignUPModal.agentPhoneNumber.count > 0  && (PhoneNumberWithoutGap.count < agentSignUPModal.phoneMinLength) && agentSignUPModal.phoneCode != "" {
                     
-//                    print("cellenterBasicInfoFirstOptionalCondition")
                     cell.editImageView.image = UIImage(named: "edit_red")
                 }else{
                     
-//                    print("cellNotenterBasicInfoFirstOptionalCondition")
-                     cell.editImageView.image = UIImage(named: "section_filled.png")
+                    cell.editImageView.image = UIImage(named: "section_filled.png")
                 }
             }else{
-//                print("cellNotenterBasicInfoFirstMendatoryCondition")
                 cell.editImageView.image = UIImage(named: "edit_red")
             }
         }else if index.section == 3 {
@@ -998,7 +1022,8 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
         cell.mainView.clipsToBounds = true
         cell.mainView.layer.borderWidth = 0.5
         cell.mainView.borderColor =  UIColor.init(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
-        cell.nameTxtFld.textColor = UIColor(red: 57/255, green: 58/255, blue: 58/255, alpha: 1)
+        cell.nameTxtFld.textColor = Constant.Black_TEXT_COLOR
+        
         cell.nameTxtFld.text = agentSignUPModal.agentBussinessName
         cell.emailTxtFld.text = agentSignUPModal.agentEmail
         cell.confirmTxtFld.text = agentSignUPModal.agentConfirmEmail
@@ -1298,14 +1323,15 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
         cell.selectionStyle = .none
         
         if everythingFilled == true {
-            cell.signUpBtn.setTitleColor(UIColor(red: 97/255, green: 192/255, blue: 136/255, alpha: 1), for: .normal)
+            cell.signUpBtn.setTitleColor(Constant.Green_TEXT_COLOR, for: .normal)
             cell.signUpBtn.layer.borderWidth = 0.5
-            cell.signUpBtn.borderColor =  UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1)
+            cell.signUpBtn.borderColor =  Constant.Green_TEXT_COLOR
         }else {
             
-            cell.signUpBtn.setTitleColor(UIColor(red: 236/255, green: 74/255, blue: 83/255, alpha: 1), for: .normal)
+            cell.signUpBtn.setTitleColor(Constant.Red_TEXT_COLOR, for: .normal)
             cell.signUpBtn.layer.borderWidth = 0.5
-            cell.signUpBtn.borderColor =  UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
+            cell.signUpBtn.borderColor =  Constant.Red_TEXT_COLOR
+            
         }
         
         if isUserPolicySelected {

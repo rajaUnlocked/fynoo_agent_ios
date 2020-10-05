@@ -35,12 +35,11 @@ class SuccesssViewController: UIViewController {
         counter -= 1
         if counter == 57{
             timer?.invalidate()
-            if isDataBank
-            {
-//              NotificationCenter.default.post(name: Notification.Name("removeid"), object: nil, userInfo: nil)
-//                self.navigationController?.backToViewController(viewController: ProductDataBankController.self)
-//                return
+            if isFromAgentSignUp == true {
+                let vc = LanguageSelectionViewController(nibName: "LanguageSelectionViewController", bundle: nil)
+                self.navigationController?.pushViewController(vc, animated: true)
             }
+            
    //         if newUser == "1"{
 //                let viewCOntroller  = SubcriptionPlanListViewController()
 //                 let viewCOntroller  = SubcriptionPackageListViewController()

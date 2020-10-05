@@ -11,6 +11,7 @@ import UIKit
 class AgentSignUPModal: NSObject {
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
+    var ProfileImage: UIImage?
     var agentType = ""
     var imageID : Int = 0
     var serviceIDstr = ""
@@ -230,6 +231,14 @@ class AgentSignUPModal: NSObject {
         }else{
             vatAvailable = 0
         }
+        
+        var profilePic: UIImage? = ProfileImage
+        
+//        if profilePic == nil {
+//           profilePic = UIImage(named: "profile_white")
+//        }
+        
+        print("profilePic:-", profilePic)
       print("docURL:-", pfurl)
         
         let param = ["user_type":"AC",
@@ -243,7 +252,6 @@ class AgentSignUPModal: NSObject {
                      "bank_name":agentbankName,
                      "iban_no":agentbankAccountNumber,
                      "maroof_link":agentMaroofLink,
-                     "user_img":imageID,
                      "gender":"",
                      "dob":"",
                      "education":"",
@@ -260,7 +268,7 @@ class AgentSignUPModal: NSObject {
             ] as [String : Any]
         
         print("request -",param)
-        ServerCalls.PdfFileUpload(inputUrl: str, parameters: param, pdfname: pdfdoc, pdfurl: pfurl ?? "") { (response, success, resp) in
+        ServerCalls.PdfFileAndImageUpload(inputUrl: str, parameters: param, pdfname: pdfdoc, pdfurl: pfurl ?? "",imageName: "user_img",imageFile:profilePic ?? nil) { (response, success, resp) in
             
             ModalClass.stopLoading()
             if let value = response as? NSDictionary {
