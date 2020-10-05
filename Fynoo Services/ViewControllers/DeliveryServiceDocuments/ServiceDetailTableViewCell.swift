@@ -11,6 +11,8 @@ import UIKit
 class ServiceDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     
+    @IBOutlet weak var topconstant: NSLayoutConstraint!
+    @IBOutlet weak var vw: UIView!
     @IBOutlet weak var pswdimg: UIImageView!
     @IBOutlet weak var crossclicked: UIButton!
     @IBOutlet weak var uploadbtn: UIButton!

@@ -192,6 +192,21 @@ class ModalController: NSObject {
         let okayChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ")
         return text.filter {okayChars.contains($0) }
     }
+    static func hasSpecialCharacters(str:String) -> Bool {
+
+        do {
+            let regex = try NSRegularExpression(pattern: ".*[^A-Za-z0-9].*", options: .caseInsensitive)
+            if let _ = regex.firstMatch(in: str, options: NSRegularExpression.MatchingOptions.reportCompletion, range: NSMakeRange(0, str.count)) {
+                return true
+            }
+
+        } catch {
+            debugPrint(error.localizedDescription)
+            return false
+        }
+
+        return false
+    }
     static func isValidTxt(testStr:String) -> Bool {
         if testStr.count > 70
         {

@@ -166,6 +166,9 @@ enum Service {
     static let updateProfile = Constant.BASE_URL + "agentapis/v2/update_agent_profile/"
     static let getBankDetail = Constant.BASE_URL + "agentapi/v1/get_bank_name_by_identifier/"
     static let getIbanLength = Constant.BASE_URL + "agentapi/v1/get_iban_length/"
+    static let uploadimage = Constant.BASE_URL + "agentapi/v1/vehicle_service_document/"
+       
+    
 }
 
 enum Authentication {

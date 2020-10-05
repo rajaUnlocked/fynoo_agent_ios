@@ -136,6 +136,11 @@
 		CEAD29F625069F9D008B1F9C /* AgentListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29F425069F9C008B1F9C /* AgentListTableViewCell.xib */; };
 		CEAD29F92506A43D008B1F9C /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD29F72506A43D008B1F9C /* VideoTableViewCell.swift */; };
 		CEAD29FA2506A43D008B1F9C /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29F82506A43D008B1F9C /* VideoTableViewCell.xib */; };
+		CEDA6C412525C4C900301F82 /* ServiceUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6C402525C4C800301F82 /* ServiceUpload.swift */; };
+		CEDAF67425283DF900B846E5 /* ReasonForChangeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAF67225283DF900B846E5 /* ReasonForChangeTableViewCell.swift */; };
+		CEDAF67525283DF900B846E5 /* ReasonForChangeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDAF67325283DF900B846E5 /* ReasonForChangeTableViewCell.xib */; };
+		CEDAF67825285ACC00B846E5 /* BottomLblTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAF67625285ACC00B846E5 /* BottomLblTableViewCell.swift */; };
+		CEDAF67925285ACC00B846E5 /* BottomLblTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDAF67725285ACC00B846E5 /* BottomLblTableViewCell.xib */; };
 		CEE35789250740800097069D /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE35775250740800097069D /* Roboto-Medium.ttf */; };
 		CEE3578A250740800097069D /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE35776250740800097069D /* Roboto-Light.ttf */; };
 		CEE3578B250740800097069D /* sst-arabic-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE35777250740800097069D /* sst-arabic-bold.ttf */; };
@@ -436,6 +441,11 @@
 		CEAD29F425069F9C008B1F9C /* AgentListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentListTableViewCell.xib; sourceTree = "<group>"; };
 		CEAD29F72506A43D008B1F9C /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		CEAD29F82506A43D008B1F9C /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
+		CEDA6C402525C4C800301F82 /* ServiceUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceUpload.swift; sourceTree = "<group>"; };
+		CEDAF67225283DF900B846E5 /* ReasonForChangeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForChangeTableViewCell.swift; sourceTree = "<group>"; };
+		CEDAF67325283DF900B846E5 /* ReasonForChangeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReasonForChangeTableViewCell.xib; sourceTree = "<group>"; };
+		CEDAF67625285ACC00B846E5 /* BottomLblTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomLblTableViewCell.swift; sourceTree = "<group>"; };
+		CEDAF67725285ACC00B846E5 /* BottomLblTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomLblTableViewCell.xib; sourceTree = "<group>"; };
 		CEE35775250740800097069D /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		CEE35776250740800097069D /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		CEE35777250740800097069D /* sst-arabic-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sst-arabic-bold.ttf"; sourceTree = "<group>"; };
@@ -997,6 +1007,7 @@
 			isa = PBXGroup;
 			children = (
 				CE3E9A58251E0B0300B60038 /* ServiceModel.swift */,
+				CEDA6C402525C4C800301F82 /* ServiceUpload.swift */,
 			);
 			path = servicemodel;
 			sourceTree = "<group>";
@@ -1076,6 +1087,10 @@
 				CE2EFB3D251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib */,
 				CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */,
 				CE2EFB41251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib */,
+				CEDAF67225283DF900B846E5 /* ReasonForChangeTableViewCell.swift */,
+				CEDAF67325283DF900B846E5 /* ReasonForChangeTableViewCell.xib */,
+				CEDAF67625285ACC00B846E5 /* BottomLblTableViewCell.swift */,
+				CEDAF67725285ACC00B846E5 /* BottomLblTableViewCell.xib */,
 			);
 			path = DeliveryServiceDocuments;
 			sourceTree = "<group>";
@@ -1539,6 +1554,7 @@
 				F4828C9D2508C57F006B85D8 /* ProfileVatTableViewCell.xib in Resources */,
 				F62E4AEA25148EC60021CEE0 /* popupViewController.xib in Resources */,
 				2F8463E5250F6EBC0084EB32 /* LoginIntroFirst.xib in Resources */,
+				CEDAF67925285ACC00B846E5 /* BottomLblTableViewCell.xib in Resources */,
 				2F84642B250F82850084EB32 /* SuccesssViewController.xib in Resources */,
 				CEE35792250740800097069D /* Segoe UI Bold.ttf in Resources */,
 				CEE72CAD251B405F00B02DAF /* ServiceHeaderTableViewCell.xib in Resources */,
@@ -1609,6 +1625,7 @@
 				F62E4AF725148EC60021CEE0 /* AgentProfileImageTableViewCell.xib in Resources */,
 				2F74CB57250A365F00DE21EF /* SplashAnimatedViewController.xib in Resources */,
 				CEE72CA9251B36C400B02DAF /* DeliveryDocumentViewController.xib in Resources */,
+				CEDAF67525283DF900B846E5 /* ReasonForChangeTableViewCell.xib in Resources */,
 				2FEB12092511EC930012FE98 /* SideMenuViewController.xib in Resources */,
 				2F8463CE250F6EBC0084EB32 /* LoginNewSecondTableViewCell.strings in Resources */,
 				2F846412250F7F1C0084EB32 /* ResetPasswordViewController.strings in Resources */,
@@ -1794,6 +1811,8 @@
 				CE3E9A59251E0B0300B60038 /* ServiceModel.swift in Sources */,
 				F4CEC3012511DDCC003C35E8 /* branchsmodel.swift in Sources */,
 				CEAD29ED25063FA2008B1F9C /* TargetprogressTableViewCell.swift in Sources */,
+				CEDAF67425283DF900B846E5 /* ReasonForChangeTableViewCell.swift in Sources */,
+				CEDAF67825285ACC00B846E5 /* BottomLblTableViewCell.swift in Sources */,
 				CEE72CB0251B586400B02DAF /* DocHeaderTableViewCell.swift in Sources */,
 				2FEB1227251215F50012FE98 /* ProgressDashboardTableViewCell.swift in Sources */,
 				CEE72CBC251B76AF00B02DAF /* BottomPopupTableViewCell.swift in Sources */,
@@ -1881,6 +1900,7 @@
 				F4828CA02508DF3E006B85D8 /* ProfileServiceTableViewCell.swift in Sources */,
 				2FEB12032511EC930012FE98 /* SideMenuViewController.swift in Sources */,
 				2FEB121A2511F1530012FE98 /* SignOutViewController.swift in Sources */,
+				CEDA6C412525C4C900301F82 /* ServiceUpload.swift in Sources */,
 				2F964B772513751B005FFEDC /* MultiBannerTableViewCell.swift in Sources */,
 				CEE72CA8251B36C400B02DAF /* DeliveryDocumentViewController.swift in Sources */,
 				2F84641D250F80570084EB32 /* LoginModal.swift in Sources */,
