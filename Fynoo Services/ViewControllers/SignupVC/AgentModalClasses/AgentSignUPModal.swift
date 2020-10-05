@@ -11,6 +11,7 @@ import UIKit
 class AgentSignUPModal: NSObject {
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
+    var ProfileImage: UIImage?
     var agentType = ""
     var imageID : Int = 0
     var serviceIDstr = ""
@@ -136,9 +137,7 @@ class AgentSignUPModal: NSObject {
             return (isFilled, ValidationMessages.mobileLength)
             
         }
-        if agentbankName == "" {
-            return (isFilled, ValidationMessages.validIbanNumber)
-        }
+       
         if agentbankAccountHolderName == "" {
             return (isFilled, ValidationMessages.bankAccountHolderName)
         }
@@ -175,6 +174,10 @@ class AgentSignUPModal: NSObject {
                 return (isFilled, ValidationMessages.validIbanNumber)
             }
         }
+        if agentbankName == "" {
+            return (isFilled, ValidationMessages.validIbanNumber)
+        }
+        
         if !isVatSelected && !isVatNotSelected {
             return (isFilled, ValidationMessages.vat)
         }
@@ -184,7 +187,10 @@ class AgentSignUPModal: NSObject {
         }
         if isVatSelected == true && vatDocumentUrl == nil {
             return (isFilled, ValidationMessages.vat_certificate)
-        }        
+        }
+        if isVatSelected == true && (agentVatNumber == "" || vatDocumentUrl == nil) {
+            return (isFilled, ValidationMessages.vatNumberDoc)
+        }
         if !agentVatNumber.containArabicNumber {
             return (isFilled, ValidationMessages.vatArabicNumber)
         }
@@ -230,6 +236,14 @@ class AgentSignUPModal: NSObject {
         }else{
             vatAvailable = 0
         }
+        
+//        var profilePic: UIImage? = ProfileImage
+        
+//        if profilePic == nil {
+//           profilePic = UIImage(named: "profile_white")
+//        }
+        
+//        print("profilePic:-", profilePic)
       print("docURL:-", pfurl)
         
         let param = ["user_type":"AC",
@@ -243,7 +257,6 @@ class AgentSignUPModal: NSObject {
                      "bank_name":agentbankName,
                      "iban_no":agentbankAccountNumber,
                      "maroof_link":agentMaroofLink,
-                     "user_img":imageID,
                      "gender":"",
                      "dob":"",
                      "education":"",
@@ -256,11 +269,10 @@ class AgentSignUPModal: NSObject {
                      "services":ModalController.toString(appDelegate?.selectServiceStr as Any) ,
                      "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
                      "is_vat_available": vatAvailable
-//            ,"vat_certificate":vatDocumentUrl as Any
             ] as [String : Any]
         
         print("request -",param)
-        ServerCalls.PdfFileUpload(inputUrl: str, parameters: param, pdfname: pdfdoc, pdfurl: pfurl ?? "") { (response, success, resp) in
+        ServerCalls.PdfFileAndImageUpload(inputUrl: str, parameters: param, pdfname: pdfdoc, pdfurl: pfurl ?? "",imageName: "user_img",imageFile:ProfileImage ?? nil) { (response, success, resp) in
             
             ModalClass.stopLoading()
             if let value = response as? NSDictionary {
@@ -288,7 +300,8 @@ class AgentSignUPModal: NSObject {
 class PersonalAgentSignUPModal: NSObject {
     
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
-       
+    
+    var ProfileImage: UIImage?
     var personalAgentType = ""
     var personalAgentImageID : Int = 0
     var personalAgentserviceIDstr = ""
@@ -325,15 +338,16 @@ class PersonalAgentSignUPModal: NSObject {
     var personalVatDocumentUrl:URL?
     var personalVatLength:Int = 0
     var personalAgentName_CompareCode = ""
+     var PersonalAgentAge_limit = ""
+      
+    var personalAgentIBanLength:Int = 0
+    
     
     func personalAgentValidation() -> (Bool, String) {
         var isFilled = false
         var isEmail = false
         var message = ""
         
-        if personalAgentImageID == 0 {
-          return (isFilled, ValidationMessages.profileImage)
-        }
         if appDelegate?.selectServiceStr.count == 0 {
             return (isFilled, ValidationMessages.services)
         }
@@ -417,9 +431,7 @@ class PersonalAgentSignUPModal: NSObject {
         if personalAgentPassword != personalAgentConfirmPswd {
             return (isFilled, ValidationMessages.compareConfirmPassword)
         }
-        if personalAgentbankName == "" {
-              return (isFilled, ValidationMessages.validIbanNumber)
-          }
+       
         if personalAgentbankAccountHolderName == "" {
               return (isFilled, ValidationMessages.bankAccountHolderName)
         }
@@ -437,22 +449,28 @@ class PersonalAgentSignUPModal: NSObject {
             return (isFilled, ValidationMessages.ibanArabicNumber)
         }
          personalAgentAccountNbr = personalAgentAccountNbr.replacingOccurrences(of: " ", with: "")
-        if personalAgentAccountNbr.count != 24 {
+        if personalAgentAccountNbr.count != personalAgentIBanLength {
               return (isFilled, ValidationMessages.validIbanNumber)
         }
-        let ibanBool = ModalController.isValidIBAN(ibanStr: personalAgentAccountNbr, length: 24, countryType: "SA")
-          if ibanBool == false{
+         let bankCode =  personalAgentAccountNbr.substring(from: 0, to: 1)
+        let ibanBool = ModalController.isValidIBAN(ibanStr: personalAgentAccountNbr, length: personalAgentIBanLength, countryType: bankCode)
+          if ibanBool == false {
             
             ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validIbanNumber)
             return (isFilled, ValidationMessages.validIbanNumber)
           }
         if personalAgentAccountNbr != "" {
             personalAgentAccountNbr = personalAgentAccountNbr.replacingOccurrences(of: " ", with: "")
-            if personalAgentAccountNbr.count !=  24 {
+            if personalAgentAccountNbr.count !=  personalAgentIBanLength {
                 ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validIbanNumber)
                 return (isFilled, ValidationMessages.validIbanNumber)
             }
         }
+
+        if personalAgentbankName == "" {
+            return (isFilled, ValidationMessages.validIbanNumber)
+        }
+        
           if !isVatSelected && !isVatNotSelected {
             return (isFilled, ValidationMessages.vat)
             }
@@ -463,6 +481,11 @@ class PersonalAgentSignUPModal: NSObject {
         if isVatSelected == true && personalVatDocumentUrl == nil {
             return (isFilled, ValidationMessages.vat_certificate)
         }
+        
+        if isVatSelected == true && (personalAgentVatNumber == "" || personalVatDocumentUrl == nil) {
+            return (isFilled, ValidationMessages.vatNumberDoc)
+        }
+        
         if !personalAgentVatNumber.containArabicNumber {
             
             return (isFilled, ValidationMessages.vatArabicNumber)
@@ -470,7 +493,7 @@ class PersonalAgentSignUPModal: NSObject {
         if isVatSelected == true && personalAgentVatNumber != "" {
             
             personalAgentVatNumber = personalAgentVatNumber.replacingOccurrences(of: " ", with: "")
-            if personalAgentVatNumber.count !=  15 {
+            if personalAgentVatNumber.count !=  personalVatLength {
                 ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.vatNumber)
                 return (isFilled, ValidationMessages.vatNumber)
             }
@@ -487,6 +510,25 @@ class PersonalAgentSignUPModal: NSObject {
     }
 
     func personalAgentSignUp(completion:@escaping(Bool, NSDictionary?) -> ()) {
+      let str = Authentication.AgentsignUp
+        
+        let pdfdoc = "vat_certificate"
+        
+        var pfurl : String? = personalVatDocumentUrl?.absoluteString
+        if pfurl == ""
+        {
+            pfurl = ""
+        }else{
+            pfurl = personalVatDocumentUrl?.absoluteString
+        }
+        
+        var vatAvailable:Int = 0
+
+        if isVatSelected {
+            vatAvailable = 1
+        }else{
+            vatAvailable = 0
+        }
         
         let param = ["user_type":"AI",
                      "email":personalAgentEmail,
@@ -499,7 +541,6 @@ class PersonalAgentSignUPModal: NSObject {
                      "bank_name":personalAgentbankName,
                      "iban_no":personalAgentAccountNbr,
                      "maroof_link":personalAgentMaroofLink,
-                     "user_img":personalAgentImageID,
                      "gender":personalAgentGender,
                      "dob":personalAgentDob,
                      "education":personalAgentEducation,
@@ -510,10 +551,11 @@ class PersonalAgentSignUPModal: NSObject {
                      "bank_id":personalAgentbankID,
                      "vat_number":personalAgentVatNumber,
                      "services":ModalController.toString(appDelegate?.selectServiceStr as Any),
-                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected] as [String : Any]
+                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
+                     "is_vat_available": vatAvailable] as [String : Any]
         
         print(param)
-        ServerCalls.postRequest(Authentication.AgentsignUp, withParameters: param) { (response, success, resp) in
+        ServerCalls.PdfFileAndImageUpload(inputUrl: str, parameters: param, pdfname: pdfdoc, pdfurl: pfurl ?? "",imageName: "user_img",imageFile:ProfileImage ?? nil) { (response, success, resp) in
             ModalClass.stopLoading()
             if let value = response as? NSDictionary{
                 let msg = value.object(forKey: "error_description") as! String

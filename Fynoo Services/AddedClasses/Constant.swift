@@ -56,6 +56,7 @@ enum ValidationMessages {
     static let bankAccountNumber = "Please enter your IBAN No."
     static let validIbanNumber = "IBAN number does not belong to any bank."
     static let vatNumber = "Please enter valid vat Number."
+     static let vatNumberDoc = "Please enter valid vat Number/vat certificate."
      static let vat_certificate = "Please submit vat certificate."
     static let NickName = "Please enter your Nick Name."
     static let Name = "Please enter your name."
@@ -130,17 +131,19 @@ class Constant: NSObject {
     
     // MARK:- AgentAPIs
     
-//    static let Country_List : String = "common/getCountry/";
-//    static let City_List : String = "common/getCity/";
-//    static let Bank_List : String = "businessapi/v2/bank_list/";
-//    static let Education_List : String = "businessapi/v3/education_list/";
-//    static let Service_List : String = "agentapi/v1/agentservices/";
-//    static let bankIdentifier_List : String = "businessapi/v2/search_iban_number/";
     static let upload_file : String = "businessapi/v2/uploadimage/";
     static let vatInfo_Data : String = "product_api/getVatLength/";
      static let IBANLengthInfo_Data : String = "agentapi/v1/get_iban_length/";
     static let language_List : String = "agentapi/v1/agent_language_list/";
      static let saveSelected_Language : String = "agentapi/v1/save_language/";
+    
+    // MARK: - COLORS AND FONTS
+    static let Green_TEXT_COLOR = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+    static let Blue_TEXT_COLOR = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
+    static let Black_TEXT_COLOR = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    static let Grey_TEXT_COLOR = UIColor(red: 56.0/255, green: 56.0/255, blue: 56.0/255, alpha: 1.0)
+    static let Red_TEXT_COLOR = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
+    
 }
 
 enum Service {
