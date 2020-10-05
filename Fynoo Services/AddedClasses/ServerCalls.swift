@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 
 class ServerCalls: NSObject {
+    
     static func PdfFileUpload(inputUrl:String,parameters:[String:Any],pdfname: String,pdfurl:String,completion:((AnyObject?,Bool,AnyObject?) -> Void)?){
            
         Alamofire.upload(multipartFormData: { (multipartFormData) in
@@ -50,7 +51,7 @@ class ServerCalls: NSObject {
         
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             
-            if pdfurl != ""{
+            if pdfurl != "" {
                 let url = URL(string: pdfurl)
                 let pdfData = try! Data(contentsOf: url!.asURL())
                 multipartFormData.append(pdfData, withName: pdfname, fileName: pdfname, mimeType:"application/pdf")

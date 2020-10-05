@@ -27,8 +27,14 @@ class SuccesssViewController: UIViewController {
         self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         self.headerVw.titleHeader.text = "Successfully"
         self.headerVw.backButton.isHidden = true
-        self.titleLbl.text = "Payment Successful"
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(action), userInfo: nil, repeats: true)
+        
+        if isFromAgentSignUp == true {
+           self.titleLbl.text = "Successfully Registration With FYNOO"
+        }else{
+             self.titleLbl.text = "Payment Successful"
+        }
+        
     }
 
     @objc func action () {

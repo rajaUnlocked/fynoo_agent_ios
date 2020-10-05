@@ -67,10 +67,6 @@ class CompanyAgentBasicInformationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var confirmPassHeaderLbl: UILabel!
     
-   
-    
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

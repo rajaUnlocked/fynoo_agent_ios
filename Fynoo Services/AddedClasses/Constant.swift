@@ -56,6 +56,7 @@ enum ValidationMessages {
     static let bankAccountNumber = "Please enter your IBAN No."
     static let validIbanNumber = "IBAN number does not belong to any bank."
     static let vatNumber = "Please enter valid vat Number."
+     static let vatNumberDoc = "Please enter valid vat Number/vat certificate."
      static let vat_certificate = "Please submit vat certificate."
     static let NickName = "Please enter your Nick Name."
     static let Name = "Please enter your name."
