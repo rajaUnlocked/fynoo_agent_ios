@@ -500,9 +500,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     }else{
                         self.imageId = ""
                         ModalController.showSuccessCustomAlertWith(title:"", msg: msg)
-                        AuthorisedUser.shared.user?.data?.profile_image = ((value.object(forKey: "data") as! NSDictionary).object(forKey: "image_url") as! String)
+                        AuthorisedUser.shared.user?.data?.profile_image = value.object(forKey: "user_photo") as! String
                         
-                        let strIMage = (value.object(forKey: "data") as! NSDictionary).object(forKey: "image_url") as! String
+                        let strIMage = value.object(forKey: "user_photo") as! String
+          //              let strIMage = value.object(forKey: "user_photo") as! String
                         self.profileImg.sd_setImage(with: URL(string: strIMage), placeholderImage: UIImage(named: "profile_white"))
                         
                         ModalController.saveTheContent(strIMage as AnyObject, WithKey: "profile_img")

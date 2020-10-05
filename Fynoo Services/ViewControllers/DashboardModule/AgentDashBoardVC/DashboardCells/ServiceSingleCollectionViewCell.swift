@@ -33,6 +33,17 @@ class ServiceSingleCollectionViewCell: UICollectionViewCell {
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
         self.bgVw.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: (screenWidth / 2) - 30 )
+        
+        if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
+            if value[0]=="ar"
+            {
+                nameLbl.textAlignment = .right
+            }
+            else if value[0]=="en"
+            {
+                nameLbl.textAlignment = .left
+            }
+        }
     }
     
     @IBAction func plusBtn(_ sender: Any) {

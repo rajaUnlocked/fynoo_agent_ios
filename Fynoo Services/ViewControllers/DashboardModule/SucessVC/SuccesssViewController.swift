@@ -27,20 +27,25 @@ class SuccesssViewController: UIViewController {
         self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         self.headerVw.titleHeader.text = "Successfully"
         self.headerVw.backButton.isHidden = true
-        self.titleLbl.text = "Payment Successful"
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(action), userInfo: nil, repeats: true)
+        
+        if isFromAgentSignUp == true {
+           self.titleLbl.text = "Successfully Registration With FYNOO"
+        }else{
+             self.titleLbl.text = "Payment Successful"
+        }
+        
     }
 
     @objc func action () {
         counter -= 1
         if counter == 57{
             timer?.invalidate()
-            if isDataBank
-            {
-//              NotificationCenter.default.post(name: Notification.Name("removeid"), object: nil, userInfo: nil)
-//                self.navigationController?.backToViewController(viewController: ProductDataBankController.self)
-//                return
+            if isFromAgentSignUp == true {
+                let vc = LanguageSelectionViewController(nibName: "LanguageSelectionViewController", bundle: nil)
+                self.navigationController?.pushViewController(vc, animated: true)
             }
+            
    //         if newUser == "1"{
 //                let viewCOntroller  = SubcriptionPlanListViewController()
 //                 let viewCOntroller  = SubcriptionPackageListViewController()

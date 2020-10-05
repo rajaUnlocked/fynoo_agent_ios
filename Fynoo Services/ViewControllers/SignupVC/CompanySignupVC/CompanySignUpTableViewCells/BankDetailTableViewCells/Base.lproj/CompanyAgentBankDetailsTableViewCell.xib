@@ -203,9 +203,12 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="IbanNumberHeaderLbl" destination="Use-1K-rQn" id="md1-fT-kr2"/>
+                <outlet property="accountHolderNameLbl" destination="KoC-NB-IPY" id="YV1-v7-yqt"/>
                 <outlet property="accountHolderNameTxtFld" destination="PWw-Sq-Fr4" id="IyN-df-xLz"/>
                 <outlet property="accountHolderNameView" destination="2SZ-B2-aCJ" id="s5T-5I-iS5"/>
                 <outlet property="bankBtn" destination="blr-38-w65" id="nOo-tj-xZ4"/>
+                <outlet property="bankNameHeaderLbl" destination="qgw-rE-Bp4" id="ume-DS-ix8"/>
                 <outlet property="bankNameTxtFld" destination="KGH-Nm-yRT" id="q7a-5w-C5P"/>
                 <outlet property="bankNameView" destination="Mcd-ta-khC" id="HZS-OS-GXa"/>
                 <outlet property="ibanNumberTxtFld" destination="TEw-AV-iWS" id="j2f-qW-Nkf"/>

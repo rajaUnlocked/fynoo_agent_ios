@@ -45,6 +45,10 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
         checkForRememberUser()
     }
     override func viewWillAppear(_ animated: Bool) {
+        AuthorisedUser.shared.removeAuthorisedUser()
+        ModalController.removeTheContentForKey("AgentDashboardData")
+        ModalController.removeTheContentForKey("profile_img")
+        
         if  HeaderHeightSingleton.shared.LanguageSelected == "AR"{
             arabicText.font = UIFont(name: "KFGQPC Uthmanic Script HAFS", size: 25)
             centers.constant = 40
@@ -135,6 +139,7 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func setupUI() {
+        
         self.selectedType = "Business Owner".localized
         let  userType = ModalController.getTheContentForKey("rememberType") as? String
         if let user = userType {
@@ -692,15 +697,32 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
                                     if userType == "AI" || userType == "AC" {
                                         if isNewUser == "1" {
                                             
-                                            let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
-                                            self.navigationController?.pushViewController(vc, animated: true)
+                                            if results.object(forKey: "is_language_added") as! Bool == true {
+                                                let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
+                                                self.navigationController?.pushViewController(vc, animated: true)
+                                            }else{
+                                                let vc = LanguageSelectionViewController(nibName: "LanguageSelectionViewController", bundle: nil)
+                                                self.navigationController?.pushViewController(vc, animated: true)
+                                            }
+                                            
+                                            
                                         }else {
+                                            if results.object(forKey: "is_language_added") as! Bool == true {
                                             let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
                                             self.navigationController?.pushViewController(vc, animated: true)
+                                            }else{
+                                                let vc = LanguageSelectionViewController(nibName: "LanguageSelectionViewController", bundle: nil)
+                                                self.navigationController?.pushViewController(vc, animated: true)
+                                            }
                                         }
                                     }else {
+                                        if results.object(forKey: "is_language_added") as! Bool == true {
                                         let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
                                         self.navigationController?.pushViewController(vc, animated: true)
+                                        }else{
+                                            let vc = LanguageSelectionViewController(nibName: "LanguageSelectionViewController", bundle: nil)
+                                            self.navigationController?.pushViewController(vc, animated: true)
+                                        }
                                     }
                                     }
                                 }
@@ -714,7 +736,6 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
                                         vc.emailId = (response?.object(forKey: "data") as! NSDictionary).object(forKey: "email") as! String
                                         vc.fynooId = (response!.object(forKey: "data") as? NSDictionary)?.object(forKey: "fynoo_id") as! String
                                         self.navigationController?.pushViewController(vc, animated: true)
-                                        //self.navigationController?.pushViewController(vc, animated: true)
                                     }
                                 }
                             }
@@ -743,8 +764,6 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
 //              viewController.delegate = self
               self.navigationController?.pushViewController(viewController, animated: true)
         
-//        let vc = SignUPViewController(nibName: "SignUPViewController", bundle: nil)
-//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func forgotPasswordBtnClicked(){

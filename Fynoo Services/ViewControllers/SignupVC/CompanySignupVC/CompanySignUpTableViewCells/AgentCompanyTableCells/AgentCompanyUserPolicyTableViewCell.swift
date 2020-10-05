@@ -19,12 +19,12 @@ class AgentCompanyUserPolicyTableViewCell: UITableViewCell {
     @IBOutlet var signUpBtn: UIButton!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var usrPolicy: UIButton!
-    
     @IBOutlet weak var agreeLbl: UILabel!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.SetFontAndTextColor()
         
         self.signUpBtn.layer.cornerRadius = 5
         self.signUpBtn.clipsToBounds = true
@@ -49,6 +49,21 @@ class AgentCompanyUserPolicyTableViewCell: UITableViewCell {
         loginBtn.setAttributedTitle(attributedString, for: .normal)
     }
 
+    func SetFontAndTextColor(){
+          
+          let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+          
+          self.agreeLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.usrPolicy.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.signUpBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.loginBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
+          
+        self.agreeLbl.textColor = Constant.Black_TEXT_COLOR
+        self.usrPolicy.setTitleColor(Constant.Black_TEXT_COLOR, for: .normal)
+        self.loginBtn.setTitleColor(Constant.Blue_TEXT_COLOR, for: .normal)
+         
+      }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

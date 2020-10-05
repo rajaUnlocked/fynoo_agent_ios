@@ -13,6 +13,26 @@ import ObjectMapper
 
 class ServiceModel: NSObject {
      var vehicleId = 1
+    var isType = 1
+    var imgname = ""
+    var imgfile:UIImage?
+    var docfile:URL?
+    var primaryid = 0
+    var username = ""
+    var dob = ""
+    var iqmano = ""
+    var edob = ""
+      var regtype = ""
+      var vehicleBrand = ""
+      var vehiclename = ""
+      var productionyear = ""
+      var vehiclecolor = ""
+      var VehicleKind = ""
+      var maxload = ""
+      var platnumber = ""
+      var reasonchange = ""
+     var sendforapproval = ""
+   
     func getvehicleName(completion:@escaping(Bool, VehicleName?) -> ()) {
          
                     let str = "\(Service.getvehiclename)"
@@ -75,6 +95,97 @@ class ServiceModel: NSObject {
                      }
                  }
              }
+        func uploadImage(completion:@escaping(Bool, ServiceUpload?) -> ()) {
+            let str = "\(Service.uploadimage)"
+            var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
+
+                                       if userId == "0"{
+                                         userId = ""
+
+                                       }
+            let parameters =
+            ["lang_code":HeaderHeightSingleton.shared.LanguageSelected,
+               "user_id":userId,
+               "primary_id":primaryid,
+               "full_name":username,
+               "dob":dob,
+               "iqama_no":iqmano,
+               "doe":edob,
+               //Send primary_id in case of edit
+               "registration_type":regtype,
+               "vehicle_brand":vehicleBrand,
+               "vehicle_name":vehiclename,
+               "production_year":productionyear,
+               "vehicle_color":vehiclecolor,
+               "vehicle_kind":VehicleKind,
+               "maximum_load":maxload,
+               "plate_no":platnumber,
+               "reason_for_change":reasonchange,
+                "send_for_approval":sendforapproval
+            
+
+] as [String : Any]
+            if isType == 1
+                           {
+                    imgname = "national_id"
+                           }
+             else if isType == 2
+                    {
+             imgname = "driving_license"
+                    }
+            else if isType == 3
+                   {
+            imgname = "car_registration"
+                   }
+            else if isType == 4
+                   {
+            imgname = "car_insurance"
+                   }
+            else if isType == 5
+                   {
+            imgname = "driving_authorization"
+                   }
+            else if isType == 6
+                              {
+                       imgname = "front_side"
+                              }
+               print(str,parameters,imgname
+            )
+    if docfile == nil
+    {
+            ServerCalls.fileUploadAPINew(inputUrl: str, parameters: parameters, imageName: imgname, imageFile: imgfile!) { (response, success, resp) in
+    
+                   if let value = response as? NSDictionary{
+    
+                           if let body = response as? [String: Any] {
+                            let val = Mapper<ServiceUpload>().map(JSON: response as! [String : Any])
+                               completion(true, val)
+                               return
+                           }
+                           completion(false,nil)
+    
+    
+                   }
+               }
+            }
+    else{
+          var pfurl : String? = docfile?.absoluteString
+        ServerCalls.PdfFileUpload(inputUrl: str, parameters: parameters, pdfname: imgname, pdfurl: pfurl ?? "") { (response, success, resp) in
+                 
+                 if let value = response as? NSDictionary{
+                    
+                         if let body = response as? [String: Any] {
+                            let val = Mapper<ServiceUpload>().map(JSON: response as! [String : Any])
+                             completion(true, val)
+                             return
+                         }
+                         completion(false,nil)
+                    
+                     
+                 }
+             }
+            }
+           }
     func getservicetypecolor(completion:@escaping(Bool, TypeBrandColor?) -> ()) {
 
               let str = "\(Service.gettypecolor)"
@@ -115,7 +226,7 @@ class ServiceModel: NSObject {
                          userId = ""
 
                        }
-        let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":"1121","primary_id":1] as [String : Any]
+        let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":userId,"primary_id":40] as [String : Any]
            print(str,parameters)
            ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
 
@@ -383,6 +494,7 @@ struct SeviceDocumentData : Mappable  {
     var plate_no : String?
     var plate_no_min_length : Int?
     var plate_no_max_length : Int?
+    var maximum_load_allowed : Int?
     var front_side : String?
     var front_side_file_type : String?
     var front_side_file_size : Int?
@@ -392,13 +504,14 @@ struct SeviceDocumentData : Mappable  {
     var status_value : String?
     var note : String?
     var switch_vehicle : Bool?
-
+     var notes : String?
     init?(map: Map) {
 
     }
 
     mutating func mapping(map: Map) {
-
+        maximum_load_allowed <- map["maximum_load_allowed"]
+          notes <- map["notes"]
         new_upload_enable <- map["new_upload_enable"]
         new_upload_id <- map["new_upload_id"]
         id <- map["id"]

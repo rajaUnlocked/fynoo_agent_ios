@@ -14,7 +14,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LanguageSelectionViewController" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
+                <outlet property="backBtn" destination="c0A-7z-9rE" id="Cto-ma-NRM"/>
                 <outlet property="customHeader" destination="JAh-wb-cMj" id="Ngb-Ez-Zc6"/>
+                <outlet property="headerLbl" destination="3I5-Hl-zDp" id="fob-VQ-FDf"/>
                 <outlet property="searchField" destination="XJk-vG-UBg" id="NO4-dF-Zkt"/>
                 <outlet property="searchVw" destination="wN9-VR-UPR" id="Qr0-Oq-Ddi"/>
                 <outlet property="signUpBtn" destination="UbB-GT-5gu" id="s1n-mZ-2eZ"/>
@@ -35,6 +37,20 @@
                         <constraint firstAttribute="height" constant="90" id="qOi-cm-AaR"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0A-7z-9rE">
+                    <rect key="frame" x="10" y="54" width="36" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="Gwn-NH-WRn"/>
+                        <constraint firstAttribute="width" constant="36" id="Ub6-bX-VAx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" image="back_new">
+                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="customerBckClicked:" destination="-1" eventType="touchUpInside" id="gJP-gf-t5f"/>
+                    </connections>
+                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wN9-VR-UPR">
                     <rect key="frame" x="20" y="100" width="280" height="40"/>
                     <subviews>
@@ -156,6 +172,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3I5-Hl-zDp" secondAttribute="trailing" constant="20" id="Ecg-iw-m8C"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UbB-GT-5gu" secondAttribute="trailing" constant="20" id="Eh7-JF-a1L"/>
                 <constraint firstItem="wN9-VR-UPR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Ei9-sz-CZh"/>
+                <constraint firstItem="c0A-7z-9rE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="HZU-xz-S2e"/>
                 <constraint firstItem="wN9-VR-UPR" firstAttribute="top" secondItem="JAh-wb-cMj" secondAttribute="bottom" constant="10" id="IEs-e1-4Wx"/>
                 <constraint firstItem="UbB-GT-5gu" firstAttribute="top" secondItem="vpy-US-WXB" secondAttribute="bottom" constant="21" id="Mp2-nK-RIr"/>
                 <constraint firstItem="3I5-Hl-zDp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="PbV-aF-ue3"/>
@@ -165,6 +182,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="UbB-GT-5gu" secondAttribute="bottom" constant="25" id="gBc-Lf-jYw"/>
                 <constraint firstItem="JAh-wb-cMj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="k3s-UJ-gjE"/>
                 <constraint firstItem="JAh-wb-cMj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lOq-iX-QKH"/>
+                <constraint firstItem="c0A-7z-9rE" firstAttribute="top" secondItem="wN9-VR-UPR" secondAttribute="top" constant="-46" id="roE-d9-1Yt"/>
                 <constraint firstItem="vpy-US-WXB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="t4c-Jd-vdu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vpy-US-WXB" secondAttribute="trailing" constant="20" id="x9y-TP-qth"/>
             </constraints>
@@ -174,6 +192,7 @@
         </view>
     </objects>
     <resources>
+        <image name="back_new" width="38" height="38"/>
         <image name="cross_new" width="43" height="43"/>
         <image name="search_new" width="32" height="32"/>
     </resources>

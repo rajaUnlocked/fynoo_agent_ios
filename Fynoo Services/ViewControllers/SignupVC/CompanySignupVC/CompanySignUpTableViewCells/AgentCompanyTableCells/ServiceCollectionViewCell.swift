@@ -15,12 +15,21 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     }
     
     @IBOutlet var serviceTypeImage: UIImageView!
-    
     @IBOutlet var serviceNameLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.checkBoxBtn.isUserInteractionEnabled = false
+        
+        self.SetFontAndTextColor()
+    }
+            
+    func SetFontAndTextColor(){
+        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        
+        self.serviceNameLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.serviceNameLbl.textColor = Constant.Black_TEXT_COLOR
         
     }
 }
