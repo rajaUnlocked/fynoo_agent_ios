@@ -111,6 +111,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="uploadsaveVehicle" destination="Nlf-rB-FX3" id="2PK-yj-Fdc"/>
                 <outlet property="uploadvehicle" destination="fdG-g6-fxX" id="Wo5-es-a1b"/>
                 <outlet property="vehicleimage" destination="9kz-wo-f18" id="nRr-Ys-6P8"/>
             </connections>

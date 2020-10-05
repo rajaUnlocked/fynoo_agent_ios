@@ -21,6 +21,7 @@ class BottomPopupEditProductViewController: UIViewController ,UITableViewDelegat
     var index = 0
     var tag1 = 0
    var iswarning = false
+    var imageKind = [String]()
     @IBOutlet weak var cardVieww: UIView!
     var value = ""
     @IBOutlet weak var tabView: UITableView!
@@ -55,6 +56,8 @@ class BottomPopupEditProductViewController: UIViewController ,UITableViewDelegat
         tabView.separatorStyle = .none
         tabView.register(UINib(nibName: "BottomPopupTableViewCell", bundle: nil), forCellReuseIdentifier: "BottomPopupTableViewCell")
         tabView.register(UINib(nibName: "HeaderBranchTableViewCell", bundle: nil), forCellReuseIdentifier: "HeaderBranchTableViewCell")
+         tabView.register(UINib(nibName: "VehicleKindTableViewCell", bundle: nil), forCellReuseIdentifier: "VehicleKindTableViewCell")
+        
         // Do any additional setup after loading the view.
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,7 +65,14 @@ class BottomPopupEditProductViewController: UIViewController ,UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
+        if isType
+        {
+             let cell = tabView.dequeueReusableCell(withIdentifier: "VehicleKindTableViewCell", for: indexPath) as! VehicleKindTableViewCell
+              cell.selectionStyle = .none
+             cell.lbl.text = nameAr[indexPath.row]
+            cell.imgvw.sd_setImage(with: URL(string: imageKind[indexPath.row]), placeholderImage: UIImage(named: "passport"))
+            return cell
+        }
         let cell = tabView.dequeueReusableCell(withIdentifier: "BottomPopupTableViewCell", for: indexPath) as! BottomPopupTableViewCell
         cell.delegate = self
         cell.selectionStyle = .none
@@ -128,6 +138,10 @@ class BottomPopupEditProductViewController: UIViewController ,UITableViewDelegat
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if isType
+        {
+            return 60
+        }
         return 45
     }
     

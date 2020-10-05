@@ -226,7 +226,7 @@ class ServiceModel: NSObject {
                          userId = ""
 
                        }
-        let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":userId,"primary_id":0] as [String : Any]
+        let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":userId,"primary_id":40] as [String : Any]
            print(str,parameters)
            ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
 
@@ -494,6 +494,7 @@ struct SeviceDocumentData : Mappable  {
     var plate_no : String?
     var plate_no_min_length : Int?
     var plate_no_max_length : Int?
+    var maximum_load_allowed : Int?
     var front_side : String?
     var front_side_file_type : String?
     var front_side_file_size : Int?
@@ -509,6 +510,7 @@ struct SeviceDocumentData : Mappable  {
     }
 
     mutating func mapping(map: Map) {
+        maximum_load_allowed <- map["maximum_load_allowed"]
           notes <- map["notes"]
         new_upload_enable <- map["new_upload_enable"]
         new_upload_id <- map["new_upload_id"]

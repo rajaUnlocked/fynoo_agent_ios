@@ -17,6 +17,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
       var headertitlearr = ["Upload National Id / Iqama","Upload Driving License Front ","Upload Car Registration","Upload Car Insurance","Upload Driving Authorization","Upload Car Description"]
     var toptxtArr = ["","","",""]
     var txtArr = ["","","","","","","",""]
+      var txtIdArr = [0,0,0,0,0,0,0,0]
     var imgArr = [String]()
     var imgIdArr = [Bool]()
       var imglocalArr = [UIImage?]()
@@ -28,6 +29,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
      var vehiclenameidArr = [Int]()
     var vehiclekindArr = [String]()
         var vehiclekindidArr = [Int]()
+      var vehiclekindimageArr = [String]()
        var vehicleColorArr = [String]()
     var registrationtypeidArr = [Int]()
     var vehiclebrandidArr = [Int]()
@@ -50,7 +52,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         tabvw.dataSource = self
         registernibs()
           //self.tabvw.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
-        imglocalArr = [nil,nil,nil,nil,nil,nil]
+        imglocalArr = [nil,nil,nil,nil,nil,nil,nil]
         documentlocalArr = [nil,nil,nil,nil,nil,nil]
         servicedocList_API()
         servicetypeColor_API()
@@ -85,12 +87,16 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                   let maxDate = calendar.date(byAdding: components, to: currentDate)!
 
                   let minDate = Calendar.current.date(from: DateComponents(year: 1900 , month: 1, day: 1))
-                  
+                
                   print(minDate as Any)
                           
           DatePickerDialog().show("Select - Date of Birth".localized, doneButtonTitle: "Done".localized, cancelButtonTitle: "Cancel".localized,  minimumDate: minDate, maximumDate: maxDate,  datePickerMode: .date){
               (date) -> Void in
               if let dt = date {
+                if tag == 1
+                {
+                   minDate
+                }
                   let formatter = DateFormatter()
                   formatter.dateFormat = "MMM dd, yyyy"
                   print(formatter.string(from: dt))
@@ -113,6 +119,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                      {
                          self.vehiclekindArr.append(self.vehiclekind?.data?.vehicle_kind?[i].name ?? "")
                          self.vehiclekindidArr.append(self.vehiclekind?.data?.vehicle_kind?[i].id ?? 0)
+                         self.vehiclekindimageArr.append(self.vehiclekind?.data?.vehicle_kind?[i].image ?? "")
                      }
                    self.tabvw.reloadData()
                }
@@ -175,6 +182,9 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 self.imgArr = [self.servicelist?.data?.national_id ?? "",self.servicelist?.data?.driving_license ?? "",self.servicelist?.data?.registration ?? "",self.servicelist?.data?.insurance ?? "",self.servicelist?.data?.authorization ?? ""]
                   self.imgIdArr = [self.servicelist?.data?.national_id_uploaded ?? false,self.servicelist?.data?.driving_license_uploaded ?? false,self.servicelist?.data?.registration_uploaded ?? false,self.servicelist?.data?.insurance_uploaded ?? false,self.servicelist?.data?.authorization_uploaded ?? false]
                  self.descriparr = [self.servicelist?.data?.national_id_content ?? "", "",self.servicelist?.data?.registration_content ?? "", "",self.servicelist?.data?.authorization_content ?? ""]
+                self.toptxtArr = [self.servicelist?.data?.full_name ?? "",self.servicelist?.data?.dob ?? "",self.servicelist?.data?.iqama_no ?? "",self.servicelist?.data?.doe ?? ""]
+                self.txtArr = [self.servicelist?.data?.registration_type ?? "",self.servicelist?.data?.vehicle_brand ?? "",self.servicelist?.data?.vehicle_name ?? "",self.servicelist?.data?.production_year ?? "",self.servicelist?.data?.vehicle_color ?? "",self.servicelist?.data?.vehicle_kind ?? "",self.servicelist?.data?.maximum_load ?? "",self.servicelist?.data?.plate_no ?? ""]
+                self.txtIdArr = [self.servicelist?.data?.registration_type_id ?? 0,self.servicelist?.data?.vehicle_brand_id ?? 0 ,self.servicelist?.data?.vehicle_name_id ?? 0,0,self.servicelist?.data?.vehicle_color_id ?? 0,self.servicelist?.data?.vehicle_kind_id ?? 0,0,0]
                 self.tabvw.reloadData()
             }
         }
@@ -185,15 +195,19 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             let clickedBtn = tabvw.indexPathForRow(at: touchPoint)
             let row = Int(clickedBtn!.row)
            let section = Int(clickedBtn!.section)
+        var textstr = ""
+           if let text1 = textField.text as NSString? {
+               let txtAfterUpdate = text1.replacingCharacters(in: range, with: string)
+               textstr = txtAfterUpdate
+        }
+         let cell = tabvw.cellForRow(at: IndexPath(row: row, section: section)) as! VehicleDescriptionTableViewCell
+        if section == 1
+        {
         if ModalController.hasSpecialCharacters(str: string)
         {
           return false
         }
-        var textstr = ""
-                  if let text1 = textField.text as NSString? {
-                      let txtAfterUpdate = text1.replacingCharacters(in: range, with: string)
-                      textstr = txtAfterUpdate
-               }
+        
         if row == 3
         {
             if textstr.count > 10
@@ -204,12 +218,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             {
                 return false
             }
-          
+            
         }
            
           
         toptxtArr[row - 1] = textstr
-        let cell = tabvw.cellForRow(at: IndexPath(row: row, section: section)) as! VehicleDescriptionTableViewCell
+       
         if textstr.count > 0
                              {
                               if !textstr.containArabicNumber
@@ -228,6 +242,111 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                               
                                    cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
                              }
+        }
+        else{
+        if row == 4
+        {
+            if textstr.count > 0
+                                       {
+                                        
+                                        if textstr.count > 4
+                                        {
+                                            return false
+                                        }
+                                        if !textstr.containArabicNumber
+                                        {
+                                            cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                                        }
+                                        else
+                                        {
+                                            if textstr.count == 4
+                                            {
+                                             cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+                                            }
+                                            else{
+                                            cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                                            }
+                                        }
+                                          
+                                       }
+                              
+                                       else
+                                       {
+                                        
+                                             cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                                       }
+             txtArr[row - 1] = textstr
+            
+            }
+           if  row == 7
+           {
+           if textstr.count > 0
+                                      {
+                                       
+                                        if textstr.count > self.servicelist?.data?.maximum_load_allowed ?? 0
+                                       {
+                                           return false
+                                       }
+                                       if !textstr.containArabicNumber
+                                       {
+                                           cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                                       }
+                                       else
+                                       {
+                                           if textstr.count == self.servicelist?.data?.maximum_load_allowed ?? 0
+                                           {
+                                            cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+                                           }
+                                           else{
+                                           cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                                           }
+                                       }
+                                         
+                                      }
+                             
+                                      else
+                                      {
+                                       
+                                            cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                                      }
+            txtArr[row - 1] = "\(textstr)"
+           
+           }
+            if row == 8
+            {
+            if textstr.count > 0
+                                       {
+                                        
+                                         if textstr.count > self.servicelist?.data?.plate_no_max_length ?? 0
+                                        {
+                                            return false
+                                        }
+                                        if !textstr.containArabicNumber
+                                        {
+                                            cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                                        }
+                                        else
+                                        {
+                    if textstr.count <= self.servicelist?.data?.plate_no_max_length ?? 0 && textstr.count >= self.servicelist?.data?.plate_no_min_length ?? 0
+                                            {
+                                             cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+                                            }
+                                            else{
+                                            cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                                            }
+                                        }
+                                          
+                                       }
+                              
+                                       else
+                                       {
+                                        
+                                             cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                                       }
+             txtArr[row - 1] = "\(textstr)"
+            
+            }
+        }
         return true
     }
     func registernibs()
@@ -279,6 +398,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
        
        func filterIdval(tag: Int, Value: String, id: Int) {
         txtArr[tag] = Value
+        txtIdArr[tag] = id
         if tag == 0
                {
                    vehicleKind_API(brandid: id)
@@ -312,21 +432,110 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     }
     @objc func clickuploadclicked(_ sender:UIButton)
         {
+            if sender.tag == 0
+            {
+           if toptxtArr[0] == ""
+           {
+            ModalController.showNegativeCustomAlertWith(title: "please Enter User Name", msg: "")
+            return
+            }
+                else if toptxtArr[1] == ""
+                        {
+                ModalController.showNegativeCustomAlertWith(title: "please Select DOB", msg: "")
+                             return
+                           }
+                else if toptxtArr[2] == ""
+                          {
+                  ModalController.showNegativeCustomAlertWith(title: "please Enter National ID", msg: "")
+                             return
+                           }
+           else if toptxtArr[3] == ""{
+             ModalController.showNegativeCustomAlertWith(title: "please Select DOE", msg: "")
+             return
+                }
+           else if  imglocalArr[sender.tag] == nil  {
+            ModalController.showNegativeCustomAlertWith(title: "please Upload National Id / Iqama", msg: "")
+            return
+                }
+            }
+           else if sender.tag == 6
+                     {
+                    if txtArr[0] == ""
+                    {
+                     ModalController.showNegativeCustomAlertWith(title: "please Select Registration Type ", msg: "")
+                     return
+                     }
+                         else if txtArr[1] == ""
+                                 {
+                         ModalController.showNegativeCustomAlertWith(title: "please Select Vehicle Brand", msg: "")
+                                      return
+                                    }
+                         else if txtArr[2] == ""
+                                   {
+                           ModalController.showNegativeCustomAlertWith(title: "please Select Vehicle Name", msg: "")
+                                      return
+                                    }
+                    else if txtArr[3] == ""{
+                      ModalController.showNegativeCustomAlertWith(title: "please Enter Production Year", msg: "")
+                      return
+                         }
+                        else if txtArr[4] == ""{
+                                             ModalController.showNegativeCustomAlertWith(title: "please Select Vehicle Color", msg: "")
+                                             return
+                                                }
+                        else if txtArr[5] == ""{
+                                             ModalController.showNegativeCustomAlertWith(title: "please Select Vehicle kind", msg: "")
+                                             return
+                                                }
+                        else if txtArr[6] == ""{
+                                             ModalController.showNegativeCustomAlertWith(title: "please Enter Maximum Load ", msg: "")
+                                             return
+                                                }
+                        else if txtArr[7] == ""{
+                                             ModalController.showNegativeCustomAlertWith(title: "please Enter Plat Number", msg: "")
+                                             return
+                                                }
+                    else if  imglocalArr[sender.tag] == nil  {
+                     ModalController.showNegativeCustomAlertWith(title: "please Upload the Front side Photo", msg: "")
+                     return
+                         }
+                     }
             print(sender.tag)
             ModalClass.startLoading(self.view)
             service.imgfile = imglocalArr[sender.tag]
+
             service.isType = sender.tag + 1
+            if sender.tag == 6
+            {
+             service.isType = 6
+            }
             service.username = toptxtArr[0]
               service.dob = toptxtArr[1]
               service.iqmano = toptxtArr[2]
               service.edob = toptxtArr[3]
+            if imglocalArr[sender.tag] == nil{
             service.docfile = documentlocalArr[sender.tag]
+            }
+            service.regtype = "\(txtIdArr[0])"
+             service.vehicleBrand = "\(txtIdArr[1])"
+             service.vehiclename = "\(txtIdArr[2])"
+             service.productionyear = txtArr[3]
+             service.vehiclecolor = "\(txtIdArr[4])"
+             service.VehicleKind = "\(txtIdArr[5])"
+             service.maxload = txtArr[6]
+             service.platnumber = txtArr[7]
+            service.primaryid = 43
             service.uploadImage { (success, response) in
                 ModalClass.stopLoading()
                if success
                {
                 self.upload = response
-                print("successs")
+              self.imgArr = [self.upload?.data?.national_id ?? "",self.upload?.data?.driving_license ?? "",self.upload?.data?.registration ?? "",self.upload?.data?.insurance ?? "",self.upload?.data?.authorization ?? ""]
+                               self.imgIdArr = [self.upload?.data?.national_id_uploaded ?? false,self.upload?.data?.driving_license_uploaded ?? false,self.upload?.data?.registration_uploaded ?? false,self.upload?.data?.insurance_uploaded ?? false,self.upload?.data?.authorization_uploaded ?? false]
+                              self.descriparr = [self.upload?.data?.national_id_content ?? "", "",self.upload?.data?.registration_content ?? "", "",self.upload?.data?.authorization_content ?? ""]
+                             self.toptxtArr = [self.upload?.data?.full_name ?? "",self.upload?.data?.dob ?? "",self.upload?.data?.iqama_no ?? "",self.upload?.data?.doe ?? ""]
+                             self.txtArr = [self.upload?.data?.registration_type ?? "",self.upload?.data?.vehicle_brand ?? "",self.upload?.data?.vehicle_name ?? "",self.upload?.data?.production_year ?? "",self.upload?.data?.vehicle_color ?? "",self.upload?.data?.vehicle_kind ?? "",self.upload?.data?.maximum_load ?? "",self.upload?.data?.plate_no ?? ""]
+                             self.tabvw.reloadData()
                 }
             }
        }
@@ -397,10 +606,23 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                      if index.row == 1
                      {
                          cell.topconst.constant = 5
+                        
                      }
-                      
+        cell.downarrow.isHidden = false
+        cell.txt.delegate = self
+        cell.txt.isUserInteractionEnabled = false
+        if index.row == 4 || index.row == 7 || index.row == 8
+        {
+             cell.txt.isUserInteractionEnabled = true
+           cell.downarrow.isHidden = true
+        }
                      cell.toplbl.text = vehicledescriparr[index.row - 1]
                      cell.txt.text =  txtArr[index.row - 1]
+         cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+        if txtArr[index.row - 1] == ""
+                       {
+                            cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                       }
         return cell
     }
     func service_DetailCell(index:IndexPath) ->UITableViewCell
@@ -441,11 +663,11 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                      cell.crossclicked.isHidden =  true
                     cell.uploadimg.isUserInteractionEnabled = true
                  }
-                 if imglocalArr[index.section - 1] == nil
-                 {
-                     cell.crossclicked.isHidden =  true
-                     cell.uploadimg.isUserInteractionEnabled = true
-                 }
+//                 if imglocalArr[index.section - 1] == nil
+//                 {
+//                     cell.crossclicked.isHidden =  true
+//                     cell.uploadimg.isUserInteractionEnabled = true
+//                 }
                  let html = descriparr[index.section - 1]
                     let data = Data(html.utf8)
                 if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
@@ -535,6 +757,11 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                                }
                 cell.toplbl.text = topArr[indexPath.row - 1]
                 cell.txt.text = toptxtArr[indexPath.row - 1]
+                  cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+                if toptxtArr[indexPath.row - 1] == ""
+                {
+                     cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                }
                 cell.downarrow.isHidden = true
                 return cell
             }
@@ -550,10 +777,12 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
          
               else  if indexPath.row == vehicledescriparr.count + 1{
                   let cell = tabvw.dequeueReusableCell(withIdentifier: "UploadVehicleImageTableViewCell", for: indexPath) as! UploadVehicleImageTableViewCell
-                  cell.uploadvehicle.tag = indexPath.section - 1
+                  cell.uploadvehicle.tag = indexPath.section
                   cell.uploadvehicle.addTarget(self, action: #selector(clickedvehicleUpload(_:)), for: .touchUpInside)
                   cell.vehicleimage.sd_setImage(with: URL(string:self.servicelist?.data?.vehicle_kind_image ?? ""), placeholderImage: UIImage(named: "passport"))
-                  cell.vehicleimage.image = imglocalArr[indexPath.section - 1]
+                  cell.vehicleimage.image = imglocalArr[indexPath.section]
+                cell.uploadsaveVehicle.tag = indexPath.section
+                cell.uploadsaveVehicle.addTarget(self, action: #selector(clickuploadclicked(_:)), for: .touchUpInside)
                                     return cell
               }
              return vehicle_DescriptionCell(index: indexPath)
@@ -653,9 +882,11 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                                }
                 else if indexPath.row == 6
                                               {
+                                                vc.isType = true
                                                  vc.nameAr = vehiclekindArr
                                                vc.nameArId = vehiclekindidArr
                                                vc.namelock = vehiclekindidArr
+                                                vc.imageKind = vehiclekindimageArr
                                               }
             let popupController = MTPopupController(rootViewController: vc)
             popupController.autoAdjustKeyboardEvent = false
