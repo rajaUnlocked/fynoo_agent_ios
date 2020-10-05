@@ -93,7 +93,6 @@ class AgentDeliveryViewController: UIViewController {
 extension AgentDeliveryViewController : UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-    
         return 2
     }
     
