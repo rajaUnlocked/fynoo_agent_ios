@@ -26,10 +26,6 @@ class AddAmountViewController: UIViewController {
             return
         }
         let str = Service.updateCod
- //       let param = ["user_id:1062",
-  //                   "lang_code":"en",
-    //                "cod_amount":"1000"]
-        
         let param = ["user_id":"1062","lang_code":"en","cod_amount":"1000"]
         print(param)
         ServerCalls.getRequests(str) { (response, success) in
