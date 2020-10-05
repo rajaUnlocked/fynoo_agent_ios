@@ -36,6 +36,7 @@ class userInfo : Mappable {
     var fynoo_id  = ""
     var id  = 0
     var name  = ""
+    var is_language_added = true
     var user_type  = ""
     var mobile_length  = 0
     var username  = ""
@@ -80,6 +81,7 @@ class userInfo : Mappable {
         fynoo_id <- map["fynoo_id"]
         id <- map["id"]
         name <- map["name"]
+        is_language_added <- map["is_language_added"]
         user_type <- map["user_type"]
         mobile_length <- map["mobile_length"]
         username <- map["username"]

@@ -64,6 +64,15 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
         customHeader.viewControl = self
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    }
+    
     @IBAction func customerBckClicked(_ sender: Any) {
         var isLoginThere = false
         
