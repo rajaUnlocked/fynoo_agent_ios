@@ -17,6 +17,9 @@ class LanguageSelectionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        self.catName.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.catName.textColor = Constant.Black_TEXT_COLOR
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

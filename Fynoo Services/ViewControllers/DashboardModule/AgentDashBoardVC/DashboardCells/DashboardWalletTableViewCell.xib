@@ -249,6 +249,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="arrow1" destination="aSq-2g-zRD" id="ENF-VN-UKN"/>
+                <outlet property="arrow2" destination="DhF-Sd-42G" id="Sc8-mG-lft"/>
+                <outlet property="arrow3" destination="Zy5-bq-Q6Q" id="vZ9-0u-JyC"/>
                 <outlet property="holdingLBl" destination="FS8-Kv-Qoq" id="0p3-4P-fEG"/>
                 <outlet property="inprocessLbl" destination="7WD-jg-gtG" id="Y2d-fZ-nob"/>
                 <outlet property="walletLbl" destination="Ebf-f4-R7D" id="rLG-AJ-hT1"/>

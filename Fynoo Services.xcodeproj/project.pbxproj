@@ -136,6 +136,11 @@
 		CEAD29F625069F9D008B1F9C /* AgentListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29F425069F9C008B1F9C /* AgentListTableViewCell.xib */; };
 		CEAD29F92506A43D008B1F9C /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD29F72506A43D008B1F9C /* VideoTableViewCell.swift */; };
 		CEAD29FA2506A43D008B1F9C /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29F82506A43D008B1F9C /* VideoTableViewCell.xib */; };
+		CEDA6C412525C4C900301F82 /* ServiceUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6C402525C4C800301F82 /* ServiceUpload.swift */; };
+		CEDAF67425283DF900B846E5 /* ReasonForChangeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAF67225283DF900B846E5 /* ReasonForChangeTableViewCell.swift */; };
+		CEDAF67525283DF900B846E5 /* ReasonForChangeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDAF67325283DF900B846E5 /* ReasonForChangeTableViewCell.xib */; };
+		CEDAF67825285ACC00B846E5 /* BottomLblTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAF67625285ACC00B846E5 /* BottomLblTableViewCell.swift */; };
+		CEDAF67925285ACC00B846E5 /* BottomLblTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDAF67725285ACC00B846E5 /* BottomLblTableViewCell.xib */; };
 		CEE35789250740800097069D /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE35775250740800097069D /* Roboto-Medium.ttf */; };
 		CEE3578A250740800097069D /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE35776250740800097069D /* Roboto-Light.ttf */; };
 		CEE3578B250740800097069D /* sst-arabic-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE35777250740800097069D /* sst-arabic-bold.ttf */; };
@@ -216,12 +221,10 @@
 		F62E4AEA25148EC60021CEE0 /* popupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AA325148EC60021CEE0 /* popupViewController.xib */; };
 		F62E4AEB25148EC60021CEE0 /* popupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4AA525148EC60021CEE0 /* popupViewController.swift */; };
 		F62E4AEC25148EC60021CEE0 /* CompanyRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4AA825148EC60021CEE0 /* CompanyRegViewController.swift */; };
-		F62E4AED25148EC60021CEE0 /* CompanyRegViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AA925148EC60021CEE0 /* CompanyRegViewController.xib */; };
 		F62E4AEF25148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AAF25148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.xib */; };
 		F62E4AF025148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4AB125148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.swift */; };
 		F62E4AF125148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AB325148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.strings */; };
 		F62E4AF225148EC60021CEE0 /* AgentProfileImageTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AB525148EC60021CEE0 /* AgentProfileImageTableViewCell.strings */; };
-		F62E4AF325148EC60021CEE0 /* ServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AB725148EC60021CEE0 /* ServiceCollectionViewCell.xib */; };
 		F62E4AF425148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4ABA25148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.swift */; };
 		F62E4AF525148EC60021CEE0 /* AgentProfileImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4ABB25148EC60021CEE0 /* AgentProfileImageTableViewCell.swift */; };
 		F62E4AF625148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E4ABC25148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.xib */; };
@@ -230,7 +233,6 @@
 		F62E4AF925148EC60021CEE0 /* AgentCompanyServicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4AC125148EC60021CEE0 /* AgentCompanyServicesTableViewCell.swift */; };
 		F62E4AFA25148EC60021CEE0 /* AgentCompanyServicesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AC225148EC60021CEE0 /* AgentCompanyServicesTableViewCell.xib */; };
 		F62E4AFB25148EC60021CEE0 /* CompanyRegTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4AC325148EC60021CEE0 /* CompanyRegTableViewCell.swift */; };
-		F62E4AFC25148EC60021CEE0 /* CompanyRegTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AC425148EC60021CEE0 /* CompanyRegTableViewCell.xib */; };
 		F62E4AFD25148EC60021CEE0 /* CompanyAgentBankDetailsTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AC625148EC60021CEE0 /* CompanyAgentBankDetailsTableViewCell.strings */; };
 		F62E4AFE25148EC60021CEE0 /* CompanyAgentBankDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4AC925148EC60021CEE0 /* CompanyAgentBankDetailsTableViewCell.swift */; };
 		F62E4AFF25148EC60021CEE0 /* CompanyAgentBankDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E4ACA25148EC60021CEE0 /* CompanyAgentBankDetailsTableViewCell.xib */; };
@@ -238,7 +240,6 @@
 		F62E4B0125148EC60021CEE0 /* CompanyAgentBasicInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AD025148EC60021CEE0 /* CompanyAgentBasicInformationTableViewCell.xib */; };
 		F62E4B0225148EC60021CEE0 /* CompanyAgentBasicInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4AD225148EC60021CEE0 /* CompanyAgentBasicInformationTableViewCell.swift */; };
 		F62E4B0325148EC60021CEE0 /* ImageSelectPopUpDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4AD425148EC60021CEE0 /* ImageSelectPopUpDialogViewController.swift */; };
-		F62E4B0425148EC60021CEE0 /* ImageSelectPopUpDialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AD525148EC60021CEE0 /* ImageSelectPopUpDialogViewController.xib */; };
 		F62E4B0525148EC60021CEE0 /* PersonalAgentBasicInformationTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AD925148EC60021CEE0 /* PersonalAgentBasicInformationTableViewCell.strings */; };
 		F62E4B0625148EC60021CEE0 /* PersonalAgentBasicInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4ADC25148EC60021CEE0 /* PersonalAgentBasicInformationTableViewCell.swift */; };
 		F62E4B0725148EC60021CEE0 /* PersonalAgentBasicInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E4ADD25148EC60021CEE0 /* PersonalAgentBasicInformationTableViewCell.xib */; };
@@ -254,10 +255,17 @@
 		F62E4B2025149A7D0021CEE0 /* DictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4B1F25149A7D0021CEE0 /* DictionaryExt.swift */; };
 		F62E4B2225149B370021CEE0 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4B2125149B360021CEE0 /* DatePickerDialog.swift */; };
 		F64B439425220A5700B9C8CB /* IbanLengthModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64B439325220A5700B9C8CB /* IbanLengthModal.swift */; };
+		F64D5FBC2524400E003DE670 /* CompanyRegViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F64D5FBE2524400E003DE670 /* CompanyRegViewController.xib */; };
+		F64D5FC325244491003DE670 /* CompanyRegTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F64D5FC525244491003DE670 /* CompanyRegTableViewCell.xib */; };
 		F658B3F92522ECAD00B37F63 /* LanguageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F658B3F72522ECAD00B37F63 /* LanguageSelectionViewController.swift */; };
 		F658B3FA2522ECAD00B37F63 /* LanguageSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F658B3F82522ECAD00B37F63 /* LanguageSelectionViewController.xib */; };
 		F658B3FD2522ECD000B37F63 /* LanguageSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F658B3FB2522ECD000B37F63 /* LanguageSelectionTableViewCell.swift */; };
 		F658B3FE2522ECD000B37F63 /* LanguageSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F658B3FC2522ECD000B37F63 /* LanguageSelectionTableViewCell.xib */; };
+		F66AA1AF2525B53300C1E058 /* DiscountTypePopUpViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = F66AA1AA2525B53300C1E058 /* DiscountTypePopUpViewController.strings */; };
+		F66AA1B02525B53300C1E058 /* DiscountTypePopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66AA1AD2525B53300C1E058 /* DiscountTypePopUpViewController.xib */; };
+		F66AA1B42525B5B400C1E058 /* DiscountTypePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66AA1B32525B5B300C1E058 /* DiscountTypePopUpViewController.swift */; };
+		F67B5E20252574F40083DA66 /* ServiceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F67B5E22252574F40083DA66 /* ServiceCollectionViewCell.xib */; };
+		F67B5E2725257A0E0083DA66 /* ImageSelectPopUpDialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F67B5E2925257A0E0083DA66 /* ImageSelectPopUpDialogViewController.xib */; };
 		F6B14CA8251B387300F9F03E /* VatInfoModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B14CA7251B387200F9F03E /* VatInfoModal.swift */; };
 /* End PBXBuildFile section */
 
@@ -433,6 +441,11 @@
 		CEAD29F425069F9C008B1F9C /* AgentListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentListTableViewCell.xib; sourceTree = "<group>"; };
 		CEAD29F72506A43D008B1F9C /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		CEAD29F82506A43D008B1F9C /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
+		CEDA6C402525C4C800301F82 /* ServiceUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceUpload.swift; sourceTree = "<group>"; };
+		CEDAF67225283DF900B846E5 /* ReasonForChangeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForChangeTableViewCell.swift; sourceTree = "<group>"; };
+		CEDAF67325283DF900B846E5 /* ReasonForChangeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReasonForChangeTableViewCell.xib; sourceTree = "<group>"; };
+		CEDAF67625285ACC00B846E5 /* BottomLblTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomLblTableViewCell.swift; sourceTree = "<group>"; };
+		CEDAF67725285ACC00B846E5 /* BottomLblTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomLblTableViewCell.xib; sourceTree = "<group>"; };
 		CEE35775250740800097069D /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		CEE35776250740800097069D /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		CEE35777250740800097069D /* sst-arabic-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sst-arabic-bold.ttf"; sourceTree = "<group>"; };
@@ -515,12 +528,10 @@
 		F62E4AA425148EC60021CEE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/popupViewController.xib; sourceTree = "<group>"; };
 		F62E4AA525148EC60021CEE0 /* popupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popupViewController.swift; sourceTree = "<group>"; };
 		F62E4AA825148EC60021CEE0 /* CompanyRegViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyRegViewController.swift; sourceTree = "<group>"; };
-		F62E4AA925148EC60021CEE0 /* CompanyRegViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyRegViewController.xib; sourceTree = "<group>"; };
 		F62E4AB025148EC60021CEE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CompanyAgentVatDetailTableViewCell.xib; sourceTree = "<group>"; };
 		F62E4AB125148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyAgentVatDetailTableViewCell.swift; sourceTree = "<group>"; };
 		F62E4AB425148EC60021CEE0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/AgentCompanyUserPolicyTableViewCell.strings; sourceTree = "<group>"; };
 		F62E4AB625148EC60021CEE0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/AgentProfileImageTableViewCell.strings; sourceTree = "<group>"; };
-		F62E4AB725148EC60021CEE0 /* ServiceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
 		F62E4AB825148EC60021CEE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AgentCompanyUserPolicyTableViewCell.strings; sourceTree = "<group>"; };
 		F62E4AB925148EC60021CEE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AgentProfileImageTableViewCell.strings; sourceTree = "<group>"; };
 		F62E4ABA25148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentCompanyUserPolicyTableViewCell.swift; sourceTree = "<group>"; };
@@ -531,7 +542,6 @@
 		F62E4AC125148EC60021CEE0 /* AgentCompanyServicesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentCompanyServicesTableViewCell.swift; sourceTree = "<group>"; };
 		F62E4AC225148EC60021CEE0 /* AgentCompanyServicesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgentCompanyServicesTableViewCell.xib; sourceTree = "<group>"; };
 		F62E4AC325148EC60021CEE0 /* CompanyRegTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyRegTableViewCell.swift; sourceTree = "<group>"; };
-		F62E4AC425148EC60021CEE0 /* CompanyRegTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyRegTableViewCell.xib; sourceTree = "<group>"; };
 		F62E4AC725148EC60021CEE0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CompanyAgentBankDetailsTableViewCell.strings; sourceTree = "<group>"; };
 		F62E4AC825148EC60021CEE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyAgentBankDetailsTableViewCell.strings; sourceTree = "<group>"; };
 		F62E4AC925148EC60021CEE0 /* CompanyAgentBankDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyAgentBankDetailsTableViewCell.swift; sourceTree = "<group>"; };
@@ -541,7 +551,6 @@
 		F62E4AD125148EC60021CEE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CompanyAgentBasicInformationTableViewCell.xib; sourceTree = "<group>"; };
 		F62E4AD225148EC60021CEE0 /* CompanyAgentBasicInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyAgentBasicInformationTableViewCell.swift; sourceTree = "<group>"; };
 		F62E4AD425148EC60021CEE0 /* ImageSelectPopUpDialogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSelectPopUpDialogViewController.swift; sourceTree = "<group>"; };
-		F62E4AD525148EC60021CEE0 /* ImageSelectPopUpDialogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageSelectPopUpDialogViewController.xib; sourceTree = "<group>"; };
 		F62E4ADA25148EC60021CEE0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/PersonalAgentBasicInformationTableViewCell.strings; sourceTree = "<group>"; };
 		F62E4ADB25148EC60021CEE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PersonalAgentBasicInformationTableViewCell.strings; sourceTree = "<group>"; };
 		F62E4ADC25148EC60021CEE0 /* PersonalAgentBasicInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalAgentBasicInformationTableViewCell.swift; sourceTree = "<group>"; };
@@ -561,10 +570,26 @@
 		F647705325187CFB00ED2BD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
 		F647705525187CFF00ED2BD0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
 		F64B439325220A5700B9C8CB /* IbanLengthModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanLengthModal.swift; sourceTree = "<group>"; };
+		F64D5FBD2524400E003DE670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CompanyRegViewController.xib; sourceTree = "<group>"; };
+		F64D5FC025244011003DE670 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyRegViewController.strings; sourceTree = "<group>"; };
+		F64D5FC225244013003DE670 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CompanyRegViewController.strings; sourceTree = "<group>"; };
+		F64D5FC425244491003DE670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CompanyRegTableViewCell.xib; sourceTree = "<group>"; };
+		F64D5FC725244495003DE670 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyRegTableViewCell.strings; sourceTree = "<group>"; };
+		F64D5FC925244497003DE670 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CompanyRegTableViewCell.strings; sourceTree = "<group>"; };
 		F658B3F72522ECAD00B37F63 /* LanguageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionViewController.swift; sourceTree = "<group>"; };
 		F658B3F82522ECAD00B37F63 /* LanguageSelectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageSelectionViewController.xib; sourceTree = "<group>"; };
 		F658B3FB2522ECD000B37F63 /* LanguageSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		F658B3FC2522ECD000B37F63 /* LanguageSelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageSelectionTableViewCell.xib; sourceTree = "<group>"; };
+		F66AA1AB2525B53300C1E058 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/DiscountTypePopUpViewController.strings; sourceTree = "<group>"; };
+		F66AA1AC2525B53300C1E058 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DiscountTypePopUpViewController.strings; sourceTree = "<group>"; };
+		F66AA1AE2525B53300C1E058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DiscountTypePopUpViewController.xib; sourceTree = "<group>"; };
+		F66AA1B32525B5B300C1E058 /* DiscountTypePopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountTypePopUpViewController.swift; sourceTree = "<group>"; };
+		F67B5E21252574F40083DA66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
+		F67B5E24252574F80083DA66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ServiceCollectionViewCell.strings; sourceTree = "<group>"; };
+		F67B5E26252574FA0083DA66 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ServiceCollectionViewCell.strings; sourceTree = "<group>"; };
+		F67B5E2825257A0E0083DA66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ImageSelectPopUpDialogViewController.xib; sourceTree = "<group>"; };
+		F67B5E2B25257A130083DA66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ImageSelectPopUpDialogViewController.strings; sourceTree = "<group>"; };
+		F67B5E2D25257A160083DA66 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ImageSelectPopUpDialogViewController.strings; sourceTree = "<group>"; };
 		F6B14CA7251B387200F9F03E /* VatInfoModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatInfoModal.swift; sourceTree = "<group>"; };
 		FA4CA97958AA8EC290CFD6F1 /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -982,6 +1007,7 @@
 			isa = PBXGroup;
 			children = (
 				CE3E9A58251E0B0300B60038 /* ServiceModel.swift */,
+				CEDA6C402525C4C800301F82 /* ServiceUpload.swift */,
 			);
 			path = servicemodel;
 			sourceTree = "<group>";
@@ -1061,6 +1087,10 @@
 				CE2EFB3D251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib */,
 				CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */,
 				CE2EFB41251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib */,
+				CEDAF67225283DF900B846E5 /* ReasonForChangeTableViewCell.swift */,
+				CEDAF67325283DF900B846E5 /* ReasonForChangeTableViewCell.xib */,
+				CEDAF67625285ACC00B846E5 /* BottomLblTableViewCell.swift */,
+				CEDAF67725285ACC00B846E5 /* BottomLblTableViewCell.xib */,
 			);
 			path = DeliveryServiceDocuments;
 			sourceTree = "<group>";
@@ -1180,8 +1210,8 @@
 			isa = PBXGroup;
 			children = (
 				F62E4AA025148EC60021CEE0 /* popupViewController.strings */,
-				F62E4AA325148EC60021CEE0 /* popupViewController.xib */,
 				F62E4AA525148EC60021CEE0 /* popupViewController.swift */,
+				F62E4AA325148EC60021CEE0 /* popupViewController.xib */,
 			);
 			path = AgentTypeSelectionVC;
 			sourceTree = "<group>";
@@ -1199,7 +1229,7 @@
 			isa = PBXGroup;
 			children = (
 				F62E4AA825148EC60021CEE0 /* CompanyRegViewController.swift */,
-				F62E4AA925148EC60021CEE0 /* CompanyRegViewController.xib */,
+				F64D5FBE2524400E003DE670 /* CompanyRegViewController.xib */,
 			);
 			path = CompanySignUpViewControllers;
 			sourceTree = "<group>";
@@ -1228,18 +1258,18 @@
 		F62E4AB225148EC60021CEE0 /* AgentCompanyTableCells */ = {
 			isa = PBXGroup;
 			children = (
-				F62E4AB325148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.strings */,
-				F62E4AB525148EC60021CEE0 /* AgentProfileImageTableViewCell.strings */,
-				F62E4AB725148EC60021CEE0 /* ServiceCollectionViewCell.xib */,
-				F62E4ABA25148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.swift */,
 				F62E4ABB25148EC60021CEE0 /* AgentProfileImageTableViewCell.swift */,
-				F62E4ABC25148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.xib */,
 				F62E4ABE25148EC60021CEE0 /* AgentProfileImageTableViewCell.xib */,
+				F62E4AB525148EC60021CEE0 /* AgentProfileImageTableViewCell.strings */,
 				F62E4AC025148EC60021CEE0 /* ServiceCollectionViewCell.swift */,
+				F67B5E22252574F40083DA66 /* ServiceCollectionViewCell.xib */,
 				F62E4AC125148EC60021CEE0 /* AgentCompanyServicesTableViewCell.swift */,
 				F62E4AC225148EC60021CEE0 /* AgentCompanyServicesTableViewCell.xib */,
+				F62E4ABA25148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.swift */,
+				F62E4ABC25148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.xib */,
+				F62E4AB325148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.strings */,
 				F62E4AC325148EC60021CEE0 /* CompanyRegTableViewCell.swift */,
-				F62E4AC425148EC60021CEE0 /* CompanyRegTableViewCell.xib */,
+				F64D5FC525244491003DE670 /* CompanyRegTableViewCell.xib */,
 			);
 			path = AgentCompanyTableCells;
 			sourceTree = "<group>";
@@ -1267,8 +1297,9 @@
 		F62E4AD325148EC60021CEE0 /* ImageSelectPopUpVc */ = {
 			isa = PBXGroup;
 			children = (
+				F66AA1A92525B53300C1E058 /* DiscountTypePopUpVC */,
 				F62E4AD425148EC60021CEE0 /* ImageSelectPopUpDialogViewController.swift */,
-				F62E4AD525148EC60021CEE0 /* ImageSelectPopUpDialogViewController.xib */,
+				F67B5E2925257A0E0083DA66 /* ImageSelectPopUpDialogViewController.xib */,
 			);
 			path = ImageSelectPopUpVc;
 			sourceTree = "<group>";
@@ -1369,6 +1400,16 @@
 				F658B3FC2522ECD000B37F63 /* LanguageSelectionTableViewCell.xib */,
 			);
 			path = LanguageSelectionCells;
+			sourceTree = "<group>";
+		};
+		F66AA1A92525B53300C1E058 /* DiscountTypePopUpVC */ = {
+			isa = PBXGroup;
+			children = (
+				F66AA1B32525B5B300C1E058 /* DiscountTypePopUpViewController.swift */,
+				F66AA1AD2525B53300C1E058 /* DiscountTypePopUpViewController.xib */,
+				F66AA1AA2525B53300C1E058 /* DiscountTypePopUpViewController.strings */,
+			);
+			path = DiscountTypePopUpVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1485,7 +1526,7 @@
 				CEE3579B250740800097069D /* RobotoSlab-Regular.ttf in Resources */,
 				2FEB1228251215F50012FE98 /* ProgressDashboardTableViewCell.xib in Resources */,
 				2F84643B250F83910084EB32 /* PopUpBelowViewController.xib in Resources */,
-				F62E4B0425148EC60021CEE0 /* ImageSelectPopUpDialogViewController.xib in Resources */,
+				F67B5E2725257A0E0083DA66 /* ImageSelectPopUpDialogViewController.xib in Resources */,
 				2F8463E3250F6EBC0084EB32 /* LoginIntroFourth.xib in Resources */,
 				2F8463FC250F7D4B0084EB32 /* VerifyAccountViewController.xib in Resources */,
 				CEE357A0250751020097069D /* CommisionsViewController.xib in Resources */,
@@ -1493,6 +1534,7 @@
 				F44E35B6251CACBC002E41E2 /* DataBankHeader.xib in Resources */,
 				CEE35789250740800097069D /* Roboto-Medium.ttf in Resources */,
 				CEE72CBB251B76AF00B02DAF /* BottomPopupEditProductViewController.xib in Resources */,
+				F66AA1B02525B53300C1E058 /* DiscountTypePopUpViewController.xib in Resources */,
 				F62E4B0025148EC60021CEE0 /* CompanyAgentBasicInformationTableViewCell.strings in Resources */,
 				2F846429250F82850084EB32 /* SuccesssViewController.strings in Resources */,
 				F438605425230BF200DE0BED /* AddAmountViewController.xib in Resources */,
@@ -1512,6 +1554,7 @@
 				F4828C9D2508C57F006B85D8 /* ProfileVatTableViewCell.xib in Resources */,
 				F62E4AEA25148EC60021CEE0 /* popupViewController.xib in Resources */,
 				2F8463E5250F6EBC0084EB32 /* LoginIntroFirst.xib in Resources */,
+				CEDAF67925285ACC00B846E5 /* BottomLblTableViewCell.xib in Resources */,
 				2F84642B250F82850084EB32 /* SuccesssViewController.xib in Resources */,
 				CEE35792250740800097069D /* Segoe UI Bold.ttf in Resources */,
 				CEE72CAD251B405F00B02DAF /* ServiceHeaderTableViewCell.xib in Resources */,
@@ -1531,7 +1574,7 @@
 				2F964B6F25136B05005FFEDC /* DropShipDashboardTableViewCell.xib in Resources */,
 				F62E4AF125148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.strings in Resources */,
 				CEAD29EE25063FA2008B1F9C /* TargetprogressTableViewCell.xib in Resources */,
-				F62E4AED25148EC60021CEE0 /* CompanyRegViewController.xib in Resources */,
+				F64D5FBC2524400E003DE670 /* CompanyRegViewController.xib in Resources */,
 				F62E4B0725148EC60021CEE0 /* PersonalAgentBasicInformationTableViewCell.xib in Resources */,
 				2F846439250F83910084EB32 /* PopUpBelowViewController.strings in Resources */,
 				CEE35795250740800097069D /* seguisb.ttf in Resources */,
@@ -1541,7 +1584,7 @@
 				2F8463DD250F6EBC0084EB32 /* LoginIntroFifth.strings in Resources */,
 				CE2EFB3F251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib in Resources */,
 				F62E4AFA25148EC60021CEE0 /* AgentCompanyServicesTableViewCell.xib in Resources */,
-				F62E4AFC25148EC60021CEE0 /* CompanyRegTableViewCell.xib in Resources */,
+				F64D5FC325244491003DE670 /* CompanyRegTableViewCell.xib in Resources */,
 				CEAD29E9250632BB008B1F9C /* NavigationView.xib in Resources */,
 				F4828CA12508DF3E006B85D8 /* ProfileServiceTableViewCell.xib in Resources */,
 				F62E4AF225148EC60021CEE0 /* AgentProfileImageTableViewCell.strings in Resources */,
@@ -1570,17 +1613,19 @@
 				CEE72CBD251B76AF00B02DAF /* BottomPopupTableViewCell.xib in Resources */,
 				F4C4DC572507943A0075F520 /* UserProfileDetailsViewController.xib in Resources */,
 				F62E4B0825148EC60021CEE0 /* agentPersonalDetailsTableViewCell.strings in Resources */,
+				F66AA1AF2525B53300C1E058 /* DiscountTypePopUpViewController.strings in Resources */,
 				2FFDE2422501225A006C5EBD /* AgentDashboardViewController.xib in Resources */,
 				F62E4B0B25148EC60021CEE0 /* PersonalRegViewController.xib in Resources */,
 				2FEB12082511EC930012FE98 /* SideMenuTableViewCell.xib in Resources */,
 				2F964B762513751B005FFEDC /* MultiBannerVw.xib in Resources */,
 				CEE35798250740800097069D /* Roboto-Bold.ttf in Resources */,
-				F62E4AF325148EC60021CEE0 /* ServiceCollectionViewCell.xib in Resources */,
+				F67B5E20252574F40083DA66 /* ServiceCollectionViewCell.xib in Resources */,
 				2F84643A250F83910084EB32 /* PopUpViewCell.xib in Resources */,
 				CEE35791250740800097069D /* RobotoSlab-Bold.ttf in Resources */,
 				F62E4AF725148EC60021CEE0 /* AgentProfileImageTableViewCell.xib in Resources */,
 				2F74CB57250A365F00DE21EF /* SplashAnimatedViewController.xib in Resources */,
 				CEE72CA9251B36C400B02DAF /* DeliveryDocumentViewController.xib in Resources */,
+				CEDAF67525283DF900B846E5 /* ReasonForChangeTableViewCell.xib in Resources */,
 				2FEB12092511EC930012FE98 /* SideMenuViewController.xib in Resources */,
 				2F8463CE250F6EBC0084EB32 /* LoginNewSecondTableViewCell.strings in Resources */,
 				2F846412250F7F1C0084EB32 /* ResetPasswordViewController.strings in Resources */,
@@ -1766,6 +1811,8 @@
 				CE3E9A59251E0B0300B60038 /* ServiceModel.swift in Sources */,
 				F4CEC3012511DDCC003C35E8 /* branchsmodel.swift in Sources */,
 				CEAD29ED25063FA2008B1F9C /* TargetprogressTableViewCell.swift in Sources */,
+				CEDAF67425283DF900B846E5 /* ReasonForChangeTableViewCell.swift in Sources */,
+				CEDAF67825285ACC00B846E5 /* BottomLblTableViewCell.swift in Sources */,
 				CEE72CB0251B586400B02DAF /* DocHeaderTableViewCell.swift in Sources */,
 				2FEB1227251215F50012FE98 /* ProgressDashboardTableViewCell.swift in Sources */,
 				CEE72CBC251B76AF00B02DAF /* BottomPopupTableViewCell.swift in Sources */,
@@ -1782,6 +1829,7 @@
 				F4C4DC59250794490075F520 /* UserProfileDetailsViewController.swift in Sources */,
 				F62E4B0625148EC60021CEE0 /* PersonalAgentBasicInformationTableViewCell.swift in Sources */,
 				2F84642A250F82850084EB32 /* SuccesssViewController.swift in Sources */,
+				F66AA1B42525B5B400C1E058 /* DiscountTypePopUpViewController.swift in Sources */,
 				2F07D1A92505F89100193658 /* ModalController.swift in Sources */,
 				F4A7E54B251A047D00ED8008 /* AgentDeliveryTableViewCell.swift in Sources */,
 				F6B14CA8251B387300F9F03E /* VatInfoModal.swift in Sources */,
@@ -1852,6 +1900,7 @@
 				F4828CA02508DF3E006B85D8 /* ProfileServiceTableViewCell.swift in Sources */,
 				2FEB12032511EC930012FE98 /* SideMenuViewController.swift in Sources */,
 				2FEB121A2511F1530012FE98 /* SignOutViewController.swift in Sources */,
+				CEDA6C412525C4C900301F82 /* ServiceUpload.swift in Sources */,
 				2F964B772513751B005FFEDC /* MultiBannerTableViewCell.swift in Sources */,
 				CEE72CA8251B36C400B02DAF /* DeliveryDocumentViewController.swift in Sources */,
 				2F84641D250F80570084EB32 /* LoginModal.swift in Sources */,
@@ -2256,6 +2305,63 @@
 				F62E4AE425148EC60021CEE0 /* Base */,
 			);
 			name = agentPersonalDetailsTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F64D5FBE2524400E003DE670 /* CompanyRegViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F64D5FBD2524400E003DE670 /* Base */,
+				F64D5FC025244011003DE670 /* en */,
+				F64D5FC225244013003DE670 /* ar */,
+			);
+			name = CompanyRegViewController.xib;
+			sourceTree = "<group>";
+		};
+		F64D5FC525244491003DE670 /* CompanyRegTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F64D5FC425244491003DE670 /* Base */,
+				F64D5FC725244495003DE670 /* en */,
+				F64D5FC925244497003DE670 /* ar */,
+			);
+			name = CompanyRegTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F66AA1AA2525B53300C1E058 /* DiscountTypePopUpViewController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F66AA1AB2525B53300C1E058 /* ar */,
+				F66AA1AC2525B53300C1E058 /* en */,
+			);
+			name = DiscountTypePopUpViewController.strings;
+			sourceTree = "<group>";
+		};
+		F66AA1AD2525B53300C1E058 /* DiscountTypePopUpViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F66AA1AE2525B53300C1E058 /* Base */,
+			);
+			name = DiscountTypePopUpViewController.xib;
+			sourceTree = "<group>";
+		};
+		F67B5E22252574F40083DA66 /* ServiceCollectionViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F67B5E21252574F40083DA66 /* Base */,
+				F67B5E24252574F80083DA66 /* en */,
+				F67B5E26252574FA0083DA66 /* ar */,
+			);
+			name = ServiceCollectionViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F67B5E2925257A0E0083DA66 /* ImageSelectPopUpDialogViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F67B5E2825257A0E0083DA66 /* Base */,
+				F67B5E2B25257A130083DA66 /* en */,
+				F67B5E2D25257A160083DA66 /* ar */,
+			);
+			name = ImageSelectPopUpDialogViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

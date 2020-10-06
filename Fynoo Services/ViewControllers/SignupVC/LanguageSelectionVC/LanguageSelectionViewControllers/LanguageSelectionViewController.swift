@@ -25,6 +25,13 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var tableVw: UITableView!
     @IBOutlet var signUpBtn: UIButton!
     
+    @IBOutlet weak var headerLbl: UILabel!
+    
+    @IBOutlet weak var backBtn: UIButton!
+    
+  
+    
+    
     var selectedLanguageyDict : NSMutableDictionary = NSMutableDictionary()
     var filterListArray : NSMutableArray = NSMutableArray()
     var languageListArray : NSMutableArray = NSMutableArray()
@@ -38,16 +45,60 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
         setupUiMethod()
         registerCellNibs()
         customHeader.viewControl = self
+        customHeader.backButton.isHidden = true
         self.customHeader.titleHeader.text = "Please Select Language"
         self.searchField.placeholder = "Enter Language"
         languageListAPI()
         
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         searchField.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.customHeader.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
+        self.headerLbl.font = UIFont(name:"\(fontNameLight)",size:14)
+        self.signUpBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
+        
+        
+        searchField.textColor = Constant.Black_TEXT_COLOR
+        self.headerLbl.textColor = Constant.Black_TEXT_COLOR
+        self.customHeader.titleHeader.textColor = Constant.Black_TEXT_COLOR
+        
         customHeader.viewControl = self
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    }
+    
+    @IBAction func customerBckClicked(_ sender: Any) {
+        var isLoginThere = false
+        
+        AuthorisedUser.shared.removeAuthorisedUser()
+        ModalController.removeTheContentForKey("AgentDashboardData")
+        
+        if var viewControllers = self.navigationController?.viewControllers {
+            for controller in viewControllers {
+                if controller is LoginNewDesignViewController {
+                    isLoginThere = true
+                    for controller in self.navigationController!.viewControllers as Array {
+                        if controller.isKind(of: LoginNewDesignViewController.self) {
+                            self.navigationController!.popToViewController(controller, animated: true)
+                            break
+                        }
+                    }
+                }
+            }
+        }
+        
+        if isLoginThere == false {
+            let vc = LoginNewDesignViewController(nibName: "LoginNewDesignViewController", bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
     func setupUiMethod(){
         self.headerHeightMethod()
         searchField.addTarget(self, action: #selector(LanguageSelectionViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
@@ -105,8 +156,11 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
             if success{
                 if let value = (response?.object(forKey: "error_description") as? String) {
                     ModalController.showSuccessCustomAlertWith(title: "", msg: value)
+                    
+                    let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
+                    self.navigationController?.pushViewController(vc, animated: true)
                 }
-               
+                
             }else{
                 if let value = response?.object(forKey: "error_description") as? String {
                     ModalController.showNegativeCustomAlertWith(title: "", msg: value)
@@ -189,14 +243,14 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
         cell.selectionStyle = .none
         
         if selectedArray.count > 0  {
-            self.signUpBtn.setTitleColor(UIColor(red: 97/255, green: 192/255, blue: 136/255, alpha: 1), for: .normal)
+            self.signUpBtn.setTitleColor(Constant.Green_TEXT_COLOR, for: .normal)
             self.signUpBtn.layer.borderWidth = 0.5
-            self.signUpBtn.borderColor =  UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1)
+            self.signUpBtn.borderColor =  Constant.Green_TEXT_COLOR
         }else {
             
-            self.signUpBtn.setTitleColor(UIColor(red: 236/255, green: 74/255, blue: 83/255, alpha: 1), for: .normal)
+            self.signUpBtn.setTitleColor(Constant.Red_TEXT_COLOR, for: .normal)
             self.signUpBtn.layer.borderWidth = 0.5
-            self.signUpBtn.borderColor =  UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
+            self.signUpBtn.borderColor =  Constant.Red_TEXT_COLOR
         }
         
         if filterListArray.count > 0 || searchField.text!.count > 0 {

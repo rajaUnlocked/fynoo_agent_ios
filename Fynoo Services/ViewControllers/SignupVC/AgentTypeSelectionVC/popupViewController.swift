@@ -20,15 +20,38 @@ class popupViewController: UIViewController {
     @IBOutlet weak var companyBtnOutlet: UIButton!
     var delegate:cancelDelegate?
     @IBOutlet weak var bgImage: UIImageView!
-    
     @IBOutlet weak var personalBtnOutlet: UIButton!
     @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var digitalLbl: UILabel!
+    @IBOutlet weak var headerAgentLbl: UILabel!
+    @IBOutlet weak var joinLlb: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         rotateImagesOnLanguage()
+        self.SetFontAndTextColor()
         self.companyBtnOutlet.setAllSideShadowForFields(shadowShowSize: 2.0, sizeFloat: UIScreen.main.bounds.size.width - 110)
         self.personalBtnOutlet.setAllSideShadowForFields(shadowShowSize: 2.0, sizeFloat: UIScreen.main.bounds.size.width - 110)
         // Do any additional setup after loading the view.
+    }
+    
+    func SetFontAndTextColor(){
+        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        
+        self.digitalLbl.font = UIFont(name:"\(fontNameLight)",size:16)
+        self.headerAgentLbl.font = UIFont(name:"\(fontNameLight)",size:16)
+        self.joinLlb.font = UIFont(name:"\(fontNameLight)",size:10)
+        self.companyBtnOutlet.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.personalBtnOutlet.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
+        
+        self.digitalLbl.textColor = Constant.Green_TEXT_COLOR
+        self.headerAgentLbl.textColor = Constant.Blue_TEXT_COLOR
+        self.joinLlb.textColor = Constant.Black_TEXT_COLOR
+        self.companyBtnOutlet.setTitleColor(Constant.Black_TEXT_COLOR, for: .normal)
+        self.personalBtnOutlet.setTitleColor(Constant.Black_TEXT_COLOR, for: .normal)
+        
+        
     }
     
     func rotateImagesOnLanguage(){

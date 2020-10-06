@@ -26,7 +26,20 @@ class AgentProfileImageTableViewCell: UITableViewCell {
       agentprofileImageView.layer.borderColor = UIColor.white.cgColor
       agentprofileImageView.layer.cornerRadius = 50
       agentprofileImageView.clipsToBounds = true
+        
+        self.SetFontAndTextColor()
     }
+    
+    func SetFontAndTextColor(){
+        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        
+        self.headerTxt.font = UIFont(name:"\(fontNameLight)",size:16)
+       
+        self.headerTxt.textColor = Constant.Black_TEXT_COLOR
+                
+    }
+
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

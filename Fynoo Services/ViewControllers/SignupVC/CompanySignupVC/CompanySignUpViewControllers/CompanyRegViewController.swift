@@ -9,19 +9,20 @@
 import UIKit
 import PopupDialog
 import MobileCoreServices
+import MTPopup
 
 protocol companybackbtnDelegate {
    func activeBoAction()
 }
-class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,CompanyRegTableViewCellDelegate,AgentProfileImageTableViewCellDelegate,ImageSelectPopUpDialogViewControllerDelegate,UITextFieldDelegate,CompanyAgentBasicInformationTableViewCellDelegate,SearchCategoryViewControllerDelegate,CompanyAgentBankDetailsTableViewCellDelegate,CompanyAgentVatDetailTableViewCellDelegate,AgentCompanyUserPolicyTableViewCellDelegate,UIDocumentPickerDelegate {
+class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,CompanyRegTableViewCellDelegate,AgentProfileImageTableViewCellDelegate,ImageSelectPopUpDialogViewControllerDelegate,UITextFieldDelegate,CompanyAgentBasicInformationTableViewCellDelegate,SearchCategoryViewControllerDelegate,CompanyAgentBankDetailsTableViewCellDelegate,CompanyAgentVatDetailTableViewCellDelegate,AgentCompanyUserPolicyTableViewCellDelegate,UIDocumentPickerDelegate,DiscountTypePopUpViewControllerDelegate {
+   
+    
     func selectedCountryCode(countryCode: NSMutableDictionary) {
         
     }
     
-    
-   
-   
-    func loginClickedd(_ sender: Any) {
+    func loginClickedd(_ sender
+        : Any) {
         var isLoginThere = false
         
         if var viewControllers = self.navigationController?.viewControllers
@@ -139,6 +140,11 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
         self.tabView.separatorStyle = .none
         self.headerView.titleHeader.text = "Welcome, Let's Create An Account".localized
         headerView.viewControl = self
+        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+              
+        self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
+        self.headerView.titleHeader.textColor = Constant.Black_TEXT_COLOR
     }
     
     @objc func showPassword(_ sender: UIButton) {
@@ -177,8 +183,9 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
        let compressData = tempImage.jpegData(compressionQuality: 0.8) //max value is 1.0 and minimum is 0.0
        let compressedImage = UIImage(data: compressData!)
         tempImage = compressedImage
-       
-        self.uploadProfileImagesAPI()
+        agentSignUPModal.ProfileImage = compressedImage
+        self.isImageUploaded = true
+//        self.uploadProfileImagesAPI()
         dismiss(animated:true, completion: nil)
 
     }
@@ -343,16 +350,29 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
         
     }
     func profileImageSelected(){
-        let failVC = ImageSelectPopUpDialogViewController(nibName: "ImageSelectPopUpDialogViewController", bundle: nil)
-        let popup = PopupDialog(viewController: failVC,
-                                buttonAlignment: .horizontal,
-                                transitionStyle: .fadeIn,
-                                tapGestureDismissal: true,
-                                panGestureDismissal: false)
-        failVC.delegate = self
-        present(popup, animated: true, completion: nil)
+        let vc = DiscountTypePopUpViewController(nibName: "DiscountTypePopUpViewController", bundle: nil)
+            vc.delegate = self
+            let popupController = MTPopupController(rootViewController: vc)
+            popupController.autoAdjustKeyboardEvent = false
+            popupController.style = .bottomSheet
+            popupController.navigationBarHidden = true
+            popupController.hidesCloseButton = false
+            let blurEffect = UIBlurEffect(style: .dark)
+            popupController.backgroundView = UIVisualEffectView(effect: blurEffect)
+            popupController.backgroundView?.alpha = 0.6
+            popupController.backgroundView?.onClick {
+                popupController.dismiss()
+            }
+            popupController.present(in: self)
+  
     }
-    
+    func selectedDiscountOption(str: String) {
+        if str == "Take Photo".localized {
+            self.cameraSelected()
+        }else if str == "Device Gallery".localized {
+            self.gallerySelected()
+        }
+       }
     func cameraSelected() {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let cam = UIImagePickerController()
@@ -403,12 +423,23 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
     
     func selectedCountryCodeMethod(mobileCodeDict: NSMutableDictionary) {
         self.selectedCountryCodeDict = mobileCodeDict
-               self.tabView.reloadData()
+        agentSignUPModal.mobileLength = self.selectedCountryCodeDict.object(forKey: "mobile_length") as? Int ?? 0
+        
+        agentSignUPModal.mobileCode = ModalController.toString(self.selectedCountryCodeDict.object(forKey: "mobile_code") as Any)
+        
+        agentSignUPModal.mobileCodeImage = ModalController.toString(self.selectedCountryCodeDict.object(forKey: "country_flag") as Any)
+        self.tabView.reloadData()
         
     }
        
     func selectPhoneCodeMethod(phoneCodeDict: NSMutableDictionary) {
         self.selectedPhoneCodeDict = phoneCodeDict
+        
+        agentSignUPModal.phoneMinLength = self.selectedPhoneCodeDict.object(forKey: "phone_min_length") as? Int ?? 0
+         agentSignUPModal.PhoneMaxLength = self.selectedPhoneCodeDict.object(forKey: "phone_max_length") as? Int ?? 0
+        agentSignUPModal.phoneCode = "\(self.selectedPhoneCodeDict.object(forKey: "mobile_code") as! String)"
+        agentSignUPModal.phoneCodeImage = "\(self.selectedPhoneCodeDict.object(forKey: "country_flag") as! String)"
+        
         self.tabView.reloadData()
         
     }
@@ -469,7 +500,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
     func mobileCodeClicked(_ sender: Any) {
         let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
         vc.delegate = self
- //       vc.isFromCountryMobileCode = true
+        vc.isFromCountryMobileCode = true
          vc.selectedCountryDict = self.selectedCountryCodeDict
         self.navigationController?.pushViewController(vc, animated: true)
         
@@ -478,7 +509,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
     func phoneCodeClicked(_ sender: Any) {
         let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
         vc.delegate = self
- //       vc.isFromCountryPhoneCode = true
+        vc.isFromCountryPhoneCode = true
          vc.selectedCountryDict = self.selectedPhoneCodeDict
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -497,8 +528,8 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
     }
     
     func AgentselectNoOnVat(_ sender: Any) {
-//        isFromVatDocument = false
-//        self.agentSignUPModal.vatDocumentUrl = nil
+        isFromVatDocument = false
+        self.agentSignUPModal.vatDocumentUrl = nil
         if(isVatNoClicked){
             
             isVatNoClicked = false
@@ -604,9 +635,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
         if maroofLink == "https://www.maroof.com/".localized {
             agentSignUPModal.agentMaroofLink = ""
         }
-//        if ibanPrefix == "SA".localized {
-//        agentSignUPModal.agentbankAccountNumber = ""
-//        }
+
         let(isFilled, message) = agentSignUPModal.normalAgentSignUPValidation()
         
         if isFilled{
@@ -621,6 +650,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
                             let vc = VerifyAccountViewController(nibName: "VerifyAccountViewController", bundle: nil)
                             vc.mobile = self.agentSignUPModal.agentPhoneNumber
                             vc.emailId = self.agentSignUPModal.agentEmail
+                            vc.isFromAgent = true
                             vc.fynooId = (response!.object(forKey: "data") as? NSDictionary)?.object(forKey: "fynoo_id") as! String
                             self.navigationController?.pushViewController(vc, animated: true)
                         }
@@ -733,20 +763,20 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
         
         if appDelegate.selectServiceStr != "" && agentSignUPModal.agentBussinessName != ""  && agentSignUPModal.agentEmail != ""  && agentSignUPModal.agentConfirmEmail != ""  &&
             agentSignUPModal.agentCountry != ""  && agentSignUPModal.agentCity != ""  && agentSignUPModal.agentContactNumber != "" &&
-        agentSignUPModal.agentPassword != ""  && agentSignUPModal.agentConfirmPassword != "" && (companyEmail && companyConfirmEmail) && (companyEmail == companyConfirmEmail) && mobileLength == mobileNumberWithoutGap.count && (agentSignUPModal.agentPassword == agentSignUPModal.agentConfirmPassword) && (agentSignUPModal.agentPassword.count >= 8 && agentSignUPModal.agentConfirmPassword.count  >= 8) && agentSignUPModal.agentbankName != ""  && agentSignUPModal.agentbankAccountHolderName != ""  && agentSignUPModal.agentbankAccountNumber != "" && str.count >= agentSignUPModal.agentIBanLength && ((isVatYesClicked == true && vatStr.count >= agentSignUPModal.vatLength) || isVatNoClicked) && isUserPolicySelected == true  {
+            agentSignUPModal.agentPassword != ""  && agentSignUPModal.agentConfirmPassword != "" && (companyEmail && companyConfirmEmail) && (companyEmail == companyConfirmEmail) && mobileLength == mobileNumberWithoutGap.count && (agentSignUPModal.agentPassword == agentSignUPModal.agentConfirmPassword) && (agentSignUPModal.agentPassword.count >= 8 && agentSignUPModal.agentConfirmPassword.count  >= 8) && agentSignUPModal.agentbankName != ""  && agentSignUPModal.agentbankAccountHolderName != ""  && agentSignUPModal.agentbankAccountNumber != "" && str.count >= agentSignUPModal.agentIBanLength && ((isVatYesClicked == true && vatStr.count >= agentSignUPModal.vatLength && agentSignUPModal.agentVatNumber.containArabicNumber && agentSignUPModal.vatDocumentUrl != nil ) || isVatNoClicked) && isUserPolicySelected == true  {
             
             if agentSignUPModal.agentPhoneNumber.count > 0  && (PhoneNumberWithoutGap.count < agentSignUPModal.phoneMinLength) {
                 everythingFilled = false
                 self.tabView.reloadData()
-                 self.tabView.reloadRows(at: [IndexPath(row: 0, section: 5)], with: .none)
-               
+                self.tabView.reloadRows(at: [IndexPath(row: 0, section: 5)], with: .none)
+                
             }else {
                 everythingFilled = true
-               self.tabView.reloadRows(at: [IndexPath(row: 0, section: 5)], with: .none)
+                self.tabView.reloadRows(at: [IndexPath(row: 0, section: 5)], with: .none)
             }
         }else{
             everythingFilled = false
-          self.tabView.reloadRows(at: [IndexPath(row: 0, section: 5)], with: .none)
+            self.tabView.reloadRows(at: [IndexPath(row: 0, section: 5)], with: .none)
         }
     }
 
@@ -871,21 +901,17 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
             let mobileLength  = agentSignUPModal.mobileLength
             
             if agentSignUPModal.agentBussinessName != ""  && agentSignUPModal.agentEmail != ""  && agentSignUPModal.agentConfirmEmail != ""  &&
-                agentSignUPModal.agentCountry != ""  && agentSignUPModal.agentCity != ""  && agentSignUPModal.agentContactNumber != ""  &&
-            agentSignUPModal.agentPassword != ""  && agentSignUPModal.agentConfirmPassword != "" && (companyEmail && companyConfirmEmail) && (companyEmail == companyConfirmEmail) && mobileLength == mobileNumberWithoutGap.count && (agentSignUPModal.agentPassword == agentSignUPModal.agentConfirmPassword) && (agentSignUPModal.agentPassword.count >= 8 && agentSignUPModal.agentConfirmPassword.count  >= 8) {
-//                print("cellenterBasicInfoFirstMendatoryCondition")
+                agentSignUPModal.agentCountry != ""  && agentSignUPModal.agentCity != ""  && agentSignUPModal.agentContactNumber != ""  && agentSignUPModal.mobileCode != ""  &&
+                agentSignUPModal.agentPassword != ""  && agentSignUPModal.agentConfirmPassword != "" && (companyEmail && companyConfirmEmail) && (companyEmail == companyConfirmEmail) && mobileLength == mobileNumberWithoutGap.count && (agentSignUPModal.agentPassword == agentSignUPModal.agentConfirmPassword) && (agentSignUPModal.agentPassword.count >= 8 && agentSignUPModal.agentConfirmPassword.count  >= 8) {
                 
-                if agentSignUPModal.agentPhoneNumber.count > 0  && (PhoneNumberWithoutGap.count < agentSignUPModal.phoneMinLength) {
+                if agentSignUPModal.agentPhoneNumber.count > 0  && (PhoneNumberWithoutGap.count < agentSignUPModal.phoneMinLength) && agentSignUPModal.phoneCode != "" {
                     
-//                    print("cellenterBasicInfoFirstOptionalCondition")
                     cell.editImageView.image = UIImage(named: "edit_red")
                 }else{
                     
-//                    print("cellNotenterBasicInfoFirstOptionalCondition")
-                     cell.editImageView.image = UIImage(named: "section_filled.png")
+                    cell.editImageView.image = UIImage(named: "section_filled.png")
                 }
             }else{
-//                print("cellNotenterBasicInfoFirstMendatoryCondition")
                 cell.editImageView.image = UIImage(named: "edit_red")
             }
         }else if index.section == 3 {
@@ -998,7 +1024,8 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
         cell.mainView.clipsToBounds = true
         cell.mainView.layer.borderWidth = 0.5
         cell.mainView.borderColor =  UIColor.init(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
-        cell.nameTxtFld.textColor = UIColor(red: 57/255, green: 58/255, blue: 58/255, alpha: 1)
+        cell.nameTxtFld.textColor = Constant.Black_TEXT_COLOR
+        
         cell.nameTxtFld.text = agentSignUPModal.agentBussinessName
         cell.emailTxtFld.text = agentSignUPModal.agentEmail
         cell.confirmTxtFld.text = agentSignUPModal.agentConfirmEmail
@@ -1012,23 +1039,23 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
             let companyConfirmEmail = ModalController.isValidEmail(testStr: confirmEmail)
             
             if  (confirmEmail ==  email) && (companyEmail && companyConfirmEmail) {
-                           if let imageView = self.view.viewWithTag(203) as? UIImageView{
-                               imageView.isHidden = false
-                            cell.confirmPasswordGreenTickWIdhtConstant.constant = 22
-                               imageView.image = UIImage(named:"greenTick")
-                               }
-                           }else{
-                              if let imageView = self.view.viewWithTag(203) as? UIImageView{
-                                cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
-                                 imageView.isHidden = true
-                               }
-                          }
-                      }else{
-                          if let imageView = self.view.viewWithTag(203) as? UIImageView{
-                            cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
-                              imageView.isHidden = true
-                          }
-                      }
+                if let imageView = self.view.viewWithTag(203) as? UIImageView{
+                    imageView.isHidden = false
+                    cell.confirmPasswordGreenTickWIdhtConstant.constant = 22
+                    imageView.image = UIImage(named:"greenTick")
+                }
+            }else{
+                if let imageView = self.view.viewWithTag(203) as? UIImageView{
+                    cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
+                    imageView.isHidden = true
+                }
+            }
+        }else{
+            if let imageView = self.view.viewWithTag(203) as? UIImageView{
+                cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
+                imageView.isHidden = true
+            }
+        }
         if agentSignUPModal.agentPassword != "" && agentSignUPModal.agentConfirmPassword  != "" {
             if agentSignUPModal.agentPassword == agentSignUPModal.agentConfirmPassword  && (agentSignUPModal.agentPassword.count == 8 || agentSignUPModal.agentPassword.count > 8) && (cell.passwordTxtFld.text!.containArabicNumber && cell.confirmPasswordTxtFld.text!.containArabicNumber ) {
                 
@@ -1235,6 +1262,7 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
         
         cell.vatNumberTxtFld.addTarget(self, action: #selector(CompanyRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         cell.vatNumberTxtFld.text = agentSignUPModal.agentVatNumber
+        
         if isVatYesClicked {
             cell.yesBtn.isSelected = true
             cell.vatNumberView.isHidden = false
@@ -1298,14 +1326,15 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
         cell.selectionStyle = .none
         
         if everythingFilled == true {
-            cell.signUpBtn.setTitleColor(UIColor(red: 97/255, green: 192/255, blue: 136/255, alpha: 1), for: .normal)
+            cell.signUpBtn.setTitleColor(Constant.Green_TEXT_COLOR, for: .normal)
             cell.signUpBtn.layer.borderWidth = 0.5
-            cell.signUpBtn.borderColor =  UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1)
+            cell.signUpBtn.borderColor =  Constant.Green_TEXT_COLOR
         }else {
             
-            cell.signUpBtn.setTitleColor(UIColor(red: 236/255, green: 74/255, blue: 83/255, alpha: 1), for: .normal)
+            cell.signUpBtn.setTitleColor(Constant.Red_TEXT_COLOR, for: .normal)
             cell.signUpBtn.layer.borderWidth = 0.5
-            cell.signUpBtn.borderColor =  UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
+            cell.signUpBtn.borderColor =  Constant.Red_TEXT_COLOR
+            
         }
         
         if isUserPolicySelected {
@@ -1362,12 +1391,7 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
                   ModalController.showNegativeCustomAlertWith(title: "please select country code first.", msg: "")
                return false
             }
-            if selectedAgentCountryDict.count > 0 {
-                lenght = self.selectedAgentCountryDict.object(forKey: "mobile_length") as! Int
-                
-            }else if selectedCountryCodeDict.count > 0 {
-                 lenght = self.selectedCountryCodeDict.object(forKey: "mobile_length") as! Int
-            }
+            lenght = agentSignUPModal.mobileLength
             guard let stringRange = Range(range,in: str!) else {
                 return false
             }
@@ -1386,13 +1410,7 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
                 ModalController.showNegativeCustomAlertWith(title: "please select country code first.", msg: "")
                 return false
             }
-            if selectedAgentCountryDict.count > 0 {
-                
-                lenght = self.selectedAgentCountryDict.object(forKey: "phone_max_length") as! Int
-                
-            }else if selectedPhoneCodeDict.count > 0 {
-                lenght = self.selectedPhoneCodeDict.object(forKey: "phone_max_length") as! Int
-            }
+            lenght = agentSignUPModal.PhoneMaxLength
             guard let stringRange = Range(range,in: str!) else {
                 return false
             }
@@ -1773,11 +1791,7 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
             
             if selectedAgentCountryDict.count > 0 || selectedCountryCodeDict.count > 0 {
                 var count = 0
-                if self.selectedAgentCountryDict.count > 0 {
-                    count = self.selectedAgentCountryDict.object(forKey: "mobile_length") as! Int
-                }else{
-                    count  = self.selectedCountryCodeDict.object(forKey: "mobile_length") as! Int
-                }
+                count = agentSignUPModal.mobileLength
                 let str = cell.mobileTxtFld.text?.replacingOccurrences(of: " ", with: "")
                 if str!.count == count {
                     ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.contactNumberView)
@@ -1809,11 +1823,7 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
                 ModalController.setViewBorderColor(color: #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.phoneNumberView)
                 if selectedAgentCountryDict.count > 0  || selectedPhoneCodeDict.count > 0  {
                     var minCount = 0
-                    if self.selectedAgentCountryDict.count > 0 {
-                        minCount = self.selectedAgentCountryDict.object(forKey: "phone_min_length") as! Int
-                    }else {
-                        minCount  = self.selectedPhoneCodeDict.object(forKey: "phone_min_length") as! Int
-                    }
+                    minCount = agentSignUPModal.phoneMinLength
                    
                     let str = cell.phoneNumberTxtFld.text?.replacingOccurrences(of: " ", with: "")
                     if str!.count > minCount || str!.count == minCount {
@@ -1939,19 +1949,7 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
             
         case 1010:
             let   cell = tabView.cellForRow(at: IndexPath(row:1 , section: 3)) as! CompanyAgentBankDetailsTableViewCell
-            
-//            if accountNumber != "" {
-//                accountValue = textField.text!
-//                accountNumber = accountValue.replacingOccurrences(of: " ", with: "")
-//                accountValue = ModalController.customStringFormattingForAccountNumber(of: accountNumber)
-//            }else{
-//                accountValue =  ModalController.customStringFormattingForAccountNumber(of: textField.text!)
-//                accountNumber = accountValue.replacingOccurrences(of: " ", with: "")
-//            accountNumber = accountValue
 
-//            }
-            
-//            let str = cell.ibanNumberTxtFld.text?.replacingOccurrences(of: " ", with: "")
             let str = cell.ibanNumberTxtFld.text!.uppercased()
             cell.ibanNumberTxtFld.text = str
             if str.count == agentSignUPModal.agentIBanLength && cell.ibanNumberTxtFld.text != "" &&  cell.ibanNumberTxtFld.text!.containArabicNumber {

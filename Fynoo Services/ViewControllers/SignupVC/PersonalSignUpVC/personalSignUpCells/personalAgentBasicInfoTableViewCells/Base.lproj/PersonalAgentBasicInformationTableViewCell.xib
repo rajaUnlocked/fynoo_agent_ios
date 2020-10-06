@@ -263,14 +263,21 @@
                                             <constraint firstAttribute="height" constant="16" id="z9u-ad-2d3"/>
                                         </constraints>
                                     </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropDown_icon" translatesAutoresizingMaskIntoConstraints="NO" id="bQI-xr-GJp">
+                                        <rect key="frame" x="41" y="12" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="dyZ-ae-T5t"/>
+                                            <constraint firstAttribute="height" constant="15" id="gGe-Ot-zZN"/>
+                                        </constraints>
+                                    </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EPo-Iq-hZ4">
-                                        <rect key="frame" x="41" y="10" width="25" height="19"/>
+                                        <rect key="frame" x="61" y="10" width="25" height="19"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="j2B-2d-Tw4"/>
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6wS-2n-gKc">
-                                        <rect key="frame" x="66" y="10.5" width="40" height="18"/>
+                                        <rect key="frame" x="86" y="10.5" width="40" height="18"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="2Tt-0W-UPb"/>
@@ -280,24 +287,37 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OVW-kD-pD9">
-                                        <rect key="frame" x="106" y="10.5" width="193" height="18"/>
+                                        <rect key="frame" x="126" y="10.5" width="173" height="18"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QM-LZ-ErF">
+                                        <rect key="frame" x="41" y="0.0" width="85" height="39"/>
+                                        <connections>
+                                            <action selector="mobileCodeDropDownClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="HK3-yq-flE"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="7QM-LZ-ErF" firstAttribute="trailing" secondItem="6wS-2n-gKc" secondAttribute="trailing" id="0XK-PV-3ZQ"/>
                                     <constraint firstItem="OVW-kD-pD9" firstAttribute="leading" secondItem="6wS-2n-gKc" secondAttribute="trailing" id="7oW-1C-TN2"/>
-                                    <constraint firstItem="EPo-Iq-hZ4" firstAttribute="leading" secondItem="5nX-2e-YQJ" secondAttribute="trailing" constant="5" id="EwR-M6-2z9"/>
+                                    <constraint firstItem="7QM-LZ-ErF" firstAttribute="leading" secondItem="bQI-xr-GJp" secondAttribute="leading" id="A8m-0M-Jgn"/>
                                     <constraint firstItem="6wS-2n-gKc" firstAttribute="centerY" secondItem="EPo-Iq-hZ4" secondAttribute="centerY" id="HfX-vg-26J"/>
                                     <constraint firstAttribute="trailing" secondItem="OVW-kD-pD9" secondAttribute="trailing" constant="5" id="KN4-3w-kdv"/>
+                                    <constraint firstItem="7QM-LZ-ErF" firstAttribute="top" secondItem="ESg-re-mIP" secondAttribute="top" id="ORy-ud-Jqs"/>
                                     <constraint firstItem="EPo-Iq-hZ4" firstAttribute="top" secondItem="ESg-re-mIP" secondAttribute="top" constant="10" id="P79-Nh-wMw"/>
                                     <constraint firstAttribute="bottom" secondItem="EPo-Iq-hZ4" secondAttribute="bottom" constant="10" id="PYb-jS-W1b"/>
+                                    <constraint firstItem="bQI-xr-GJp" firstAttribute="leading" secondItem="5nX-2e-YQJ" secondAttribute="trailing" constant="5" id="Qnd-gj-16M"/>
+                                    <constraint firstAttribute="bottom" secondItem="7QM-LZ-ErF" secondAttribute="bottom" id="YsB-qb-whD"/>
                                     <constraint firstItem="6wS-2n-gKc" firstAttribute="leading" secondItem="EPo-Iq-hZ4" secondAttribute="trailing" id="ZmK-IK-e1K"/>
                                     <constraint firstItem="5nX-2e-YQJ" firstAttribute="centerY" secondItem="ESg-re-mIP" secondAttribute="centerY" id="aPB-Dv-jHD"/>
                                     <constraint firstAttribute="height" constant="39" id="dyj-MI-5Sa"/>
                                     <constraint firstItem="OVW-kD-pD9" firstAttribute="centerY" secondItem="5nX-2e-YQJ" secondAttribute="centerY" id="eLt-Gu-Xlp"/>
                                     <constraint firstItem="5nX-2e-YQJ" firstAttribute="leading" secondItem="ESg-re-mIP" secondAttribute="leading" constant="20" id="frx-tc-hCw"/>
+                                    <constraint firstItem="EPo-Iq-hZ4" firstAttribute="leading" secondItem="bQI-xr-GJp" secondAttribute="trailing" constant="5" id="pvP-21-eSO"/>
+                                    <constraint firstItem="bQI-xr-GJp" firstAttribute="centerY" secondItem="5nX-2e-YQJ" secondAttribute="centerY" id="tPT-1S-nej"/>
+                                    <constraint firstItem="7QM-LZ-ErF" firstAttribute="centerY" secondItem="ESg-re-mIP" secondAttribute="centerY" id="uvU-A8-XNa"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -548,24 +568,34 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cityBtn" destination="Myz-KC-OPR" id="N84-Oa-XGg"/>
+                <outlet property="cityHeaderLbl" destination="7I2-74-9SU" id="jtH-mn-GXf"/>
                 <outlet property="cityView" destination="evv-eY-sfD" id="IgU-qq-J2p"/>
+                <outlet property="confirmEmailHeaderLbl" destination="RxM-aL-hOh" id="1ak-wN-YYR"/>
                 <outlet property="confirmEmailView" destination="sWc-2i-0tU" id="3GF-4p-H0f"/>
+                <outlet property="confirmPassHeaderLbl" destination="Vhv-Oc-d6b" id="UiP-hn-XSO"/>
+                <outlet property="confirmPasswordGreenTickWIdhtConstant" destination="nsi-sR-zCx" id="7ax-G5-bL9"/>
                 <outlet property="confirmPasswordMatchBtn" destination="Kc8-Ct-BWb" id="s9i-WU-NrB"/>
                 <outlet property="confirmPasswordTxtFld" destination="kPL-Ki-9it" id="BzT-dP-1G1"/>
                 <outlet property="confirmPasswordView" destination="2O5-L5-V7n" id="jdy-PP-AjD"/>
                 <outlet property="confirmTxtFld" destination="JEX-3y-ckL" id="O0j-XG-moP"/>
                 <outlet property="countryBtn" destination="Qkd-Kp-gf0" id="43j-gE-r96"/>
+                <outlet property="countryHeaderLbl" destination="7Q3-oX-sHw" id="iUt-8t-PCc"/>
                 <outlet property="countryView" destination="LFG-z3-oPG" id="Na3-JY-LYq"/>
+                <outlet property="emailHeaderLbl" destination="sd3-Yw-6Il" id="Ne3-sl-vEj"/>
                 <outlet property="emailTxtFld" destination="hEM-2i-xPl" id="rhY-60-IxA"/>
                 <outlet property="emailView" destination="v0B-ln-gnd" id="qT0-hB-KZa"/>
                 <outlet property="hideShowPassword" destination="2Ug-2L-GYw" id="MZO-Mz-qKh"/>
                 <outlet property="mainView" destination="c3i-eq-F3D" id="USP-lj-qDP"/>
+                <outlet property="maroofHeaderLbl" destination="9KL-Xz-zF6" id="oAw-yC-QCh"/>
                 <outlet property="maroofTxtFld" destination="RoT-cZ-vrO" id="aio-53-2Rd"/>
                 <outlet property="maroofView" destination="nid-1Y-kbg" id="TaH-4n-WxP"/>
+                <outlet property="mobileCodeDropDownBtn" destination="7QM-LZ-ErF" id="eCr-Rt-TYp"/>
                 <outlet property="mobileCodeFlagImageView" destination="EPo-Iq-hZ4" id="cCY-sH-2CF"/>
                 <outlet property="mobileCodeTxtFld" destination="6wS-2n-gKc" id="ejE-My-wi4"/>
+                <outlet property="mobileHeaderLbl" destination="GPW-h0-e9a" id="BgE-RA-hyy"/>
                 <outlet property="mobileNumberView" destination="ESg-re-mIP" id="Bs6-3y-Cgh"/>
                 <outlet property="mobileTxtFld" destination="OVW-kD-pD9" id="RCe-sf-1aA"/>
+                <outlet property="passwordHeaderLbl" destination="i9Z-Um-Oro" id="PPz-K1-eMV"/>
                 <outlet property="passwordTxtFld" destination="cdk-W6-1ct" id="B92-tw-uOo"/>
                 <outlet property="passwordView" destination="gus-TJ-KHv" id="ycX-bZ-dUv"/>
             </connections>

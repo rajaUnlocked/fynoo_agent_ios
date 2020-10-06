@@ -55,15 +55,23 @@ class CompanyAgentBasicInformationTableViewCell: UITableViewCell {
     @IBOutlet weak var mobileCodeDropDownBtn: UIButton!
     @IBOutlet weak var phoneCodeDropDownBtn: UIButton!
        
+  
+    @IBOutlet weak var emailHeaderLbl: UILabel!
+    @IBOutlet weak var confirmEmailHeaderLbl: UILabel!
+    @IBOutlet weak var countryHeaderLbl: UILabel!
+    @IBOutlet weak var cityHeaderLbl: UILabel!
+    @IBOutlet weak var mobileHeaderLbl: UILabel!
+    @IBOutlet weak var phoneHeaderLbl: UILabel!
+    @IBOutlet weak var maroofHeaderLbl: UILabel!
+    @IBOutlet weak var passwordHeaderLbl: UILabel!
     
-   
-    
-    
+    @IBOutlet weak var confirmPassHeaderLbl: UILabel!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setShadowsInFields()
+        self.SetFontAndTextColor()
         
         self.emailTxtFld.keyboardType = .asciiCapable
         self.confirmTxtFld.keyboardType = .asciiCapable
@@ -73,17 +81,6 @@ class CompanyAgentBasicInformationTableViewCell: UITableViewCell {
         self.mobileTxtFld.keyboardType = .asciiCapableNumberPad
         self.phoneNumberTxtFld.keyboardType = .asciiCapableNumberPad
         
-        
-        self.nameTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
-          self.emailTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
-          self.confirmTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
-        self.mobileTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
-        self.phoneNumberTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
-        self.maroofTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
-        self.passwordTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
-         self.confirmPasswordTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
-        self.mobileCodeTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
-        self.phoneCodeTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
         
          ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: businessNameView)
          ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: emailView)
@@ -95,6 +92,72 @@ class CompanyAgentBasicInformationTableViewCell: UITableViewCell {
          ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: confirmPasswordView)
         
     }
+    
+    func SetFontAndTextColor(){
+        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        
+        self.nameHeaderLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.nameTxtFld.font = UIFont(name:"\(fontNameLight)",size:14)
+        
+        self.emailHeaderLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.emailTxtFld.font = UIFont(name:"\(fontNameLight)",size:14)
+        
+        self.confirmEmailHeaderLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.confirmTxtFld.font = UIFont(name:"\(fontNameLight)",size:14)
+        
+        self.countryHeaderLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.countryBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:14)
+        
+        self.cityHeaderLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.cityBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:14)
+        
+        self.mobileHeaderLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.mobileTxtFld.font = UIFont(name:"\(fontNameLight)",size:14)
+        self.mobileCodeTxtFld.font = UIFont(name:"\(fontNameLight)",size:14)
+        
+        self.phoneHeaderLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.phoneNumberTxtFld.font = UIFont(name:"\(fontNameLight)",size:14)
+        self.phoneCodeTxtFld.font = UIFont(name:"\(fontNameLight)",size:14)
+        
+        self.maroofHeaderLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.maroofTxtFld.font = UIFont(name:"\(fontNameLight)",size:14)
+        
+        self.confirmEmailHeaderLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.confirmTxtFld.font = UIFont(name:"\(fontNameLight)",size:14)
+        
+        self.passwordHeaderLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.passwordTxtFld.font = UIFont(name:"\(fontNameLight)",size:14)
+        
+        self.confirmPassHeaderLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.confirmPasswordTxtFld.font = UIFont(name:"\(fontNameLight)",size:14)        
+        
+        self.nameHeaderLbl.textColor = Constant.Black_TEXT_COLOR
+        self.nameTxtFld.textColor = Constant.Black_TEXT_COLOR
+        self.emailHeaderLbl.textColor = Constant.Black_TEXT_COLOR
+        self.emailTxtFld.textColor = Constant.Black_TEXT_COLOR
+        self.confirmEmailHeaderLbl.textColor = Constant.Black_TEXT_COLOR
+        self.confirmTxtFld.textColor = Constant.Black_TEXT_COLOR
+        self.countryHeaderLbl.textColor = Constant.Black_TEXT_COLOR
+        self.countryBtn.setTitleColor(Constant.Black_TEXT_COLOR, for: .normal)
+        self.cityHeaderLbl.textColor = Constant.Black_TEXT_COLOR
+        self.cityBtn.setTitleColor(Constant.Black_TEXT_COLOR, for: .normal)
+        self.mobileHeaderLbl.textColor = Constant.Black_TEXT_COLOR
+        self.mobileTxtFld.textColor = Constant.Black_TEXT_COLOR
+        self.mobileCodeTxtFld.textColor = Constant.Black_TEXT_COLOR
+        self.phoneHeaderLbl.textColor = Constant.Black_TEXT_COLOR
+        self.phoneNumberTxtFld.textColor = Constant.Black_TEXT_COLOR
+        self.phoneCodeTxtFld.textColor = Constant.Black_TEXT_COLOR
+        self.maroofHeaderLbl.textColor = Constant.Black_TEXT_COLOR
+        self.maroofTxtFld.textColor = Constant.Black_TEXT_COLOR
+        self.passwordHeaderLbl.textColor = Constant.Black_TEXT_COLOR
+        self.passwordTxtFld.textColor = Constant.Black_TEXT_COLOR
+        self.confirmPassHeaderLbl.textColor = Constant.Black_TEXT_COLOR
+        self.confirmPasswordTxtFld.textColor = Constant.Black_TEXT_COLOR
+        
+        
+    }
+
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
