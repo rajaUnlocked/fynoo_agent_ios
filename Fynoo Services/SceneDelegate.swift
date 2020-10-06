@@ -27,14 +27,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         ModalController.saveTheContent(width as AnyObject, WithKey: "width")
         ModalController.saveTheContent(height as AnyObject, WithKey: "height")
         
+        AuthorisedUser.shared.getAuthorisedUserCheck()
         UIApplication.shared.statusBarStyle = .default
- //       selecting_local.DoTheSwizzling()
+        selecting_local.DoTheSwizzling()
+        UITextField.appearance().tintColor = .gray
         
-        let vc = AgentDeliveryViewController(nibName: "AgentDeliveryViewController", bundle: nil)
+        if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
+            if value[0]=="ar"{
+                HeaderHeightSingleton.shared.LanguageSelected = "AR"
+            }
+            else if value[0]=="en"{
+                HeaderHeightSingleton.shared.LanguageSelected = "EN"
+            }
+        }
+        
+        let vc = BasedUrlViewController(nibName: "BasedUrlViewController", bundle: nil)
+ //       let vc = SplashAnimatedViewController(nibName: "SplashAnimatedViewController", bundle: nil)
         nav = UINavigationController.init(rootViewController: vc)
         IQKeyboardManager.shared.enable = true
- //       nav.interactivePopGestureRecognizer?.isEnabled = true
-//        nav.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
+        nav.interactivePopGestureRecognizer?.isEnabled = true
+        nav.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
         nav.setNavigationBarHidden(true, animated: false)
@@ -42,6 +54,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if #available(iOS 13.0, *) {
             window?.overrideUserInterfaceStyle = .light
         }
+    }
+    
+    func ChangeLayout(){
+        let preferredLanguage = NSLocale.preferredLanguages[0]
+        print(preferredLanguage)
+        if preferredLanguage.starts(with: "en"){
+            UIView.appearance().semanticContentAttribute = .forceLeftToRight
+        } else{
+           UIView.appearance().semanticContentAttribute = .forceRightToLeft
+        }
+    }
+    
+    // SwipGestureRecognizer delegate methods
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool
+    {
+        if (nav.viewControllers.count ?? 0) > 1 {
+            return true
+        }
+        return false
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return !(otherGestureRecognizer is UIPanGestureRecognizer)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -75,3 +110,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension UIImage {
+    func makeImageWithColorAndSize(color: UIColor, size: CGSize) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        color.setFill()
+        UIRectFill(CGRect(x:0, y:0, width:size.width, height:size.height))
+        var image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
+}

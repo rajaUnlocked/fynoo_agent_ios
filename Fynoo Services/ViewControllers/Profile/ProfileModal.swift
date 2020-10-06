@@ -254,13 +254,32 @@ class DeliveryInfo : Mappable{
     var user_lang : [language_lists]?
 
     
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        agent_information <- map["agent_information"]
+        del_accept_limit <- map["del_accept_limit"]
+        user_lang <- map["user_lang"]
+    }
+    
+}
+class trips_achievements : Mappable{
+    
+    
+    var trip_code = ""
+    var trip_count = 0
+    var trip_icon = ""
+    var trip_text = ""
+    
     required init?(map: Map) {}
     
     func mapping(map: Map) {
         
-        agent_information <- map["agent_information"]
-        del_accept_limit <- map["del_accept_limit"]
-        user_lang <- map["user_lang"]
+        trip_code <- map["trip_code"]
+        trip_count <- map["trip_count"]
+        trip_icon <- map["trip_icon"]
+        trip_text <- map["trip_text"]
     }
     
 }
@@ -290,6 +309,8 @@ class agentInfo : Mappable{
     var active_years = 0
     var avg_rating = 0
 
+    var trips_achievements:[trips_achievements]?
+    var del_service_document = ""
     var del_service_document_uploaded = 0
     var del_service_status = 0
     var excellent_service = 0
@@ -308,7 +329,8 @@ class agentInfo : Mappable{
     required init?(map: Map) {}
     
     func mapping(map: Map) {
-        
+          trips_achievements <- map["trips_achievements"]
+        del_service_document <- map["del_service_document"]
         above_and_beyond <- map["above_and_beyond"]
         active_years <- map["active_years"]
         avg_rating <- map["avg_rating"]

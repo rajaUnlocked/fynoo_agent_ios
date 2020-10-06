@@ -199,6 +199,39 @@ class ServerCalls: NSObject {
         
     }
     
+    static func fileUploadAPI(Imgtype: String,imagefrom:String ,img : UIImage, completion: ((AnyObject?,Bool,AnyObject?) -> Void)?)
+    {
+        let parameters = ["image_from":imagefrom,
+                       "image_type":Imgtype,
+        "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
+        let tempImage = img
+    let imageData = tempImage.jpegData(compressionQuality : 1)
+        
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(imageData!, withName: "image",fileName: "file.jpg", mimeType: "image/jpg")
+            for (key, value) in parameters {
+                multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+            } //Optional for extra parameters
+            
+        }, to:"\(Constant.BASE_URL)\(Constant.upload_file)")
+            
+        { (result) in
+            switch result {
+            case .success(let upload, _, _ ):
+                upload.uploadProgress(closure: { (progress) in
+                    print("Upload Progress: \(progress.fractionCompleted)")
+                })
+                upload.responseJSON { response in
+                    print(response.result.value)
+                    completion!(response.result.value as AnyObject,true,response.data as AnyObject)
+                }
+            case .failure(let encodingError):
+                completion!(nil,false,nil)
+            }
+        }
+    }
+
+    
 //    static func fileUploadAPI(Imgtype: String,imagefrom:String ,img : UIImage, completion: ((AnyObject?,Bool,AnyObject?) -> Void)?)
 //    {
 //        let parameters = ["image_from":imagefrom,

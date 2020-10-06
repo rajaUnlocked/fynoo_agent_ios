@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageSelectPopUpDialogViewController" customModule="Fynoo_Business" customModuleProvider="target">
+            <connections>
+                <outlet property="cameraBtn" destination="VfX-R1-3Rn" id="9yg-I4-0XD"/>
+                <outlet property="cameraView" destination="CPd-qU-wyo" id="jvA-H9-bAg"/>
+                <outlet property="galleryBtn" destination="EUu-0d-cSD" id="Ma1-St-uxU"/>
+                <outlet property="galleryView" destination="XQF-UY-Ap3" id="gua-Us-mkb"/>
+                <outlet property="mainView" destination="c00-ce-RMb" id="aJf-g2-Epw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="280" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c00-ce-RMb">
+                    <rect key="frame" x="0.0" y="0.0" width="280" height="100"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPd-qU-wyo">
+                            <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_picture" translatesAutoresizingMaskIntoConstraints="NO" id="6Xy-CC-fqK">
+                                    <rect key="frame" x="40" y="18" width="16" height="14"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="14" id="0Hg-BY-K7D"/>
+                                        <constraint firstAttribute="width" constant="16" id="U7F-vW-leI"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNT-Xi-rir">
+                                    <rect key="frame" x="76" y="18" width="61.5" height="14"/>
+                                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                    <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqb-Hf-W2L">
+                                    <rect key="frame" x="10" y="49" width="260" height="1"/>
+                                    <color key="backgroundColor" red="0.83137254901960778" green="0.83137254901960778" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="PdM-hp-NL9"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfX-R1-3Rn">
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
+                                    <connections>
+                                        <action selector="cameraClicked:" destination="-1" eventType="touchUpInside" id="uR0-Bx-AfW"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="VfX-R1-3Rn" secondAttribute="trailing" id="3iY-fX-r65"/>
+                                <constraint firstAttribute="bottom" secondItem="oqb-Hf-W2L" secondAttribute="bottom" id="9wp-xT-Ci4"/>
+                                <constraint firstItem="VfX-R1-3Rn" firstAttribute="leading" secondItem="CPd-qU-wyo" secondAttribute="leading" id="CxJ-8p-gAa"/>
+                                <constraint firstItem="UNT-Xi-rir" firstAttribute="leading" secondItem="6Xy-CC-fqK" secondAttribute="trailing" constant="20" id="Rj3-JR-7cx"/>
+                                <constraint firstItem="UNT-Xi-rir" firstAttribute="centerY" secondItem="6Xy-CC-fqK" secondAttribute="centerY" id="YTO-1r-vWd"/>
+                                <constraint firstAttribute="trailing" secondItem="oqb-Hf-W2L" secondAttribute="trailing" constant="10" id="cd0-tD-UVK"/>
+                                <constraint firstItem="6Xy-CC-fqK" firstAttribute="leading" secondItem="CPd-qU-wyo" secondAttribute="leading" constant="40" id="h3y-nv-VQx"/>
+                                <constraint firstItem="6Xy-CC-fqK" firstAttribute="centerY" secondItem="CPd-qU-wyo" secondAttribute="centerY" id="keY-Fh-xKZ"/>
+                                <constraint firstAttribute="bottom" secondItem="VfX-R1-3Rn" secondAttribute="bottom" id="n8S-WV-vnd"/>
+                                <constraint firstItem="oqb-Hf-W2L" firstAttribute="leading" secondItem="CPd-qU-wyo" secondAttribute="leading" constant="10" id="nHX-qv-Z9B"/>
+                                <constraint firstItem="VfX-R1-3Rn" firstAttribute="top" secondItem="CPd-qU-wyo" secondAttribute="top" id="uiF-WA-Ots"/>
+                                <constraint firstAttribute="height" constant="50" id="ylf-ls-ZEM"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQF-UY-Ap3">
+                            <rect key="frame" x="0.0" y="50" width="280" height="50"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="galery_Picture" translatesAutoresizingMaskIntoConstraints="NO" id="DOi-XS-BUH">
+                                    <rect key="frame" x="40" y="17" width="16" height="16"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="16" id="95h-4k-lNg"/>
+                                        <constraint firstAttribute="height" constant="16" id="e59-yl-g7t"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device Gallery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxr-lb-ZNl">
+                                    <rect key="frame" x="76" y="18" width="80.5" height="14"/>
+                                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                    <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUu-0d-cSD">
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
+                                    <connections>
+                                        <action selector="galleryBtnClicked:" destination="-1" eventType="touchUpInside" id="FNQ-e0-vcl"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="EUu-0d-cSD" secondAttribute="trailing" id="4KR-Sz-Qve"/>
+                                <constraint firstItem="Yxr-lb-ZNl" firstAttribute="leading" secondItem="DOi-XS-BUH" secondAttribute="trailing" constant="20" id="55t-ru-BBx"/>
+                                <constraint firstAttribute="bottom" secondItem="EUu-0d-cSD" secondAttribute="bottom" id="8si-Se-ERO"/>
+                                <constraint firstItem="Yxr-lb-ZNl" firstAttribute="centerY" secondItem="DOi-XS-BUH" secondAttribute="centerY" id="NEE-4q-Khs"/>
+                                <constraint firstItem="DOi-XS-BUH" firstAttribute="centerY" secondItem="XQF-UY-Ap3" secondAttribute="centerY" id="Qml-yn-4uc"/>
+                                <constraint firstItem="EUu-0d-cSD" firstAttribute="top" secondItem="XQF-UY-Ap3" secondAttribute="top" id="Zh9-Bp-qjt"/>
+                                <constraint firstAttribute="height" constant="50" id="nsE-kH-zef"/>
+                                <constraint firstItem="EUu-0d-cSD" firstAttribute="leading" secondItem="XQF-UY-Ap3" secondAttribute="leading" id="ti5-Kq-uUl"/>
+                                <constraint firstItem="DOi-XS-BUH" firstAttribute="leading" secondItem="XQF-UY-Ap3" secondAttribute="leading" constant="40" id="y6W-1O-efP"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="XQF-UY-Ap3" secondAttribute="bottom" id="8pE-aE-5P1"/>
+                        <constraint firstItem="XQF-UY-Ap3" firstAttribute="leading" secondItem="c00-ce-RMb" secondAttribute="leading" id="GXt-79-DWn"/>
+                        <constraint firstItem="XQF-UY-Ap3" firstAttribute="top" secondItem="CPd-qU-wyo" secondAttribute="bottom" id="MiF-SX-me8"/>
+                        <constraint firstItem="CPd-qU-wyo" firstAttribute="leading" secondItem="c00-ce-RMb" secondAttribute="leading" id="NQg-d9-v1G"/>
+                        <constraint firstAttribute="trailing" secondItem="XQF-UY-Ap3" secondAttribute="trailing" id="ZBo-Ik-MMd"/>
+                        <constraint firstItem="CPd-qU-wyo" firstAttribute="top" secondItem="c00-ce-RMb" secondAttribute="top" id="fkW-NK-Gq5"/>
+                        <constraint firstAttribute="trailing" secondItem="CPd-qU-wyo" secondAttribute="trailing" id="rLB-dp-3bE"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.40000000000000002"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.83137254901960778" green="0.83137254901960778" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="c00-ce-RMb" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="8c8-1S-JLP"/>
+                <constraint firstItem="c00-ce-RMb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8wG-Kd-NTH"/>
+                <constraint firstItem="c00-ce-RMb" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Z0a-ZF-KXG"/>
+                <constraint firstItem="c00-ce-RMb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lrO-3G-paZ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="101.78571428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="camera_picture" width="150" height="130"/>
+        <image name="galery_Picture" width="150" height="148"/>
+    </resources>
+</document>

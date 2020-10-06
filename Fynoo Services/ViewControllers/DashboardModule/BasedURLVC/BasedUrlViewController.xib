@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BasedUrlViewController" customModule="Fynoo_Services" customModuleProvider="target">
+            <connections>
+                <outlet property="LocalUrlHeightConstant" destination="5AT-I0-JkU" id="Ri7-Bz-v8p"/>
+                <outlet property="animationView" destination="r5e-4c-sXD" id="dVf-H6-DV9"/>
+                <outlet property="localUrlEntryTxtFld" destination="MnU-f0-6DC" id="PGB-5p-BCZ"/>
+                <outlet property="localUrlView" destination="NuG-PQ-vCB" id="RKF-gg-UsK"/>
+                <outlet property="otherUrlHeaderLbl" destination="KnA-hu-J0k" id="p9k-bt-Y3z"/>
+                <outlet property="otherUrlView" destination="p0o-Sv-EEt" id="nVj-ly-Pxb"/>
+                <outlet property="selectUrlBtn" destination="wOK-Fq-GKJ" id="Nnb-O6-3qH"/>
+                <outlet property="selectUrlView" destination="iO8-T6-Rzj" id="t2J-p1-KqQ"/>
+                <outlet property="selectedUrlTxtFld" destination="jfq-Fc-5Di" id="V1t-sA-kCT"/>
+                <outlet property="submitBtn" destination="xmO-Im-zmc" id="el8-mQ-AFV"/>
+                <outlet property="versionLbl" destination="htK-mJ-iL1" id="WMa-m2-niz"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r5e-4c-sXD">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="292"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-fynoo_NEW" translatesAutoresizingMaskIntoConstraints="NO" id="d37-FJ-PR3">
+                            <rect key="frame" x="0.0" y="30" width="320" height="262"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="d37-FJ-PR3" firstAttribute="leading" secondItem="r5e-4c-sXD" secondAttribute="leading" id="0IW-1Z-Rq8"/>
+                        <constraint firstAttribute="height" constant="292" id="470-7K-EcP"/>
+                        <constraint firstItem="d37-FJ-PR3" firstAttribute="top" secondItem="r5e-4c-sXD" secondAttribute="top" constant="30" id="a81-Dx-XDI"/>
+                        <constraint firstAttribute="bottom" secondItem="d37-FJ-PR3" secondAttribute="bottom" id="cPR-ll-Gxd"/>
+                        <constraint firstAttribute="trailing" secondItem="d37-FJ-PR3" secondAttribute="trailing" id="eeV-G2-84D"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Pointing URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYA-VO-svq">
+                    <rect key="frame" x="41" y="312" width="107.5" height="14"/>
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                    <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iO8-T6-Rzj">
+                    <rect key="frame" x="24" y="334" width="272" height="40"/>
+                    <subviews>
+                        <textField opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select Pointing URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jfq-Fc-5Di" customClass="DropDown" customModule="iOSDropDown">
+                            <rect key="frame" x="17" y="11" width="229" height="18"/>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downArrow" translatesAutoresizingMaskIntoConstraints="NO" id="odc-Wj-AFh">
+                            <rect key="frame" x="251" y="12" width="16" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="16" id="DBo-hv-qQV"/>
+                                <constraint firstAttribute="width" constant="16" id="z6D-Et-8TO"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOK-Fq-GKJ">
+                            <rect key="frame" x="0.0" y="1" width="272" height="40"/>
+                            <connections>
+                                <action selector="selectUrlClicked:" destination="-1" eventType="touchUpInside" id="sLJ-wz-QHS"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="wOK-Fq-GKJ" firstAttribute="leading" secondItem="iO8-T6-Rzj" secondAttribute="leading" id="IN0-Xq-5Ze"/>
+                        <constraint firstAttribute="bottom" secondItem="wOK-Fq-GKJ" secondAttribute="bottom" constant="-1" id="S68-VI-wia"/>
+                        <constraint firstItem="jfq-Fc-5Di" firstAttribute="leading" secondItem="iO8-T6-Rzj" secondAttribute="leading" constant="17" id="VMw-nZ-ey1"/>
+                        <constraint firstAttribute="trailing" secondItem="odc-Wj-AFh" secondAttribute="trailing" constant="5" id="Y2S-vd-U6x"/>
+                        <constraint firstItem="odc-Wj-AFh" firstAttribute="leading" secondItem="jfq-Fc-5Di" secondAttribute="trailing" constant="5" id="aR4-tk-jwH"/>
+                        <constraint firstItem="wOK-Fq-GKJ" firstAttribute="top" secondItem="iO8-T6-Rzj" secondAttribute="top" constant="1" id="ehX-sQ-cKO"/>
+                        <constraint firstAttribute="trailing" secondItem="wOK-Fq-GKJ" secondAttribute="trailing" id="g7y-iS-chJ"/>
+                        <constraint firstAttribute="height" constant="40" id="heq-eA-K8H"/>
+                        <constraint firstItem="jfq-Fc-5Di" firstAttribute="centerY" secondItem="iO8-T6-Rzj" secondAttribute="centerY" id="iJY-3r-HPX"/>
+                        <constraint firstItem="odc-Wj-AFh" firstAttribute="centerY" secondItem="iO8-T6-Rzj" secondAttribute="centerY" id="kkO-Ze-CLw"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.40000000000000002"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.3921568627" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NuG-PQ-vCB">
+                    <rect key="frame" x="24" y="394" width="272" height="64"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnA-hu-J0k">
+                            <rect key="frame" x="17" y="0.0" width="48.5" height="14"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="14" id="TIs-v1-jTQ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                            <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0o-Sv-EEt">
+                            <rect key="frame" x="0.0" y="22" width="272" height="40"/>
+                            <subviews>
+                                <textField opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MnU-f0-6DC">
+                                    <rect key="frame" x="17" y="11" width="245" height="18"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="MnU-f0-6DC" secondAttribute="trailing" constant="10" id="Nxq-hy-9Sb"/>
+                                <constraint firstItem="MnU-f0-6DC" firstAttribute="leading" secondItem="p0o-Sv-EEt" secondAttribute="leading" constant="17" id="dmR-rJ-SCN"/>
+                                <constraint firstItem="MnU-f0-6DC" firstAttribute="centerY" secondItem="p0o-Sv-EEt" secondAttribute="centerY" id="lp3-Zz-MyO"/>
+                                <constraint firstAttribute="height" constant="40" id="tzD-JF-1kh"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.40000000000000002"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="p0o-Sv-EEt" secondAttribute="trailing" id="3ct-aT-8IA"/>
+                        <constraint firstAttribute="height" constant="64" id="5AT-I0-JkU"/>
+                        <constraint firstItem="p0o-Sv-EEt" firstAttribute="leading" secondItem="NuG-PQ-vCB" secondAttribute="leading" id="An0-f6-Ud6"/>
+                        <constraint firstItem="p0o-Sv-EEt" firstAttribute="top" secondItem="KnA-hu-J0k" secondAttribute="bottom" constant="8" id="TR4-ht-8lo"/>
+                        <constraint firstItem="KnA-hu-J0k" firstAttribute="leading" secondItem="NuG-PQ-vCB" secondAttribute="leading" constant="17" id="WfS-UQ-Zbm"/>
+                        <constraint firstItem="KnA-hu-J0k" firstAttribute="top" secondItem="NuG-PQ-vCB" secondAttribute="top" id="lnW-B6-Lpr"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmO-Im-zmc">
+                    <rect key="frame" x="95" y="498" width="130" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="o0c-RT-S6S"/>
+                        <constraint firstAttribute="width" constant="130" id="udL-jG-xeU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                    <state key="normal" title="Submit">
+                        <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="submitBtnClicked:" destination="-1" eventType="touchUpInside" id="IER-rJ-PEM"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htK-mJ-iL1">
+                    <rect key="frame" x="20" y="533" width="280" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="xBs-ZC-paP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iO8-T6-Rzj" secondAttribute="trailing" constant="24" id="065-ag-gfT"/>
+                <constraint firstItem="NuG-PQ-vCB" firstAttribute="leading" secondItem="iO8-T6-Rzj" secondAttribute="leading" id="2Wq-Yh-Rne"/>
+                <constraint firstItem="htK-mJ-iL1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="9Xf-Af-Eqk"/>
+                <constraint firstItem="iO8-T6-Rzj" firstAttribute="top" secondItem="RYA-VO-svq" secondAttribute="bottom" constant="8" id="Acf-Xs-j8r"/>
+                <constraint firstItem="xmO-Im-zmc" firstAttribute="centerX" secondItem="NuG-PQ-vCB" secondAttribute="centerX" id="EXQ-Mw-57p"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="htK-mJ-iL1" secondAttribute="trailing" constant="20" id="EhV-RY-fL2"/>
+                <constraint firstItem="r5e-4c-sXD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GhA-i1-org"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="NuG-PQ-vCB" secondAttribute="trailing" constant="24" id="HBw-0c-eVf"/>
+                <constraint firstItem="NuG-PQ-vCB" firstAttribute="trailing" secondItem="iO8-T6-Rzj" secondAttribute="trailing" id="SUd-tP-43f"/>
+                <constraint firstItem="iO8-T6-Rzj" firstAttribute="top" secondItem="RYA-VO-svq" secondAttribute="bottom" constant="8" id="TnH-XA-A8Z"/>
+                <constraint firstItem="r5e-4c-sXD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WK8-5L-Y9i"/>
+                <constraint firstItem="r5e-4c-sXD" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="aGR-5N-5hI"/>
+                <constraint firstItem="RYA-VO-svq" firstAttribute="top" secondItem="r5e-4c-sXD" secondAttribute="bottom" constant="20" id="cEa-AR-bK9"/>
+                <constraint firstItem="NuG-PQ-vCB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="i8x-Of-HGM"/>
+                <constraint firstItem="iO8-T6-Rzj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="lWI-is-phB"/>
+                <constraint firstItem="xmO-Im-zmc" firstAttribute="top" secondItem="NuG-PQ-vCB" secondAttribute="bottom" constant="40" id="psI-Ul-zSO"/>
+                <constraint firstItem="NuG-PQ-vCB" firstAttribute="top" secondItem="iO8-T6-Rzj" secondAttribute="bottom" constant="20" id="qP3-WH-OqU"/>
+                <constraint firstItem="RYA-VO-svq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="41" id="s4X-g6-O3n"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="htK-mJ-iL1" secondAttribute="bottom" constant="14" id="wep-10-uz3"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="140.57971014492756" y="122.54464285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="downArrow" width="75" height="75"/>
+        <image name="logo-fynoo_NEW" width="141" height="168"/>
+    </resources>
+</document>

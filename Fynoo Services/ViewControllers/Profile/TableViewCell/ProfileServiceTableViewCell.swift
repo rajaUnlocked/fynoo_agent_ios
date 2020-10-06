@@ -9,6 +9,15 @@
 import UIKit
 
 class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,SearchCategoryViewControllerDelegate  {
+    func selectetCourierCompanyMethod(courierCompanyDict: NSMutableDictionary) {
+    }
+    
+    func selectedCountryCodeMethod(mobileCodeDict: NSMutableDictionary) {
+    }
+    
+    func selectPhoneCodeMethod(phoneCodeDict: NSMutableDictionary) {
+    }
+    
     func selectedCategoryMethod(countryDict: NSMutableDictionary, tag: Int) {
         
     }
@@ -84,8 +93,8 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
         if isForLanguage{
             let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
             vc.delegate = self
-            vc.isForLanguage = true
-            vc.langArr = agentinfo.langArr
+//            vc.isForLanguage = true
+  //          vc.langArr = agentinfo.langArr
             viewControl.navigationController?.pushViewController(vc, animated: true)
         }else{
             if agentinfo.serviceArr.contains(serviceList?[indexPath.row].service_id){

@@ -124,11 +124,13 @@ struct Services : Mappable {
     var max_commision : Int?
     var min_commision : Int?
     var service_icon : String?
+    var service_range :String?
     init?(map: Map) {
 
     }
 
     mutating func mapping(map: Map) {
+         service_range <- map["service_range"]
          service_icon <- map["service_icon"]
         service_id <- map["service_id"]
         service_name <- map["service_name"]
@@ -165,7 +167,12 @@ struct TargetListData : Mappable {
     var total_target : Int?
     var target_to_be_achive : Int?
     var target_end_date : String?
-    var target_content : [Target_content]?
+    var id : Int?
+    var top_content : String?
+    var mid_content : String?
+    var video_url : String?
+    var video_file : String?
+    var media_type : Int?
     var top_five_agent : [Top_five_agent]?
 
     init?(map: Map) {
@@ -173,38 +180,20 @@ struct TargetListData : Mappable {
     }
 
     mutating func mapping(map: Map) {
-
-        total_target <- map["total_target"]
-        target_to_be_achive <- map["target_to_be_achive"]
-        target_end_date <- map["target_end_date"]
-        target_content <- map["target_content"]
-        top_five_agent <- map["top_five_agent"]
-    }
-
-}
-struct Target_content : Mappable {
-    var id : Int?
-    var top_content : String?
-    var mid_content : String?
-    var video_url : String?
-    var video_file : String?
-    var media_type : Int?
-
-    init?(map: Map) {
-
-    }
-
-    mutating func mapping(map: Map) {
-
         id <- map["id"]
         top_content <- map["top_content"]
         mid_content <- map["mid_content"]
         video_url <- map["video_url"]
         video_file <- map["video_file"]
         media_type <- map["media_type"]
+        total_target <- map["total_target"]
+        target_to_be_achive <- map["target_to_be_achive"]
+        target_end_date <- map["target_end_date"]
+        top_five_agent <- map["top_five_agent"]
     }
 
 }
+
 
 struct Top_five_agent : Mappable {
     var username : String?

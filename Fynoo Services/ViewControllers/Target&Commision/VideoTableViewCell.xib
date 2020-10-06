@@ -28,7 +28,7 @@
                                 <state key="normal" title="Button" image="videoplayer"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="7CL-4U-OnF" firstAttribute="centerX" secondItem="yFX-E4-FWS" secondAttribute="centerX" id="SKh-6h-fr6"/>
                             <constraint firstItem="7CL-4U-OnF" firstAttribute="centerY" secondItem="yFX-E4-FWS" secondAttribute="centerY" id="Ssb-1j-oCM"/>
@@ -42,6 +42,7 @@
                     <constraint firstItem="yFX-E4-FWS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="w06-Sl-puC"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="vw" destination="yFX-E4-FWS" id="T0k-fk-zrt"/>

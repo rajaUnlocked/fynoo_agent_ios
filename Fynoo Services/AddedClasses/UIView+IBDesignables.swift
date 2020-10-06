@@ -220,17 +220,17 @@ extension UITextField{
 
 extension UIImageView {
     
-//    func setImageSDWebImage(imgURL: String, placeholder: String) {
-//        
-//        let strUrl = imgURL.replacingOccurrences(of: " ", with: "%20")
-//        
-//        if let url = URL(string: strUrl) {
-//           // self.sd_setShowActivityIndicatorView(true)
-//           // self.sd_showActivityIndicatorView()
-//           // self.sd_setIndicatorStyle(.gray)
-//            self.sd_setImage(with: url, completed: nil)
-//        } else {
-//            self.image = UIImage(named: placeholder)
-//        }
-//    }
+    func setImageSDWebImage(imgURL: String, placeholder: String) {
+        
+        let strUrl = imgURL.replacingOccurrences(of: " ", with: "%20")
+        
+        if let url = URL(string: strUrl) {
+           // self.sd_setShowActivityIndicatorView(true)
+           // self.sd_showActivityIndicatorView()
+           // self.sd_setIndicatorStyle(.gray)
+            self.sd_setImage(with: url, completed: nil)
+        } else {
+            self.image = UIImage(named: placeholder)
+        }
+    }
 }

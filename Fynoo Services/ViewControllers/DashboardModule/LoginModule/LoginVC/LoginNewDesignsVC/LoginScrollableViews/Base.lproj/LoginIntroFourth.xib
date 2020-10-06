@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LoginIntroFourth" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginIntro4" translatesAutoresizingMaskIntoConstraints="NO" id="v9U-2a-0Sa">
+                    <rect key="frame" x="20" y="30" width="280" height="118"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smart solution for your E-store management." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3G-yT-Sx9">
+                    <rect key="frame" x="20" y="152" width="280" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="280" id="FGa-Ze-LyO"/>
+                        <constraint firstAttribute="height" constant="44" id="VAC-T9-4am"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="17"/>
+                    <color key="textColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For Business" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqg-bh-Ejv">
+                    <rect key="frame" x="20" y="200" width="280" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="vm4-bi-MO3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                    <color key="textColor" red="0.10980392160000001" green="0.61568627450000002" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manage your business from anywhere." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzO-eJ-17G">
+                    <rect key="frame" x="20" y="218" width="280" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="64i-zI-RIy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="9"/>
+                    <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="v9U-2a-0Sa" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="AiG-vD-gHy"/>
+                <constraint firstItem="X3G-yT-Sx9" firstAttribute="top" secondItem="v9U-2a-0Sa" secondAttribute="bottom" constant="4" id="M8Q-Wg-Rxo"/>
+                <constraint firstItem="aqg-bh-Ejv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Qho-v5-H98"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="NzO-eJ-17G" secondAttribute="bottom" constant="6" id="Qnj-j6-ubS"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="v9U-2a-0Sa" secondAttribute="trailing" constant="20" id="RmF-ls-2vX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aqg-bh-Ejv" secondAttribute="trailing" constant="20" id="SOv-zA-7SK"/>
+                <constraint firstItem="aqg-bh-Ejv" firstAttribute="top" secondItem="X3G-yT-Sx9" secondAttribute="bottom" constant="4" id="SQZ-vJ-ZN5"/>
+                <constraint firstItem="NzO-eJ-17G" firstAttribute="top" secondItem="aqg-bh-Ejv" secondAttribute="bottom" id="TJ0-rb-QcX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="NzO-eJ-17G" secondAttribute="trailing" constant="20" id="ftc-xp-26F"/>
+                <constraint firstItem="v9U-2a-0Sa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="lvh-c1-Gh5"/>
+                <constraint firstItem="X3G-yT-Sx9" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="pqc-Yi-kic"/>
+                <constraint firstItem="NzO-eJ-17G" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="rL1-p4-PRp"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="allProductsLbl" destination="X3G-yT-Sx9" id="hdj-61-2VD"/>
+                <outlet property="forBusinessLbl" destination="aqg-bh-Ejv" id="d3x-ni-Eqz"/>
+                <outlet property="manageLbl" destination="NzO-eJ-17G" id="PX9-oG-P3s"/>
+            </connections>
+            <point key="canvasLocation" x="141" y="118"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="loginIntro4" width="963" height="666"/>
+    </resources>
+</document>

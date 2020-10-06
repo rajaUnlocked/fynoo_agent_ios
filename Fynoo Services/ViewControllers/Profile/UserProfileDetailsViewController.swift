@@ -693,13 +693,13 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
             vc.delegate = self
             ismobile = false
-            vc.isForCounrtyCode = true
+    //        vc.isForCounrtyCode = true
             self.navigationController?.pushViewController(vc, animated: true)
         }else{
             let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
             vc.delegate = self
             ismobile = true
-            vc.isForCounrtyCode = true
+    //        vc.isForCounrtyCode = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
        
@@ -887,6 +887,12 @@ extension UserProfileDetailsViewController : ProfileDetailTableViewCellDelegate{
 }
 
 extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
+    func selectedCountryCodeMethod(mobileCodeDict: NSMutableDictionary) {
+    }
+    
+    func selectPhoneCodeMethod(phoneCodeDict: NSMutableDictionary) {
+    }
+    
     func selectedCountryCode(countryCode: NSMutableDictionary) {
         if ismobile {
             print(countryCode)

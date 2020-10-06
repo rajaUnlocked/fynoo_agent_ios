@@ -1,0 +1,1014 @@
+
+// font
+"LightFontName" = "Gilroy-Light";
+"BoldFontName" = "Gilroy-ExtraBold";
+
+
+/////////////////////////             TAP PAYMENT             /////////////////////////
+
+// MARK: Common
+
+"common_edit"    = "Edit";
+"common_cancel"    = "Cancel";
+
+// MARK: Pay Button Titles
+
+"btn_pay_title_generic"    = "PAY";
+"btn_pay_title_amount"    = "PAY %@";
+
+// MARK: Save Button Title
+
+"btn_save_title" = "SAVE CARD";
+"btn_save_action_title" = "SAVE";
+
+// MARK: Payment Option Group Titles
+
+"payment_options_group_title_recent" = "RECENT";
+"payment_options_group_title_others" = "OTHERS";
+
+// MARK: Card Input Fields Placeholders
+
+"card_input_card_number_placeholder"         = "Card Number";
+"card_input_expiration_date_placeholder"     = "MM/YY";
+"card_input_cvv_placeholder"                 = "CVV";
+"card_input_cardholder_name_placeholder"    = "Name On Card";
+"card_input_address_on_card_placeholder"    = "Address on Card";
+
+// MARK: Save Card Placeholders
+
+"save_card_promotion_text"        = "For faster and more secure checkout, please save your card";
+"saved_cards_usage_description"    = "Saved cards will only be used with your approval, you can remove them at any time";
+
+// MARK: Screen Titles
+
+"currency_selection_screen_title"     = "Select Currency";
+"card_scanning_screen_title"        = "Scanning Card";
+"payment_screen_title_payment"        = "Checkout";
+"payment_screen_title_card_saving"    = "Enter Card Details";
+
+// MARK: Search Bar
+
+"search_bar_placeholder" = "Search";
+
+// MARK: OTP Screen
+
+"otp_guide_text"    = "Please enter the OTP that has been sent to %@";
+"btn_confirm_title"    = "CONFIRM";
+"btn_resend_title"    = "RESEND";
+
+
+// MARK: -
+// MARK: Alert: Delete Card
+
+"alert_delete_card_title"                 = "Delete Card";
+"alert_delete_card_message"             = "Are you sure you would like to delete card %@?";
+"alert_delete_card_btn_cancel_title"    = "Cancel";
+"alert_delete_card_btn_delete_title"     = "Delete";
+
+// MARK: Alert: Extra Charges
+
+"alert_extra_charges_title"             = "Confirm Extra Charges";
+"alert_extra_charges_message"             = "You will be charged an additional fee of %@ for this type of payment, totalling an amount of %@";
+"alert_extra_charges_btn_cancel_title"     = "Cancel";
+"alert_extra_charges_btn_confirm_title"    = "Confirm";
+
+// MARK: Alert: Cancel Payment (status undefined)
+
+"alert_cancel_payment_status_undefined_title"                 = "Cancel Payment";
+"alert_cancel_payment_status_undefined_message"                = "Would you like to cancel payment? Payment status will be undefined.";
+"alert_cancel_payment_status_undefined_btn_no_title"        = "No";
+"alert_cancel_payment_status_undefined_btn_confirm_title"    = "Confirm";
+
+// MARK: Alert: Cancel Payment (just cancel)
+
+"alert_cancel_payment_title"                 = "Cancel Payment";
+"alert_cancel_payment_message"                 = "Would you like to cancel payment?";
+"alert_cancel_payment_btn_no_title"         = "No";
+"alert_cancel_payment_btn_confirm_title"    = "Confirm";
+
+// MARK: Alert: Error
+
+"alert_error_1103_message"    = "Required inputs are invalid.";
+"alert_error_1103_title"     = "Invalid Input";
+
+"alert_error_1104_message"     = "Customer ID is missing.";
+"alert_error_1104_title"     = "Missing Customer ID";
+
+"alert_error_1108_message"    = "Save card feature is disabled.";
+"alert_error_1108_title"     = "Save Card";
+
+"alert_error_1109_message"     = "Non-3D secure transactions are forbidden.";
+"alert_error_1109_title"     = "3D Secure";
+
+"alert_error_1112_message"     = "Authorize ID is missing.";
+"alert_error_1112_title"     = "Authorize ID";
+
+"alert_error_1113_message"     = "Authorize ID is invalid.";
+"alert_error_1113_title"     = "Authorize ID";
+
+"alert_error_1114_message"     = "Please check authorize status.";
+"alert_error_1114_title"     = "Authorize Status";
+
+"alert_error_1115_message"     = "Authorize ID not found.";
+"alert_error_1115_title"     = "Authorize ID";
+
+"alert_error_1116_message"     = "Save card feature is not supported.";
+"alert_error_1116_title"     = "Save Card";
+
+"alert_error_1117_message"     = "Amount is invalid.";
+"alert_error_1117_title"     = "Amount";
+
+"alert_error_1118_message"     = "Invalid currency.";
+"alert_error_1118_title"     = "Currency";
+
+"alert_error_1119_message"     = "Unsupported currency.";
+"alert_error_1119_title"     = "Currency";
+
+"alert_error_1126_message"     = "Source is already used.";
+"alert_error_1126_title"     = "Source Used";
+
+"alert_error_1129_message"     = "Customer ID or customer information is required.";
+"alert_error_1129_title"     = "Customer Information";
+
+"alert_error_1130_message"     = "Customer first name is missing.";
+"alert_error_1130_title"     = "First Name";
+
+"alert_error_1131_message"     = "Customer first name is invalid.";
+"alert_error_1131_title"     = "First Name";
+
+"alert_error_1132_message"     = "Customer last name is missing.";
+"alert_error_1132_title"     = "Last Name";
+
+"alert_error_1133_message"     = "Customer last name is invalid.";
+"alert_error_1133_title"     = "Last Name";
+
+"alert_error_1134_message"     = "Customer middle name is invalid.";
+"alert_error_1134_title"     = "Middle Name";
+
+"alert_error_1135_message"     = "Phone number is missing.";
+"alert_error_1135_title"     = "Phone Number";
+
+"alert_error_1136_message"     = "Phone number country code is invalid.";
+"alert_error_1136_title"     = "Phone Number";
+
+"alert_error_1137_message"     = "Phone number is invalid.";
+"alert_error_1137_title"     = "Phone Number";
+
+"alert_error_1138_message"     = "Email address is invalid.";
+"alert_error_1138_title"     = "Email Address";
+
+"alert_error_1139_message"     = "Customer information is missing. Either email or phone number should be provided.";
+"alert_error_1139_title"     = "Customer Information";
+
+"alert_error_1140_message"     = "Invalid card number.";
+"alert_error_1140_title"     = "Card Number";
+
+"alert_error_1141_message"     = "Invalid expiration date.";
+"alert_error_1141_title"     = "Expiration Date";
+
+"alert_error_1142_message"     = "Charge ID is missing.";
+"alert_error_1142_title"     = "Charge ID";
+
+"alert_error_1143_message"     = "Charge ID is invalid.";
+"alert_error_1143_title"     = "Charge ID";
+
+"alert_error_1144_message"     = "Charge ID not found.";
+"alert_error_1144_title"     = "Charge ID";
+
+"alert_error_1145_message"     = "Authentication type is missing.";
+"alert_error_1145_title"     = "Authentication Type";
+
+"alert_error_1146_message"     = "Authentication type is invalid.";
+"alert_error_1146_title"     = "Authentication Type";
+
+"alert_error_1147_message"     = "Confirmation code is missing.";
+"alert_error_1147_title"     = "Confirmation Code";
+
+"alert_error_1148_message"     = "Confirmation code is invalid.";
+"alert_error_1148_title"     = "Confirmation Code";
+
+"alert_error_1149_message"     = "Currency code is not matching with existing currency code.";
+"alert_error_1149_title"     = "Currency Code";
+
+"alert_error_1150_message"     = "Capture amount exceeds with outstanding authorized amount.";
+"alert_error_1150_title"     = "Capture Amount";
+
+"alert_error_1151_message"     = "Gateway timed out.";
+"alert_error_1151_title"     = "Gateway Timeout";
+
+"alert_error_1152_message"     = "Invalid authorize auto schedule type.";
+"alert_error_1152_title"     = "Auto Schedule";
+
+"alert_error_1153_message"     = "Invalid authorize auto schedule time.";
+"alert_error_1153_title"     = "Auto Schedule";
+
+"alert_error_2101_message"     = "Server is currently unavailable. Please try again later.";
+"alert_error_2101_title"     = "Server Unavailable";
+
+"alert_error_2102_message"     = "Server is currently unavailable. Please try again later.";
+"alert_error_2102_title"     = "Server Unavailable";
+
+"alert_error_2104_message"     = "You have provided invalid API key.";
+"alert_error_2104_title"     = "API Key";
+
+"alert_error_2105_message"     = "API credentials are missing.";
+"alert_error_2105_title"     = "API Credentials";
+
+"alert_error_2106_message"     = "Public API key given. Please use secret API key instead.";
+"alert_error_2106_title"     = "API Key";
+
+"alert_error_3100_message"     = "Insufficient permissions.";
+"alert_error_3100_title"     = "Permission Denied";
+
+"alert_error_8000_message"     = "Country code is invalid.";
+"alert_error_8000_title"     = "Country Code";
+
+"alert_error_8001_message"     = "Amount modificator type is invalid.";
+"alert_error_8001_title"     = "Amount Modificator Type";
+
+"alert_error_8002_message"     = "Measurement unit is invalid.";
+"alert_error_8002_title"     = "Measurement Unit";
+
+"alert_error_8003_message"     = "Measurement is invalid.";
+"alert_error_8003_title"     = "Measurement";
+
+"alert_error_8004_message"     = "Failed to deserialize an enum.";
+"alert_error_8004_title"     = "Serialization";
+
+"alert_error_8100_message"     = "Serialization error has occured.";
+"alert_error_8100_title"     = "Serialization";
+
+"alert_error_8200_message"     = "Network error has occured.";
+"alert_error_8200_title"     = "Network";
+
+"alert_error_8302_message"    = "This card already exists.";
+"alert_error_8302_title"    = "Card Exists";
+
+"alert_error_8400_message"    = "This card is not supported.";
+"alert_error_8400_title"    = "Card Not Supported";
+
+"alert_error_8401_message"    = "CVV code is invalid.";
+"alert_error_8401_title"    = "CVV";
+
+"alert_error_8402_message"    = "Address on card is invalid.";
+"alert_error_8402_title"    = "Card Address";
+
+"alert_error_8403_message"    = "Cardholder name is invalid.";
+"alert_error_8403_title"    = "Cardholder Name";
+
+"alert_error_9999_message"     = "An unknown error has occured.";
+"alert_error_9999_title"     = "Unknown Error";
+
+"alert_error_btn_retry_title"    = "Retry";
+"alert_error_btn_dismiss_title"    = "Dismiss";
+"alert_error_btn_report_title"    = "Report";
+
+// MARK: Payment Statuses
+
+"payment_status_initiated"         = "Initiated";
+"payment_status_in_progress"    = "In Progress";
+"payment_status_abandoned"         = "Abandoned";
+"payment_status_cancelled"         = "Cancelled";
+"payment_status_failed"         = "Failed";
+"payment_status_declined"         = "Declined";
+"payment_status_restricted"     = "Restricted";
+"payment_status_captured"         = "Captured";
+"payment_status_authorized"     = "Authorized";
+"payment_status_unknown"        = "Unknown";
+"payment_status_void"             = "Void";
+
+"payment_status_alert_successful"    = "Successful";
+"payment_status_alert_failed"        = "Failed";
+
+
+/////////////////////////             TAP PAYMENT             /////////////////////////
+
+
+"hello" = "Hello";
+
+
+// BSIMAGE PICKER - MULTIPLE IMAGE PICKER
+"BSImagePicker.Done" = "Done";
+"Upload VAT Registration Certificate" = "Upload VAT Registration Certificate";
+"Are you registered in VAT?" = "Are you registered in VAT?";
+//Forget Password
+"Agent Company"="Agent Company";
+"Business Owner"="Business Owner";
+"Agent Individual"="Agent Individual";
+"Forget Password"="Forget Password";
+"Country"="Country";
+"Forget Password"="Forget Password";
+"Sign Up"="Sign Up";
+"Reset Password"="Reset Password";
+// Business Type List
+"Business Type List"="Business Type List";
+"Search Business Type"="Search Business Type";
+"Select Your Business Type"="Select Your Business Type";
+
+"Basic Information"="Basic Information";
+
+// Main Branch
+"Open Now" = "Open Now";
+"Closed Now" = "Closed Now";
+"Always open" = "Always open";
+"Add Images" = "Add Images";
+"Create Branch"="Create Branch";
+"Business Details" = "Business Details";
+"Business Type" = "Business Type";
+"Platform Type" = "Platform Type";
+"Business Timing" = "Business Timing";
+"Location" = "Location";
+"Store Pictures" = "Store Pictures";
+"  Business / Branch Name" = "  Business / Branch Name";
+" Email" = " Email";
+"  Mobile Number" = "  Mobile Number";
+"  WhatsApp Number" = "  WhatsApp Number";
+" Phone Number" = " Phone Number";
+"  Description" = "  Description";
+"Exterior" = "Exterior";
+"Interior" = "Interior";
+"  Video URL" = "  Video URL";
+"Sunday" = "Sunday";
+"Monday" = "Monday";
+"Tuesday" = "Tuesday";
+"Wednesday" = "Wednesday";
+"Thursday" = "Thursday";
+"Friday" = "Friday";
+"Saturday" = "Saturday";
+"Add your business hours to" = "Add your business hours to";
+"so it's easy for people to plan a visit." = "so it's easy for people to plan a visit.";
+"   Update Your Business Hours So Search Results Show When Your Location Is Open." = "   Update Your Business Hours So Search Results Show When Your Location Is Open.";
+"UNLIMITED" = "UNLIMITED";
+"Please upload branch logo" = "Please upload branch logo";
+"File uploaded successfully" = "File uploaded successfully";
+"Please enter branch name" = "Please enter branch name";
+"Please add description" = "Please add description";
+"Please select business type" = "Please select business type";
+"Please select atleast one business type" = "Please select atleast one business type";
+"Please select platform type" = "Please select platform type";
+"Please select business timing" = "Please select business timing";
+"Please select the days and fill the time" = "Please select the days and fill the time";
+"Please fill the time slot for selected day" = "Please fill the time slot for selected day";
+"Slot already created" = "Slot already created";
+"Please add location" = "Please add location";
+"Please select address" = "Please select address";
+"Enter the location description" = "Enter the location description";
+"Select market" = "Select market";
+"Enter market/shop name" = "Enter market/shop name";
+"Select mall" = "Select mall";
+"Enter mall/shop name" = "Enter mall/shop name";
+"Please add store pictures" = "Please add store pictures";
+"Enter valid link" = "Enter valid link";
+"Are you sure you want to deactivate your branch?" = "Are you sure you want to deactivate your branch?";
+"Main branch can't be deactivated" = "Main branch can't be deactivated";
+"Are you sure you want to delete this branch?" = "Are you sure you want to delete this branch?";
+"Main branch cannot be deleted" = "Main branch cannot be deleted";
+"" = "";
+// Business location
+"Welcome, Let's Select Your Plan"= "Welcome, Let's Select Your Plan";
+"Store in Road"="Store in Road";
+"Store in Mall"="Store in Mall";
+"Store in Market"= "Store in Market";
+"Save"="Save";
+"Cancel"="Cancel";
+"Location"="Location";
+"Add Business Location" = "Add Business Location";
+"Add Your Business Location" = "Add Your Business Location";
+
+//SignUp Bo
+"Welcome, Let's Create An Account"="Welcome, Let's Create An Account";
+"User Policy" = "User Policy";
+"Login"="Login";
+
+//Sign Up Agent
+"Agent Company Registration" ="Agent Company Registration";
+"Agent Personal Registration" ="Agent Personal Registration";
+"Services" = "Services";
+"Personal Details" = "Personal Details";
+"Basic Information" = "Basic Information";
+"Bank Details" = "Bank Details";
+"Vat Information" = "Vat Information";
+"https://www.maroof.com/" = "https://www.maroof.com/";
+"Error" = "Error";
+"Connection Error" = "Connection Error";
+"please select logo." = "please select logo." ;
+"please select a service." = "please select a service.";
+"please select minimum one service." = "please select minimum one service." ;
+"Select - Date of Birth" = "Select - Date of Birth";
+"Done" = "Done" ;
+"Cancel" = "Cancel" ;
+"Please select education first" = "Please select education first";
+"Please select country first" = "Please select country first" ;
+"Email Sent Success" = "Email Sent Success" ;
+"I've agreed to the" = "I've agreed to the";
+"SA" = "SA";
+"Male" = "Male";
+"Female" = "Female" ;
+
+
+//Side menu
+"User Profile"="User Profile";
+"Branches"="Branches";
+"Products"="Products";
+"Orders"="Orders";
+"Invoices"="Invoices";
+"Returns"="Returns";
+"FBA Shipment"="FBA Shipment";
+"Drop Shipping"="Drop Shipping";
+"Services"="Services";
+"Promotions"="Promotions";
+"Subscription"="Subscription";
+"Product Photo Studio"="Product Photo Studio";
+"Help"="Help";
+"Seller Support"="Seller Support";
+"Send Us App Feedback"="Send Us App Feedback";
+"Change Language"="Change Language";
+"Sign Out"="Sign Out";
+"Discount Codes"="Discount Codes";
+
+
+//DashBoard
+"Hello"="Hello";
+"ID"="ID";
+"Home"="Home";
+"Your business is launched on Fynoo. Congrats!"="Your business is launched on Fynoo. Congrats!";
+"Learn how to get your first order"="Learn how to get your first order";
+"Previous 7 days"="Previous 7 days";
+"Last Year"="Last Year";
+"Manage Branches"="Manage Branches";
+"Manage Product"="Manage Product";
+"Manage Order"="Manage Order";
+"Manage Returns"="Manage Returns";
+"Manage FBA Shipment"="Manage FBA Shipment";
+"Manage Drop Shipping"="Manage Drop Shipping";
+"Manage Discount Code"="Manage Discount Code";
+"Manage Services"="Manage Services";
+
+//profile
+"Name"="Name";
+"Email"="Email";
+"Country"="Country";
+"City"="City";
+"Mobile Number"="Mobile Number";
+"Maroof Link"="Maroof Link";
+"Password"="Password";
+"Save"="Save";
+"Cancel"="Cancel";
+"Profile"="Profile";
+"Confirm Password"="Confirm Password";
+"New Password"="New Password";
+"Current Password"="Current Password";
+// subscriptionPackage List
+"Welcome, Let's Select Your Plan" = "Welcome, Let's Select Your Plan";
+"SAR" = "SAR";
+"/Month" = "/Month";
+"/Year" = "/Year" ;
+"BRONZE" = "BRONZE";
+"Trial" = "Trial" ;
+
+
+// Likes
+"New"="New";
+"This Week" = "This Week";
+"Earlier"="Earlier";
+"This Month"="This Month";
+"This Year"="This Year";
+"35m"="35m";
+"1d"="1d";
+"2d"="2d";
+"3d"="3d";
+"Hello"="Hello";
+"Branch"="Branch";
+
+
+
+// Subscription History
+
+"Search"= "Search";
+"Subscription History"="Subscription History";
+"Amount:"="Amount:";
+"to"="to";
+"Date:"="Date:";
+"Time Period:"="Time Period:";
+"Download Invoice"="Download Invoice";
+"   Search"="   Search";
+"Days"="Days";
+
+"Applied" = "Applied";
+"Please enter the agent discount code." = "Please enter the agent discount code.";
+"Are you sure you want to remove this coupon ?" = "Are you sure you want to remove this coupon ?";
+"Apply" = "Apply";
+"Dismiss" = "Dismiss";
+"agent" = "agent";
+"admin" = "admin" ;
+"YEAR" = "YEAR";
+"Year" = "Year";
+"MONTH" = "MONTH" ;
+"Month" = "Month";
+"bronze" = "bronze";
+"/mo" = "/mo" ;
+"/yr" = "/yr" ;
+"unlimited" = "unlimited" ;
+
+"Flat" = "Flat" ;
+"Discount" = "Discount";
+"% Discount" = "% Discount";
+"Expiry On" = "Expiry On" ;
+"Info" = "Info" ;
+"No data found." = "No data found.";
+"Total" = "Total" ;
+"(Inclusive of VAT)" = "(Inclusive of VAT)";
+"Remaining Amount" = "Remaining Amount" ;
+"Sub Total" = "Sub Total" ;
+"SAR " = "SAR ";
+
+"Start your Trial" = "Start your Trial";
+"Pay" = "Pay";
+"Plan Name :" = "Plan Name :";
+"Offer Available" = "Offer Available" ;
+"Subscription Duration : " =  "Subscription Duration : ";
+"only for" = "only for" ;
+"subscription, it should expire on" = "subscription, it should expire on" ;
+"(+)" = "(+)" ;
+"(-)" = "(-)" ;
+"PAY" = "PAY" ;
+"error" = "error";
+"Please select any payment method." = "Please select any payment method.";
+"COD is not available for this." = "COD is not available for this." ;
+"START TRIAL" = "START TRIAL";
+"PROCEED TO PAY" = "PROCEED TO PAY";
+"Original Price" = "Original Price";
+"Fynoo Discount" = "Fynoo Discount";
+"Estimated VAT" = "Estimated VAT";
+"Left amount from previous subscription" = "Left amount from previous subscription";
+"Coupon Value" = "Coupon Value";
+"Remaining of Total" = "Remaining of Total";
+"Use the wallet amount" = "Use the wallet amount";
+"Paying through Wallet" = "Paying through Wallet";
+"Pay Online" = "Pay Online";
+
+
+
+"Time Period :  TRIAL"="Time Period :  TRIAL";
+
+//Alert
+"YES"="YES";
+"NO"="NO";
+
+
+//Branch Detail
+"Open Now"="Open Now";
+"Closed Now"="Closed Now";
+"Always Closed"="Always Closed";
+"Always Open"="Always Open";
+"Online Store"="Online Store";
+"Store On Map"="Store On Map";
+"Permanently Closed"="Permanently Closed";
+
+//Product
+"Subscription Products:"="Subscription Products:";
+"Active Products:"="Active Products";
+"Inactive Products:"="Inactive Products";
+"Add Product"="Add Product";
+"Creation:  "="Creation:  ";
+"Status:  "="Status:  ";
+"Available:  "="Available:  ";
+"No. of Branches:  "="No. of Branches:  ";
+"ACTIVE"="ACTIVE";
+"INACTIVE"="INACTIVE";
+"DRAFT"="DRAFT";
+"Delete Product"="Delete Product";
+"Manage Products" = "Manage Products";
+"Type" = "Type";
+"Product" = "Product";
+"Service" = "Service";
+"General Information" = "General Information";
+"Scan Bar Code" = "Scan Bar Code";
+"Currency" = "Currency";
+"Product/Service Name" = "Product/Service Name";
+"Select Branch" = "Select Branch";
+"Description" = "Description";
+"Product Availiblity" = "Product Availiblity";
+"Online" = "Online";
+"In Store" = "In Store";
+"Product/Service Pictures" = "Product/Service Pictures";
+"Main" = "Main";
+"Video URL" = "Video URL";
+"Save As Draft" = "Save As Draft";
+"Next" = "Next";
+"Select Image From" = "Select Image From";
+"Take Photo" = "Take Photo";
+"Fynoo Gallery" = "Fynoo Gallery";
+"Device Gallery" = "Device Gallery";
+"View Photo" = "View Photo";
+"View Images" = "View Images";
+"Status" = "Status";
+"Active" = "Active";
+"No of Branches" = "No of Branches";
+"Specification" = "Specification";
+"Sale In" = "Sale In";
+"Retail" = "Retail";
+"Wholesale" = "Wholesale";
+"Payment Mode" = "Payment Mode";
+"COD" = "COD";
+"Product Return Policy Retail (Days)" = "Product Return Policy Retail (Days)";
+"Product Return Policy Wholesale (Days)" = "Product Return Policy Wholesale (Days)";
+"Stock Qty" = "Stock Qty";
+"Product Delivery Days" = "Product Delivery Days";
+"Retail" = "Retail";
+"Wholesale" = "Wholesale";
+"Retail Pricing" = "Retail Pricing";
+"Quantity" = "Quantity";
+"That can be Bought" = "That can be Bought";
+"Min" = "Min";
+"Max" = "Max";
+"Regular Price" = "Regular Price";
+"Discount" = "Discount";
+"Net Selling Price" = "Net Selling Price";
+"VAT" = "VAT";
+"Final Price" = "Final Price";
+"Categories" = "Categories";
+"Dimension" = "Dimension";
+"Weight" = "Weight";
+"Grams" = "Grams";
+"Height" = "Height";
+"Centimeter" = "Centimeter";
+"Width" = "Width";
+"Technical Description" = "Technical Description";
+"OR" = "OR";
+"Technical Description Attachment" = "Technical Description Attachment";
+"Add" = "Add";
+"Variant" = "Variant";
+"Warranty and Support Section" = "Warranty and Support Section";
+"Add Feature" = "Add Feature";
+"What is this?" = "What is this?";
+"Discount Price" = "Discount Price";
+"Vat Percentage" = "Vat Percentage";
+"Vat Amount" = "Vat Amount";
+"Final Price " = "Final Price ";
+"Max Qty" = "Max Qty";
+"That Can be Bought" = "That Can be Bought";
+"Min Qty" = "Min Qty";
+"Product Return Policy (Days)" = "Product Return Policy (Days)";
+"SAR" = "SAR";
+"Field Same As Online" = "Field Same As Online";
+// databank
+"Do You Want To Sell This Product's Data Information to Fynoo Data Bank?" = "Do You Want To Sell This Product's Data Information to Fynoo Data Bank?";
+"Product Data Bank" = "Product Data Bank";
+"Purchase Product Data" = "Purchase Product Data";
+"Product Listing" = "Product Listing";
+"By Product" = "By Product";
+"By Category" = "By Category";
+"Fynoo Product Data Bank" = "Fynoo Product Data Bank";
+"Purchased Product Data" = "Purchased Product Data";
+"Product Data  For Sale" = "Product Data  For Sale";
+"Available" = "Available";
+"View Details" = "View Details";
+"View Gallery" = "View Gallery";
+"Price" = "Price";
+"SAR" = "SAR";
+"Add" = "Add";
+"ADD" = "ADD";
+"Product Created" = "Product Created";
+"Products Created" = "Products Created";
+"No of Purchases" = "No of Purchases";
+"Status" = "Status";
+"Pending" = "Pending";
+"Expired" = "Expired";
+"Rejected" = "Rejected";
+"Product Description" = "Product Description";
+//Branch
+"Search The Business Type"="Search The Business Type";
+
+//Price History
+"Price History"="Price History";
+"View Price"="View Price";
+"Between"="Between";
+"Till Now"="Till Now";
+
+"Quantity"="Quantity";
+"That can be Bought"="That can be Bought";
+"Min"="Min";
+"Max"="Max";
+"Regular Price"="Regular Price";
+"Discount"="Discount";
+"Extra Promotion"="Extra Promotion";
+"Net Selling Price"="Net Selling Price";
+"VAT"="VAT";
+"Final Price"="Final Price";
+"Price Detail"="Price Detail";
+"Wholesale Price"="Wholesale Price";
+"Edit Product"="Edit Product";
+"Add Similar Product"="Add Similar Product";
+"Add Variant Product"="Add Variant Product";
+
+
+// Stock Update (Inventory)
+"Date Created"="Date Created";
+"Available Quantity"="Available Quantity";
+"Date updated"="Date updated";
+"Stock Update"="Stock Update";
+"Manage Invenvtory"="Manage Inventory";
+
+
+// newProductView
+"Product Details" = "Product Details";
+"Retail Price: " = "Retail Price: ";
+"Min. Order:" = "Min. Order:";
+"Pieces" = "Pieces";
+"(Vat Included)" = "(Vat Included)";
+"Save " = "Save ";
+"Wholesale Price: " = "Wholesale Price: ";
+"% OFF" = "% OFF";
+"Save " = "Save ";
+"Instore Quantity" = "Instore Quantity";
+"Product Delivery Days" = "Product Delivery Days" ;
+"Payment Mode" = "Payment Mode";
+"Delivery Option" = "Delivery Option";
+"Specifications" = "Specifications";
+"Hide Details" = "Hide Details";
+"More Details" = "More Details";
+"Warranty & Support" = "Warranty & Support";
+"Product Description" = "Product Description";
+"Ratings & Reviews" = "Ratings & Reviews";
+"rating and" = "rating and";
+"review" = "review";
+"k" = "k";
+"Check Out This Product" = "Check Out This Product";
+"Product Details" = "Product Details" ;
+"ADD TO CART" = "ADD TO CART" ;
+"OUT OF STOCK" = "OUT OF STOCK" ;
+"Go To Store" = "Go To Store" ;
+"Variant Products" = "Variant Products";
+"Return Policy" = "Return Policy" ;
+"No Return Policy" =  "No Return Policy";
+"Over" = "Over" ;
+"people likes this product." = "people likes this product.";
+"Earn by sharing the product. You will get commission when your friend buys it using your shared link." = "Earn by sharing the product. You will get commission when your friend buys it using your shared link." ;
+"Check Out This Product" = "Check Out This Product";
+"Click here to know more" = "Click here to know more";
+"Scan this QR code to know more about" = "Scan this QR code to know more about";
+
+
+// productDiscount
+
+"Discount Value" = "Discount Value";
+"Discount Type" = "Discount Type";
+"Amount off in (SAR)" = "Amount off in (SAR)";
+"Percentage off in (%)" = "Percentage off in (%)";
+"%" = "%";
+"Select Date" = "Select Date";
+"100" = "100" ;
+"0" = "0";
+"Are you sure you want to activate the discount ?";
+"No" = "No" ;
+"Yes" = "Yes" ;
+"Are you sure you want to activate the discount ?" = "Are you sure you want to activate the discount ?";
+"No discount found." = "No discount found.";
+"Manage Discount" = "Manage Discount" ;
+"You can not apply this discount." = "You can not apply this discount." ;
+"Discount Master" = "Discount Master" ;
+"1" = "1";
+"OFF" = "OFF";
+"2" = "2";
+"Quantity upto:" = "Quantity upto:";
+"Apply Discount Type:" =  "Apply Discount Type:";
+"Product" = "Product";
+"Add/Apply your discount." = "Add/Apply your discount.";
+"Add/Apply Discount" = "Add/Apply Discount";
+"Please Select By Cateogry in Apply Discount Type." = "Please Select By Cateogry in Apply Discount Type.";
+"Apply Discount Type" =  "Apply Discount Type";
+"By Category" = "By Category";
+"By Product" = "By Product" ;
+"Price:" = "Price:" ;
+"Discounted Price:" = "Discounted Price:" ;
+"Discounted Value:" = "Discounted Value:" ;
+"3" = "3";
+"Recent Transaction" = "Recent Transaction" ;
+"Go Back" = "Go Back";
+"Only active products added in Online store in retail mode will appear here"; = "Only active products added in Online store in retail mode will appear here";
+"Manage your Products" = "Manage your Products";
+"Message" = "Message";
+"Message" = "Message";
+"Are you sure you want to delete this discount." = "Are you sure you want to delete this discount.";
+"Are you sure you want to deactivate this discount ?" = "Are you sure you want to deactivate this discount ?";
+"Deactivating this discount will also remove the discount from selected products. Are you sure?" = "Deactivating this discount will also remove the discount from selected products. Are you sure?" ;
+"Activating this discount will also add the discount on selected products. Are you sure?" = "Activating this discount will also add the discount on selected products. Are you sure?" ;
+"Please select a category" = "Please select a category";
+"Please select at least one product" = "Please select at least one product" ;
+"Are your sure you want to apply the discount on selected products?" = "Are your sure you want to apply the discount on selected products?";
+"Are you sure you want to stop this discount on all products?" = "Are you sure you want to stop this discount on all products?";
+"Are you sure you want to apply this discount on all products?" = "Are you sure you want to apply this discount on all products?";
+"Please select start date first." = "Please select start date first.";
+
+// orderManagement
+
+"Oops! No Order Found" = "Oops! No Order Found";
+"Go Back" = "Go Back";
+"Manage Orders" = "Manage Orders";
+"Courier Delivery" = "Courier Delivery" ;
+"Self Delivery by Business Owner" = "Self Delivery by Business Owner" ;
+"Agent Delivery" = "Agent Delivery" ;
+"Invoices" = "Invoices" ;
+"Tracking Details" = "Tracking Details" ;
+"Order Status" = "Order Status" ;
+"Price Details" = "Price Details" ;
+"Business Owner to Customer" = "Business Owner to Customer" ;
+"Self Delivery By Business Owner" = "Self Delivery By Business Owner";
+"Company Name" = "Company Name" ;
+"Tracking Number" = "Tracking Number" ;
+"Short link" = "Short link" ;
+"Website link" = "Website link" ;
+"Order Placed Date" = "Order Placed Date" ;
+"Order Accepted Date" = "Order Accepted Date" ;
+"Shipped Date" = "Shipped Date";
+"Delivered Date" = "Delivered Date";
+"Type" = "Type";
+"Regular Price" = "Regular Price" ;
+"Discount Price" = "Discount Price" ;
+"Promotional Price" = "Promotional Price" ;
+"Net Selling Price" = "Net Selling Price" ;
+"Product Vat" = "Product Vat";
+"Final Price for Customer" = "Final Price for Customer";
+"Cancelled By Business Owner Date" = "Cancelled By Business Owner Date";
+"Cancelled By Customer Date" = "Cancelled By Customer Date" ;
+"Submit" = "Submit" ;
+
+"Search by Order Id, Product Title" = "Search by Order Id, Product Title";
+"Confirm to Accept" = "Confirm to Accept";
+"Please perform accept/reject on all products." = "Please perform accept/reject on all products.";
+"Customer has chosen Self Pick-Up, Do you want to accept?" = "Customer has chosen Self Pick-Up, Do you want to accept?";
+"Order Detail" = "Order Detail";
+"Order Id:" = "Order Id:" ;
+"Address :" = "Address :" ;
+"Qty:" = "Qty:" ;
+"Have you packed your product?" = "Have you packed your product?" ;
+"Enter the OTP sent to" = "Enter the OTP sent to" ;
+"Have you left your branch for delivery ?" = "Have you left your branch for delivery ?" ;
+"Is order is successfully delivered ?" = "Is order is successfully delivered ?" ;
+"Have you left your branch for delivery ?" = "Have you left your branch for delivery ?" ;
+"Fill Courier Details" = "Fill Courier Details" ;
+"Is Product Deliver ?" = "Is Product Deliver ?" ;
+"Go for Self Delivery" = "Go for Self Delivery" ;
+"Enter OTP" = "Enter OTP" ;
+"Product Packed" = "Product Packed" ;
+"Cancellation Details" = "Cancellation Details" ;
+"Customer mobile number" = "Customer mobile number";
+"Self pick up by customer" = "Self pick up by customer" ;
+"Waiting for Shipping Date" = "Waiting for Shipping Date";
+"Details" = "Details";
+"Reason For Cancellation" = "Reason For Cancellation" ;
+"Courier Details" = "Courier Details" ;
+"http://www.domain.com" = "http://www.domain.com" ;
+"http://www.domain.com/courier" = "http://www.domain.com/courier" ;
+"Enter Tracking Number" = "Enter Tracking Number" ;
+"Verify & Deliver" = "Verify & Deliver" ;
+"OTP Verification" = "OTP Verification" ;
+"Oops! No Reason Found" = "Oops! No Reason Found" ;
+"Cancel Reason" = "Cancel Reason" ;
+"Are your sure you want to reject?" = "Are your sure you want to reject?" ;
+"Are you sure you want to cancel this product?" = "Are you sure you want to cancel this product?" ;
+"Please select one Reason..." = "Please select one Reason..." ;
+
+
+// Drop Shipping
+"Commission Name"="Commission Name";
+"Select Product"="Salect Product";
+"Commission Type"="Commission Type";
+"Commission Value"="Commission Value";
+"Quantity Upto"="Quantity Upto";
+"Start Date & Time"="Start Date & Time";
+"End Date & Time"="End Date & Time";
+"Commission Master" = "Commission Master";
+"Commission of in (SAR)"="Commission of in (SAR)";
+"Commission of in Percent(%)"="Commission of in Percent(%)";
+"You can edit only end date"="You can edit only end date";
+"Percent cannot be greater than 100"="Percent cannot be greater than 100";
+"Please enter a valid number"="Please enter a valid number";
+"Please enter commission name"="Please enter commission name";
+"Please enter commission value"="Please enter commission value";
+"Please enter the max qty of product on which the  commission cab be applied "="Please enter the max qty of product on which the  commission cab be applied ";
+"Please select the commission type from 'commission type' field"="Please select the commission type from 'commission type' field";
+"Please select start date and time"="Please select start date and time";
+"Please select end date and time"="Please select end date and time";
+"StartDate Cannot be greater than enddate"="StartDate Cannot be greater than enddate";
+"Please select start date first"="Please select start date first";
+
+"Only active products added in Online store will appear here"="Only active products added in Online store will appear here";
+//"Please add/apply commission"="Please add/apply commission";
+"No Product Found"="No Product Found";
+"Please select atleast a product"="Please select atleast a product";
+"10% Fynoo Drop Shipping commission will be applicable "="10% Fynoo Drop Shipping commission will be applicable ";
+"Apply Commission Type"="Apply Commission Type";
+"By Category"="By Category";
+"By Product"="By Product";
+"Please select By Category in Apply Commission Type"="Please select By Category in Apply Commission Type";
+"Manage Drop Shipping"="Manage Drop Shipping";
+"Sales Product"="Sales Product";
+"Drop Shipping Sales :  "="Drop Shipping Sales :  ";
+"Drop Shipping Earning :  "="Drop Shipping Earning :  ";
+"Add Commission"="Add Commission";
+"Add New Commission"="Add New Commission";
+"Price:"="Price;"
+"Commission:"="Commission:"
+"Date:"="Date:"
+"%"="%";
+"Manage Commission" = "Manage Commission" ;
+"You cannot apply this commission"="You cannot apply this commission";
+"Commission cannot be applied"="Commission cannot be applied";
+
+"Are you sure you want to activate your Commission?"="Are you sure you want to activate your Commission?";"
+"Are you sure you want to deactivate your commission?" = "Are you sure you want to deactivate your commission?";
+"Are you sure you want to deactivate this commission?"="Are you sure you want to deactivate this commission?";
+"Are you sure you want to activate this commission?"="Are you sure you want to activate this commission?";"
+"Verification"="Verification";
+"Verify Your Account"="Verify Your Account"
+
+"Add/Apply Commissin"="Add/Apply Commission";
+
+// galler
+"Welcome, Let's Select Your Gallery"="Welcome, Let's Select Your Gallery";
+"Please select an Image"="Please select an Image";
+"No Data Found"="No Data Found";
+"No Product Found"="No Product Found";
+"View Images"="View Images";
+"Upload Images"="Upload Images";
+"Take Photo"="Take Photo";
+"Device Gallery"="Device Gallery";
+"Fynoo Gallery"="Fynoo Gallery";
+"Check Out This Image"="Check Out This Image";
+"Are you sure you want to delete this image"="Are you sure you want to delete this image";
+
+
+"Please enter valid Email" = "Please enter valid Email";
+"Please enter Email" = "Please enter Email";
+"Please enter password" = "Please enter password";
+"Enter platform name" = "Enter platform name";
+
+//Validation Sign up
+"Please enter name"="Please enter name";
+"Please enter Email"="Please enter Email";
+"Please enter confirm email"="Please enter confirm email";
+"Please enter country"="Please enter country";
+"Please enter city"="Please enter city";
+"Please enter mobile number"="Please enter mobile number";
+"Please enter password"="Please enter password";
+"Please enter confirm password"="Please enter confirm password";
+
+"Please enter valid Email"="Please enter valid Email";
+"Please enter valid confirm Email"="Please enter valid confirm Email";
+"Email and confirm email do not match"="Email and confirm email do not match";
+
+"Please enter 8 digit password"="Please enter 8 digit password";
+"Please enter 8 digit confirm password"="Please enter 8 digit confirm password";
+"Password and confirm password do not match"="Password and confirm password do not match";
+"Please check user policy"="Please check user policy";
+
+"Please enter valid OTP"="Please enter valid OTP";
+
+//Sign Up Agent
+"Agent Company Registration" ="Agent Company Registration";
+"Agent Personal Registration" ="Agent Personal Registration";
+"Services" = "Services";
+"Personal Details" = "Personal Details";
+"Basic Information" = "Basic Information";
+"Bank Details" = "Bank Details";
+"Vat Information" = "Vat Information";
+"https://www.maroof.com/" = "https://www.maroof.com/";
+"Error" = "Error";
+"Connection Error" = "Connection Error";
+"please select logo." = "please select logo." ;
+"please select a service." = "please select a service.";
+"please select minimum one service." = "please select minimum one service." ;
+"Select - Date of Birth" = "Select - Date of Birth";
+"Done" = "Done" ;
+"Cancel" = "Cancel" ;
+"Please select education first" = "Please select education first";
+"Please select country first" = "Please select country first" ;
+"Email Sent Success" = "Email Sent Success" ;
+"I've agreed to the" = "I've agreed to the";
+"SA" = "SA";
+"Male" = "Male";
+"Female" = "Female" ;
+"Uploaded VAT Certificate" = "Uploaded VAT Certificate";
+
+
+// sorting
+
+"A to Z"="A to Z";
+"Z to A"="Z to A";
+"Lowest to Highest Price"="Lowest to Highest Price";
+"Highest to Lowest Price"="Highest to Lowest Price";
+
+// filters
+
+"Product Data Bank"="Product Data Bank";
+"Purchased Product Data"= "Purchased Product Data";
+"Manage Drop Shipping"="Manage Drop Shipping";
+"Manage Commission"="Manage Commission";
+"Manage Discount"="Manage Discount";
+"Manage Branches"="Manage Branches";
+"Manage Products"="Manage Products";
+"Product"="Product";
+
+

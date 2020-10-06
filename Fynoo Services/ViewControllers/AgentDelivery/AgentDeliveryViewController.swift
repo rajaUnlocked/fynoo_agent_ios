@@ -31,10 +31,40 @@ class AgentDeliveryViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    func activateService(){
+        
+        let str = Service.activateService
+
+        let param = ["user_id":"231","lang_code":"EN","services":"2"]
+        ServerCalls.postRequest(str, withParameters: param) { (response, success) in
+            if success{
+                 self.getAgentData()
+                let value = response as! NSDictionary
+                let msg = value.object(forKey: "error_description") as! String
+                ModalController.showSuccessCustomAlertWith(title: "", msg: msg)
+                print(response)
+            }
+        }
+    }
+    
+    func deactivateService(){
+        
+        let str = Service.deactivateService
+
+        let param = ["user_id":"231","lang_code":"EN","services":"2"]
+        ServerCalls.postRequest(str, withParameters: param) { (response, success) in
+            if success{
+                print(response)
+                self.getAgentData()
+                let value = response as! NSDictionary
+                let msg = value.object(forKey: "error_description") as! String
+                ModalController.showSuccessCustomAlertWith(title: "", msg: msg)
+            }
+        }
+    }
+    
+    
     func getAgentData(){
-        
-        
-        
         
         let param = ["service_id":"2","user_id":"1060","lang_code":"en"]
         ServerCalls.postRequest(Service.deliveryDashboard, withParameters: param) { (response, success) in
@@ -44,7 +74,9 @@ class AgentDeliveryViewController: UIViewController {
                 if let body = response as? [String: Any] {
                     self.deliverData  = Mapper<deliveryDashboard>().map(JSON: body)
 
-                    
+                    print(self.deliverData?.data?.agent_information?.del_service_document ?? "","del_service_document")
+                    self.tableView.reloadData()
+                                      
                 }
             }
         }
@@ -62,7 +94,7 @@ class AgentDeliveryViewController: UIViewController {
         let param = ["service_id":"2","user_id":"1060","lang_code":"en","tab_id":"\(TripId)","next_page_no":"0"]
           ServerCalls.postRequest(Service.tripList, withParameters: param) { (response, success) in
               if success{
-                  print(response)
+               //   print(response)
                   if let body = response as? [String: Any] {
                       self.tripList  = Mapper<TripListInfo>().map(JSON: body)
 
@@ -87,6 +119,32 @@ class AgentDeliveryViewController: UIViewController {
         selectedVl = sender.tag
         getTripData()
        // tableView.reloadData()
+    }
+    
+    @objc func infoClicked(){
+        let vc = AddAmountViewController(nibName: "AddAmountViewController", bundle: nil)
+        vc.isFrom = true
+              vc.modalPresentationStyle = .overFullScreen
+              vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+              self.present(vc, animated: true, completion: nil)
+    }
+    
+   
+       
+    @objc func switchClicked(_ sender: UIButton){
+        print("switch")
+        
+        if sender.isSelected {
+            sender.isSelected = false
+           
+             deactivateService()
+            
+        }else{
+            sender.isSelected = true
+            activateService()
+        }
+        
+        tableView.reloadData()
     }
 }
 
@@ -139,7 +197,12 @@ extension AgentDeliveryViewController : UITableViewDataSource{
         }
         if indexPath.row == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "AgentDeliveryTableViewCell",for: indexPath) as! AgentDeliveryTableViewCell
-            
+            cell.switches.addTarget(self, action: #selector(switchClicked), for: .touchUpInside)
+            if deliverData?.data?.agent_information?.del_service_status == 1{
+                cell.switches.isSelected = true
+            }else{
+                cell.switches.isSelected = false
+            }
             cell.name.text = deliverData?.data?.agent_information?.name ?? ""
             cell.avgRating.text = "\(deliverData?.data?.agent_information?.avg_rating ?? 0)"
             cell.totalRating.text = "\(deliverData?.data?.agent_information?.total_rating ?? 0)"
@@ -149,13 +212,49 @@ extension AgentDeliveryViewController : UITableViewDataSource{
             cell.cod.text = "\(deliverData?.data?.del_accept_limit?.today_cod ?? 0)"
             if deliverData?.data?.agent_information?.del_service_document_uploaded == 1{
                 cell.delivery.image = UIImage(named: "accepted_tick")
+                //pending
+            }else if deliverData?.data?.agent_information?.del_service_document_uploaded == 2{
+                //approved
+                cell.delivery.image = UIImage(named: "grayTick")
+
+            }else if deliverData?.data?.agent_information?.del_service_document_uploaded == 3{
+                //reject
+                cell.delivery.image = UIImage(named: "cross-1")
+
+            }else if deliverData?.data?.agent_information?.del_service_document_uploaded == 4{
+                //edit & approve
+                cell.delivery.image = UIImage(named: "accepted_tick")
+
+            }else if deliverData?.data?.agent_information?.del_service_document_uploaded == 4{
+                //removed
+                cell.delivery.image = UIImage(named: "cross-1")
+
             }
             cell.editAmount.addTarget(self, action: #selector(editAmountClicked), for: .touchUpInside)
+            cell.infoClicked.addTarget(self, action: #selector(infoClicked), for: .touchUpInside)
+            
             
             cell.selectionStyle = .none
               return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "TripAchievementViewCell",for: indexPath) as! TripAchievementViewCell
+            
+            cell.excellentService.text = deliverData?.data?.agent_information?.trips_achievements?[0].trip_text
+            cell.excellentImg.sd_setImage(with: URL(string: deliverData?.data?.agent_information?.trips_achievements?[0].trip_icon ?? ""), placeholderImage: UIImage(named: "flag_placeholder.png"))
+            cell.excellentCount.text = "\(deliverData?.data?.agent_information?.trips_achievements?[0].trip_count ?? 0)"
+            
+            cell.attitudeName.text = deliverData?.data?.agent_information?.trips_achievements?[1].trip_text
+            cell.attitudeImg.sd_setImage(with: URL(string : deliverData?.data?.agent_information?.trips_achievements?[1].trip_icon ?? ""), placeholderImage: UIImage(named: "flag_placeholder.png"))
+            cell.attitudeCount.text = "\(deliverData?.data?.agent_information?.trips_achievements?[1].trip_count ?? 0)"
+//
+            cell.aboveLbl.text = deliverData?.data?.agent_information?.trips_achievements?[3].trip_text
+            cell.aboveImg.sd_setImage(with: URL(string: deliverData?.data?.agent_information?.trips_achievements?[3].trip_icon ?? ""), placeholderImage: UIImage(named: "flag_placeholder.png"))
+            cell.aboveCount.text = "\(deliverData?.data?.agent_information?.trips_achievements?[3].trip_count ?? 0)"
+//
+            cell.helpful.text = deliverData?.data?.agent_information?.trips_achievements?[2].trip_text
+            cell.helpfulImg.sd_setImage(with: URL(string: deliverData?.data?.agent_information?.trips_achievements?[2].trip_icon ?? ""), placeholderImage: UIImage(named: "flag_placeholder.png"))
+            cell.helpfulCount.text = "\(deliverData?.data?.agent_information?.trips_achievements?[2].trip_count ?? 0)"
+
             
             cell.selectionStyle = .none
             

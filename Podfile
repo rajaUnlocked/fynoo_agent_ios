@@ -18,6 +18,11 @@ pod 'AlamofireObjectMapper'
 pod 'ObjectMapper'
 pod 'SwiftyGif'
 pod 'SDWebImage'
+pod 'iOSDropDown'
+pod 'MTPopup'
+pod 'KWVerificationCodeView'
+pod 'PopupDialog', '~> 1.1'
+
 pod 'MTPopup'
 pod 'Cosmos', '~> 19.0'
 
