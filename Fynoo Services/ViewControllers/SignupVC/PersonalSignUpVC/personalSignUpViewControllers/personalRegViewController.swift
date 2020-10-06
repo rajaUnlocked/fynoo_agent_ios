@@ -1396,6 +1396,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         cell.ibanNumberTxtFld.text = ibanPrefix
         cell.accountHolderNameTxtFld.addTarget(self, action: #selector(PersonalRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         cell.ibanNumberTxtFld.addTarget(self, action: #selector(PersonalRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+         cell.ibanNumberTxtFld.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         
         if self.bankNameIdentifierList?.data?.count ?? 0 > 0 {
             let bankIdentifier  = self.bankNameIdentifierList?.data![0]
@@ -2078,4 +2079,15 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         }
         
     }
+    @objc func handleTextChange(_ textField: UITextField) {
+        
+    if textField.text!.count < 2 {
+      textField.keyboardType = .asciiCapable
+      textField.reloadInputViews() // need to reload the input view for this to work
+    } else if textField.text!.count > 2 || textField.text!.count == 2 {
+      textField.keyboardType = .asciiCapableNumberPad
+      textField.reloadInputViews()
+    }
+    }
+
 }
