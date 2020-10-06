@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeliveryDocumentViewController" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
                 <outlet property="headervw" destination="5wa-av-KRo" id="fmA-rf-NMh"/>
+                <outlet property="submit" destination="LiR-yZ-uGF" id="COw-YE-DUC"/>
                 <outlet property="tabvw" destination="Dcy-fO-4fR" id="aNZ-li-Lkr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -49,6 +50,9 @@
                             <real key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="sendforApproval:" destination="-1" eventType="touchUpInside" id="I0u-gH-YLt"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

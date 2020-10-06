@@ -151,7 +151,30 @@ class ServiceModel: NSObject {
                               }
                print(str,parameters,imgname
             )
-    if docfile == nil
+            if isType > 6
+            {
+             ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
+
+
+                         if let value = response as? NSDictionary{
+                             let error = value.object(forKey: "error") as! Int
+                             if error == 0{
+                                 if let body = response as? [String: Any] {
+                                     let val = Mapper<ServiceUpload>().map(JSON: response as! [String : Any])
+                                     completion(true, val)
+                                     return
+                                 }
+                                 completion(false,nil)
+                             }else{
+                                 completion(false, nil)
+
+                             }
+
+                         }
+                     }
+                
+            }
+    else if docfile == nil
     {
             ServerCalls.fileUploadAPINew(inputUrl: str, parameters: parameters, imageName: imgname, imageFile: imgfile!) { (response, success, resp) in
     
@@ -226,7 +249,7 @@ class ServiceModel: NSObject {
                          userId = ""
 
                        }
-        let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":userId,"primary_id":40] as [String : Any]
+        let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":userId,"primary_id":43] as [String : Any]
            print(str,parameters)
            ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
 
