@@ -136,6 +136,11 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
           self.tabView.separatorStyle = .none
         self.headerView.titleHeader.text = "Welcome, Let's Create An Account".localized
         headerView.viewControl = self
+        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+              
+        self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
+        self.headerView.titleHeader.textColor = Constant.Black_TEXT_COLOR
 
     }
     
@@ -770,7 +775,6 @@ func showHideConfirmPassword(_ sender: Any){
                 if success{
                     if let value = (response?.object(forKey: "data") as? NSDictionary)?.object(forKey: "mail_status") as? String{
                         ModalController.showSuccessCustomAlertWith(title: "", msg: value)
-                        
                         if value == "Email Sent Success".localized{
                             let vc = VerifyAccountViewController(nibName: "VerifyAccountViewController", bundle: nil)
                             vc.mobile = self.personalAgentSignUPModal.personalAgentContactNbr

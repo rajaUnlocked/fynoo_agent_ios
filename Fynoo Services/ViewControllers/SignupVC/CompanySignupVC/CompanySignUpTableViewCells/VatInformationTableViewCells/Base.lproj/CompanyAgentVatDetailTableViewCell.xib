@@ -24,10 +24,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agM-6D-uw5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="370"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you registered in VAT ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmg-lU-IQa">
-                                <rect key="frame" x="28" y="10" width="145.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you registered in VAT ?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmg-lU-IQa">
+                                <rect key="frame" x="28" y="10" width="264" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="145.5" id="1U0-My-v2R"/>
                                     <constraint firstAttribute="height" constant="21" id="zNL-cI-CyQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
@@ -54,9 +53,9 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzj-EI-sOn">
-                                        <rect key="frame" x="53" y="3.5" width="18.5" height="14"/>
+                                        <rect key="frame" x="53" y="3.5" width="30" height="14"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="18.5" id="hIg-BH-22l"/>
+                                            <constraint firstAttribute="width" constant="30" id="hIg-BH-22l"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
                                         <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -77,10 +76,7 @@
                                 <rect key="frame" x="25" y="86" width="270" height="244"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploaded VAT Certificate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jo-mD-abC">
-                                        <rect key="frame" x="10" y="10" width="141.5" height="14"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="141.5" id="6bO-i7-kkH"/>
-                                        </constraints>
+                                        <rect key="frame" x="10" y="10" width="260" height="14"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
                                         <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -153,6 +149,7 @@
                                     <constraint firstAttribute="bottom" secondItem="p6w-jU-yij" secondAttribute="bottom" constant="10" id="9SP-PT-GgR"/>
                                     <constraint firstItem="p6w-jU-yij" firstAttribute="leading" secondItem="sC6-xb-ndW" secondAttribute="leading" id="JKJ-LW-CqN"/>
                                     <constraint firstAttribute="height" constant="244" id="Unf-c2-0HM"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Jo-mD-abC" secondAttribute="trailing" id="atX-df-D0j"/>
                                     <constraint firstItem="p6w-jU-yij" firstAttribute="top" secondItem="2Jo-mD-abC" secondAttribute="bottom" constant="15" id="t3p-Jk-vWs"/>
                                 </constraints>
                             </view>
@@ -198,7 +195,7 @@
                                 <subviews>
                                     <textField opaque="NO" tag="1011" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your VAT Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6pv-DS-Dlk">
                                         <rect key="frame" x="10" y="11" width="190" height="13.5"/>
-                                        <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="10"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
@@ -231,6 +228,7 @@
                             <constraint firstItem="sC6-xb-ndW" firstAttribute="leading" secondItem="agM-6D-uw5" secondAttribute="leading" constant="25" id="KHD-fN-nyT"/>
                             <constraint firstAttribute="bottom" secondItem="e64-bg-FmY" secondAttribute="bottom" constant="15" id="TAb-wx-Wiy"/>
                             <constraint firstItem="e64-bg-FmY" firstAttribute="top" secondItem="sC6-xb-ndW" secondAttribute="bottom" id="W9K-2g-YVz"/>
+                            <constraint firstAttribute="trailing" secondItem="vmg-lU-IQa" secondAttribute="trailing" constant="28" id="ZGu-Eq-BJ8"/>
                             <constraint firstItem="hfb-F3-FZo" firstAttribute="leading" secondItem="agM-6D-uw5" secondAttribute="leading" constant="10" id="dwx-P0-dba"/>
                             <constraint firstItem="Yeu-fz-Qpi" firstAttribute="leading" secondItem="hfb-F3-FZo" secondAttribute="trailing" constant="10" id="hVJ-5R-kqB"/>
                             <constraint firstItem="hfb-F3-FZo" firstAttribute="top" secondItem="vmg-lU-IQa" secondAttribute="bottom" constant="12" id="nhK-D6-fG2"/>
