@@ -2079,6 +2079,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         }
         
     }
+    
     @objc func handleTextChange(_ textField: UITextField) {
         
     if textField.text!.count < 2 {
