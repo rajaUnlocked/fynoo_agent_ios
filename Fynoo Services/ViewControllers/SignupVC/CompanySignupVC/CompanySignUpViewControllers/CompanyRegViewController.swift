@@ -379,7 +379,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
             cam.delegate = self
             cam.allowsEditing = true
             cam.sourceType = .camera
-            self.present(cam, animated: true, completion: nil)
+            self.present(cam, animated: false, completion: nil)
         }else{
             print("no camera")
         }
@@ -390,7 +390,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
         gal.delegate = self
         gal.allowsEditing = true
         gal.sourceType = .photoLibrary
-        self.present(gal, animated: true, completion: nil)
+        self.present(gal, animated: false, completion: nil)
     }
     
     func selectedCategoryMethod(countryDict : NSMutableDictionary,tag:Int) {
@@ -645,7 +645,6 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
                 if success{
                     if let value = (response?.object(forKey: "data") as? NSDictionary)?.object(forKey: "mail_status") as? String{
                         ModalController.showSuccessCustomAlertWith(title: "", msg: value)
-                        
                         if value == "Email Sent Success".localized {
                             let vc = VerifyAccountViewController(nibName: "VerifyAccountViewController", bundle: nil)
                             vc.mobile = self.agentSignUPModal.agentPhoneNumber

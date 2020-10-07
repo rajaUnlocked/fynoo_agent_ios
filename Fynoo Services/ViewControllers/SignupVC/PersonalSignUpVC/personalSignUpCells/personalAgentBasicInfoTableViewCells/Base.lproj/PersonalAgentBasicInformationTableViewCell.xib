@@ -277,22 +277,22 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6wS-2n-gKc">
-                                        <rect key="frame" x="86" y="10.5" width="40" height="18"/>
+                                        <rect key="frame" x="86" y="10.5" width="45" height="18"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="2Tt-0W-UPb"/>
+                                            <constraint firstAttribute="width" constant="45" id="2Tt-0W-UPb"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OVW-kD-pD9">
-                                        <rect key="frame" x="126" y="10.5" width="173" height="18"/>
+                                        <rect key="frame" x="131" y="10.5" width="168" height="18"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QM-LZ-ErF">
-                                        <rect key="frame" x="41" y="0.0" width="85" height="39"/>
+                                        <rect key="frame" x="41" y="0.0" width="90" height="39"/>
                                         <connections>
                                             <action selector="mobileCodeDropDownClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="HK3-yq-flE"/>
                                         </connections>
