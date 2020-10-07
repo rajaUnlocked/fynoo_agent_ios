@@ -91,11 +91,17 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if isForLanguage{
-            let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
-            vc.delegate = self
-//            vc.isForLanguage = true
-  //          vc.langArr = agentinfo.langArr
+            
+            let vc = LanguageSelectionViewController(nibName: "LanguageSelectionViewController", bundle: nil)
+            vc.isFrom = true
+            print(agentinfo.langArr)
+            vc.selectedArray = agentinfo.langArr
             viewControl.navigationController?.pushViewController(vc, animated: true)
+//            let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
+//            vc.delegate = self
+////            vc.isForLanguage = true
+//  //          vc.langArr = agentinfo.langArr
+//            viewControl.navigationController?.pushViewController(vc, animated: true)
         }else{
             if agentinfo.serviceArr.contains(serviceList?[indexPath.row].service_id){
                 
@@ -117,7 +123,7 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
             cell.imgCheck.image = UIImage(named: "accepted_tick")
         }else{
             if agentinfo.serviceArr.contains(serviceList?[indexPath.row].service_id){
-                cell.imgCheck.image = UIImage(named: "tick")
+                cell.imgCheck.image = UIImage(named: "check")
             }else{
                 cell.imgCheck.image = UIImage(named: "uncheck")
             }

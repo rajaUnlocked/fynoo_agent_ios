@@ -173,6 +173,8 @@ enum Service {
 }
 
 enum Authentication {
+    static let changePassword = Constant.BASE_URL +    "customerapi/v2/changepassword/"
+
      static let viewDelivery =  Constant.BASE_URL + "bo_order_api/bo_delivery_charge_details/"
      static let deliverySaved =  Constant.BASE_URL + "bo_order_api/add_update_bo_delivery_charge/"
     static let CouriercompanyList =  Constant.BASE_URL + "bo_order_api/courier_company/"

@@ -31,7 +31,7 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
     
   
     
-    
+    var isFrom = false
     var selectedLanguageyDict : NSMutableDictionary = NSMutableDictionary()
     var filterListArray : NSMutableArray = NSMutableArray()
     var languageListArray : NSMutableArray = NSMutableArray()
@@ -50,6 +50,7 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
         self.searchField.placeholder = "Enter Language"
         languageListAPI()
         
+        print(selectedArray,"dhf")
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         searchField.font = UIFont(name:"\(fontNameLight)",size:12)
         self.customHeader.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
@@ -74,6 +75,11 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
     }
     
     @IBAction func customerBckClicked(_ sender: Any) {
+        
+        if isFrom {
+            self.navigationController?.popViewController(animated: true)
+            return
+        }
         var isLoginThere = false
         
         AuthorisedUser.shared.removeAuthorisedUser()
@@ -157,8 +163,13 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
                 if let value = (response?.object(forKey: "error_description") as? String) {
                     ModalController.showSuccessCustomAlertWith(title: "", msg: value)
                     
-                    let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
-                    self.navigationController?.pushViewController(vc, animated: true)
+                    if self.isFrom{
+                        self.navigationController?.popViewController(animated: true)
+                    }else{
+                        let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                   
                 }
                 
             }else{

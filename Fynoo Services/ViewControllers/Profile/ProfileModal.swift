@@ -94,7 +94,7 @@ class ProfileDataInfo : Mappable{
 class language_lists : Mappable{
     
     var id = 0
-    var lang_id = ""
+    var lang_id = 0
     var lang_name = ""
     
     required init?(map: Map) {}
@@ -147,9 +147,11 @@ class ProfileData : Mappable{
     var mobile_length = 0
     var phone_length = 0
     var profile_image = ""
+    var fynoo_id = ""
     required init?(map: Map) {}
     
     func mapping(map: Map) {
+        fynoo_id <- map["fynoo_id"]
         profile_image <- map["profile_image"]
         mobile_length <- map["mobile_length"]
         phone_length <- map["phone_length"]

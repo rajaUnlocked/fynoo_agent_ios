@@ -185,6 +185,14 @@ extension AgentDeliveryViewController : UITableViewDataSource{
 
         if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "AgentServiceList",for: indexPath) as! AgentServiceList
+            
+            
+            if selectedVl == 1001{
+                cell.statusView.backgroundColor = #colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1)
+            }else{
+                cell.statusView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+
+            }
             cell.name.text = tripList?.data?.trip_list?[indexPath.row].name ?? ""
             cell.orderId.text = "Order Id:\(tripList?.data?.trip_list?[indexPath.row].order_id ?? "")"
             cell.date.text  = tripList?.data?.trip_list?[indexPath.row].order_date ?? ""
@@ -238,6 +246,7 @@ extension AgentDeliveryViewController : UITableViewDataSource{
               return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "TripAchievementViewCell",for: indexPath) as! TripAchievementViewCell
+      
             
             cell.excellentService.text = deliverData?.data?.agent_information?.trips_achievements?[0].trip_text
             cell.excellentImg.sd_setImage(with: URL(string: deliverData?.data?.agent_information?.trips_achievements?[0].trip_icon ?? ""), placeholderImage: UIImage(named: "flag_placeholder.png"))

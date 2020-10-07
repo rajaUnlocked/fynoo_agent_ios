@@ -56,6 +56,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     var bankDetail = ["Bank Name","Card Holder Name","IBAN Number"]
     var sectionHeading = ["","Service","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
     var pdfVat = ""
+    var userType = ""
 
     var selectedCountryDict : NSMutableDictionary = NSMutableDictionary()
     var selectedCityDict : NSMutableDictionary = NSMutableDictionary()
@@ -69,16 +70,17 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
         tableVw.register(UINib(nibName: "ProfileServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileServiceTableViewCell");
         tableVw.register(UINib(nibName: "TwoButtonsTableViewCell", bundle: nil), forCellReuseIdentifier: "TwoButtonsTableViewCell");
 
-        if isPersonal{
-            basicInfo = ["Email","Country","City","Mobile Number","Maroof Link"]
-            sectionHeading = ["","Service","Personal Information","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
-        }
+     
 
+        headerView.viewControl = self
 
         headerView.titleHeader.text = "Profile"
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        agentInfo.langArr.removeAllObjects()
         getProfileData()
     }
-    
     func pdfThumbnail(url: URL, width: CGFloat = 240) -> UIImage? {
         guard let data = try? Data(contentsOf: url),
             
@@ -121,7 +123,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
             print(ACTIVATION)
         let mobile = agentInfo.mobileNo.replacingOccurrences(of: " ", with: "")
         let phone = agentInfo.phoneNo.replacingOccurrences(of: " ", with: "")
-        let parameter = ["user_id":"1060","lang_code":"EN","user_type":"AI","service_id":ACTIVATION,"name":agentInfo.name,"email":agentInfo.Email,"country_id":agentInfo.countryId,"dob":self.agentInfo.dob,"city_id":agentInfo.cityId,"mobile_code":agentInfo.mobileCode,"mobile_number":mobile,"phone_code":agentInfo.phCode,"phone_number":phone,"maroof_link":last,"bank_details_id":agentInfo.bankId,"bank_id":agentInfo.bankId,"bank_name":agentInfo.bankname,"card_holder_name":agentInfo.cardHolderName,"iban_no":agentInfo.iban,"vat_no":agentInfo.vatNo,"password":"","education_id":agentInfo.educationId,"major_id":agentInfo.majorId,"is_vat_upload":"\(isvatUpload)"] as [String : Any]
+        let parameter = ["user_id":"1060","lang_code":"EN","user_type":"\(userType)","service_id":ACTIVATION,"name":"hsdd","email":agentInfo.Email,"country_id":agentInfo.countryId,"dob":self.agentInfo.dob,"city_id":agentInfo.cityId,"mobile_code":agentInfo.mobileCode,"mobile_number":mobile,"phone_code":agentInfo.phCode,"phone_number":phone,"maroof_link":last,"bank_details_id":agentInfo.bankId,"bank_id":agentInfo.bankId,"bank_name":agentInfo.bankname,"card_holder_name":agentInfo.cardHolderName,"iban_no":agentInfo.iban,"vat_no":agentInfo.vatNo,"password":"","education_id":agentInfo.educationId,"major_id":agentInfo.majorId,"is_vat_upload":"\(isvatUpload)"] as [String : Any]
         
         print(parameter)
         
@@ -217,7 +219,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     }
     
     func getProfileData(){
-        let parameter = ["user_id":"1060",
+        let parameter = ["user_id":"\(Singleton.shared.getUserId())",
         "lang_code":"EN"]
         ServerCalls.postRequest(Service.getProfile, withParameters: parameter) { (response, success) in
             if let value = response as? NSDictionary{
@@ -239,13 +241,25 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                         }
                         let lang = self.profileInfo?.data?.language_list?.count
                         for i in 0..<lang!{
-                            print(self.profileInfo?.data?.language_list?[i].lang_name ?? 0,"jldkj")
-                            self.agentInfo.langArr.add(self.profileInfo?.data?.language_list?[i].lang_name ?? 0)
+                            print(self.profileInfo?.data?.language_list?[i].lang_id ?? 0,"jldkj")
+                            self.agentInfo.langArr.add("\(self.profileInfo?.data?.language_list?[i].lang_id ?? 0)")
                         }
                         
-                        print(self.agentInfo.langArr)
+                        print(self.agentInfo.langArr,"jnff")
                                                 
-                       
+                        self.userType = self.profileInfo?.data?.user_data?.user_type ?? ""
+
+                        if self.userType == "AC"{
+                            self.isPersonal = false
+                        }else{
+                             self.isPersonal = true
+                        }
+                        
+                        if self.isPersonal{
+                            self.basicInfo = ["Email","Country","City","Mobile Number","Maroof Link"]
+                            self.sectionHeading = ["","Service","Personal Information","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
+                             }
+                        
                         self.agentInfo.name = self.profileInfo?.data?.user_data?.name ?? ""
                         self.agentInfo.Email = self.profileInfo?.data?.user_data?.email ?? ""
                         self.agentInfo.country = self.profileInfo?.data?.user_data?.country ?? ""
@@ -258,7 +272,8 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                         self.agentInfo.mobileCode = self.profileInfo?.data?.user_data?.mobile_code ?? ""
                         let phone = self.profileInfo?.data?.user_data?.phone_number ?? ""
                         self.agentInfo.phoneNo =  self.customStringFormatting(of: phone)
-                        
+                        self.agentInfo.businessName = self.profileInfo?.data?.user_data?.name ?? ""
+
                         
                         self.agentInfo.phCode = self.profileInfo?.data?.user_data?.phone_code ?? ""
                         self.agentInfo.phFlag = self.profileInfo?.data?.user_data?.phone_flag ?? ""
@@ -371,6 +386,11 @@ extension UserProfileDetailsViewController : UITableViewDelegate{
             self.present(vc, animated: true, completion: nil)
         }
         
+        if "Password Information" == sectionHeading[indexPath.section]{
+            let vc = ChangePasswordViewController(nibName: "ChangePasswordViewController", bundle: nil)
+            vc.userInfo  = profileInfo
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
         
     }
@@ -525,7 +545,12 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             }else{
                 let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileDetailTableViewCell",for: indexPath) as! ProfileDetailTableViewCell
                 cell.delegate = self
-                
+                if isPersonal{
+                    cell.titleLbl.text = "Agent Personal"
+                }else{
+                    cell.titleLbl.text = "Agent Company"
+
+                }
                 if isEdit{
                     cell.editHeight.constant = 0
                     cell.editBtn.isHidden = true
@@ -687,18 +712,26 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         }
         return cell
     }
+//    let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
+//          vc.delegate = self
+//          vc.isFromCountryMobileCode = true
+//           vc.selectedCountryDict = self.selectedCountryCodeDict
+//          self.navigationController?.pushViewController(vc, animated: true)
     @objc func codeClicked(_ sender : UIButton){
         
         if sender.tag == 1098{
             let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
             vc.delegate = self
             ismobile = false
+            vc.isFromCountryMobileCode = true
+
     //        vc.isForCounrtyCode = true
             self.navigationController?.pushViewController(vc, animated: true)
         }else{
             let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
             vc.delegate = self
             ismobile = true
+              vc.isFromCountryMobileCode = true
     //        vc.isForCounrtyCode = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -724,25 +757,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(basicInfo[indexPath.row]) *", str1: "\(basicInfo[indexPath.row])", str2:" *" )
         
         print(basicInfo[indexPath.row],"sd")
-        if "Email" == basicInfo[indexPath.row]{
-            cell.contentView.insertSubview(cell.rotateVw, aboveSubview:cell.selectBtn )
-            cell.headingLbl.tag = 5
-            cell.headingLbl.delegate = self
-            cell.headingLbl.isHidden = false
-            cell.codeBtnWidth.constant = 0
-            cell.widthImg.constant = 0
-            cell.mobileCodeWidth.constant = 0
-            cell.selectBtn.isHidden = true
-
-            
-            //            cell.headingLbl.tag = 1
-            //            print(agentInfo.Email)
-            //            cell.headingLbl.text = agentInfo.Email
-            //            cell.headingLbl.isHidden = false
-            //            cell.contentView.insertSubview(cell.rotateVw, aboveSubview:cell.selectBtn )
-            cell.headingLbl.text = agentInfo.Email
-
-        }
+  
         if "Country" == basicInfo[indexPath.row]{
             cell.contentView.insertSubview(cell.selectBtn, aboveSubview: cell.rotateVw)
             cell.selectBtn.isHidden = false
@@ -822,6 +837,26 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
          
         }
         
+        if "Email" == basicInfo[indexPath.row]{
+              
+            //  cell.contentView.insertSubview(cell.rotateVw, aboveSubview:cell.selectBtn )
+              cell.headingLbl.tag = 1
+              cell.headingLbl.isUserInteractionEnabled = true
+              cell.headingLbl.isHidden = false
+              cell.codeBtnWidth.constant = 0
+              cell.widthImg.constant = 0
+              cell.mobileCodeWidth.constant = 0
+              cell.selectBtn.isHidden = true
+
+              
+              //            cell.headingLbl.tag = 1
+              //            print(agentInfo.Email)
+              //            cell.headingLbl.text = agentInfo.Email
+              //            cell.headingLbl.isHidden = false
+              //            cell.contentView.insertSubview(cell.rotateVw, aboveSubview:cell.selectBtn )
+            cell.headingLbl.text = agentInfo.Email
+
+          }
         return cell
     }
     func VatCell(indexPath : IndexPath) -> UITableViewCell{
@@ -888,6 +923,19 @@ extension UserProfileDetailsViewController : ProfileDetailTableViewCellDelegate{
 
 extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
     func selectedCountryCodeMethod(mobileCodeDict: NSMutableDictionary) {
+        if ismobile {
+            print(mobileCodeDict)
+            agentInfo.mobileNo = ""
+            agentInfo.mobileCode = mobileCodeDict.value(forKey: "mobile_code") as! String
+            agentInfo.mobileFlag = mobileCodeDict.value(forKey: "country_flag") as! String
+            agentInfo.mobileLength = mobileCodeDict.value(forKey: "mobile_length") as! Int
+        }else{
+            agentInfo.phoneNo = ""
+            agentInfo.phCode = mobileCodeDict.value(forKey: "mobile_code") as! String
+            agentInfo.phFlag = mobileCodeDict.value(forKey: "country_flag") as! String
+            agentInfo.phoneLength = mobileCodeDict.value(forKey: "mobile_length") as! Int
+        }
+        tableVw.reloadData()
     }
     
     func selectPhoneCodeMethod(phoneCodeDict: NSMutableDictionary) {
@@ -993,7 +1041,7 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
             }
         }
             
-        if textField.tag == 1002{
+      if textField.tag == 1002{
             let currentCount =  textField.text!.count
             let textCount = textField.text?.replacingOccurrences(of: " ", with: "").count
             let val = currentCount-textCount!

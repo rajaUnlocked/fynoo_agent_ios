@@ -28,7 +28,7 @@
                             <constraint firstAttribute="height" constant="38" id="iRI-Q7-yIK"/>
                         </constraints>
                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                        <state key="normal" image="edit"/>
+                        <state key="normal" image="edit_red"/>
                         <connections>
                             <action selector="editBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rK4-mf-5ds"/>
                         </connections>
@@ -322,12 +322,14 @@
                 <outlet property="likes" destination="5bu-bt-s3a" id="piO-I8-VYh"/>
                 <outlet property="productLbl" destination="zRG-z1-vPF" id="QgB-pG-jpE"/>
                 <outlet property="products" destination="q4c-C6-vXE" id="C23-MR-Eqe"/>
+                <outlet property="titleLbl" destination="p4t-zh-GvE" id="IwS-jj-6Q6"/>
+                <outlet property="titleView" destination="ve9-VZ-jCA" id="ON8-6Y-oJ6"/>
             </connections>
             <point key="canvasLocation" x="222.46376811594206" y="53.236607142857139"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="agentCompany" width="20" height="20"/>
-        <image name="edit" width="20" height="20"/>
+        <image name="edit_red" width="20" height="20"/>
     </resources>
 </document>
