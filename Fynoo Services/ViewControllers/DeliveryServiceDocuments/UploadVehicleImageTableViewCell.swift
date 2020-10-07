@@ -10,6 +10,7 @@ import UIKit
 
 class UploadVehicleImageTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var crossclicked: UIButton!
     @IBOutlet weak var uploadsaveVehicle: UIButton!
     @IBOutlet weak var vehicleimage: UIImageView!
     @IBOutlet weak var uploadvehicle: UIButton!

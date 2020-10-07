@@ -10,6 +10,18 @@ import UIKit
 
 class TripAchievementViewCell: UITableViewCell {
 
+    @IBOutlet weak var attitudeName: UILabel!
+    @IBOutlet weak var attitudeImg: UIImageView!
+    @IBOutlet weak var aboveCount: UILabel!
+    @IBOutlet weak var aboveLbl: UILabel!
+    @IBOutlet weak var aboveImg: UIImageView!
+    @IBOutlet weak var helpfulImg: UIImageView!
+    @IBOutlet weak var helpfulCount: UILabel!
+    @IBOutlet weak var helpful: UILabel!
+    @IBOutlet weak var attitudeCount: UILabel!
+    @IBOutlet weak var excellentImg: UIImageView!
+    @IBOutlet weak var excellentService: UILabel!
+    @IBOutlet weak var excellentCount: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -149,8 +149,9 @@ class Constant: NSObject {
 enum Service {
     
     
+    static let deactivateService = Constant.BASE_URL + "agentapis/v2/deactivate_services/"
     static let saveLanguage = Constant.BASE_URL + "agentapi/v1/save_language/"
-
+    static let activateService = Constant.BASE_URL + "agentapis/v2/activate_services/"
     static let languageList = Constant.BASE_URL + "agentapi/v1/agent_language_list/"
     static let userProfileData = Constant.BASE_URL + "businessapi/v1/GetUserDetails/"
     static let commisionlist = Constant.BASE_URL + "agentapis/v2/agent_commision/"

@@ -156,8 +156,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         }
         
         @objc func sideMenusettingsClicked(_ notification: NSNotification) {
-            let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
-            vc.showBack = true
+            let vc = AgentDeliveryViewController(nibName: "AgentDeliveryViewController", bundle: nil)
+          //  vc.showBack = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
         

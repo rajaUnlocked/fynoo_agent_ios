@@ -10,8 +10,12 @@ import UIKit
 import MTPopup
 import PDFKit
 import MobileCoreServices
-class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductViewControllerDelegate,OpenGalleryDelegate,UIDocumentPickerDelegate,UITextFieldDelegate {
+class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductViewControllerDelegate,OpenGalleryDelegate,UIDocumentPickerDelegate,UITextFieldDelegate,CommonPopupViewControllerDelegate,UITextViewDelegate {
+   
+    var reasonforvehicle = ""
     var tag1 = 0
+    var primaryid = 0
+    var isReasonForVehicle = false
     var upload:ServiceUpload?
     var topArr = ["Full Name","Date of Birth","National ID / Iqama ID","Date of Expiry"]
     var headertitlearr = ["Upload National Id / Iqama","Upload Driving License Front ","Upload Car Registration","Upload Car Insurance","Upload Driving Authorization","Upload Car Description"]
@@ -171,26 +175,124 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             }
         }
     }
-    
-    @IBAction func sendforApproval(_ sender: Any) {
-        submit.tag = 8
-        clickuploadclicked(submit)
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let touchPoint = textView.convert(CGPoint.zero, to: tabvw)
+              let clickedBtn = tabvw.indexPathForRow(at: touchPoint)
+              let row = Int(clickedBtn!.row)
+              let section = Int(clickedBtn!.section)
+              var textstr = ""
+              if let text1 = textView.text as NSString? {
+                  let txtAfterUpdate = text1.replacingCharacters(in: range, with: text)
+                  textstr = txtAfterUpdate
+              }
+              let cell = tabvw.cellForRow(at: IndexPath(row: row, section: section)) as! ReasonForChangeTableViewCell
+      
+      
+        if textstr.count > 0
+                              {
+                        
+                                      cell.txtvw.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+                                  }
+                             
+                              else
+                              {
+                                  
+                                  cell.txtvw.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                              }
+          reasonforvehicle = textstr
+
+        return true
     }
+    func yesBtnClicked(name: String, id: Int) {
+          submit.tag = 8
+         clickuploadclicked(submit)
+       }
+       
+       func yesBtnForActivate(name: String, id: Int, forActivate: Bool) {
+              print("noooo")
+       }
+    @IBAction func sendforApproval(_ sender: Any)
+       {
+        if servicelist?.data?.status ?? 0 == 1
+               {
+                   ModalController.showNegativeCustomAlertWith(title: " You cannot edit the form when it is pending for approval", msg: "")
+                                  return
+               }
+        if !imgIdArr[0]
+        {
+           ModalController.showNegativeCustomAlertWith(title: "Please filled National Id / Iqama", msg: "")
+            return
+        }
+        else if !imgIdArr[1]
+        {
+           ModalController.showNegativeCustomAlertWith(title: "Please filled Driving License Front ", msg: "")
+             return
+        }
+        else if !imgIdArr[2]
+        {
+           ModalController.showNegativeCustomAlertWith(title: "Please filled Car Registration", msg: "")
+             return
+        }
+        else if !imgIdArr[3]
+        {
+           ModalController.showNegativeCustomAlertWith(title: "Please filled Car Insurance", msg: "")
+             return
+        }
+        else if !imgIdArr[5]
+        {
+           ModalController.showNegativeCustomAlertWith(title: "Please filled Car Description", msg: "")
+             return
+        }
+        else if self.servicelist?.data?.reason_for_change ?? "" == ""
+        {
+           ModalController.showNegativeCustomAlertWith(title: "Please filled Car Description", msg: "")
+             return
+        }
+        
+          if self.servicelist?.data?.switch_vehicle ?? false{
+                let vc = CommonPopupViewController(nibName: "CommonPopupViewController", bundle: nil)
+                        vc.modalPresentationStyle = .overFullScreen
+                        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+                        vc.delegate =  self
+                        vc.isDoc = true
+            //            vc.name = name
+            //            vc.serviceID = id
+            //            vc.imgURL = "\((self.servicesArray.object(at: index) as! NSDictionary).object(forKey: "service_icon") as! String)"
+                        vc.setUI()
+                        self.present(vc, animated: true, completion: nil)
+              }
+          else{
+                 submit.tag = 8
+                   clickuploadclicked(submit)
+        }
+        }
+       
     func servicedocList_API()
     {
         ModalClass.startLoading(self.view)
+        service.primaryid = primaryid
         service.getservicedocument { (success, response) in
             ModalClass.stopLoading()
             if success
             {
                 self.servicelist = response
-                self.imgArr = [self.servicelist?.data?.national_id ?? "",self.servicelist?.data?.driving_license ?? "",self.servicelist?.data?.registration ?? "",self.servicelist?.data?.insurance ?? "",self.servicelist?.data?.authorization ?? ""]
-                self.imgIdArr = [self.servicelist?.data?.national_id_uploaded ?? false,self.servicelist?.data?.driving_license_uploaded ?? false,self.servicelist?.data?.registration_uploaded ?? false,self.servicelist?.data?.insurance_uploaded ?? false,self.servicelist?.data?.authorization_uploaded ?? false,self.upload?.data?.front_side ?? "" == "" ? false : true]
+                self.imgArr = [self.servicelist?.data?.national_id ?? "",self.servicelist?.data?.driving_license ?? "",self.servicelist?.data?.registration ?? "",self.servicelist?.data?.insurance ?? "",self.servicelist?.data?.authorization ?? "",self.servicelist?.data?.front_side ?? ""]
+                self.imgIdArr = [self.servicelist?.data?.national_id_uploaded ?? false,self.servicelist?.data?.driving_license_uploaded ?? false,self.servicelist?.data?.registration_uploaded ?? false,self.servicelist?.data?.insurance_uploaded ?? false,self.servicelist?.data?.authorization_uploaded ?? false,self.servicelist?.data?.front_side ?? "" == "" ? false : true,false]
                 self.descriparr = [self.servicelist?.data?.national_id_content ?? "", "",self.servicelist?.data?.registration_content ?? "", "",self.servicelist?.data?.authorization_content ?? ""]
                 self.toptxtArr = [self.servicelist?.data?.full_name ?? "",self.servicelist?.data?.dob ?? "",self.servicelist?.data?.iqama_no ?? "",self.servicelist?.data?.doe ?? ""]
                 self.txtArr = [self.servicelist?.data?.registration_type ?? "",self.servicelist?.data?.vehicle_brand ?? "",self.servicelist?.data?.vehicle_name ?? "",self.servicelist?.data?.production_year ?? "",self.servicelist?.data?.vehicle_color ?? "",self.servicelist?.data?.vehicle_kind ?? "",self.servicelist?.data?.maximum_load ?? "",self.servicelist?.data?.plate_no ?? ""]
                 self.txtIdArr = [self.servicelist?.data?.registration_type_id ?? 0,self.servicelist?.data?.vehicle_brand_id ?? 0 ,self.servicelist?.data?.vehicle_name_id ?? 0,0,self.servicelist?.data?.vehicle_color_id ?? 0,self.servicelist?.data?.vehicle_kind_id ?? 0,0,0]
-                
+                self.submit.setTitle("Submit for approval", for: .normal)
+                if self.servicelist?.data?.status ?? 0 == 1
+                {
+                self.submit.setTitle("Pending for approval", for: .normal)
+                }
+                if self.servicelist?.data?.front_side ?? "" != ""{
+                    self.vehicleKind_API(brandid: (self.servicelist?.data?.registration_type_id)!)
+                    self.vehicleName_API(brandid: (self.servicelist?.data?.vehicle_brand_id)!)
+                    ModalClass.stopLoadingAllLoaders(self.view)
+                }
+              
                 self.tabvw.reloadData()
             }
         }
@@ -214,39 +316,68 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 return false
             }
             
-            if row == 3
-            {
-                if textstr.count > 10
-                {
-                    return false
-                }
-                if !textstr.containArabicNumber
-                {
-                    return false
-                }
-                
-            }
-            
+           
             
             toptxtArr[row - 1] = textstr
             
+           if row == 1
+           {
             if textstr.count > 0
-            {
-                if !textstr.containArabicNumber
-                {
-                    cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
-                }
-                else
-                {
-                    cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
-                }
-                
+                       {
+                           if !textstr.containArabicNumber
+                           {
+                               cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                           }
+                           else
+                           {
+                             
+                               cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+                           }
+                           
+                       }
+                           
+                       else
+                       {
+                           
+                           cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                       }
             }
-                
-            else
+            else if row == 3
+           {
+
+            if textstr.count > self.servicelist?.data?.iqama_length ?? 0
             {
-                
-                cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                return false
+            }
+            if !textstr.containArabicNumber
+            {
+                return false
+            }
+            if textstr.count > 0
+                       {
+                           if !textstr.containArabicNumber
+                           {
+                               cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                           }
+                           else
+                           {
+                             if textstr.count == self.servicelist?.data?.iqama_length ?? 0
+                             {
+                             cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+                            }
+                             else{
+                             cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                            }
+                              
+                           }
+                           
+                       }
+                           
+                       else
+                       {
+                           
+                           cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                       }
             }
         }
         else{
@@ -433,12 +564,40 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     }
     @objc func clickcrossed(_ sender:UIButton)
     {
+        if servicelist?.data?.status ?? 0 == 1
+               {
+                   ModalController.showNegativeCustomAlertWith(title: " You cannot edit the form when it is pending for approval", msg: "")
+                                  return
+               }
         imglocalArr[sender.tag] = nil
         imgIdArr[sender.tag] = false
         tabvw.reloadData()
     }
+    @objc func clickremoveimage(_ sender:UIButton)
+       {
+        if servicelist?.data?.status ?? 0 == 1
+               {
+                   ModalController.showNegativeCustomAlertWith(title: " You cannot edit the form when it is pending for approval", msg: "")
+                                  return
+               }
+        imglocalArr[sender.tag] = nil
+//        imgArr[sender.tag] = ""
+        tabvw.reloadData()
+    }
+    @objc func clickedaddnewcar()
+    {
+            let vc = DeliveryDocumentViewController(nibName: "DeliveryDocumentViewController", bundle: nil)
+            vc.primaryid = self.servicelist?.data?.new_upload_id ?? 0
+        vc.isReasonForVehicle = true
+            self.navigationController?.pushViewController(vc, animated: true)
+    }
     @objc func clickuploadclicked(_ sender:UIButton)
     {
+        if servicelist?.data?.status ?? 0 == 1
+        {
+            ModalController.showNegativeCustomAlertWith(title: " You cannot edit the form when it is pending for approval", msg: "")
+                           return
+        }
         if sender.tag == 0
         {
             if toptxtArr[0] == ""
@@ -536,6 +695,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             }
               service.sendforapproval = "0"
         }
+            else if sender.tag == 7
+            {
+              service.sendforapproval = "0"
+                service.isType = 7
+                service.reasonchange = reasonforvehicle
+            }
         else if sender.tag == 8
         {
           service.sendforapproval = "1"
@@ -577,18 +742,18 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         print(sender.tag)
         ModalClass.startLoading(self.view)
         
-        service.primaryid = 43
+        service.primaryid = primaryid
         service.uploadImage { (success, response) in
             ModalClass.stopLoading()
             if success
             {
                
-                self.upload = response
-                self.imgArr = [self.upload?.data?.national_id ?? "",self.upload?.data?.driving_license ?? "",self.upload?.data?.registration ?? "",self.upload?.data?.insurance ?? "",self.upload?.data?.authorization ?? ""]
-                self.imgIdArr = [self.upload?.data?.national_id_uploaded ?? false,self.upload?.data?.driving_license_uploaded ?? false,self.upload?.data?.registration_uploaded ?? false,self.upload?.data?.insurance_uploaded ?? false,self.upload?.data?.authorization_uploaded ?? false,self.upload?.data?.front_side ?? "" == "" ? false : true]
-                self.descriparr = [self.upload?.data?.national_id_content ?? "", "",self.upload?.data?.registration_content ?? "", "",self.upload?.data?.authorization_content ?? ""]
-                self.toptxtArr = [self.upload?.data?.full_name ?? "",self.upload?.data?.dob ?? "",self.upload?.data?.iqama_no ?? "",self.upload?.data?.doe ?? ""]
-                self.txtArr = [self.upload?.data?.registration_type ?? "",self.upload?.data?.vehicle_brand ?? "",self.upload?.data?.vehicle_name ?? "",self.upload?.data?.production_year ?? "",self.upload?.data?.vehicle_color ?? "",self.upload?.data?.vehicle_kind ?? "",self.upload?.data?.maximum_load ?? "",self.upload?.data?.plate_no ?? ""]
+                self.servicelist = response
+                self.imgArr = [self.servicelist?.data?.national_id ?? "",self.servicelist?.data?.driving_license ?? "",self.servicelist?.data?.registration ?? "",self.servicelist?.data?.insurance ?? "",self.servicelist?.data?.authorization ?? ""]
+                 self.imgIdArr = [self.servicelist?.data?.national_id_uploaded ?? false,self.servicelist?.data?.driving_license_uploaded ?? false,self.servicelist?.data?.registration_uploaded ?? false,self.servicelist?.data?.insurance_uploaded ?? false,self.servicelist?.data?.authorization_uploaded ?? false,self.servicelist?.data?.front_side ?? "" == "" ? false : true,self.servicelist?.data?.reason_for_change ?? "" == "" ? false : true]
+                self.descriparr = [self.servicelist?.data?.national_id_content ?? "", "",self.servicelist?.data?.registration_content ?? "", "",self.servicelist?.data?.authorization_content ?? ""]
+                self.toptxtArr = [self.servicelist?.data?.full_name ?? "",self.servicelist?.data?.dob ?? "",self.servicelist?.data?.iqama_no ?? "",self.servicelist?.data?.doe ?? ""]
+                self.txtArr = [self.servicelist?.data?.registration_type ?? "",self.servicelist?.data?.vehicle_brand ?? "",self.servicelist?.data?.vehicle_name ?? "",self.servicelist?.data?.production_year ?? "",self.servicelist?.data?.vehicle_color ?? "",self.servicelist?.data?.vehicle_kind ?? "",self.servicelist?.data?.maximum_load ?? "",self.servicelist?.data?.plate_no ?? ""]
                 self.tabvw.reloadData()
             }
         }
@@ -672,9 +837,16 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         cell.downarrow.isHidden = false
         cell.txt.delegate = self
         cell.txt.isUserInteractionEnabled = false
-        if index.row == 4 || index.row == 7 || index.row == 8
+        cell.txt.keyboardType = .default
+        if index.row == 4 || index.row == 7
         {
             cell.txt.isUserInteractionEnabled = true
+            cell.downarrow.isHidden = true
+            cell.txt.keyboardType = .asciiCapableNumberPad
+        }
+        if index.row == 8
+        {
+         cell.txt.isUserInteractionEnabled = true
             cell.downarrow.isHidden = true
         }
         cell.toplbl.text = vehicledescriparr[index.row - 1]
@@ -754,11 +926,15 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         }
         if section == 1
         {
-            if SelectedIndex.contains(section)
+            if self.servicelist?.data?.show_iqama_section ?? false
             {
-                return 6
+               if SelectedIndex.contains(section)
+                           {
+                               return 6
+                           }
+                           return 1
             }
-            return 1
+           return 0
         }
         if section == headerarr.count - 1
         {
@@ -770,7 +946,10 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         }
         if section == headerarr.count
         {
-            
+            if isReasonForVehicle
+            {
+                return 2
+            }
             return 0
         }
         if section == headerarr.count + 1
@@ -789,7 +968,12 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         switch indexPath.section {
         case 0:
             let cell = tabvw.dequeueReusableCell(withIdentifier: "ServiceHeaderTableViewCell", for: indexPath) as! ServiceHeaderTableViewCell
-            
+             cell.clickednewcar.isHidden = true
+            if self.servicelist?.data?.new_upload_enable ?? false{
+                cell.clickednewcar.isHidden = false
+                
+            }
+            cell.clickednewcar.addTarget(self, action: #selector(clickedaddnewcar), for: .touchUpInside)
             return cell
         case 1:
             if indexPath.row == 0
@@ -840,9 +1024,21 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "UploadVehicleImageTableViewCell", for: indexPath) as! UploadVehicleImageTableViewCell
                 cell.uploadvehicle.tag = indexPath.section - 1
                 cell.uploadvehicle.addTarget(self, action: #selector(clickedvehicleUpload(_:)), for: .touchUpInside)
-                cell.vehicleimage.sd_setImage(with: URL(string:self.servicelist?.data?.vehicle_kind_image ?? ""), placeholderImage: UIImage(named: "passport"))
-                cell.vehicleimage.image = imglocalArr[indexPath.section - 1]
+                if self.servicelist?.data?.front_side ?? "" != ""
+                {
+                 cell.vehicleimage.sd_setImage(with: URL(string:self.servicelist?.data?.front_side ?? ""), placeholderImage: UIImage(named: "vehicle"))
+                    cell.crossclicked.isHidden = false
+                    cell.uploadvehicle.isUserInteractionEnabled = false
+                }
+                else{
+                     cell.crossclicked.isHidden = true
+                    cell.vehicleimage.image = imglocalArr[indexPath.section - 1]
+                    cell.uploadvehicle.isUserInteractionEnabled = true
+                }
+               
                 cell.uploadsaveVehicle.tag = indexPath.section - 1
+                 cell.crossclicked.tag = indexPath.section - 1
+                 cell.crossclicked.addTarget(self, action: #selector(clickremoveimage(_:)), for: .touchUpInside)
                 cell.uploadsaveVehicle.addTarget(self, action: #selector(clickuploadclicked(_:)), for: .touchUpInside)
                 return cell
             }
@@ -854,6 +1050,15 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             }
             else{
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "ReasonForChangeTableViewCell", for: indexPath) as! ReasonForChangeTableViewCell
+                cell.upload.tag = 7
+                cell.upload.addTarget(self, action: #selector(clickuploadclicked(_:)), for: .touchUpInside)
+                cell.txtvw.delegate = self
+                cell.txtvw.text = reasonforvehicle
+                if reasonforvehicle == ""
+                {
+                      cell.txtvw.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                }
+               
                 return cell
             }
         case headerarr.count + 1 :
@@ -907,7 +1112,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         }
         if indexPath.section == headerarr.count - 1
         {
-            if indexPath.row > 0
+            if indexPath.row > 0 && indexPath.row < 9
             {
                 let vc = BottomPopupEditProductViewController(nibName: "BottomPopupEditProductViewController", bundle: nil)
                 vc.tag1 = indexPath.row - 1
