@@ -643,7 +643,7 @@ func showHideConfirmPassword(_ sender: Any){
      func phoneCodeClicked(_ sender: Any) {
         
      }
-    
+
     func AgentselectYesOnVat(_ sender: Any) {
         
         if(isVatYesClicked) {
