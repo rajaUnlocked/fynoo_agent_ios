@@ -318,7 +318,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             
            
             
-            toptxtArr[row - 1] = textstr
+           
             
            if row == 1
            {
@@ -379,6 +379,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                            cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
                        }
             }
+             toptxtArr[row - 1] = textstr
         }
         else{
             if row == 4
@@ -606,18 +607,18 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 ModalController.showNegativeCustomAlertWith(title: "please Enter User Name", msg: "")
                 return
             }
-            else if toptxtArr[1] == ""
+           if toptxtArr[1] == ""
             {
                 ModalController.showNegativeCustomAlertWith(title: "please Select DOB", msg: "")
                 return
             }
-            else if toptxtArr[2] == ""
+             if toptxtArr[2] == ""
             {
               
                 ModalController.showNegativeCustomAlertWith(title: "please Enter National ID", msg: "")
                 return
             }
-                else if toptxtArr[2].count > 0
+                 if toptxtArr[2].count > 0
                 {
             if toptxtArr[2].count != (self.servicelist?.data?.iqama_length ?? 0)
                 {
@@ -625,11 +626,11 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     return
                 }
                 }
-            else if toptxtArr[3] == ""{
+            if toptxtArr[3] == ""{
                 ModalController.showNegativeCustomAlertWith(title: "please Select DOE", msg: "")
                 return
             }
-            else if  imglocalArr[sender.tag] == nil && documentlocalArr[sender.tag] == nil {
+            if  imglocalArr[sender.tag] == nil && documentlocalArr[sender.tag] == nil {
                 ModalController.showNegativeCustomAlertWith(title: "please Upload National Id / Iqama", msg: "")
                 return
             }
@@ -653,58 +654,59 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 ModalController.showNegativeCustomAlertWith(title: "please Select Registration Type ", msg: "")
                 return
             }
-            else if txtArr[1] == ""
+             if txtArr[1] == ""
             {
                 ModalController.showNegativeCustomAlertWith(title: "please Select Vehicle Brand", msg: "")
                 return
             }
-            else if txtArr[2] == ""
+             if txtArr[2] == ""
             {
                 ModalController.showNegativeCustomAlertWith(title: "please Select Vehicle Name", msg: "")
                 return
             }
-            else if txtArr[3] == ""{
+            if txtArr[3] == ""{
                 ModalController.showNegativeCustomAlertWith(title: "please Enter Production Year", msg: "")
                 return
             }
-             else if txtArr[3].count > 0
+              if txtArr[3].count > 0
             {
              if txtArr[3].count != 4{
                               ModalController.showNegativeCustomAlertWith(title: "please Check Production Year", msg: "")
                                return
                            }
             }
-            else if txtArr[4] == ""{
+            if txtArr[4] == ""{
                 ModalController.showNegativeCustomAlertWith(title: "please Select Vehicle Color", msg: "")
                 return
             }
-            else if txtArr[5] == ""{
+            if txtArr[5] == ""{
                 ModalController.showNegativeCustomAlertWith(title: "please Select Vehicle kind", msg: "")
                 return
             }
-            else if txtArr[6] == ""{
+            if txtArr[6] == ""{
                 ModalController.showNegativeCustomAlertWith(title: "please Enter Maximum Load ", msg: "")
                 return
             }
-                else if txtArr[6].count > 0
+                 if txtArr[6].count > 0
             {
              if txtArr[6].count != (self.servicelist?.data?.maximum_load_allowed ?? 0){
                              ModalController.showNegativeCustomAlertWith(title: "please Check Maximum Load ", msg: "")
                               return
                           }
             }
-            else if txtArr[7] == ""{
+            if txtArr[7] == ""{
                 ModalController.showNegativeCustomAlertWith(title: "please Enter Plat Number", msg: "")
                 return
             }
-                else if txtArr[7].count > 0
+                if txtArr[7].count > 0
             {
-            if txtArr[7].count >= (self.servicelist?.data?.plate_no_min_length ?? 0){
+                print("vnknnjjknk \(self.servicelist?.data?.plate_no_min_length ?? 0)")
+            if txtArr[7].count < (self.servicelist?.data?.plate_no_min_length ?? 0)  {
                    ModalController.showNegativeCustomAlertWith(title: "please Check Plat Number", msg: "")
                     return
                 }
             }
-            else if  imglocalArr[sender.tag] == nil && documentlocalArr[sender.tag] == nil {
+        if  imglocalArr[sender.tag] == nil && documentlocalArr[sender.tag] == nil {
                 ModalController.showNegativeCustomAlertWith(title: "please Upload the Front side Photo", msg: "")
                 return
             }
@@ -751,12 +753,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     ModalController.showNegativeCustomAlertWith(title: "please Upload Driving License Front", msg: "")
                     return
                 }
-                else if sender.tag == 2
+                if sender.tag == 2
                 {
                     ModalController.showNegativeCustomAlertWith(title: "please Upload Car Registration", msg: "")
                     return
                 }
-                else if sender.tag == 3
+                if sender.tag == 3
                 {
                     ModalController.showNegativeCustomAlertWith(title: "please Upload Car Insurance", msg: "")
                     return
