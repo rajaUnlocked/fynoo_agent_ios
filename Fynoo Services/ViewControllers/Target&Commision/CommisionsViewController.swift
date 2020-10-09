@@ -104,7 +104,13 @@ extension CommisionsViewController:UITableViewDataSource,UITableViewDelegate
         }
       
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row >= 2 && indexPath.row < (self.commisionlist?.data?.services?.count ?? 0) + 2
+        {
+        let vc = CommisionDetailsViewController(nibName: "CommisionDetailsViewController", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0
             {

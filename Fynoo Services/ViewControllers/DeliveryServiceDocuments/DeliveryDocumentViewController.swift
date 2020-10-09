@@ -104,7 +104,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         {
             if self.toptxtArr[1] == ""
             {
-                ModalController.showNegativeCustomAlertWith(title: "please Select DOB First ", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Select DOB First ", msg: "")
                 return
             }
             minDate =  self.fdate
@@ -621,18 +621,18 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         {
             if toptxtArr[0] == ""
             {
-                ModalController.showNegativeCustomAlertWith(title: "please Enter User Name", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Enter User Name", msg: "")
                 return
             }
            if toptxtArr[1] == ""
             {
-                ModalController.showNegativeCustomAlertWith(title: "please Select DOB", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Select DOB", msg: "")
                 return
             }
              if toptxtArr[2] == ""
             {
               
-                ModalController.showNegativeCustomAlertWith(title: "please Enter National ID", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Enter National ID", msg: "")
                 return
             }
                  if toptxtArr[2].count > 0
@@ -644,11 +644,11 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 }
                 }
             if toptxtArr[3] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "please Select DOE", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Select DOE", msg: "")
                 return
             }
             if  imglocalArr[sender.tag] == nil && documentlocalArr[sender.tag] == nil {
-                ModalController.showNegativeCustomAlertWith(title: "please Upload National Id / Iqama", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Upload National Id / Iqama", msg: "")
                 return
             }
             service.username = toptxtArr[0]
@@ -668,63 +668,63 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         {
             if txtArr[0] == ""
             {
-                ModalController.showNegativeCustomAlertWith(title: "please Select Registration Type ", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Select Registration Type ", msg: "")
                 return
             }
              if txtArr[1] == ""
             {
-                ModalController.showNegativeCustomAlertWith(title: "please Select Vehicle Brand", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Select Vehicle Brand", msg: "")
                 return
             }
              if txtArr[2] == ""
             {
-                ModalController.showNegativeCustomAlertWith(title: "please Select Vehicle Name", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Select Vehicle Name", msg: "")
                 return
             }
             if txtArr[3] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "please Enter Production Year", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Enter Production Year", msg: "")
                 return
             }
               if txtArr[3].count > 0
             {
              if txtArr[3].count != 4{
-                              ModalController.showNegativeCustomAlertWith(title: "please Check Production Year", msg: "")
+                              ModalController.showNegativeCustomAlertWith(title: "Please Check Production Year", msg: "")
                                return
                            }
             }
             if txtArr[4] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "please Select Vehicle Color", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Select Vehicle Color", msg: "")
                 return
             }
             if txtArr[5] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "please Select Vehicle kind", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Select Vehicle kind", msg: "")
                 return
             }
             if txtArr[6] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "please Enter Maximum Load ", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Enter Maximum Load ", msg: "")
                 return
             }
                  if txtArr[6].count > 0
             {
              if txtArr[6].count != (self.servicelist?.data?.maximum_load_allowed ?? 0){
-                             ModalController.showNegativeCustomAlertWith(title: "please Check Maximum Load ", msg: "")
+                             ModalController.showNegativeCustomAlertWith(title: "Please Check Maximum Load ", msg: "")
                               return
                           }
             }
             if txtArr[7] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "please Enter Plat Number", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Enter Plat Number", msg: "")
                 return
             }
                 if txtArr[7].count > 0
             {
                 print("vnknnjjknk \(self.servicelist?.data?.plate_no_min_length ?? 0)")
             if txtArr[7].count < (self.servicelist?.data?.plate_no_min_length ?? 0)  {
-                   ModalController.showNegativeCustomAlertWith(title: "please Check Plat Number", msg: "")
+                   ModalController.showNegativeCustomAlertWith(title: "Please Check Plat Number", msg: "")
                     return
                 }
             }
         if  imglocalArr[sender.tag] == nil && documentlocalArr[sender.tag] == nil {
-                ModalController.showNegativeCustomAlertWith(title: "please Upload the Front side Photo", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Upload the Front side Photo", msg: "")
                 return
             }
             service.regtype = "\(txtIdArr[0])"
@@ -751,7 +751,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 service.isType = 7
                 if reasonforvehicle == ""
                 {
-                    ModalController.showNegativeCustomAlertWith(title: "please Fill Reason For Vehicle Change", msg: "")
+                    ModalController.showNegativeCustomAlertWith(title: "Please Fill Reason For Vehicle Change", msg: "")
                 return
                 }
                 service.reasonchange = reasonforvehicle
@@ -767,17 +767,17 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             {
                 if sender.tag == 1
                 {
-                    ModalController.showNegativeCustomAlertWith(title: "please Upload Driving License Front", msg: "")
+                    ModalController.showNegativeCustomAlertWith(title: "Please Upload Driving License Front", msg: "")
                     return
                 }
                 if sender.tag == 2
                 {
-                    ModalController.showNegativeCustomAlertWith(title: "please Upload Car Registration", msg: "")
+                    ModalController.showNegativeCustomAlertWith(title: "Please Upload Car Registration", msg: "")
                     return
                 }
                 if sender.tag == 3
                 {
-                    ModalController.showNegativeCustomAlertWith(title: "please Upload Car Insurance", msg: "")
+                    ModalController.showNegativeCustomAlertWith(title: "Please Upload Car Insurance", msg: "")
                     return
                 }
                 else{

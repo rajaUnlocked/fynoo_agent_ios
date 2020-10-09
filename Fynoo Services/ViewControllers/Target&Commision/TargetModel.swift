@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import ObjectMapper
 class TargetModel: NSObject {
+    var serviceid = ""
     func commisionlist(completion:@escaping(Bool, CommisionList?) -> ()) {
 
         let str = "\(Service.commisionlist)"
@@ -72,6 +73,37 @@ class TargetModel: NSObject {
                }
            }
        }
+    func commisiondetails(completion:@escaping(Bool, CommisionDetail?) -> ()) {
+
+              let str = "\(Service.commisiondetaillist)"
+              var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
+
+                          if userId == "0"{
+                            userId = ""
+
+                          }
+              let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"service_id":"4"] as [String : Any]
+              print(str,parameters)
+              ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
+
+
+                  if let value = response as? NSDictionary{
+                      let error = value.object(forKey: "error") as! Int
+                      if error == 0{
+                          if let body = response as? [String: Any] {
+                              let val = Mapper<CommisionDetail>().map(JSON: response as! [String : Any])
+                              completion(true, val)
+                              return
+                          }
+                          completion(false,nil)
+                      }else{
+                          completion(false, nil)
+
+                      }
+
+                  }
+              }
+          }
 }
 
 
@@ -209,6 +241,57 @@ struct Top_five_agent : Mappable {
         username <- map["username"]
         currency <- map["currency"]
         commision_amount <- map["commision_amount"]
+    }
+
+}
+
+
+
+struct CommisionDetail : Mappable {
+    var error : Bool?
+    var error_code : Int?
+    var error_description : String?
+    var data : CommisionDetailData?
+
+    init?(map: Map) {
+
+    }
+
+    mutating func mapping(map: Map) {
+
+        error <- map["error"]
+        error_code <- map["error_code"]
+        error_description <- map["error_description"]
+        data <- map["data"]
+    }
+
+}
+struct CommisionDetailData : Mappable {
+    var service_name : String?
+    var service_desc : String?
+    var media_type : Int?
+    var video_url : String?
+    var video_file : String?
+    var service_icon : String?
+    var commission_type : Int?
+    var from_com_range : Double?
+    var to_com_range : Double?
+
+    init?(map: Map) {
+
+    }
+
+    mutating func mapping(map: Map) {
+
+        service_name <- map["service_name"]
+        service_desc <- map["service_desc"]
+        media_type <- map["media_type"]
+        video_url <- map["video_url"]
+        video_file <- map["video_file"]
+        service_icon <- map["service_icon"]
+        commission_type <- map["commission_type"]
+        from_com_range <- map["from_com_range"]
+        to_com_range <- map["to_com_range"]
     }
 
 }
