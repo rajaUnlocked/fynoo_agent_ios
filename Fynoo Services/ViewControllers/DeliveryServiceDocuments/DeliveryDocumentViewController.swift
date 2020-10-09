@@ -11,7 +11,7 @@ import MTPopup
 import PDFKit
 import MobileCoreServices
 class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductViewControllerDelegate,OpenGalleryDelegate,UIDocumentPickerDelegate,UITextFieldDelegate,CommonPopupViewControllerDelegate,UITextViewDelegate {
-   
+    var fdate = Date()
     var reasonforvehicle = ""
     var tag1 = 0
     var primaryid = 0
@@ -85,6 +85,11 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         return fileSize
     }
     func NationalselectDOB(tag:Int){
+        
+        if tag == 1
+               {
+          self.toptxtArr[3] = ""
+        }
         let calendar = Calendar(identifier: .gregorian)
         let currentDate = Date()
         var components = DateComponents()
@@ -92,15 +97,27 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         //                  components.year = -18
         //                  components.month = 12
         let maxDate = calendar.date(byAdding: components, to: currentDate)!
+        var minDate = Date()
         
-        let minDate = Calendar.current.date(from: DateComponents(year: 1900 , month: 1, day: 1))
-        
+        minDate = Calendar.current.date(from: DateComponents(year: 1900 , month: 1, day: 1))!
+        if tag == 3
+        {
+            if self.toptxtArr[1] == ""
+            {
+                ModalController.showNegativeCustomAlertWith(title: "please Select DOB First ", msg: "")
+                return
+            }
+            minDate =  self.fdate
+        }
         print(minDate as Any)
         
         DatePickerDialog().show("Select - Date of Birth".localized, doneButtonTitle: "Done".localized, cancelButtonTitle: "Cancel".localized,  minimumDate: minDate, maximumDate: maxDate,  datePickerMode: .date){
             (date) -> Void in
             if let dt = date {
-                
+                if tag == 1
+                {
+                    self.fdate = dt
+                }
                 let formatter = DateFormatter()
                 formatter.dateFormat = "MMM dd, yyyy"
                 print(formatter.string(from: dt))
