@@ -55,8 +55,8 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
             return 2
         }
          
-        return ((self.targetlist?.data?.total_target ?? 0) == 0 ? 0:self.targetlist?.data?.top_five_agent?.count ?? 0)
-      
+//        return ((self.targetlist?.data?.total_target ?? 0) == 0 ? 0:self.targetlist?.data?.top_five_agent?.count ?? 0)
+     return self.targetlist?.data?.top_five_agent?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -122,6 +122,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if indexPath.section == 2
         {
             if indexPath.row == 1

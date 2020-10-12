@@ -260,10 +260,15 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
            ModalController.showNegativeCustomAlertWith(title: "Please filled Car Description", msg: "")
              return
         }
+            
         else if self.servicelist?.data?.reason_for_change ?? "" == ""
         {
-           ModalController.showNegativeCustomAlertWith(title: "Please filled Car Description", msg: "")
-             return
+            if self.servicelist?.data?.new_upload_enable ?? false
+            {
+                ModalController.showNegativeCustomAlertWith(title: "Please filled Car Description", msg: "")
+                           return
+            }
+         
         }
         
           if self.servicelist?.data?.switch_vehicle ?? false{
@@ -935,7 +940,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         {
             cell.pswdimg.sd_setImage(with: URL(string: imgArr[index.section - 1]), placeholderImage: UIImage(named: "passport"))
         }
-            else if imglocalArr[index.section - 1] != nil {
+            if imglocalArr[index.section - 1] != nil {
                 cell.pswdimg.image = imglocalArr[index.section - 1]
             cell.crossclicked.isHidden =  false
                      cell.uploadimg.isUserInteractionEnabled = false

@@ -53,24 +53,25 @@ a success</string>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klQ-iV-2CM">
-                        <rect key="frame" x="15" y="225" width="210.5" height="28"/>
-                        <string key="text">Target marketing involves breaking
-a and then concentrating your..</string>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Commision Range" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klQ-iV-2CM">
+                        <rect key="frame" x="15" y="225" width="210.5" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="pxn-aD-M36"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50-70 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOD-bg-P27">
-                        <rect key="frame" x="243" y="224.5" width="93" height="29"/>
+                        <rect key="frame" x="243" y="225.5" width="93" height="29"/>
                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="25"/>
                         <color key="textColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="klQ-iV-2CM" secondAttribute="bottom" constant="21" id="0IG-oq-kx1"/>
                     <constraint firstItem="z3W-Xj-0PE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="2Ga-r1-0AM"/>
+                    <constraint firstAttribute="bottom" secondItem="klQ-iV-2CM" secondAttribute="bottom" constant="19" id="5DQ-MD-SmK"/>
                     <constraint firstAttribute="trailing" secondItem="z3W-Xj-0PE" secondAttribute="trailing" constant="15" id="5bh-vh-OH3"/>
                     <constraint firstItem="klQ-iV-2CM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="EsY-UA-Z13"/>
                     <constraint firstItem="QIp-Bj-nEE" firstAttribute="leading" secondItem="DmB-RV-rnD" secondAttribute="trailing" constant="15" id="G8t-Jd-Ll3"/>

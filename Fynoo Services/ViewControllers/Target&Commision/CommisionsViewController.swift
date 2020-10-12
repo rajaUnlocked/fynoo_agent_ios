@@ -108,6 +108,13 @@ extension CommisionsViewController:UITableViewDataSource,UITableViewDelegate
         if indexPath.row >= 2 && indexPath.row < (self.commisionlist?.data?.services?.count ?? 0) + 2
         {
         let vc = CommisionDetailsViewController(nibName: "CommisionDetailsViewController", bundle: nil)
+            vc.media_type = self.commisionlist?.data?.services?[indexPath.row - 2].media_type ?? 0
+              vc.videofile = self.commisionlist?.data?.services?[indexPath.row - 2].video_file ?? ""
+              vc.video_url = self.commisionlist?.data?.services?[indexPath.row - 2].video_url ?? ""
+             vc.service_desc = self.commisionlist?.data?.services?[indexPath.row - 2].service_description ?? ""
+              vc.service_name = self.commisionlist?.data?.services?[indexPath.row - 2].service_name ?? ""
+             vc.range = self.commisionlist?.data?.services?[indexPath.row - 2].service_range ?? ""
+              vc.service_icon = self.commisionlist?.data?.services?[indexPath.row - 2].service_icon ?? ""
         self.navigationController?.pushViewController(vc, animated: true)
         }
     }
