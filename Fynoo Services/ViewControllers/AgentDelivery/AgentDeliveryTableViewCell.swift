@@ -10,6 +10,10 @@ import UIKit
 import Cosmos
 class AgentDeliveryTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var clickservicedocument: UIButton!
+    @IBOutlet weak var documentStatus: UIImageView!
+    @IBOutlet weak var infoClicked: UIButton!
+    @IBOutlet weak var switches: UIButton!
     @IBOutlet weak var editAmount: UIButton!
     @IBOutlet weak var delivery: UIImageView!
     @IBOutlet weak var cod: UILabel!

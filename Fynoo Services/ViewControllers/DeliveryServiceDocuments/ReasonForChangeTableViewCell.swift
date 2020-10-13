@@ -9,7 +9,10 @@
 import UIKit
 
 class ReasonForChangeTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var txtvw: UITextView!
+    @IBOutlet weak var upload: UIButton!
+   
+    @IBOutlet weak var count: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -1,19 +1,19 @@
 //
-//  UploadVehicleImageTableViewCell.swift
+//  CommisionTopTableViewCell.swift
 //  Fynoo Services
 //
-//  Created by IND-SEN-LP-039 on 24/09/20.
+//  Created by IND-SEN-LP-039 on 09/10/20.
 //  Copyright © 2020 Aishwarya. All rights reserved.
 //
 
 import UIKit
 
-class UploadVehicleImageTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var crossclicked: UIButton!
-    @IBOutlet weak var uploadsaveVehicle: UIButton!
-    @IBOutlet weak var vehicleimage: UIImageView!
-    @IBOutlet weak var uploadvehicle: UIButton!
+class CommisionTopTableViewCell: UITableViewCell {
+    @IBOutlet weak var serviceicon: UIImageView!
+    @IBOutlet weak var servicename: UILabel!
+    
+    @IBOutlet weak var percentagelbl: UILabel!
+    @IBOutlet weak var detaillbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

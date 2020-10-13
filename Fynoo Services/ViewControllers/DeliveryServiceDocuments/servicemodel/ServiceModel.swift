@@ -95,7 +95,7 @@ class ServiceModel: NSObject {
                      }
                  }
              }
-        func uploadImage(completion:@escaping(Bool, ServiceUpload?) -> ()) {
+        func uploadImage(completion:@escaping(Bool, SeviceDocument?) -> ()) {
             let str = "\(Service.uploadimage)"
             var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
 
@@ -151,14 +151,38 @@ class ServiceModel: NSObject {
                               }
                print(str,parameters,imgname
             )
-    if docfile == nil
+            if isType > 6
+            {
+             ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
+
+
+                         if let value = response as? NSDictionary{
+                             let error = value.object(forKey: "error") as! Int
+                             if error == 0{
+                                 if let body = response as? [String: Any] {
+                                     let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
+                                     completion(true, val)
+                                     return
+                                 }
+                                 completion(false,nil)
+                             }else{
+                                ModalController.showNegativeCustomAlertWith(title: value.object(forKey: "error_description") as! String, msg: "")
+                                 completion(false, nil)
+
+                             }
+
+                         }
+                     }
+                
+            }
+    else if docfile == nil
     {
             ServerCalls.fileUploadAPINew(inputUrl: str, parameters: parameters, imageName: imgname, imageFile: imgfile!) { (response, success, resp) in
     
                    if let value = response as? NSDictionary{
     
                            if let body = response as? [String: Any] {
-                            let val = Mapper<ServiceUpload>().map(JSON: response as! [String : Any])
+                            let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
                                completion(true, val)
                                return
                            }
@@ -175,7 +199,7 @@ class ServiceModel: NSObject {
                  if let value = response as? NSDictionary{
                     
                          if let body = response as? [String: Any] {
-                            let val = Mapper<ServiceUpload>().map(JSON: response as! [String : Any])
+                            let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
                              completion(true, val)
                              return
                          }
@@ -226,7 +250,7 @@ class ServiceModel: NSObject {
                          userId = ""
 
                        }
-        let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":userId,"primary_id":40] as [String : Any]
+        let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":userId,"primary_id":primaryid] as [String : Any]
            print(str,parameters)
            ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
 

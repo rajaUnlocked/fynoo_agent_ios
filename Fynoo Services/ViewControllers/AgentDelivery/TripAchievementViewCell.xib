@@ -237,6 +237,20 @@ Service</string>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="aboveCount" destination="Ugx-bk-Eas" id="NqG-hj-0PY"/>
+                <outlet property="aboveImg" destination="C03-wz-fSW" id="dUk-ic-rKr"/>
+                <outlet property="aboveLbl" destination="2iJ-Ef-IqS" id="dVb-EJ-Lkt"/>
+                <outlet property="attitudeCount" destination="AF6-Nh-T2C" id="5yB-Oz-gWs"/>
+                <outlet property="attitudeImg" destination="16s-Ku-oST" id="L3Y-oo-H3E"/>
+                <outlet property="attitudeName" destination="K9E-r3-gi0" id="LYM-4A-44Q"/>
+                <outlet property="excellentCount" destination="esY-Cu-JkA" id="Mhf-LC-ixB"/>
+                <outlet property="excellentImg" destination="X0K-l7-azj" id="plI-aR-OdO"/>
+                <outlet property="excellentService" destination="5nw-bS-9Fb" id="Uzm-L1-BZS"/>
+                <outlet property="helpful" destination="yRM-Ko-Mxl" id="POI-9l-Mqq"/>
+                <outlet property="helpfulCount" destination="3Uo-ms-Yeh" id="uml-SF-jry"/>
+                <outlet property="helpfulImg" destination="02G-yQ-Hbj" id="mcN-zc-tEF"/>
+            </connections>
             <point key="canvasLocation" x="140.57971014492756" y="24.107142857142858"/>
         </tableViewCell>
     </objects>

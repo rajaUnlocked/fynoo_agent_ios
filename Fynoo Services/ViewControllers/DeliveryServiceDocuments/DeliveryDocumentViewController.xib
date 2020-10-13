@@ -6,10 +6,16 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeliveryDocumentViewController" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
                 <outlet property="headervw" destination="5wa-av-KRo" id="fmA-rf-NMh"/>
+                <outlet property="submit" destination="LiR-yZ-uGF" id="COw-YE-DUC"/>
                 <outlet property="tabvw" destination="Dcy-fO-4fR" id="aNZ-li-Lkr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dcy-fO-4fR">
-                    <rect key="frame" x="0.0" y="60" width="414" height="766"/>
+                    <rect key="frame" x="0.0" y="60" width="414" height="784"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wa-av-KRo" customClass="NavigationView" customModule="Fynoo_Services" customModuleProvider="target">
@@ -31,24 +37,26 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiR-yZ-uGF">
-                    <rect key="frame" x="214" y="836" width="180" height="30"/>
+                    <rect key="frame" x="0.0" y="854" width="414" height="42"/>
+                    <color key="backgroundColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="180" id="AvZ-xJ-5Aa"/>
+                        <constraint firstAttribute="height" constant="42" id="3RE-cp-v2V"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
                     <state key="normal" title="Submit for Approval">
-                        <color key="titleColor" red="0.92549019607843142" green="0.29019607843137252" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" red="0.92549019607843142" green="0.29019607843137252" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="value" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                             <real key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="sendforApproval:" destination="-1" eventType="touchUpInside" id="I0u-gH-YLt"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -57,11 +65,12 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5wa-av-KRo" secondAttribute="trailing" id="DBZ-rO-mFU"/>
                 <constraint firstItem="5wa-av-KRo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Mz8-qx-vrw"/>
                 <constraint firstItem="Dcy-fO-4fR" firstAttribute="top" secondItem="5wa-av-KRo" secondAttribute="bottom" constant="-40" id="Nuw-GJ-F06"/>
-                <constraint firstAttribute="bottom" secondItem="LiR-yZ-uGF" secondAttribute="bottom" constant="30" id="S5Y-q2-pXc"/>
+                <constraint firstItem="LiR-yZ-uGF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Yxw-FQ-mid"/>
                 <constraint firstItem="LiR-yZ-uGF" firstAttribute="top" secondItem="Dcy-fO-4fR" secondAttribute="bottom" constant="10" id="c8K-s8-gp1"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LiR-yZ-uGF" secondAttribute="trailing" constant="20" id="eVk-P9-gw3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LiR-yZ-uGF" secondAttribute="trailing" id="eVk-P9-gw3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Dcy-fO-4fR" secondAttribute="trailing" id="gSP-FU-CCZ"/>
                 <constraint firstItem="Dcy-fO-4fR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="iGF-46-xpQ"/>
+                <constraint firstAttribute="bottom" secondItem="LiR-yZ-uGF" secondAttribute="bottom" id="r4w-n6-D03"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="140.57971014492756" y="92.410714285714278"/>

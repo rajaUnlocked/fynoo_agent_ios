@@ -136,6 +136,10 @@
 		CEAD29F625069F9D008B1F9C /* AgentListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29F425069F9C008B1F9C /* AgentListTableViewCell.xib */; };
 		CEAD29F92506A43D008B1F9C /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD29F72506A43D008B1F9C /* VideoTableViewCell.swift */; };
 		CEAD29FA2506A43D008B1F9C /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29F82506A43D008B1F9C /* VideoTableViewCell.xib */; };
+		CEAEA5112530379300F866E7 /* CommisionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEA50F2530379300F866E7 /* CommisionDetailsViewController.swift */; };
+		CEAEA5122530379300F866E7 /* CommisionDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAEA5102530379300F866E7 /* CommisionDetailsViewController.xib */; };
+		CEAEA51525303A1500F866E7 /* CommisionTopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEA51325303A1500F866E7 /* CommisionTopTableViewCell.swift */; };
+		CEAEA51625303A1500F866E7 /* CommisionTopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAEA51425303A1500F866E7 /* CommisionTopTableViewCell.xib */; };
 		CEDA6C412525C4C900301F82 /* ServiceUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA6C402525C4C800301F82 /* ServiceUpload.swift */; };
 		CEDAF67425283DF900B846E5 /* ReasonForChangeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAF67225283DF900B846E5 /* ReasonForChangeTableViewCell.swift */; };
 		CEDAF67525283DF900B846E5 /* ReasonForChangeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDAF67325283DF900B846E5 /* ReasonForChangeTableViewCell.xib */; };
@@ -441,6 +445,10 @@
 		CEAD29F425069F9C008B1F9C /* AgentListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentListTableViewCell.xib; sourceTree = "<group>"; };
 		CEAD29F72506A43D008B1F9C /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		CEAD29F82506A43D008B1F9C /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
+		CEAEA50F2530379300F866E7 /* CommisionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommisionDetailsViewController.swift; sourceTree = "<group>"; };
+		CEAEA5102530379300F866E7 /* CommisionDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommisionDetailsViewController.xib; sourceTree = "<group>"; };
+		CEAEA51325303A1500F866E7 /* CommisionTopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommisionTopTableViewCell.swift; sourceTree = "<group>"; };
+		CEAEA51425303A1500F866E7 /* CommisionTopTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommisionTopTableViewCell.xib; sourceTree = "<group>"; };
 		CEDA6C402525C4C800301F82 /* ServiceUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceUpload.swift; sourceTree = "<group>"; };
 		CEDAF67225283DF900B846E5 /* ReasonForChangeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForChangeTableViewCell.swift; sourceTree = "<group>"; };
 		CEDAF67325283DF900B846E5 /* ReasonForChangeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReasonForChangeTableViewCell.xib; sourceTree = "<group>"; };
@@ -1015,6 +1023,7 @@
 		CEAD29E1250631EE008B1F9C /* Target&Commision */ = {
 			isa = PBXGroup;
 			children = (
+				CEAEA50E2530369C00F866E7 /* CommisionDetails */,
 				CEAD29E22506324F008B1F9C /* TargetViewController.swift */,
 				CEAD29E32506324F008B1F9C /* TargetViewController.xib */,
 				CEAD29EB25063FA2008B1F9C /* TargetprogressTableViewCell.swift */,
@@ -1041,6 +1050,17 @@
 				CEAD29E8250632BB008B1F9C /* NavigationView.swift */,
 			);
 			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		CEAEA50E2530369C00F866E7 /* CommisionDetails */ = {
+			isa = PBXGroup;
+			children = (
+				CEAEA50F2530379300F866E7 /* CommisionDetailsViewController.swift */,
+				CEAEA5102530379300F866E7 /* CommisionDetailsViewController.xib */,
+				CEAEA51325303A1500F866E7 /* CommisionTopTableViewCell.swift */,
+				CEAEA51425303A1500F866E7 /* CommisionTopTableViewCell.xib */,
+			);
+			path = CommisionDetails;
 			sourceTree = "<group>";
 		};
 		CEE35774250740800097069D /* Fonts */ = {
@@ -1581,10 +1601,12 @@
 				CEE35799250740800097069D /* Gilroy-Light.otf in Resources */,
 				F62E4AF625148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.xib in Resources */,
 				2F8463DF250F6EBC0084EB32 /* LoginIntroThird.strings in Resources */,
+				CEAEA5122530379300F866E7 /* CommisionDetailsViewController.xib in Resources */,
 				2F8463DD250F6EBC0084EB32 /* LoginIntroFifth.strings in Resources */,
 				CE2EFB3F251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib in Resources */,
 				F62E4AFA25148EC60021CEE0 /* AgentCompanyServicesTableViewCell.xib in Resources */,
 				F64D5FC325244491003DE670 /* CompanyRegTableViewCell.xib in Resources */,
+				CEAEA51625303A1500F866E7 /* CommisionTopTableViewCell.xib in Resources */,
 				CEAD29E9250632BB008B1F9C /* NavigationView.xib in Resources */,
 				F4828CA12508DF3E006B85D8 /* ProfileServiceTableViewCell.xib in Resources */,
 				F62E4AF225148EC60021CEE0 /* AgentProfileImageTableViewCell.strings in Resources */,
@@ -1855,6 +1877,7 @@
 				2F846392250F6D270084EB32 /* BasedUrlViewController.swift in Sources */,
 				CEE5945025221FEC00CB1E5A /* VehicleKindTableViewCell.swift in Sources */,
 				2F8463E9250F6EBC0084EB32 /* LoginIntroFirst.swift in Sources */,
+				CEAEA5112530379300F866E7 /* CommisionDetailsViewController.swift in Sources */,
 				2F0230C22514E477004F1B0B /* CommonPopupViewController.swift in Sources */,
 				F4D1915C2514C17E0098B12D /* DatePickerDialog.swift in Sources */,
 				F4828C9B2508C574006B85D8 /* ProfileVatTableViewCell.swift in Sources */,
@@ -1870,6 +1893,7 @@
 				2FEB121E2511F5E20012FE98 /* SideMenuEarningTableViewCell.swift in Sources */,
 				F62E4B152514983A0021CEE0 /* BankIdentifierListModal.swift in Sources */,
 				F62E4B0A25148EC60021CEE0 /* agentPersonalDetailsTableViewCell.swift in Sources */,
+				CEAEA51525303A1500F866E7 /* CommisionTopTableViewCell.swift in Sources */,
 				2F846441250F83910084EB32 /* PopUpBelowViewController.swift in Sources */,
 				2F8463FB250F7D4B0084EB32 /* VerifyAccountViewController.swift in Sources */,
 				F62E4AFB25148EC60021CEE0 /* CompanyRegTableViewCell.swift in Sources */,

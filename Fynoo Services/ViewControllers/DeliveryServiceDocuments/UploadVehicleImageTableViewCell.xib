@@ -76,17 +76,27 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjF-ky-G22">
+                                <rect key="frame" x="76" y="36" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="NMT-Ed-JMT"/>
+                                    <constraint firstAttribute="height" constant="22" id="amP-6Y-XBg"/>
+                                </constraints>
+                                <state key="normal" image="cross"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Nlf-rB-FX3" firstAttribute="leading" secondItem="g4E-tN-eMp" secondAttribute="leading" constant="20" id="04a-AO-1QH"/>
                             <constraint firstItem="9kz-wo-f18" firstAttribute="centerY" secondItem="fdG-g6-fxX" secondAttribute="centerY" id="9Cq-Xo-BIa"/>
+                            <constraint firstItem="jjF-ky-G22" firstAttribute="trailing" secondItem="9kz-wo-f18" secondAttribute="trailing" constant="-2" id="Bcj-Oq-amy"/>
                             <constraint firstAttribute="trailing" secondItem="Nlf-rB-FX3" secondAttribute="trailing" constant="20" id="F5f-VL-Ul2"/>
                             <constraint firstItem="9kz-wo-f18" firstAttribute="centerX" secondItem="fdG-g6-fxX" secondAttribute="centerX" id="IZO-vA-OZM"/>
                             <constraint firstItem="cvx-SP-ZMt" firstAttribute="leading" secondItem="g4E-tN-eMp" secondAttribute="leading" constant="15" id="ORs-ok-zpX"/>
                             <constraint firstItem="cvx-SP-ZMt" firstAttribute="top" secondItem="g4E-tN-eMp" secondAttribute="top" constant="10" id="dhE-Vw-4bj"/>
                             <constraint firstItem="fdG-g6-fxX" firstAttribute="top" secondItem="cvx-SP-ZMt" secondAttribute="bottom" constant="10" id="hsa-i9-c1u"/>
                             <constraint firstItem="fdG-g6-fxX" firstAttribute="leading" secondItem="g4E-tN-eMp" secondAttribute="leading" constant="20" id="n5c-dH-7CA"/>
+                            <constraint firstItem="jjF-ky-G22" firstAttribute="top" secondItem="9kz-wo-f18" secondAttribute="top" constant="2" id="pWA-iW-bVt"/>
                             <constraint firstAttribute="bottom" secondItem="Nlf-rB-FX3" secondAttribute="bottom" constant="10" id="uIj-lV-gHK"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -111,6 +121,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="crossclicked" destination="jjF-ky-G22" id="G3k-MB-wb6"/>
                 <outlet property="uploadsaveVehicle" destination="Nlf-rB-FX3" id="2PK-yj-Fdc"/>
                 <outlet property="uploadvehicle" destination="fdG-g6-fxX" id="Wo5-es-a1b"/>
                 <outlet property="vehicleimage" destination="9kz-wo-f18" id="nRr-Ys-6P8"/>
@@ -119,6 +130,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="cross" width="54" height="54"/>
         <image name="vehicle" width="279" height="279"/>
     </resources>
 </document>
