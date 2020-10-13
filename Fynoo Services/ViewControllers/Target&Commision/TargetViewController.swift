@@ -8,11 +8,16 @@
 
 import UIKit
 import AVKit
+import AVFoundation
+
+
 class TargetViewController: UIViewController {
     var targetmodel = TargetModel()
     @IBOutlet weak var headervw: NavigationView!
     var targetlist:TargetList?
     @IBOutlet weak var tabvw: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         headervw.viewControl = self
@@ -130,7 +135,9 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
                 if self.targetlist?.data?.media_type ?? 0 == 1
                 {
                     if let url = URL(string: self.targetlist?.data?.video_file ?? ""){
-                       let player : AVPlayer = AVPlayer(url: url)
+               //        let player : AVPlayer = AVPlayer(url: url)
+                        let ur = URL(string: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4")
+                        let player : AVPlayer = AVPlayer(url: ur!)
                        let avController = AVPlayerViewController()
                        avController.player = player
                        // your desired frame
@@ -139,7 +146,6 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
                        cell.vw.addSubview(avController.view)
                        self.addChild(avController)
                        player.play()
-                        
                     }
                 }
                 else
@@ -151,6 +157,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
             }
         }
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1
         {
