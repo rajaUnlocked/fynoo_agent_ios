@@ -116,14 +116,14 @@
                             </constraints>
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TopDesgin" translatesAutoresizingMaskIntoConstraints="NO" id="0Yn-BD-yrq">
-                            <rect key="frame" x="205.5" y="98" width="54" height="6"/>
+                            <rect key="frame" x="205.5" y="98" width="54.000000000000909" height="6"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="6" id="7a3-cT-5Ss"/>
                                 <constraint firstAttribute="width" constant="54" id="xp3-hn-eSj"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsz-if-q90">
-                            <rect key="frame" x="48.5" y="146" width="103" height="30"/>
+                            <rect key="frame" x="51.5" y="146" width="97.5" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="cpm-hJ-pMz"/>
                             </constraints>

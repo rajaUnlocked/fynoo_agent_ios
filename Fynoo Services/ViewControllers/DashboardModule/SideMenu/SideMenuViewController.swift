@@ -35,7 +35,11 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
             if  let str = ModalController.getTheContentForKey("profile_img") as? String{
                 profileImage.setImageSDWebImage(imgURL: str, placeholder: "profile_white")
             }
-            nameLbl.text = "\(Hello), \(AuthorisedUser.shared.user!.data!.name)"
+            
+            let user_id:UserData = AuthorisedUser.shared.getAuthorisedUser()
+            var nameStr = "\(user_id.data!.name)"
+            
+            nameLbl.text = "\(Hello), \(nameStr)"
 
         }else{
             nameLbl.text = "\(Hello), Guest"
