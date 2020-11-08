@@ -253,14 +253,14 @@
                         <rect key="frame" x="0.0" y="81" width="433" height="45"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="agentCompany" translatesAutoresizingMaskIntoConstraints="NO" id="U1L-qJ-AxR">
-                                <rect key="frame" x="15" y="8.5" width="28" height="28"/>
+                                <rect key="frame" x="15" y="12.5" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="159-oH-heF"/>
-                                    <constraint firstAttribute="width" constant="28" id="xkW-S7-h8c"/>
+                                    <constraint firstAttribute="height" constant="20" id="159-oH-heF"/>
+                                    <constraint firstAttribute="width" constant="20" id="xkW-S7-h8c"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agent Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4t-zh-GvE">
-                                <rect key="frame" x="51" y="12" width="122.5" height="21"/>
+                                <rect key="frame" x="43" y="12" width="122.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="5Jq-M9-sgR"/>
                                 </constraints>

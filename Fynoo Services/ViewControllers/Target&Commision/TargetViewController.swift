@@ -8,11 +8,14 @@
 
 import UIKit
 import AVKit
+import AVFoundation
 class TargetViewController: UIViewController {
     var targetmodel = TargetModel()
     @IBOutlet weak var headervw: NavigationView!
     var targetlist:TargetList?
     @IBOutlet weak var tabvw: UITableView!
+    var player: AVPlayer!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         headervw.viewControl = self
@@ -128,17 +131,30 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
             {
                 if self.targetlist?.data?.media_type ?? 0 == 1
                 {
-                    if let url = URL(string: self.targetlist?.data?.video_file ?? ""){
+                    if let url = URL(string: "http://techslides.com/demos/sample-videos/small.3gp"){
                         
-                       let player = AVPlayer(url: url)
-                       let avController = AVPlayerViewController()
-                       avController.player = player
-                       // your desired frame
-                        let cell = tabvw.cellForRow(at: IndexPath(row: 1, section: 2)) as! VideoTableViewCell
-                       avController.view.frame = cell.vw.frame
-                       cell.vw.addSubview(avController.view)
-                       self.addChild(avController)
-                       player.play()
+                        player = AVPlayer(url: url)
+                        
+                        let playerViewController = AVPlayerViewController()
+                        
+                        playerViewController.player = player
+                        
+                        self.present(playerViewController, animated: true)
+                            
+                            playerViewController.player!.play()
+                            
+                        
+                        
+                        
+                        //                       let player = AVPlayer(url: url)
+                        //                       let avController = AVPlayerViewController()
+                        //                       avController.player = player
+                        //                       // your desired frame
+                        //                        let cell = tabvw.cellForRow(at: IndexPath(row: 1, section: 2)) as! VideoTableViewCell
+                        //                       avController.view.frame = cell.vw.frame
+                        //                       cell.vw.addSubview(avController.view)
+                        //                       self.addChild(avController)
+                        //                       player.play()
                         
                     }
                 }

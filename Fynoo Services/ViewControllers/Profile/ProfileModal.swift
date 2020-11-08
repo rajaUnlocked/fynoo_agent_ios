@@ -119,7 +119,7 @@ class ProfileData : Mappable{
     var vat_no = ""
     var bank_details_id = 0
     var full_name = ""
-    var bank_id = 0
+    var bank = 0
     var bank_name = ""
     var account_iban_nbr = ""
     var iban_no = ""
@@ -148,9 +148,11 @@ class ProfileData : Mappable{
     var phone_length = 0
     var profile_image = ""
     var fynoo_id = ""
+    var company_name = ""
     required init?(map: Map) {}
     
     func mapping(map: Map) {
+        company_name <- map["company_name"]
         fynoo_id <- map["fynoo_id"]
         profile_image <- map["profile_image"]
         mobile_length <- map["mobile_length"]
@@ -158,12 +160,12 @@ class ProfileData : Mappable{
         phone_flag <- map["phone_flag"]
         mobile_flag <- map["mobile_flag"]
         ac_holder_name <- map["ac_holder_name"]
-
+        
         vat_certificate <- map["vat_certificate"]
         iban_no <- map["iban_no"]
         bank_details_id <- map["bank_details_id"]
         full_name <- map["full_name"]
-        bank_id <- map["bank_id"]
+        bank <- map["bank"]
         account_iban_nbr <- map["account_iban_nbr"]
         bank_name <- map["bank_name"]
         

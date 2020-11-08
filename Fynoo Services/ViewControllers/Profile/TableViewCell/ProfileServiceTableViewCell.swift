@@ -55,7 +55,8 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
     var agentinfo = AgentProfile()
     var layout = UICollectionViewFlowLayout()
     var viewControl = UIViewController()
-    
+    weak var delegate: LanguageSelectionViewControllerDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -93,6 +94,10 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
         if isForLanguage{
             
             let vc = LanguageSelectionViewController(nibName: "LanguageSelectionViewController", bundle: nil)
+            vc.languageSelect = { str in
+                print("InSide Closure")
+                self.delegate?.reloadPage()
+            }
             vc.isFrom = true
             print(agentinfo.langArr)
             vc.selectedArray = agentinfo.langArr
