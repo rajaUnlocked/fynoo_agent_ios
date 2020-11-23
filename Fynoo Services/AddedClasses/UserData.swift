@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class UserData : Mappable{
+class UserData : Mappable {
     
     
     var error = ""
