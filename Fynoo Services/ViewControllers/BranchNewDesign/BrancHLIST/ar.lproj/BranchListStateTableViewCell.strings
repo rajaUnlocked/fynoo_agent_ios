@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "06"; ObjectID = "03R-Cm-hFZ"; */
+"03R-Cm-hFZ.text" = "06";
+
+/* Class = "UILabel"; text = "30"; ObjectID = "28N-6R-uNK"; */
+"28N-6R-uNK.text" = "30";
+
+/* Class = "UILabel"; text = "24"; ObjectID = "8dW-dt-Ndb"; */
+"8dW-dt-Ndb.text" = "24";
+
+/* Class = "UILabel"; text = "Subscription Branches:"; ObjectID = "Fn1-pI-evr"; */
+"Fn1-pI-evr.text" = "فروع الاشتراك:";
+
+/* Class = "UILabel"; text = "-\n-\n-\n-\n-\n–\n-\n-\n-\n-\n-\n–\n-\n-\n-\n-\n-\n–\n-\n-\n-\n-\n-\n–"; ObjectID = "Kqo-aG-IaK"; */
+"Kqo-aG-IaK.text" = "-\n-\n-\n-\n-\n–\n-\n-\n-\n-\n-\n–\n-\n-\n-\n-\n-\n–\n-\n-\n-\n-\n-\n–";
+
+/* Class = "UILabel"; text = "Active Branches:"; ObjectID = "Y6o-7C-Th0"; */
+"Y6o-7C-Th0.text" = "الفروع النشطة:";
+
+/* Class = "UILabel"; text = "Add Branch"; ObjectID = "a5V-KG-XRB"; */
+"a5V-KG-XRB.text" = "إضافة فرع";
+
+/* Class = "UILabel"; text = "Inactive Branches:"; ObjectID = "y7K-Ac-H5i"; */
+"y7K-Ac-H5i.text" = "الفروع غير النشطة:";

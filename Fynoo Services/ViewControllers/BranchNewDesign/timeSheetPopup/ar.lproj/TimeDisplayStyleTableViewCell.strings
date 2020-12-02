@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Open On selected hours"; ObjectID = "K3k-rC-Skk"; */
+"K3k-rC-Skk.text" = "مفتوح في الأوقات المحددة";
+
+/* Class = "UILabel"; text = "Time Display Style"; ObjectID = "UaS-UU-Q5i"; */
+"UaS-UU-Q5i.text" = "طريقة عرض الوقت";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Urw-zm-48o"; */
+"Urw-zm-48o.normalTitle" = "Button";

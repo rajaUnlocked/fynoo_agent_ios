@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "9Wq-5l-zTh"; */
+"9Wq-5l-zTh.normalTitle" = "Cancel";
+
+/* Class = "UITextField"; placeholder = "Search"; ObjectID = "YHy-fM-svg"; */
+"YHy-fM-svg.placeholder" = "Search";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "sg4-ng-SmV"; */
+"sg4-ng-SmV.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Branch List"; ObjectID = "vrL-aB-TFp"; */
+"vrL-aB-TFp.text" = "Branch List";

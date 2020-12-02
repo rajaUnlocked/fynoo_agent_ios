@@ -1,0 +1,9 @@
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "D3R-Pn-by8"; */
+"D3R-Pn-by8.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "          Address"; ObjectID = "kU0-Vv-FWX"; */
+"kU0-Vv-FWX.text" = "          العنوان";
+
+/* Class = "UITextField"; placeholder = " Search"; ObjectID = "yCg-5u-CqP"; */
+"yCg-5u-CqP.placeholder" = " بحث";

@@ -1,0 +1,15 @@
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "3Ri-Zj-arM"; */
+"3Ri-Zj-arM.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "Select All"; ObjectID = "8gl-qk-llf"; */
+"8gl-qk-llf.text" = "Select All";
+
+/* Class = "UIButton"; normalTitle = "Branch"; ObjectID = "REg-qY-V3d"; */
+"REg-qY-V3d.normalTitle" = "Branch";
+
+/* Class = "UIButton"; normalTitle = "Product"; ObjectID = "SHc-Ui-55V"; */
+"SHc-Ui-55V.normalTitle" = "Product";
+
+/* Class = "UIButton"; normalTitle = "Profile"; ObjectID = "lDO-Is-5Vx"; */
+"lDO-Is-5Vx.normalTitle" = "Profile";

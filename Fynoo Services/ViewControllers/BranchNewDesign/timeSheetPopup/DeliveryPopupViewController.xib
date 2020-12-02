@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeliveryPopupViewController" customModule="Fynoo_Business" customModuleProvider="target">
+            <connections>
+                <outlet property="noClickedOutlet" destination="U0H-q4-afb" id="xAP-mY-WeH"/>
+                <outlet property="view" destination="slr-7n-N3F" id="uI8-QZ-YDT"/>
+                <outlet property="yesClickedOutlet" destination="Jpe-ed-1k7" id="pPA-QU-pQl"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="slr-7n-N3F">
+            <rect key="frame" x="0.0" y="0.0" width="378" height="249"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSe-XA-Bmo">
+                    <rect key="frame" x="39" y="36.5" width="300" height="220"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="specialbranch" translatesAutoresizingMaskIntoConstraints="NO" id="qnT-ky-2nN">
+                            <rect key="frame" x="-2.5" y="10" width="305" height="200"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="305" id="W1I-Sk-hqd"/>
+                                <constraint firstAttribute="height" constant="200" id="W49-df-DcZ"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jpe-ed-1k7">
+                            <rect key="frame" x="32.5" y="145" width="100" height="24"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="6Kt-kJ-cgC"/>
+                                <constraint firstAttribute="width" constant="100" id="mua-ov-STY"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                            <size key="titleShadowOffset" width="5" height="5"/>
+                            <state key="normal" title="Yes">
+                                <color key="titleColor" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                                    <point key="value" x="0.0" y="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="yesClicked:" destination="-1" eventType="touchUpInside" id="w7v-Vh-6Tm"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want to activate this branch? " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wqz-Rz-wZN">
+                            <rect key="frame" x="11" y="64" width="278.5" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="AS9-gN-EEs"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                            <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0H-q4-afb">
+                            <rect key="frame" x="162.5" y="145" width="100" height="24"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="Ob7-UT-3Cx"/>
+                                <constraint firstAttribute="height" constant="24" id="b3R-Tn-VOa"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                            <state key="normal" title="No">
+                                <color key="titleColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                                    <point key="value" x="0.0" y="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="noClicked:" destination="-1" eventType="touchUpInside" id="kbf-eT-zeD"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note : If yes, it will be switched to main branch" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J78-fj-KrD">
+                            <rect key="frame" x="22.5" y="87.5" width="255" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="IVR-8L-mZu"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                            <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="U0H-q4-afb" firstAttribute="centerY" secondItem="Jpe-ed-1k7" secondAttribute="centerY" id="8wZ-8Z-BGN"/>
+                        <constraint firstItem="U0H-q4-afb" firstAttribute="leading" secondItem="Jpe-ed-1k7" secondAttribute="trailing" constant="30" id="Grq-Yl-TqV"/>
+                        <constraint firstItem="Jpe-ed-1k7" firstAttribute="leading" secondItem="qnT-ky-2nN" secondAttribute="leading" constant="35" id="J0L-9m-zVP"/>
+                        <constraint firstItem="Jpe-ed-1k7" firstAttribute="top" secondItem="Wqz-Rz-wZN" secondAttribute="bottom" constant="60" id="Q1N-jn-RGA"/>
+                        <constraint firstAttribute="width" constant="300" id="TQj-NX-E0N"/>
+                        <constraint firstItem="Wqz-Rz-wZN" firstAttribute="centerX" secondItem="qnT-ky-2nN" secondAttribute="centerX" id="c7K-op-U9P"/>
+                        <constraint firstItem="J78-fj-KrD" firstAttribute="top" secondItem="Wqz-Rz-wZN" secondAttribute="bottom" constant="2.5" id="cT8-eN-wq3"/>
+                        <constraint firstItem="qnT-ky-2nN" firstAttribute="centerX" secondItem="vSe-XA-Bmo" secondAttribute="centerX" id="iZi-PO-2dW"/>
+                        <constraint firstAttribute="height" constant="220" id="pwh-Ou-2iU"/>
+                        <constraint firstItem="qnT-ky-2nN" firstAttribute="top" secondItem="Wqz-Rz-wZN" secondAttribute="bottom" constant="-75" id="rVk-aC-QYl"/>
+                        <constraint firstItem="J78-fj-KrD" firstAttribute="leading" secondItem="vSe-XA-Bmo" secondAttribute="leading" constant="22.5" id="sVa-Dr-roy"/>
+                        <constraint firstAttribute="trailing" secondItem="J78-fj-KrD" secondAttribute="trailing" constant="22.5" id="tOH-rk-1iN"/>
+                        <constraint firstItem="qnT-ky-2nN" firstAttribute="centerY" secondItem="vSe-XA-Bmo" secondAttribute="centerY" id="wGg-w8-nys"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vSe-XA-Bmo" firstAttribute="centerY" secondItem="Dmy-mH-dou" secondAttribute="centerY" id="evC-dU-ey7"/>
+                <constraint firstItem="vSe-XA-Bmo" firstAttribute="centerX" secondItem="Dmy-mH-dou" secondAttribute="centerX" id="s8G-d7-XYg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Dmy-mH-dou"/>
+            <point key="canvasLocation" x="111.59420289855073" y="-130.91517857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="specialbranch" width="323" height="194"/>
+    </resources>
+</document>

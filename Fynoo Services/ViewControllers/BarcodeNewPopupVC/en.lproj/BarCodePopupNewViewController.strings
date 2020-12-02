@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Bar Code exists in"; ObjectID = "8a0-R1-5YD"; */
+"8a0-R1-5YD.text" = "Bar Code exists in";
+
+/* Class = "UIButton"; normalTitle = "Fynoo product data bank"; ObjectID = "Bwi-jU-tQK"; */
+"Bwi-jU-tQK.normalTitle" = "Fynoo product data bank";
+
+/* Class = "UIButton"; normalTitle = "Your product list"; ObjectID = "Eq2-1d-VWb"; */
+"Eq2-1d-VWb.normalTitle" = "Your product list";
+
+/* Class = "UIButton"; normalTitle = "Continue adding this product"; ObjectID = "KAh-u8-2IC"; */
+"KAh-u8-2IC.normalTitle" = "Continue adding this product";

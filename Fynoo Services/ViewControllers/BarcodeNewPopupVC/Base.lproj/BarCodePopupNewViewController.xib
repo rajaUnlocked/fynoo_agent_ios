@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BarCodePopupNewViewController" customModule="Fynoo_Business" customModuleProvider="target">
+            <connections>
+                <outlet property="barmsg" destination="8a0-R1-5YD" id="xRQ-Dt-OvE"/>
+                <outlet property="continueBtn" destination="KAh-u8-2IC" id="A2g-cE-TFC"/>
+                <outlet property="fynooProductDataBank" destination="Bwi-jU-tQK" id="uef-ui-DMF"/>
+                <outlet property="productListBtn" destination="Eq2-1d-VWb" id="DcO-NU-Smu"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="311"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvp-79-ovc">
+                    <rect key="frame" x="54.5" y="48.5" width="305" height="258"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="258" id="FsB-EL-JcC"/>
+                        <constraint firstAttribute="width" constant="305" id="qf9-80-eTY"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barcodePopup" translatesAutoresizingMaskIntoConstraints="NO" id="VA8-jc-Xaa">
+                    <rect key="frame" x="54.5" y="48.5" width="305" height="258"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bwi-jU-tQK">
+                    <rect key="frame" x="102" y="192.5" width="210" height="24"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="lN2-YD-rDh"/>
+                        <constraint firstAttribute="width" constant="210" id="wFO-3S-VRK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                    <state key="normal" title="Fynoo product data bank">
+                        <color key="titleColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="fynooProductDataBank:" destination="-1" eventType="touchUpInside" id="xIG-xD-NkY"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bar Code exists in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a0-R1-5YD">
+                    <rect key="frame" x="149" y="134.5" width="116" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14" id="SwG-c6-Q89"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
+                    <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="highlightedColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAh-u8-2IC">
+                    <rect key="frame" x="102" y="246.5" width="210" height="24"/>
+                    <color key="backgroundColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="210" id="5ZE-he-RZp"/>
+                        <constraint firstAttribute="height" constant="24" id="iSy-cV-sCB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                    <state key="normal" title="Continue adding this product">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="continueAddingProduct:" destination="-1" eventType="touchUpInside" id="EtE-dL-LBn"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eq2-1d-VWb">
+                    <rect key="frame" x="102" y="158.5" width="210" height="24"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="0tx-P0-ypi"/>
+                        <constraint firstAttribute="width" constant="210" id="CXW-tl-cQi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                    <state key="normal" title="Your product list">
+                        <color key="titleColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="productList:" destination="-1" eventType="touchUpInside" id="0h4-Yd-lVd"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="VA8-jc-Xaa" firstAttribute="height" secondItem="pvp-79-ovc" secondAttribute="height" id="9Tn-vS-xMQ"/>
+                <constraint firstItem="Eq2-1d-VWb" firstAttribute="top" secondItem="8a0-R1-5YD" secondAttribute="bottom" constant="10" id="DVI-cT-FRa"/>
+                <constraint firstItem="pvp-79-ovc" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="IsS-Ke-ZJW"/>
+                <constraint firstItem="8a0-R1-5YD" firstAttribute="centerX" secondItem="VA8-jc-Xaa" secondAttribute="centerX" id="J2M-3I-epY"/>
+                <constraint firstItem="Eq2-1d-VWb" firstAttribute="centerX" secondItem="VA8-jc-Xaa" secondAttribute="centerX" id="JXr-cv-jex"/>
+                <constraint firstItem="Bwi-jU-tQK" firstAttribute="top" secondItem="Eq2-1d-VWb" secondAttribute="bottom" constant="10" id="SXh-Ls-fSk"/>
+                <constraint firstItem="VA8-jc-Xaa" firstAttribute="width" secondItem="pvp-79-ovc" secondAttribute="width" id="c8G-L9-GmU"/>
+                <constraint firstItem="KAh-u8-2IC" firstAttribute="top" secondItem="Bwi-jU-tQK" secondAttribute="bottom" constant="30" id="fFc-8H-Oac"/>
+                <constraint firstItem="Bwi-jU-tQK" firstAttribute="centerX" secondItem="VA8-jc-Xaa" secondAttribute="centerX" id="h3U-tK-wzN"/>
+                <constraint firstItem="VA8-jc-Xaa" firstAttribute="centerX" secondItem="pvp-79-ovc" secondAttribute="centerX" id="k4q-MJ-dTp"/>
+                <constraint firstItem="VA8-jc-Xaa" firstAttribute="top" secondItem="8a0-R1-5YD" secondAttribute="bottom" constant="-100" id="n6b-Sv-gbr"/>
+                <constraint firstItem="VA8-jc-Xaa" firstAttribute="centerY" secondItem="pvp-79-ovc" secondAttribute="centerY" id="nI0-cE-OeJ"/>
+                <constraint firstItem="KAh-u8-2IC" firstAttribute="centerX" secondItem="VA8-jc-Xaa" secondAttribute="centerX" id="xAP-3U-vjy"/>
+                <constraint firstItem="pvp-79-ovc" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="zoB-8X-ipi"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="47.826086956521742" y="-106.13839285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="barcodePopup" width="323" height="276"/>
+    </resources>
+</document>

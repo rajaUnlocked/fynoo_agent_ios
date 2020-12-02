@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeleteSlabPopupViewController" customModule="Fynoo_Business" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomlbl" destination="dLt-zg-M4N" id="FPa-z5-h6F"/>
+                <outlet property="nobtn" destination="4Wv-74-8Yd" id="zW3-yp-Rli"/>
+                <outlet property="toplbl" destination="4Ka-nP-vbL" id="bWK-OM-lU1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="yesbtn" destination="kQu-h9-KnE" id="Sdb-S9-mFs"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrL-Wv-LAG">
+                    <rect key="frame" x="57" y="50" width="300" height="200"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deletePopUp" translatesAutoresizingMaskIntoConstraints="NO" id="Ejd-JT-wFC">
+                            <rect key="frame" x="-2.5" y="0.0" width="305" height="200"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="305" id="u8J-A9-yM5"/>
+                                <constraint firstAttribute="height" constant="200" id="uGc-uA-ie9"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want to delete them ?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLt-zg-M4N">
+                            <rect key="frame" x="40" y="102" width="220.5" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="Grk-9x-qPZ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                            <color key="textColor" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQu-h9-KnE">
+                            <rect key="frame" x="32.5" y="143" width="100" height="24"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="MhD-nq-d9d"/>
+                                <constraint firstAttribute="height" constant="24" id="s7V-yE-jBX"/>
+                            </constraints>
+                            <size key="titleShadowOffset" width="5" height="5"/>
+                            <state key="normal" title="Yes">
+                                <color key="titleColor" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                                    <point key="value" x="0.0" y="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="yes:" destination="-1" eventType="touchUpInside" id="rdl-sI-vHW"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WholeSale slab exits For this Qty ." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ka-nP-vbL">
+                            <rect key="frame" x="25.5" y="69" width="249" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="0So-Rr-NrP"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                            <color key="textColor" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Wv-74-8Yd">
+                            <rect key="frame" x="162.5" y="143" width="100" height="24"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="PRO-wG-GD4"/>
+                                <constraint firstAttribute="width" constant="100" id="nV6-Wc-rS3"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="13"/>
+                            <state key="normal" title="No">
+                                <color key="titleColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                                    <point key="value" x="0.0" y="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="no:" destination="-1" eventType="touchUpInside" id="fDb-7g-C4X"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Ejd-JT-wFC" firstAttribute="centerY" secondItem="zrL-Wv-LAG" secondAttribute="centerY" id="0BF-ub-54j"/>
+                        <constraint firstAttribute="width" constant="300" id="2ar-ta-bGg"/>
+                        <constraint firstItem="kQu-h9-KnE" firstAttribute="top" secondItem="dLt-zg-M4N" secondAttribute="bottom" constant="20" id="46F-9y-kiv"/>
+                        <constraint firstAttribute="height" constant="200" id="B4l-Qo-Cek"/>
+                        <constraint firstItem="dLt-zg-M4N" firstAttribute="top" secondItem="4Ka-nP-vbL" secondAttribute="bottom" constant="12" id="Dm6-Yx-TXT"/>
+                        <constraint firstItem="4Ka-nP-vbL" firstAttribute="centerX" secondItem="Ejd-JT-wFC" secondAttribute="centerX" id="HKb-4c-KtQ"/>
+                        <constraint firstItem="Ejd-JT-wFC" firstAttribute="top" secondItem="4Ka-nP-vbL" secondAttribute="bottom" constant="-90" id="ZEX-Pk-IUk"/>
+                        <constraint firstItem="4Wv-74-8Yd" firstAttribute="leading" secondItem="kQu-h9-KnE" secondAttribute="trailing" constant="30" id="Zvu-vo-W8a"/>
+                        <constraint firstItem="dLt-zg-M4N" firstAttribute="centerX" secondItem="4Ka-nP-vbL" secondAttribute="centerX" id="edb-jd-Uhh"/>
+                        <constraint firstItem="4Wv-74-8Yd" firstAttribute="centerY" secondItem="kQu-h9-KnE" secondAttribute="centerY" id="h9h-ao-f7f"/>
+                        <constraint firstItem="kQu-h9-KnE" firstAttribute="leading" secondItem="Ejd-JT-wFC" secondAttribute="leading" constant="35" id="hig-h2-rC3"/>
+                        <constraint firstItem="Ejd-JT-wFC" firstAttribute="centerX" secondItem="zrL-Wv-LAG" secondAttribute="centerX" id="xaf-E0-HTz"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="zrL-Wv-LAG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="63p-05-qC3"/>
+                <constraint firstItem="zrL-Wv-LAG" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="azL-d9-9nl"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="122"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="deletePopUp" width="323" height="194"/>
+    </resources>
+</document>

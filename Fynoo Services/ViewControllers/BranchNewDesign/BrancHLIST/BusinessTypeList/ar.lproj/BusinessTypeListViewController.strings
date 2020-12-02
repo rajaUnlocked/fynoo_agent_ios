@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "    Select Your Business Type"; ObjectID = "4ct-Wd-ifv"; */
+"4ct-Wd-ifv.text" = "    إختر نوع النشاط";
+
+/* Class = "UILabel"; text = "Business Types"; ObjectID = "Jwb-pq-n2E"; */
+"Jwb-pq-n2E.text" = "نوع النشاط";
+
+/* Class = "UIButton"; normalTitle = "X"; ObjectID = "Vlg-Rr-kag"; */
+"Vlg-Rr-kag.normalTitle" = "X";
+
+/* Class = "UITextField"; placeholder = "Search the Business Type"; ObjectID = "dlv-JV-8wa"; */
+"dlv-JV-8wa.placeholder" = "بحث نوع العمل";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "gW9-jt-Pg1"; */
+"gW9-jt-Pg1.normalTitle" = "إلغاء";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "tng-F1-7OG"; */
+"tng-F1-7OG.normalTitle" = "حفظ";

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DescriptionTableViewCell: UITableViewCell {
+class DescriptionTableViewCells: UITableViewCell {
 
     @IBOutlet weak var topdescripConst: NSLayoutConstraint!
     @IBOutlet weak var topconst: NSLayoutConstraint!

@@ -1,0 +1,9 @@
+
+/* Class = "UIButton"; normalTitle = "No"; ObjectID = "Jpk-8Y-4ZC"; */
+"Jpk-8Y-4ZC.normalTitle" = "No";
+
+/* Class = "UILabel"; text = "Are you sure  to delete this branch?"; ObjectID = "avW-yG-usO"; */
+"avW-yG-usO.text" = "Are you sure  to delete this branch?";
+
+/* Class = "UIButton"; normalTitle = "Yes"; ObjectID = "qoc-DB-qbT"; */
+"qoc-DB-qbT.normalTitle" = "Yes";

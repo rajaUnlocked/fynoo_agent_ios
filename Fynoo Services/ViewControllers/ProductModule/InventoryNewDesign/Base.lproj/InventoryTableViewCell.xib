@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryTableViewCell" rowHeight="57" id="KGk-i7-Jjw" customClass="InventoryTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="57"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="355" height="57"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGY-i2-FGE">
+                        <rect key="frame" x="0.0" y="10" width="355" height="47"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stock Update" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLj-ba-Wh1">
+                                <rect key="frame" x="20" y="16.5" width="315" height="14"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GxA-Ph-8DE">
+                                <rect key="frame" x="224" y="5.5" width="80" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="ckd-Ia-zoH"/>
+                                    <constraint firstAttribute="height" constant="36" id="z7r-d3-FW3"/>
+                                </constraints>
+                                <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irZ-L8-poR">
+                                <rect key="frame" x="324" y="15.5" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="5gE-ge-hgO"/>
+                                    <constraint firstAttribute="height" constant="16" id="Af1-tM-z1N"/>
+                                </constraints>
+                                <state key="normal" image="addBtn_new"/>
+                                <connections>
+                                    <action selector="addClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jtZ-nu-J0E"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vtM-VY-PaU" customClass="DropDown" customModule="iOSDropDown">
+                                <rect key="frame" x="144" y="5.5" width="70" height="36"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downArrow" translatesAutoresizingMaskIntoConstraints="NO" id="eng-hH-dW8">
+                                        <rect key="frame" x="48" y="8" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="HSu-yb-Ajd"/>
+                                            <constraint firstAttribute="width" constant="20" id="sWJ-GT-V44"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="KMk-pO-OJz"/>
+                                    <constraint firstAttribute="trailing" secondItem="eng-hH-dW8" secondAttribute="trailing" constant="2" id="Tuc-hQ-889"/>
+                                    <constraint firstAttribute="width" constant="70" id="eaB-Cr-QUq"/>
+                                    <constraint firstItem="eng-hH-dW8" firstAttribute="centerY" secondItem="vtM-VY-PaU" secondAttribute="centerY" id="msD-gr-3DV"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="GxA-Ph-8DE" firstAttribute="centerY" secondItem="irZ-L8-poR" secondAttribute="centerY" id="5YI-wa-dgm"/>
+                            <constraint firstItem="PLj-ba-Wh1" firstAttribute="centerY" secondItem="lGY-i2-FGE" secondAttribute="centerY" id="Cft-Xb-zZM"/>
+                            <constraint firstItem="GxA-Ph-8DE" firstAttribute="leading" secondItem="vtM-VY-PaU" secondAttribute="trailing" constant="10" id="Lk2-TC-gRL"/>
+                            <constraint firstItem="irZ-L8-poR" firstAttribute="leading" secondItem="GxA-Ph-8DE" secondAttribute="trailing" constant="20" id="NxI-bH-005"/>
+                            <constraint firstAttribute="trailing" secondItem="irZ-L8-poR" secondAttribute="trailing" constant="15" id="Rgh-mC-nfM"/>
+                            <constraint firstItem="PLj-ba-Wh1" firstAttribute="leading" secondItem="lGY-i2-FGE" secondAttribute="leading" constant="20" id="cvo-ek-HWn"/>
+                            <constraint firstItem="PLj-ba-Wh1" firstAttribute="centerX" secondItem="lGY-i2-FGE" secondAttribute="centerX" id="tXJ-sR-P7C"/>
+                            <constraint firstItem="GxA-Ph-8DE" firstAttribute="centerY" secondItem="PLj-ba-Wh1" secondAttribute="centerY" id="uPM-ea-ALJ"/>
+                            <constraint firstItem="vtM-VY-PaU" firstAttribute="centerY" secondItem="PLj-ba-Wh1" secondAttribute="centerY" id="xLi-Te-2T9"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="lGY-i2-FGE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7Ta-M6-173"/>
+                    <constraint firstAttribute="trailing" secondItem="lGY-i2-FGE" secondAttribute="trailing" id="ROL-cy-iqy"/>
+                    <constraint firstAttribute="bottom" secondItem="lGY-i2-FGE" secondAttribute="bottom" id="dz3-uw-aDP"/>
+                    <constraint firstItem="lGY-i2-FGE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="wfM-iM-8wq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="add" destination="irZ-L8-poR" id="iXp-4J-Xft"/>
+                <outlet property="addSubtract" destination="vtM-VY-PaU" id="kQ2-s7-rNj"/>
+                <outlet property="txtField" destination="GxA-Ph-8DE" id="mve-oz-Idx"/>
+            </connections>
+            <point key="canvasLocation" x="110.86956521739131" y="86.71875"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="addBtn_new" width="42" height="42"/>
+        <image name="downArrow" width="75" height="75"/>
+    </resources>
+</document>

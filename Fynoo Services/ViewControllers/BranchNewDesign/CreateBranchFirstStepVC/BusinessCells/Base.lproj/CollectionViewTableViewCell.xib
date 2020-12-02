@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CollectionViewTableViewCell" rowHeight="143" id="KGk-i7-Jjw" customClass="CollectionViewTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="322" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="322" height="200"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIF-eo-1KG">
+                        <rect key="frame" x="10" y="0.0" width="302" height="200"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7eO-7N-eNb">
+                                <rect key="frame" x="0.0" y="0.0" width="302" height="190"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r3F-lP-wOA">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.69803921568627447" green="0.69803921568627447" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="-1" id="j4b-Lh-lLf"/>
+                                    <outlet property="delegate" destination="-1" id="MxJ-Jv-acG"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="7eO-7N-eNb" secondAttribute="bottom" constant="10" id="5cW-bX-8k4"/>
+                            <constraint firstItem="7eO-7N-eNb" firstAttribute="leading" secondItem="mIF-eo-1KG" secondAttribute="leading" id="B91-ba-Xdz"/>
+                            <constraint firstItem="7eO-7N-eNb" firstAttribute="top" secondItem="mIF-eo-1KG" secondAttribute="top" id="qgX-XB-G7z"/>
+                            <constraint firstAttribute="trailing" secondItem="7eO-7N-eNb" secondAttribute="trailing" id="zJ6-ux-wTV"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="mIF-eo-1KG" secondAttribute="bottom" id="Kmw-Hi-IOD"/>
+                    <constraint firstAttribute="trailing" secondItem="mIF-eo-1KG" secondAttribute="trailing" constant="10" id="cRj-Cg-fP8"/>
+                    <constraint firstItem="mIF-eo-1KG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="etU-m5-5pj"/>
+                    <constraint firstItem="mIF-eo-1KG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="qWR-1T-mjm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="collectionVIEW" destination="7eO-7N-eNb" id="3IQ-fC-JdK"/>
+                <outlet property="leadingConst" destination="qWR-1T-mjm" id="YH7-mS-ceO"/>
+                <outlet property="outervw" destination="mIF-eo-1KG" id="FLt-Mg-fKE"/>
+                <outlet property="topConst" destination="qgX-XB-G7z" id="uuN-00-aMe"/>
+                <outlet property="trailingConst" destination="cRj-Cg-fP8" id="mjq-rf-jXT"/>
+            </connections>
+            <point key="canvasLocation" x="139.13043478260872" y="122.87946428571428"/>
+        </tableViewCell>
+    </objects>
+</document>

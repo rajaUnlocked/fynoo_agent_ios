@@ -93,9 +93,48 @@ enum ValidationMessages {
 }
 
 class Constant: NSObject {
-    
+    //service
+    static let addproductNew : String = "product_api/addProduct/";
+   static let productlimit : String = "product_api/ProductLimit/";
+      static let productsellinfo : String = "product_api/sellProductInfo/";
+    static let productcode : String = "product_api/getProductCode/";
+      static let checkbar : String = "product_api/checkBarcode/";
+     static let storepay : String = "product_api/storePaymentList/";
+     static let editproductNew : String = "product_api/editProduct/";
+    static let productdetailnew : String = "product_api/detailProduct/";
+    static let Branch_List : String = "businessapi/v2/branchlist/";
+    static let addfilternew : String = "product_api/addFilter/";
+     static let filterlistnew : String = "product_api/filterList/";
+     static let ptatformList: String = "businessapi/v2/platform_type/"
+    static let displayTYpe: String = "businessapi/v2/time_display_type/"
+       static let uploadBranchImage: String = "businessapi/v2/uploadimage/"
+         static let uploadgalleryImage: String = "product_api/uploadGalleryImages/"
+       static let uploadbranchgalleryImage: String = "businessapi/v2/upload_fynoo_gallery_images/"
+         static let pdfupload : String = "product_api/uploadDocument/";
+       static let showimglist: String = "businessapi/v2/uploaded_images_list/"
+       static let contentname : String = "common/get_content_name/";
+     static let AddBranch : String = "businessapi/v2/addbranch/";
+     static let addbranch : String = "businessapi/v2/branch/";
+      static let addbranchlogo : String = "businessapi/v2/add_branch_logo/";
+     static let deleteImg : String = "businessapi/v2/deleteimage/";
+     static let branchdetaillist : String = "businessapi/v2/branchdetailview/";
+      static let descriptionVal : String = "businessapi/v2/branch_desc_limit/";
+     static let AddressType_List : String = "BO/addresstypelist/";
+    static let branchMultipleImageType : String = "businessapi/v2/upload_branch_multiple_image/";
+       static let branchStoreSave : String = "businessapi/v2/update_branch_store_image/"
+     static let BusinessType_List : String = "BO/businessTypeList/";
+     static let MAllMarket_List : String = "businessapi/v1/mallmarketlist/";
     static let UpdateProfile_Image : String = "agentapis/v2/update_profile_photo/";
-
+    static let getStockDataNew: String = "product_api/getStockData/"
+       static let updateStockData: String = "product_api/updateStock/"
+    // business gallery
+    static let uploadGalleryImg : String = "gallery/business_gallery/"
+       static let businessGalleryList: String = "gallery/business_gallery_list/"
+       static let deleteBusinessGallery: String = "gallery/business_gallery_delete/"
+       static let filterGallery: String = "gallery/business_gallery_filter/"
+       static let filterList: String = "gallery/bo_agent_list/"
+    
+    
 //      static var BASE_URL : String = "http://43.241.61.141:9003/"
       //  static var BASE_URL : String = "http://43.241.61.141:9005/"
     static let vatlengthlist: String = "product_api/getVatLength/"
@@ -148,7 +187,9 @@ class Constant: NSObject {
 
 enum Service {
     
-    
+    static let selectCategory = Constant.BASE_URL + "customerapi/v1/categorylist/"
+       static let selectSubCategory = Constant.BASE_URL + "customerapi/v1/subcategorylist/"
+       
     static let deactivateService = Constant.BASE_URL + "agentapis/v2/deactivate_services/"
     static let saveLanguage = Constant.BASE_URL + "agentapi/v1/save_language/"
     static let activateService = Constant.BASE_URL + "agentapis/v2/activate_services/"

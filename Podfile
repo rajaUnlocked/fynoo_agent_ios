@@ -22,10 +22,19 @@ pod 'iOSDropDown'
 pod 'MTPopup'
 pod 'KWVerificationCodeView'
 pod 'PopupDialog', '~> 1.1'
-
+pod 'BarcodeScanner'
 pod 'MTPopup'
 pod 'Cosmos', '~> 19.0'
-
+pod 'Firebase/Core'
+pod 'Firebase/MLVision'
+pod 'Firebase/MLVisionObjectDetection'
+pod 'Firebase/MLVisionAutoML'
+pod 'DatePickerDialog'
+pod 'Firebase/Analytics'
+pod 'Firebase/Messaging'
+pod 'GoogleMaps'
+pod 'GooglePlaces'
+pod "BSImagePicker"
   target 'Fynoo ServicesTests' do
     inherit! :search_paths
     # Pods for testing
