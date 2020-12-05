@@ -405,6 +405,11 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
 //        let vc = NotificationNewViewController(nibName: "NotificationNewViewController", bundle: nil)
 //        //vc.showBack = true
 //        self.navigationController?.pushViewController(vc, animated: true)
+        
+    let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                //vc.showBack = true
+        ProductModel.shared.remove()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func cameraClicked(_ sender: Any) {

@@ -41,7 +41,7 @@ class CreateProductFirstViewController: UIViewController {
     var headerLbl = ["Manage Products","General Information","Product/Service Pictures"]
     var headerImg = ["producticon","edit_feature","cameras-1"]
     var headerLbl1 = ["Scan Bar Code","Currency","Product/Service Name","Select Branch","Description"]
-    var headerLblImg1 = ["barcode_new-1","banknote","product1","branchnew",""]
+    var headerLblImg1 = ["barcode_new-1","banknote_new","product1","branchnew",""]
     var typeLbl = [["Type","Product","Service"],["Product Availiblity","Online","In Store"]]
   
     var isFromBranch = ""
@@ -95,7 +95,7 @@ class CreateProductFirstViewController: UIViewController {
             borderColor = ["#B2B2B2","#EC4A53","#EC4A53","#EC4A53","#EC4A53"]
             pro.galleryId = ["","","","","","","","","",""]
             productValArr = ["","","","",""]
-          ProductModel.shared.galleryIdImageNew = [#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder")]
+          ProductModel.shared.galleryIdImageNew = [#imageLiteral(resourceName: "placeholder"),#imageLiteral(resourceName: "placeholder"),#imageLiteral(resourceName: "placeholder"),#imageLiteral(resourceName: "placeholder"),#imageLiteral(resourceName: "placeholder"),#imageLiteral(resourceName: "placeholder"),#imageLiteral(resourceName: "placeholder"),#imageLiteral(resourceName: "placeholder"),#imageLiteral(resourceName: "placeholder"),#imageLiteral(resourceName: "placeholder")]
            
         }
         else
