@@ -268,6 +268,9 @@ class CreateProductFirstViewController: UIViewController {
     }
     @objc func saveClick(_ sender :UIButton)
     {
+        let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+        
         
         ProductModel.shared.isOnline = isOnline
         ProductModel.shared.isoffline = isStore
@@ -842,7 +845,7 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
                 cell.outervw.clipsToBounds = true
                 cell.outervw.layer.cornerRadius = 10
                 cell.outervw.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-               
+              
                 if isStore
                 {
                     cell.rgtbtn.setImage(UIImage(named: "check"), for: .normal)

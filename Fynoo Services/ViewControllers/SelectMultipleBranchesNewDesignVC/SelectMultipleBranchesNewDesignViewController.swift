@@ -128,6 +128,8 @@ class SelectMultipleBranchesNewDesignViewController: UIViewController, UITableVi
                     }
                     if self.selectedBranchArray.count == 0
                     {
+                        if self.branchListArray.count > 0
+                        {
                         for var i in (0...self.branchListArray.count - 1){
                             let branch:NSDictionary =  self.branchListArray[i] as! NSDictionary
                             if ProductModel.shared.branchIdnew.contains(branch.value(forKey: "id")!)
@@ -136,6 +138,7 @@ class SelectMultipleBranchesNewDesignViewController: UIViewController, UITableVi
                             }
                            
                                                              }
+                        }
                     }
                   
                     self.tableVw.reloadData()
