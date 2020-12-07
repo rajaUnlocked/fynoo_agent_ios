@@ -94,7 +94,7 @@ enum ValidationMessages {
 
 class Constant: NSObject {
     //service
-    static let addproductNew : String = "product_api/addProduct/";
+    static let addproductNew : String = "/services/agent_add_product/";
    static let productlimit : String = "product_api/ProductLimit/";
       static let productsellinfo : String = "product_api/sellProductInfo/";
     static let productcode : String = "product_api/getProductCode/";
@@ -114,7 +114,7 @@ class Constant: NSObject {
        static let showimglist: String = "businessapi/v2/uploaded_images_list/"
        static let contentname : String = "common/get_content_name/";
      static let AddBranch : String = "businessapi/v2/addbranch/";
-     static let addbranch : String = "businessapi/v2/branch/";
+     static let addbranch : String = "services/agent_create_branch/";
       static let addbranchlogo : String = "businessapi/v2/add_branch_logo/";
      static let deleteImg : String = "businessapi/v2/deleteimage/";
      static let branchdetaillist : String = "businessapi/v2/branchdetailview/";

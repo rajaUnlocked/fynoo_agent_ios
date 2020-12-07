@@ -209,8 +209,8 @@ class CollectionViewTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
                                  vc.iswarning = true
                                  vc.isproduct = true
                                   vc.index = tag1
-            vc.nameAr =  ["Take Photo".localized, "Device Gallery".localized,"Fynoo Gallery".localized]
-                                   vc.imgAr  = ["camera_picture", "galery_Picture","logo_blackAndWhite"]
+            vc.nameAr =  ["Take Photo".localized, "Device Gallery".localized]
+                                   vc.imgAr  = ["camera_picture", "galery_Picture"]
                                     let popupController = MTPopupController(rootViewController: vc)
                                            popupController.autoAdjustKeyboardEvent = false
                                            popupController.style = .bottomSheet
@@ -294,8 +294,8 @@ class CollectionViewTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
                          vc.iswarning = true
                          vc.isproduct = true
                           vc.index = tag1
-                           vc.nameAr =  ["Take Photo", "Device Gallery","Fynoo Gallery"]
-                           vc.imgAr  = ["camera_picture", "galery_Picture","logo_blackAndWhite"]
+                           vc.nameAr =  ["Take Photo", "Device Gallery"]
+                           vc.imgAr  = ["camera_picture", "galery_Picture"]
                             let popupController = MTPopupController(rootViewController: vc)
                                    popupController.autoAdjustKeyboardEvent = false
                                    popupController.style = .bottomSheet

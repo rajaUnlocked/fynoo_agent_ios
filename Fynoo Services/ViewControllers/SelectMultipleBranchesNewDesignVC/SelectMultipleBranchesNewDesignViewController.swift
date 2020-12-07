@@ -106,7 +106,7 @@ class SelectMultipleBranchesNewDesignViewController: UIViewController, UITableVi
         
   //      "user_id": Singleton.shared.getUserId(),
         let parameters = [
-            "user_id":Singleton.shared.getUserId(),
+            "user_id":"1159",
             "lang_code":HeaderHeightSingleton.shared.LanguageSelected
         ]
         print("request -",parameters)

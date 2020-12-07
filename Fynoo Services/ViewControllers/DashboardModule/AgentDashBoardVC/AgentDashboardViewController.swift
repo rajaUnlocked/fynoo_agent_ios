@@ -406,7 +406,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
 //        //vc.showBack = true
 //        self.navigationController?.pushViewController(vc, animated: true)
         
-    let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+    let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
                 //vc.showBack = true
         ProductModel.shared.remove()
         self.navigationController?.pushViewController(vc, animated: true)

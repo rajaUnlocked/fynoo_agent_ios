@@ -56,10 +56,11 @@ class AddProductModel: NSObject {
             mediaid.removeLast()
         }
         let str = "\(Constant.BASE_URL)\(Constant.addproductNew)"
-        
+       
         let parameters =
             ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,
-             "pro_bo_id":Singleton.shared.getUserId(),
+             "pro_bo_id":"1159",
+               "pro_agent_id":Singleton.shared.getUserId(),
              "pro_barcode":pro.barcode,
              "pro_currency":pro.currencyId,
              "pro_name":pro.productTitle,

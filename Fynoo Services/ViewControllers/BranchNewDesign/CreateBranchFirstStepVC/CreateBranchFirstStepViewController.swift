@@ -1542,7 +1542,7 @@
                 case 0,1:
                     return 44
                 case 2:
-                    return 135
+                    return 120
                     
                 case 9:
                     return 35
@@ -1659,8 +1659,8 @@
                                          vc.iswarning = true
                                          vc.isproduct = true
                                          vc.index = 0
-                                           vc.nameAr =  ["Take Photo", "Device Gallery","Fynoo Gallery"]
-                                           vc.imgAr  = ["camera_picture", "galery_Picture","logo_blackAndWhite"]
+                                           vc.nameAr =  ["Take Photo", "Device Gallery"]
+                                           vc.imgAr  = ["camera_picture", "galery_Picture"]
                                             let popupController = MTPopupController(rootViewController: vc)
                                                    popupController.autoAdjustKeyboardEvent = false
                                                    popupController.style = .bottomSheet
@@ -1684,8 +1684,8 @@
                                           vc.isproduct = true
                                          vc.iswarning = true
                                         self.imagetype = "Exterior"
-                                           vc.nameAr =  ["Take Photo", "Device Gallery","Fynoo Gallery"]
-                                           vc.imgAr  = ["camera_picture", "galery_Picture","logo_blackAndWhite"]
+                                           vc.nameAr =  ["Take Photo", "Device Gallery"]
+                                           vc.imgAr  = ["camera_picture", "galery_Picture"]
                                             let popupController = MTPopupController(rootViewController: vc)
                                                    popupController.autoAdjustKeyboardEvent = false
                                                    popupController.style = .bottomSheet
@@ -1707,8 +1707,8 @@
                                               vc.isproduct = true
                                              vc.iswarning = true
                                              self.imagetype = "Interior"
-                                               vc.nameAr =  ["Take Photo", "Device Gallery","Fynoo Gallery"]
-                                               vc.imgAr  = ["camera_picture", "galery_Picture","logo_blackAndWhite"]
+                                               vc.nameAr =  ["Take Photo", "Device Gallery"]
+                                               vc.imgAr  = ["camera_picture", "galery_Picture"]
                                                 let popupController = MTPopupController(rootViewController: vc)
                                                        popupController.autoAdjustKeyboardEvent = false
                                                        popupController.style = .bottomSheet

@@ -156,7 +156,7 @@ class branchsmodel:NSObject {
             }
         var parameters =
         ["image_from":branchfrom,"image_type":imageType,"branch_id":AddBranch.shared.BranchId,
-         "user_id":Singleton.shared.getUserId(),"lang_code": HeaderHeightSingleton.shared.LanguageSelected] as [String : Any]
+         "user_id":"1159","lang_code": HeaderHeightSingleton.shared.LanguageSelected] as [String : Any]
         if isproduct
         {
           parameters["is_featured"] = true
@@ -298,11 +298,11 @@ class branchsmodel:NSObject {
         var parameters = [String:String]()
                if AddBranch.shared.BranchId == ""
                {
-          parameters = ["user_id":Singleton.shared.getUserId(),"lang_code": HeaderHeightSingleton.shared.LanguageSelected]
+          parameters = ["user_id":"1159","lang_code": HeaderHeightSingleton.shared.LanguageSelected]
         }
         else
                {
-                parameters = ["user_id":Singleton.shared.getUserId(),"branch_id":AddBranch.shared.BranchId,"lang_code": HeaderHeightSingleton.shared.LanguageSelected]
+                parameters = ["user_id":"1159","branch_id":AddBranch.shared.BranchId,"lang_code": HeaderHeightSingleton.shared.LanguageSelected]
         }
        
         print(str,parameters)
