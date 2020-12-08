@@ -615,8 +615,8 @@
                 }
                 if br.BTimeDict.count == 0
                                                                    {
-                                                                    ModalController.showNegativeCustomAlertWith(title: "Please select business timing".localized, msg: "" )
-                                                                       return
+                            ModalController.showNegativeCustomAlertWith(title: "Please select business timing".localized, msg: "" )
+                                                return
                                                                    }
                 if br.showImgId.count == 0
                                                                    {

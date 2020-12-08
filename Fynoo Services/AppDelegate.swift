@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 //    var agentSignUPModal = AgentSignUPModal()
@@ -20,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      
         GMSServices.provideAPIKey("AIzaSyAgZ0AyOGQLcv7loggrrhrPXfPm-jsHguY")
         GMSPlacesClient.provideAPIKey("AIzaSyAgZ0AyOGQLcv7loggrrhrPXfPm-jsHguY")
+          FirebaseApp.configure()
         return true
     }
 

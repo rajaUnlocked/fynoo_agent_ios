@@ -455,6 +455,7 @@
 		CEE72CBD251B76AF00B02DAF /* BottomPopupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE72CB9251B76AF00B02DAF /* BottomPopupTableViewCell.xib */; };
 		CEE72CBE251B76AF00B02DAF /* BottomPopupEditProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE72CBA251B76AF00B02DAF /* BottomPopupEditProductViewController.swift */; };
 		CEE72CC0251B795100B02DAF /* OpenGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE72CBF251B795100B02DAF /* OpenGallery.swift */; };
+		CEFC760B257F5E0C00088467 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEFC760A257F5E0C00088467 /* GoogleService-Info.plist */; };
 		F415E772250A221900DEF755 /* ProfileModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F415E771250A221900DEF755 /* ProfileModal.swift */; };
 		F438605325230BF200DE0BED /* AddAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438605125230BF200DE0BED /* AddAmountViewController.swift */; };
 		F438605425230BF200DE0BED /* AddAmountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438605225230BF200DE0BED /* AddAmountViewController.xib */; };
@@ -1074,6 +1075,7 @@
 		CEE72CB9251B76AF00B02DAF /* BottomPopupTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomPopupTableViewCell.xib; sourceTree = "<group>"; };
 		CEE72CBA251B76AF00B02DAF /* BottomPopupEditProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupEditProductViewController.swift; sourceTree = "<group>"; };
 		CEE72CBF251B795100B02DAF /* OpenGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGallery.swift; sourceTree = "<group>"; };
+		CEFC760A257F5E0C00088467 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D386675BEC93A1C2372A22B2 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_Services_Fynoo_ServicesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F415E771250A221900DEF755 /* ProfileModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModal.swift; sourceTree = "<group>"; };
 		F438605125230BF200DE0BED /* AddAmountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAmountViewController.swift; sourceTree = "<group>"; };
@@ -1460,6 +1462,7 @@
 			isa = PBXGroup;
 			children = (
 				CE8E8597250F4C3800B74A9E /* Localizable.strings */,
+				CEFC760A257F5E0C00088467 /* GoogleService-Info.plist */,
 				2FFDE20B25012166006C5EBD /* Fynoo Services */,
 				2FFDE22225012172006C5EBD /* Fynoo ServicesTests */,
 				2FFDE22D25012173006C5EBD /* Fynoo ServicesUITests */,
@@ -2835,6 +2838,7 @@
 				CEDD32F525763C8E00023977 /* ProductTopTableViewCell.xib in Resources */,
 				F62E4AF225148EC60021CEE0 /* AgentProfileImageTableViewCell.strings in Resources */,
 				F658B3FE2522ECD000B37F63 /* LanguageSelectionTableViewCell.xib in Resources */,
+				CEFC760B257F5E0C00088467 /* GoogleService-Info.plist in Resources */,
 				CEDD31F72576206500023977 /* ProductImgCollectionViewCell.xib in Resources */,
 				CEE3578B250740800097069D /* sst-arabic-bold.ttf in Resources */,
 				CECEF9F52577575C0090D459 /* CollectionViewTableViewCell.xib in Resources */,
