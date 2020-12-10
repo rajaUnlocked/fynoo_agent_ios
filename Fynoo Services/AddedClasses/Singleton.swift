@@ -9,6 +9,7 @@
 import Foundation
 class Singleton {
     var UserId:String = ""
+    var BoId:String = ""
      var RetailArr:NSMutableArray = NSMutableArray()
     var userType:String = ""
     var userProfileImageStr:String = ""
@@ -22,7 +23,13 @@ class Singleton {
     func setUserId(UserId:String) {
         self.UserId = UserId;
     }
-    
+    func getBoId() -> String{
+           return BoId;
+       }
+       
+       func setBoId(BoId:String) {
+           self.BoId = BoId;
+       }
     
     func getLoggedInUserType() -> String{
         return userType;

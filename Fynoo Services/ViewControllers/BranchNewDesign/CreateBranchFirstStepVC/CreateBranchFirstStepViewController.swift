@@ -71,6 +71,7 @@
         
         override func viewDidLoad() {
             super.viewDidLoad()
+         Singleton.shared.setBoId(BoId: "1159")
             self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
             self.tableVw.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
             conturyFlag = ["","",""]
@@ -2137,7 +2138,7 @@
             let str = "\(Constant.BASE_URL)\(Constant.branchMultipleImageType)"
             
             let param = [
-                "user_id":Singleton.shared.getUserId(),"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"branch_id":AddBranch.shared.BranchId,"image_type":imagetype
+               "user_id":Singleton.shared.getBoId(),"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"branch_id":AddBranch.shared.BranchId,"image_type":imagetype
                 ] as [String : Any]
             
             

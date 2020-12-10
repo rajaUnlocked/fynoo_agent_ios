@@ -771,7 +771,7 @@
 		CECEF93B2577575B0090D459 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CommonSearchTableViewCell.xib; sourceTree = "<group>"; };
 		CECEF93D2577575B0090D459 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CommonSearchViewController.xib; sourceTree = "<group>"; };
 		CECEF9402577575B0090D459 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CreateBranchFirstStepViewController.strings; sourceTree = "<group>"; };
-		CECEF9412577575B0090D459 /* CreateBranchFirstStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBranchFirstStepViewController.swift; sourceTree = "<group>"; };
+		CECEF9412577575B0090D459 /* CreateBranchFirstStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = CreateBranchFirstStepViewController.swift; sourceTree = "<group>"; };
 		CECEF9422577575B0090D459 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CreateBranchFirstStepViewController.strings; sourceTree = "<group>"; };
 		CECEF9452577575B0090D459 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CountingTableViewCell.strings; sourceTree = "<group>"; };
 		CECEF9472577575B0090D459 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/DescriptionTableViewCell.strings; sourceTree = "<group>"; };
