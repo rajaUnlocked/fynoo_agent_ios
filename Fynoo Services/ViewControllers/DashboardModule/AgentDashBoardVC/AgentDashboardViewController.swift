@@ -10,7 +10,7 @@ import UIKit
 import SideMenu
 
 class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource, ServicesDashboardTableViewCellDelegate, CommonPopupViewControllerDelegate ,UIImagePickerControllerDelegate, UINavigationControllerDelegate, OpenGalleryDelegate {
-
+    var branchmodel = branchsmodel()
     @IBOutlet weak var tableVw: UITableView!
     @IBOutlet weak var topVwHeightCons: NSLayoutConstraint!
     @IBOutlet weak var qrcode: UIButton!
@@ -405,11 +405,21 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
 //        let vc = NotificationNewViewController(nibName: "NotificationNewViewController", bundle: nil)
 //        //vc.showBack = true
 //        self.navigationController?.pushViewController(vc, animated: true)
-        
-    let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
-                //vc.showBack = true
-        ProductModel.shared.remove()
-        self.navigationController?.pushViewController(vc, animated: true)
+        AddBranch.shared.removeall()
+         Singleton.shared.setBoId(BoId: "1159")
+              branchmodel.branchid = "41562"
+        branchmodel.lat = 0.0
+        branchmodel.long = 0.0
+              ModalClass.startLoading(self.view)
+              branchmodel.branchDetail { (success, response) in
+                  ModalClass.stopLoading()
+                  if success {
+                    let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
+                                   //vc.showBack = true
+                           ProductModel.shared.remove()
+                           self.navigationController?.pushViewController(vc, animated: true)
+                }}
+   
     }
     
     @IBAction func cameraClicked(_ sender: Any) {

@@ -127,6 +127,7 @@ class Constant: NSObject {
     static let UpdateProfile_Image : String = "agentapis/v2/update_profile_photo/";
     static let getStockDataNew: String = "product_api/getStockData/"
        static let updateStockData: String = "product_api/updateStock/"
+     static let updateBranch : String = "businessapi/v2/updatebranch/";
     // business gallery
     static let uploadGalleryImg : String = "gallery/business_gallery/"
        static let businessGalleryList: String = "gallery/business_gallery_list/"

@@ -71,7 +71,7 @@
         
         override func viewDidLoad() {
             super.viewDidLoad()
-         Singleton.shared.setBoId(BoId: "1159")
+        
             self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
             self.tableVw.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
             conturyFlag = ["","",""]

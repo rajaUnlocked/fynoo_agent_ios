@@ -356,7 +356,7 @@ class branchsmodel:NSObject {
         let str = "\(Constant.BASE_URL)\(Constant.branchdetaillist)"
         let parameters = [
             "id":branchid,
-            "user_id":Singleton.shared.getUserId(),
+            "user_id":Singleton.shared.getBoId(),
             "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
             "latitude":lat,
             "longitude":long
