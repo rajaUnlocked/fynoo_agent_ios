@@ -1382,15 +1382,15 @@ pro.RetailReturnDays = ""
                                         ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
 //                                        self.navigationController?.backToViewController(viewController: BranchDetailNewViewController.self)
                                     }
-                                    else if self.isSimilar || self.isVarient
-                                    {
-                                        let vc = DatabankpopupViewController(nibName: "DatabankpopupViewController", bundle: nil)
-                                        vc.id = self.pro.productId
-                                        vc.delegate = self
-                                        vc.modalPresentationStyle = .overFullScreen
-                                        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-                                        self.present(vc, animated: true, completion: nil)
-                                    }
+ //                                   else if self.isSimilar || self.isVarient
+//                                    {
+//                                        let vc = DatabankpopupViewController(nibName: "DatabankpopupViewController", bundle: nil)
+//                                        vc.id = self.pro.productId
+//                                        vc.delegate = self
+//                                        vc.modalPresentationStyle = .overFullScreen
+//                                        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+//                                        self.present(vc, animated: true, completion: nil)
+//                                    }
                                     else{
                                         ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
 //                                        self.navigationController?.backToViewController(viewController: ProductListNewViewController.self)
@@ -1407,15 +1407,15 @@ pro.RetailReturnDays = ""
 //                                        self.navigationController?.backToViewController(viewController: ProductDataBankController.self)
                                         
                                     }
-                                    else if self.pro.pro_reference_id == ""
-                                    {
-                                        let vc = DatabankpopupViewController(nibName: "DatabankpopupViewController", bundle: nil)
-                                        vc.id = self.pro.productId
-                                        vc.delegate = self
-                                        vc.modalPresentationStyle = .overFullScreen
-                                        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-                                        self.present(vc, animated: true, completion: nil)
-                                    }
+                     //               else if self.pro.pro_reference_id == ""
+                      //              {
+//                                        let vc = DatabankpopupViewController(nibName: "DatabankpopupViewController", bundle: nil)
+//                                        vc.id = self.pro.productId
+//                                        vc.delegate = self
+//                                        vc.modalPresentationStyle = .overFullScreen
+//                                        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+//                                        self.present(vc, animated: true, completion: nil)
+  //                                  }
                                     else
                                     {
                                         ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
@@ -1554,15 +1554,15 @@ pro.RetailReturnDays = ""
                                     ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
 //                                    self.navigationController?.backToViewController(viewController: BranchDetailNewViewController.self)
                                 }
-                                else if self.isSimilar || self.isVarient
-                                {
-                                    let vc = DatabankpopupViewController(nibName: "DatabankpopupViewController", bundle: nil)
-                                    vc.id = self.pro.productId
-                                    vc.delegate = self
-                                    vc.modalPresentationStyle = .overFullScreen
-                                    vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-                                    self.present(vc, animated: true, completion: nil)
-                                }
+              //                  else if self.isSimilar || self.isVarient
+              //                  {
+//                                    let vc = DatabankpopupViewController(nibName: "DatabankpopupViewController", bundle: nil)
+//                                    vc.id = self.pro.productId
+//                                    vc.delegate = self
+//                                    vc.modalPresentationStyle = .overFullScreen
+//                                    vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+//                                    self.present(vc, animated: true, completion: nil)
+        //                        }
                                 else{
                                     ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
 //                                    self.navigationController?.backToViewController(viewController: ProductListNewViewController.self)
@@ -1580,15 +1580,15 @@ pro.RetailReturnDays = ""
                                     ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
 //                                    self.navigationController?.backToViewController(viewController: ProductDataBankController.self)
                                 }
-                                else if self.pro.pro_reference_id == ""
-                                {
-                                    let vc = DatabankpopupViewController(nibName: "DatabankpopupViewController", bundle: nil)
-                                    vc.id = self.pro.productId
-                                    vc.delegate = self
-                                    vc.modalPresentationStyle = .overFullScreen
-                                    vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-                                    self.present(vc, animated: true, completion: nil)
-                                }
+     //                           else if self.pro.pro_reference_id == ""
+       //                         {
+//                                    let vc = DatabankpopupViewController(nibName: "DatabankpopupViewController", bundle: nil)
+//                                    vc.id = self.pro.productId
+//                                    vc.delegate = self
+//                                    vc.modalPresentationStyle = .overFullScreen
+//                                    vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+//                                    self.present(vc, animated: true, completion: nil)
+     //                           }
                                 else
                                 {
                                     ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
