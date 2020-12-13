@@ -100,7 +100,7 @@ class Constant: NSObject {
     static let productcode : String = "product_api/getProductCode/";
       static let checkbar : String = "product_api/checkBarcode/";
      static let storepay : String = "product_api/storePaymentList/";
-     static let editproductNew : String = "product_api/editProduct/";
+     static let editproductNew : String = "services/agent_edit_product/";
     static let productdetailnew : String = "product_api/detailProduct/";
     static let Branch_List : String = "businessapi/v2/branchlist/";
     static let addfilternew : String = "product_api/addFilter/";

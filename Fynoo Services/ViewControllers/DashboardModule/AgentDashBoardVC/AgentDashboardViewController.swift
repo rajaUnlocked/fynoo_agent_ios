@@ -20,7 +20,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     @IBOutlet weak var availableBalanceLbl: UILabel!
     var showWallet = false
     @IBOutlet weak var arrowImg: UIImageView!
-    
+     var productmodel = AddProductModel()
     var agentInfoArray = NSMutableArray()
     var bannerArray = NSMutableArray()
     var servicesArray = NSMutableArray()
@@ -405,23 +405,34 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
 //        let vc = NotificationNewViewController(nibName: "NotificationNewViewController", bundle: nil)
 //        //vc.showBack = true
 //        self.navigationController?.pushViewController(vc, animated: true)
-        AddBranch.shared.removeall()
-         Singleton.shared.setBoId(BoId: "1159")
-              branchmodel.branchid = "41562"
-        branchmodel.lat = 0.0
-        branchmodel.long = 0.0
-              ModalClass.startLoading(self.view)
-              branchmodel.branchDetail { (success, response) in
-                  ModalClass.stopLoading()
-                  if success {
-                    let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
-                                   //vc.showBack = true
-                           ProductModel.shared.remove()
-                           self.navigationController?.pushViewController(vc, animated: true)
-                }}
+//        AddBranch.shared.removeall()
+//         Singleton.shared.setBoId(BoId: "1159")
+//              branchmodel.branchid = "41562"
+//        branchmodel.lat = 0.0
+//        branchmodel.long = 0.0
+//              ModalClass.startLoading(self.view)
+//              branchmodel.branchDetail { (success, response) in
+//                  ModalClass.stopLoading()
+//                  if success {
+//                    let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
+//                                   //vc.showBack = true
+//                           ProductModel.shared.remove()
+//                           self.navigationController?.pushViewController(vc, animated: true)
+//                }}
    
+        print("Edit Product")
+                   ProductModel.shared.remove()
+                   //            ModalClass.startLoading(self.view)
+                   ProductModel.shared.productId = "132796"
+                   productmodel.productDetails{ (success, response) in
+                       ModalClass.stopLoading()
+                       if success{
+                           let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                           self.navigationController?.pushViewController(vc, animated: true)
+                       }
+     
     }
-    
+    }
     @IBAction func cameraClicked(_ sender: Any) {
         
         let alert = UIAlertController(title: "Message", message: "", preferredStyle: .actionSheet)

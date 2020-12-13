@@ -562,7 +562,8 @@ class AddProductModel: NSObject {
         
         var parameters =
             ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,
-             "pro_bo_id":Singleton.shared.getUserId(),
+             "pro_agent_id":Singleton.shared.getUserId(),
+             "pro_bo_id":Singleton.shared.getBoId(),
              "pro_id":pro.productId,
              "pro_filled_step":step,
              "pro_barcode":pro.barcode,

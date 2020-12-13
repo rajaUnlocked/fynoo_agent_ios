@@ -48,6 +48,7 @@ class CreateProductFirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Device Gallery".localized)
+        Singleton.shared.setBoId(BoId: "1159")
         self.navigationController?.isNavigationBarHidden = true
         productlimit_API()
              self.tabvw.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)

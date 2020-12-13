@@ -328,7 +328,7 @@ class BusinessLocation1ViewController: UIViewController,UITableViewDelegate,UITa
             
         }
       
-        AddBranch.shared.locationdetails = details
+        //AddBranch.shared.locationdetails = details
         AddBranch.shared.isLocation = true
         self.navigationController?.popViewController(animated: true)
       }
