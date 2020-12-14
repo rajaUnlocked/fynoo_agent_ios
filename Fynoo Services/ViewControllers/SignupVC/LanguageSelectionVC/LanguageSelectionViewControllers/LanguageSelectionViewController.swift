@@ -154,8 +154,9 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
             }
         }
     }
-    
+
     func registerCellNibs(){
+        
         tableVw.register(UINib(nibName: "LanguageSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "LanguageSelectionTableViewCell");
     }
     
@@ -183,10 +184,6 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
                 }
             }
         }
-        
-        
-        
-        
     }
     
     @IBAction func crossBtn(_ sender: Any) {
