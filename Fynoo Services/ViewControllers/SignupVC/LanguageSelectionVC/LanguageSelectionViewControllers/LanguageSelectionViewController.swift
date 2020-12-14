@@ -10,13 +10,15 @@ import UIKit
 
 import Alamofire
 
+
+
 protocol LanguageSelectionViewControllerDelegate: class {
    
+    func reloadPage()
     func selectLanguageMethod(languageDict : NSMutableDictionary)
 }
 
 class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
-    weak var delegate: LanguageSelectionViewControllerDelegate?
     @IBOutlet weak var customHeader: NavigationView!
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var shadowVw: UIView!
@@ -24,19 +26,19 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var tableVw: UITableView!
     @IBOutlet var signUpBtn: UIButton!
-    
+    var languageSelect : ((String) -> Void)?
     @IBOutlet weak var headerLbl: UILabel!
     
     @IBOutlet weak var backBtn: UIButton!
     
   
     
-    
+    var isFrom = false
     var selectedLanguageyDict : NSMutableDictionary = NSMutableDictionary()
     var filterListArray : NSMutableArray = NSMutableArray()
     var languageListArray : NSMutableArray = NSMutableArray()
     var selectedArray:NSMutableArray = NSMutableArray()
-     var selectLanguageStr:String = ""
+    var selectLanguageStr:String = ""
     
     var IBANinformationModal = AgentIbanLengthModal()
     
@@ -50,6 +52,7 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
         self.searchField.placeholder = "Enter Language"
         languageListAPI()
         
+        print(selectedArray,"dhf")
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         searchField.font = UIFont(name:"\(fontNameLight)",size:12)
         self.customHeader.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
@@ -74,6 +77,12 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
     }
     
     @IBAction func customerBckClicked(_ sender: Any) {
+        
+        if isFrom {
+            languageSelect!("hgf")
+            self.navigationController?.popViewController(animated: true)
+            return
+        }
         var isLoginThere = false
         
         AuthorisedUser.shared.removeAuthorisedUser()
@@ -157,8 +166,15 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
                 if let value = (response?.object(forKey: "error_description") as? String) {
                     ModalController.showSuccessCustomAlertWith(title: "", msg: value)
                     
-                    let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
-                    self.navigationController?.pushViewController(vc, animated: true)
+                    if self.isFrom{
+                        self.languageSelect!("hgf")
+
+                        self.navigationController?.popViewController(animated: true)
+                    }else{
+                        let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                   
                 }
                 
             }else{

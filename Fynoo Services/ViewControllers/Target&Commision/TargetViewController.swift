@@ -9,15 +9,13 @@
 import UIKit
 import AVKit
 import AVFoundation
-
-
 class TargetViewController: UIViewController {
     var targetmodel = TargetModel()
     @IBOutlet weak var headervw: NavigationView!
     var targetlist:TargetList?
     @IBOutlet weak var tabvw: UITableView!
-    
-    
+    var player: AVPlayer!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         headervw.viewControl = self
@@ -61,7 +59,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
         }
          
         return ((self.targetlist?.data?.total_target ?? 0) == 0 ? 0:self.targetlist?.data?.top_five_agent?.count ?? 0)
-    // return self.targetlist?.data?.top_five_agent?.count ?? 0
+      
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -127,25 +125,37 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         if indexPath.section == 2
         {
             if indexPath.row == 1
             {
                 if self.targetlist?.data?.media_type ?? 0 == 1
                 {
-                    if let url = URL(string: self.targetlist?.data?.video_file ?? ""){
-               //        let player : AVPlayer = AVPlayer(url: url)
-                        let ur = URL(string: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4")
-                        let player : AVPlayer = AVPlayer(url: ur!)
-                       let avController = AVPlayerViewController()
-                       avController.player = player
-                       // your desired frame
-                        let cell = tabvw.cellForRow(at: IndexPath(row: 1, section: 2)) as! VideoTableViewCell
-                       avController.view.frame = cell.vw.frame
-                       cell.vw.addSubview(avController.view)
-                       self.addChild(avController)
-                       player.play()
+                    if let url = URL(string: "http://techslides.com/demos/sample-videos/small.3gp"){
+                        
+                        player = AVPlayer(url: url)
+                        
+                        let playerViewController = AVPlayerViewController()
+                        
+                        playerViewController.player = player
+                        
+                        self.present(playerViewController, animated: true)
+                            
+                            playerViewController.player!.play()
+                            
+                        
+                        
+                        
+                        //                       let player = AVPlayer(url: url)
+                        //                       let avController = AVPlayerViewController()
+                        //                       avController.player = player
+                        //                       // your desired frame
+                        //                        let cell = tabvw.cellForRow(at: IndexPath(row: 1, section: 2)) as! VideoTableViewCell
+                        //                       avController.view.frame = cell.vw.frame
+                        //                       cell.vw.addSubview(avController.view)
+                        //                       self.addChild(avController)
+                        //                       player.play()
+                        
                     }
                 }
                 else
@@ -157,7 +167,6 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
             }
         }
     }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1
         {

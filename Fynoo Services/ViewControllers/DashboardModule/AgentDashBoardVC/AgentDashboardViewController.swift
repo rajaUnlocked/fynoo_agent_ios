@@ -152,13 +152,13 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
             
         }
         
-        @objc func sideMenuuserProfileClicked(_ notification: NSNotification) {
-        }
+    @objc func sideMenuuserProfileClicked(_ notification: NSNotification) {
+        let vc = UserProfileDetailsViewController(nibName: "UserProfileDetailsViewController", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
         
         @objc func sideMenusettingsClicked(_ notification: NSNotification) {
-            let vc = AgentDeliveryViewController(nibName: "AgentDeliveryViewController", bundle: nil)
-          //  vc.showBack = true
-            self.navigationController?.pushViewController(vc, animated: true)
+          
         }
         
         @objc func sideMenuChangeLanguageClicked(_ notification: NSNotification) {

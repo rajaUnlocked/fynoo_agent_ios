@@ -10,6 +10,7 @@ import UIKit
 
 class AgentServiceList: UITableViewCell {
 
+    @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var totalCount: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var address: UILabel!

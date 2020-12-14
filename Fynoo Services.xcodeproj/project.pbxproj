@@ -221,6 +221,8 @@
 		F4CEC2FF2511D9FF003C35E8 /* UploadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CEC2FE2511D9FE003C35E8 /* UploadImage.swift */; };
 		F4CEC3012511DDCC003C35E8 /* branchsmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CEC3002511DDCC003C35E8 /* branchsmodel.swift */; };
 		F4D1915C2514C17E0098B12D /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D1915B2514C17E0098B12D /* DatePickerDialog.swift */; };
+		F4E772AA252D9F930045BD86 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E772A9252D9F920045BD86 /* ChangePasswordViewController.swift */; };
+		F4E772AC252D9F990045BD86 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4E772AB252D9F990045BD86 /* ChangePasswordViewController.xib */; };
 		F62E4AE925148EC60021CEE0 /* popupViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AA025148EC60021CEE0 /* popupViewController.strings */; };
 		F62E4AEA25148EC60021CEE0 /* popupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AA325148EC60021CEE0 /* popupViewController.xib */; };
 		F62E4AEB25148EC60021CEE0 /* popupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4AA525148EC60021CEE0 /* popupViewController.swift */; };
@@ -505,7 +507,7 @@
 		F44E35B5251CACBB002E41E2 /* DataBankHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataBankHeader.xib; sourceTree = "<group>"; };
 		F46DB926251B23970061A232 /* TripAchievementViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripAchievementViewCell.swift; sourceTree = "<group>"; };
 		F46DB927251B23970061A232 /* TripAchievementViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripAchievementViewCell.xib; sourceTree = "<group>"; };
-		F472BA1A2519DF120094C13E /* AgentDeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDeliveryViewController.swift; sourceTree = "<group>"; };
+		F472BA1A2519DF120094C13E /* AgentDeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDeliveryViewController.swift; sourceTree = "<group>"; tabWidth = 3; };
 		F472BA1B2519DF120094C13E /* AgentDeliveryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentDeliveryViewController.xib; sourceTree = "<group>"; };
 		F4828C8D2508AA2C006B85D8 /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
 		F4828C912508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileEnteriesTableViewCell.xib; sourceTree = "<group>"; };
@@ -531,6 +533,8 @@
 		F4CEC2FE2511D9FE003C35E8 /* UploadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImage.swift; sourceTree = "<group>"; };
 		F4CEC3002511DDCC003C35E8 /* branchsmodel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = branchsmodel.swift; sourceTree = "<group>"; };
 		F4D1915B2514C17E0098B12D /* DatePickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
+		F4E772A9252D9F920045BD86 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		F4E772AB252D9F990045BD86 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
 		F62E4AA125148EC60021CEE0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/popupViewController.strings; sourceTree = "<group>"; };
 		F62E4AA225148EC60021CEE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/popupViewController.strings; sourceTree = "<group>"; };
 		F62E4AA425148EC60021CEE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/popupViewController.xib; sourceTree = "<group>"; };
@@ -944,6 +948,7 @@
 		2FFDE23C2501221B006C5EBD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F4E772A8252D9F830045BD86 /* Password */,
 				CEE72CA5251B369400B02DAF /* DeliveryServiceDocuments */,
 				F62E4A9E25148EC60021CEE0 /* SignupVC */,
 				2F74CB4F250A365F00DE21EF /* Splash */,
@@ -1204,6 +1209,15 @@
 				F4CEC2FA2511D34B003C35E8 /* VatpopnewchangeViewController.swift */,
 			);
 			path = VatInfo;
+			sourceTree = "<group>";
+		};
+		F4E772A8252D9F830045BD86 /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				F4E772A9252D9F920045BD86 /* ChangePasswordViewController.swift */,
+				F4E772AB252D9F990045BD86 /* ChangePasswordViewController.xib */,
+			);
+			path = Password;
 			sourceTree = "<group>";
 		};
 		F4EC04A12514D2A0005AF7B0 /* PopUp */ = {
@@ -1635,6 +1649,7 @@
 				CEE72CBD251B76AF00B02DAF /* BottomPopupTableViewCell.xib in Resources */,
 				F4C4DC572507943A0075F520 /* UserProfileDetailsViewController.xib in Resources */,
 				F62E4B0825148EC60021CEE0 /* agentPersonalDetailsTableViewCell.strings in Resources */,
+				F4E772AC252D9F990045BD86 /* ChangePasswordViewController.xib in Resources */,
 				F66AA1AF2525B53300C1E058 /* DiscountTypePopUpViewController.strings in Resources */,
 				2FFDE2422501225A006C5EBD /* AgentDashboardViewController.xib in Resources */,
 				F62E4B0B25148EC60021CEE0 /* PersonalRegViewController.xib in Resources */,
@@ -1910,6 +1925,7 @@
 				2F846421250F81F10084EB32 /* ForgotPassword.swift in Sources */,
 				2FEB122B251225A30012FE98 /* ServicesDashboardTableViewCell.swift in Sources */,
 				F62E4AF825148EC60021CEE0 /* ServiceCollectionViewCell.swift in Sources */,
+				F4E772AA252D9F930045BD86 /* ChangePasswordViewController.swift in Sources */,
 				2F8463E1250F6EBC0084EB32 /* LoginIntroFourth.swift in Sources */,
 				2F07D1A82505F89100193658 /* Constant.swift in Sources */,
 				2F964B6E25136B05005FFEDC /* DropShipDashboardTableViewCell.swift in Sources */,

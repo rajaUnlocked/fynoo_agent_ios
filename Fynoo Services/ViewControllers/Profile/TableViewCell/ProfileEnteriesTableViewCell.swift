@@ -8,12 +8,16 @@
 //
 
 import UIKit
+import iOSDropDown
 class ProfileEnteriesTableViewCell: UITableViewCell {
    
+    @IBOutlet weak var genderHorizantal: NSLayoutConstraint!
+    @IBOutlet weak var genderWidth: NSLayoutConstraint!
     @IBOutlet weak var codeBtnWidth: NSLayoutConstraint!
     @IBOutlet weak var codeBtn: UIButton!
     @IBOutlet weak var widthImg: NSLayoutConstraint!
     
+    @IBOutlet weak var genderView: DropDown!
     @IBOutlet weak var mobileCodeWidth: NSLayoutConstraint!
     @IBOutlet weak var mobileCode: UILabel!
     @IBOutlet weak var flagImg: UIImageView!
@@ -21,7 +25,10 @@ class ProfileEnteriesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var rotateVw: UIView!
     @IBOutlet weak var eyeButton: UIButton!
+    
     @IBOutlet weak var headingLbl: UITextField!
+    //  @IBOutlet weak var headingLbl: UITextField!
+    
     @IBOutlet weak var entryLbl: UILabel!
     
     @IBOutlet weak var underLine: UILabel!
@@ -33,10 +40,15 @@ class ProfileEnteriesTableViewCell: UITableViewCell {
         widthImg.constant = 0
         codeBtn.isHidden = true
         codeBtnWidth.constant = 0
+        genderView.arrowSize = 0.0
+        genderWidth.constant = 0
+             genderHorizantal.constant = 0
         headingLbl.keyboardType = .default
         // cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         headingLbl.keyboardType = .default
         headingLbl.isHidden = false
+        
+        
         //  SetFont()
     }
     

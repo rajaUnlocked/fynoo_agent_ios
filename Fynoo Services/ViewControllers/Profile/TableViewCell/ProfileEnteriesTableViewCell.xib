@@ -91,13 +91,25 @@
                                 </constraints>
                                 <state key="normal" image="drop"/>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D0V-Qa-0pz" customClass="DropDown" customModule="iOSDropDown">
+                                <rect key="frame" x="90" y="12" width="97" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="Oa0-dl-E3h"/>
+                                    <constraint firstAttribute="width" constant="97" id="hgk-7N-3CG"/>
+                                </constraints>
+                                <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DZ3-Ge-6Mb" secondAttribute="trailing" constant="20" id="0SV-A1-gNX"/>
+                            <constraint firstItem="D0V-Qa-0pz" firstAttribute="centerY" secondItem="TtI-Ka-cbf" secondAttribute="centerY" id="5er-vf-Q5X"/>
                             <constraint firstItem="GSt-cK-fRJ" firstAttribute="leading" secondItem="VSb-KG-qPn" secondAttribute="trailing" constant="2" id="9e4-hf-CuB"/>
                             <constraint firstItem="jv4-7N-sfA" firstAttribute="centerY" secondItem="TtI-Ka-cbf" secondAttribute="centerY" id="ATV-wC-eR0"/>
                             <constraint firstAttribute="trailing" secondItem="7ws-sR-hQP" secondAttribute="trailing" constant="25" id="DL2-Yv-exx"/>
+                            <constraint firstItem="D0V-Qa-0pz" firstAttribute="leading" secondItem="GSt-cK-fRJ" secondAttribute="trailing" constant="8" id="Hrr-Ix-IBQ"/>
                             <constraint firstItem="DZ3-Ge-6Mb" firstAttribute="leading" secondItem="GSt-cK-fRJ" secondAttribute="trailing" constant="2" id="V8p-TM-1Px"/>
                             <constraint firstItem="VSb-KG-qPn" firstAttribute="leading" secondItem="jv4-7N-sfA" secondAttribute="trailing" constant="4" id="WyD-I5-DZG"/>
                             <constraint firstItem="7ws-sR-hQP" firstAttribute="centerY" secondItem="TtI-Ka-cbf" secondAttribute="centerY" id="ce4-Bi-cBg"/>
@@ -132,7 +144,10 @@
                 <outlet property="entryLbl" destination="mng-vL-Pxb" id="kmu-0T-2bl"/>
                 <outlet property="eyeButton" destination="7ws-sR-hQP" id="JG6-df-FWj"/>
                 <outlet property="flagImg" destination="VSb-KG-qPn" id="hpP-nn-0gZ"/>
-                <outlet property="headingLbl" destination="DZ3-Ge-6Mb" id="bRl-Ph-6gj"/>
+                <outlet property="genderHorizantal" destination="Hrr-Ix-IBQ" id="IP0-vS-ilU"/>
+                <outlet property="genderView" destination="D0V-Qa-0pz" id="i7A-nO-fIW"/>
+                <outlet property="genderWidth" destination="hgk-7N-3CG" id="dFi-5u-IEr"/>
+                <outlet property="headingLbl" destination="DZ3-Ge-6Mb" id="pVU-xq-k1a"/>
                 <outlet property="mobileCode" destination="GSt-cK-fRJ" id="U2e-S7-50T"/>
                 <outlet property="mobileCodeWidth" destination="0av-iC-vnh" id="4ur-wh-Kd0"/>
                 <outlet property="rotateVw" destination="TtI-Ka-cbf" id="kRM-42-3Rx"/>

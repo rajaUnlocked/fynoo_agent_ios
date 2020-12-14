@@ -273,6 +273,7 @@
                 <outlet property="name" destination="27R-Pg-PVb" id="hSA-e7-aGD"/>
                 <outlet property="orderId" destination="A36-AX-Ea9" id="YAB-fy-hnY"/>
                 <outlet property="price" destination="oRz-4M-4v5" id="eVL-YX-cps"/>
+                <outlet property="statusView" destination="AYs-kU-4yi" id="ee7-jl-Rfc"/>
                 <outlet property="totalCount" destination="gXp-6k-gq4" id="3Ot-sf-CKK"/>
                 <outlet property="totalRate" destination="EO7-Bv-hfR" id="iyq-Ul-K6V"/>
             </connections>
@@ -287,6 +288,6 @@
         <image name="messae" width="48" height="48"/>
         <image name="nav" width="48" height="48"/>
         <image name="profile_white" width="279" height="279"/>
-        <image name="wallet" width="31" height="31"/>
+        <image name="wallet" width="22" height="18"/>
     </resources>
 </document>

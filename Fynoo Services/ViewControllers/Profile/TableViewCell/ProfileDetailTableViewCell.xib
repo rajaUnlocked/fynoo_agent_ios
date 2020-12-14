@@ -28,7 +28,7 @@
                             <constraint firstAttribute="height" constant="38" id="iRI-Q7-yIK"/>
                         </constraints>
                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                        <state key="normal" image="edit"/>
+                        <state key="normal" image="edit_red"/>
                         <connections>
                             <action selector="editBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rK4-mf-5ds"/>
                         </connections>
@@ -253,14 +253,14 @@
                         <rect key="frame" x="0.0" y="81" width="433" height="45"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="agentCompany" translatesAutoresizingMaskIntoConstraints="NO" id="U1L-qJ-AxR">
-                                <rect key="frame" x="15" y="8.5" width="28" height="28"/>
+                                <rect key="frame" x="15" y="12.5" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="159-oH-heF"/>
-                                    <constraint firstAttribute="width" constant="28" id="xkW-S7-h8c"/>
+                                    <constraint firstAttribute="height" constant="20" id="159-oH-heF"/>
+                                    <constraint firstAttribute="width" constant="20" id="xkW-S7-h8c"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agent Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4t-zh-GvE">
-                                <rect key="frame" x="51" y="12" width="122.5" height="21"/>
+                                <rect key="frame" x="43" y="12" width="122.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="5Jq-M9-sgR"/>
                                 </constraints>
@@ -322,12 +322,14 @@
                 <outlet property="likes" destination="5bu-bt-s3a" id="piO-I8-VYh"/>
                 <outlet property="productLbl" destination="zRG-z1-vPF" id="QgB-pG-jpE"/>
                 <outlet property="products" destination="q4c-C6-vXE" id="C23-MR-Eqe"/>
+                <outlet property="titleLbl" destination="p4t-zh-GvE" id="IwS-jj-6Q6"/>
+                <outlet property="titleView" destination="ve9-VZ-jCA" id="ON8-6Y-oJ6"/>
             </connections>
             <point key="canvasLocation" x="222.46376811594206" y="53.236607142857139"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="agentCompany" width="20" height="20"/>
-        <image name="edit" width="20" height="20"/>
+        <image name="edit_red" width="20" height="20"/>
     </resources>
 </document>
