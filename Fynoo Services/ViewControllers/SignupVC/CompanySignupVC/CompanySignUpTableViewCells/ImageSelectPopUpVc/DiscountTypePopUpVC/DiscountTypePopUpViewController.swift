@@ -29,7 +29,7 @@ class DiscountTypePopUpViewController: UIViewController {
         view.backgroundColor = .clear
         
         tableView.tableFooterView = UIView()
-        contentSizeInPopup = CGSize(width: UIScreen.main.bounds.width, height:190)
+        contentSizeInPopup = CGSize(width: UIScreen.main.bounds.width, height:250)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "PopUpViewCell", bundle: nil), forCellReuseIdentifier: "PopUpViewCell")
@@ -65,8 +65,8 @@ extension DiscountTypePopUpViewController : UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str = Arr[indexPath.row]
-        delegate?.selectedDiscountOption(str:str)
         dismiss(animated: true, completion: nil)
+         delegate?.selectedDiscountOption(str:str)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

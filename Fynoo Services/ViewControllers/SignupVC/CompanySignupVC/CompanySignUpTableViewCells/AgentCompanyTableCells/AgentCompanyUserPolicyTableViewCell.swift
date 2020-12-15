@@ -21,7 +21,6 @@ class AgentCompanyUserPolicyTableViewCell: UITableViewCell {
     @IBOutlet weak var usrPolicy: UIButton!
     @IBOutlet weak var agreeLbl: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.SetFontAndTextColor()
@@ -31,8 +30,8 @@ class AgentCompanyUserPolicyTableViewCell: UITableViewCell {
          self.signUpBtn.setAllSideShadow(shadowShowSize: 3.0)
         self.agreeLbl.text = "I've agreed to the".localized
         let attrss = [
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12.0),
-            NSAttributedString.Key.foregroundColor :  UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1.0),
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14.0),
+            NSAttributedString.Key.foregroundColor :  UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0),
             NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
         let attributedStrings = NSMutableAttributedString(string:"")
         let buttonTitleStrs = NSMutableAttributedString(string:"User Policy".localized, attributes:attrss)
@@ -41,7 +40,7 @@ class AgentCompanyUserPolicyTableViewCell: UITableViewCell {
         
         let attrs = [
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12.0),
-            NSAttributedString.Key.foregroundColor :  UIColor(red: 236/255, green: 74/255, blue: 36/255, alpha: 1.0),
+            NSAttributedString.Key.foregroundColor :  UIColor(red: 28/255, green: 157/255, blue: 213/255, alpha: 1.0),
             NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
         let attributedString = NSMutableAttributedString(string:"")
         let buttonTitleStr = NSMutableAttributedString(string:"Login".localized, attributes:attrs)
@@ -50,19 +49,19 @@ class AgentCompanyUserPolicyTableViewCell: UITableViewCell {
     }
 
     func SetFontAndTextColor(){
-          
-          let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-          
-          self.agreeLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        
+        self.agreeLbl.font = UIFont(name:"\(fontNameLight)",size:12)
         self.usrPolicy.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
         self.signUpBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
         self.loginBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
-          
+        
         self.agreeLbl.textColor = Constant.Black_TEXT_COLOR
         self.usrPolicy.setTitleColor(Constant.Black_TEXT_COLOR, for: .normal)
         self.loginBtn.setTitleColor(Constant.Blue_TEXT_COLOR, for: .normal)
-         
-      }
+        
+    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

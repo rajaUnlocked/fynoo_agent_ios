@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="agentPersonalDetailsTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="agentPersonalDetailsTableViewCell" customModule="Fynoo_Services" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="370"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -45,7 +44,7 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pwi-rn-bGc">
-                                        <rect key="frame" x="48" y="10.5" width="246" height="18.5"/>
+                                        <rect key="frame" x="48" y="10.5" width="246" height="18"/>
                                         <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -92,7 +91,7 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z5S-Im-GJ1" customClass="DropDown" customModule="iOSDropDown">
-                                        <rect key="frame" x="52" y="10.5" width="218" height="18.5"/>
+                                        <rect key="frame" x="52" y="10.5" width="218" height="18"/>
                                         <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -158,7 +157,7 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u6w-1M-tLB">
-                                        <rect key="frame" x="48" y="10.5" width="246" height="18.5"/>
+                                        <rect key="frame" x="48" y="10.5" width="246" height="18"/>
                                         <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -215,7 +214,7 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t6g-FL-BFJ">
-                                        <rect key="frame" x="48" y="10.5" width="222" height="18.5"/>
+                                        <rect key="frame" x="48" y="10.5" width="222" height="18"/>
                                         <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -281,7 +280,7 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MXT-Zf-4iw">
-                                        <rect key="frame" x="48" y="10.5" width="217" height="18.5"/>
+                                        <rect key="frame" x="48" y="10.5" width="217" height="18"/>
                                         <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -377,18 +376,23 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="dobBtn" destination="Igd-1K-UTX" id="U0H-eh-bWE"/>
+                <outlet property="dobHeaderLbl" destination="O01-S1-zxE" id="bRD-Jg-qFA"/>
                 <outlet property="dobTxtFld" destination="u6w-1M-tLB" id="aPm-nP-BQm"/>
                 <outlet property="dobView" destination="JrI-Ht-f7b" id="8eY-9P-fED"/>
                 <outlet property="educationBtn" destination="78v-5r-NlK" id="4pI-QF-y8K"/>
+                <outlet property="educationHeaderLbl" destination="4kc-d6-Vjx" id="gyk-tD-Ks6"/>
                 <outlet property="educationTxtFld" destination="t6g-FL-BFJ" id="u2C-mG-ruj"/>
                 <outlet property="educationView" destination="N19-H1-liz" id="jK2-EV-R0A"/>
                 <outlet property="genderBtn" destination="RhG-LG-rgg" id="JeO-sC-HWd"/>
                 <outlet property="genderDropDown" destination="z5S-Im-GJ1" id="Vh7-me-bEQ"/>
+                <outlet property="genderHeaderLbl" destination="3ki-cB-gP8" id="BBE-Tx-L66"/>
                 <outlet property="genderView" destination="945-Lh-AsW" id="wOL-nx-I6D"/>
                 <outlet property="mainView" destination="7cb-IK-BGr" id="f8G-WV-wOC"/>
                 <outlet property="majorEducationBtn" destination="G4p-ml-RWA" id="fE2-Fn-j22"/>
                 <outlet property="majorEducationTxtFld" destination="MXT-Zf-4iw" id="zaU-Xg-wj5"/>
+                <outlet property="majorHeaderLbl" destination="HPb-BV-IZB" id="kve-kb-eca"/>
                 <outlet property="majorView" destination="7JX-rn-d6O" id="FQE-F2-jAP"/>
+                <outlet property="nameHeaderLbl" destination="001-AV-Fnk" id="bXj-wd-xej"/>
                 <outlet property="nameView" destination="Cwf-TW-P7P" id="gqw-Mb-234"/>
                 <outlet property="nametxtFld" destination="Pwi-rn-bGc" id="28N-cJ-RFL"/>
             </connections>

@@ -16,6 +16,7 @@ class Singleton {
     
     static let shared = Singleton()
     private init(){}
+    
     func getUserId() -> String{
         return UserId;
     }

@@ -18,6 +18,8 @@ class ProfileDetailTableViewCell: UITableViewCell {
     var delegate:ProfileDetailTableViewCellDelegate?
     @IBOutlet weak var editHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var likeLbl: UILabel!
     @IBOutlet weak var productLbl: UILabel!
     @IBOutlet weak var BRANCHlBL: UILabel!
