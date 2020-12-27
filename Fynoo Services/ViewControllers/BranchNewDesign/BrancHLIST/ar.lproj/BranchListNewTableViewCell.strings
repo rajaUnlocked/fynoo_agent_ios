@@ -1,0 +1,39 @@
+
+/* Class = "UILabel"; text = "Creation:"; ObjectID = "2UL-xy-pCL"; */
+"2UL-xy-pCL.text" = "خلق:";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "7qh-Gt-ms2"; */
+"7qh-Gt-ms2.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "No. Of Products:"; ObjectID = "On8-tZ-Pbi"; */
+"On8-tZ-Pbi.text" = "عدد المنتجات:";
+
+/* Class = "UILabel"; text = "Store On Map/ City"; ObjectID = "QBE-WP-cAB"; */
+"QBE-WP-cAB.text" = "متجر على الخريطة / المدينة";
+
+/* Class = "UILabel"; text = "Online Store"; ObjectID = "QLy-yQ-pfN"; */
+"QLy-yQ-pfN.text" = "متجر على الانترنت";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "RCY-mx-IS8"; */
+"RCY-mx-IS8.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Main Branch"; ObjectID = "S3s-Kc-z47"; */
+"S3s-Kc-z47.text" = "الفرع الرئيسي";
+
+/* Class = "UILabel"; text = "-\n-\n-"; ObjectID = "fpw-N6-zaK"; */
+"fpw-N6-zaK.text" = "-\n-\n-";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "snW-B3-3Rf"; */
+"snW-B3-3Rf.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "8 Jan 2020"; ObjectID = "t9b-9V-nnf"; */
+"t9b-9V-nnf.text" = "8 Jan 2020";
+
+/* Class = "UILabel"; text = "10"; ObjectID = "unj-kg-eKy"; */
+"unj-kg-eKy.text" = "10";
+
+/* Class = "UILabel"; text = "1,856"; ObjectID = "vvr-5w-02d"; */
+"vvr-5w-02d.text" = "1,856";
+
+/* Class = "UILabel"; text = "Branch Name"; ObjectID = "ysC-uH-HxM"; */
+"ysC-uH-HxM.text" = "Branch Name";

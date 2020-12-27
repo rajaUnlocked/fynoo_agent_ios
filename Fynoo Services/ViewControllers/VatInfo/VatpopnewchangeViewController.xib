@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +12,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VatpopnewchangeViewController" customModule="Fynoo_Business" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VatpopnewchangeViewController" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
                 <outlet property="add" destination="3jo-Tt-5Yr" id="k5u-tH-yRf"/>
                 <outlet property="addlbl" destination="vCl-3u-4jE" id="aEG-7d-JRs"/>
@@ -171,7 +170,7 @@
                                 <constraint firstAttribute="height" constant="16" id="ZFb-4f-24T"/>
                                 <constraint firstAttribute="width" constant="16" id="szt-mk-OoR"/>
                             </constraints>
-                            <state key="normal" image="cancel_gray"/>
+                            <state key="normal" image="cross-1"/>
                             <connections>
                                 <action selector="cross:" destination="-1" eventType="touchUpInside" id="SM2-P7-SMx"/>
                             </connections>
@@ -239,7 +238,7 @@
     </objects>
     <resources>
         <image name="addBtn_new" width="42" height="42"/>
-        <image name="cancel_gray" width="22" height="22"/>
+        <image name="cross-1" width="19" height="19"/>
         <image name="dottedrectangle" width="723" height="402"/>
         <image name="popupbg" width="323" height="460"/>
         <image name="vatSelected" width="50" height="50"/>

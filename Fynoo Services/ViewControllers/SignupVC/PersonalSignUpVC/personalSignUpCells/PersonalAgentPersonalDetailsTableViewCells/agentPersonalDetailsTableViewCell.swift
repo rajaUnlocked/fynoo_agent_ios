@@ -32,20 +32,25 @@ class agentPersonalDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var dobView: UIView!
     @IBOutlet weak var educationView: UIView!
     @IBOutlet weak var majorView: UIView!
+    
+    
+    @IBOutlet weak var nameHeaderLbl: UILabel!
+    @IBOutlet weak var genderHeaderLbl: UILabel!
+    @IBOutlet weak var dobHeaderLbl: UILabel!
+    @IBOutlet weak var educationHeaderLbl: UILabel!
+    
+    @IBOutlet weak var majorHeaderLbl: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setShadowsInFields()
+        self.SetFontAndTextColor()
         // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        self.nametxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
-        self.genderDropDown.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
-        self.dobTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
-        self.educationTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
-                 
-        self.majorEducationTxtFld.textColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
         
         self.genderDropDown.optionArray = ["Male".localized, "Female".localized]
              //Its Id Values and its optional
@@ -55,6 +60,40 @@ class agentPersonalDetailsTableViewCell: UITableViewCell {
              self.genderDropDown.rowHeight = 30
              self.genderDropDown.arrowColor = .white
              self.genderDropDown.selectedRowColor = .lightGray
+        
+    }
+    
+    func SetFontAndTextColor(){
+        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        
+        self.nameHeaderLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.nametxtFld.font = UIFont(name:"\(fontNameLight)",size:14)
+        
+        self.genderHeaderLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.genderDropDown.font = UIFont(name:"\(fontNameLight)",size:14)
+        
+        self.dobHeaderLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.dobTxtFld.font = UIFont(name:"\(fontNameLight)",size:14)
+        
+        self.educationHeaderLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.educationTxtFld.font = UIFont(name:"\(fontNameLight)",size:14)
+        
+        self.majorHeaderLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.majorEducationTxtFld.font = UIFont(name:"\(fontNameLight)",size:14)
+        
+        
+        self.nameHeaderLbl.textColor = Constant.Black_TEXT_COLOR
+        self.nametxtFld.textColor = Constant.Black_TEXT_COLOR
+        self.genderHeaderLbl.textColor = Constant.Black_TEXT_COLOR
+        self.genderDropDown.textColor = Constant.Black_TEXT_COLOR
+        self.dobHeaderLbl.textColor = Constant.Black_TEXT_COLOR
+        self.dobTxtFld.textColor = Constant.Black_TEXT_COLOR
+        self.educationHeaderLbl.textColor = Constant.Black_TEXT_COLOR
+        self.educationTxtFld.textColor = Constant.Black_TEXT_COLOR
+        self.majorHeaderLbl.textColor = Constant.Black_TEXT_COLOR
+        self.majorEducationTxtFld.textColor = Constant.Black_TEXT_COLOR
+        
         
     }
     

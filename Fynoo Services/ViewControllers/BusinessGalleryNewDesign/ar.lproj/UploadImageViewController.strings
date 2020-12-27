@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Image Name"; ObjectID = "GgZ-SM-xxT"; */
+"GgZ-SM-xxT.text" = "اسم الصورة";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "eer-cx-Ugr"; */
+"eer-cx-Ugr.text" = "Label";
+
+/* Class = "UILabel"; text = "Select Type"; ObjectID = "iea-Va-Z7J"; */
+"iea-Va-Z7J.text" = "نوع الصورة";
+
+/* Class = "UITextField"; placeholder = "Enter the Image Name"; ObjectID = "pNp-re-gPn"; */
+"pNp-re-gPn.placeholder" = "أدخل اسم الصورة";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "vbH-vN-2rR"; */
+"vbH-vN-2rR.normalTitle" = "إلغاء";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "zIC-VI-blc"; */
+"zIC-VI-blc.normalTitle" = "حفظ";

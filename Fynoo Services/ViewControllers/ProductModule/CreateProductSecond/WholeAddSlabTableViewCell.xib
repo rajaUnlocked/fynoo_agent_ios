@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WholeAddSlabTableViewCell" rowHeight="152" id="KGk-i7-Jjw" customClass="WholeAddSlabTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ele-6G-leh">
+                        <rect key="frame" x="0.0" y="5" width="320" height="90"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lines" translatesAutoresizingMaskIntoConstraints="NO" id="sgP-Db-ZMB">
+                                <rect key="frame" x="71" y="0.0" width="1" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="eum-5a-gVT"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpA-2G-xL3">
+                                <rect key="frame" x="0.0" y="-10" width="71" height="100"/>
+                                <state key="normal" image="addslab"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Slabs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYs-gL-9sD">
+                                <rect key="frame" x="21.5" y="78" width="28.5" height="7"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="6"/>
+                                <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="sgP-Db-ZMB" firstAttribute="top" secondItem="ele-6G-leh" secondAttribute="top" id="ETa-np-dfe"/>
+                            <constraint firstItem="KYs-gL-9sD" firstAttribute="centerX" secondItem="xpA-2G-xL3" secondAttribute="centerX" id="JSb-Bb-ibU"/>
+                            <constraint firstAttribute="bottom" secondItem="sgP-Db-ZMB" secondAttribute="bottom" id="RyP-PJ-7A7"/>
+                            <constraint firstAttribute="bottom" secondItem="KYs-gL-9sD" secondAttribute="bottom" constant="5" id="V62-NQ-Eg9"/>
+                            <constraint firstItem="xpA-2G-xL3" firstAttribute="top" secondItem="ele-6G-leh" secondAttribute="top" constant="-10" id="XvM-dY-hhA"/>
+                            <constraint firstItem="xpA-2G-xL3" firstAttribute="width" secondItem="ele-6G-leh" secondAttribute="width" multiplier="0.128125" constant="30" id="eGQ-yo-mEn"/>
+                            <constraint firstAttribute="bottom" secondItem="xpA-2G-xL3" secondAttribute="bottom" id="ovF-bt-bEj"/>
+                            <constraint firstItem="xpA-2G-xL3" firstAttribute="leading" secondItem="ele-6G-leh" secondAttribute="leading" id="wpW-lt-h0U"/>
+                            <constraint firstItem="sgP-Db-ZMB" firstAttribute="leading" secondItem="xpA-2G-xL3" secondAttribute="trailing" id="xDN-ce-069"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ele-6G-leh" secondAttribute="bottom" constant="5" id="5Nq-ht-nSW"/>
+                    <constraint firstItem="ele-6G-leh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Fmg-4g-M15"/>
+                    <constraint firstAttribute="trailing" secondItem="ele-6G-leh" secondAttribute="trailing" id="IkU-UT-Mf9"/>
+                    <constraint firstItem="ele-6G-leh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Vqz-hm-2mJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="addSlab" destination="xpA-2G-xL3" id="a4Z-tU-L5t"/>
+                <outlet property="slablbl" destination="KYs-gL-9sD" id="rrf-FU-IIS"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="136.60714285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="addslab" width="41" height="42"/>
+        <image name="lines" width="1" height="59"/>
+    </resources>
+</document>

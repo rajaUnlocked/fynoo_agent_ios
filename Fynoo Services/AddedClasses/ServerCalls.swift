@@ -53,6 +53,7 @@ class ServerCalls: NSObject {
             
             if pdfurl != "" {
                 let url = URL(string: pdfurl)
+//                let url = URL(fileURLWithPath: pdfurl)
                 let pdfData = try! Data(contentsOf: url!.asURL())
                 multipartFormData.append(pdfData, withName: pdfname, fileName: pdfname, mimeType:"application/pdf")
             }

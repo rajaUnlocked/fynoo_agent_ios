@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BranchListStateTableViewCell" rowHeight="97" id="KGk-i7-Jjw" customClass="BranchListStateTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="321" height="97"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="321" height="97"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKI-Y1-HvP">
+                        <rect key="frame" x="0.0" y="10" width="321" height="77"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="branch_single_new" translatesAutoresizingMaskIntoConstraints="NO" id="Hzc-sy-uby">
+                                <rect key="frame" x="25" y="15" width="18" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="LX1-6W-Snq"/>
+                                    <constraint firstAttribute="width" constant="18" id="gp2-Np-za0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Branch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5V-KG-XRB">
+                                <rect key="frame" x="17.5" y="46" width="33" height="7"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="6"/>
+                                <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kqo-aG-IaK">
+                                <rect key="frame" x="72" y="0.0" width="2" height="77"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="2" id="3UT-V5-JJl"/>
+                                </constraints>
+                                <string key="text">-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="3"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="subscriptionBranchImg_new" translatesAutoresizingMaskIntoConstraints="NO" id="9eJ-Ns-W0L">
+                                <rect key="frame" x="84" y="9" width="10" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="8Pb-X6-LRK"/>
+                                    <constraint firstAttribute="height" constant="10" id="iY0-fO-jRp"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscription Branches:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fn1-pI-evr">
+                                <rect key="frame" x="102" y="6.5" width="136" height="15"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="13"/>
+                                <color key="textColor" red="0.10980392156862745" green="0.61568627450980395" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activeBranchImg_new" translatesAutoresizingMaskIntoConstraints="NO" id="TJ7-qB-U4y">
+                                <rect key="frame" x="84" y="29" width="10" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="1jY-BM-I2z"/>
+                                    <constraint firstAttribute="height" constant="10" id="tyk-aS-13L"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active Branches:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6o-7C-Th0">
+                                <rect key="frame" x="102" y="26.5" width="99" height="15"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="13"/>
+                                <color key="textColor" red="0.38039215686274508" green="0.75294117647058822" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="inactiveBranchImg_new" translatesAutoresizingMaskIntoConstraints="NO" id="RHl-6t-KfS">
+                                <rect key="frame" x="84" y="49" width="10" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="Txj-7X-W4Y"/>
+                                    <constraint firstAttribute="height" constant="10" id="bs8-gK-dPP"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inactive Branches:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7K-Ac-H5i">
+                                <rect key="frame" x="102" y="46.5" width="109.5" height="15"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="13"/>
+                                <color key="textColor" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfy-qR-mTG">
+                                <rect key="frame" x="41" y="31" width="14" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="MEf-1S-7ax"/>
+                                    <constraint firstAttribute="width" constant="14" id="se5-tA-rHc"/>
+                                </constraints>
+                                <state key="normal" image="addBtn_new"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28N-6R-uNK">
+                                <rect key="frame" x="241" y="6.5" width="15.5" height="15"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="13"/>
+                                <color key="textColor" cyan="0.87890625" magenta="0.034109115600000003" yellow="0.0227394104" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dW-dt-Ndb">
+                                <rect key="frame" x="204" y="34" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="13"/>
+                                <color key="textColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03R-Cm-hFZ">
+                                <rect key="frame" x="214.5" y="54" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="13"/>
+                                <color key="textColor" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooD-bh-FCt">
+                                <rect key="frame" x="10" y="10" width="54" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="addBranch:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0P7-iV-aYN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="y7K-Ac-H5i" firstAttribute="leading" secondItem="RHl-6t-KfS" secondAttribute="trailing" constant="8" id="1rz-9d-TdW"/>
+                            <constraint firstItem="8dW-dt-Ndb" firstAttribute="leading" secondItem="Y6o-7C-Th0" secondAttribute="trailing" constant="3" id="3i9-1q-Q0y"/>
+                            <constraint firstItem="a5V-KG-XRB" firstAttribute="top" secondItem="kfy-qR-mTG" secondAttribute="top" constant="15" id="5JO-mX-JqQ"/>
+                            <constraint firstItem="kfy-qR-mTG" firstAttribute="firstBaseline" secondItem="Hzc-sy-uby" secondAttribute="firstBaseline" constant="16" id="AzI-zS-zrI"/>
+                            <constraint firstAttribute="bottom" secondItem="Kqo-aG-IaK" secondAttribute="bottom" id="FEM-ls-KLL"/>
+                            <constraint firstItem="Hzc-sy-uby" firstAttribute="top" secondItem="dKI-Y1-HvP" secondAttribute="top" constant="15" id="Ggw-xS-gVB"/>
+                            <constraint firstItem="8dW-dt-Ndb" firstAttribute="centerY" secondItem="Y6o-7C-Th0" secondAttribute="centerY" id="L1N-eC-KyQ"/>
+                            <constraint firstItem="ooD-bh-FCt" firstAttribute="top" secondItem="dKI-Y1-HvP" secondAttribute="top" constant="10" id="NXF-Vn-cYo"/>
+                            <constraint firstItem="9eJ-Ns-W0L" firstAttribute="leading" secondItem="Kqo-aG-IaK" secondAttribute="trailing" constant="10" id="OOg-eH-O3q"/>
+                            <constraint firstItem="Kqo-aG-IaK" firstAttribute="leading" secondItem="ooD-bh-FCt" secondAttribute="trailing" constant="8" id="Rta-DM-7j6"/>
+                            <constraint firstItem="ooD-bh-FCt" firstAttribute="leading" secondItem="dKI-Y1-HvP" secondAttribute="leading" constant="10" id="SSh-bM-WjW"/>
+                            <constraint firstItem="03R-Cm-hFZ" firstAttribute="leading" secondItem="y7K-Ac-H5i" secondAttribute="trailing" constant="3" id="SZC-y2-d9M"/>
+                            <constraint firstItem="Hzc-sy-uby" firstAttribute="leading" secondItem="dKI-Y1-HvP" secondAttribute="leading" constant="25" id="UUN-q2-l6I"/>
+                            <constraint firstAttribute="bottom" secondItem="ooD-bh-FCt" secondAttribute="bottom" constant="18" id="WA8-Ov-hGv"/>
+                            <constraint firstItem="a5V-KG-XRB" firstAttribute="centerX" secondItem="Hzc-sy-uby" secondAttribute="centerX" id="WeK-ii-vJs"/>
+                            <constraint firstItem="9eJ-Ns-W0L" firstAttribute="top" secondItem="dKI-Y1-HvP" secondAttribute="top" constant="9" id="Y7f-5P-fS9"/>
+                            <constraint firstItem="Fn1-pI-evr" firstAttribute="leading" secondItem="9eJ-Ns-W0L" secondAttribute="trailing" constant="8" id="ae5-rT-GUu"/>
+                            <constraint firstItem="Kqo-aG-IaK" firstAttribute="top" secondItem="dKI-Y1-HvP" secondAttribute="top" id="b8u-DX-dlG"/>
+                            <constraint firstItem="28N-6R-uNK" firstAttribute="centerY" secondItem="Fn1-pI-evr" secondAttribute="centerY" id="c9P-HA-AG1"/>
+                            <constraint firstItem="Y6o-7C-Th0" firstAttribute="leading" secondItem="TJ7-qB-U4y" secondAttribute="trailing" constant="8" id="cAS-fI-68S"/>
+                            <constraint firstItem="RHl-6t-KfS" firstAttribute="top" secondItem="TJ7-qB-U4y" secondAttribute="bottom" constant="10" id="eES-qT-uHj"/>
+                            <constraint firstItem="03R-Cm-hFZ" firstAttribute="centerY" secondItem="y7K-Ac-H5i" secondAttribute="centerY" id="eNH-QY-dHq"/>
+                            <constraint firstItem="TJ7-qB-U4y" firstAttribute="leading" secondItem="Kqo-aG-IaK" secondAttribute="trailing" constant="10" id="fnU-sU-PCT"/>
+                            <constraint firstItem="Fn1-pI-evr" firstAttribute="centerY" secondItem="9eJ-Ns-W0L" secondAttribute="centerY" id="gPV-1r-O5P"/>
+                            <constraint firstItem="28N-6R-uNK" firstAttribute="leading" secondItem="Fn1-pI-evr" secondAttribute="trailing" constant="3" id="hzG-D3-29h"/>
+                            <constraint firstItem="TJ7-qB-U4y" firstAttribute="top" secondItem="9eJ-Ns-W0L" secondAttribute="bottom" constant="10" id="nNE-DT-V67"/>
+                            <constraint firstItem="RHl-6t-KfS" firstAttribute="leading" secondItem="Kqo-aG-IaK" secondAttribute="trailing" constant="10" id="r1K-ME-Vvb"/>
+                            <constraint firstItem="Kqo-aG-IaK" firstAttribute="leading" secondItem="kfy-qR-mTG" secondAttribute="trailing" constant="17" id="tk1-KH-CwY"/>
+                            <constraint firstItem="y7K-Ac-H5i" firstAttribute="centerY" secondItem="RHl-6t-KfS" secondAttribute="centerY" id="x84-CP-GyP"/>
+                            <constraint firstItem="Y6o-7C-Th0" firstAttribute="centerY" secondItem="TJ7-qB-U4y" secondAttribute="centerY" id="z4A-9y-ikU"/>
+                            <constraint firstItem="kfy-qR-mTG" firstAttribute="leading" secondItem="Hzc-sy-uby" secondAttribute="leading" constant="16" id="zII-oe-DJ3"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="dKI-Y1-HvP" secondAttribute="trailing" id="7Fr-QL-CM1"/>
+                    <constraint firstAttribute="bottom" secondItem="dKI-Y1-HvP" secondAttribute="bottom" constant="10" id="GOE-gx-wwY"/>
+                    <constraint firstItem="dKI-Y1-HvP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="YaE-ZP-v0D"/>
+                    <constraint firstItem="dKI-Y1-HvP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="swN-Zw-cwc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="activeBranchLbl" destination="8dW-dt-Ndb" id="zL9-og-HAr"/>
+                <outlet property="activeLbl" destination="Y6o-7C-Th0" id="Yhl-Ry-BEw"/>
+                <outlet property="addBranch" destination="kfy-qR-mTG" id="ffB-5V-iLc"/>
+                <outlet property="addLbl" destination="a5V-KG-XRB" id="CLJ-Nf-3IA"/>
+                <outlet property="addLblTop" destination="5JO-mX-JqQ" id="aLf-4T-D2w"/>
+                <outlet property="height" destination="LX1-6W-Snq" id="M3L-5y-6x1"/>
+                <outlet property="img" destination="Hzc-sy-uby" id="9wn-br-GZc"/>
+                <outlet property="img1" destination="9eJ-Ns-W0L" id="2n5-M9-hu8"/>
+                <outlet property="img1Top" destination="Y7f-5P-fS9" id="h4i-0k-DsE"/>
+                <outlet property="img2" destination="TJ7-qB-U4y" id="124-Sd-c8T"/>
+                <outlet property="img3" destination="RHl-6t-KfS" id="Jq2-RJ-mkd"/>
+                <outlet property="imgLeading" destination="UUN-q2-l6I" id="BDS-z1-33B"/>
+                <outlet property="imgTop" destination="Ggw-xS-gVB" id="7Ps-qZ-HOo"/>
+                <outlet property="inactiveBranchLbl" destination="03R-Cm-hFZ" id="7lw-rh-9aH"/>
+                <outlet property="inactiveLbl" destination="y7K-Ac-H5i" id="IdD-9W-0UU"/>
+                <outlet property="leading" destination="tk1-KH-CwY" id="ZCe-72-IkN"/>
+                <outlet property="subscitpionLbl" destination="Fn1-pI-evr" id="boo-yw-ILs"/>
+                <outlet property="subscriptionBranches" destination="28N-6R-uNK" id="Svu-ie-YNg"/>
+                <outlet property="viewTop" destination="swN-Zw-cwc" id="lSx-ti-P3O"/>
+                <outlet property="width" destination="gp2-Np-za0" id="WGg-ms-X1V"/>
+            </connections>
+            <point key="canvasLocation" x="138.40579710144928" y="112.83482142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="activeBranchImg_new" width="36" height="39"/>
+        <image name="addBtn_new" width="42" height="42"/>
+        <image name="branch_single_new" width="54" height="54"/>
+        <image name="inactiveBranchImg_new" width="36" height="36"/>
+        <image name="subscriptionBranchImg_new" width="36" height="39"/>
+    </resources>
+</document>

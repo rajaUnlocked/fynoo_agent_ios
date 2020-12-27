@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Add Your Business Hours"; ObjectID = "ean-HV-bH6"; */
+"ean-HV-bH6.text" = "قم بإضافة أوقات العمل";
+
+/* Class = "UILabel"; text = "Hours"; ObjectID = "nC2-ZH-5t7"; */
+"nC2-ZH-5t7.text" = "ساعات";
+
+/* Class = "UILabel"; text = "Add your business hours to Branch Name so it's easy for people to plan a visit. "; ObjectID = "t4g-P8-QPT"; */
+"t4g-P8-QPT.text" = "أضف أوقات عملك ليتمكن العملاء من التخطيط لزيارتك";

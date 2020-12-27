@@ -20,6 +20,7 @@ class CommonPopupViewController: UIViewController {
     @IBOutlet weak var noOutlet: UIButton!
     @IBOutlet weak var popupBG: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
+    var isDoc = false
     var name = ""
     var serviceID = 0
     var showActive = false
@@ -34,6 +35,13 @@ class CommonPopupViewController: UIViewController {
     }
     
     func setUI() {
+        if isDoc
+        {
+          self.titleLbl.text = "Are you sure you want to submit for Approval? "
+            self.popupBG.image = UIImage(named: "popop")
+            self.serviceImg.isHidden = true
+            return
+        }
         if showActive {
             self.titleLbl.text = name
         }else{

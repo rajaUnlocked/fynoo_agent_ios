@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="278" id="KGk-i7-Jjw" customClass="UploadBottomTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="394" height="278"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="394" height="278"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3b-XA-a5b">
+                        <rect key="frame" x="20" y="30" width="72.5" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="yq5-pM-dWb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                        <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pEf-v9-Rhg">
+                        <rect key="frame" x="20" y="54" width="354" height="40"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter the Image Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Nt-I1-cJV">
+                                <rect key="frame" x="20" y="0.0" width="334" height="40"/>
+                                <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7Nt-I1-cJV" firstAttribute="leading" secondItem="pEf-v9-Rhg" secondAttribute="leading" constant="20" id="9E7-wB-xg9"/>
+                            <constraint firstAttribute="trailing" secondItem="7Nt-I1-cJV" secondAttribute="trailing" id="CLe-P3-eQX"/>
+                            <constraint firstAttribute="height" constant="40" id="pxw-Xe-bQE"/>
+                            <constraint firstItem="7Nt-I1-cJV" firstAttribute="top" secondItem="pEf-v9-Rhg" secondAttribute="top" id="rk7-1t-TsP"/>
+                            <constraint firstAttribute="bottom" secondItem="7Nt-I1-cJV" secondAttribute="bottom" id="x6L-Jg-dvO"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Vj-28-Rob">
+                        <rect key="frame" x="20" y="103.5" width="65" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Bp7-Hg-pUu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                        <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7J-ET-z1X">
+                        <rect key="frame" x="20" y="126.5" width="354" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPF-70-6Do">
+                                <rect key="frame" x="20" y="0.0" width="305" height="40"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BiQ-Md-8vM">
+                                <rect key="frame" x="0.0" y="0.0" width="354" height="40"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downArrow" translatesAutoresizingMaskIntoConstraints="NO" id="k8A-dM-wpe">
+                                <rect key="frame" x="330" y="13" width="14" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="14" id="IU0-lH-tRD"/>
+                                    <constraint firstAttribute="height" constant="14" id="PwO-K0-M3F"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="BiQ-Md-8vM" firstAttribute="top" secondItem="k7J-ET-z1X" secondAttribute="top" constant="0.10000000000000001" id="07A-1s-rAG"/>
+                            <constraint firstAttribute="bottom" secondItem="MPF-70-6Do" secondAttribute="bottom" id="1Mg-2D-hp7"/>
+                            <constraint firstAttribute="height" constant="40" id="1lz-ix-rpZ"/>
+                            <constraint firstAttribute="bottom" secondItem="BiQ-Md-8vM" secondAttribute="bottom" constant="0.10000000000000001" id="907-PY-aNa"/>
+                            <constraint firstAttribute="trailing" secondItem="k8A-dM-wpe" secondAttribute="trailing" constant="10" id="9PO-Vg-ipy"/>
+                            <constraint firstAttribute="trailing" secondItem="BiQ-Md-8vM" secondAttribute="trailing" constant="0.10000000000000001" id="BRI-YE-OAA"/>
+                            <constraint firstItem="BiQ-Md-8vM" firstAttribute="leading" secondItem="k7J-ET-z1X" secondAttribute="leading" constant="0.10000000000000001" id="Dfx-YH-UMY"/>
+                            <constraint firstItem="MPF-70-6Do" firstAttribute="leading" secondItem="k7J-ET-z1X" secondAttribute="leading" constant="20" id="NmC-LR-VDQ"/>
+                            <constraint firstItem="k8A-dM-wpe" firstAttribute="centerY" secondItem="k7J-ET-z1X" secondAttribute="centerY" id="TlX-gL-oyZ"/>
+                            <constraint firstItem="k8A-dM-wpe" firstAttribute="leading" secondItem="MPF-70-6Do" secondAttribute="trailing" constant="5" id="Uvh-1S-Ml0"/>
+                            <constraint firstItem="MPF-70-6Do" firstAttribute="top" secondItem="k7J-ET-z1X" secondAttribute="top" id="ztm-C4-V9J"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="San-FK-t2E">
+                        <rect key="frame" x="0.0" y="187" width="394" height="96"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="96" id="1IF-Md-gHv"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6aO-OB-Dmr">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="pEf-v9-Rhg" firstAttribute="top" secondItem="e3b-XA-a5b" secondAttribute="bottom" constant="10" id="1zR-nG-qCc"/>
+                    <constraint firstItem="k7J-ET-z1X" firstAttribute="trailing" secondItem="pEf-v9-Rhg" secondAttribute="trailing" id="23j-Db-YM5"/>
+                    <constraint firstItem="k7J-ET-z1X" firstAttribute="leading" secondItem="pEf-v9-Rhg" secondAttribute="leading" id="4M4-Yf-Wvk"/>
+                    <constraint firstItem="1Vj-28-Rob" firstAttribute="leading" secondItem="pEf-v9-Rhg" secondAttribute="leading" id="EuX-WV-lTK"/>
+                    <constraint firstItem="1Vj-28-Rob" firstAttribute="top" secondItem="pEf-v9-Rhg" secondAttribute="bottom" constant="9.5" id="G45-I1-Ym0"/>
+                    <constraint firstItem="San-FK-t2E" firstAttribute="top" secondItem="MPF-70-6Do" secondAttribute="bottom" constant="20.5" id="Ink-FU-xDB"/>
+                    <constraint firstItem="e3b-XA-a5b" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="LIA-ue-PSC"/>
+                    <constraint firstItem="e3b-XA-a5b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="O18-oo-Ajd"/>
+                    <constraint firstItem="pEf-v9-Rhg" firstAttribute="leading" secondItem="e3b-XA-a5b" secondAttribute="leading" id="STj-2R-Z4y"/>
+                    <constraint firstItem="k7J-ET-z1X" firstAttribute="top" secondItem="1Vj-28-Rob" secondAttribute="bottom" constant="2" id="Ybb-qP-b79"/>
+                    <constraint firstAttribute="trailing" secondItem="k7J-ET-z1X" secondAttribute="trailing" constant="20" id="fzs-pL-Pei"/>
+                    <constraint firstAttribute="trailing" secondItem="San-FK-t2E" secondAttribute="trailing" constant="0.10000000000000001" id="tGB-25-RTo"/>
+                    <constraint firstItem="San-FK-t2E" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="0.10000000000000001" id="yOe-Rk-NS9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="collectionView" destination="San-FK-t2E" id="gIA-pC-nBH"/>
+                <outlet property="imageNameLbl" destination="e3b-XA-a5b" id="h9M-Ut-8ou"/>
+                <outlet property="name" destination="7Nt-I1-cJV" id="c67-Y5-x1F"/>
+                <outlet property="selectType" destination="BiQ-Md-8vM" id="j7R-2n-RGV"/>
+                <outlet property="selectView" destination="k7J-ET-z1X" id="TTT-Ct-Rf0"/>
+                <outlet property="typeLbl" destination="1Vj-28-Rob" id="0KJ-ZG-tbp"/>
+                <outlet property="value" destination="MPF-70-6Do" id="0PY-zq-aC8"/>
+                <outlet property="viewName" destination="pEf-v9-Rhg" id="8BV-qL-VmV"/>
+            </connections>
+            <point key="canvasLocation" x="185.50724637681162" y="83.035714285714278"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="downArrow" width="75" height="75"/>
+    </resources>
+</document>

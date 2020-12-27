@@ -8,11 +8,14 @@
 
 import UIKit
 import AVKit
+import AVFoundation
 class TargetViewController: UIViewController {
     var targetmodel = TargetModel()
     @IBOutlet weak var headervw: NavigationView!
     var targetlist:TargetList?
     @IBOutlet weak var tabvw: UITableView!
+    var player: AVPlayer!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         headervw.viewControl = self
@@ -36,7 +39,7 @@ class TargetViewController: UIViewController {
     func registernibs()
     {
         tabvw.register(UINib(nibName: "TargetprogressTableViewCell", bundle: nil), forCellReuseIdentifier: "TargetprogressTableViewCell")
-        tabvw.register(UINib(nibName: "DescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionTableViewCell")
+        tabvw.register(UINib(nibName: "DescriptionTableViewCells", bundle: nil), forCellReuseIdentifier: "DescriptionTableViewCells")
         tabvw.register(UINib(nibName: "AgentListTableViewCell", bundle: nil), forCellReuseIdentifier: "AgentListTableViewCell")
         tabvw.register(UINib(nibName: "VideoTableViewCell", bundle: nil), forCellReuseIdentifier: "VideoTableViewCell")
         
@@ -85,7 +88,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
                 return cell
             }
             else{
-                let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell", for: indexPath) as! DescriptionTableViewCell
+                let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCells", for: indexPath) as! DescriptionTableViewCells
                 cell.topconst.constant = 10
                 cell.toplbl.isHidden = false
                 cell.descriplbl.text = self.targetlist?.data?.top_content ?? ""
@@ -96,7 +99,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
         {
             if indexPath.row == 0
             {
-                let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell", for: indexPath) as! DescriptionTableViewCell
+                let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCells", for: indexPath) as! DescriptionTableViewCells
                 cell.toplbl.isHidden = true
                 cell.topconst.constant = -30
                 cell.descriplbl.text = self.targetlist?.data?.mid_content ?? ""
@@ -128,17 +131,30 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
             {
                 if self.targetlist?.data?.media_type ?? 0 == 1
                 {
-                    if let url = URL(string: self.targetlist?.data?.video_file ?? ""){
+                    if let url = URL(string: "http://techslides.com/demos/sample-videos/small.3gp"){
                         
-                       let player = AVPlayer(url: url)
-                       let avController = AVPlayerViewController()
-                       avController.player = player
-                       // your desired frame
-                        let cell = tabvw.cellForRow(at: IndexPath(row: 1, section: 2)) as! VideoTableViewCell
-                       avController.view.frame = cell.vw.frame
-                       cell.vw.addSubview(avController.view)
-                       self.addChild(avController)
-                       player.play()
+                        player = AVPlayer(url: url)
+                        
+                        let playerViewController = AVPlayerViewController()
+                        
+                        playerViewController.player = player
+                        
+                        self.present(playerViewController, animated: true)
+                            
+                            playerViewController.player!.play()
+                            
+                        
+                        
+                        
+                        //                       let player = AVPlayer(url: url)
+                        //                       let avController = AVPlayerViewController()
+                        //                       avController.player = player
+                        //                       // your desired frame
+                        //                        let cell = tabvw.cellForRow(at: IndexPath(row: 1, section: 2)) as! VideoTableViewCell
+                        //                       avController.view.frame = cell.vw.frame
+                        //                       cell.vw.addSubview(avController.view)
+                        //                       self.addChild(avController)
+                        //                       player.play()
                         
                     }
                 }

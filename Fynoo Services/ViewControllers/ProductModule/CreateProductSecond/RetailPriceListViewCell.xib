@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-ExtraBold.otf">
+            <string>Gilroy-ExtraBold</string>
+        </array>
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="72" id="KGk-i7-Jjw" customClass="RetailPriceListViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="433" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="433" height="72"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXQ-F3-rMm">
+                        <rect key="frame" x="6" y="49.5" width="106" height="12"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="10"/>
+                        <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxE-f6-OpM">
+                        <rect key="frame" x="0.0" y="71.5" width="433" height="0.5"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="f42-UW-U1V"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zFA-zl-q6L">
+                        <rect key="frame" x="114.5" y="48" width="26" height="15.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exchange_new" translatesAutoresizingMaskIntoConstraints="NO" id="BTQ-zG-p6i">
+                        <rect key="frame" x="252.5" y="47.5" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="Q9P-17-vwE"/>
+                            <constraint firstAttribute="height" constant="16" id="ZbH-8f-udL"/>
+                        </constraints>
+                    </imageView>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LKp-X3-2sx">
+                        <rect key="frame" x="160" y="40.5" width="77.5" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="0bE-zO-SD3"/>
+                        </constraints>
+                        <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEI-79-XV8">
+                        <rect key="frame" x="312" y="0.0" width="121" height="70"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qoe-mv-GIJ">
+                                <rect key="frame" x="109.5" y="51.5" width="5.5" height="8.5"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="7"/>
+                                <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qeu-Fq-1sK">
+                                <rect key="frame" x="12" y="48" width="95.5" height="15.5"/>
+                                <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5h-uS-U2x">
+                                <rect key="frame" x="12" y="10" width="14" height="8.5"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="7"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="T5h-uS-U2x" firstAttribute="top" secondItem="uEI-79-XV8" secondAttribute="top" constant="10" id="KZB-h4-2oP"/>
+                            <constraint firstItem="Qeu-Fq-1sK" firstAttribute="leading" secondItem="uEI-79-XV8" secondAttribute="leading" constant="12" id="XQW-aa-BeC"/>
+                            <constraint firstItem="qoe-mv-GIJ" firstAttribute="centerY" secondItem="Qeu-Fq-1sK" secondAttribute="centerY" id="abr-cs-Phd"/>
+                            <constraint firstItem="T5h-uS-U2x" firstAttribute="leading" secondItem="Qeu-Fq-1sK" secondAttribute="leading" id="kTk-N8-X4J"/>
+                            <constraint firstAttribute="trailing" secondItem="qoe-mv-GIJ" secondAttribute="trailing" constant="6" id="p4H-Zz-Xxb"/>
+                            <constraint firstItem="qoe-mv-GIJ" firstAttribute="leading" secondItem="Qeu-Fq-1sK" secondAttribute="trailing" constant="2" id="sOo-yQ-DfH"/>
+                        </constraints>
+                    </view>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenCheck-1" translatesAutoresizingMaskIntoConstraints="NO" id="Uux-S1-C7L">
+                        <rect key="frame" x="114.5" y="47.5" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="KDN-Tg-T5M"/>
+                            <constraint firstAttribute="height" constant="16" id="lKS-MN-id3"/>
+                        </constraints>
+                    </imageView>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEy-4c-LUQ">
+                        <rect key="frame" x="281.5" y="49.5" width="18.5" height="12"/>
+                        <fontDescription key="fontDescription" name="Gilroy-ExtraBold" family="Gilroy" pointSize="10"/>
+                        <color key="textColor" red="0.38039215686274508" green="0.75294117647058822" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzo-2c-bBw">
+                        <rect key="frame" x="114.5" y="10" width="12" height="8.5"/>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="7"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hxE-f6-OpM" firstAttribute="top" secondItem="SXQ-F3-rMm" secondAttribute="bottom" constant="10" id="4Sg-hh-qGJ"/>
+                    <constraint firstAttribute="bottom" secondItem="hxE-f6-OpM" secondAttribute="bottom" id="5Cq-e3-a1g"/>
+                    <constraint firstAttribute="trailing" secondItem="hxE-f6-OpM" secondAttribute="trailing" id="5VG-cM-YGC"/>
+                    <constraint firstItem="BTQ-zG-p6i" firstAttribute="centerY" secondItem="LKp-X3-2sx" secondAttribute="centerY" id="7Mw-CA-bAD"/>
+                    <constraint firstItem="Mzo-2c-bBw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="7f2-tP-tGP"/>
+                    <constraint firstItem="Mzo-2c-bBw" firstAttribute="leading" secondItem="zFA-zl-q6L" secondAttribute="leading" id="9Mk-ob-w2O"/>
+                    <constraint firstItem="BTQ-zG-p6i" firstAttribute="leading" secondItem="LKp-X3-2sx" secondAttribute="trailing" constant="15" id="DRz-IV-bH2"/>
+                    <constraint firstItem="Uux-S1-C7L" firstAttribute="centerY" secondItem="zFA-zl-q6L" secondAttribute="centerY" id="FaK-Rv-Gig"/>
+                    <constraint firstItem="Qeu-Fq-1sK" firstAttribute="centerY" secondItem="LKp-X3-2sx" secondAttribute="centerY" id="JWy-bA-drH"/>
+                    <constraint firstItem="hxE-f6-OpM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Mgm-Cv-BY5"/>
+                    <constraint firstItem="yEy-4c-LUQ" firstAttribute="leading" secondItem="BTQ-zG-p6i" secondAttribute="trailing" constant="13" id="Mor-qi-Cvz"/>
+                    <constraint firstItem="yEy-4c-LUQ" firstAttribute="centerY" secondItem="LKp-X3-2sx" secondAttribute="centerY" id="OAK-5o-HDD"/>
+                    <constraint firstAttribute="bottom" secondItem="uEI-79-XV8" secondAttribute="bottom" constant="2" id="Q56-Ho-cqC"/>
+                    <constraint firstAttribute="trailing" secondItem="uEI-79-XV8" secondAttribute="trailing" id="SSe-Tf-vkK"/>
+                    <constraint firstItem="zFA-zl-q6L" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.06" id="TFw-kF-jRl"/>
+                    <constraint firstItem="Uux-S1-C7L" firstAttribute="leading" secondItem="zFA-zl-q6L" secondAttribute="leading" id="Xj4-JY-TdO"/>
+                    <constraint firstItem="zFA-zl-q6L" firstAttribute="leading" secondItem="SXQ-F3-rMm" secondAttribute="trailing" constant="2.5" id="ZF6-36-QaC"/>
+                    <constraint firstItem="zFA-zl-q6L" firstAttribute="centerY" secondItem="SXQ-F3-rMm" secondAttribute="centerY" id="bAV-da-wXD"/>
+                    <constraint firstItem="SXQ-F3-rMm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="f9E-9Z-o9a"/>
+                    <constraint firstItem="uEI-79-XV8" firstAttribute="leading" secondItem="yEy-4c-LUQ" secondAttribute="trailing" constant="12" id="h3W-JV-yvP"/>
+                    <constraint firstItem="LKp-X3-2sx" firstAttribute="leading" secondItem="zFA-zl-q6L" secondAttribute="trailing" constant="19.5" id="hzZ-8r-BoZ"/>
+                    <constraint firstItem="uEI-79-XV8" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.28" id="rQc-JW-mVe"/>
+                    <constraint firstItem="SXQ-F3-rMm" firstAttribute="width" secondItem="uEI-79-XV8" secondAttribute="width" constant="-15" id="tS5-lA-Bic"/>
+                    <constraint firstItem="LKp-X3-2sx" firstAttribute="centerY" secondItem="zFA-zl-q6L" secondAttribute="centerY" id="vTi-mn-A4A"/>
+                    <constraint firstItem="uEI-79-XV8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xKZ-ui-StM"/>
+                    <constraint firstItem="LKp-X3-2sx" firstAttribute="width" secondItem="SXQ-F3-rMm" secondAttribute="width" multiplier="0.726415" id="zGK-lj-9Ve"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bottomlbl" destination="hxE-f6-OpM" id="XzW-Kz-mq6"/>
+                <outlet property="currency" destination="zFA-zl-q6L" id="o5q-N5-LLi"/>
+                <outlet property="exchangeImg" destination="BTQ-zG-p6i" id="S8B-y0-qFN"/>
+                <outlet property="finalCurrency" destination="yEy-4c-LUQ" id="f4t-kC-gNt"/>
+                <outlet property="finalPrice" destination="Qeu-Fq-1sK" id="7sV-34-aNL"/>
+                <outlet property="greenTick" destination="Uux-S1-C7L" id="pb7-Hw-Nwq"/>
+                <outlet property="leadingCurrency" destination="ZF6-36-QaC" id="ixZ-IJ-8wT"/>
+                <outlet property="leadingcurrencyconst" destination="hzZ-8r-BoZ" id="Hbs-zq-eLx"/>
+                <outlet property="max" destination="T5h-uS-U2x" id="l6M-H4-Yha"/>
+                <outlet property="min" destination="Mzo-2c-bBw" id="lfb-xx-cWf"/>
+                <outlet property="percentLabel" destination="qoe-mv-GIJ" id="t48-1G-EHY"/>
+                <outlet property="percentTrailing" destination="p4H-Zz-Xxb" id="q2V-Nz-wYB"/>
+                <outlet property="price" destination="LKp-X3-2sx" id="PcJ-eS-tHb"/>
+                <outlet property="pricewidthConst" destination="TFw-kF-jRl" id="wU0-9F-7DC"/>
+                <outlet property="rgtvw" destination="uEI-79-XV8" id="xfb-HS-hoI"/>
+                <outlet property="titleLabel" destination="SXQ-F3-rMm" id="2SC-yW-xF9"/>
+                <outlet property="titleLblLeading" destination="f9E-9Z-o9a" id="Mcw-fw-3jK"/>
+            </connections>
+            <point key="canvasLocation" x="157" y="108"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="exchange_new" width="14.5" height="11.5"/>
+        <image name="greenCheck-1" width="36" height="24"/>
+    </resources>
+</document>

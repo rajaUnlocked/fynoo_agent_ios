@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GalleryItemCollectionViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="81" height="81"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="81" height="81"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Man_test_img" translatesAutoresizingMaskIntoConstraints="NO" id="Tfb-MD-6V0">
+                        <rect key="frame" x="0.0" y="0.0" width="81" height="81"/>
+                    </imageView>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product_img_test" translatesAutoresizingMaskIntoConstraints="NO" id="Uwm-1l-eiC">
+                        <rect key="frame" x="11.5" y="11.5" width="58" height="58"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="58" id="j0C-aR-Asv"/>
+                            <constraint firstAttribute="width" constant="58" id="uHV-c6-WBH"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipK-51-W8e">
+                        <rect key="frame" x="5" y="5" width="19" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="19" id="Ylh-B4-sGW"/>
+                            <constraint firstAttribute="height" constant="19" id="qAb-ZD-Xry"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="ring_circle"/>
+                        <state key="selected" image="greenTick"/>
+                        <connections>
+                            <action selector="checkBox:" destination="gTV-IL-0wX" eventType="touchUpInside" id="TUG-DY-Mo1"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Tfb-MD-6V0" secondAttribute="bottom" id="6QD-CR-Hpm"/>
+                <constraint firstItem="ipK-51-W8e" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="7qT-OG-X9R"/>
+                <constraint firstItem="Tfb-MD-6V0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8C9-Ky-GAh"/>
+                <constraint firstItem="Tfb-MD-6V0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="CMp-7Z-wbT"/>
+                <constraint firstItem="Uwm-1l-eiC" firstAttribute="centerY" secondItem="Tfb-MD-6V0" secondAttribute="centerY" id="XOx-hb-dln"/>
+                <constraint firstAttribute="trailing" secondItem="Tfb-MD-6V0" secondAttribute="trailing" id="nrk-Xb-zmT"/>
+                <constraint firstItem="ipK-51-W8e" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="tpz-Uu-MTx"/>
+                <constraint firstItem="Uwm-1l-eiC" firstAttribute="centerX" secondItem="Tfb-MD-6V0" secondAttribute="centerX" id="u2n-5r-biu"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="81" height="81"/>
+            <connections>
+                <outlet property="check" destination="ipK-51-W8e" id="oGG-Rl-4Ib"/>
+                <outlet property="firstImg" destination="Tfb-MD-6V0" id="dnV-A4-hR5"/>
+                <outlet property="secondImg" destination="Uwm-1l-eiC" id="KDY-73-pFo"/>
+            </connections>
+            <point key="canvasLocation" x="173.18840579710147" y="108.14732142857143"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Man_test_img" width="316" height="275"/>
+        <image name="greenTick" width="60" height="60"/>
+        <image name="product_img_test" width="312" height="426"/>
+        <image name="ring_circle" width="19" height="19"/>
+    </resources>
+</document>

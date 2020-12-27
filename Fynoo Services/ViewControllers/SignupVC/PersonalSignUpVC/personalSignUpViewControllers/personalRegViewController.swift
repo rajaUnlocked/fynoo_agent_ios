@@ -136,6 +136,11 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
           self.tabView.separatorStyle = .none
         self.headerView.titleHeader.text = "Welcome, Let's Create An Account".localized
         headerView.viewControl = self
+        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+              
+        self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
+        self.headerView.titleHeader.textColor = Constant.Black_TEXT_COLOR
 
     }
     
@@ -638,7 +643,7 @@ func showHideConfirmPassword(_ sender: Any){
      func phoneCodeClicked(_ sender: Any) {
         
      }
-    
+
     func AgentselectYesOnVat(_ sender: Any) {
         
         if(isVatYesClicked) {
@@ -770,7 +775,6 @@ func showHideConfirmPassword(_ sender: Any){
                 if success{
                     if let value = (response?.object(forKey: "data") as? NSDictionary)?.object(forKey: "mail_status") as? String{
                         ModalController.showSuccessCustomAlertWith(title: "", msg: value)
-                        
                         if value == "Email Sent Success".localized{
                             let vc = VerifyAccountViewController(nibName: "VerifyAccountViewController", bundle: nil)
                             vc.mobile = self.personalAgentSignUPModal.personalAgentContactNbr
@@ -1392,6 +1396,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         cell.ibanNumberTxtFld.text = ibanPrefix
         cell.accountHolderNameTxtFld.addTarget(self, action: #selector(PersonalRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         cell.ibanNumberTxtFld.addTarget(self, action: #selector(PersonalRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+         cell.ibanNumberTxtFld.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         
         if self.bankNameIdentifierList?.data?.count ?? 0 > 0 {
             let bankIdentifier  = self.bankNameIdentifierList?.data![0]
@@ -2074,4 +2079,16 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         }
         
     }
+    
+    @objc func handleTextChange(_ textField: UITextField) {
+        
+    if textField.text!.count < 2 {
+      textField.keyboardType = .asciiCapable
+      textField.reloadInputViews() // need to reload the input view for this to work
+    } else if textField.text!.count > 2 || textField.text!.count == 2 {
+      textField.keyboardType = .asciiCapableNumberPad
+      textField.reloadInputViews()
+    }
+    }
+
 }
