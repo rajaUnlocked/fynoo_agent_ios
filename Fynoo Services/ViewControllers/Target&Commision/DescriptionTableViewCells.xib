@@ -55,10 +55,10 @@ a success.</string>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="descriplbl" destination="mWd-bI-1GP" id="Wij-df-nnI"/>
-                <outlet property="topconst" destination="mMY-Gi-EQq" id="Zs2-1b-VHI"/>
-                <outlet property="topdescripConst" destination="CSu-iU-LmW" id="Yc1-qa-9XS"/>
-                <outlet property="toplbl" destination="IIz-zY-QvO" id="vm9-2V-OO1"/>
+                <outlet property="descriplbl" destination="mWd-bI-1GP" id="4tv-rI-HBa"/>
+                <outlet property="topconst" destination="mMY-Gi-EQq" id="xO6-zA-034"/>
+                <outlet property="topdescripConst" destination="CSu-iU-LmW" id="gvd-On-0cF"/>
+                <outlet property="toplbl" destination="IIz-zY-QvO" id="Pg2-fy-KCX"/>
             </connections>
             <point key="canvasLocation" x="161.59420289855075" y="120.87053571428571"/>
         </tableViewCell>
