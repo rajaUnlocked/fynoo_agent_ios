@@ -350,6 +350,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
         
     }
     func profileImageSelected(){
+        
         let vc = DiscountTypePopUpViewController(nibName: "DiscountTypePopUpViewController", bundle: nil)
             vc.delegate = self
             let popupController = MTPopupController(rootViewController: vc)

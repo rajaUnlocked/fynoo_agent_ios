@@ -95,21 +95,21 @@ enum ValidationMessages {
 class Constant: NSObject {
     
     static let UpdateProfile_Image : String = "agentapis/v2/update_profile_photo/";
-
-//      static var BASE_URL : String = "http://43.241.61.141:9003/"
-      //  static var BASE_URL : String = "http://43.241.61.141:9005/"
-    static let vatlengthlist: String = "product_api/getVatLength/"
-
-    static let Country_List : String = "common/getCountry/";
-      static let City_List : String = "common/getCity/";
-      static let Bank_List : String = "businessapi/v2/bank_list/";
-      static let Education_List : String = "businessapi/v3/education_list/";
-      static let Service_List : String = "agentapi/v1/agentservices/";
-      static let bankIdentifier_List : String = "businessapi/v2/search_iban_number/";
-     static var BASE_URL : String = "http://61.95.220.248:9092/"
-//      static var BASE_URL : String = "http://61.95.220.248:9095/"  //CLIENT URL FOR NOW
     
- 
+    //      static var BASE_URL : String = "http://43.241.61.141:9003/"
+    //  static var BASE_URL : String = "http://43.241.61.141:9005/"
+    static let vatlengthlist: String = "product_api/getVatLength/"
+    
+    static let Country_List : String = "common/getCountry/";
+    static let City_List : String = "common/getCity/";
+    static let Bank_List : String = "businessapi/v2/bank_list/";
+    static let Education_List : String = "businessapi/v3/education_list/";
+    static let Service_List : String = "agentapi/v1/agentservices/";
+    static let bankIdentifier_List : String = "businessapi/v2/search_iban_number/";
+         static var BASE_URL : String = "http://61.95.220.248:9092/"
+    //      static var BASE_URL : String = "http://61.95.220.248:9095/"  //CLIENT URL FOR NOW
+//    static var BASE_URL : String = "https://dev.fynoo.com:8001/"
+    
     
     //      static var BASE_URL : String = "http://43.241.61.141:9003/"
     //  static var BASE_URL : String = "http://43.241.61.141:9005/"
@@ -123,7 +123,7 @@ class Constant: NSObject {
     static let get_user_type: String = "customerapi/v2/get_user_type/"
     static let agent_dashboard: String = "agentapis/v2/agent_dashboard/"
     static let add_services: String = "agentapis/v2/add_services/"
-  //  static let UpdateProfile_Image : String = "businessapi/v1/ChaneProfileImage/";
+    //  static let UpdateProfile_Image : String = "businessapi/v1/ChaneProfileImage/";
     static let activate_services: String = "agentapis/v2/activate_services/"
     static let deactivate_services: String = "agentapis/v2/deactivate_services/"
     
@@ -133,9 +133,9 @@ class Constant: NSObject {
     
     static let upload_file : String = "businessapi/v2/uploadimage/";
     static let vatInfo_Data : String = "product_api/getVatLength/";
-     static let IBANLengthInfo_Data : String = "agentapi/v1/get_iban_length/";
+    static let IBANLengthInfo_Data : String = "agentapi/v1/get_iban_length/";
     static let language_List : String = "agentapi/v1/agent_language_list/";
-     static let saveSelected_Language : String = "agentapi/v1/save_language/";
+    static let saveSelected_Language : String = "agentapi/v1/save_language/";
     
     // MARK: - COLORS AND FONTS
     static let Green_TEXT_COLOR = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)

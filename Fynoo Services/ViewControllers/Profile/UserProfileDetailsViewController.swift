@@ -95,7 +95,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
         
         return page.thumbnail(of: screenSize, for: .mediaBox)
     }
-    @objc func saveChange(){
+    @objc func saveChange() {
         
         
         var ACTIVATION = ""
@@ -113,7 +113,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
              print(last)
             
         var isvatUpload = 0
-        if pdfVat != agentInfo.vatCertificate{
+        if pdfVat != agentInfo.vatCertificate {
             isvatUpload = 1
         }
         agentInfo.vatNo = agentInfo.vatNo.replacingOccurrences(of: " ", with: "")
@@ -121,7 +121,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
             print(ACTIVATION)
         let mobile = agentInfo.mobileNo.replacingOccurrences(of: " ", with: "")
         let phone = agentInfo.phoneNo.replacingOccurrences(of: " ", with: "")
-        let parameter = ["user_id":"1060","lang_code":"EN","user_type":"AI","service_id":ACTIVATION,"name":agentInfo.name,"email":agentInfo.Email,"country_id":agentInfo.countryId,"dob":self.agentInfo.dob,"city_id":agentInfo.cityId,"mobile_code":agentInfo.mobileCode,"mobile_number":mobile,"phone_code":agentInfo.phCode,"phone_number":phone,"maroof_link":last,"bank_details_id":agentInfo.bankId,"bank_id":agentInfo.bankId,"bank_name":agentInfo.bankname,"card_holder_name":agentInfo.cardHolderName,"iban_no":agentInfo.iban,"vat_no":agentInfo.vatNo,"password":"","education_id":agentInfo.educationId,"major_id":agentInfo.majorId,"is_vat_upload":"\(isvatUpload)"] as [String : Any]
+        let parameter = ["user_id":Singleton.shared.getUserId(),"lang_code":"EN","user_type":"AI","service_id":ACTIVATION,"name":agentInfo.name,"email":agentInfo.Email,"country_id":agentInfo.countryId,"dob":self.agentInfo.dob,"city_id":agentInfo.cityId,"mobile_code":agentInfo.mobileCode,"mobile_number":mobile,"phone_code":agentInfo.phCode,"phone_number":phone,"maroof_link":last,"bank_details_id":agentInfo.bankId,"bank_id":agentInfo.bankId,"bank_name":agentInfo.bankname,"card_holder_name":agentInfo.cardHolderName,"iban_no":agentInfo.iban,"vat_no":agentInfo.vatNo,"password":"","education_id":agentInfo.educationId,"major_id":agentInfo.majorId,"is_vat_upload":"\(isvatUpload)"] as [String : Any]
         
         print(parameter)
         
