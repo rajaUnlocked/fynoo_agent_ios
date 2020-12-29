@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GalleryFilterViewController" customModule="Fynoo_Business" customModuleProvider="target">
+            <connections>
+                <outlet property="applyBtn" destination="N0q-fG-fNp" id="gXc-QV-pNM"/>
+                <outlet property="cancelBtn" destination="eIj-If-qXD" id="BWb-dg-mYu"/>
+                <outlet property="filter" destination="tQ3-96-4N9" id="VIU-1z-PRH"/>
+                <outlet property="tabView" destination="J6m-fl-0Tx" id="nh4-Jy-0ig"/>
+                <outlet property="topView" destination="mGo-7Q-BZU" id="oCL-hx-Uqp"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGo-7Q-BZU">
+                    <rect key="frame" x="0.0" y="40" width="414" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIj-If-qXD">
+                            <rect key="frame" x="25" y="4.5" width="53" height="31"/>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                            <state key="normal" title="Cancel">
+                                <color key="titleColor" red="0.10980392156862745" green="0.61568627450980395" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="cancel:" destination="-1" eventType="touchUpInside" id="BaQ-Pv-fLz"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQ3-96-4N9">
+                            <rect key="frame" x="189.5" y="4.5" width="35" height="31"/>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                            <state key="normal" title="Filter">
+                                <color key="titleColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0q-fG-fNp">
+                            <rect key="frame" x="346" y="4.5" width="43" height="31"/>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                            <state key="normal" title="Apply">
+                                <color key="titleColor" red="0.10980392160000001" green="0.61568627450000002" blue="0.83529411760000005" alpha="0.99606699486301364" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="apply:" destination="-1" eventType="touchUpInside" id="qux-Rt-GH5"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="tQ3-96-4N9" firstAttribute="centerY" secondItem="mGo-7Q-BZU" secondAttribute="centerY" id="8rZ-pu-3zM"/>
+                        <constraint firstItem="N0q-fG-fNp" firstAttribute="centerY" secondItem="eIj-If-qXD" secondAttribute="centerY" id="JA7-dU-arz"/>
+                        <constraint firstItem="eIj-If-qXD" firstAttribute="centerY" secondItem="mGo-7Q-BZU" secondAttribute="centerY" id="JbL-dm-LDG"/>
+                        <constraint firstAttribute="trailing" secondItem="N0q-fG-fNp" secondAttribute="trailing" constant="25" id="Zpo-rI-hS8"/>
+                        <constraint firstItem="tQ3-96-4N9" firstAttribute="centerX" secondItem="mGo-7Q-BZU" secondAttribute="centerX" id="spR-0i-rxI"/>
+                        <constraint firstItem="eIj-If-qXD" firstAttribute="leading" secondItem="mGo-7Q-BZU" secondAttribute="leading" constant="25" id="zoc-Jb-rRh"/>
+                        <constraint firstAttribute="height" constant="40" id="zzM-bS-g6e"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J6m-fl-0Tx">
+                    <rect key="frame" x="0.0" y="105" width="414" height="727"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="J6m-fl-0Tx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3Nh-eV-Kod"/>
+                <constraint firstItem="mGo-7Q-BZU" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="9Fh-Dn-pha"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="J6m-fl-0Tx" secondAttribute="bottom" constant="30" id="N1W-4y-a5P"/>
+                <constraint firstItem="J6m-fl-0Tx" firstAttribute="top" secondItem="mGo-7Q-BZU" secondAttribute="bottom" constant="25" id="bGu-cJ-iE3"/>
+                <constraint firstItem="mGo-7Q-BZU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="l7k-Er-MuB"/>
+                <constraint firstItem="mGo-7Q-BZU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="p9C-nr-JLF"/>
+                <constraint firstAttribute="trailing" secondItem="J6m-fl-0Tx" secondAttribute="trailing" id="qeB-Ia-ZYO"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="90.401785714285708"/>
+        </view>
+    </objects>
+</document>

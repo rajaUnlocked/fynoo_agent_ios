@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Features Type"; ObjectID = "KLn-D6-m05"; */
+"KLn-D6-m05.text" = "نوع الخاصية";
+
+/* Class = "UILabel"; text = "Feature Name"; ObjectID = "kRw-OL-Zj0"; */
+"kRw-OL-Zj0.text" = "اسم الخاصية";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "vgJ-9V-HNA"; */
+"vgJ-9V-HNA.normalTitle" = "Button";

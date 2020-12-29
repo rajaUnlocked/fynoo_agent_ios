@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SelectBusinesstypeTableViewCell" id="KGk-i7-Jjw" customClass="SelectBusinesstypeTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4mT-8Q-LwL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLa-ho-uIU">
+                                <rect key="frame" x="0.0" y="7" width="31" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Zkd-ds-hKH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCG-6l-rYR">
+                                <rect key="frame" x="298" y="16" width="12" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="12" id="UQg-Qg-lDg"/>
+                                    <constraint firstAttribute="height" constant="12" id="axs-pK-aeL"/>
+                                </constraints>
+                                <state key="normal" image="untick"/>
+                                <state key="selected" image="selected"/>
+                                <connections>
+                                    <action selector="checkbtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Qmg-hr-W1g"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cla-Ju-Ihk">
+                                <rect key="frame" x="0.0" y="43.5" width="310" height="0.5"/>
+                                <color key="backgroundColor" red="0.69803921568627447" green="0.69803921568627447" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="vct-Cv-6KI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.69803921568627447" green="0.69803921568627447" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="WLa-ho-uIU" firstAttribute="leading" secondItem="4mT-8Q-LwL" secondAttribute="leading" id="NmV-Df-4rY"/>
+                            <constraint firstAttribute="bottom" secondItem="Cla-Ju-Ihk" secondAttribute="bottom" id="V9Q-OH-0Pe"/>
+                            <constraint firstItem="Cla-Ju-Ihk" firstAttribute="leading" secondItem="WLa-ho-uIU" secondAttribute="leading" id="bVk-RR-Ndc"/>
+                            <constraint firstAttribute="trailing" secondItem="aCG-6l-rYR" secondAttribute="trailing" constant="10" id="cDm-T0-kIH"/>
+                            <constraint firstItem="Cla-Ju-Ihk" firstAttribute="trailing" secondItem="aCG-6l-rYR" secondAttribute="trailing" id="iTY-Qx-YXv"/>
+                            <constraint firstItem="aCG-6l-rYR" firstAttribute="centerY" secondItem="WLa-ho-uIU" secondAttribute="centerY" id="nF9-fN-viY"/>
+                            <constraint firstItem="WLa-ho-uIU" firstAttribute="centerY" secondItem="4mT-8Q-LwL" secondAttribute="centerY" id="teh-xn-h35"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="4mT-8Q-LwL" secondAttribute="trailing" id="FkV-LB-8Fi"/>
+                    <constraint firstItem="4mT-8Q-LwL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="js2-sh-M2r"/>
+                    <constraint firstItem="4mT-8Q-LwL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="krl-nB-Xx3"/>
+                    <constraint firstAttribute="bottom" secondItem="4mT-8Q-LwL" secondAttribute="bottom" id="neQ-xX-4jT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="checkbtn" destination="aCG-6l-rYR" id="hqn-Z4-WbA"/>
+                <outlet property="lblName" destination="WLa-ho-uIU" id="zq1-V3-of4"/>
+                <outlet property="leadingConstraints" destination="js2-sh-M2r" id="wwQ-rF-pCL"/>
+                <outlet property="traillingConstraints" destination="FkV-LB-8Fi" id="JMu-b8-STP"/>
+                <outlet property="underline" destination="Cla-Ju-Ihk" id="biq-2f-K4N"/>
+                <outlet property="underlineHeight" destination="vct-Cv-6KI" id="6Iy-Zx-oNV"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="90.401785714285708"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="selected" width="64" height="64"/>
+        <image name="untick" width="24" height="24"/>
+    </resources>
+</document>

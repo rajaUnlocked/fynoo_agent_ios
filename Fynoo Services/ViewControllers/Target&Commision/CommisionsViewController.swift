@@ -37,7 +37,7 @@ var targetmodel = TargetModel()
  func registernibs()
  {
  tabvw.register(UINib(nibName: "TargetprogressTableViewCell", bundle: nil), forCellReuseIdentifier: "TargetprogressTableViewCell")
-    tabvw.register(UINib(nibName: "DescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionTableViewCell")
+    tabvw.register(UINib(nibName: "DescriptionTableViewCells", bundle: nil), forCellReuseIdentifier: "DescriptionTableViewCells")
     tabvw.register(UINib(nibName: "ServiceListTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceListTableViewCell")
     
     }
@@ -79,14 +79,14 @@ extension CommisionsViewController:UITableViewDataSource,UITableViewDelegate
             return cell
         }
         else if indexPath.row == 1{
-            let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell", for: indexPath) as! DescriptionTableViewCell
+            let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCells", for: indexPath) as! DescriptionTableViewCells
             cell.toplbl.text = "Commission"
             cell.topdescripConst.constant = -8
             cell.descriplbl.text = self.commisionlist?.data?.top_content ?? ""
             return cell
         }
         else if indexPath.row == (self.commisionlist?.data?.services?.count ?? 0) + 2{
-                   let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell", for: indexPath) as! DescriptionTableViewCell
+                   let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCells", for: indexPath) as! DescriptionTableViewCells
              cell.toplbl.text = "Note:"
                cell.topdescripConst.constant = 0
              cell.descriplbl.text = self.commisionlist?.data?.bottom_content ?? ""
@@ -104,7 +104,20 @@ extension CommisionsViewController:UITableViewDataSource,UITableViewDelegate
         }
       
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row >= 2 && indexPath.row < (self.commisionlist?.data?.services?.count ?? 0) + 2
+        {
+        let vc = CommisionDetailsViewController(nibName: "CommisionDetailsViewController", bundle: nil)
+            vc.media_type = self.commisionlist?.data?.services?[indexPath.row - 2].media_type ?? 0
+              vc.videofile = self.commisionlist?.data?.services?[indexPath.row - 2].video_file ?? ""
+              vc.video_url = self.commisionlist?.data?.services?[indexPath.row - 2].video_url ?? ""
+             vc.service_desc = self.commisionlist?.data?.services?[indexPath.row - 2].service_description ?? ""
+              vc.service_name = self.commisionlist?.data?.services?[indexPath.row - 2].service_name ?? ""
+             vc.range = self.commisionlist?.data?.services?[indexPath.row - 2].service_range ?? ""
+              vc.service_icon = self.commisionlist?.data?.services?[indexPath.row - 2].service_icon ?? ""
+        self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0
             {

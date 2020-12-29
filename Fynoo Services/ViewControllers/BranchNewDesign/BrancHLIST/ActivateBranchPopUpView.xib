@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActivateBranchPopUpView" customModule="Fynoo_Business" customModuleProvider="target">
+            <connections>
+                <outlet property="imgStatus" destination="ARk-66-7Oa" id="VQ0-R7-yLZ"/>
+                <outlet property="noOutlet" destination="goM-PI-NVd" id="8jb-9b-3Uy"/>
+                <outlet property="titleBody" destination="EvG-jw-bkL" id="1Ha-pC-Cze"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="yesOutlet" destination="8rk-aw-99c" id="gaI-5f-YSs"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="369" height="266"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ko-Za-Lt1">
+                    <rect key="frame" x="34.5" y="55" width="300" height="200"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activeBranch" translatesAutoresizingMaskIntoConstraints="NO" id="ARk-66-7Oa">
+                            <rect key="frame" x="-2.5" y="10" width="305" height="180"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="305" id="8M1-jh-fUx"/>
+                                <constraint firstAttribute="height" constant="180" id="Mtu-vh-a4Y"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rk-aw-99c">
+                            <rect key="frame" x="32.5" y="125" width="100" height="24"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="eHm-Vz-VR7"/>
+                                <constraint firstAttribute="width" constant="100" id="kwh-G3-bDK"/>
+                            </constraints>
+                            <size key="titleShadowOffset" width="5" height="5"/>
+                            <state key="normal" title="Yes">
+                                <color key="titleColor" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                                    <point key="value" x="0.0" y="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="yesClicked:" destination="-1" eventType="touchUpInside" id="RIh-GZ-lWi"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EvG-jw-bkL">
+                            <rect key="frame" x="26.5" y="62.5" width="247" height="37.5"/>
+                            <string key="text">Are you sure
+ you want to Logout?</string>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                            <color key="textColor" red="0.45098039220000002" green="0.74901960779999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goM-PI-NVd">
+                            <rect key="frame" x="162.5" y="125" width="100" height="24"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="Ebd-Co-5uL"/>
+                                <constraint firstAttribute="width" constant="100" id="kNF-FP-JQa"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="13"/>
+                            <state key="normal" title="No">
+                                <color key="titleColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="point" keyPath="shadowOffset">
+                                    <point key="value" x="0.0" y="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="noClicked:" destination="-1" eventType="touchUpInside" id="VH0-2H-RWr"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="01T-jI-NP3"/>
+                        <constraint firstItem="8rk-aw-99c" firstAttribute="top" secondItem="EvG-jw-bkL" secondAttribute="bottom" constant="25" id="35g-kB-J8O"/>
+                        <constraint firstItem="goM-PI-NVd" firstAttribute="leading" secondItem="8rk-aw-99c" secondAttribute="trailing" constant="30" id="J8z-pr-KfD"/>
+                        <constraint firstAttribute="width" constant="300" id="NGD-TQ-g4u"/>
+                        <constraint firstItem="EvG-jw-bkL" firstAttribute="centerX" secondItem="ARk-66-7Oa" secondAttribute="centerX" id="OlX-k8-bRY"/>
+                        <constraint firstItem="ARk-66-7Oa" firstAttribute="centerY" secondItem="6Ko-Za-Lt1" secondAttribute="centerY" id="RZq-ji-Xrh"/>
+                        <constraint firstItem="goM-PI-NVd" firstAttribute="centerY" secondItem="8rk-aw-99c" secondAttribute="centerY" id="Vw3-jx-WoB"/>
+                        <constraint firstItem="EvG-jw-bkL" firstAttribute="leading" secondItem="6Ko-Za-Lt1" secondAttribute="leading" constant="26.5" id="XsK-zF-lZw"/>
+                        <constraint firstItem="ARk-66-7Oa" firstAttribute="top" secondItem="EvG-jw-bkL" secondAttribute="bottom" constant="-90" id="ceY-Zv-xWl"/>
+                        <constraint firstAttribute="trailing" secondItem="EvG-jw-bkL" secondAttribute="trailing" constant="26.5" id="kSW-QF-vKW"/>
+                        <constraint firstItem="ARk-66-7Oa" firstAttribute="centerX" secondItem="6Ko-Za-Lt1" secondAttribute="centerX" id="lMI-rQ-sDU"/>
+                        <constraint firstItem="8rk-aw-99c" firstAttribute="leading" secondItem="ARk-66-7Oa" secondAttribute="leading" constant="35" id="on4-H0-SUM"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="6Ko-Za-Lt1" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="CHV-WX-Xpu"/>
+                <constraint firstItem="6Ko-Za-Lt1" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="YLW-Ze-2nX"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="105.07246376811595" y="-4.6875"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="activeBranch" width="323" height="194"/>
+    </resources>
+</document>

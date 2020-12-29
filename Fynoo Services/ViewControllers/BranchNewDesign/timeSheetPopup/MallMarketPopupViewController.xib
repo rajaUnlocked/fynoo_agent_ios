@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MallMarketPopupViewController" customModule="Fynoo_Business" customModuleProvider="target">
+            <connections>
+                <outlet property="headerVw" destination="346-Yh-XFf" id="dkQ-8R-uXF"/>
+                <outlet property="save" destination="OkT-gB-3VP" id="1Cn-pi-ED1"/>
+                <outlet property="tabView" destination="HjK-Qa-gLm" id="QEb-EC-5Pd"/>
+                <outlet property="tableHeightConstraints" destination="olk-AQ-Wji" id="arc-YK-gXd"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="460"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OkT-gB-3VP">
+                    <rect key="frame" x="90" y="380" width="120" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="b1u-ah-UXd"/>
+                        <constraint firstAttribute="width" constant="120" id="lWE-Bc-8NK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                    <state key="normal" title="SAVE">
+                        <color key="titleColor" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="savebtn:" destination="-1" eventType="touchUpInside" id="J4u-ZC-fPw"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HjK-Qa-gLm">
+                    <rect key="frame" x="0.0" y="100" width="300" height="270"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="270" id="MUb-Ch-RIL"/>
+                    </constraints>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="346-Yh-XFf" customClass="NavigationView" customModule="Fynoo_Business" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="olk-AQ-Wji"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="HjK-Qa-gLm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0f4-KV-0db"/>
+                <constraint firstItem="HjK-Qa-gLm" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ARg-ef-WoI"/>
+                <constraint firstItem="OkT-gB-3VP" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Eom-Cg-hiH"/>
+                <constraint firstItem="346-Yh-XFf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="HW2-Ug-pWc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="OkT-gB-3VP" secondAttribute="bottom" constant="50" id="Tva-Xr-TbQ"/>
+                <constraint firstItem="HjK-Qa-gLm" firstAttribute="top" secondItem="346-Yh-XFf" secondAttribute="bottom" id="aPg-fn-e2Q"/>
+                <constraint firstAttribute="trailing" secondItem="346-Yh-XFf" secondAttribute="trailing" id="ddF-Vn-7Gr"/>
+                <constraint firstItem="346-Yh-XFf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pux-ml-jHn"/>
+                <constraint firstItem="OkT-gB-3VP" firstAttribute="top" secondItem="HjK-Qa-gLm" secondAttribute="bottom" constant="10" id="qvR-rd-LUk"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="94.419642857142847"/>
+        </view>
+    </objects>
+</document>

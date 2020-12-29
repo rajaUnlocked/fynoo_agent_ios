@@ -37,7 +37,7 @@
                                     <constraint firstAttribute="height" constant="100" id="b3a-IF-ygv"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -102,6 +102,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="count" destination="pl3-NU-jYz" id="g5I-7w-WPI"/>
+                <outlet property="txtvw" destination="csm-Vq-RMx" id="D37-Kb-FH5"/>
+                <outlet property="upload" destination="40V-VY-egg" id="rfT-QM-KX0"/>
+            </connections>
             <point key="canvasLocation" x="152.17391304347828" y="176.45089285714286"/>
         </tableViewCell>
     </objects>

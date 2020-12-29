@@ -1,0 +1,364 @@
+//
+//  BranchListNewViewController.swift
+//  Fynoo Business
+//
+//  Created by Preeti Rathore on 13/01/20.
+//  Copyright © 2020 Sendan. All rights reserved.
+//
+
+import UIKit
+import PopupDialog
+
+class BranchListNewViewController: UIViewController {
+    
+    @IBOutlet weak var topHeightConst: NSLayoutConstraint!
+    @IBOutlet weak var tabView: UITableView!
+    @IBOutlet weak var txtField: UITextField!
+
+    @IBOutlet weak var headerVw: NavigationView!
+    @IBOutlet weak var qrCode: UIButton!
+    @IBOutlet weak var search: UIButton!
+    var branchmodel = branchsmodel()
+    var new_branch_list : NewBranchList?
+    var textSTR = ""
+     var showImageList:ShowImageList?
+    var filterArray : [New_Branch_list]?
+    var filterArray1 : [New_Branch_list]?
+  
+    
+    @IBOutlet weak var backgroundBg: UIImageView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.tabView.delegate = self
+        self.tabView.dataSource = self
+        self.topHeightConst.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
+        self.headerVw.titleHeader.isHidden = true
+        self.headerVw.menuBtn.isHidden = false
+        self.headerVw.fynooLogoImage.isHidden = false
+        self.headerVw.viewControl = self
+        
+        //        let image =  ModalController.rotateImagesOnLanguageMethod(img: UIImage(named: "back_new")!)
+        //              backBtn.setImage(image, for: .normal)
+//        tabView.allowsSelectionDuringEditing = false
+        backgroundBg.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+        tabView.separatorStyle = .none
+        tabView.register(UINib(nibName: "BranchListStateTableViewCell", bundle: nil), forCellReuseIdentifier: "BranchListStateTableViewCell")
+        tabView.register(UINib(nibName: "BranchListNewTableViewCell", bundle: nil), forCellReuseIdentifier: "BranchListNewTableViewCell")
+        
+        txtField.addTarget(self, action: #selector(BranchListNewViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        
+        
+        
+    }
+    func BranchList()
+    {
+      
+        branchmodel.getBranchList { (success, response) in
+                         if success {
+                             self.new_branch_list = response
+                             self.tabView.delegate = self
+                             self.tabView.dataSource = self
+                             self.tabView.reloadData()
+                             print(response!)
+                         }
+                     }
+    }
+    func deleteAllImage()
+           {
+                  var mediaId = ""
+                  if AddBranch.shared.showImgId.count > 0
+                               {
+                               
+                                   for item in AddBranch.shared.showImgId{
+                                       mediaId = "\(item),\(mediaId)"
+                                   }
+                                   mediaId.removeLast()
+                               }
+                     branchmodel.mediaId = mediaId
+                print("media id \(mediaId)")
+                    branchmodel.deleteImg { (success, response) in
+                         ModalClass.stopLoading()
+                         if success
+                         {
+                      print("deleted")
+                             
+                         }
+                         
+                     }
+        }
+    override func viewDidAppear(_ animated: Bool) {
+        if AddBranch.shared.BranchId == ""
+        {
+          if AddBranch.shared.showImgId.count > 0
+                {
+                    self.deleteAllImage()
+                }
+            }
+        
+         self.BranchList()
+     
+    }
+   
+    @IBAction func back(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if let textStr = textField.text {
+            if self.new_branch_list?.data?.branch_list?.count == 0{
+                return
+            }
+            textSTR = textStr
+            print("search filter")
+            
+            filterArray =  self.new_branch_list?.data?.branch_list?.filter{$0.branch_name!.lowercased().contains(textStr.lowercased())}
+            tabView.reloadSections(IndexSet(integer: 1), with: .none)
+        }
+    }
+    
+    @IBAction func qrcodeclick(_ sender: Any) {
+        let vc = QRCOdeViewController(nibName: "QRCOdeViewController", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func searchClick(_ sender: Any) {
+      print("searchClick")
+    }
+ 
+}
+extension BranchListNewViewController: UITableViewDataSource,UITableViewDelegate{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        }
+        else {
+            if textSTR.count > 0
+            {
+                return filterArray?.count ?? 0
+            }
+            else{
+                return new_branch_list?.data?.branch_list?.count ?? 0
+            }
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if textSTR.count > 0
+        {
+            filterArray1 = filterArray
+        }
+        else{
+            filterArray1 = new_branch_list?.data?.branch_list
+        }
+        if indexPath.section == 0{
+            let cell = tabView.dequeueReusableCell(withIdentifier: "BranchListStateTableViewCell", for: indexPath) as! BranchListStateTableViewCell
+            
+            let list = new_branch_list?.data
+            cell.activeBranchLbl.text = "\(list?.active_branches ?? 0)".localized
+            cell.inactiveBranchLbl.text = "\(list?.inactive_branches ?? 0)".localized
+            cell.subscriptionBranches.text =  "\(list?.total_branches ?? 0)".localized
+            
+            cell.delegate = self
+            cell.selectionStyle = .none
+            
+            return cell
+        }
+        else {
+            let cell = tabView.dequeueReusableCell(withIdentifier: "BranchListNewTableViewCell", for: indexPath) as! BranchListNewTableViewCell
+            cell.delegate = self
+            let branchList = filterArray1
+            cell.setCellData(list: branchList , indexPath: indexPath.row)
+            cell.switchBtn.tag = indexPath.row
+            cell.switchBtn.isSelected = filterArray1?[indexPath.row].is_branch_active == 0 ? false : true
+            cell.switchBtn.addTarget(self, action: #selector(switchBtn(_:)), for: .touchUpInside)
+            cell.tag = indexPath.row
+            cell.shareBtn.tag = indexPath.row
+            cell.shareBtn.addTarget(self, action: #selector(shareClick(_:)), for: .touchUpInside)
+       
+              
+            cell.selectionStyle = .none
+            return cell
+        }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if  indexPath.section == 0 {
+            return 85
+        }
+        else {
+          
+      
+                 return 95
+          
+           
+        }
+        
+    }
+    func StatusChange_API(tag:Int,status:Bool)
+    {
+        branchmodel.branchid = "\(new_branch_list?.data?.branch_list?[tag].id ?? 0)"
+        branchmodel.status = (status == false ? "1":"0")
+        branchmodel.statusChange { (success, response) in
+                          if success {
+                            let val = response!
+                            if val.value(forKey: "error_code") as! Int == 200
+                            {
+
+                                ModalController.showSuccessCustomAlertWith(title:val.value(forKey: "error_description") as! String, msg: "")
+                                self.BranchList()
+                            }
+                             else
+                            {
+
+                                ModalController.showNegativeCustomAlertWith(title:val.value(forKey: "error_description") as! String, msg: "")
+                            }
+                          }
+                      }
+    }
+    @objc func switchBtn(_ sender:UISwitch)
+    {
+        
+        let alert = UIAlertController(title: "Message", message: "Are sure you want to change branch status", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "YES", style: .default, handler: { (action) in
+            self.StatusChange_API(tag:sender.tag,status:sender.isSelected)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "NO", style: .cancel, handler: { (action) in
+            self.tabView.reloadRows(at: [IndexPath(row: sender.tag, section: 1)], with: .none)
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+
+    @available(iOS 11.0, *)
+
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        if indexPath.section == 1 {
+            let action =  UIContextualAction(style: .normal, title: "", handler: { (action,view,completionHandler ) in
+                //do stuff
+        
+                let vc = DeleteBranchPopupViewController(nibName: "DeleteBranchPopupViewController", bundle: nil)
+                vc.pro_count = self.filterArray1?[indexPath.row].total_products ?? 0
+                vc.branchId = "\(self.filterArray1?[indexPath.row].id ?? 0)"
+                vc.delegate = self
+                self.present(vc, animated: true, completion: nil)
+                completionHandler(true)
+            })
+            
+            action.image = UIImage(named: "delete1")
+
+            action.backgroundColor = .red
+            let configuration = UISwipeActionsConfiguration(actions: [action])
+         
+            return configuration
+        }
+        else {
+            
+            let swipeAction = UISwipeActionsConfiguration(actions: [])
+            swipeAction.performsFirstActionWithFullSwipe = false // This is the line which disables full swipe
+            return swipeAction
+            
+        }
+        
+        
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     
+            
+        if indexPath.section == 1 {
+            AddBranch.shared.removeall()
+            branchmodel.branchid = "\(self.filterArray1?[indexPath.row].id ?? 0)"
+            branchmodel.lat = self.filterArray1?[indexPath.row].lat ?? 0.0
+            branchmodel.long = self.filterArray1?[indexPath.row].long ?? 0.0
+            ModalClass.startLoading(self.view)
+            branchmodel.branchDetail { (success, response) in
+                if success {
+                    ModalClass.stopLoading()
+                    let vc = BranchDetailNewViewController(nibName: "BranchDetailNewViewController", bundle: nil)
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+            
+        }
+    }
+    
+    
+}
+extension BranchListNewViewController: BranchListStateTableViewCellDelegate,BranchListNewTableViewCellDelegate,DeleteBranchPopupViewControllerDelegate{
+    
+    func branchAdd(tag: Int) {
+     AddBranch.shared.removeall()
+                 let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
+        vc.branchCount = self.filterArray1?.count ?? 0
+                 self.navigationController?.pushViewController(vc, animated: true)
+        
+        
+     
+    }
+    
+    func editClick(tag: Int) {
+         AddBranch.shared.removeall()
+        branchmodel.branchid = "\(self.filterArray1?[tag].id ?? 0)"
+            ModalClass.startLoading(self.view)
+              branchmodel.branchDetail { (success, response) in
+                  if success {
+            ModalClass.stopLoading()
+                let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
+      vc.branchCount = self.filterArray1?.count ?? 0
+            self.navigationController?.pushViewController(vc, animated: true)
+                  }
+              }
+     
+    }
+    
+    func qrcode(tag: Int) {
+        print("open QR Code")
+        
+        let vc = BranchQrCodePopupViewController(nibName: "BranchQrCodePopupViewController", bundle: nil)
+        let str = filterArray1?[tag].branch_qr
+        vc.url = str!
+        let popup = PopupDialog(viewController: vc,
+                                buttonAlignment: .horizontal,
+                                transitionStyle: .bounceDown,
+                                tapGestureDismissal: true,
+                                panGestureDismissal: false)
+        
+        self.present(popup, animated: true, completion: nil)
+        
+    }
+    
+    @objc  func shareClick(_ sender: UIButton) {
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        let business_id = self.filterArray1?[sender.tag].id ?? 0
+        let textToShare = "Check out This Branch"
+        let url = "\(Constant.BASE_URL)customer/single_branch/" + "\(business_id)" + "/";
+        if let myWebsite = URL(string: url) {//Enter link to your app here
+            
+            let objectsToShare = [textToShare, myWebsite, image ??  #imageLiteral(resourceName: "dataEntryService") ] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            //Excluded Activities
+            activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+            //
+            activityVC.popoverPresentationController?.sourceView = sender
+            self.present(activityVC, animated: true, completion: nil)
+        }
+    }
+    func reloadPage() {
+        self.BranchList()
+    }
+    
+    
+    
+}
+

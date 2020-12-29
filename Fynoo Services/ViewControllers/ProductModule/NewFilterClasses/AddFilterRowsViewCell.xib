@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="69" id="KGk-i7-Jjw" customClass="AddFilterRowsViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="339" height="69"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="339" height="69"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tli-9i-cap">
+                        <rect key="frame" x="105" y="14.5" width="198" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="504-9S-g4z"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fl5-sc-nKV">
+                        <rect key="frame" x="313" y="26.5" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="E8X-yg-wYN"/>
+                            <constraint firstAttribute="width" constant="16" id="shj-o6-TcJ"/>
+                        </constraints>
+                        <state key="normal" image="delete_new-1"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="fl5-sc-nKV" firstAttribute="centerY" secondItem="tli-9i-cap" secondAttribute="centerY" id="5lh-Wx-ta6"/>
+                    <constraint firstItem="fl5-sc-nKV" firstAttribute="leading" secondItem="tli-9i-cap" secondAttribute="trailing" constant="10" id="8ff-U7-kox"/>
+                    <constraint firstItem="tli-9i-cap" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VgM-oa-Xn2"/>
+                    <constraint firstAttribute="trailing" secondItem="fl5-sc-nKV" secondAttribute="trailing" constant="10" id="e9t-YZ-arx"/>
+                    <constraint firstItem="tli-9i-cap" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="105" id="gVL-Tr-OLV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="featureType" destination="tli-9i-cap" id="zLj-xJ-CZ2"/>
+                <outlet property="minus" destination="fl5-sc-nKV" id="T8N-X4-5l0"/>
+            </connections>
+            <point key="canvasLocation" x="151.44927536231884" y="110.15625"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="delete_new-1" width="48" height="48"/>
+    </resources>
+</document>

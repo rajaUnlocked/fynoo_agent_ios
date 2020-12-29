@@ -72,5 +72,4 @@ class LoginModal : NSObject{
             }
         }
     }
-    
 }

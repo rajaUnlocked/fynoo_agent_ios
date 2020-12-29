@@ -94,7 +94,7 @@ class ProfileDataInfo : Mappable{
 class language_lists : Mappable{
     
     var id = 0
-    var lang_id = ""
+    var lang_id = 0
     var lang_name = ""
     
     required init?(map: Map) {}
@@ -119,7 +119,7 @@ class ProfileData : Mappable{
     var vat_no = ""
     var bank_details_id = 0
     var full_name = ""
-    var bank_id = 0
+    var bank = 0
     var bank_name = ""
     var account_iban_nbr = ""
     var iban_no = ""
@@ -147,21 +147,25 @@ class ProfileData : Mappable{
     var mobile_length = 0
     var phone_length = 0
     var profile_image = ""
+    var fynoo_id = ""
+    var company_name = ""
     required init?(map: Map) {}
     
     func mapping(map: Map) {
+        company_name <- map["company_name"]
+        fynoo_id <- map["fynoo_id"]
         profile_image <- map["profile_image"]
         mobile_length <- map["mobile_length"]
         phone_length <- map["phone_length"]
         phone_flag <- map["phone_flag"]
         mobile_flag <- map["mobile_flag"]
         ac_holder_name <- map["ac_holder_name"]
-
+        
         vat_certificate <- map["vat_certificate"]
         iban_no <- map["iban_no"]
         bank_details_id <- map["bank_details_id"]
         full_name <- map["full_name"]
-        bank_id <- map["bank_id"]
+        bank <- map["bank"]
         account_iban_nbr <- map["account_iban_nbr"]
         bank_name <- map["bank_name"]
         
@@ -254,13 +258,32 @@ class DeliveryInfo : Mappable{
     var user_lang : [language_lists]?
 
     
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        agent_information <- map["agent_information"]
+        del_accept_limit <- map["del_accept_limit"]
+        user_lang <- map["user_lang"]
+    }
+    
+}
+class trips_achievements : Mappable{
+    
+    
+    var trip_code = ""
+    var trip_count = 0
+    var trip_icon = ""
+    var trip_text = ""
+    
     required init?(map: Map) {}
     
     func mapping(map: Map) {
         
-        agent_information <- map["agent_information"]
-        del_accept_limit <- map["del_accept_limit"]
-        user_lang <- map["user_lang"]
+        trip_code <- map["trip_code"]
+        trip_count <- map["trip_count"]
+        trip_icon <- map["trip_icon"]
+        trip_text <- map["trip_text"]
     }
     
 }
@@ -290,8 +313,11 @@ class agentInfo : Mappable{
     var active_years = 0
     var avg_rating = 0
 
+    var trips_achievements:[trips_achievements]?
+    var del_service_document = ""
     var del_service_document_uploaded = 0
     var del_service_status = 0
+    var dsd_id = 0
     var excellent_service = 0
     var fynoo_id = ""
     var great_attitude = 0
@@ -308,7 +334,9 @@ class agentInfo : Mappable{
     required init?(map: Map) {}
     
     func mapping(map: Map) {
-        
+          dsd_id <- map["dsd_id"]
+          trips_achievements <- map["trips_achievements"]
+        del_service_document <- map["del_service_document"]
         above_and_beyond <- map["above_and_beyond"]
         active_years <- map["active_years"]
         avg_rating <- map["avg_rating"]

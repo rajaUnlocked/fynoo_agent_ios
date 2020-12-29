@@ -29,7 +29,7 @@ class DiscountTypePopUpViewController: UIViewController {
         view.backgroundColor = .clear
         
         tableView.tableFooterView = UIView()
-        contentSizeInPopup = CGSize(width: UIScreen.main.bounds.width, height:150)
+        contentSizeInPopup = CGSize(width: UIScreen.main.bounds.width, height:250)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "PopUpViewCell", bundle: nil), forCellReuseIdentifier: "PopUpViewCell")

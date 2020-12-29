@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddWholeSlabViewController" customModule="Fynoo_Business" customModuleProvider="target">
+            <connections>
+                <outlet property="bgImage" destination="iGH-El-YQg" id="zJN-he-bOT"/>
+                <outlet property="heightConstraint" destination="XF9-Fh-tHZ" id="mZJ-Ot-7AR"/>
+                <outlet property="navigationView" destination="W7q-fv-PWE" id="aKK-AU-bbv"/>
+                <outlet property="tableView" destination="6na-aq-vSG" id="qej-Hg-2VC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="417"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="iGH-El-YQg">
+                    <rect key="frame" x="0.0" y="216" width="285" height="201"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="201" id="ARy-5h-3uc"/>
+                        <constraint firstAttribute="width" constant="285" id="FLU-6l-l3T"/>
+                    </constraints>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6na-aq-vSG">
+                    <rect key="frame" x="0.0" y="60" width="345" height="357"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7q-fv-PWE" customClass="NavigationView" customModule="Fynoo_Business" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="345" height="100"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="XF9-Fh-tHZ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6na-aq-vSG" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="911-HG-sf6"/>
+                <constraint firstItem="iGH-El-YQg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Cku-CZ-MQu"/>
+                <constraint firstItem="6na-aq-vSG" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Pwu-5Q-yAY"/>
+                <constraint firstItem="6na-aq-vSG" firstAttribute="top" secondItem="W7q-fv-PWE" secondAttribute="bottom" constant="-40" id="ULN-Rm-MhP"/>
+                <constraint firstItem="W7q-fv-PWE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aYv-GP-r55"/>
+                <constraint firstItem="W7q-fv-PWE" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="gp5-SC-d2s"/>
+                <constraint firstItem="W7q-fv-PWE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hIj-gt-a6v"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="iGH-El-YQg" secondAttribute="bottom" id="sBh-9v-dIm"/>
+                <constraint firstItem="6na-aq-vSG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="sYH-CX-umb"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="83.333333333333343" y="-81.361607142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backgroundImage" width="297" height="208"/>
+    </resources>
+</document>
