@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DataEntryPricePayTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="106" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much do you want to pay for this order?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjo-ca-9Ir">
+                        <rect key="frame" x="15" y="11" width="290" height="37"/>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1y-yg-gIH">
+                        <rect key="frame" x="15" y="55" width="256" height="35"/>
+                        <subviews>
+                            <textField opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Jb-uH-d3V">
+                                <rect key="frame" x="0.0" y="0.0" width="256" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="kWx-EQ-s6J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="48v-1z-4TO"/>
+                            <constraint firstAttribute="bottom" secondItem="3Jb-uH-d3V" secondAttribute="bottom" id="OO3-09-wLZ"/>
+                            <constraint firstItem="3Jb-uH-d3V" firstAttribute="top" secondItem="f1y-yg-gIH" secondAttribute="top" id="Q4K-Ym-FOQ"/>
+                            <constraint firstItem="3Jb-uH-d3V" firstAttribute="leading" secondItem="f1y-yg-gIH" secondAttribute="leading" id="ddU-lL-8Fp"/>
+                            <constraint firstAttribute="trailing" secondItem="3Jb-uH-d3V" secondAttribute="trailing" id="ua7-5d-yji"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.40000000000000002"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="106" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZE-Fe-2rq">
+                        <rect key="frame" x="276" y="63.5" width="29" height="18.5"/>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="gjo-ca-9Ir" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="6G6-Ge-Pu0"/>
+                    <constraint firstAttribute="trailing" secondItem="kZE-Fe-2rq" secondAttribute="trailing" constant="15" id="He2-oB-aXu"/>
+                    <constraint firstAttribute="bottom" secondItem="f1y-yg-gIH" secondAttribute="bottom" id="NeT-5z-X1C"/>
+                    <constraint firstItem="kZE-Fe-2rq" firstAttribute="centerY" secondItem="f1y-yg-gIH" secondAttribute="centerY" id="QuR-Dg-sps"/>
+                    <constraint firstItem="f1y-yg-gIH" firstAttribute="top" secondItem="gjo-ca-9Ir" secondAttribute="bottom" constant="7" id="jLH-TT-ARR"/>
+                    <constraint firstItem="f1y-yg-gIH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="mly-oN-gVQ"/>
+                    <constraint firstItem="kZE-Fe-2rq" firstAttribute="leading" secondItem="f1y-yg-gIH" secondAttribute="trailing" constant="5" id="oUN-dF-uZd"/>
+                    <constraint firstAttribute="trailing" secondItem="gjo-ca-9Ir" secondAttribute="trailing" constant="15" id="pey-ct-Qdd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="currencyLbl" destination="kZE-Fe-2rq" id="4Gs-tX-bcs"/>
+                <outlet property="headerLbl" destination="gjo-ca-9Ir" id="61N-DA-AO2"/>
+                <outlet property="priceTxtFld" destination="3Jb-uH-d3V" id="Seh-Mn-FzT"/>
+                <outlet property="priceView" destination="f1y-yg-gIH" id="0fR-lS-zCG"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="122.54464285714285"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DataEntryAgentRatingViewController" customModule="Fynoo_Business" customModuleProvider="target">
+            <connections>
+                <outlet property="agentLanguageLbl" destination="Rjm-J9-OZq" id="aOt-rK-E61"/>
+                <outlet property="agentNameLbl" destination="Y7m-M4-nzP" id="qdt-gn-ucf"/>
+                <outlet property="agentProfileImageView" destination="Epp-vS-i6o" id="3LE-Pb-Or0"/>
+                <outlet property="ratingView" destination="4ZH-Id-CMQ" id="UTJ-7g-o7n"/>
+                <outlet property="staticTxtLbl" destination="wuK-eY-xzp" id="C3p-8w-OK9"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="378" height="329"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJd-ol-bLU">
+                    <rect key="frame" x="4.5" y="22" width="369" height="329"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ratingViewBg" translatesAutoresizingMaskIntoConstraints="NO" id="AjF-ho-aNV">
+                            <rect key="frame" x="0.0" y="34.5" width="369" height="260"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="260" id="hCU-Jw-PWj"/>
+                                <constraint firstAttribute="width" constant="369" id="oTk-cC-HOw"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="agent_indivdual" translatesAutoresizingMaskIntoConstraints="NO" id="Epp-vS-i6o">
+                            <rect key="frame" x="20" y="60" width="60" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="2hD-mF-gdH"/>
+                                <constraint firstAttribute="height" constant="60" id="oMq-CI-qpu"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Samsung Galaxy Prime 16GB J327 J3 ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7m-M4-nzP">
+                            <rect key="frame" x="90" y="60" width="259" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="955-N6-ZOe"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Samsung Galaxy Prime 16GB J327 J3 ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rjm-J9-OZq">
+                            <rect key="frame" x="90" y="81" width="259" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="16" id="N9G-ZO-xtn"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How was your data entry order with captain ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuK-eY-xzp">
+                            <rect key="frame" x="10" y="150" width="349" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="HDp-2t-6ch"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="15"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ZH-Id-CMQ" customClass="CosmosView" customModule="Cosmos">
+                            <rect key="frame" x="72" y="191" width="225" height="50"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="225" id="DMM-t3-Uvb"/>
+                                <constraint firstAttribute="height" constant="50" id="LP7-Iw-cQX"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                    <real key="value" value="40"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Y7m-M4-nzP" firstAttribute="leading" secondItem="Epp-vS-i6o" secondAttribute="trailing" constant="10" id="00z-5V-djm"/>
+                        <constraint firstItem="Epp-vS-i6o" firstAttribute="top" secondItem="FJd-ol-bLU" secondAttribute="top" constant="60" id="1sj-ip-IJQ"/>
+                        <constraint firstAttribute="trailing" secondItem="wuK-eY-xzp" secondAttribute="trailing" constant="10" id="3RD-zE-va7"/>
+                        <constraint firstItem="Y7m-M4-nzP" firstAttribute="top" secondItem="FJd-ol-bLU" secondAttribute="top" constant="60" id="5DP-4q-5O6"/>
+                        <constraint firstAttribute="trailing" secondItem="Y7m-M4-nzP" secondAttribute="trailing" constant="20" id="FhV-sd-AK4"/>
+                        <constraint firstAttribute="trailing" secondItem="Rjm-J9-OZq" secondAttribute="trailing" constant="20" id="K7l-Id-RKn"/>
+                        <constraint firstItem="Epp-vS-i6o" firstAttribute="leading" secondItem="FJd-ol-bLU" secondAttribute="leading" constant="20" id="Mb3-u0-to6"/>
+                        <constraint firstItem="4ZH-Id-CMQ" firstAttribute="top" secondItem="wuK-eY-xzp" secondAttribute="bottom" constant="20" id="PUN-wD-gqd"/>
+                        <constraint firstAttribute="width" constant="369" id="SDX-qx-PqK"/>
+                        <constraint firstItem="wuK-eY-xzp" firstAttribute="top" secondItem="Epp-vS-i6o" secondAttribute="bottom" constant="30" id="T9M-mI-xVc"/>
+                        <constraint firstItem="AjF-ho-aNV" firstAttribute="centerX" secondItem="FJd-ol-bLU" secondAttribute="centerX" id="V2y-KP-gdo"/>
+                        <constraint firstItem="4ZH-Id-CMQ" firstAttribute="centerX" secondItem="FJd-ol-bLU" secondAttribute="centerX" id="hMt-jB-cSj"/>
+                        <constraint firstItem="wuK-eY-xzp" firstAttribute="leading" secondItem="FJd-ol-bLU" secondAttribute="leading" constant="10" id="k7Y-5E-Xoa"/>
+                        <constraint firstItem="wuK-eY-xzp" firstAttribute="centerX" secondItem="FJd-ol-bLU" secondAttribute="centerX" id="kDB-pl-N3m"/>
+                        <constraint firstItem="Rjm-J9-OZq" firstAttribute="top" secondItem="Y7m-M4-nzP" secondAttribute="bottom" id="sXF-Nm-mxe"/>
+                        <constraint firstItem="Rjm-J9-OZq" firstAttribute="leading" secondItem="Epp-vS-i6o" secondAttribute="trailing" constant="10" id="snC-Fd-LyA"/>
+                        <constraint firstAttribute="height" constant="329" id="wOf-Mh-Yyj"/>
+                        <constraint firstItem="AjF-ho-aNV" firstAttribute="centerY" secondItem="FJd-ol-bLU" secondAttribute="centerY" id="ykp-rq-y6y"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="FJd-ol-bLU" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="EGT-PC-Pxj"/>
+                <constraint firstItem="FJd-ol-bLU" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="GVr-nd-sDi"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="122.87946428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="agent_indivdual" width="80" height="80"/>
+        <image name="ratingViewBg" width="360" height="307"/>
+    </resources>
+</document>

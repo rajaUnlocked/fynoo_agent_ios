@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-ExtraBold.otf">
+            <string>Gilroy-ExtraBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DataEntryListingViewController" customModule="Fynoo_Business" customModuleProvider="target">
+            <connections>
+                <outlet property="headerHeightConstant" destination="m51-Wo-mQA" id="Mp5-B7-x8b"/>
+                <outlet property="headerView" destination="Jfo-Fn-5DW" id="bTz-fb-etm"/>
+                <outlet property="noDataView" destination="55j-73-dVX" id="Ad6-K4-YVy"/>
+                <outlet property="tableView" destination="4d1-Ac-T1U" id="DBG-uf-oT9"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="465" height="689"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="EbD-KX-3RL">
+                    <rect key="frame" x="0.0" y="488" width="285" height="201"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="285" id="aa6-Vo-nb5"/>
+                        <constraint firstAttribute="height" constant="201" id="n4A-AK-NbD"/>
+                    </constraints>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4d1-Ac-T1U">
+                    <rect key="frame" x="0.0" y="50" width="465" height="639"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="nJE-uN-5fV"/>
+                        <outlet property="delegate" destination="-1" id="gVP-r9-kjY"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jfo-Fn-5DW" customClass="NavigationView" customModule="Fynoo_Business" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="465" height="90"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="m51-Wo-mQA"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="55j-73-dVX">
+                    <rect key="frame" x="117.5" y="270" width="230" height="180"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noData" translatesAutoresizingMaskIntoConstraints="NO" id="7Cj-Lz-9VS">
+                            <rect key="frame" x="65" y="10" width="100" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="MxY-7v-H9F"/>
+                                <constraint firstAttribute="width" constant="100" id="lsF-Hx-i6z"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oops! No Service Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVC-sM-kRf">
+                            <rect key="frame" x="4" y="130" width="222" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="FZ0-QQ-b1V"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-ExtraBold" family="Gilroy" pointSize="20"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="7Cj-Lz-9VS" firstAttribute="top" secondItem="55j-73-dVX" secondAttribute="top" constant="10" id="15p-vf-keB"/>
+                        <constraint firstAttribute="height" constant="180" id="Jmk-1P-e99"/>
+                        <constraint firstItem="7Cj-Lz-9VS" firstAttribute="centerX" secondItem="55j-73-dVX" secondAttribute="centerX" id="PNd-MT-QIa"/>
+                        <constraint firstAttribute="width" constant="230" id="db2-mM-Twr"/>
+                        <constraint firstItem="qVC-sM-kRf" firstAttribute="top" secondItem="7Cj-Lz-9VS" secondAttribute="bottom" constant="20" id="fGr-78-Mph"/>
+                        <constraint firstItem="qVC-sM-kRf" firstAttribute="centerX" secondItem="55j-73-dVX" secondAttribute="centerX" id="uUz-bQ-8Ru"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="EbD-KX-3RL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1uW-gD-NEk"/>
+                <constraint firstItem="Jfo-Fn-5DW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6kQ-kx-m5m"/>
+                <constraint firstItem="4d1-Ac-T1U" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9p6-j9-ilk"/>
+                <constraint firstItem="55j-73-dVX" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="DaA-Q3-a58"/>
+                <constraint firstItem="4d1-Ac-T1U" firstAttribute="top" secondItem="Jfo-Fn-5DW" secondAttribute="bottom" constant="-50" id="F0v-RU-FKE"/>
+                <constraint firstItem="55j-73-dVX" firstAttribute="top" secondItem="Jfo-Fn-5DW" secondAttribute="bottom" constant="180" id="FoX-4q-Dt1"/>
+                <constraint firstAttribute="bottom" secondItem="EbD-KX-3RL" secondAttribute="bottom" id="KLF-of-8GW"/>
+                <constraint firstItem="4d1-Ac-T1U" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="LXY-mp-HUM"/>
+                <constraint firstAttribute="bottom" secondItem="4d1-Ac-T1U" secondAttribute="bottom" id="hfK-8H-0JJ"/>
+                <constraint firstItem="Jfo-Fn-5DW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iXz-Ld-gXc"/>
+                <constraint firstItem="Jfo-Fn-5DW" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="nXd-bL-BCQ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="138.40579710144928" y="122.87946428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backgroundImage" width="297" height="208"/>
+        <image name="noData" width="152" height="152"/>
+    </resources>
+</document>
