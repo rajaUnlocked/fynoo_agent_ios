@@ -15,6 +15,7 @@ class SuccesssViewController: UIViewController {
     var counter = 60
     var newUser = ""
     var isFromAgentSignUp = false
+     var isFromWhere = ""
     
     
     @IBOutlet weak var titleLbl: UILabel!
@@ -44,6 +45,37 @@ class SuccesssViewController: UIViewController {
             if isFromAgentSignUp == true {
                 let vc = LanguageSelectionViewController(nibName: "LanguageSelectionViewController", bundle: nil)
                 self.navigationController?.pushViewController(vc, animated: true)
+                
+            }else if isFromWhere == "DataEntryBO" {
+                DispatchQueue.main.async {
+                  
+                    var isHomeThere = false
+                    
+                    if var viewControllers = self.navigationController?.viewControllers
+                    {
+                        for controller in viewControllers
+                        {
+                            if controller is DataEntryListingViewController
+                            {
+                                isHomeThere = true
+                                for controller in self.navigationController!.viewControllers as Array {
+                                    if controller.isKind(of: DataEntryListingViewController.self) {
+                                        NotificationCenter.default.post(name: Notification.Name("refreshDataEntryList"), object: nil, userInfo: nil)
+                                        self.navigationController!.popToViewController(controller, animated: true)
+                                        break
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if isHomeThere == false {
+                        NotificationCenter.default.post(name: Notification.Name("refreshDataEntryList"), object: nil, userInfo: nil)
+                        
+                        let vc = DataEntryListingViewController(nibName: "DataEntryListingViewController", bundle: nil)
+                        vc.hidesBottomBarWhenPushed = true
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
             }
             
    //         if newUser == "1"{

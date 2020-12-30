@@ -35,6 +35,9 @@ pod 'Firebase/Messaging'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod "BSImagePicker"
+#pod 'goSellSDK'
+
+
   target 'Fynoo ServicesTests' do
     inherit! :search_paths
     # Pods for testing

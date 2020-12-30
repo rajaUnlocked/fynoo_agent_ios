@@ -1178,6 +1178,9 @@ extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
     func selectetCourierCompanyMethod(courierCompanyDict: NSMutableDictionary) {
         
     }
+    func selectetBranchMethod(BranchDict : NSMutableDictionary){
+        
+    }
     
 }
 

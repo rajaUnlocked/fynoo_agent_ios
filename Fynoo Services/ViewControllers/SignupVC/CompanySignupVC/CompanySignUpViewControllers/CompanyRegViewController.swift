@@ -416,7 +416,9 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
     }
     func selectedCurrency(currency: NSMutableDictionary) {
     }
-    
+    func selectetBranchMethod(BranchDict : NSMutableDictionary){
+        
+    }
     func selectedBankMethod(bankDict: NSMutableDictionary) {
         self.selectedBankDict = bankDict
         self.tabView.reloadData()
