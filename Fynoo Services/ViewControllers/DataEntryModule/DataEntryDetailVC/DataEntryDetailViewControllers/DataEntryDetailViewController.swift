@@ -9,13 +9,14 @@
 import UIKit
 import GoogleMaps
 import MessageUI
+import CoreLocation
 
 protocol DataEntryDetailViewControllerDelegate: class {
     func refreshDataEntryServiceList()
 }
-class DataEntryDetailViewController: UIViewController, MFMessageComposeViewControllerDelegate, DataEntryWorkConfirmationPopUpViewControllerDelegate, AddedServicesInDataEntryViewControllerDelegate {
+
+class DataEntryDetailViewController: UIViewController, MFMessageComposeViewControllerDelegate, DataEntryWorkConfirmationPopUpViewControllerDelegate, AddedServicesInDataEntryViewControllerDelegate, CLLocationManagerDelegate {
     
-   
     weak var delegate: DataEntryDetailViewControllerDelegate?
     @IBOutlet weak var tableView: UITableView!
     
@@ -25,6 +26,10 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
     var BranchLat = 0.0
     var BranchLong = 0.0
     var serviceID:String = ""
+    let locationManager = CLLocationManager()
+    var latitude = 0.0
+    var longitude = 0.0
+
     
     var dataEntryApiMnagagerModal = DataEntryApiManager()
        var serviceDetailData  : serviceDetailData?
@@ -32,7 +37,7 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getServiceDetailAPI()
-        
+        self.getUserLocation()
         self.setUpUI()
         
     }
@@ -60,8 +65,8 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
         
-        
     }
+    
     func getServiceDetailAPI() {
         ModalClass.startLoading(self.view)
         dataEntryApiMnagagerModal.dataEntryDetail(serviceID: serviceID) { (success, response) in
@@ -78,7 +83,6 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
                         
                         self.getAddressFromLatLon(pdblLatitude: ModalController.convertInString(str: self.BranchLat as AnyObject), withLongitude: ModalController.convertInString(str: self.BranchLong as AnyObject))
                         
-                        
                         self.isBranchLocationAvailable = true
                     }else{
                         self.isBranchLocationAvailable = false
@@ -86,7 +90,6 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
                 }else{
                     self.isBranchLocationAvailable = false
                 }
-                
                 self.tableView.reloadData()
             }else{
                 ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.serviceDetailData?.error_description ?? "")")
@@ -106,7 +109,6 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
         
         let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
         
-        
         ceo.reverseGeocodeLocation(loc, completionHandler:
             {(placemarks, error) in
                 if (error != nil)
@@ -120,27 +122,40 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
                     print(pm.isoCountryCode)
                     print(pm.locality)
                     
-                    //                    self.selectedBranchCity = pm.locality ?? ""
-                    //                    self.selectedBranchCountryCode = pm.isoCountryCode ?? ""
                 }
         })
         
     }
+    
     @objc func DataEntryWorkConfirmationClicked(_ sender : UIButton) {
         
-        if serviceDetailData?.data?.start_work != 3 {
-            ModalController.showNegativeCustomAlertWith(title: "Agent has not submitted his work.You can approve it after final submission by agent", msg: "")
-            return
-        }else{
+        let workStatus = serviceDetailData?.data?.start_work
+        
+        if workStatus == 1 {
             
             let vc = DataEntryWorkConfirmationPopUpViewController(nibName: "DataEntryWorkConfirmationPopUpViewController", bundle: nil)
-            vc.messageTxtStr = "Has the agent completed this work ?".localized
+            vc.messageTxtStr = "Are you sure you want to start the work?".localized
+            vc.comeFromStr = "startWork"
             vc.modalPresentationStyle = .overFullScreen
             vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
             vc.delegate =  self
             self.present(vc, animated: true, completion: nil)
             
+        }else if workStatus == 2 {
+            
+            let vc = DataEntryWorkConfirmationPopUpViewController(nibName: "DataEntryWorkConfirmationPopUpViewController", bundle: nil)
+            vc.messageTxtStr = "Do you want to submit your work?".localized
+            vc.comeFromStr = "workConfirmation"
+            vc.modalPresentationStyle = .overFullScreen
+            vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+            vc.delegate =  self
+            self.present(vc, animated: true, completion: nil)
+            
+        }else if workStatus == 3 {
+            ModalController.showSuccessCustomAlertWith(title: "You have already submitted the work for this order.", msg: "")
+            return
         }
+        
     }
     
     @objc func productDataEntryClicked(_ sender : UIButton) {
@@ -159,13 +174,36 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
         
     }
     func popUpYesClicked(_ sender: Any, fromWhere: String) {
-        self.workConfirmationAPI()
-           
-       }
+        
+        if fromWhere == "startWork"{
+            self.startWorkAPI()
+            
+        }else if fromWhere == "workConfirmation" {
+             self.workConfirmationAPI()
+            
+        }
+    }
        
-       func popUpNoClicked(_ sender: Any) {
-           
-       }
+    func popUpNoClicked(_ sender: Any) {
+        
+    }
+    
+    func startWorkAPI() {
+        
+        dataEntryApiMnagagerModal.BOStartWork(serviceID: ModalController.toString(serviceDetailData?.data?.id as Any) ) { (success, response) in
+            ModalClass.stopLoading()
+            if success{
+                if let value = (response?.object(forKey: "error_description") as? String) {
+                    ModalController.showSuccessCustomAlertWith(title: "", msg: value)
+                }
+                self.getServiceDetailAPI()
+            }else{
+                if let value = response?.object(forKey: "error_description") as? String {
+                    ModalController.showNegativeCustomAlertWith(title: "", msg: value)
+                }
+            }
+        }
+    }
     
     func workConfirmationAPI() {
         
@@ -175,14 +213,8 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
                 if let value = (response?.object(forKey: "error_description") as? String) {
                     ModalController.showSuccessCustomAlertWith(title: "", msg: value)
                 }
-                let vc = AddedServicesInDataEntryViewController(nibName: "AddedServicesInDataEntryViewController", bundle: nil)
-                
-                vc.modalPresentationStyle = .overFullScreen
-                vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-                vc.delegate =  self
-                vc.addedserviceDetailData = self.serviceDetailData
-                self.present(vc, animated: true, completion: nil)
-                
+                   self.getServiceDetailAPI()
+
             }else{
                 if let value = response?.object(forKey: "error_description") as? String {
                     ModalController.showNegativeCustomAlertWith(title: "", msg: value)
@@ -193,24 +225,89 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
     
     func popUpOkayClicked(_ sender: Any) {
         
-          self.delegate?.refreshDataEntryServiceList()
+        self.delegate?.refreshDataEntryServiceList()
         self.navigationController?.popViewController(animated: true)
-           
-       }
+        
+    }
     
     @objc func agentCallClicked(_ sender : UIButton) {
-        guard let number = URL(string: "tel://" + (serviceDetailData?.data?.agent_number)!) else { return }
-                   UIApplication.shared.open(number)
+        guard let number = URL(string: "tel://" + (serviceDetailData?.data?.bo_number)!) else { return }
+        UIApplication.shared.open(number)
     }
     
     @objc func agentMessageClicked(_ sender : UIButton) {
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
             controller.body = ""
-            controller.recipients = ["\(serviceDetailData?.data?.agent_number ?? "")"]
+            controller.recipients = ["\(serviceDetailData?.data?.bo_number ?? "")"]
             controller.messageComposeDelegate = self
             self.present(controller, animated: true, completion: nil)
         }
+    }
+    
+    func getUserLocation() {
+          self.locationManager.requestWhenInUseAuthorization()
+          if CLLocationManager.locationServicesEnabled() {
+              locationManager.delegate = self
+              locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+              locationManager.startUpdatingLocation()
+          }
+      }
+      
+    // MARK: - Location Delegates
+     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+         
+         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+         print("locations = \(locValue.latitude) \(locValue.longitude)")
+         latitude = locValue.latitude
+         longitude = locValue.longitude
+         
+         if HeaderHeightSingleton.shared.longitude == 0.0 {
+             HeaderHeightSingleton.shared.longitude = longitude
+             HeaderHeightSingleton.shared.latitude = latitude
+            
+         }
+         locationManager.stopUpdatingLocation()
+     }
+     
+     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+         ModalController.showNegativeCustomAlertWith(title: "Please turn on your location services", msg: "")
+         
+         HeaderHeightSingleton.shared.longitude = 0.0
+         HeaderHeightSingleton.shared.latitude = 0.0
+
+    }
+    
+    
+    @objc func boBranchNavigationClicked(_ sender : UIButton) {
+        
+        self.BranchLat = ModalController.convertInToDouble(str: self.serviceDetailData?.data?.branch_lat as AnyObject)
+        self.BranchLong = ModalController.convertInToDouble(str: self.serviceDetailData?.data?.branch_long as AnyObject)
+        
+        if HeaderHeightSingleton.shared.longitude == 0.0 {
+            ModalController.showNegativeCustomAlertWith(title: "Please turn on your location services for navigation", msg: "")
+        }else{
+            print("GoogleNavigation")
+            var latStr = 0.0
+            var longStr = 0.0
+            let lati = HeaderHeightSingleton.shared.latitude
+            if lati != 0.0 {
+                latStr = HeaderHeightSingleton.shared.latitude
+                longStr = HeaderHeightSingleton.shared.longitude
+            }
+            
+            if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
+                UIApplication.shared.openURL(URL(string:"comgooglemaps://?saddr=\(latStr),\(longStr)&daddr=\(self.BranchLat),\(self.BranchLong)&directionsmode=driving&zoom=14&views=traffic")!)
+                
+            }else{
+                //            self.openTrackerInBrowser()
+                UIApplication.shared.openURL(URL(string:
+                    "https://www.google.co.in/maps/dir/?saddr=\(latStr),\(longStr)&daddr=\(self.BranchLat),\(self.BranchLong)&directionsmode=driving&zoom=14&views=traffic")!)
+                
+            }
+            
+        }
+        
     }
     
      //MARK: - Message compose method
@@ -218,8 +315,6 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
             //... handle sms screen actions
             self.dismiss(animated: true, completion: nil)
         }
-        
-    
 }
 
 extension DataEntryDetailViewController : UITableViewDelegate {
@@ -232,7 +327,7 @@ extension DataEntryDetailViewController : UITableViewDelegate {
             
         } else if indexPath.section == 1 {
             
-            return 255
+            return 260
             
         }else if indexPath.section == 2 {
             return 50
@@ -314,7 +409,6 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         cell.bttomLbl.isHidden = true
         
         
-        
         return cell
     }
     
@@ -324,35 +418,56 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         cell.selectionStyle = .none
         cell.lowerLbl.isHidden = true
         cell.giveRatingBtn.isHidden = true
-
+        cell.boLocationBtn.isHidden = true
+        cell.locationBtnWidthConstant.constant = 0
         cell.callBtn.addTarget(self, action: #selector(agentCallClicked(_:)), for: .touchUpInside)
         
         cell.textMessageBtn.addTarget(self, action: #selector(agentMessageClicked(_:)), for: .touchUpInside)
+        cell.boLocationBtn.addTarget(self, action: #selector(boBranchNavigationClicked), for: .touchUpInside)
+        
+        self.BranchLat = ModalController.convertInToDouble(str: self.serviceDetailData?.data?.branch_lat as AnyObject)
+        self.BranchLong = ModalController.convertInToDouble(str: self.serviceDetailData?.data?.branch_long as AnyObject)
+        
+        if self.BranchLat != 0.0 {
+            cell.boLocationBtn.isHidden = false
+            cell.locationBtnWidthConstant.constant = 50
+            
+        }else{
+            cell.boLocationBtn.isHidden = true
+            cell.locationBtnWidthConstant.constant = 0
+        }
         
         let requestData = serviceDetailData?.data
         
         cell.headerLbl.text = requestData?.instruction
         let orderIdTxt = "Order Id:"
         cell.orderIdLbl.text = "\(orderIdTxt) \(requestData?.order_id ?? "")"
-        cell.addressLbl.text = "\(requestData?.address ?? "")"
         
         cell.dateLbl.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: "\(requestData?.order_date ?? 0)", format: "E, MMM dd, yyyy h:mm")
         cell.paidTextLbl.text = "Holding"
-         cell.priceValueLbl.text = "\(Constant.currency) \(requestData?.service_price ?? 0.00)"
-        cell.agentProfileImgView.sd_setImage(with: URL(string:(requestData?.agent_pic ?? "")), placeholderImage: UIImage(named: "agent_indivdual.png"))
-        cell.agentNameLbl.text = requestData?.agent_name
+        cell.priceValueLbl.text = "\(Constant.currency) \(requestData?.service_price ?? 0.00)"
+        cell.agentProfileImgView.sd_setImage(with: URL(string:(requestData?.bo_name ?? "")), placeholderImage: UIImage(named: "agent_indivdual.png"))
+        cell.agentNameLbl.text = requestData?.bo_name
         cell.ratingLbl.text = requestData?.rating_avg
         cell.totalRatingLbl.text = "(\(requestData?.rating_count ?? 0))"
         cell.agentAddressLbl.text = "\(requestData?.address ?? "")"
-        cell.completeImageView.image = UIImage(named: "inprogress_dataEntry-selected")
-        cell.completeTxtLbl.text = "Inprocess"
+        //        cell.completeImageView.image = UIImage(named: "inprogress_dataEntry-selected")
+        //        cell.completeTxtLbl.text = "Inprocess"
         
         if requestData?.work_place == 1 {
-            cell.addressLbl.text = "Online, \(requestData?.country_code ?? "")"
+            if requestData?.country_code != "" {
+                cell.addressLbl.text = "Online, \(requestData?.country_code ?? "")"
+            }else{
+                cell.addressLbl.text = "Online"
+            }
+            
         }else if requestData?.work_place == 2 {
-           cell.addressLbl.text = "\(requestData?.address ?? "")"
+            if requestData?.country_code != "" {
+                cell.addressLbl.text = "\(requestData?.city_name ?? ""), \(requestData?.country_code ?? "")"
+            }else{
+                cell.addressLbl.text = "\(requestData?.city_name ?? "")"
+            }
         }
-        
         
         
         return cell
@@ -361,6 +476,16 @@ extension DataEntryDetailViewController : UITableViewDataSource {
     func dataEntryWorkConfirmationCell(index : IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DEInprogressDetailTableViewCell", for: index) as! DEInprogressDetailTableViewCell
         cell.selectionStyle = .none
+        
+        let workStatus = serviceDetailData?.data?.start_work
+        
+        if workStatus == 1 {
+            cell.workConfirmtionBtn.setTitle("Start Work", for: .normal)
+        }else if workStatus == 2 {
+            cell.workConfirmtionBtn.setTitle("Work Confirmation", for: .normal)
+        }
+        
+        
         cell.workConfirmtionBtn.addTarget(self, action: #selector(DataEntryWorkConfirmationClicked(_:)), for: .touchUpInside)
         
         
@@ -405,7 +530,6 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         cell.branchDataEntryBtn.addTarget(self, action: #selector(branchDataEntryClicked(_:)), for: .touchUpInside)
         
         
-        
         return cell
     }
     
@@ -413,7 +537,6 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DEInprogressOrderInformationSecondTableViewCell", for: index) as! DEInprogressOrderInformationSecondTableViewCell
         cell.selectionStyle = .none
         cell.orderInstructionValueLbl.text = serviceDetailData?.data?.rem_days_text
-        
         
         
         return cell
@@ -439,7 +562,12 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         if workPlace == 1 {
             cell.workPlaceTypeLbl.text = "Online"
         }else if workPlace == 2 {
-            cell.workPlaceTypeLbl.text = "\(serviceDetailData?.data?.city_name ?? "")\(serviceDetailData?.data?.country_code ?? "")"
+            if serviceDetailData?.data?.country_code != "" {
+                cell.workPlaceTypeLbl.text = "\(serviceDetailData?.data?.city_name ?? ""), \(serviceDetailData?.data?.country_code ?? "")"
+            }else{
+                cell.workPlaceTypeLbl.text = "\(serviceDetailData?.data?.city_name ?? "")"
+            }
+            //            cell.workPlaceTypeLbl.text = "\(serviceDetailData?.data?.city_name ?? ""), \(serviceDetailData?.data?.country_code ?? "")"
         }
         
         

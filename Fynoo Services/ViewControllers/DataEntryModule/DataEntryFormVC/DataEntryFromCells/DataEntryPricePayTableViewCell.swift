@@ -36,7 +36,6 @@ class DataEntryPricePayTableViewCell: UITableViewCell {
         self.priceTxtFld.setLeftPaddingPoints(10)
         self.priceTxtFld.setRightPaddingPoints(10)
         
-         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: priceView)
         
     }
     func SetFont() {

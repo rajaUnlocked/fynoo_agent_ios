@@ -9,7 +9,7 @@
 import UIKit
 import MTPopup
 
-class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDelegate, DECancellationReasonViewControllerDelegate, DataEntryDetailViewControllerDelegate, DataEntryAgentRatingViewControllerDelegate, CompleteDataEntryListTableViewCellrDelegate {
+class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDelegate, DECancellationReasonViewControllerDelegate, DataEntryDetailViewControllerDelegate, DataEntryAgentRatingViewControllerDelegate, CompleteDataEntryListTableViewCellrDelegate, DataEntryFormViewControllerDelegate {
  
     @IBOutlet weak var noDataView: UIView!
     @IBOutlet weak var headerView: NavigationView!
@@ -41,10 +41,22 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.noDataView.isHidden = true
 //        currentPageNumber = 1
     }
+    func refreshServiceListing() {
+        
+        isMoreDataAvailable = false
+        currentPageNumber = 0
+        self.selectedTab = "2"
+        self.Index = 1
+        self.getBoServicesRequestListAPI()
+        
+    }
+
+    
     @objc func methodOfReceivedNotificationRefreshList(_ notification: NSNotification) {
         ModalClass.startLoading(self.view)
         isMoreDataAvailable = false
@@ -71,18 +83,9 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
         
-        
     }
     
     @objc func filterClicked() {
-        
-    }
-    
-    @objc func DataEntryNewOrder(_ sender : UIButton) {
-        
-        let vc = DataEntryFormViewController(nibName: "DataEntryFormViewController", bundle: nil)
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
@@ -100,6 +103,8 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     func selecteIndex(_ sender: Any, selectedIndexID: String) {
         self.selectedTab = selectedIndexID
         self.Index = Int(self.selectedTab)! - Int(1)
+        isMoreDataAvailable = false
+        currentPageNumber = 0
         self.getBoServicesRequestListAPI()
         
     }
@@ -120,7 +125,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     
     func getBoServicesRequestListAPI() {
        
-        apiManagerModal.bussinessOwnerServicesOrderListing(tabStatus: self.selectedTab, searchStr: self.searchBoxEntryText, pageNumber: currentPageNumber ) { (success, response) in
+        apiManagerModal.agentServicesOrderListing(tabStatus: self.selectedTab, searchStr: self.searchBoxEntryText, pageNumber: currentPageNumber ) { (success, response) in
             ModalClass.stopLoading()
             if success{
                 if self.currentPageNumber == 0 {
@@ -162,6 +167,9 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
             }else{
                 ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.boServicesList?.error_description! ?? "")")
                 self.noDataView.isHidden = false
+                self.currentPageNumber = 0
+                self.isMoreDataAvailable = false
+                self.tableView.reloadData()
             }
         }
     }
@@ -199,11 +207,9 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         let vc = DataEntryAgentRatingViewController(nibName: "DataEntryAgentRatingViewController", bundle: nil)
         vc.delegate =  self
         vc.serviceID = ModalController.toString(self.totalRequestListArray?[(sender as AnyObject).tag].id as Any)
-        vc.agentID = ModalController.toString(self.totalRequestListArray?[(sender as AnyObject).tag].agent_id as Any)
-        vc.agentName = ModalController.toString(self.totalRequestListArray?[(sender as AnyObject).tag].agent_name as Any)
-        vc.agentLanguage = ModalController.toString(self.totalRequestListArray?[(sender as AnyObject).tag].agent_lang as Any)
-        vc.agentProfilePic = ModalController.toString(self.totalRequestListArray?[(sender as AnyObject).tag].agent_pic as Any)
-        //            vc.messageTxtStr = "Has the agent completed this work ?".localized
+        vc.agentID = ModalController.toString(self.totalRequestListArray?[(sender as AnyObject).tag].bo_id as Any)
+        vc.agentName = ModalController.toString(self.totalRequestListArray?[(sender as AnyObject).tag].bo_name as Any)
+        vc.agentProfilePic = ModalController.toString(self.totalRequestListArray?[(sender as AnyObject).tag].bo_name as Any)
         vc.modalPresentationStyle = .overFullScreen
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
@@ -212,23 +218,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         
         
     }
-//    @objc func ratingClicked(_ sender : UIButton) {
-//        print("sender.tag", sender.tag)
-//        let vc = DataEntryAgentRatingViewController(nibName: "DataEntryAgentRatingViewController", bundle: nil)
-//        //            vc.messageTxtStr = "Has the agent completed this work ?".localized
-//        vc.modalPresentationStyle = .overFullScreen
-//        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-//        vc.delegate =  self
-//        vc.serviceID = ModalController.toString(self.totalRequestListArray?[sender.tag].id as Any)
-//        vc.agentID = ModalController.toString(self.totalRequestListArray?[sender.tag].agent_id as Any)
-//        vc.agentName = ModalController.toString(self.totalRequestListArray?[sender.tag].agent_name as Any)
-//        vc.agentLanguage = ModalController.toString(self.totalRequestListArray?[sender.tag].agent_lang as Any)
-//        vc.agentProfilePic = ModalController.toString(self.totalRequestListArray?[sender.tag].agent_pic as Any)
-//        self.present(vc, animated: true, completion: nil)
-//
-//
-//
-//    }
+
 }
 
 extension DataEntryListingViewController : UITableViewDelegate {
@@ -242,20 +232,29 @@ extension DataEntryListingViewController : UITableViewDelegate {
             let searchBtn = sectionHeaderView.viewWithTag(104) as! UIButton
             let filterBtn = sectionHeaderView.viewWithTag(105) as! UIButton
             let dataEntryLbl = sectionHeaderView.viewWithTag(106) as! UILabel
-            let newOrderBtn = sectionHeaderView.viewWithTag(107) as! UIButton
+//            let newOrderBtn = sectionHeaderView.viewWithTag(107) as! UIButton
+            
+            let avgLbl = sectionHeaderView.viewWithTag(1001) as! UILabel
+//            let ratingView = sectionHeaderView.viewWithTag(1002) as! UIView
+            let totalRatingLbl = sectionHeaderView.viewWithTag(1003) as! UILabel
+            
+            
+            avgLbl.text = self.boServicesList?.data?.rating_avg
+            totalRatingLbl.text = "(\(ModalController.toString(self.boServicesList?.data?.rating_count as Any)))" 
+            sectionHeaderView.ratingValueView.rating = ModalController.convertInToDouble(str: self.boServicesList?.data?.rating_avg as AnyObject)
 
 
             searchBtn.addTarget(self, action: #selector(searchClicked), for: .touchUpInside)
             searchTxtFld.addTarget(self, action: #selector(DataEntryListingViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
             
             filterBtn.addTarget(self, action: #selector(filterClicked), for: .touchUpInside)
-             newOrderBtn.addTarget(self, action: #selector(DataEntryNewOrder(_:)), for: .touchUpInside)
+           
            
             let fontNameLight = NSLocalizedString("LightFontName", comment: "")
             
             searchTxtFld.font = UIFont(name:"\(fontNameLight)",size:12)
              dataEntryLbl.font = UIFont(name:"\(fontNameLight)",size:16)
-            newOrderBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:16)
+            
 //
             sectionHeaderView.selectedIndex = Index
             sectionHeaderView.delegate = self
@@ -295,7 +294,7 @@ extension DataEntryListingViewController : UITableViewDelegate {
             if selectedTab == "4" {
              return 130
             } else if selectedTab == "3"{
-                 return 255
+                 return 260
             }else{
             return 105
             }
@@ -309,7 +308,7 @@ extension DataEntryListingViewController : UITableViewDataSource {
         if indexPath.section == 0 {
             return nil
         }else{
-            if selectedTab == "1" {
+            if selectedTab == "2" {
                 
                 let closeAction = UIContextualAction(style: .normal, title:  "", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
                     print("CloseAction ...")
@@ -336,7 +335,7 @@ extension DataEntryListingViewController : UITableViewDataSource {
                     success(true)
                 })
                 closeAction.backgroundColor = #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1)
-                closeAction.image = UIImage(named: "swipe-cancel.png")
+                closeAction.image = UIImage(named: "service-Reject.png")
                 return UISwipeActionsConfiguration(actions: [closeAction])
                 
             }else {
@@ -380,12 +379,13 @@ extension DataEntryListingViewController : UITableViewDataSource {
             }else if selectedTab == "3"{
                 tab = "Completed"
             }else if selectedTab == "4"{
-                tab = "Cancelled"
+                tab = "Rejected"
             }
             
-            if tab == "waitingList" || tab == "Cancelled" {
+            if tab == "waitingList" || tab == "Rejected" {
                 let vc = DataEntryFormViewController()
                 vc.isForDetail = tab
+                vc.delegate = self
                 vc.serviceID = ModalController.toString(totalRequestListArray?[indexPath.row].id as Any)
                 self.navigationController?.pushViewController(vc, animated: true)
             }else if tab == "Inprocess" {
@@ -439,7 +439,8 @@ extension DataEntryListingViewController : UITableViewDataSource {
             cell.rejectReasonLbl.isHidden = true
             cell.rejectReasonHeightConstant.constant = 0
         }
-        cell.rejectReasonLbl.text = requestData?.reason
+        let reason = "Reason:"
+        cell.rejectReasonLbl.text = "\(reason) \(requestData?.reason ?? "")"
         
         
         cell.headerTxt.text = requestData?.instruction
@@ -451,10 +452,18 @@ extension DataEntryListingViewController : UITableViewDataSource {
         cell.dateLbl.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: "\(requestData?.order_date ?? 0)", format: "E, MMM dd, yyyy h:mm")
         
         if requestData?.location == "1" {
-            cell.addressLbl.text = "Online"
+            if requestData?.country_code != "" {
+            cell.addressLbl.text = "Online, \(requestData?.country_code ?? "")"
+            }else{
+               cell.addressLbl.text = "Online"
+            }
             
         }else if requestData?.location == "2" {
-          cell.addressLbl.text = "\(requestData?.address ?? "")"
+            if requestData?.country_code != "" {
+           cell.addressLbl.text = "\(requestData?.city_name ?? ""), \(requestData?.country_code ?? "")"
+            }else{
+              cell.addressLbl.text = "\(requestData?.city_name ?? "")"
+            }
         }
         
         
@@ -466,7 +475,7 @@ extension DataEntryListingViewController : UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteDataEntryListTableViewCell", for: index) as! CompleteDataEntryListTableViewCell
         cell.selectionStyle = .none
-       
+        
         let requestData = totalRequestListArray?[index.row]
         
         cell.headerLbl.text = requestData?.instruction
@@ -477,34 +486,37 @@ extension DataEntryListingViewController : UITableViewDataSource {
         cell.priceValueLbl.text = "\(Constant.currency) \(requestData?.order_price ?? 0.00)"
         cell.addressLbl.text = "\(requestData?.address ?? "")"
         
-       cell.dateLbl.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: "\(requestData?.order_date ?? 0)", format: "E, MMM dd, yyyy h:mm")
-        cell.paidTextLbl.text = "Holding"
-        cell.agentProfileImgView.sd_setImage(with: URL(string:(requestData?.agent_pic ?? "")), placeholderImage: UIImage(named: "agent_indivdual.png"))
-        cell.agentNameLbl.text = requestData?.agent_name
+        cell.dateLbl.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: "\(requestData?.order_date ?? 0)", format: "E, MMM dd, yyyy h:mm")
+        cell.paidTextLbl.text = "Paid"
+        cell.agentProfileImgView.sd_setImage(with: URL(string:(requestData?.bo_name ?? "")), placeholderImage: UIImage(named: "agent_indivdual.png"))
+        cell.agentNameLbl.text = requestData?.bo_name
         cell.ratingLbl.text = requestData?.rating_avg
         cell.totalRatingLbl.text = "(\(requestData?.rating_count ?? 0))"
-        cell.agentAddressLbl.text = "\(requestData?.address ?? "")"
-        cell.completeImageView.image = UIImage(named: "inprogress_dataEntry-selected")
-        cell.completeTxtLbl.text = "Inprocess"
+        cell.agentAddressLbl.text = "\(requestData?.branch_address ?? "")"
+//        cell.completeImageView.image = UIImage(named: "inprogress_dataEntry-selected")
+//        cell.completeTxtLbl.text = "Inprocess"
         
         if requestData?.location == "1" {
-            cell.addressLbl.text = "Online, \(requestData?.country_code ?? "")"
+            if requestData?.country_code != "" {
+                cell.addressLbl.text = "Online, \(requestData?.country_code ?? "")"
+            }else{
+                cell.addressLbl.text = "Online"
+            }
         }else if requestData?.location == "2" {
-           cell.addressLbl.text = "\(requestData?.address ?? "")"
+            if requestData?.country_code != "" {
+                cell.addressLbl.text = "\(requestData?.city_name ?? ""), \(requestData?.country_code ?? "")"
+            }else{
+                cell.addressLbl.text = "\(requestData?.city_name ?? "")"
+            }
         }
         
         if requestData?.rating_given == 0 {
             cell.giveRatingBtn.isHidden = false
         }else  {
-          cell.giveRatingBtn.isHidden = true
+            cell.giveRatingBtn.isHidden = true
         }
         
-       
-
         
-        
-                    
-
         cell.delegate = self
         cell.tag = index.row
         return cell

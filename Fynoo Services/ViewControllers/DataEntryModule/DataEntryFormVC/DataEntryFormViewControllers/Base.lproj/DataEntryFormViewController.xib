@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +12,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DataEntryFormViewController" customModule="Fynoo_Business" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DataEntryFormViewController" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
                 <outlet property="headerHeightConstant" destination="81o-t5-PoU" id="Rca-ho-eBU"/>
                 <outlet property="headerView" destination="X3G-VX-MtW" id="5RO-Hw-4gv"/>
@@ -29,12 +28,12 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxH-sX-rAQ">
                     <rect key="frame" x="15" y="609" width="435" height="35"/>
-                    <color key="backgroundColor" red="0.92156862745098034" green="0.28627450980392155" blue="0.32156862745098036" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="P9J-rs-fA6"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
-                    <state key="normal" title="Place Order">
+                    <state key="normal" title="Accept Order">
                         <color key="titleColor" red="0.97647058819999999" green="0.98431372549999996" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
@@ -56,7 +55,7 @@
                         <outlet property="delegate" destination="-1" id="qjv-S3-jno"/>
                     </connections>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3G-VX-MtW" customClass="NavigationView" customModule="Fynoo_Business" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3G-VX-MtW" customClass="NavigationView" customModule="Fynoo_Services" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="465" height="90"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>

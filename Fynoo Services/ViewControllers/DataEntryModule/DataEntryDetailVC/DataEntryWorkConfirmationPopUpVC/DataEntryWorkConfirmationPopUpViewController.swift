@@ -28,7 +28,16 @@ class DataEntryWorkConfirmationPopUpViewController: UIViewController {
         super.viewDidLoad()
         self.SetFont()
         
+        
         self.textLbl.text = messageTxtStr
+        
+        if comeFromStr == "workConfirmation" || comeFromStr == "startWork"  {
+            self.backgroundImageView.image = UIImage(named: "workConfirmationBackGround")
+            
+        }else if comeFromStr == "acceptOrder"  {
+            self.backgroundImageView.image = UIImage(named: "acceptService_backgroundPopUp")
+            
+        }
         
         self.noBtn.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)
         self.yesBtn.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)

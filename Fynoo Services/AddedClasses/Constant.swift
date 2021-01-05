@@ -277,17 +277,19 @@ enum Authentication {
 
  // dataEntryModule APIs
 enum dataEntryModuleApi {
-     static let boServices_list : String =  Constant.BASE_URL + "services/data_entry_service/"
-     static let boServicesOrder_list : String =  Constant.BASE_URL + "services/bo_service_order_requests/"
+    
+     static let agentServicesOrder_list : String =  Constant.BASE_URL + "services/agent_data_entry_services/"
      static let serviceType_list : String =  Constant.BASE_URL + "services/add_new_order_page/"
      static let branchName_list : String =   Constant.BASE_URL + "services/bo_branch_list/"
-     static let save_newDataEntry : String =   Constant.BASE_URL + "services/save_data_entry_details/"
+     static let save_newDataEntry : String =   Constant.BASE_URL + "services/agent_accept_des/"
      static let newDataEntry_orderSummery : String =   Constant.BASE_URL + "/services/des_order_summary/"
      static let dataEntryCancel_Reason : String =   Constant.BASE_URL + "services/data_entry_cancel_reasons/"
-     static let cancelDataEntry_BO : String =   Constant.BASE_URL + "services/bo_cancel_service_order/"
+     static let cancelDataEntry_BO : String =   Constant.BASE_URL + "services/agent_reject_service_order/"
     static let orderDataEntry_service : String =   Constant.BASE_URL + "services/bo_des_place_order/"
-    static let DataEntry_Detail : String =   Constant.BASE_URL + "services/bo_service_detail/"
-    static let DataEntry_BO_WorkConfirmation : String =   Constant.BASE_URL + "services/bo_confirm_des/"
+    static let DataEntry_Detail : String =   Constant.BASE_URL + "services/agent_service_detail/"
+    
+    static let DataEntry_Agent_StartWork : String =   Constant.BASE_URL + "services/agent_start_data_entry/"
+    static let DataEntry_Agent_WorkConfirmation : String =   Constant.BASE_URL + "services/agent_submit_data_entry/"
      static let DataEntry_serviceType : String =   Constant.BASE_URL + "services/bo_agent_data_entry_items/"
      static let DataEntry_agentRating : String =   Constant.BASE_URL + "services/add_agent_bo_rating/"
     

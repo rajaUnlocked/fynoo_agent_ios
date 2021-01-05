@@ -2906,9 +2906,9 @@
 		F680D540259B7C2B007EB12C /* DataEntryAddedServiceViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F680D541259B7C2B007EB12C /* AddedServicesInDataEntryViewController.strings */,
 				F680D544259B7C2B007EB12C /* AddedServicesInDataEntryViewController.xib */,
 				F680D546259B7C2B007EB12C /* AddedServicesInDataEntryViewController.swift */,
+				F680D541259B7C2B007EB12C /* AddedServicesInDataEntryViewController.strings */,
 			);
 			path = DataEntryAddedServiceViewControllers;
 			sourceTree = "<group>";
@@ -2916,9 +2916,9 @@
 		F680D547259B7C2B007EB12C /* DataEntryDetailViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F680D548259B7C2B007EB12C /* DataEntryDetailViewController.strings */,
-				F680D54B259B7C2B007EB12C /* DataEntryDetailViewController.xib */,
 				F680D54D259B7C2B007EB12C /* DataEntryDetailViewController.swift */,
+				F680D54B259B7C2B007EB12C /* DataEntryDetailViewController.xib */,
+				F680D548259B7C2B007EB12C /* DataEntryDetailViewController.strings */,
 			);
 			path = DataEntryDetailViewControllers;
 			sourceTree = "<group>";
@@ -2926,9 +2926,9 @@
 		F680D54E259B7C2B007EB12C /* DataEntryWorkConfirmationPopUpVC */ = {
 			isa = PBXGroup;
 			children = (
-				F680D54F259B7C2B007EB12C /* DataEntryWorkConfirmationPopUpViewController.strings */,
 				F680D552259B7C2B007EB12C /* DataEntryWorkConfirmationPopUpViewController.swift */,
 				F680D553259B7C2B007EB12C /* DataEntryWorkConfirmationPopUpViewController.xib */,
+				F680D54F259B7C2B007EB12C /* DataEntryWorkConfirmationPopUpViewController.strings */,
 			);
 			path = DataEntryWorkConfirmationPopUpVC;
 			sourceTree = "<group>";
@@ -2966,9 +2966,9 @@
 		F680D575259B7C2B007EB12C /* DataEntryRatingViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F680D576259B7C2B007EB12C /* DataEntryAgentRatingViewController.strings */,
 				F680D579259B7C2B007EB12C /* DataEntryAgentRatingViewController.swift */,
 				F680D57A259B7C2B007EB12C /* DataEntryAgentRatingViewController.xib */,
+				F680D576259B7C2B007EB12C /* DataEntryAgentRatingViewController.strings */,
 			);
 			path = DataEntryRatingViewControllers;
 			sourceTree = "<group>";
@@ -3017,9 +3017,9 @@
 		F680D5C3259B7C2B007EB12C /* DataEntryFormItemPopUpVC */ = {
 			isa = PBXGroup;
 			children = (
-				F680D5C4259B7C2B007EB12C /* DataEntryFormItemPopUpViewController.strings */,
-				F680D5C7259B7C2B007EB12C /* DataEntryFormItemPopUpViewController.xib */,
 				F680D5C9259B7C2B007EB12C /* DataEntryFormItemPopUpViewController.swift */,
+				F680D5C7259B7C2B007EB12C /* DataEntryFormItemPopUpViewController.xib */,
+				F680D5C4259B7C2B007EB12C /* DataEntryFormItemPopUpViewController.strings */,
 			);
 			path = DataEntryFormItemPopUpVC;
 			sourceTree = "<group>";
@@ -3027,9 +3027,9 @@
 		F680D5CA259B7C2B007EB12C /* DataEntryFormViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F680D5CB259B7C2B007EB12C /* DataEntryFormViewController.strings */,
 				F680D5CE259B7C2B007EB12C /* DataEntryFormViewController.swift */,
 				F680D5CF259B7C2B007EB12C /* DataEntryFormViewController.xib */,
+				F680D5CB259B7C2B007EB12C /* DataEntryFormViewController.strings */,
 			);
 			path = DataEntryFormViewControllers;
 			sourceTree = "<group>";
@@ -3109,9 +3109,9 @@
 		F680D5EC259B7C2B007EB12C /* DataEntryListingViewConrollers */ = {
 			isa = PBXGroup;
 			children = (
-				F680D5ED259B7C2B007EB12C /* DataEntryListingViewController.strings */,
 				F680D5F0259B7C2B007EB12C /* DataEntryListingViewController.swift */,
 				F680D5F1259B7C2B007EB12C /* DataEntryListingViewController.xib */,
+				F680D5ED259B7C2B007EB12C /* DataEntryListingViewController.strings */,
 			);
 			path = DataEntryListingViewConrollers;
 			sourceTree = "<group>";

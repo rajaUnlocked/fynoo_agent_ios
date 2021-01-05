@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cosmos
 
 protocol DataEntryListHeaderViewDelegate: class {
     
@@ -30,12 +31,22 @@ class DataEntryListHeaderView: UIView, UICollectionViewDelegate, UICollectionVie
     @IBAction func filterBtnClicked(_ sender: Any) {
         
     }
-  
-     var headerTextArray = ["Waiting List".localized,"Inprocess".localized,"Completed".localized,"Cancelled".localized]
+    
+    @IBOutlet weak var ratingView: UIView!
+    
+    @IBOutlet weak var avergeRatingLbl: UILabel!
+    @IBOutlet weak var ratingValueView: CosmosView!
+    
+    @IBOutlet weak var totalRatingLbl: UILabel!
+    
+    
+    
+     var headerTextArray = ["Waiting List".localized,"Inprocess".localized,"Completed".localized,"Rejected".localized]
       
        var headerImageArray = ["waitingDataEntry_selected","inprogress_dataEntry","complete_dataEntry","cancel_DataEntry"]
     
     var selectedIndex:Int = 0
+    var avgRating:String = ""
     
     var view: UIView!
       

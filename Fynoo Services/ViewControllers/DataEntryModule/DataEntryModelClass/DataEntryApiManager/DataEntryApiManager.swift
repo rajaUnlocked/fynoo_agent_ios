@@ -18,44 +18,44 @@ class DataEntryApiManager: NSObject {
     var dataEntryServiceDetail : serviceDetailData?
     var serviceType : ServiceTypeData?
     
-    func bussinessOwnerServices(completion:@escaping(Bool, BOServicesData?) -> ()) {
-        
-        var param = [String:String]()
-        var url = ""
-        
-        param = [ "bo_id": Singleton.shared.getUserId(),
-                  "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
-                  
-        ]
-        url = dataEntryModuleApi.boServices_list
-        print(param)
-        print(url)
-        ServerCalls.postRequest(url, withParameters: param, completion: { (response, success) in
-            ModalClass.stopLoading()
-            if let value = response as? NSDictionary{
-                let msg = value.object(forKey: "error_description") as! String
-                let error = value.object(forKey: "error_code") as! Int
-                if error == 100{
-                    completion(false,nil)
-                }else{
-                    if let body = response as? [String: Any] {
-                        self.businessOwnerServicesData = Mapper<BOServicesData>().map(JSON: body)
-                        completion(true, self.businessOwnerServicesData)
-                        return
-                    }
-                    completion(false,nil)
-                }
-            }
-        })
-    }
+//    func bussinessOwnerServices(completion:@escaping(Bool, BOServicesData?) -> ()) {
+//        
+//        var param = [String:String]()
+//        var url = ""
+//        
+//        param = [ "bo_id": Singleton.shared.getUserId(),
+//                  "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
+//                  
+//        ]
+//        url = dataEntryModuleApi.boServices_list
+//        print(param)
+//        print(url)
+//        ServerCalls.postRequest(url, withParameters: param, completion: { (response, success) in
+//            ModalClass.stopLoading()
+//            if let value = response as? NSDictionary{
+//                let msg = value.object(forKey: "error_description") as! String
+//                let error = value.object(forKey: "error_code") as! Int
+//                if error == 100{
+//                    completion(false,nil)
+//                }else{
+//                    if let body = response as? [String: Any] {
+//                        self.businessOwnerServicesData = Mapper<BOServicesData>().map(JSON: body)
+//                        completion(true, self.businessOwnerServicesData)
+//                        return
+//                    }
+//                    completion(false,nil)
+//                }
+//            }
+//        })
+//    }
     
     
-    func bussinessOwnerServicesOrderListing(tabStatus:String,searchStr:String,pageNumber:Int, completion:@escaping(Bool, DataEntryOrderRequestDatas?) -> ()) {
+    func agentServicesOrderListing(tabStatus:String,searchStr:String,pageNumber:Int, completion:@escaping(Bool, DataEntryOrderRequestDatas?) -> ()) {
         
 //        var param = [String:String]()
         var url = ""
         
-        let  param = [ "bo_id": Singleton.shared.getUserId(),
+        let  param = [ "agent_id": Singleton.shared.getUserId(),
                        "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
                        "status" : tabStatus,
                        "search":searchStr,
@@ -63,7 +63,7 @@ class DataEntryApiManager: NSObject {
             
             ]as [String : Any]
         
-        url = dataEntryModuleApi.boServicesOrder_list
+        url = dataEntryModuleApi.agentServicesOrder_list
         print(param)
         print(url)
         ServerCalls.postRequest(url, withParameters: param, completion: { (response, success) in
@@ -117,19 +117,10 @@ class DataEntryApiManager: NSObject {
     }
 
 
-    func addDataEntryForm(lineItemName:String, lineItemQuantity:String, lineItemTypeID:String, servicePrice:String, totalDays:String, InstructionStr:String, workPlaceStr:String, branchID:String, CityNameStr:String, CountryCodeStr:String, completion:@escaping(Bool, NSDictionary?) -> ()) {
+    func addDataEntryForm(serviceID:String, completion:@escaping(Bool, NSDictionary?) -> ()) {
         
-        let param = ["bo_id":Singleton.shared.getUserId(),
-                     "line_item_names": lineItemName,
-                     "line_item_qty": lineItemQuantity,
-                     "des_type_id": lineItemTypeID,
-                     "service_price": servicePrice,
-                     "days": totalDays,
-                     "instruction":InstructionStr,
-                     "workplace":workPlaceStr,
-                     "branch_id":branchID,
-                     "city_name":CityNameStr,
-                     "country_code":CountryCodeStr,
+        let param = ["agent_id":Singleton.shared.getUserId(),
+                     "service_id": serviceID,
                      "lang_code":HeaderHeightSingleton.shared.LanguageSelected
             ] as [String : Any]
         
@@ -183,7 +174,7 @@ class DataEntryApiManager: NSObject {
         var param = [String:String]()
         var url = ""
         
-        param = ["user_type": "BO",
+        param = ["user_type": "AGENT",
                  "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
                  
         ]
@@ -216,7 +207,7 @@ class DataEntryApiManager: NSObject {
         var param = [String:String]()
         var url = ""
         
-        param = ["bo_id":Singleton.shared.getUserId(),
+        param = ["agent_id":Singleton.shared.getUserId(),
                  "service_id":serviceID,
                  "reason_id":reasonID,
                  "lang_code":HeaderHeightSingleton.shared.LanguageSelected
@@ -247,7 +238,7 @@ class DataEntryApiManager: NSObject {
         var param = [String:String]()
         var url = ""
         
-        param = ["bo_id": Singleton.shared.getUserId(),
+        param = ["agent_id": Singleton.shared.getUserId(),
                  "service_id": serviceID,
                  "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
                  
@@ -275,16 +266,16 @@ class DataEntryApiManager: NSObject {
         })
     }
 
-    func BOWorkConfirmation(serviceID:String, completion:@escaping(Bool, NSDictionary?) -> ()) {
+    func BOStartWork(serviceID:String, completion:@escaping(Bool, NSDictionary?) -> ()) {
          
          var param = [String:String]()
          var url = ""
          
          param = ["service_id":serviceID,
-                  "bo_id": Singleton.shared.getUserId(),
+                  "agent_id": Singleton.shared.getUserId(),
                   "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
          
-         url = dataEntryModuleApi.DataEntry_BO_WorkConfirmation
+         url = dataEntryModuleApi.DataEntry_Agent_StartWork
          print(param)
          print(url)
          ServerCalls.postRequest(url, withParameters: param, completion: { (response, success) in
@@ -302,6 +293,34 @@ class DataEntryApiManager: NSObject {
              }
          })
      }
+    
+    func BOWorkConfirmation(serviceID:String, completion:@escaping(Bool, NSDictionary?) -> ()) {
+            
+            var param = [String:String]()
+            var url = ""
+            
+            param = ["service_id":serviceID,
+                     "agent_id": Singleton.shared.getUserId(),
+                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
+            
+            url = dataEntryModuleApi.DataEntry_Agent_WorkConfirmation
+            print(param)
+            print(url)
+            ServerCalls.postRequest(url, withParameters: param, completion: { (response, success) in
+                ModalClass.stopLoading()
+                if let value = response as? NSDictionary{
+                    let error = value.object(forKey: "error") as! Int
+                    if error == 0{
+                        if let body = response as? [String: Any] {
+                            print(body)
+                        }
+                        completion(true,value)
+                    }else{
+                        completion(false, value)
+                    }
+                }
+            })
+        }
     
     func dataEntryTypeListing(serviceId:String, dataEntryType:String, searchStr:String, completion:@escaping(Bool, ServiceTypeData?) -> ()) {
            

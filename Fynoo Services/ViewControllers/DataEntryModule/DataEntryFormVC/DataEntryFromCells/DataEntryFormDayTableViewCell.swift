@@ -33,7 +33,6 @@ class DataEntryFormDayTableViewCell: UITableViewCell {
         self.timeTxtFld.setRightPaddingPoints(10)
         self.SetFont()
         
-        ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: timeView)
 
     }
     

@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,7 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DataEntryFormFirstTopTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DataEntryFormFirstTopTableViewCell" customModule="Fynoo_Services" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="465" height="110"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -26,11 +25,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="465" height="110"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qd7-mK-AaH">
-                                <rect key="frame" x="0.0" y="0.0" width="465" height="107"/>
+                                <rect key="frame" x="0.0" y="0.0" width="465" height="110"/>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.22220000624656677" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2v2-zn-1mG">
-                                <rect key="frame" x="0.0" y="107" width="465" height="0.0"/>
+                                <rect key="frame" x="0.0" y="110" width="465" height="0.0"/>
                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.20000000000000001" id="Ari-Kr-Heb"/>
@@ -40,14 +39,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fK7-MG-HHT">
-                                <rect key="frame" x="0.0" y="108" width="465" height="2"/>
+                                <rect key="frame" x="0.0" y="110" width="465" height="0.0"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="FIZ-tf-A3g"/>
+                                    <constraint firstAttribute="height" id="FIZ-tf-A3g"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Order" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AuS-M2-eJg">
-                                <rect key="frame" x="28" y="55" width="135" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Entry Order" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AuS-M2-eJg">
+                                <rect key="frame" x="28" y="58" width="173.5" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="pHl-g9-yEn"/>
                                 </constraints>
@@ -55,8 +54,8 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="As per your requirement from agent" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mre-2y-j0N">
-                                <rect key="frame" x="28" y="80" width="262.5" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="As per the requirement from Business Owner" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mre-2y-j0N">
+                                <rect key="frame" x="28" y="83" width="325.5" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="WwW-df-ZuW"/>
                                 </constraints>
@@ -69,7 +68,7 @@
                         <constraints>
                             <constraint firstItem="qd7-mK-AaH" firstAttribute="top" secondItem="in6-eV-omz" secondAttribute="top" id="2I7-T9-SWh"/>
                             <constraint firstItem="AuS-M2-eJg" firstAttribute="leading" secondItem="in6-eV-omz" secondAttribute="leading" constant="28" id="8gK-ad-4Up"/>
-                            <constraint firstAttribute="bottom" secondItem="2v2-zn-1mG" secondAttribute="bottom" constant="3" id="JbD-G5-lsX"/>
+                            <constraint firstAttribute="bottom" secondItem="2v2-zn-1mG" secondAttribute="bottom" id="JbD-G5-lsX"/>
                             <constraint firstAttribute="height" constant="110" id="Mof-Z3-dSs"/>
                             <constraint firstItem="Mre-2y-j0N" firstAttribute="top" secondItem="AuS-M2-eJg" secondAttribute="bottom" id="QAN-Ao-Yf5"/>
                             <constraint firstItem="Mre-2y-j0N" firstAttribute="leading" secondItem="in6-eV-omz" secondAttribute="leading" constant="28" id="UuF-3A-fL9"/>

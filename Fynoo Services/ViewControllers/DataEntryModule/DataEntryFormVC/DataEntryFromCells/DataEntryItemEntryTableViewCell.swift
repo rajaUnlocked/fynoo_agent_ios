@@ -10,10 +10,8 @@ import UIKit
 
 class DataEntryItemEntryTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var itemTypeImgeView: UIImageView!
     @IBOutlet weak var itemNameTxtFld: UITextField!
     @IBOutlet weak var quantityTxtFld: UITextField!
-    @IBOutlet weak var deleteItemBtn: UIButton!
     @IBOutlet weak var entryItemView: UIView!
     @IBOutlet weak var quantityView: UIView!
     
@@ -30,10 +28,7 @@ class DataEntryItemEntryTableViewCell: UITableViewCell {
         self.quantityTxtFld.setLeftPaddingPoints(5)
         self.quantityTxtFld.setRightPaddingPoints(5)
         
-        ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: entryItemView)
-        ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: quantityView)
-        
-        
+       
     }
    
     func SetFont() {
