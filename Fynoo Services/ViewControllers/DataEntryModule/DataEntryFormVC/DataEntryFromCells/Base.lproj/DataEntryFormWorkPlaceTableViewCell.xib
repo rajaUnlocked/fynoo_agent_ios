@@ -175,7 +175,6 @@
                     <constraint firstItem="aXy-0C-rnv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="bb2-9T-rAE"/>
                     <constraint firstItem="UEY-q5-Sie" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ioG-ov-OcU"/>
                     <constraint firstItem="vd7-7W-Mon" firstAttribute="centerY" secondItem="aXy-0C-rnv" secondAttribute="centerY" id="kRo-cL-Q5y"/>
-                    <constraint firstItem="7Aw-Qn-lG9" firstAttribute="top" secondItem="vd7-7W-Mon" secondAttribute="bottom" id="l82-8z-4Sc"/>
                     <constraint firstAttribute="bottom" secondItem="7Aw-Qn-lG9" secondAttribute="bottom" constant="25" id="sCv-Hx-yYo"/>
                 </constraints>
             </tableViewCellContentView>

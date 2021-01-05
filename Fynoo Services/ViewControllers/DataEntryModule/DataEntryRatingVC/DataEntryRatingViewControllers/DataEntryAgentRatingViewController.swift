@@ -33,7 +33,6 @@ class DataEntryAgentRatingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.ratingView.settings.fillMode = .half
         
         self.agentProfileImageView.sd_setImage(with: URL(string:(agentProfilePic)), placeholderImage: UIImage(named: "agent_indivdual.png"))
         self.agentNameLbl.text = self.agentName

@@ -567,7 +567,6 @@ extension DataEntryDetailViewController : UITableViewDataSource {
             }else{
                 cell.workPlaceTypeLbl.text = "\(serviceDetailData?.data?.city_name ?? "")"
             }
-            //            cell.workPlaceTypeLbl.text = "\(serviceDetailData?.data?.city_name ?? ""), \(serviceDetailData?.data?.country_code ?? "")"
         }
         
         

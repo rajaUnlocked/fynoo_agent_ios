@@ -33,18 +33,17 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         
         self.setUpUI()
         
-         ModalClass.startLoading(self.view)
+        ModalClass.startLoading(self.view)
         isMoreDataAvailable = false
         currentPageNumber = 0
         self.getBoServicesRequestListAPI()
-         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationRefreshList(_:)), name: NSNotification.Name(rawValue: "refreshDataEntryList"), object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationRefreshList(_:)), name: NSNotification.Name(rawValue: "refreshDataEntryList"), object: nil)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.noDataView.isHidden = true
-//        currentPageNumber = 1
+        //        currentPageNumber = 1
     }
     func refreshServiceListing() {
         
@@ -56,7 +55,6 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         
     }
 
-    
     @objc func methodOfReceivedNotificationRefreshList(_ notification: NSNotification) {
         ModalClass.startLoading(self.view)
         isMoreDataAvailable = false
@@ -64,11 +62,11 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         self.getBoServicesRequestListAPI()
         
     }
+    
     func setUpUI(){
         
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 105
-        
         
         self.headerHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         self.tableView.separatorStyle = .none
@@ -180,7 +178,6 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         self.cancelDataEntryServiceAPI()
            
        }
-       
 
        func cancelDataEntryServiceAPI() {
            let serviceData = totalRequestListArray?[self.clickIndex]
@@ -214,11 +211,9 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
         self.present(vc, animated: true, completion: nil)
-        
-        
+
         
     }
-
 }
 
 extension DataEntryListingViewController : UITableViewDelegate {
@@ -284,7 +279,6 @@ extension DataEntryListingViewController : UITableViewDelegate {
         }
         
     }
-
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -301,6 +295,7 @@ extension DataEntryListingViewController : UITableViewDelegate {
         }
     }
 }
+
 extension DataEntryListingViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -545,7 +540,7 @@ extension DataEntryListingViewController : UITableViewDataSource {
         activityIndicator.frame = CGRect(x: (UIScreen.main.bounds.size.width / 2) - 10, y: 12, width: 20, height: 20)
         
         return cell
+     
         
     }
-    
 }

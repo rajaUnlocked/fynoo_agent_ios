@@ -126,29 +126,32 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DataEntryTypeListingTableViewCell", for: indexPath) as! DataEntryTypeListingTableViewCell
         cell.selectionStyle = .none
         cell.tickImageView.isHidden = true
+        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue]
+        let underlineAttributedString = NSAttributedString(string: "StringWithUnderLine", attributes: underlineAttribute)
+        cell.productTxtLbl.attributedText = underlineAttributedString
         
         let typeData = serviceTypeList?.data?.data_entry_lines?[indexPath.row]
+        cell.productTxtLbl.text = typeData?.des_name
+        cell.productTxtLbl.textColor = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
         
         if typeData?.is_complete == 1 {
-            let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue]
-            let underlineAttributedString = NSAttributedString(string: "StringWithUnderLine", attributes: underlineAttribute)
-            cell.productTxtLbl.attributedText = underlineAttributedString
+            
             
             cell.tickImageView.isHidden = false
-            cell.productTxtLbl.text = typeData?.des_name
+            
             
         }else {
-            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-            
-            cell.productTxtLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+            //            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+            //
+            //            cell.productTxtLbl.font = UIFont(name:"\(fontNameLight)",size:12)
             cell.tickImageView.isHidden = true
             cell.productTxtLbl.text = typeData?.des_name
         }
         
-           
-      
         
-//        cell.delegate = self
+        
+        
+        //        cell.delegate = self
         return cell
         
     }

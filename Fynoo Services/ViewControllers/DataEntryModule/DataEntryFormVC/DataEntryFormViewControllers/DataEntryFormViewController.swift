@@ -100,29 +100,6 @@ class DataEntryFormViewController: UIViewController, DataEntryFormItemPopUpViewC
             if success{
                 self.serviceDetailData = response
                 
-//
-//                for var i in (0..<(self.serviceDetailData?.data?.data_entry_lines?.count ?? 0)) {
-//                    let typeName = ModalController.toString (self.serviceDetailData?.data?.data_entry_lines?[i].type_name as AnyObject)
-//                    self.selectedFormTypeArray.append("\(typeName)")
-//                    let enterItem = ModalController.toString (self.serviceDetailData?.data?.data_entry_lines?[i].des_name as AnyObject)
-//                    self.enterItemArray.append("\(enterItem)")
-//                    let enterQuantity = ModalController.toString (self.serviceDetailData?.data?.data_entry_lines?[i].des_type_count as AnyObject)
-//                    self.enterQuantityArray.append("\(enterQuantity)")
-//                    let typeID = ModalController.toString (self.serviceDetailData?.data?.data_entry_lines?[i].des_id as AnyObject)
-//                    self.enterItemDescTypeIDArray.append("\(typeID)")
-//
-//                }
-//
-//                self.dataEntryPrice = ModalController.toString(self.serviceDetailData?.data?.service_price as Any)
-//                self.dataEntryTimePeriod = ModalController.toString(self.serviceDetailData?.data?.completion_days as Any)
-//                self.dataEntryOrderInstruction = ModalController.toString(self.serviceDetailData?.data?.instruction as Any)
-//                self.selectedBranchName = ModalController.toString(self.serviceDetailData?.data?.branch_name as Any)
-//
-//                print("selectedItem:-", self.selectedFormTypeArray)
-//                print("enterItemArray:-", self.enterItemArray)
-//                print("enterQuantityArray:-", self.enterQuantityArray)
-//                print("enterItemDescTypeIDArray:-", self.enterItemDescTypeIDArray)
-                
                 if  self.serviceDetailData?.data?.work_place == 2 {
                     self.workPlaceStr = "2"
                     self.isWorkBranchClicked = true
@@ -447,6 +424,7 @@ extension DataEntryFormViewController : UITableViewDataSource {
         cell.selectionStyle = .none
         cell.branchSearchView.isHidden = true
         cell.mapViewHeightConstant.constant = 0
+         cell.onlineViewHeightConstant.constant = 0
         
         cell.onlineBtn.isUserInteractionEnabled = false
         cell.branchBtn.isUserInteractionEnabled = false
@@ -494,6 +472,31 @@ extension DataEntryFormViewController : UITableViewDataSource {
             
         }
         
+        if self.serviceDetailData?.data?.work_place == 1 {
+                cell.onlineBtn.isSelected = true
+                cell.branchBtn.isSelected = false
+                cell.mapViewHeightConstant.constant = 0
+                cell.branchMapView.isHidden = true
+                cell.branchView.isHidden = true
+                cell.onlineViewHeightConstant.constant = 25
+                
+            } else if self.serviceDetailData?.data?.work_place == 2 {
+                cell.branchSearchTxtFld.text = ModalController.toString(self.serviceDetailData?.data?.branch_name as Any)
+                
+                
+                cell.onlineBtn.isSelected = false
+                cell.onlineViewHeightConstant.constant = 0
+                cell.onlineView.isHidden = true
+                
+                cell.branchBtn.isSelected = true
+                cell.branchView.isHidden = false
+                cell.branchMapView.isHidden = false
+                cell.branchSearchView.isHidden = false
+                                
+            }
+        
+        
+        
         if isBranchLocationAvailable == true {
             cell.mapViewHeightConstant.constant = 163
             var latStr = 0.0
@@ -525,141 +528,6 @@ extension DataEntryFormViewController : UITableViewDataSource {
         return cell
     }
     
-    
-//    // MARK:- textViewDelegate
-//    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-//
-//        if (textView.text == "Please provide the instruction for your order.") {
-//            textView.text = ""
-//        }
-//        textView.textColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-//        return true
-//
-//    }
-//
-//    func textViewDidChange(_ textView: UITextView) {
-//        let   cell = tableView.cellForRow(at: IndexPath(row:0 , section: 5)) as! DataEntryFromOrderInstractionTableViewCell
-//
-//        cell.instructionTxtView.text = textView.text!
-//        if textView.text.count == 0 {
-//            textView.textColor = #colorLiteral(red: 0.5141925812, green: 0.5142051578, blue: 0.5141984224, alpha: 1)
-//            textView.text = "Please provide the instruction for your order."
-//            self.dataEntryOrderInstruction = "Please provide the instruction for your order."
-//
-//
-//                if  isForDetail == "Cancelled" {
-//                    self.serviceDetailData?.data?.instruction = ""
-//
-//                }
-//
-//
-//            textView.resignFirstResponder()
-//        }
-//
-//        if textView.accessibilityHint == "Instruction" {
-//            self.dataEntryOrderInstruction = textView.text!
-//            if cell.instructionTxtView.text == "" || cell.instructionTxtView.text == "Please provide the instruction for your order." {
-//
-//                ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.instructionView)
-//            }else{
-//                ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.instructionView)
-//            }
-//
-//        }
-//
-//    }
-//
-//    // MARK:- textFieldDelegate
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//
-//        if  textField.accessibilityHint == "Item" {
-//
-//            var letters = string.map { String($0) }
-//            for i in 0..<string.count{
-//
-//                if !letters[i].containArabicNumber {
-//                    ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validName)
-//                    letters[i] = ""
-//                    return false
-//                }
-//            }
-//            return true
-//
-//        }else {
-//
-//        }
-//        return true
-//    }
-//
-//
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//
-//        if  textField.accessibilityHint == "Item" {
-//            enterItemArray[textField.tag] = textField.text ?? "".trimmingCharacters(in: .whitespacesAndNewlines)
-//        }else if textField.accessibilityHint == "Quantity"{
-//            enterQuantityArray[textField.tag] = textField.text ?? "".trimmingCharacters(in: .whitespacesAndNewlines)
-//        }
-//    }
-//
-//    @objc func textFieldDidChange(_ textField: UITextField) {
-//
-//        print("tag:-", textField.tag)
-//
-//        if  textField.accessibilityHint == "Item" {
-//            let   cell = tableView.cellForRow(at: IndexPath(row:textField.tag , section: 1)) as! DataEntryItemEntryTableViewCell
-//            if ModalController.isValidName(title: cell.itemNameTxtFld.text!) == false {
-//
-//                ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.entryItemView)
-//            }else{
-//                if cell.itemNameTxtFld.text == "" {
-//                    ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.entryItemView)
-//                }else{
-//                    ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.entryItemView)
-//                }
-//            }
-//
-//        }else if textField.accessibilityHint == "Quantity"{
-//            let   cell = tableView.cellForRow(at: IndexPath(row:textField.tag , section: 1)) as! DataEntryItemEntryTableViewCell
-//            if cell.quantityTxtFld.text == "" {
-//                ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.quantityView)
-//            }else{
-//                ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.quantityView)
-//            }
-//
-//        }else if textField.accessibilityHint == "Price" {
-//            let   cell1 = tableView.cellForRow(at: IndexPath(row:0 , section: 3)) as! DataEntryPricePayTableViewCell
-//            self.dataEntryPrice = textField.text!
-//            if cell1.priceTxtFld.text == "" {
-//                ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell1.priceView)
-//            }else{
-//                ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell1.priceView)
-//            }
-//
-//        }else if textField.accessibilityHint == "Time" {
-//            let   cell2 = tableView.cellForRow(at: IndexPath(row:0 , section: 4)) as! DataEntryFormDayTableViewCell
-//            self.dataEntryTimePeriod = textField.text!
-//            if cell2.timeTxtFld.text == "" {
-//                ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell2.timeView)
-//            }else{
-//                ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell2.timeView)
-//            }
-////            cell.branchSearchTxtFld.accessibilityHint = "BranchName"
-//        }else if textField.accessibilityHint == "BranchName" {
-//            let   cell = tableView.cellForRow(at: IndexPath(row:0 , section: 6)) as! DataEntryFormWorkPlaceTableViewCell
-////            self.dataEntryOrderInstruction = textField.text!
-//            if cell.branchSearchTxtFld.text == "" {
-//                ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.branchSearchView)
-//            }else{
-//                ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.branchSearchView)
-//            }
-//
-//            if  isForDetail == "Cancelled" {
-//                self.serviceDetailData?.data?.branch_name = ""
-//
-//            }
-//        }
-//
-//    }
 }
 
 
