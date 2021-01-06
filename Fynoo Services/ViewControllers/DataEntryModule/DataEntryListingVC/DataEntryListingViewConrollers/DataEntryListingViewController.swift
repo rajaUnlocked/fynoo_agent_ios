@@ -488,8 +488,6 @@ extension DataEntryListingViewController : UITableViewDataSource {
         cell.ratingLbl.text = requestData?.rating_avg
         cell.totalRatingLbl.text = "(\(requestData?.rating_count ?? 0))"
         cell.agentAddressLbl.text = "\(requestData?.branch_address ?? "")"
-//        cell.completeImageView.image = UIImage(named: "inprogress_dataEntry-selected")
-//        cell.completeTxtLbl.text = "Inprocess"
         
         if requestData?.location == "1" {
             if requestData?.country_code != "" {
@@ -511,6 +509,13 @@ extension DataEntryListingViewController : UITableViewDataSource {
             cell.giveRatingBtn.isHidden = true
         }
         
+        let avgRating = requestData?.rating_avg
+        
+        if avgRating == "0" || avgRating == "0.0" || avgRating == "0.00" || avgRating == "1" || avgRating == "1.0" || avgRating == "1.00" || avgRating == "2" || avgRating == "2.0" || avgRating == "2.00" || avgRating == "3" || avgRating == "3.0" || avgRating == "3.00" || avgRating == "4" || avgRating == "4.0" || avgRating == "4.00" || avgRating == "5" || avgRating == "5.0" || avgRating == "5.00" {
+            cell.ratingStrImageView.image = UIImage(named: "star-full")
+        }else {
+            cell.ratingStrImageView.image = UIImage(named: "ratingHalfStar")
+        }
         
         cell.delegate = self
         cell.tag = index.row

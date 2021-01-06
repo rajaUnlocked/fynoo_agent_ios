@@ -56,18 +56,7 @@ class DataEntryFormViewController: UIViewController, DataEntryFormItemPopUpViewC
         self.setUpUI()
          self.getServiceDetailAPI()
         
-            if  isForDetail == "waitingList" {
-                self.placeOrderBtn.isUserInteractionEnabled = true
-                self.placeOrderBtn.setTitle("Accept Order", for: .normal)
-                self.placeOrderBtn.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
-                
-            }else if isForDetail == "Rejected" {
-                self.placeOrderBtn.isUserInteractionEnabled = false
-                self.placeOrderBtn.setTitle("Rejected", for: .normal)
-                self.placeOrderBtn.backgroundColor = #colorLiteral(red: 0.6039215686, green: 0.6039215686, blue: 0.6039215686, alpha: 1)
-            }
-       
-        
+
     }
     func setUpUI() {
         
@@ -121,6 +110,28 @@ class DataEntryFormViewController: UIViewController, DataEntryFormItemPopUpViewC
                     self.isBranchLocationAvailable = false
                     self.isWorkOnlineClicked = true
                     self.isWorkBranchClicked = false
+                }
+                
+                
+                if  self.isForDetail == "waitingList" && (self.serviceDetailData?.data?.current_ip ?? 0 < self.serviceDetailData?.data?.ip_limit ?? 0) {
+                    self.placeOrderBtn.isUserInteractionEnabled = true
+                    self.placeOrderBtn.setTitle("Accept Order", for: .normal)
+                    self.placeOrderBtn.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+                    
+                } else  if  self.isForDetail == "waitingList" && (self.serviceDetailData?.data?.current_ip ?? 0 >= self.serviceDetailData?.data?.ip_limit ?? 0) {
+                    self.placeOrderBtn.isUserInteractionEnabled = false
+                    self.placeOrderBtn.setTitle("Accept Order", for: .normal)
+                    self.placeOrderBtn.backgroundColor = #colorLiteral(red: 0.6039215686, green: 0.6039215686, blue: 0.6039215686, alpha: 1)
+                    
+                }else  if  self.isForDetail == "Rejected" && (self.serviceDetailData?.data?.current_ip ?? 0 < self.serviceDetailData?.data?.ip_limit ?? 0) {
+                    self.placeOrderBtn.isUserInteractionEnabled = false
+                    self.placeOrderBtn.setTitle("Rejected", for: .normal)
+                    self.placeOrderBtn.backgroundColor = #colorLiteral(red: 0.6039215686, green: 0.6039215686, blue: 0.6039215686, alpha: 1)
+                    
+                }else if self.isForDetail == "Rejected" && (self.serviceDetailData?.data?.current_ip ?? 0 >= self.serviceDetailData?.data?.ip_limit ?? 0) {
+                    self.placeOrderBtn.isUserInteractionEnabled = false
+                    self.placeOrderBtn.setTitle("Rejected", for: .normal)
+                    self.placeOrderBtn.backgroundColor = #colorLiteral(red: 0.6039215686, green: 0.6039215686, blue: 0.6039215686, alpha: 1)
                 }
                 
                 self.tableView.reloadData()
