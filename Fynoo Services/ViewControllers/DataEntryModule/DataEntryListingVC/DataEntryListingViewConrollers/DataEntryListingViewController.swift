@@ -211,7 +211,6 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
         self.present(vc, animated: true, completion: nil)
-
         
     }
 }
@@ -521,8 +520,6 @@ extension DataEntryListingViewController : UITableViewDataSource {
         cell.tag = index.row
         return cell
     }
-    
-    
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
         

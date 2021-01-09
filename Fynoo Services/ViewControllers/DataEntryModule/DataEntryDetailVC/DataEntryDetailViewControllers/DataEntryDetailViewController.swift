@@ -161,7 +161,9 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
     @objc func productDataEntryClicked(_ sender : UIButton) {
         let vc = DataEntryTypelistingViewController()
         vc.serviceID = ModalController.toString(serviceDetailData?.data?.id as Any)
+        vc.boID = ModalController.toString(serviceDetailData?.data?.bo_id as Any)
         vc.dataEntryType = "1"
+        
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -170,6 +172,7 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
         let vc = DataEntryTypelistingViewController()
         vc.serviceID = ModalController.toString(serviceDetailData?.data?.id as Any)
         vc.dataEntryType = "2"
+        vc.boID = ModalController.toString(serviceDetailData?.data?.bo_id as Any)
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

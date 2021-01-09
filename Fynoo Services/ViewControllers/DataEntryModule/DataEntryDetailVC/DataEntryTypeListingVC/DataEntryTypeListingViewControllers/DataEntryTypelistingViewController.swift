@@ -20,6 +20,7 @@ class DataEntryTypelistingViewController: UIViewController {
     @IBOutlet weak var crossBtn: UIButton!
     
     var serviceID:String = ""
+     var boID:String = ""
     var dataEntryType:String = ""
     var apiManagerModal = DataEntryApiManager()
     var serviceTypeList  : ServiceTypeData?
@@ -89,8 +90,9 @@ class DataEntryTypelistingViewController: UIViewController {
                }
            }
        }
-    
-    func registerCellNibs(){
+
+    func registerCellNibs() {
+        
           tableVw.register(UINib(nibName: "DataEntryTypeListingTableViewCell", bundle: nil), forCellReuseIdentifier: "DataEntryTypeListingTableViewCell");
       }
     
@@ -118,8 +120,18 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      
-      
+     let typeData = serviceTypeList?.data?.data_entry_lines?[indexPath.row]
+        
+        if typeData?.type_name == "Product" {
+            let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+            Singleton.shared.setBoId(BoId: self.boID)
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }   else if typeData?.type_name == "Branch" {
+            let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
+            Singleton.shared.setBoId(BoId: self.boID)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
