@@ -367,7 +367,7 @@ class CreateProductFirstViewController: UIViewController {
                         if self.isPurchaseData
                         {
                     ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
-//                    self.navigationController?.backToViewController(viewController: ProductDataBankController.self)
+                   // self.navigationController?.backToViewController(viewController: ProductDataBankController.self)
                         }
                         else
                         {
