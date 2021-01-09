@@ -210,6 +210,7 @@ class ServiceModel: NSObject {
              }
             }
            }
+    
     func getservicetypecolor(completion:@escaping(Bool, TypeBrandColor?) -> ()) {
 
               let str = "\(Service.gettypecolor)"

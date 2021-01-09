@@ -193,33 +193,30 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         }
     }
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
         let touchPoint = textView.convert(CGPoint.zero, to: tabvw)
-              let clickedBtn = tabvw.indexPathForRow(at: touchPoint)
-              let row = Int(clickedBtn!.row)
-              let section = Int(clickedBtn!.section)
-              var textstr = ""
-              if let text1 = textView.text as NSString? {
-                  let txtAfterUpdate = text1.replacingCharacters(in: range, with: text)
-                  textstr = txtAfterUpdate
-              }
-              let cell = tabvw.cellForRow(at: IndexPath(row: row, section: section)) as! ReasonForChangeTableViewCell
-      
-      
-        if textstr.count > 0
-                              {
-                        
-                                      cell.txtvw.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
-                                  }
-                             
-                              else
-                              {
-                                  
-                                  cell.txtvw.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
-                              }
-          reasonforvehicle = textstr
-
+        let clickedBtn = tabvw.indexPathForRow(at: touchPoint)
+        let row = Int(clickedBtn!.row)
+        let section = Int(clickedBtn!.section)
+        var textstr = ""
+        if let text1 = textView.text as NSString? {
+            let txtAfterUpdate = text1.replacingCharacters(in: range, with: text)
+            textstr = txtAfterUpdate
+        }
+        let cell = tabvw.cellForRow(at: IndexPath(row: row, section: section)) as! ReasonForChangeTableViewCell
+        
+        
+        if textstr.count > 0{
+            
+            cell.txtvw.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+        }else{
+            cell.txtvw.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+        }
+        reasonforvehicle = textstr
+        
         return true
     }
+    
     func yesBtnClicked(name: String, id: Int) {
           submit.tag = 8
          clickuploadclicked(submit)
@@ -504,13 +501,13 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
                 }
                 txtArr[row - 1] = "\(textstr)"
-                
             }
         }
         return true
     }
-    func registernibs()
-    {
+    
+    func registernibs() {
+        
         tabvw.register(UINib(nibName: "ServiceHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceHeaderTableViewCell")
         tabvw.register(UINib(nibName: "DocHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "DocHeaderTableViewCell")
         tabvw.register(UINib(nibName: "ServiceDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceDetailTableViewCell")

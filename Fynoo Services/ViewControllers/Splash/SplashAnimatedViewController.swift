@@ -234,7 +234,7 @@ class SplashAnimatedViewController: UIViewController, VersionPopupViewController
                                     if userid.data!.is_language_added == true {
                                         let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
                                         self.navigationController?.pushViewController(vc, animated: true)
-                                    }else{
+                                    }else {
                                         let vc = LanguageSelectionViewController(nibName: "LanguageSelectionViewController", bundle: nil)
                                         self.navigationController?.pushViewController(vc, animated: true)
                                     }

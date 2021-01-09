@@ -1012,3 +1012,13 @@
 "Product"="Product";
 
 
+// dataEntry
+
+"Order Summary" = "Order Summary";
+"Payment Method" = "Payment Method";
+"Give Ratings" = "Give Ratings";
+"Product Data Entry" = "Product Data Entry";
+"Branch Data Entry" = "Branch Data Entry" ;
+"Has the agent completed this work ?" = "Has the agent completed this work ?";
+"Data entry" = "Data entry";
+"Are you sure you want accept the order?" = "Are you sure you want accept the order?";
