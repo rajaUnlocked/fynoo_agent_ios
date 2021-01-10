@@ -66,11 +66,8 @@ class AddBranchModel : NSObject{
                   }
                   platformtype.removeLast()
               }
-          str = "\(Constant.BASE_URL)\(Constant.addbranch)"
-        if AddBranch.shared.BranchId.count > 0
-        {
+       
            str = "\(Constant.BASE_URL)\(Constant.updateBranch)"
-        }
       
        
         let branch = AddBranch.shared

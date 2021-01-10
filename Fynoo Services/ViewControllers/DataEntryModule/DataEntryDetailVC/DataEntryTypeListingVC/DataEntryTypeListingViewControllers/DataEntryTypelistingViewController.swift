@@ -18,7 +18,8 @@ class DataEntryTypelistingViewController: UIViewController {
     @IBOutlet weak var searchBtn: UIButton!
    
     @IBOutlet weak var crossBtn: UIButton!
-    
+     var branchmodel = branchsmodel()
+     var productmodel = AddProductModel()
     var serviceID:String = ""
      var boID:String = ""
     var dataEntryType:String = ""
@@ -123,14 +124,54 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
      let typeData = serviceTypeList?.data?.data_entry_lines?[indexPath.row]
         
         if typeData?.type_name == "Product" {
+            if typeData?.product_id ?? 0 > 0
+            {
+                        ProductModel.shared.remove()
+                 Singleton.shared.setBoId(BoId: self.boID)
+                                   ModalClass.startLoading(self.view)
+                        ProductModel.shared.productId = "\(typeData?.product_id ?? 0 )"
+                                   productmodel.productDetails{ (success, response) in
+                                       ModalClass.stopLoading()
+                                       
+                                       if success
+                                       {
+                                           
+                                let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                                self.navigationController?.pushViewController(vc, animated: true)
+                                           
+                                        }
+                                   }
+            }
+            else
+            {
+            ProductModel.shared.remove()
             let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
             Singleton.shared.setBoId(BoId: self.boID)
             self.navigationController?.pushViewController(vc, animated: true)
+            }
             
         }   else if typeData?.type_name == "Branch" {
+            if typeData?.branch_id ?? 0 > 0
+            {
+                AddBranch.shared.removeall()
+                 Singleton.shared.setBoId(BoId: self.boID)
+                branchmodel.branchid = "\(typeData?.branch_id ?? 0)"
+                    ModalClass.startLoading(self.view)
+                      branchmodel.branchDetail { (success, response) in
+                          if success {
+                    ModalClass.stopLoading()
+                        let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
+                    self.navigationController?.pushViewController(vc, animated: true)
+                          }
+                      }
+            }
+            else
+            {
+                 AddBranch.shared.removeall()
             let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
             Singleton.shared.setBoId(BoId: self.boID)
             self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     
