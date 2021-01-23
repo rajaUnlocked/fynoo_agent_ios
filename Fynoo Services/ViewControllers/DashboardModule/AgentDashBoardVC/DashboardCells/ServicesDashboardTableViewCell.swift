@@ -63,8 +63,9 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
                 let vc = DataEntryListingViewController()
                 parent.navigationController?.pushViewController(vc, animated: true)
                 
-                
-                
+        }else if serviceCode == "DELIVERY" {
+                let vc = AgentDeliveryViewController()
+                parent.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
