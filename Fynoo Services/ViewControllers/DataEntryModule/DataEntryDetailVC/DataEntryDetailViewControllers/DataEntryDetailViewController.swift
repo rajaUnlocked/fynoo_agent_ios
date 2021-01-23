@@ -124,7 +124,6 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
                     
                 }
         })
-        
     }
     
     @objc func DataEntryWorkConfirmationClicked(_ sender : UIButton) {
