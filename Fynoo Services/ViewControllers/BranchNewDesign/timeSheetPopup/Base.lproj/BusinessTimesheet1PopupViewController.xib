@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BusinessTimesheet1PopupViewController" customModule="Fynoo_Business" customModuleProvider="target">
+            <connections>
+                <outlet property="addlbl" destination="ean-HV-bH6" id="zMO-vb-sYl"/>
+                <outlet property="bgImage" destination="bFE-B8-rWz" id="n7V-CA-zSw"/>
+                <outlet property="headerVw" destination="2iG-HP-RM7" id="6dR-Us-hAU"/>
+                <outlet property="hourlbl" destination="nC2-ZH-5t7" id="XbL-e0-aWO"/>
+                <outlet property="img" destination="FPh-fl-zhL" id="cm6-gV-JHH"/>
+                <outlet property="tabview" destination="Zzh-e3-jcm" id="8sg-Mp-Uu3"/>
+                <outlet property="topViewHeightConstraint" destination="8CO-oI-bgc" id="U9g-cD-a7g"/>
+                <outlet property="toplevel" destination="t4g-P8-QPT" id="Ufe-zN-LzK"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Add Your Business Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ean-HV-bH6">
+                    <rect key="frame" x="35" y="74" width="359" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="1CD-Iw-GdL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                    <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8rt-Bc-LbK">
+                    <rect key="frame" x="20" y="149" width="374" height="45"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="business_time" translatesAutoresizingMaskIntoConstraints="NO" id="FPh-fl-zhL">
+                            <rect key="frame" x="15" y="11.5" width="22" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="22" id="Bqx-no-E01"/>
+                                <constraint firstAttribute="height" constant="22" id="apq-in-KNL"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nC2-ZH-5t7">
+                            <rect key="frame" x="57" y="15.5" width="31.5" height="14"/>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                            <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="nC2-ZH-5t7" firstAttribute="centerY" secondItem="FPh-fl-zhL" secondAttribute="centerY" id="Koc-Uc-tkC"/>
+                        <constraint firstAttribute="height" constant="45" id="b4O-nh-gut"/>
+                        <constraint firstItem="nC2-ZH-5t7" firstAttribute="leading" secondItem="FPh-fl-zhL" secondAttribute="trailing" constant="20" id="bTQ-eT-qEt"/>
+                        <constraint firstItem="FPh-fl-zhL" firstAttribute="leading" secondItem="8rt-Bc-LbK" secondAttribute="leading" constant="15" id="c7R-EE-HBv"/>
+                        <constraint firstItem="FPh-fl-zhL" firstAttribute="centerY" secondItem="8rt-Bc-LbK" secondAttribute="centerY" id="ynH-yU-sjY"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2iG-HP-RM7" customClass="NavigationView" customModule="Fynoo_Business" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="8CO-oI-bgc"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add your business hours to Branch Name so it's easy for people to plan a visit. " lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4g-P8-QPT">
+                    <rect key="frame" x="35" y="99" width="359" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="pSg-sp-C43"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                    <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="bFE-B8-rWz">
+                    <rect key="frame" x="0.0" y="661" width="285" height="201"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="285" id="IID-Gl-hHk"/>
+                        <constraint firstAttribute="height" constant="201" id="ops-rK-AVY"/>
+                    </constraints>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zzh-e3-jcm">
+                    <rect key="frame" x="20" y="204" width="374" height="692"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="VM3-jW-UJo"/>
+                        <outlet property="delegate" destination="-1" id="crk-ec-jQr"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Zzh-e3-jcm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="64x-ji-JFo"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bFE-B8-rWz" secondAttribute="bottom" id="7f4-zg-LA1"/>
+                <constraint firstItem="2iG-HP-RM7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8tO-w0-PXP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2iG-HP-RM7" secondAttribute="trailing" id="AVe-QS-IeQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="t4g-P8-QPT" secondAttribute="trailing" constant="20" id="AWz-Rr-rCV"/>
+                <constraint firstItem="2iG-HP-RM7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="DkF-jY-BCK"/>
+                <constraint firstItem="ean-HV-bH6" firstAttribute="top" secondItem="2iG-HP-RM7" secondAttribute="bottom" constant="10" id="IC4-Uv-GPg"/>
+                <constraint firstItem="Zzh-e3-jcm" firstAttribute="top" secondItem="8rt-Bc-LbK" secondAttribute="bottom" constant="10" id="LVx-Mp-Cjy"/>
+                <constraint firstItem="8rt-Bc-LbK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Urh-qe-wdh"/>
+                <constraint firstAttribute="bottom" secondItem="Zzh-e3-jcm" secondAttribute="bottom" id="Zbz-3X-vVU"/>
+                <constraint firstItem="t4g-P8-QPT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="35" id="Zzk-wS-gky"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Zzh-e3-jcm" secondAttribute="trailing" constant="20" id="aTG-Kc-USJ"/>
+                <constraint firstItem="8rt-Bc-LbK" firstAttribute="top" secondItem="t4g-P8-QPT" secondAttribute="bottom" constant="10" id="ai9-EM-oe6"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ean-HV-bH6" secondAttribute="trailing" constant="20" id="gcK-yC-Pzp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8rt-Bc-LbK" secondAttribute="trailing" constant="20" id="nDN-9H-HBP"/>
+                <constraint firstItem="bFE-B8-rWz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nae-3A-sG0"/>
+                <constraint firstItem="ean-HV-bH6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="35" id="st9-N7-z3z"/>
+                <constraint firstItem="8rt-Bc-LbK" firstAttribute="top" secondItem="t4g-P8-QPT" secondAttribute="bottom" constant="10" id="wUg-k4-Wbs"/>
+                <constraint firstItem="t4g-P8-QPT" firstAttribute="top" secondItem="ean-HV-bH6" secondAttribute="bottom" constant="5" id="xya-78-Zbm"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="80"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backgroundImage" width="297" height="208"/>
+        <image name="business_time" width="20" height="20"/>
+    </resources>
+</document>

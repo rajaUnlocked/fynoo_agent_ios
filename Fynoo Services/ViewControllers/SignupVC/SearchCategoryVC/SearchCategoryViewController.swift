@@ -19,6 +19,7 @@ protocol SearchCategoryViewControllerDelegate: class {
     func selectetCourierCompanyMethod(courierCompanyDict : NSMutableDictionary)
     func selectedCountryCodeMethod(mobileCodeDict : NSMutableDictionary)
     func selectPhoneCodeMethod(phoneCodeDict : NSMutableDictionary)
+    func selectetBranchMethod(BranchDict : NSMutableDictionary)
 }
 
 class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
@@ -42,9 +43,11 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
     var isFromCourierCompany:Bool = false
     var isFromCountryMobileCode:Bool = false
     var isFromCountryPhoneCode:Bool = false
+    var isFromBranchSearch:Bool = false
     
     var selectedOLDCountryDict : NSDictionary = NSDictionary()
     var selectedCountryID  = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUiMethod()
@@ -94,7 +97,12 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
             
             countryAPI()
             
+        }else if isFromBranchSearch {
+            self.customHeader.titleHeader.text = "Branch List"
+             self.searchField.placeholder = "Search"
+              branchNameListAPI()
         }
+        
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         searchField.font = UIFont(name:"\(fontNameLight)",size:12)
         self.customHeader.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
@@ -239,6 +247,8 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
             
         } else if self.isFromCountryPhoneCode {
             self.delegate?.selectPhoneCodeMethod(phoneCodeDict: self.selectedCountryDict)
+        }else if self.isFromBranchSearch {
+            self.delegate?.selectetBranchMethod(BranchDict: self.selectedCountryDict)
         }
     }
     
@@ -298,6 +308,8 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
                     }
                 }
                 
+            }else if isFromBranchSearch{
+                cell.catName.text = "\((self.filterListArray.object(at: index.row) as! NSDictionary).object(forKey: "branch_name") as! String)"
             }
             
             if (self.filterListArray.object(at: index.row) as! NSDictionary) == self.selectedCountryDict {
@@ -350,7 +362,10 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
                         cell.countryFlagImageView.sd_setImage(with: URL(string: str), placeholderImage: UIImage(named: "flag_placeholder.png"))
                     }
                 }
+            }else if isFromBranchSearch {
+                cell.catName.text = "\((self.countryListArray.object(at: index.row) as! NSDictionary).object(forKey: "branch_name") as! String)"
             }
+            
             
             if (self.countryListArray.object(at: index.row) as! NSDictionary) == self.selectedCountryDict {
                 cell.tickImage.isHidden = false
@@ -546,6 +561,46 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
+    // MARK: - branchNameList API
+    
+      func branchNameListAPI(){
+        
+          ModalClass.startLoading(self.view)
+          let str = "\(dataEntryModuleApi.branchName_list)"
+          let parameters = [
+               "lang_code": HeaderHeightSingleton.shared.LanguageSelected,
+               "bo_id": Singleton.shared.getUserId()
+               ]
+                ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
+              ModalClass.stopLoading()
+              if success == true {
+                  
+                  let ResponseDict : NSDictionary = (response as? NSDictionary)!
+                  let x = ResponseDict.object(forKey: "error") as! Bool
+                  if x {
+                 ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "msg") as? String)!, msg: "")
+                  }
+                  else{
+                    let results = (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "branch_list") as! NSArray
+                    
+                    for var i in (0..<results.count){
+                        let dict : NSDictionary = NSDictionary(dictionary: results.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
+                        self.countryListArray.add(dict)
+                    }
+                    
+                    self.tableVw.reloadData()
+                }
+              }else{
+                  if response == nil {
+                      print ("connection error")
+                      ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                  }else{
+                      print ("data not in proper json")
+                  }
+              }
+          }
+      }
+    
     @objc func textFieldDidChange(_ textField: UITextField) {
         if let textStr = textField.text {
             if self.countryListArray.count == 0{
@@ -566,7 +621,10 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
                 countryOr = "currency"
             }else if isFromCourierCompany {
                 countryOr = "company_name"
+            }else if isFromBranchSearch {
+                countryOr = "branch_name"
             }
+            
             let searchPredicate = NSPredicate(format: "\(countryOr) CONTAINS[C] %@", textStr)
             let array = (countryListArray as NSArray).filtered(using: searchPredicate)
             

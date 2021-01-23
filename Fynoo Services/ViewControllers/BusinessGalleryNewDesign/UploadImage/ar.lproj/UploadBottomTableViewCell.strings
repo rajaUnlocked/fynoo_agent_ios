@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Select Type"; ObjectID = "1Vj-28-Rob"; */
+"1Vj-28-Rob.text" = "نوع الصورة";
+
+/* Class = "UITextField"; placeholder = "Enter the Image Name"; ObjectID = "7Nt-I1-cJV"; */
+"7Nt-I1-cJV.placeholder" = "أدخل اسم الصورة";
+
+/* Class = "UILabel"; text = "Image Name"; ObjectID = "e3b-XA-a5b"; */
+"e3b-XA-a5b.text" = "اسم الصورة";

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BranchImageUploadController" customModule="Fynoo_Business" customModuleProvider="target">
+            <connections>
+                <outlet property="headerVw" destination="ptq-rJ-RYW" id="Hxa-Qp-hWv"/>
+                <outlet property="tableView" destination="6Ca-nA-PmE" id="nr5-U0-cQC"/>
+                <outlet property="topViewHeightConstraint" destination="ckP-jO-Nvv" id="Nqy-rS-pQS"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="412" height="422"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ptq-rJ-RYW" customClass="NavigationView" customModule="Fynoo_Business" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="412" height="64"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="ckP-jO-Nvv"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Ca-nA-PmE">
+                    <rect key="frame" x="0.0" y="121" width="412" height="301"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvP-9s-Egb">
+                    <rect key="frame" x="26" y="82" width="140" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="36c-th-bvk"/>
+                        <constraint firstAttribute="width" constant="140" id="RX9-gK-9NL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                    <color key="textColor" red="0.3921568627" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6Ca-nA-PmE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="0.10000000000000001" id="BfK-uG-s6C"/>
+                <constraint firstAttribute="trailing" secondItem="ptq-rJ-RYW" secondAttribute="trailing" constant="0.10000000000000001" id="Nzf-4y-yCd"/>
+                <constraint firstItem="ptq-rJ-RYW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="0.10000000000000001" id="UtC-vs-m4N"/>
+                <constraint firstAttribute="bottom" secondItem="6Ca-nA-PmE" secondAttribute="bottom" constant="0.10000000000000001" id="Zr9-OT-cWI"/>
+                <constraint firstItem="ptq-rJ-RYW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="0.10000000000000001" id="hBo-1S-bF9"/>
+                <constraint firstItem="FvP-9s-Egb" firstAttribute="top" secondItem="ptq-rJ-RYW" secondAttribute="bottom" constant="18" id="hF1-gx-QTf"/>
+                <constraint firstItem="6Ca-nA-PmE" firstAttribute="top" secondItem="FvP-9s-Egb" secondAttribute="bottom" constant="18" id="hdf-u4-nGd"/>
+                <constraint firstAttribute="trailing" secondItem="6Ca-nA-PmE" secondAttribute="trailing" constant="0.10000000000000001" id="pbW-su-yaW"/>
+                <constraint firstItem="FvP-9s-Egb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="26" id="tuH-0D-W7S"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="136.23188405797103" y="-127.90178571428571"/>
+        </view>
+    </objects>
+</document>

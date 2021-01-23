@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DateFilterTableViewCell" rowHeight="96" id="KGk-i7-Jjw" customClass="DateFilterTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xHH-6t-gNh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kid-t9-si6">
+                                <rect key="frame" x="25" y="7.5" width="72" height="14"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="kid-t9-si6" firstAttribute="leading" secondItem="xHH-6t-gNh" secondAttribute="leading" constant="25" id="cI0-7S-iez"/>
+                            <constraint firstAttribute="height" constant="29" id="dVX-E8-sm6"/>
+                            <constraint firstItem="kid-t9-si6" firstAttribute="centerY" secondItem="xHH-6t-gNh" secondAttribute="centerY" id="w5n-vC-ks5"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buD-x2-QnU">
+                        <rect key="frame" x="0.0" y="64.5" width="320" height="32.5"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r56-fH-tyj">
+                                <rect key="frame" x="10" y="0.5" width="275" height="30"/>
+                                <connections>
+                                    <action selector="toDate:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UaT-uB-4Yv"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar_new" translatesAutoresizingMaskIntoConstraints="NO" id="saI-aD-OIt">
+                                <rect key="frame" x="20" y="9.5" width="10" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="LVF-p4-6y8"/>
+                                    <constraint firstAttribute="height" constant="12" id="nqb-B0-7W7"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i59-a6-StK">
+                                <rect key="frame" x="45" y="8.5" width="44" height="14"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01-Jan-2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Qa-dg-q5r">
+                                <rect key="frame" x="212.5" y="8.5" width="72.5" height="14"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="I2C-oa-8h7" firstAttribute="trailing" secondItem="7Qa-dg-q5r" secondAttribute="trailing" constant="35" id="6K4-Td-1aZ"/>
+                            <constraint firstItem="i59-a6-StK" firstAttribute="leading" secondItem="saI-aD-OIt" secondAttribute="trailing" constant="15" id="7Vq-ty-bDv"/>
+                            <constraint firstItem="i59-a6-StK" firstAttribute="centerY" secondItem="r56-fH-tyj" secondAttribute="centerY" id="EPI-sO-JNG"/>
+                            <constraint firstItem="r56-fH-tyj" firstAttribute="leading" secondItem="buD-x2-QnU" secondAttribute="leading" constant="10" id="Lc2-w9-6Ym"/>
+                            <constraint firstAttribute="trailing" secondItem="r56-fH-tyj" secondAttribute="trailing" constant="35" id="NBS-qE-t3r"/>
+                            <constraint firstItem="saI-aD-OIt" firstAttribute="centerY" secondItem="r56-fH-tyj" secondAttribute="centerY" id="UIc-pT-PUE"/>
+                            <constraint firstItem="r56-fH-tyj" firstAttribute="top" secondItem="buD-x2-QnU" secondAttribute="top" constant="0.5" id="awz-Lm-T65"/>
+                            <constraint firstItem="7Qa-dg-q5r" firstAttribute="centerY" secondItem="i59-a6-StK" secondAttribute="centerY" id="hlA-Ft-D5u"/>
+                            <constraint firstItem="saI-aD-OIt" firstAttribute="leading" secondItem="I2C-oa-8h7" secondAttribute="leading" constant="20" id="ngm-GR-xjH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="I2C-oa-8h7"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.49803921569999998" green="0.49803921569999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.20000000000000001"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeq-eD-AB9">
+                        <rect key="frame" x="0.0" y="29" width="320" height="35"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5H-7c-EON">
+                                <rect key="frame" x="10" y="2" width="275" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="lBc-vZ-AJy"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="fromDate:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="19u-kb-xaB"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar_new" translatesAutoresizingMaskIntoConstraints="NO" id="s76-HZ-o5s">
+                                <rect key="frame" x="20" y="10" width="10" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="bzC-po-ihS"/>
+                                    <constraint firstAttribute="width" constant="10" id="etd-10-08y"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTX-Qe-6pb">
+                                <rect key="frame" x="45" y="9" width="58.5" height="14"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1j-7h-Ohw">
+                                <rect key="frame" x="0.0" y="30" width="30" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01-Jan-2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHT-zv-9ux">
+                                <rect key="frame" x="212.5" y="9" width="72.5" height="14"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="w5H-7c-EON" firstAttribute="leading" secondItem="eeq-eD-AB9" secondAttribute="leading" constant="10" id="70X-Pv-Q1L"/>
+                            <constraint firstItem="AHT-zv-9ux" firstAttribute="centerY" secondItem="XTX-Qe-6pb" secondAttribute="centerY" id="A52-JC-oUd"/>
+                            <constraint firstItem="XTX-Qe-6pb" firstAttribute="leading" secondItem="s76-HZ-o5s" secondAttribute="trailing" constant="15" id="C8t-1c-1PJ"/>
+                            <constraint firstAttribute="trailing" secondItem="AHT-zv-9ux" secondAttribute="trailing" constant="35" id="Smj-re-v8B"/>
+                            <constraint firstAttribute="trailing" secondItem="w5H-7c-EON" secondAttribute="trailing" constant="35" id="VcH-j4-uSh"/>
+                            <constraint firstItem="w5H-7c-EON" firstAttribute="top" secondItem="eeq-eD-AB9" secondAttribute="top" constant="2" id="XZk-Sq-MjN"/>
+                            <constraint firstItem="s76-HZ-o5s" firstAttribute="leading" secondItem="T0d-yj-1wh" secondAttribute="leading" constant="20" id="hib-UV-zx9"/>
+                            <constraint firstAttribute="height" constant="35" id="oTZ-fc-4Wd"/>
+                            <constraint firstItem="XTX-Qe-6pb" firstAttribute="centerY" secondItem="w5H-7c-EON" secondAttribute="centerY" id="qE3-cc-X4k"/>
+                            <constraint firstItem="s76-HZ-o5s" firstAttribute="centerY" secondItem="w5H-7c-EON" secondAttribute="centerY" id="swf-vM-aoi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="T0d-yj-1wh"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.85490196078431369" green="0.85490196078431369" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="xHH-6t-gNh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="7Nu-aK-lsQ"/>
+                    <constraint firstAttribute="bottom" secondItem="buD-x2-QnU" secondAttribute="bottom" constant="-1" id="HDY-7M-CT2"/>
+                    <constraint firstItem="eeq-eD-AB9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Hvq-9v-A0s"/>
+                    <constraint firstItem="xHH-6t-gNh" firstAttribute="trailing" secondItem="eeq-eD-AB9" secondAttribute="trailing" id="Hyr-p9-Yr2"/>
+                    <constraint firstAttribute="trailing" secondItem="eeq-eD-AB9" secondAttribute="trailing" id="jbZ-nW-Usg"/>
+                    <constraint firstItem="xHH-6t-gNh" firstAttribute="leading" secondItem="eeq-eD-AB9" secondAttribute="leading" id="nIA-W0-MAC"/>
+                    <constraint firstItem="buD-x2-QnU" firstAttribute="top" secondItem="eeq-eD-AB9" secondAttribute="bottom" constant="0.5" id="vLb-2F-R6Z"/>
+                    <constraint firstItem="eeq-eD-AB9" firstAttribute="top" secondItem="xHH-6t-gNh" secondAttribute="bottom" id="vlf-1Q-mTy"/>
+                    <constraint firstAttribute="trailing" secondItem="buD-x2-QnU" secondAttribute="trailing" id="waR-aP-mcM"/>
+                    <constraint firstItem="buD-x2-QnU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="xGZ-Dg-UME"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="fromDate" destination="w5H-7c-EON" id="3oY-Zt-ze3"/>
+                <outlet property="fromDtLbl" destination="AHT-zv-9ux" id="JqH-FB-WrB"/>
+                <outlet property="toDAte" destination="r56-fH-tyj" id="LXG-wr-9S1"/>
+                <outlet property="toDateLbl" destination="7Qa-dg-q5r" id="dDZ-p8-bT8"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="139.95535714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="calendar_new" width="10" height="12"/>
+    </resources>
+</document>

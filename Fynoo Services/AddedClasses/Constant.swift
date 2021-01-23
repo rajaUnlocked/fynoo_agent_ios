@@ -93,23 +93,70 @@ enum ValidationMessages {
 }
 
 class Constant: NSObject {
-    
+     static let currency : String = "SAR".localized
+    //service
+     static let payment_method_list : String = "product_api/payment_page/"
+    static let addproductNew : String = "/services/agent_add_product/";
+   static let productlimit : String = "product_api/ProductLimit/";
+      static let productsellinfo : String = "product_api/sellProductInfo/";
+    static let productcode : String = "product_api/getProductCode/";
+      static let checkbar : String = "product_api/checkBarcode/";
+     static let storepay : String = "product_api/storePaymentList/";
+     static let editproductNew : String = "services/agent_edit_product/";
+    static let productdetailnew : String = "product_api/detailProduct/";
+    static let Branch_List : String = "businessapi/v2/branchlist/";
+    static let addfilternew : String = "product_api/addFilter/";
+     static let filterlistnew : String = "product_api/filterList/";
+     static let ptatformList: String = "businessapi/v2/platform_type/"
+    static let displayTYpe: String = "businessapi/v2/time_display_type/"
+       static let uploadBranchImage: String = "businessapi/v2/uploadimage/"
+         static let uploadgalleryImage: String = "product_api/uploadGalleryImages/"
+       static let uploadbranchgalleryImage: String = "businessapi/v2/upload_fynoo_gallery_images/"
+         static let pdfupload : String = "product_api/uploadDocument/";
+       static let showimglist: String = "businessapi/v2/uploaded_images_list/"
+       static let contentname : String = "common/get_content_name/";
+     static let AddBranch : String = "businessapi/v2/addbranch/";
+     static let addbranch : String = "services/agent_create_branch/";
+      static let addbranchlogo : String = "businessapi/v2/add_branch_logo/";
+     static let deleteImg : String = "businessapi/v2/deleteimage/";
+     static let branchdetaillist : String = "businessapi/v2/branchdetailview/";
+      static let descriptionVal : String = "businessapi/v2/branch_desc_limit/";
+     static let AddressType_List : String = "BO/addresstypelist/";
+    static let branchMultipleImageType : String = "businessapi/v2/upload_branch_multiple_image/";
+       static let branchStoreSave : String = "businessapi/v2/update_branch_store_image/"
+     static let BusinessType_List : String = "BO/businessTypeList/";
+     static let MAllMarket_List : String = "businessapi/v1/mallmarketlist/";
     static let UpdateProfile_Image : String = "agentapis/v2/update_profile_photo/";
+    
+    //      static var BASE_URL : String = "http://43.241.61.141:9003/"
+    //  static var BASE_URL : String = "http://43.241.61.141:9005/"
 
+    static let getStockDataNew: String = "product_api/getStockData/"
+       static let updateStockData: String = "product_api/updateStock/"
+     static let updateBranch : String = "services/agent_create_branch/";
+    // business gallery
+    static let uploadGalleryImg : String = "gallery/business_gallery/"
+       static let businessGalleryList: String = "gallery/business_gallery_list/"
+       static let deleteBusinessGallery: String = "gallery/business_gallery_delete/"
+       static let filterGallery: String = "gallery/business_gallery_filter/"
+       static let filterList: String = "gallery/bo_agent_list/"
+    
+    
 //      static var BASE_URL : String = "http://43.241.61.141:9003/"
       //  static var BASE_URL : String = "http://43.241.61.141:9005/"
-    static let vatlengthlist: String = "product_api/getVatLength/"
 
-    static let Country_List : String = "common/getCountry/";
-      static let City_List : String = "common/getCity/";
-      static let Bank_List : String = "businessapi/v2/bank_list/";
-      static let Education_List : String = "businessapi/v3/education_list/";
-      static let Service_List : String = "agentapi/v1/agentservices/";
-      static let bankIdentifier_List : String = "businessapi/v2/search_iban_number/";
-     static var BASE_URL : String = "http://61.95.220.248:9092/"
-//      static var BASE_URL : String = "http://61.95.220.248:9095/"  //CLIENT URL FOR NOW
+    static let vatlengthlist: String = "product_api/getVatLength/"
     
- 
+    static let Country_List : String = "common/getCountry/";
+    static let City_List : String = "common/getCity/";
+    static let Bank_List : String = "businessapi/v2/bank_list/";
+    static let Education_List : String = "businessapi/v3/education_list/";
+    static let Service_List : String = "agentapi/v1/agentservices/";
+    static let bankIdentifier_List : String = "businessapi/v2/search_iban_number/";
+//         static var BASE_URL : String = "http://61.95.220.248:9092/"
+    //      static var BASE_URL : String = "http://61.95.220.248:9095/"  //CLIENT URL FOR NOW
+    static var BASE_URL : String = "https://dev.fynoo.com:8001/"
+    
     
     //      static var BASE_URL : String = "http://43.241.61.141:9003/"
     //  static var BASE_URL : String = "http://43.241.61.141:9005/"
@@ -123,7 +170,7 @@ class Constant: NSObject {
     static let get_user_type: String = "customerapi/v2/get_user_type/"
     static let agent_dashboard: String = "agentapis/v2/agent_dashboard/"
     static let add_services: String = "agentapis/v2/add_services/"
-  //  static let UpdateProfile_Image : String = "businessapi/v1/ChaneProfileImage/";
+    //  static let UpdateProfile_Image : String = "businessapi/v1/ChaneProfileImage/";
     static let activate_services: String = "agentapis/v2/activate_services/"
     static let deactivate_services: String = "agentapis/v2/deactivate_services/"
     
@@ -133,9 +180,9 @@ class Constant: NSObject {
     
     static let upload_file : String = "businessapi/v2/uploadimage/";
     static let vatInfo_Data : String = "product_api/getVatLength/";
-     static let IBANLengthInfo_Data : String = "agentapi/v1/get_iban_length/";
+    static let IBANLengthInfo_Data : String = "agentapi/v1/get_iban_length/";
     static let language_List : String = "agentapi/v1/agent_language_list/";
-     static let saveSelected_Language : String = "agentapi/v1/save_language/";
+    static let saveSelected_Language : String = "agentapi/v1/save_language/";
     
     // MARK: - COLORS AND FONTS
     static let Green_TEXT_COLOR = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
@@ -148,7 +195,9 @@ class Constant: NSObject {
 
 enum Service {
     
-    
+    static let selectCategory = Constant.BASE_URL + "customerapi/v1/categorylist/"
+       static let selectSubCategory = Constant.BASE_URL + "customerapi/v1/subcategorylist/"
+       
     static let deactivateService = Constant.BASE_URL + "agentapis/v2/deactivate_services/"
     static let saveLanguage = Constant.BASE_URL + "agentapi/v1/save_language/"
     static let activateService = Constant.BASE_URL + "agentapis/v2/activate_services/"
@@ -224,8 +273,25 @@ enum Authentication {
     static let editDiscountOnProduct = Constant.BASE_URL +  "businessapi/v3/BoToCustomerDiscountEdit/"
     
     
+}
+
+ // dataEntryModule APIs
+enum dataEntryModuleApi {
     
+     static let agentServicesOrder_list : String =  Constant.BASE_URL + "services/agent_data_entry_services/"
+     static let serviceType_list : String =  Constant.BASE_URL + "services/add_new_order_page/"
+     static let branchName_list : String =   Constant.BASE_URL + "services/bo_branch_list/"
+     static let save_newDataEntry : String =   Constant.BASE_URL + "services/agent_accept_des/"
+     static let newDataEntry_orderSummery : String =   Constant.BASE_URL + "/services/des_order_summary/"
+     static let dataEntryCancel_Reason : String =   Constant.BASE_URL + "services/data_entry_cancel_reasons/"
+     static let cancelDataEntry_BO : String =   Constant.BASE_URL + "services/agent_reject_service_order/"
+    static let orderDataEntry_service : String =   Constant.BASE_URL + "services/bo_des_place_order/"
+    static let DataEntry_Detail : String =   Constant.BASE_URL + "services/agent_service_detail/"
     
+    static let DataEntry_Agent_StartWork : String =   Constant.BASE_URL + "services/agent_start_data_entry/"
+    static let DataEntry_Agent_WorkConfirmation : String =   Constant.BASE_URL + "services/agent_submit_data_entry/"
+     static let DataEntry_serviceType : String =   Constant.BASE_URL + "services/bo_agent_data_entry_items/"
+     static let DataEntry_agentRating : String =   Constant.BASE_URL + "services/add_agent_bo_rating/"
     
 
     

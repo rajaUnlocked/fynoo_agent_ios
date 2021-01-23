@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SendForAPProvalTableViewCell" rowHeight="120" id="KGk-i7-Jjw" customClass="SendForAPProvalTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="333" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="333" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bY1-AL-e2A">
+                        <rect key="frame" x="0.0" y="0.0" width="333" height="120"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGx-Rd-TXp">
+                                <rect key="frame" x="0.0" y="0.0" width="333" height="5"/>
+                                <color key="backgroundColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="8Uw-gM-1p0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <color key="highlightedColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AtN-9F-svw">
+                                <rect key="frame" x="113" y="35" width="200" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="gCT-Hn-QoR"/>
+                                    <constraint firstAttribute="height" constant="24" id="x03-TM-HCq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <state key="normal" title="Update and send For approval">
+                                    <color key="titleColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="AtN-9F-svw" firstAttribute="top" secondItem="EGx-Rd-TXp" secondAttribute="bottom" constant="30" id="NsK-pE-YT9"/>
+                            <constraint firstItem="EGx-Rd-TXp" firstAttribute="leading" secondItem="bY1-AL-e2A" secondAttribute="leading" id="RAY-29-0eQ"/>
+                            <constraint firstAttribute="trailing" secondItem="EGx-Rd-TXp" secondAttribute="trailing" id="g19-Qg-gEx"/>
+                            <constraint firstItem="EGx-Rd-TXp" firstAttribute="top" secondItem="bY1-AL-e2A" secondAttribute="top" id="kQV-QO-XpA"/>
+                            <constraint firstAttribute="trailing" secondItem="AtN-9F-svw" secondAttribute="trailing" constant="20" id="vVG-nU-zfh"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="bY1-AL-e2A" secondAttribute="trailing" id="J7V-c2-aeA"/>
+                    <constraint firstAttribute="bottom" secondItem="bY1-AL-e2A" secondAttribute="bottom" id="Te0-r6-rhQ"/>
+                    <constraint firstItem="bY1-AL-e2A" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ay0-Gh-XS9"/>
+                    <constraint firstItem="bY1-AL-e2A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="tSK-1f-VoO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="approvalbtn" destination="AtN-9F-svw" id="Npp-31-xF4"/>
+            </connections>
+            <point key="canvasLocation" x="128.2608695652174" y="79.017857142857139"/>
+        </tableViewCell>
+    </objects>
+</document>

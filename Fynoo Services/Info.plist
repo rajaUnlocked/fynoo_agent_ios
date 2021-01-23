@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -27,6 +29,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>access camera to upload your picture</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>access location to show navigation from your current location and business owner branch</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>access your gallery to upload your picture</string>
 	<key>UIAppFonts</key>

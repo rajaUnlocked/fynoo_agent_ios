@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DataEntryItemEntryTableViewCell" customModule="Fynoo_Services" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="415" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="415" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AKT-BI-beu">
+                        <rect key="frame" x="0.0" y="0.0" width="415" height="50"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1U-EM-kJG">
+                                <rect key="frame" x="15" y="15" width="317" height="35"/>
+                                <subviews>
+                                    <textField opaque="NO" tag="1008" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EXR-Ea-Zjz">
+                                        <rect key="frame" x="0.0" y="0.0" width="317" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="pxh-Hw-0Es"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="-1" id="Ow3-Rv-teV"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="00x-fC-ed9"/>
+                                    <constraint firstItem="EXR-Ea-Zjz" firstAttribute="top" secondItem="H1U-EM-kJG" secondAttribute="top" id="2w5-Ju-bKI"/>
+                                    <constraint firstItem="EXR-Ea-Zjz" firstAttribute="leading" secondItem="H1U-EM-kJG" secondAttribute="leading" id="NiP-sz-Oxb"/>
+                                    <constraint firstAttribute="trailing" secondItem="EXR-Ea-Zjz" secondAttribute="trailing" id="jVB-mX-uLT"/>
+                                    <constraint firstAttribute="bottom" secondItem="EXR-Ea-Zjz" secondAttribute="bottom" id="r4n-Pr-RG9"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.40000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.4392156862745098" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbH-yr-Vd4">
+                                <rect key="frame" x="342" y="15" width="58" height="35"/>
+                                <subviews>
+                                    <textField opaque="NO" tag="1008" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Qty" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3it-5c-En8">
+                                        <rect key="frame" x="0.0" y="0.0" width="58" height="35"/>
+                                        <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="-1" id="7no-TO-H3c"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="3it-5c-En8" firstAttribute="leading" secondItem="qbH-yr-Vd4" secondAttribute="leading" id="2F4-fL-Hh7"/>
+                                    <constraint firstAttribute="width" constant="58" id="95i-L9-oK3"/>
+                                    <constraint firstAttribute="bottom" secondItem="3it-5c-En8" secondAttribute="bottom" id="KfS-cl-cT9"/>
+                                    <constraint firstAttribute="trailing" secondItem="3it-5c-En8" secondAttribute="trailing" id="TDB-at-BST"/>
+                                    <constraint firstAttribute="height" constant="35" id="UtS-bn-wuC"/>
+                                    <constraint firstItem="3it-5c-En8" firstAttribute="top" secondItem="qbH-yr-Vd4" secondAttribute="top" id="dnU-Le-dZI"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.40000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="qbH-yr-Vd4" secondAttribute="bottom" id="Fav-Y4-1dL"/>
+                            <constraint firstItem="qbH-yr-Vd4" firstAttribute="leading" secondItem="H1U-EM-kJG" secondAttribute="trailing" constant="10" id="Gmt-IK-OVq"/>
+                            <constraint firstAttribute="bottom" secondItem="H1U-EM-kJG" secondAttribute="bottom" id="HgN-Ic-brz"/>
+                            <constraint firstItem="H1U-EM-kJG" firstAttribute="leading" secondItem="AKT-BI-beu" secondAttribute="leading" constant="15" id="fvp-dN-2NI"/>
+                            <constraint firstAttribute="trailing" secondItem="qbH-yr-Vd4" secondAttribute="trailing" constant="15" id="i8z-Uc-R1b"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="AKT-BI-beu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HOC-F1-PPJ"/>
+                    <constraint firstAttribute="trailing" secondItem="AKT-BI-beu" secondAttribute="trailing" id="fls-Dp-u21"/>
+                    <constraint firstItem="AKT-BI-beu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="oLh-Bt-Yfj"/>
+                    <constraint firstAttribute="bottom" secondItem="AKT-BI-beu" secondAttribute="bottom" id="uZx-IE-DD1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="entryItemView" destination="H1U-EM-kJG" id="ibE-oJ-TKb"/>
+                <outlet property="itemNameTxtFld" destination="EXR-Ea-Zjz" id="UCK-EA-1Wg"/>
+                <outlet property="quantityTxtFld" destination="3it-5c-En8" id="sLC-4D-1zS"/>
+                <outlet property="quantityView" destination="qbH-yr-Vd4" id="QEV-oB-Vha"/>
+            </connections>
+            <point key="canvasLocation" x="138.40579710144928" y="127.90178571428571"/>
+        </tableViewCell>
+    </objects>
+</document>

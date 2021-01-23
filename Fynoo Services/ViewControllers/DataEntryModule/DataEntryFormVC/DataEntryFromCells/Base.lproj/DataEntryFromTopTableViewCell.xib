@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DataEntryFromTopTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dataEntry_symbol" translatesAutoresizingMaskIntoConstraints="NO" id="Tuy-rC-bAw">
+                        <rect key="frame" x="15" y="11" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="22" id="HSj-W6-83f"/>
+                            <constraint firstAttribute="height" constant="22" id="ZKe-VG-W1A"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="106" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Entry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJ1-Eh-Eei">
+                        <rect key="frame" x="47" y="12.5" width="79.5" height="19"/>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.22220000624656677" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWX-wY-3uI">
+                        <rect key="frame" x="0.0" y="38.5" width="320" height="0.5"/>
+                        <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="3m4-dl-tGc"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FSJ-Wh-c8b">
+                        <rect key="frame" x="0.0" y="42" width="320" height="2"/>
+                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="cbd-hW-Oq1"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Tuy-rC-bAw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="0s2-7r-za6"/>
+                    <constraint firstAttribute="bottom" secondItem="FSJ-Wh-c8b" secondAttribute="bottom" id="L4H-A7-eog"/>
+                    <constraint firstItem="FSJ-Wh-c8b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="PEg-YI-bo6"/>
+                    <constraint firstItem="cJ1-Eh-Eei" firstAttribute="leading" secondItem="Tuy-rC-bAw" secondAttribute="trailing" constant="10" id="Tte-mW-4rL"/>
+                    <constraint firstItem="cJ1-Eh-Eei" firstAttribute="centerY" secondItem="Tuy-rC-bAw" secondAttribute="centerY" id="ZYs-IP-qLW"/>
+                    <constraint firstItem="wWX-wY-3uI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dii-s2-b65"/>
+                    <constraint firstAttribute="trailing" secondItem="FSJ-Wh-c8b" secondAttribute="trailing" id="gJ6-7W-9xj"/>
+                    <constraint firstItem="FSJ-Wh-c8b" firstAttribute="top" secondItem="wWX-wY-3uI" secondAttribute="bottom" constant="3" id="qMF-7x-isS"/>
+                    <constraint firstAttribute="trailing" secondItem="wWX-wY-3uI" secondAttribute="trailing" id="vde-zC-0xP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="Tuy-rC-bAw" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="o6L-28-syK"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="textLbl" destination="cJ1-Eh-Eei" id="rcr-Ue-9CW"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="127.90178571428571"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="dataEntry_symbol" width="300" height="300"/>
+    </resources>
+</document>

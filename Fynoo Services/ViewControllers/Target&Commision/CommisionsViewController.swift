@@ -37,7 +37,7 @@ var targetmodel = TargetModel()
  func registernibs()
  {
  tabvw.register(UINib(nibName: "TargetprogressTableViewCell", bundle: nil), forCellReuseIdentifier: "TargetprogressTableViewCell")
-    tabvw.register(UINib(nibName: "DescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionTableViewCell")
+    tabvw.register(UINib(nibName: "DescriptionTableViewCells", bundle: nil), forCellReuseIdentifier: "DescriptionTableViewCells")
     tabvw.register(UINib(nibName: "ServiceListTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceListTableViewCell")
     
     }
@@ -79,14 +79,14 @@ extension CommisionsViewController:UITableViewDataSource,UITableViewDelegate
             return cell
         }
         else if indexPath.row == 1{
-            let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell", for: indexPath) as! DescriptionTableViewCell
+            let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCells", for: indexPath) as! DescriptionTableViewCells
             cell.toplbl.text = "Commission"
             cell.topdescripConst.constant = -8
             cell.descriplbl.text = self.commisionlist?.data?.top_content ?? ""
             return cell
         }
         else if indexPath.row == (self.commisionlist?.data?.services?.count ?? 0) + 2{
-                   let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell", for: indexPath) as! DescriptionTableViewCell
+                   let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCells", for: indexPath) as! DescriptionTableViewCells
              cell.toplbl.text = "Note:"
                cell.topdescripConst.constant = 0
              cell.descriplbl.text = self.commisionlist?.data?.bottom_content ?? ""
