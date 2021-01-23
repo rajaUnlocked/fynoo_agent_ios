@@ -42,8 +42,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
 //         let vc = CompanyRegViewController(nibName: "CompanyRegViewController", bundle: nil)
-//       let vc = BasedUrlViewController(nibName: "BasedUrlViewController", bundle: nil)
-        let vc = SplashAnimatedViewController(nibName: "SplashAnimatedViewController", bundle: nil)
+       let vc = BasedUrlViewController(nibName: "BasedUrlViewController", bundle: nil)
+//        let vc = SplashAnimatedViewController(nibName: "SplashAnimatedViewController", bundle: nil)
         nav = UINavigationController.init(rootViewController: vc)
         IQKeyboardManager.shared.enable = true
         nav.interactivePopGestureRecognizer?.isEnabled = true
@@ -107,9 +107,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
+
+
+
+
+
+
 
 extension UIImage {
     func makeImageWithColorAndSize(color: UIColor, size: CGSize) -> UIImage {
@@ -121,3 +125,7 @@ extension UIImage {
         return image!
     }
 }
+
+
+
+
