@@ -111,6 +111,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 
+
+
 extension UIImage {
     func makeImageWithColorAndSize(color: UIColor, size: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
