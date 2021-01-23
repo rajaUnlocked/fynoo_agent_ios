@@ -124,7 +124,7 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
      let typeData = serviceTypeList?.data?.data_entry_lines?[indexPath.row]
         
         if typeData?.type_name == "Product" {
-            if typeData?.product_id ?? 0 > 0
+            if (typeData?.product_id ?? 0) > 0
             {
                         ProductModel.shared.remove()
                  Singleton.shared.setBoId(BoId: self.boID)
@@ -151,7 +151,7 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
             }
             
         }   else if typeData?.type_name == "Branch" {
-            if typeData?.branch_id ?? 0 > 0
+            if (typeData?.branch_id ?? 0) > 0
             {
                 AddBranch.shared.removeall()
                  Singleton.shared.setBoId(BoId: self.boID)
@@ -161,6 +161,7 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
                           if success {
                     ModalClass.stopLoading()
                         let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
+                            vc.serviceid = self.serviceID
                     self.navigationController?.pushViewController(vc, animated: true)
                           }
                       }
@@ -170,6 +171,7 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
                  AddBranch.shared.removeall()
             let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
             Singleton.shared.setBoId(BoId: self.boID)
+                 vc.serviceid = self.serviceID
             self.navigationController?.pushViewController(vc, animated: true)
             }
         }

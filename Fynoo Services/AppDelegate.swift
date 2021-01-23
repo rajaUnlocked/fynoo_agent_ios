@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-     
         GMSServices.provideAPIKey("AIzaSyDGzVH50GxKpAAU69gcux1_VMd45G1gJxc")
         GMSPlacesClient.provideAPIKey("AIzaSyDGzVH50GxKpAAU69gcux1_VMd45G1gJxc")
         let barColor: UIColor =  _ColorLiteralType(red: 0.9843137255, green: 0.9843137255, blue: 0.9843137255, alpha: 1)
