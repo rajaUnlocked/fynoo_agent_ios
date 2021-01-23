@@ -558,6 +558,7 @@ class AddProductModel: NSObject {
         {
         str = "\(Constant.BASE_URL)\(Constant.editproductNew)"
         }
+        
        
         
         var parameters =

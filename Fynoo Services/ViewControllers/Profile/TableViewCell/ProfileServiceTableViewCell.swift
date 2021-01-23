@@ -45,7 +45,9 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
     func selectedCountryCode(countryCode: NSMutableDictionary) {
         
     }
-    
+    func selectetBranchMethod(BranchDict : NSMutableDictionary){
+        
+    }
   
     
     @IBOutlet weak var collectionView: UICollectionView!

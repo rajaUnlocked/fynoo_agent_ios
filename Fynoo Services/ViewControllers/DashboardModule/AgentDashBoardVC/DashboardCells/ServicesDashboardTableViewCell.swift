@@ -19,6 +19,7 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
     weak var delegate: ServicesDashboardTableViewCellDelegate?
     @IBOutlet weak var collectionVw: UICollectionView!
     var serviceArr = NSMutableArray()
+    var parent = UIViewController()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,13 +51,22 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             
             let opt = "\((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "is_opt") as! NSNumber)"
-            
+        
+             let serviceCode = ((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_code") as! NSString) as String
+        
             if Int(opt) == 2 {
                
                 let nameStr = ((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_name") as! NSString) as String
                 let idInt = Int((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber)
                 self.delegate?.addServiceClickedHome(id: idInt, name: nameStr,index: indexPath.item)
-            }
+            }else if serviceCode == "DATAENTRY" {
+                let vc = DataEntryListingViewController()
+                parent.navigationController?.pushViewController(vc, animated: true)
+                
+        }else if serviceCode == "DELIVERY" {
+                let vc = AgentDeliveryViewController()
+                parent.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -73,6 +83,7 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
     }
 
     func categoryCell(index : IndexPath) -> UICollectionViewCell {
+        
     let cell = collectionVw.dequeueReusableCell(withReuseIdentifier: "ServiceSingleCollectionViewCell", for: index) as! ServiceSingleCollectionViewCell
         
         cell.nameLbl.text = "  \((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "service_name") as! String)"

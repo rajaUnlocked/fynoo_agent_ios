@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "dataEntry_GiveRatings.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "dataEntry_GiveRatings@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "dataEntry_GiveRatings@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

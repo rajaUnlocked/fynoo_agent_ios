@@ -16,6 +16,7 @@
        
         
         @IBOutlet weak var backNewOutlet: UIButton!
+      var serviceid = ""
         var isSubcription = false
         var isActive = 0
         var branchlimit = "0"
@@ -657,7 +658,7 @@
                
               
                     ModalClass.startLoading(self.view)
-                
+                addbranch.serviceId = serviceid
                     addbranch.getBranch { (success, response) in
                         ModalClass.stopLoading()
                         if success

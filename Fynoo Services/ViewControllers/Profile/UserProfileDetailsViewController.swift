@@ -112,82 +112,82 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
         
         return page.thumbnail(of: screenSize, for: .mediaBox)
     }
-    @objc func saveChange(){
-        
-        
-        var ACTIVATION = ""
-        if agentInfo.serviceArr.count > 0
-        {
-            ACTIVATION.removeAll()
-            for item in agentInfo.serviceArr{
-                ACTIVATION = "\(item),\(ACTIVATION)"
-            }
-            ACTIVATION.removeLast()
-        }
-        let split = agentInfo.maroof.split(separator: "/")
-             print(split)
-             var last  = String(split.suffix(1).joined(separator: [" "]))
-             print(last)
+    @objc func saveChange() {
             
-        var isvatUpload = 0
-        if pdfVat != agentInfo.vatCertificate{
-            isvatUpload = 1
-        }
-        agentInfo.vatNo = agentInfo.vatNo.replacingOccurrences(of: " ", with: "")
-        
-            print(ACTIVATION)
-        let mobile = agentInfo.mobileNo.replacingOccurrences(of: " ", with: "")
-        let phone = agentInfo.phoneNo.replacingOccurrences(of: " ", with: "")
-        
-        if agentInfo.dob != ""{
-            print(agentInfo.dob,"date")
             
-            let inputFormatter = DateFormatter()
-            inputFormatter.dateFormat = "MMM dd,yyyy"
-
-            let outputFormatter = DateFormatter()
-            outputFormatter.dateFormat = "YYYY-MM-dd"
-
-            let showDate = inputFormatter.date(from: agentInfo.dob)
-            agentInfo.dob = outputFormatter.string(from: showDate!)
-            
-            print(agentInfo.dob,"vhdfbjh")
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-//            dateFormatter.dateFormat = "yyyy-MM-dd"
-//            let date = dateFormatter.date(from:agentInfo.dob)!
-            
-        }
-        var name = ""
-        if userType == "AC"{
-            name = agentInfo.businessName
-        }else{
-            name = agentInfo.name
-        }
-        let parameter = ["user_id":"\(Singleton.shared.getUserId())","lang_code":"EN","user_type":"\(userType)","service_id":ACTIVATION,"name":name,"email":agentInfo.Email,"country_id":agentInfo.countryId,"dob":self.agentInfo.dob,"city_id":agentInfo.cityId,"mobile_code":agentInfo.mobileCode,"mobile_number":mobile,"phone_code":agentInfo.phCode,"phone_number":phone,"maroof_link":last,"bank_details_id":agentInfo.bankId,"bank_id":agentInfo.bankId,"bank_name":agentInfo.bankname,"card_holder_name":agentInfo.cardHolderName,"iban_no":agentInfo.iban,"vat_no":agentInfo.vatNo,"password":"","education_id":agentInfo.educationId,"major_id":agentInfo.majorId,"is_vat_upload":"\(isvatUpload)","gender":agentInfo.gender] as [String : Any]
-        
-        print(parameter)
-        
-        
-        ModalClass.startLoading(self.view)
-        ServerCalls.PdfFileUpload(inputUrl: Service.updateProfile, parameters: parameter, pdfname: "vat_certificate", pdfurl: pdfVat) { (response, success, resp) in
-            ModalClass.stopLoading()
-            if success{
-                if let responses  = response as? NSDictionary{
-                    let msg = responses.object(forKey: "error_description") as! String
-                    ModalController.showSuccessCustomAlertWith(title: "", msg: msg)
+            var ACTIVATION = ""
+            if agentInfo.serviceArr.count > 0
+            {
+                ACTIVATION.removeAll()
+                for item in agentInfo.serviceArr{
+                    ACTIVATION = "\(item),\(ACTIVATION)"
                 }
-                self.isEdit = false
-                self.tableVw.reloadData()
-                print(response)
+                ACTIVATION.removeLast()
+            }
+            let split = agentInfo.maroof.split(separator: "/")
+                 print(split)
+                 var last  = String(split.suffix(1).joined(separator: [" "]))
+                 print(last)
+                
+            var isvatUpload = 0
+            if pdfVat != agentInfo.vatCertificate{
+                isvatUpload = 1
+            }
+            agentInfo.vatNo = agentInfo.vatNo.replacingOccurrences(of: " ", with: "")
+            
+                print(ACTIVATION)
+            let mobile = agentInfo.mobileNo.replacingOccurrences(of: " ", with: "")
+            let phone = agentInfo.phoneNo.replacingOccurrences(of: " ", with: "")
+            
+            if agentInfo.dob != ""{
+                print(agentInfo.dob,"date")
+                
+                let inputFormatter = DateFormatter()
+                inputFormatter.dateFormat = "MMM dd,yyyy"
+
+                let outputFormatter = DateFormatter()
+                outputFormatter.dateFormat = "YYYY-MM-dd"
+
+                let showDate = inputFormatter.date(from: agentInfo.dob)
+                agentInfo.dob = outputFormatter.string(from: showDate!)
+                
+                print(agentInfo.dob,"vhdfbjh")
+    //            let dateFormatter = DateFormatter()
+    //            dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+    //            dateFormatter.dateFormat = "yyyy-MM-dd"
+    //            let date = dateFormatter.date(from:agentInfo.dob)!
+                
+            }
+            var name = ""
+            if userType == "AC"{
+                name = agentInfo.businessName
             }else{
-                if let responses  = response as? NSDictionary{
-                    let msg = responses.object(forKey: "error_description") as! String
-                    ModalController.showNegativeCustomAlertWith(title: "", msg: msg)
+                name = agentInfo.name
+            }
+            let parameter = ["user_id":"\(Singleton.shared.getUserId())","lang_code":"EN","user_type":"\(userType)","service_id":ACTIVATION,"name":name,"email":agentInfo.Email,"country_id":agentInfo.countryId,"dob":self.agentInfo.dob,"city_id":agentInfo.cityId,"mobile_code":agentInfo.mobileCode,"mobile_number":mobile,"phone_code":agentInfo.phCode,"phone_number":phone,"maroof_link":last,"bank_details_id":agentInfo.bankId,"bank_id":agentInfo.bankId,"bank_name":agentInfo.bankname,"card_holder_name":agentInfo.cardHolderName,"iban_no":agentInfo.iban,"vat_no":agentInfo.vatNo,"password":"","education_id":agentInfo.educationId,"major_id":agentInfo.majorId,"is_vat_upload":"\(isvatUpload)","gender":agentInfo.gender] as [String : Any]
+            
+            print(parameter)
+            
+            
+            ModalClass.startLoading(self.view)
+            ServerCalls.PdfFileUpload(inputUrl: Service.updateProfile, parameters: parameter, pdfname: "vat_certificate", pdfurl: pdfVat) { (response, success, resp) in
+                ModalClass.stopLoading()
+                if success{
+                    if let responses  = response as? NSDictionary{
+                        let msg = responses.object(forKey: "error_description") as! String
+                        ModalController.showSuccessCustomAlertWith(title: "", msg: msg)
+                    }
+                    self.isEdit = false
+                    self.tableVw.reloadData()
+                    print(response)
+                }else{
+                    if let responses  = response as? NSDictionary{
+                        let msg = responses.object(forKey: "error_description") as! String
+                        ModalController.showNegativeCustomAlertWith(title: "", msg: msg)
+                    }
                 }
             }
         }
-    }
     
     func getIbanLength(str:String){
         
@@ -1176,6 +1176,9 @@ extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
     }
     
     func selectetCourierCompanyMethod(courierCompanyDict: NSMutableDictionary) {
+        
+    }
+    func selectetBranchMethod(BranchDict : NSMutableDictionary){
         
     }
     

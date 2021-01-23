@@ -1048,4 +1048,13 @@
 "Manage Products"="إدارة المنتجات";
 "Product"="المنتج";
 
+// dataEntry
+
+"Order Summary" = "Order Summary";
+"Payment Method" = "Payment Method";
+"Give Ratings" = "Give Ratings";
+"Has the agent completed this work ?" = "Has the agent completed this work ?";
+"data entry" = "مدخل بيانات";
+"Are you sure you want accept the order?" = "Are you sure you want accept the order?";
+
 

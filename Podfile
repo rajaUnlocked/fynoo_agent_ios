@@ -32,9 +32,12 @@ pod 'Firebase/MLVisionAutoML'
 pod 'DatePickerDialog'
 pod 'Firebase/Analytics'
 pod 'Firebase/Messaging'
-pod 'GoogleMaps'
-pod 'GooglePlaces'
+pod 'GoogleMaps', '~>3.7.0'
+pod 'GooglePlaces', '~>3.7.0'
 pod "BSImagePicker"
+#pod 'goSellSDK'
+
+
   target 'Fynoo ServicesTests' do
     inherit! :search_paths
     # Pods for testing

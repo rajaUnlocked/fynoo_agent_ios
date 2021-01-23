@@ -350,6 +350,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
         
     }
     func profileImageSelected(){
+        
         let vc = DiscountTypePopUpViewController(nibName: "DiscountTypePopUpViewController", bundle: nil)
         vc.delegate = self
         let popupController = MTPopupController(rootViewController: vc)
@@ -415,7 +416,9 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
     }
     func selectedCurrency(currency: NSMutableDictionary) {
     }
-    
+    func selectetBranchMethod(BranchDict : NSMutableDictionary){
+        
+    }
     func selectedBankMethod(bankDict: NSMutableDictionary) {
         self.selectedBankDict = bankDict
         self.tabView.reloadData()

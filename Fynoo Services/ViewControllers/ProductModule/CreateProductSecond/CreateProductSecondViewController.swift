@@ -1246,7 +1246,7 @@ pro.RetailReturnDays = ""
                             else
                             {
                                 ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
-//                                self.navigationController?.backToViewController(viewController: ProductListNewViewController.self)
+                               self.navigationController?.backToViewController(viewController: DataEntryTypelistingViewController.self)
                             }
                         }
                     }
@@ -1325,7 +1325,7 @@ pro.RetailReturnDays = ""
                             else
                             {
                                 ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
-//                                self.navigationController?.backToViewController(viewController: ProductListNewViewController.self)
+                                self.navigationController?.backToViewController(viewController: DataEntryTypelistingViewController.self)
                             }
                             
                         }
@@ -1393,7 +1393,7 @@ pro.RetailReturnDays = ""
 //                                    }
                                     else{
                                         ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
-//                                        self.navigationController?.backToViewController(viewController: ProductListNewViewController.self)
+                                      self.navigationController?.backToViewController(viewController: DataEntryTypelistingViewController.self)
                                     }
                                 }
                                 else
@@ -1419,7 +1419,7 @@ pro.RetailReturnDays = ""
                                     else
                                     {
                                         ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
-//                                        self.navigationController?.backToViewController(viewController: ProductListNewViewController.self)
+                                       self.navigationController?.backToViewController(viewController: DataEntryTypelistingViewController.self)
                                     }
                                 }
                                 
@@ -1530,7 +1530,7 @@ pro.RetailReturnDays = ""
                         {
                             self.editpronew = response
                             ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
-//                            self.navigationController?.backToViewController(viewController: ProductListNewViewController.self)
+                            self.navigationController?.backToViewController(viewController: DataEntryTypelistingViewController.self)
                         }
                     }
                 }
@@ -1565,7 +1565,7 @@ pro.RetailReturnDays = ""
         //                        }
                                 else{
                                     ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
-//                                    self.navigationController?.backToViewController(viewController: ProductListNewViewController.self)
+                                    self.navigationController?.backToViewController(viewController: DataEntryTypelistingViewController.self)
                                 }
                                 
                                 
@@ -1592,7 +1592,7 @@ pro.RetailReturnDays = ""
                                 else
                                 {
                                     ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
-//                                    self.navigationController?.backToViewController(viewController: ProductListNewViewController.self)
+                                   self.navigationController?.backToViewController(viewController: DataEntryTypelistingViewController.self)
                                 }
                             }
                             
@@ -1751,7 +1751,7 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
 //            self.navigationController?.backToViewController(viewController: BranchDetailNewViewController.self)
         }else{
             ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
-//            self.navigationController?.backToViewController(viewController: ProductListNewViewController.self)
+            self.navigationController?.backToViewController(viewController: DataEntryTypelistingViewController.self)
         }
         
     }

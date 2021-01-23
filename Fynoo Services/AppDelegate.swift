@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-     
         GMSServices.provideAPIKey("AIzaSyDGzVH50GxKpAAU69gcux1_VMd45G1gJxc")
         GMSPlacesClient.provideAPIKey("AIzaSyDGzVH50GxKpAAU69gcux1_VMd45G1gJxc")
         let barColor: UIColor =  _ColorLiteralType(red: 0.9843137255, green: 0.9843137255, blue: 0.9843137255, alpha: 1)
@@ -52,7 +51,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
 }
 

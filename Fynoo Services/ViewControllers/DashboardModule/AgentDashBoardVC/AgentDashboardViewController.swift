@@ -353,6 +353,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ServicesDashboardTableViewCell",for: index) as! ServicesDashboardTableViewCell
         cell.selectionStyle = .none
         cell.delegate = self
+        cell.parent = self
         cell.serviceArr = self.servicesArray
         cell.setupCollectionVw()
         cell.collectionVw.reloadData()
@@ -402,6 +403,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
     
     @IBAction func notificationBtnClicked(_ sender: Any) {
+        
 //        let vc = NotificationNewViewController(nibName: "NotificationNewViewController", bundle: nil)
 //        //vc.showBack = true
 //        self.navigationController?.pushViewController(vc, animated: true)

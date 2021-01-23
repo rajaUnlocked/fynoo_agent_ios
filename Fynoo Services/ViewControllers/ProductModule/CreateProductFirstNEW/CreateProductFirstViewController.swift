@@ -48,7 +48,6 @@ class CreateProductFirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Device Gallery".localized)
-        Singleton.shared.setBoId(BoId: "1159")
         self.navigationController?.isNavigationBarHidden = true
         productlimit_API()
              self.tabvw.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
@@ -269,10 +268,7 @@ class CreateProductFirstViewController: UIViewController {
     }
     @objc func saveClick(_ sender :UIButton)
     {
-        let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
-        self.navigationController?.pushViewController(vc, animated: true)
-        
-        
+     
         ProductModel.shared.isOnline = isOnline
         ProductModel.shared.isoffline = isStore
         
@@ -364,21 +360,11 @@ class CreateProductFirstViewController: UIViewController {
                     ModalClass.stopLoading()
                     self.editpronew = response
                     if success {
-                        if self.isPurchaseData
-                        {
-                    ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
-//                    self.navigationController?.backToViewController(viewController: ProductDataBankController.self)
+                  self.navigationController?.backToViewController(viewController: DataEntryTypelistingViewController.self)
                         }
-                        else
-                        {
-                        self.navigationController?.popViewController(animated: true)
-                        }
-                       
-                        
-                    }
                     else
                     {
-                        ModalController.showNegativeCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
+                 ModalController.showNegativeCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
                     }
                 }
             }
@@ -391,21 +377,12 @@ class CreateProductFirstViewController: UIViewController {
                                        if success
                                        {
                                            self.editpronew = response
-                                           if self.isPurchaseData
-                                           {
-                                           ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
-//                                            self.navigationController?.backToViewController(viewController: ProductDataBankController.self)
-                                           }
-                                           else
-                                           {
-                                         ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
-//                                           self.navigationController?.backToViewController(viewController: ProductListNewViewController.self)
-                                           }
+                                    
+                                        ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "");                                   self.navigationController?.backToViewController(viewController: DataEntryTypelistingViewController.self)
+                                           
                                            
                                        }
-                                   }
-               
-            }
+                                   } }
         }
         else{
             if ProductModel.shared.productId == ""

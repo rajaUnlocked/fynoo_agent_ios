@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DECancellationTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z26-ke-KEO">
+                        <rect key="frame" x="20" y="42" width="280" height="2"/>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="ZI2-XX-7LR"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MH-Ac-KAE">
+                        <rect key="frame" x="20" y="14" width="255" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="s4U-pi-ZgZ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vatUnselected" translatesAutoresizingMaskIntoConstraints="NO" id="OuL-wc-zK4">
+                        <rect key="frame" x="285" y="14.5" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="RNL-0K-eds"/>
+                            <constraint firstAttribute="height" constant="15" id="i06-zP-ELW"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="OuL-wc-zK4" firstAttribute="centerY" secondItem="8MH-Ac-KAE" secondAttribute="centerY" id="1ud-5y-vho"/>
+                    <constraint firstItem="8MH-Ac-KAE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6zx-qd-7vI"/>
+                    <constraint firstItem="8MH-Ac-KAE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Fxu-0n-8OS"/>
+                    <constraint firstAttribute="trailing" secondItem="Z26-ke-KEO" secondAttribute="trailing" constant="20" id="KNX-su-bgr"/>
+                    <constraint firstItem="OuL-wc-zK4" firstAttribute="leading" secondItem="8MH-Ac-KAE" secondAttribute="trailing" constant="10" id="mcI-yG-tdh"/>
+                    <constraint firstAttribute="bottom" secondItem="Z26-ke-KEO" secondAttribute="bottom" id="qLL-WF-pV4"/>
+                    <constraint firstAttribute="trailing" secondItem="OuL-wc-zK4" secondAttribute="trailing" constant="20" id="rbs-37-MVH"/>
+                    <constraint firstItem="Z26-ke-KEO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="zI7-hQ-mqW"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="SelctionImageView" destination="OuL-wc-zK4" id="Qna-CO-hvd"/>
+                <outlet property="cancelReasonLbl" destination="8MH-Ac-KAE" id="Vmf-Qf-KvF"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="122.54464285714285"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="vatUnselected" width="118" height="118"/>
+    </resources>
+</document>

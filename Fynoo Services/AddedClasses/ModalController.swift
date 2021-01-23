@@ -387,11 +387,16 @@ static func isStringValid(_ str: String?) -> Bool {
         }
         if let result =  str as? String {
             
-//            stringType = Double(result.floatValue)
+            stringType = Double(result) ?? 0.0
         }
         if let result =  str as? Float {
             
             stringType = Double(result)
+        }
+        if let result = str as? Int
+        {
+            return Double(result)
+            
         }
         return stringType
     }
