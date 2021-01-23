@@ -23,6 +23,7 @@ final class HeaderHeightSingleton {
     var Currency = "SAR".localized
     var longitude  = 0.0
     var latitude = 0.0
+    var address = ""
     var viewControl = UIViewController()
 }
 
