@@ -216,12 +216,6 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         }
         
         
-        
-        
-        
-        
-        
-        
         if indexPath.row == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "AgentDeliveryTableViewCell",for: indexPath) as! AgentDeliveryTableViewCell
               cell.clickservicedocument.addTarget(self, action: #selector(clickedservicedoc), for: .touchUpInside)
