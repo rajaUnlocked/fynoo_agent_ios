@@ -159,7 +159,7 @@ class AgentDeliveryViewController: UIViewController {
     }
 }
 
-extension AgentDeliveryViewController : UITableViewDataSource{
+extension AgentDeliveryViewController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -353,12 +353,10 @@ extension AgentDeliveryViewController : UITableViewDataSource{
         }
         
     }
-    
 }
 
-extension AgentDeliveryViewController : UITableViewDelegate{
-    
-    
+extension AgentDeliveryViewController : UITableViewDelegate {
+ 
     
 }
 
