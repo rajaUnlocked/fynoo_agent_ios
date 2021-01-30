@@ -144,6 +144,8 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
             }
             else
             {
+                
+                
             ProductModel.shared.remove()
             let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
             Singleton.shared.setBoId(BoId: self.boID)
