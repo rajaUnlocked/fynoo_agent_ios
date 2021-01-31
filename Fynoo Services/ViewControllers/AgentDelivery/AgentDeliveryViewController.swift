@@ -8,34 +8,69 @@
 
 import UIKit
 import ObjectMapper
-class AgentDeliveryViewController: UIViewController {
+class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var selectedVl = 1000
 
+    
+    var headerView1 : DataBankHeader? = nil
+    
+    @IBOutlet weak var deliveryDashboardHeightConstant: NSLayoutConstraint!
+    @IBOutlet weak var headerView: NavigationView!
+    @IBOutlet weak var backView: UIView!
+        
+    var selectedTab:String = "1"
+    var Index:Int = 0
     var deliverData : deliveryDashboard?
     var tripList : TripListInfo?
+    var serviceID:String = ""
+    
+      var tripListListArray:[triplist]?
+    var isMoreDataAvailable: Bool = false
+       var currentPageNumber: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView.separatorStyle = .none
+        
         tableView.register(UINib(nibName: "AgentDeliveryTableViewCell", bundle: nil), forCellReuseIdentifier: "AgentDeliveryTableViewCell");
         tableView.register(UINib(nibName: "TripAchievementViewCell", bundle: nil), forCellReuseIdentifier: "TripAchievementViewCell");
         tableView.register(UINib(nibName: "AgentServiceList", bundle: nil), forCellReuseIdentifier: "AgentServiceList");
-
-        getAgentData()
+        
+        isMoreDataAvailable = false
+        currentPageNumber = 0
         getTripData()
-        self.tableView.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
-
+        
+        getAgentData()
+        self.SetFont()
+        
         tableView.delegate=self
         tableView.dataSource=self
-        // Do any additional setup after loading the view.
+        
+        self.deliveryDashboardHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
+        self.headerView.titleHeader.text = "Delivery Services"
+        self.headerView.menuBtn.isHidden = false
+        self.headerView.viewControl = self
+        
+    }
+                    
+    func SetFont() {
+        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        
+        self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
+        
     }
 
     func activateService(){
         
         let str = Service.activateService
 
-        let param = ["user_id":"231","lang_code":"EN","services":"2"]
+        let param = ["user_id":Singleton.shared.getUserId(),
+                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
+                     "services":self.serviceID]
+        print("request:-", param)
         ServerCalls.postRequest(str, withParameters: param) { (response, success) in
             if success{
                  self.getAgentData()
@@ -50,8 +85,11 @@ class AgentDeliveryViewController: UIViewController {
     func deactivateService(){
         
         let str = Service.deactivateService
-
-        let param = ["user_id":"231","lang_code":"EN","services":"2"]
+        
+        let param = ["user_id":Singleton.shared.getUserId(),
+                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
+                     "services":self.serviceID]
+        print("request:-", param)
         ServerCalls.postRequest(str, withParameters: param) { (response, success) in
             if success{
                 print(response)
@@ -65,53 +103,92 @@ class AgentDeliveryViewController: UIViewController {
     
     
     func getAgentData(){
-        var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
-
-                              if userId == "0"{
-                                userId = ""
-
-                              }
         
-        let param = ["service_id":"2","user_id":userId,"lang_code":"en"]
+        var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
+        
+        if userId == "0"{
+            userId = ""
+            
+        }
+        let param = ["service_id":self.serviceID,
+                     "user_id":userId,
+                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
+        
+        print("request:-", param)
+        print("Url:-", Service.deliveryDashboard)
         ServerCalls.postRequest(Service.deliveryDashboard, withParameters: param) { (response, success) in
             if success{
-                print(response)
                 
                 if let body = response as? [String: Any] {
                     self.deliverData  = Mapper<deliveryDashboard>().map(JSON: body)
-
+                    
                     print(self.deliverData?.data?.agent_information?.del_service_document ?? "","del_service_document")
                     self.tableView.reloadData()
-                                      
+                    
                 }
             }
         }
     }
+    
     func getTripData(){
     
-        var TripId=0
-        if selectedVl == 1000{
-            TripId = 1
-        }else if selectedVl == 1001{
-            TripId = 2
-        }else{
-            TripId=3
-        }
-        let param = ["service_id":"2","user_id":"1060","lang_code":"en","tab_id":"\(TripId)","next_page_no":"0"]
+        let param = ["service_id":self.serviceID,
+                     "user_id":Singleton.shared.getUserId(),
+                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
+                     "tab_id": self.selectedTab,
+                     "next_page_no":currentPageNumber] as [String : Any]
+        
+         print("request:-", param)
+        print("Url:-", Service.tripList)
           ServerCalls.postRequest(Service.tripList, withParameters: param) { (response, success) in
-              if success{
-               //   print(response)
-                  if let body = response as? [String: Any] {
-                      self.tripList  = Mapper<TripListInfo>().map(JSON: body)
-
-                    self.tableView.reloadData()
+            if success{
+                //   print(response)
+                if let body = response as? [String: Any] {
+                    self.tripList  = Mapper<TripListInfo>().map(JSON: body)
+                    if self.currentPageNumber == 0 {
+                        self.tripListListArray?.removeAll()
+                    }
+                    if self.tripList?.data?.trip_list?.count ?? 0 > 0 {
+                        self.backView.isHidden = true
+                        
+                        guard let arr = self.tripList?.data?.trip_list as NSArray? else {
+                            
+                            self.isMoreDataAvailable = false
+                            self.tableView.reloadData()
+                            return
+                            
+                        }
+                        if let cont = self.tripListListArray {
+                            self.tripListListArray = cont + (self.tripList?.data?.trip_list)!
+                            
+                        }else{
+                            
+                            self.tripListListArray = self.tripList?.data?.trip_list!
+                            
+                        }
+                        if arr.count < 10 {
+                            self.isMoreDataAvailable = false
+                        }else{
+                            self.isMoreDataAvailable = true
+                        }
+                        
+                    }else{
+                        self.isMoreDataAvailable = false
+                        self.tripListListArray?.removeAll()
+                        self.backView.isHidden = false
+                    }
                     
-                      
-                  }
-              }
+                    self.tableView.reloadData()
+                }
+            }else{
+                ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.tripList?.error_description ?? "")")
+                self.backView.isHidden = false
+                self.currentPageNumber = 0
+                self.isMoreDataAvailable = false
+                self.tableView.reloadData()
+            }
           }
       }
-    
     
     @objc func editAmountClicked(){
         let vc = AddAmountViewController(nibName: "AddAmountViewController", bundle: nil)
@@ -157,6 +234,14 @@ class AgentDeliveryViewController: UIViewController {
         
         tableView.reloadData()
     }
+    func selecteIndex(_ sender: Any, selectedIndexID:String){
+        self.selectedTab = selectedIndexID
+        self.Index = Int(self.selectedTab)! - Int(1)
+        isMoreDataAvailable = false
+        currentPageNumber = 0
+        getTripData()
+        
+    }
 }
 
 extension AgentDeliveryViewController : UITableViewDataSource {
@@ -170,11 +255,15 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         if section == 0{
             return 2
         }else{
-            
-            guard let value =  (self.tripList?.data?.trip_list?.count) else {
-                return 0
+            if isMoreDataAvailable == true {
+                if let count = self.tripListListArray?.count {
+                    return count + 1
+                }else{
+                    return 0
+                }
+            }else{
+                return (tripListListArray?.count) ?? 0
             }
-            return value
         }
     }
     
@@ -183,9 +272,9 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         
         if indexPath.section == 0{
             if indexPath.row == 0{
-                return 300
+                return 340
             }else {
-                return 200
+                return 190
             }
         }
        else{
@@ -195,29 +284,14 @@ extension AgentDeliveryViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if indexPath.section == 1{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AgentServiceList",for: indexPath) as! AgentServiceList
-            
-            
-            if selectedVl == 1001{
-                cell.statusView.backgroundColor = #colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1)
+            if indexPath.row < (tripListListArray!.count) {
+                return deliveryServiceListCell(index: indexPath)
             }else{
-                cell.statusView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-
+                return self.loadingCell()
             }
-            cell.name.text = tripList?.data?.trip_list?[indexPath.row].name ?? ""
-            cell.orderId.text = "Order Id:\(tripList?.data?.trip_list?[indexPath.row].order_id ?? "")"
-            cell.date.text  = tripList?.data?.trip_list?[indexPath.row].order_date ?? ""
-            cell.address.text = "Address:\(tripList?.data?.trip_list?[indexPath.row].order_address ?? "")"
-            cell.price.text = tripList?.data?.trip_list?[indexPath.row].final_price ?? ""
-            cell.totalCount.text = "\(tripList?.data?.trip_list?[indexPath.row].order_qty ?? 0)"
-            cell.selectionStyle = .none
-            
-            return cell
-        }
-        
-        
-        
+        }else{
         if indexPath.row == 0{
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "AgentDeliveryTableViewCell",for: indexPath) as! AgentDeliveryTableViewCell
               cell.clickservicedocument.addTarget(self, action: #selector(clickedservicedoc), for: .touchUpInside)
             cell.switches.addTarget(self, action: #selector(switchClicked), for: .touchUpInside)
@@ -233,6 +307,10 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             cell.year.text = "\(deliverData?.data?.agent_information?.active_years ?? 0)"
             cell.earning.text = "\(deliverData?.data?.agent_information?.total_earnings ?? 0)"
             cell.cod.text = "\(deliverData?.data?.del_accept_limit?.today_cod ?? 0)"
+            cell.agentProfileImageView.sd_setImage(with: URL(string: deliverData?.data?.agent_information?.user_img ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+            cell.langugae.text = "\(deliverData?.data?.user_lang ?? "")"
+            
+            
             if deliverData?.data?.agent_information?.del_service_document_uploaded == 1{
                 cell.delivery.image = UIImage(named: "accepted_tick")
                 //pending
@@ -261,31 +339,62 @@ extension AgentDeliveryViewController : UITableViewDataSource {
               return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "TripAchievementViewCell",for: indexPath) as! TripAchievementViewCell
-      
-            
-            cell.excellentService.text = deliverData?.data?.agent_information?.trips_achievements?[0].trip_text
-            cell.excellentImg.sd_setImage(with: URL(string: deliverData?.data?.agent_information?.trips_achievements?[0].trip_icon ?? ""), placeholderImage: UIImage(named: "flag_placeholder.png"))
-            cell.excellentCount.text = "\(deliverData?.data?.agent_information?.trips_achievements?[0].trip_count ?? 0)"
-            
-            cell.attitudeName.text = deliverData?.data?.agent_information?.trips_achievements?[1].trip_text
-            cell.attitudeImg.sd_setImage(with: URL(string : deliverData?.data?.agent_information?.trips_achievements?[1].trip_icon ?? ""), placeholderImage: UIImage(named: "flag_placeholder.png"))
-            cell.attitudeCount.text = "\(deliverData?.data?.agent_information?.trips_achievements?[1].trip_count ?? 0)"
-//
-            cell.aboveLbl.text = deliverData?.data?.agent_information?.trips_achievements?[3].trip_text
-            cell.aboveImg.sd_setImage(with: URL(string: deliverData?.data?.agent_information?.trips_achievements?[3].trip_icon ?? ""), placeholderImage: UIImage(named: "flag_placeholder.png"))
-            cell.aboveCount.text = "\(deliverData?.data?.agent_information?.trips_achievements?[3].trip_count ?? 0)"
-//
-            cell.helpful.text = deliverData?.data?.agent_information?.trips_achievements?[2].trip_text
-            cell.helpfulImg.sd_setImage(with: URL(string: deliverData?.data?.agent_information?.trips_achievements?[2].trip_icon ?? ""), placeholderImage: UIImage(named: "flag_placeholder.png"))
-            cell.helpfulCount.text = "\(deliverData?.data?.agent_information?.trips_achievements?[2].trip_count ?? 0)"
-
-            
             cell.selectionStyle = .none
+            
+            cell.tripAchivementData = deliverData?.data?.agent_information?.trips_achievements
+            cell.collectionView.reloadData()
+            
             
             return cell
         }
-  
     }
+    }
+    
+    func deliveryServiceListCell(index : IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AgentServiceList", for: index) as! AgentServiceList
+        cell.selectionStyle = .none
+        
+        cell.name.text = tripListListArray?[index.row].cust_name ?? ""
+        cell.profileImageView.sd_setImage(with: URL(string: tripListListArray?[index.row].cust_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+        cell.avgRating.text = "\(tripListListArray?[index.row].avg_rating ?? "")"
+        cell.totalRate.text = "(\(tripListListArray?[index.row].total_rating ?? ""))"
+        cell.totalCount.text = "\(tripListListArray?[index.row].order_id ?? "")"
+        cell.orderId.text = "Order Id:\(tripListListArray?[index.row].order_id ?? "")"
+        cell.date.text  = tripListListArray?[index.row].order_date ?? ""
+        cell.address.text = "Address:\(tripListListArray?[index.row].address ?? "")"
+        cell.price.text = "SAR \(ModalController.toString(tripListListArray?[index.row].almost_total_price ?? 0.0 as Any))"
+        cell.walletIcon.sd_setImage(with: URL(string: tripListListArray?[index.row].payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+        
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
+           
+           if cell.tag == 999999 {
+               
+               currentPageNumber += 1
+               self.getTripData()
+           }
+       }
+    
+    func loadingCell() -> UITableViewCell {
+        
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        cell.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        cell.tag = 999999
+        cell.contentView.backgroundColor = UIColor.clear
+        cell.backgroundColor = cell.contentView.backgroundColor
+        activityIndicator.frame = CGRect(x: (UIScreen.main.bounds.size.width / 2) - 10, y: 12, width: 20, height: 20)
+        
+        return cell
+        
+        
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
           if section == 0{
               return 0
@@ -298,61 +407,19 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         if section == 0{
             return UIView()
         }else{
-            let view = DataBankHeader()
-            view.productDataBank.setTitle("Current", for: .normal)
-             view.purchasedProduct.setTitle("Next", for: .normal)
-            view.productDataSale.setTitle("Previous", for: .normal)
-         //   view.txtField.placeholder = "Search"
-            if selectedVl == 1000{
-                view.firstLbl.isHidden = false
-                view.secondLbl.isHidden = true
-                view.thirdLbl.isHidden = true
-                view.productDataBank.backgroundColor = UIColor.white
-                view.purchasedProduct.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
-                view.productDataSale.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
-                view.productDataBank.setTitleColor(#colorLiteral(red: 0.9098039216, green: 0.2941176471, blue: 0.3254901961, alpha: 1), for: .normal)
-                view.purchasedProduct.setTitleColor(#colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1), for: .normal)
-                view.productDataSale.setTitleColor(#colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1), for: .normal)
+            
+            if headerView1 == nil
+            {
                 
-            }else if selectedVl == 1001{
-                
-                view.firstLbl.isHidden = true
-                view.secondLbl.isHidden = false
-                view.thirdLbl.isHidden = true
-                view.productDataBank.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
-                view.purchasedProduct.backgroundColor = UIColor.white
-                view.productDataSale.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
-                view.productDataSale.setTitleColor(#colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1), for: .normal)
-                view.purchasedProduct.setTitleColor(#colorLiteral(red: 0.9098039216, green: 0.2941176471, blue: 0.3254901961, alpha: 1), for: .normal)
-                view.productDataBank.setTitleColor(#colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1), for: .normal)
-            }else{
-                view.firstLbl.isHidden = true
-                view.secondLbl.isHidden = true
-                view.thirdLbl.isHidden = false
-                view.productDataBank.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
-                view.purchasedProduct.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
-                view.productDataSale.backgroundColor = UIColor.white
-                view.productDataBank.setTitleColor(#colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1), for: .normal)
-                view.purchasedProduct.setTitleColor(#colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1), for: .normal)
-                view.productDataSale.setTitleColor(#colorLiteral(red: 0.9098039216, green: 0.2941176471, blue: 0.3254901961, alpha: 1), for: .normal)
+                headerView1 = DataBankHeader()
+
+                headerView1!.delegate = self
             }
-            view.productDataBank.tag = 1000
-            view.purchasedProduct.tag = 1001
-            view.productDataSale.tag = 1002
-            view.productDataBank.addTarget(self, action: #selector(segmentClicked(_:)), for: .touchUpInside)
-             view.purchasedProduct.addTarget(self, action: #selector(segmentClicked(_:)), for: .touchUpInside)
-                 view.productDataSale.addTarget(self, action: #selector(segmentClicked(_:)), for: .touchUpInside)
-            //view.txtField.addTarget(self, action: #selector(ProductDataBankController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-            //view.txtField.text = textSTR
-//            view.productDataBank.addTarget(self, action: #selector(productDataBank), for: .touchUpInside)
-//            view.purchasedProduct.addTarget(self, action: #selector(purchasedProductClicked), for: .touchUpInside)
-//            view.productDataSale.addTarget(self, action: #selector(productDataSale), for: .touchUpInside)
-         //   view.barcode.addTarget(self, action: #selector(barcodeClicked), for: .touchUpInside)
-          //  view.txtField.addTarget(self, action: #selector(ApplyCommissionViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+            headerView1!.selectedIndex = Index
+
+            return headerView1
             
-           // view.filter.addTarget(self, action: #selector(filterClicked), for: .touchUpInside)//
             
-            return view
         }
         
     }

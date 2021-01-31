@@ -230,7 +230,7 @@ class service_list_data : Mappable{
 
 
 
-class deliveryDashboard : Mappable{
+class deliveryDashboard : Mappable {
     
     
     var error = ""
@@ -250,12 +250,12 @@ class deliveryDashboard : Mappable{
     
 }
 
-class DeliveryInfo : Mappable{
+class DeliveryInfo : Mappable {
     
-    
+    var user_lang : String?
     var agent_information : agentInfo?
     var del_accept_limit : acceptInfo?
-    var user_lang : [language_lists]?
+//    var user_lang : [language_lists]?
 
     
     
@@ -308,10 +308,9 @@ class acceptInfo : Mappable{
 
 class agentInfo : Mappable{
     
-    
     var above_and_beyond = 0
     var active_years = 0
-    var avg_rating = 0
+    var avg_rating = 0.0
 
     var trips_achievements:[trips_achievements]?
     var del_service_document = ""
@@ -328,7 +327,7 @@ class agentInfo : Mappable{
     var total_rating = 0
     var total_trips = 0
     var u_image_id = 0
-    var user_img = 0
+    var user_img = ""
     var very_helpful = 0
     
     required init?(map: Map) {}
@@ -396,41 +395,48 @@ class tripData : Mappable{
 
 class triplist : Mappable{
     
+    var id : Int?
+    var cust_name : String?
+    var search_id : Int?
+    var cust_image : String?
+    var qty : Int?
+    var address : String?
+    var almost_total_price : Double?
+    var currency : String?
+    var order_id : String?
+    var payment_mode : String?
+    var payment_icon : String?
+    var avg_rating : String?
+    var total_rating : String?
+    var order_date : String?
+    var status : Int?
+    var status_desc : String?
+    var lat : String?
+    var long : String?
     
-    var avg_rating  = ""
-    var currency = ""
-    var final_price = ""
-    var id = 0
-    var name = ""
-    var order_address = ""
-   var order_date = ""
-    var order_id = ""
-    var order_qty = 0
-    var order_status = ""
-    var payment_mode = ""
-    var total_rating = ""
-    var user_img = ""
     
     required init?(map: Map) {}
     
     func mapping(map: Map) {
         
-        avg_rating <- map["avg_rating"]
+       id <- map["id"]
+        cust_name <- map["cust_name"]
+        search_id <- map["search_id"]
+        cust_image <- map["cust_image"]
+        qty <- map["qty"]
+        address <- map["address"]
+        almost_total_price <- map["almost_total_price"]
         currency <- map["currency"]
-        final_price <- map["final_price"]
-        id <- map["id"]
-        
-        name <- map["name"]
-        order_address <- map["order_address"]
-        order_date <- map["order_date"]
         order_id <- map["order_id"]
-        
-        order_qty <- map["order_qty"]
-        order_status <- map["order_status"]
         payment_mode <- map["payment_mode"]
+        payment_icon <- map["payment_icon"]
+        avg_rating <- map["avg_rating"]
         total_rating <- map["total_rating"]
-        user_img <- map["user_img"]
-        
+        order_date <- map["order_date"]
+        status <- map["status"]
+        status_desc <- map["status_desc"]
+        lat <- map["lat"]
+        long <- map["long"]
         
     }
     

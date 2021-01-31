@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TripAchivementCollectionViewCell" customModule="Fynoo_Services" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="105" height="130"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="105" height="130"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sp4-tg-Abv">
+                        <rect key="frame" x="0.0" y="0.0" width="105" height="130"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first" translatesAutoresizingMaskIntoConstraints="NO" id="yvj-bG-GYY">
+                                <rect key="frame" x="17.5" y="8" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="Hfz-Sc-RU4"/>
+                                    <constraint firstAttribute="height" constant="70" id="iEI-zR-jNi"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7t-b0-Jka">
+                                <rect key="frame" x="5" y="86" width="95" height="31.5"/>
+                                <string key="text">Excellent
+Service</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.69803921570000005" green="0.69803921570000005" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWw-hr-UMy">
+                                <rect key="frame" x="70" y="8" width="20" height="20"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="43q-38-qwd"/>
+                                    <constraint firstAttribute="width" constant="20" id="8PH-Ye-k4P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="OWw-hr-UMy" firstAttribute="top" secondItem="Sp4-tg-Abv" secondAttribute="top" constant="8" id="1jw-IY-2RD"/>
+                            <constraint firstItem="yvj-bG-GYY" firstAttribute="top" secondItem="Sp4-tg-Abv" secondAttribute="top" constant="8" id="1ri-y3-tCF"/>
+                            <constraint firstAttribute="trailing" secondItem="OWw-hr-UMy" secondAttribute="trailing" constant="15" id="GFX-qg-Wbu"/>
+                            <constraint firstItem="x7t-b0-Jka" firstAttribute="top" secondItem="yvj-bG-GYY" secondAttribute="bottom" constant="8" id="Ll0-VH-2vp"/>
+                            <constraint firstItem="x7t-b0-Jka" firstAttribute="leading" secondItem="Sp4-tg-Abv" secondAttribute="leading" constant="5" id="ReP-sm-hFt"/>
+                            <constraint firstItem="x7t-b0-Jka" firstAttribute="centerX" secondItem="yvj-bG-GYY" secondAttribute="centerX" id="ZMB-b4-82L"/>
+                            <constraint firstAttribute="trailing" secondItem="x7t-b0-Jka" secondAttribute="trailing" constant="5" id="ggK-yE-d3q"/>
+                            <constraint firstItem="yvj-bG-GYY" firstAttribute="centerX" secondItem="Sp4-tg-Abv" secondAttribute="centerX" id="pOD-U1-fKb"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Sp4-tg-Abv" secondAttribute="trailing" id="2ll-jG-dv8"/>
+                <constraint firstItem="Sp4-tg-Abv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dTi-HH-EVZ"/>
+                <constraint firstAttribute="bottom" secondItem="Sp4-tg-Abv" secondAttribute="bottom" id="eVM-K9-acu"/>
+                <constraint firstItem="Sp4-tg-Abv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sVL-4L-izf"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="mainView" destination="Sp4-tg-Abv" id="dTG-oR-lOl"/>
+                <outlet property="serviceCountLbl" destination="OWw-hr-UMy" id="Yhk-ID-KfF"/>
+                <outlet property="serviceImageView" destination="yvj-bG-GYY" id="2QD-iC-s3x"/>
+                <outlet property="serviceNameLbl" destination="x7t-b0-Jka" id="EVC-Tf-SSl"/>
+            </connections>
+            <point key="canvasLocation" x="141" y="124"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="first" width="60" height="60"/>
+    </resources>
+</document>

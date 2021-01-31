@@ -527,6 +527,10 @@
 		F62E4B142514983A0021CEE0 /* ImageUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4B12251498390021CEE0 /* ImageUpload.swift */; };
 		F62E4B152514983A0021CEE0 /* BankIdentifierListModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4B132514983A0021CEE0 /* BankIdentifierListModal.swift */; };
 		F62E4B2225149B370021CEE0 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4B2125149B360021CEE0 /* DatePickerDialog.swift */; };
+		F635979825C66DFD003BF9E2 /* TripAchivementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F635979625C66DFD003BF9E2 /* TripAchivementCollectionViewCell.swift */; };
+		F635979925C66DFD003BF9E2 /* TripAchivementCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F635979725C66DFD003BF9E2 /* TripAchivementCollectionViewCell.xib */; };
+		F635979C25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F635979A25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift */; };
+		F635979D25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F635979B25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.xib */; };
 		F64B439425220A5700B9C8CB /* IbanLengthModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64B439325220A5700B9C8CB /* IbanLengthModal.swift */; };
 		F64D5FBC2524400E003DE670 /* CompanyRegViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F64D5FBE2524400E003DE670 /* CompanyRegViewController.xib */; };
 		F64D5FC325244491003DE670 /* CompanyRegTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F64D5FC525244491003DE670 /* CompanyRegTableViewCell.xib */; };
@@ -1256,6 +1260,10 @@
 		F62E4B12251498390021CEE0 /* ImageUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUpload.swift; sourceTree = "<group>"; };
 		F62E4B132514983A0021CEE0 /* BankIdentifierListModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankIdentifierListModal.swift; sourceTree = "<group>"; };
 		F62E4B2125149B360021CEE0 /* DatePickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
+		F635979625C66DFD003BF9E2 /* TripAchivementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripAchivementCollectionViewCell.swift; sourceTree = "<group>"; };
+		F635979725C66DFD003BF9E2 /* TripAchivementCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripAchivementCollectionViewCell.xib; sourceTree = "<group>"; };
+		F635979A25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDashboardHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		F635979B25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryDashboardHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		F647705325187CFB00ED2BD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
 		F647705525187CFF00ED2BD0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
 		F64B439325220A5700B9C8CB /* IbanLengthModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanLengthModal.swift; sourceTree = "<group>"; };
@@ -2549,6 +2557,10 @@
 				F44E35B0251C72C6002E41E2 /* AgentServiceList.xib */,
 				F44E35B3251CACB3002E41E2 /* DataBankHeader.swift */,
 				F44E35B5251CACBB002E41E2 /* DataBankHeader.xib */,
+				F635979625C66DFD003BF9E2 /* TripAchivementCollectionViewCell.swift */,
+				F635979725C66DFD003BF9E2 /* TripAchivementCollectionViewCell.xib */,
+				F635979A25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift */,
+				F635979B25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.xib */,
 			);
 			path = AgentDelivery;
 			sourceTree = "<group>";
@@ -3121,10 +3133,10 @@
 			children = (
 				F680D5F4259B7C2B007EB12C /* DataEntryHeaderCollectionViewCell.strings */,
 				F680D5F6259B7C2B007EB12C /* DataEntryListHeaderView.strings */,
-				F680D5FA259B7C2B007EB12C /* DataEntryHeaderCollectionViewCell.xib */,
-				F680D5FC259B7C2B007EB12C /* DataEntryListHeaderView.xib */,
 				F680D5FE259B7C2B007EB12C /* DataEntryHeaderCollectionViewCell.swift */,
+				F680D5FA259B7C2B007EB12C /* DataEntryHeaderCollectionViewCell.xib */,
 				F680D5FF259B7C2B007EB12C /* DataEntryListHeaderView.swift */,
+				F680D5FC259B7C2B007EB12C /* DataEntryListHeaderView.xib */,
 			);
 			path = DataEntryListHeaderView;
 			sourceTree = "<group>";
@@ -3492,6 +3504,7 @@
 				F680D620259B7C2C007EB12C /* DataEntryTypeListingTableViewCell.xib in Resources */,
 				CECEFA5725779E8F0090D459 /* GalleryHeaderCollectionViewCell.xib in Resources */,
 				CECEFA5C25779E8F0090D459 /* GalleryFilterViewController.xib in Resources */,
+				F635979925C66DFD003BF9E2 /* TripAchivementCollectionViewCell.xib in Resources */,
 				F62E4B0825148EC60021CEE0 /* agentPersonalDetailsTableViewCell.strings in Resources */,
 				F4E772AC252D9F990045BD86 /* ChangePasswordViewController.xib in Resources */,
 				F66AA1AF2525B53300C1E058 /* DiscountTypePopUpViewController.strings in Resources */,
@@ -3518,6 +3531,7 @@
 				2F74CB57250A365F00DE21EF /* SplashAnimatedViewController.xib in Resources */,
 				CEE72CA9251B36C400B02DAF /* DeliveryDocumentViewController.xib in Resources */,
 				CEDAF67525283DF900B846E5 /* ReasonForChangeTableViewCell.xib in Resources */,
+				F635979D25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.xib in Resources */,
 				CEDD32EC25763C8E00023977 /* ProductHeader2TableViewCell.xib in Resources */,
 				2FEB12092511EC930012FE98 /* SideMenuViewController.xib in Resources */,
 				CEDD32E525763C8E00023977 /* ProductHeaderTableViewCell.xib in Resources */,
@@ -3797,6 +3811,7 @@
 				F4828CB22508FFCD006B85D8 /* TwoButtonsTableViewCell.swift in Sources */,
 				CEDD32D925763C8E00023977 /* WholeAddSlabTableViewCell.swift in Sources */,
 				2F84641F250F80D00084EB32 /* ResetPassword.swift in Sources */,
+				F635979C25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift in Sources */,
 				F680D668259B7C2C007EB12C /* DataEntryServiceDetailModal.swift in Sources */,
 				CEAD29EA250632BB008B1F9C /* NavigationView.swift in Sources */,
 				CEDD33A52576705A00023977 /* AddFilterViewController.swift in Sources */,
@@ -3987,6 +4002,7 @@
 				F680D673259B7C2C007EB12C /* DECancellationTableViewCell.swift in Sources */,
 				2F07D1B32505FE1C00193658 /* Singleton.swift in Sources */,
 				2F846421250F81F10084EB32 /* ForgotPassword.swift in Sources */,
+				F635979825C66DFD003BF9E2 /* TripAchivementCollectionViewCell.swift in Sources */,
 				F680D66B259B7C2C007EB12C /* DataEntryServiceListModal.swift in Sources */,
 				CEDD332A25765BBA00023977 /* ViewAllImagesNewDesignViewController.swift in Sources */,
 				2FEB122B251225A30012FE98 /* ServicesDashboardTableViewCell.swift in Sources */,

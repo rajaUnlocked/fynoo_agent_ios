@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cosmos
 
 class AgentServiceList: UITableViewCell {
 
@@ -20,11 +21,39 @@ class AgentServiceList: UITableViewCell {
     @IBOutlet weak var orderId: UILabel!
     @IBOutlet weak var name: UILabel!
     
+    @IBOutlet weak var ratingCosmosView: CosmosView!
+    @IBOutlet weak var navigationBtn: UIButton!
+    @IBOutlet weak var callBtn: UIButton!
+    @IBOutlet weak var messageBtn: UIButton!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var almostPriceLbl: UILabel!
+    @IBOutlet weak var walletIcon: UIImageView!
+    @IBOutlet weak var statusLbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.SetFont()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    func SetFont() {
+          
+          let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+          
+          self.name.font = UIFont(name:"\(fontNameLight)",size:14)
+          self.avgRating.font = UIFont(name:"\(fontNameLight)",size:12)
+          self.totalRate.font = UIFont(name:"\(fontNameLight)",size:12)
+          self.totalCount.font = UIFont(name:"\(fontNameLight)",size:10)
+          self.orderId.font = UIFont(name:"\(fontNameLight)",size:10)
+          self.date.font = UIFont(name:"\(fontNameLight)",size:10)
+          self.address.font = UIFont(name:"\(fontNameLight)",size:12)
+          self.almostPriceLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+          self.price.font = UIFont(name:"\(fontNameLight)",size:12)
+         
+          
+      }
+    
 }

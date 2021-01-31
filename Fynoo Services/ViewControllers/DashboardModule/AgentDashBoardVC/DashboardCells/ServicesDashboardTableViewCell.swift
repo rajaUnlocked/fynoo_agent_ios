@@ -65,6 +65,7 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
                 
         }else if serviceCode == "DELIVERY" {
                 let vc = AgentDeliveryViewController()
+                vc.serviceID = ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any) 
                 parent.navigationController?.pushViewController(vc, animated: true)
         }
     }
