@@ -8,27 +8,27 @@
 
 import UIKit
 import ObjectMapper
-class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDelegate {
+import MessageUI
 
+class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDelegate, MFMessageComposeViewControllerDelegate, AgentServiceListDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
     var selectedVl = 1000
-
-    
     var headerView1 : DataBankHeader? = nil
     
     @IBOutlet weak var deliveryDashboardHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var backView: UIView!
-        
+    
     var selectedTab:String = "1"
     var Index:Int = 0
     var deliverData : deliveryDashboard?
     var tripList : TripListInfo?
     var serviceID:String = ""
     
-      var tripListListArray:[triplist]?
+    var tripListListArray:[triplist]?
     var isMoreDataAvailable: Bool = false
-       var currentPageNumber: Int = 0
+    var currentPageNumber: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +54,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         self.headerView.viewControl = self
         
     }
-                    
+    
     func SetFont() {
         
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
@@ -62,18 +62,18 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
         
     }
-
+    
     func activateService(){
         
         let str = Service.activateService
-
+        
         let param = ["user_id":Singleton.shared.getUserId(),
                      "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
                      "services":self.serviceID]
         print("request:-", param)
         ServerCalls.postRequest(str, withParameters: param) { (response, success) in
             if success{
-                 self.getAgentData()
+                self.getAgentData()
                 let value = response as! NSDictionary
                 let msg = value.object(forKey: "error_description") as! String
                 ModalController.showSuccessCustomAlertWith(title: "", msg: msg)
@@ -131,16 +131,17 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     }
     
     func getTripData(){
-    
+        
         let param = ["service_id":self.serviceID,
                      "user_id":Singleton.shared.getUserId(),
                      "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
                      "tab_id": self.selectedTab,
                      "next_page_no":currentPageNumber] as [String : Any]
         
-         print("request:-", param)
+        print("request:-", param)
         print("Url:-", Service.tripList)
-          ServerCalls.postRequest(Service.tripList, withParameters: param) { (response, success) in
+        
+        ServerCalls.postRequest(Service.tripList, withParameters: param) { (response, success) in
             if success{
                 //   print(response)
                 if let body = response as? [String: Any] {
@@ -187,8 +188,8 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
                 self.isMoreDataAvailable = false
                 self.tableView.reloadData()
             }
-          }
-      }
+        }
+    }
     
     @objc func editAmountClicked(){
         let vc = AddAmountViewController(nibName: "AddAmountViewController", bundle: nil)
@@ -201,20 +202,44 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         print(sender.tag)
         selectedVl = sender.tag
         getTripData()
-       // tableView.reloadData()
+        // tableView.reloadData()
     }
     
     @objc func infoClicked(){
         let vc = AddAmountViewController(nibName: "AddAmountViewController", bundle: nil)
         vc.isFrom = true
-              vc.modalPresentationStyle = .overFullScreen
-              vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-              self.present(vc, animated: true, completion: nil)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        self.present(vc, animated: true, completion: nil)
     }
     
-   
-       @objc func clickedservicedoc(_ sender: UIButton)
-       {
+    //    @objc func messageClicked(){
+    //        if (MFMessageComposeViewController.canSendText()) {
+    //            let controller = MFMessageComposeViewController()
+    //            controller.body = ""
+    //            controller.recipients = ["\(serviceDetailData?.data?.bo_number ?? "")"]
+    //            controller.messageComposeDelegate = self
+    //            self.present(controller, animated: true, completion: nil)
+    //        }
+    //
+    //    }
+    //    @objc func callClicked(){
+    //
+    //       }
+    //    @objc func navigationClicked() {
+    //
+    //       }
+    
+    //MARK: - Message compose method
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        //... handle sms screen actions
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    @objc func clickedservicedoc(_ sender: UIButton)
+    {
         let vc = DeliveryDocumentViewController(nibName: "DeliveryDocumentViewController", bundle: nil)
         vc.primaryid = self.deliverData?.data?.agent_information?.dsd_id ?? 0
         self.navigationController?.pushViewController(vc, animated: true)
@@ -224,8 +249,8 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         
         if sender.isSelected {
             sender.isSelected = false
-           
-             deactivateService()
+            
+            deactivateService()
             
         }else{
             sender.isSelected = true
@@ -240,6 +265,29 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         isMoreDataAvailable = false
         currentPageNumber = 0
         getTripData()
+        
+    }
+    
+    func callClicked(_ sender: Any) {
+        
+        guard let number = URL(string: "tel://" + (tripListListArray?[(sender as AnyObject).tag].cust_mobile ?? "")!) else { return }
+        UIApplication.shared.open(number)
+    }
+    
+    func messageClicked(_ sender: Any) {
+        
+        let mobileNumber = tripListListArray?[(sender as AnyObject).tag].cust_mobile ?? ""
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.body = ""
+            controller.recipients = ["\(mobileNumber)"]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+        }
+        
+    }
+    
+    func navigationClicked(_ sender: Any) {
         
     }
 }
@@ -355,18 +403,32 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AgentServiceList", for: index) as! AgentServiceList
         cell.selectionStyle = .none
         
+        cell.statusView.cornerRadius = 8
+        cell.cardView.cornerRadius = 8
+        cell.statusView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        cell.cardView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        
         cell.name.text = tripListListArray?[index.row].cust_name ?? ""
         cell.profileImageView.sd_setImage(with: URL(string: tripListListArray?[index.row].cust_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
         cell.avgRating.text = "\(tripListListArray?[index.row].avg_rating ?? "")"
         cell.totalRate.text = "(\(tripListListArray?[index.row].total_rating ?? ""))"
-        cell.totalCount.text = "\(tripListListArray?[index.row].order_id ?? "")"
+        cell.totalCount.text = "\(tripListListArray?[index.row].qty ?? 0)"
         cell.orderId.text = "Order Id:\(tripListListArray?[index.row].order_id ?? "")"
         cell.date.text  = tripListListArray?[index.row].order_date ?? ""
         cell.address.text = "Address:\(tripListListArray?[index.row].address ?? "")"
         cell.price.text = "SAR \(ModalController.toString(tripListListArray?[index.row].almost_total_price ?? 0.0 as Any))"
         cell.walletIcon.sd_setImage(with: URL(string: tripListListArray?[index.row].payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+        cell.statusLbl.text = tripListListArray?[index.row].status_desc
         
+        if selectedTab == "2" {
+            cell.statusView.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+        }else{
+           cell.statusView.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.8588235294, blue: 0.8588235294, alpha: 1)
+        }
+
         
+        cell.delegate = self
+        cell.tag = index.row
         return cell
     }
     

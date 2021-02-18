@@ -534,6 +534,22 @@
 		F64B439425220A5700B9C8CB /* IbanLengthModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64B439325220A5700B9C8CB /* IbanLengthModal.swift */; };
 		F64D5FBC2524400E003DE670 /* CompanyRegViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F64D5FBE2524400E003DE670 /* CompanyRegViewController.xib */; };
 		F64D5FC325244491003DE670 /* CompanyRegTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F64D5FC525244491003DE670 /* CompanyRegTableViewCell.xib */; };
+		F6547ABA25DE594A00171862 /* DEClearFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6547AB125DE594A00171862 /* DEClearFilterTableViewCell.swift */; };
+		F6547ABB25DE594A00171862 /* DEClearFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6547AB225DE594A00171862 /* DEClearFilterTableViewCell.xib */; };
+		F6547ABC25DE594A00171862 /* DataEntryFilterViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6547AB425DE594A00171862 /* DataEntryFilterViewController.strings */; };
+		F6547ABD25DE594A00171862 /* DataEntryFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6547AB625DE594A00171862 /* DataEntryFilterViewController.swift */; };
+		F6547ABE25DE594A00171862 /* DataEntryFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6547AB825DE594A00171862 /* DataEntryFilterViewController.xib */; };
+		F6547ACC25DE5D9400171862 /* DateRangeFilterTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6547AC025DE5D9400171862 /* DateRangeFilterTableViewCell.strings */; };
+		F6547ACD25DE5D9400171862 /* RadioTypeFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6547AC325DE5D9400171862 /* RadioTypeFilterTableViewCell.swift */; };
+		F6547ACE25DE5D9400171862 /* DiscountFilterRadioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6547AC425DE5D9400171862 /* DiscountFilterRadioTableViewCell.xib */; };
+		F6547ACF25DE5D9400171862 /* DiscountFilterRadioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6547AC525DE5D9400171862 /* DiscountFilterRadioTableViewCell.swift */; };
+		F6547AD025DE5D9400171862 /* DateRangeFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6547AC625DE5D9400171862 /* DateRangeFilterTableViewCell.xib */; };
+		F6547AD125DE5D9400171862 /* DateRangeFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6547AC825DE5D9400171862 /* DateRangeFilterTableViewCell.swift */; };
+		F6547AD225DE5D9400171862 /* RangeFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6547AC925DE5D9400171862 /* RangeFilterTableViewCell.xib */; };
+		F6547AD325DE5D9400171862 /* RangeFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6547ACA25DE5D9400171862 /* RangeFilterTableViewCell.swift */; };
+		F6547AD425DE5D9400171862 /* RadioTypeFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6547ACB25DE5D9400171862 /* RadioTypeFilterTableViewCell.xib */; };
+		F6547AE025DE5E1C00171862 /* ListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6547ADA25DE5E1C00171862 /* ListingTableViewCell.swift */; };
+		F6547AE225DE5E1C00171862 /* ListingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6547ADD25DE5E1C00171862 /* ListingTableViewCell.xib */; };
 		F658B3F92522ECAD00B37F63 /* LanguageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F658B3F72522ECAD00B37F63 /* LanguageSelectionViewController.swift */; };
 		F658B3FA2522ECAD00B37F63 /* LanguageSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F658B3F82522ECAD00B37F63 /* LanguageSelectionViewController.xib */; };
 		F658B3FD2522ECD000B37F63 /* LanguageSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F658B3FB2522ECD000B37F63 /* LanguageSelectionTableViewCell.swift */; };
@@ -1273,6 +1289,24 @@
 		F64D5FC425244491003DE670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CompanyRegTableViewCell.xib; sourceTree = "<group>"; };
 		F64D5FC725244495003DE670 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyRegTableViewCell.strings; sourceTree = "<group>"; };
 		F64D5FC925244497003DE670 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CompanyRegTableViewCell.strings; sourceTree = "<group>"; };
+		F6547AB125DE594A00171862 /* DEClearFilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEClearFilterTableViewCell.swift; sourceTree = "<group>"; };
+		F6547AB225DE594A00171862 /* DEClearFilterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DEClearFilterTableViewCell.xib; sourceTree = "<group>"; };
+		F6547AB525DE594A00171862 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/DataEntryFilterViewController.strings; sourceTree = "<group>"; };
+		F6547AB625DE594A00171862 /* DataEntryFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataEntryFilterViewController.swift; sourceTree = "<group>"; };
+		F6547AB725DE594A00171862 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DataEntryFilterViewController.strings; sourceTree = "<group>"; };
+		F6547AB925DE594A00171862 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DataEntryFilterViewController.xib; sourceTree = "<group>"; };
+		F6547AC125DE5D9400171862 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/DateRangeFilterTableViewCell.strings; sourceTree = "<group>"; };
+		F6547AC225DE5D9400171862 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DateRangeFilterTableViewCell.strings; sourceTree = "<group>"; };
+		F6547AC325DE5D9400171862 /* RadioTypeFilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioTypeFilterTableViewCell.swift; sourceTree = "<group>"; };
+		F6547AC425DE5D9400171862 /* DiscountFilterRadioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountFilterRadioTableViewCell.xib; sourceTree = "<group>"; };
+		F6547AC525DE5D9400171862 /* DiscountFilterRadioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountFilterRadioTableViewCell.swift; sourceTree = "<group>"; };
+		F6547AC725DE5D9400171862 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DateRangeFilterTableViewCell.xib; sourceTree = "<group>"; };
+		F6547AC825DE5D9400171862 /* DateRangeFilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateRangeFilterTableViewCell.swift; sourceTree = "<group>"; };
+		F6547AC925DE5D9400171862 /* RangeFilterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RangeFilterTableViewCell.xib; sourceTree = "<group>"; };
+		F6547ACA25DE5D9400171862 /* RangeFilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeFilterTableViewCell.swift; sourceTree = "<group>"; };
+		F6547ACB25DE5D9400171862 /* RadioTypeFilterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RadioTypeFilterTableViewCell.xib; sourceTree = "<group>"; };
+		F6547ADA25DE5E1C00171862 /* ListingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingTableViewCell.swift; sourceTree = "<group>"; };
+		F6547ADD25DE5E1C00171862 /* ListingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListingTableViewCell.xib; sourceTree = "<group>"; };
 		F658B3F72522ECAD00B37F63 /* LanguageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionViewController.swift; sourceTree = "<group>"; };
 		F658B3F82522ECAD00B37F63 /* LanguageSelectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageSelectionViewController.xib; sourceTree = "<group>"; };
 		F658B3FB2522ECD000B37F63 /* LanguageSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionTableViewCell.swift; sourceTree = "<group>"; };
@@ -2806,6 +2840,61 @@
 			path = SearchCategoryVC;
 			sourceTree = "<group>";
 		};
+		F6547AAF25DE594A00171862 /* DataEntryFilterVC */ = {
+			isa = PBXGroup;
+			children = (
+				F6547AD525DE5E1C00171862 /* CommonBothSideListingFilter */,
+				F6547ABF25DE5D9400171862 /* CommonFilterCells */,
+				F6547AB025DE594A00171862 /* DataEntryFilterCells */,
+				F6547AB325DE594A00171862 /* DataEntryFilterViewController */,
+			);
+			path = DataEntryFilterVC;
+			sourceTree = "<group>";
+		};
+		F6547AB025DE594A00171862 /* DataEntryFilterCells */ = {
+			isa = PBXGroup;
+			children = (
+				F6547AB125DE594A00171862 /* DEClearFilterTableViewCell.swift */,
+				F6547AB225DE594A00171862 /* DEClearFilterTableViewCell.xib */,
+			);
+			path = DataEntryFilterCells;
+			sourceTree = "<group>";
+		};
+		F6547AB325DE594A00171862 /* DataEntryFilterViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F6547AB625DE594A00171862 /* DataEntryFilterViewController.swift */,
+				F6547AB825DE594A00171862 /* DataEntryFilterViewController.xib */,
+				F6547AB425DE594A00171862 /* DataEntryFilterViewController.strings */,
+			);
+			path = DataEntryFilterViewController;
+			sourceTree = "<group>";
+		};
+		F6547ABF25DE5D9400171862 /* CommonFilterCells */ = {
+			isa = PBXGroup;
+			children = (
+				F6547AC025DE5D9400171862 /* DateRangeFilterTableViewCell.strings */,
+				F6547AC325DE5D9400171862 /* RadioTypeFilterTableViewCell.swift */,
+				F6547AC425DE5D9400171862 /* DiscountFilterRadioTableViewCell.xib */,
+				F6547AC525DE5D9400171862 /* DiscountFilterRadioTableViewCell.swift */,
+				F6547AC625DE5D9400171862 /* DateRangeFilterTableViewCell.xib */,
+				F6547AC825DE5D9400171862 /* DateRangeFilterTableViewCell.swift */,
+				F6547AC925DE5D9400171862 /* RangeFilterTableViewCell.xib */,
+				F6547ACA25DE5D9400171862 /* RangeFilterTableViewCell.swift */,
+				F6547ACB25DE5D9400171862 /* RadioTypeFilterTableViewCell.xib */,
+			);
+			path = CommonFilterCells;
+			sourceTree = "<group>";
+		};
+		F6547AD525DE5E1C00171862 /* CommonBothSideListingFilter */ = {
+			isa = PBXGroup;
+			children = (
+				F6547ADA25DE5E1C00171862 /* ListingTableViewCell.swift */,
+				F6547ADD25DE5E1C00171862 /* ListingTableViewCell.xib */,
+			);
+			path = CommonBothSideListingFilter;
+			sourceTree = "<group>";
+		};
 		F658B3F42522EC8A00B37F63 /* LanguageSelectionVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -2846,6 +2935,7 @@
 		F680D512259B7C2B007EB12C /* DataEntryModule */ = {
 			isa = PBXGroup;
 			children = (
+				F6547AAF25DE594A00171862 /* DataEntryFilterVC */,
 				F680D52E259B7C2B007EB12C /* DataEntryDetailVC */,
 				F680D574259B7C2B007EB12C /* DataEntryRatingVC */,
 				F680D57C259B7C2B007EB12C /* DataEntryFormVC */,
@@ -3271,6 +3361,7 @@
 			files = (
 				CECEFAA82577A50D0090D459 /* SubcriptiontopcellTableViewCell.xib in Resources */,
 				CECEF9922577575B0090D459 /* TimeDisplayStyleTableViewCell.strings in Resources */,
+				F6547AD425DE5D9400171862 /* RadioTypeFilterTableViewCell.xib in Resources */,
 				F680D642259B7C2C007EB12C /* DataEntryFormWorkPlaceTableViewCell.strings in Resources */,
 				CEDD33A72576705A00023977 /* AddFilterInfoTableViewCell.xib in Resources */,
 				CEDD337E257663C800023977 /* StoreImagesCollectionViewCell.xib in Resources */,
@@ -3286,6 +3377,7 @@
 				2F8463FC250F7D4B0084EB32 /* VerifyAccountViewController.xib in Resources */,
 				F680D635259B7C2C007EB12C /* DEInprogressOrderInformationFirstTableViewCell.xib in Resources */,
 				CEE357A0250751020097069D /* CommisionsViewController.xib in Resources */,
+				F6547ACC25DE5D9400171862 /* DateRangeFilterTableViewCell.strings in Resources */,
 				2FEB12042511EC930012FE98 /* SideMenuSecondTableViewCell.strings in Resources */,
 				CECEFA0B257773D00090D459 /* GetLocationViewController.xib in Resources */,
 				CEDD33CC257676F100023977 /* InventoryTableViewCell.xib in Resources */,
@@ -3341,6 +3433,8 @@
 				CEDD333425765BBA00023977 /* SelectSubCat.xib in Resources */,
 				CECEFAC52577C3790090D459 /* otherTableViewCell.xib in Resources */,
 				2F8463DC250F6EBC0084EB32 /* LoginIntroSecond.strings in Resources */,
+				F6547ABB25DE594A00171862 /* DEClearFilterTableViewCell.xib in Resources */,
+				F6547ACE25DE5D9400171862 /* DiscountFilterRadioTableViewCell.xib in Resources */,
 				CEDD32FF25763DAB00023977 /* OCRViewController.xib in Resources */,
 				CECEF9D62577575C0090D459 /* CommonSearchTableViewCell.strings in Resources */,
 				F680D64D259B7C2C007EB12C /* DataEntryFormDayTableViewCell.xib in Resources */,
@@ -3361,6 +3455,7 @@
 				F62E4AEA25148EC60021CEE0 /* popupViewController.xib in Resources */,
 				CEDD31F02576206500023977 /* SelectProductTypeTableViewCell.xib in Resources */,
 				F680D650259B7C2C007EB12C /* DataEntryFormFirstTopTableViewCell.xib in Resources */,
+				F6547ABE25DE594A00171862 /* DataEntryFilterViewController.xib in Resources */,
 				2F8463E5250F6EBC0084EB32 /* LoginIntroFirst.xib in Resources */,
 				CECEF9DE2577575C0090D459 /* DescriptionTableViewCell.strings in Resources */,
 				CEDAF67925285ACC00B846E5 /* BottomLblTableViewCell.xib in Resources */,
@@ -3420,6 +3515,7 @@
 				F680D683259B7C2C007EB12C /* DataEntryListingTopTableViewCell.xib in Resources */,
 				CECEFA14257783D80090D459 /* purchasedHeaderTableViewCell.xib in Resources */,
 				F62E4AF625148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.xib in Resources */,
+				F6547AD025DE5D9400171862 /* DateRangeFilterTableViewCell.xib in Resources */,
 				2F8463DF250F6EBC0084EB32 /* LoginIntroThird.strings in Resources */,
 				CEAEA5122530379300F866E7 /* CommisionDetailsViewController.xib in Resources */,
 				2F8463DD250F6EBC0084EB32 /* LoginIntroFifth.strings in Resources */,
@@ -3432,6 +3528,7 @@
 				F64D5FC325244491003DE670 /* CompanyRegTableViewCell.xib in Resources */,
 				CEDD32DC25763C8E00023977 /* ProductSpecCatagoryTableViewCell.strings in Resources */,
 				CEAEA51625303A1500F866E7 /* CommisionTopTableViewCell.xib in Resources */,
+				F6547AE225DE5E1C00171862 /* ListingTableViewCell.xib in Resources */,
 				CEAD29E9250632BB008B1F9C /* NavigationView.xib in Resources */,
 				F680D67F259B7C2C007EB12C /* DataEntryListingTableViewCell.strings in Resources */,
 				F680D647259B7C2C007EB12C /* DataEntryItemEntryTableViewCell.strings in Resources */,
@@ -3560,6 +3657,7 @@
 				2F8463D8250F6EBC0084EB32 /* LoginNewDesignViewController.xib in Resources */,
 				CECEF9E02577575C0090D459 /* CheckedTableViewCell.xib in Resources */,
 				CEDD33A92576705A00023977 /* AddFilterViewController.xib in Resources */,
+				F6547ABC25DE594A00171862 /* DataEntryFilterViewController.strings in Resources */,
 				CEE357A42507585F0097069D /* ServiceListTableViewCell.xib in Resources */,
 				CECEF9AB2577575B0090D459 /* BranchQrCodePopupViewController.xib in Resources */,
 				F680D674259B7C2C007EB12C /* DECancellationTableViewCell.xib in Resources */,
@@ -3606,6 +3704,7 @@
 				CEDD332F25765BBA00023977 /* SelectCategoryViewController.strings in Resources */,
 				2F8463E6250F6EBC0084EB32 /* LoginIntroFifth.xib in Resources */,
 				2F8463F7250F7D4B0084EB32 /* VerifyAccountViewController.strings in Resources */,
+				F6547AD225DE5D9400171862 /* RangeFilterTableViewCell.xib in Resources */,
 				F62E4AE925148EC60021CEE0 /* popupViewController.strings in Resources */,
 				CECEF9962577575B0090D459 /* addrowTableViewCell.xib in Resources */,
 				2F8463D2250F6EBC0084EB32 /* UploadTopView.xib in Resources */,
@@ -3824,6 +3923,7 @@
 				CEE72CBE251B76AF00B02DAF /* BottomPopupEditProductViewController.swift in Sources */,
 				F680D649259B7C2C007EB12C /* DataEntryFormAddItemTableViewCell.swift in Sources */,
 				F680D66A259B7C2C007EB12C /* DataEntryFormTypeModal.swift in Sources */,
+				F6547ABA25DE594A00171862 /* DEClearFilterTableViewCell.swift in Sources */,
 				CEDD31F32576206500023977 /* SelectProductTypeNewTableViewCell.swift in Sources */,
 				F680D667259B7C2C007EB12C /* DataEntryApiManager.swift in Sources */,
 				F4CEC2FB2511D34B003C35E8 /* VatpopnewchangeViewController.swift in Sources */,
@@ -3837,6 +3937,7 @@
 				CEDD3380257663C800023977 /* StoreImagesCollectionViewCell.swift in Sources */,
 				CEDD33CE257676F100023977 /* InventoryViewController.swift in Sources */,
 				CECEFA6C25779FF90090D459 /* BusinessGalleryNewModel.swift in Sources */,
+				F6547ACD25DE5D9400171862 /* RadioTypeFilterTableViewCell.swift in Sources */,
 				F46DB928251B23980061A232 /* TripAchievementViewCell.swift in Sources */,
 				CEDD32DD25763C8E00023977 /* ProductSpecCatagoryTableViewCell.swift in Sources */,
 				CEDD33D62576784600023977 /* AddBranch.swift in Sources */,
@@ -3908,6 +4009,7 @@
 				CECEFACA2577C76A0090D459 /* marketTableViewCell.swift in Sources */,
 				CEDD33B2257674BA00023977 /* AddWholeSlabViewController.swift in Sources */,
 				F680D684259B7C2C007EB12C /* CompleteDataEntryListTableViewCell.swift in Sources */,
+				F6547AD325DE5D9400171862 /* RangeFilterTableViewCell.swift in Sources */,
 				F680D67D259B7C2C007EB12C /* DataEntryListHeaderView.swift in Sources */,
 				F62E4B10251493A40021CEE0 /* AgentService.swift in Sources */,
 				CEDD33A02576705A00023977 /* AddFilterTopTableViewCell.swift in Sources */,
@@ -3937,6 +4039,7 @@
 				2FEB12132511F0010012FE98 /* UnderDevelopmentViewController.swift in Sources */,
 				2F8463E0250F6EBC0084EB32 /* LoginIntroFifth.swift in Sources */,
 				F62E4AFE25148EC60021CEE0 /* CompanyAgentBankDetailsTableViewCell.swift in Sources */,
+				F6547ACF25DE5D9400171862 /* DiscountFilterRadioTableViewCell.swift in Sources */,
 				CECEFA6825779F930090D459 /* GalleryImage.swift in Sources */,
 				CECEF9942577575B0090D459 /* addrowTableViewCell.swift in Sources */,
 				2F8463E8250F6EBC0084EB32 /* LoginIntroSecond.swift in Sources */,
@@ -3957,7 +4060,9 @@
 				CECEFA5F25779E8F0090D459 /* GalleryFilterViewController.swift in Sources */,
 				F4828C942508B27E006B85D8 /* ProfileEnteriesTableViewCell.swift in Sources */,
 				2F8463E2250F6EBC0084EB32 /* LoginIntroThird.swift in Sources */,
+				F6547ABD25DE594A00171862 /* DataEntryFilterViewController.swift in Sources */,
 				CEDD32F025763C8E00023977 /* ProductHeaderTableViewCell.swift in Sources */,
+				F6547AD125DE5D9400171862 /* DateRangeFilterTableViewCell.swift in Sources */,
 				F62E4AEC25148EC60021CEE0 /* CompanyRegViewController.swift in Sources */,
 				CECEFA5D25779E8F0090D459 /* DateFilterTableViewCell.swift in Sources */,
 				CECEF9E72577575C0090D459 /* CountingTableViewCell.swift in Sources */,
@@ -4017,6 +4122,7 @@
 				F4E772AA252D9F930045BD86 /* ChangePasswordViewController.swift in Sources */,
 				2F8463E1250F6EBC0084EB32 /* LoginIntroFourth.swift in Sources */,
 				CECEFAC62577C3790090D459 /* otherTableViewCell.swift in Sources */,
+				F6547AE025DE5E1C00171862 /* ListingTableViewCell.swift in Sources */,
 				CECEF9B52577575B0090D459 /* BusinessLocationTableViewCell.swift in Sources */,
 				CECEFADA2577D4CC0090D459 /* NewInventoryManageModel.swift in Sources */,
 				CECEFA6925779F930090D459 /* DeleteBusinessGallery.swift in Sources */,
@@ -5230,6 +5336,40 @@
 				F64D5FC925244497003DE670 /* ar */,
 			);
 			name = CompanyRegTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F6547AB425DE594A00171862 /* DataEntryFilterViewController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6547AB525DE594A00171862 /* ar */,
+				F6547AB725DE594A00171862 /* en */,
+			);
+			name = DataEntryFilterViewController.strings;
+			sourceTree = "<group>";
+		};
+		F6547AB825DE594A00171862 /* DataEntryFilterViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6547AB925DE594A00171862 /* Base */,
+			);
+			name = DataEntryFilterViewController.xib;
+			sourceTree = "<group>";
+		};
+		F6547AC025DE5D9400171862 /* DateRangeFilterTableViewCell.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6547AC125DE5D9400171862 /* ar */,
+				F6547AC225DE5D9400171862 /* en */,
+			);
+			name = DateRangeFilterTableViewCell.strings;
+			sourceTree = "<group>";
+		};
+		F6547AC625DE5D9400171862 /* DateRangeFilterTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6547AC725DE5D9400171862 /* Base */,
+			);
+			name = DateRangeFilterTableViewCell.xib;
 			sourceTree = "<group>";
 		};
 		F66AA1AA2525B53300C1E058 /* DiscountTypePopUpViewController.strings */ = {

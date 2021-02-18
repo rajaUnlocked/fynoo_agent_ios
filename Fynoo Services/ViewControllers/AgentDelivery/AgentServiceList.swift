@@ -9,8 +9,19 @@
 import UIKit
 import Cosmos
 
+protocol  AgentServiceListDelegate {
+    
+     func callClicked(_ sender: Any)
+     func messageClicked(_ sender: Any)
+     func navigationClicked(_ sender: Any)
+}
 class AgentServiceList: UITableViewCell {
-
+    
+ var  delegate : AgentServiceListDelegate?
+    
+    
+    @IBOutlet weak var cardView: CardView!
+    
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var totalCount: UILabel!
     @IBOutlet weak var price: UILabel!
@@ -55,5 +66,17 @@ class AgentServiceList: UITableViewCell {
          
           
       }
+    
+    
+    @IBAction func navigationClicked(_ sender: Any) {
+        self.delegate?.navigationClicked(self)
+    }
+    
+    @IBAction func callClicked(_ sender: Any) {
+        self.delegate?.callClicked(self)
+    }
+    @IBAction func messageClicked(_ sender: Any) {
+        self.delegate?.messageClicked(self)
+    }
     
 }

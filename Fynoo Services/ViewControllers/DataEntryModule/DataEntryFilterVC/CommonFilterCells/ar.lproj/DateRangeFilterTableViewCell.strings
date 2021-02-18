@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "To"; ObjectID = "2ua-DM-0jF"; */
+"2ua-DM-0jF.text" = "إلى";
+
+/* Class = "UILabel"; text = "Enter Date Range "; ObjectID = "3IG-I9-FhD"; */
+"3IG-I9-FhD.text" = "Enter Date Range ";
+
+/* Class = "UILabel"; text = "From"; ObjectID = "Oq0-y0-eY3"; */
+"Oq0-y0-eY3.text" = "من";
+
+/* Class = "UILabel"; text = "Enter FromDate"; ObjectID = "glz-0V-fJd"; */
+"glz-0V-fJd.text" = "Enter FromDate";
+
+/* Class = "UILabel"; text = "Enter ToDate"; ObjectID = "hbZ-rA-qUe"; */
+"hbZ-rA-qUe.text" = "Enter ToDate";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "wGo-aB-wFc"; */
+"wGo-aB-wFc.text" = "-";

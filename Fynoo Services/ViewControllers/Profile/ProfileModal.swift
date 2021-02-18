@@ -413,6 +413,7 @@ class triplist : Mappable{
     var status_desc : String?
     var lat : String?
     var long : String?
+    var cust_mobile : String?
     
     
     required init?(map: Map) {}
@@ -437,6 +438,7 @@ class triplist : Mappable{
         status_desc <- map["status_desc"]
         lat <- map["lat"]
         long <- map["long"]
+        cust_mobile <- map["cust_mobile"]
         
     }
     

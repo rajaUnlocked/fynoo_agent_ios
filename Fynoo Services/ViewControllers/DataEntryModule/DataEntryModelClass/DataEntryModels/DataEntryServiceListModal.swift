@@ -31,9 +31,9 @@ struct DataEntryOrderList : Mappable {
     var rating_count : Int?
     var rating_avg : String?
     var service_list : [OrderService_list]?
-       var in_progress_limit : Int?
-    var filter_list : [Filter_list]?
-
+    var in_progress_limit : Int?
+    var filter_list : [DataEntry_Filter]?
+    
     init?(map: Map) {
     }
     mutating func mapping(map: Map) {
@@ -43,7 +43,7 @@ struct DataEntryOrderList : Mappable {
         service_list <- map["service_list"]
         in_progress_limit <- map["in_progress_limit"]
         filter_list <- map["filter_list"]
- 
+        
     }
 }
 
@@ -117,15 +117,18 @@ struct OrderService_list : Mappable {
     }
 }
 
-struct Filter_list : Mappable {
+struct DataEntry_Filter : Mappable {
     
     var filter_code : String?
     var filter_id : Int?
     var filter_name : String?
     var view_type : String?
-    var radio_list : [String]?
-    var checkbox_item : [String]?
     var range_list : String?
+    
+    var radio_list : [DataEntryRadio_list]?
+    var checkbox_item : [DataEntrycheckbox_item]?
+      
+      
     
     init?(map: Map) {
     }
@@ -144,4 +147,41 @@ struct Filter_list : Mappable {
 }
 
 
+struct DataEntryRadio_list : Mappable {
+    
+    var key : String?
+    var value : Int?
+    init?(map: Map) {
+    }
+    
+    mutating func mapping(map: Map) {
+        key <- map["key"]
+        value <- map["value"]
+    }
+}
 
+struct DataEntrycheckbox_item : Mappable {
+    
+    var id : Int?
+    var name : String?
+    init?(map: Map) {
+    }
+    
+    mutating func mapping(map: Map) {
+        id <- map["id"]
+        name <- map["name"]
+    }
+}
+struct ChooseFilters
+{
+    var filter_code : String
+    var range : String
+    var type : String
+
+    init(code : String, range : String, type : String) {
+        self.filter_code = code
+        self.range = range
+        self.type = type
+    }
+    
+}

@@ -18,38 +18,6 @@ class DataEntryApiManager: NSObject {
     var dataEntryServiceDetail : serviceDetailData?
     var serviceType : ServiceTypeData?
     
-//    func bussinessOwnerServices(completion:@escaping(Bool, BOServicesData?) -> ()) {
-//        
-//        var param = [String:String]()
-//        var url = ""
-//        
-//        param = [ "bo_id": Singleton.shared.getUserId(),
-//                  "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
-//                  
-//        ]
-//        url = dataEntryModuleApi.boServices_list
-//        print(param)
-//        print(url)
-//        ServerCalls.postRequest(url, withParameters: param, completion: { (response, success) in
-//            ModalClass.stopLoading()
-//            if let value = response as? NSDictionary{
-//                let msg = value.object(forKey: "error_description") as! String
-//                let error = value.object(forKey: "error_code") as! Int
-//                if error == 100{
-//                    completion(false,nil)
-//                }else{
-//                    if let body = response as? [String: Any] {
-//                        self.businessOwnerServicesData = Mapper<BOServicesData>().map(JSON: body)
-//                        completion(true, self.businessOwnerServicesData)
-//                        return
-//                    }
-//                    completion(false,nil)
-//                }
-//            }
-//        })
-//    }
-    
-    
     func agentServicesOrderListing(tabStatus:String,searchStr:String,pageNumber:Int, completion:@escaping(Bool, DataEntryOrderRequestDatas?) -> ()) {
         
 //        var param = [String:String]()

@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Clear All"; ObjectID = "5Cm-oj-jOa"; */
+"5Cm-oj-jOa.text" = "Clear All";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "Bt8-Dr-l1k"; */
+"Bt8-Dr-l1k.normalTitle" = "Close";
+
+/* Class = "UILabel"; text = "Data Entry In process list"; ObjectID = "Im9-mW-dhX"; */
+"Im9-mW-dhX.text" = "Data Entry In process list";
+
+/* Class = "UIButton"; normalTitle = "Apply"; ObjectID = "adV-xJ-sw7"; */
+"adV-xJ-sw7.normalTitle" = "Apply";
+
+/* Class = "UILabel"; text = "Filter By"; ObjectID = "dlN-Sc-QmV"; */
+"dlN-Sc-QmV.text" = "Filter By";

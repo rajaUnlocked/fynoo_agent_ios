@@ -28,6 +28,11 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
      var clickIndex:Int = 99999
     var rejectReasonID:String = ""
     
+       var headerView1 : DataEntryListHeaderView? = nil
+    
+    var selectedFilters =  [ChooseFilters]()
+    var serviceID:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,6 +89,14 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     }
     
     @objc func filterClicked() {
+        
+        let vc = DataEntryFilterViewController(nibName: "DataEntryFilterViewController", bundle: nil)
+        vc.hidesBottomBarWhenPushed = true
+        vc.delegate = self
+        vc.fromWhere = self.selectedTab
+        vc.choseFilters = self.selectedFilters
+        vc.dataEntryFilter = self.boServicesList?.data?.filter_list
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
@@ -219,40 +232,42 @@ extension DataEntryListingViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
-            
-            let sectionHeaderView = DataEntryListHeaderView()
-            
-            let searchTxtFld = sectionHeaderView.viewWithTag(103) as! UITextField
-            let searchBtn = sectionHeaderView.viewWithTag(104) as! UIButton
-            let filterBtn = sectionHeaderView.viewWithTag(105) as! UIButton
-            let dataEntryLbl = sectionHeaderView.viewWithTag(106) as! UILabel
-//            let newOrderBtn = sectionHeaderView.viewWithTag(107) as! UIButton
-            
-            let avgLbl = sectionHeaderView.viewWithTag(1001) as! UILabel
-//            let ratingView = sectionHeaderView.viewWithTag(1002) as! UIView
-            let totalRatingLbl = sectionHeaderView.viewWithTag(1003) as! UILabel
-            
-            
-            avgLbl.text = self.boServicesList?.data?.rating_avg
-            totalRatingLbl.text = "(\(ModalController.toString(self.boServicesList?.data?.rating_count as Any)))" 
-            sectionHeaderView.ratingValueView.rating = ModalController.convertInToDouble(str: self.boServicesList?.data?.rating_avg as AnyObject)
-
-
-            searchBtn.addTarget(self, action: #selector(searchClicked), for: .touchUpInside)
-            searchTxtFld.addTarget(self, action: #selector(DataEntryListingViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-            
-            filterBtn.addTarget(self, action: #selector(filterClicked), for: .touchUpInside)
+            if headerView1 == nil {
+                
+                headerView1 = DataEntryListHeaderView()
+                
+                let searchTxtFld = headerView1!.viewWithTag(103) as! UITextField
+                let searchBtn = headerView1!.viewWithTag(104) as! UIButton
+                let filterBtn = headerView1!.viewWithTag(105) as! UIButton
+                let dataEntryLbl = headerView1!.viewWithTag(106) as! UILabel
+                //            let newOrderBtn = sectionHeaderView.viewWithTag(107) as! UIButton
+                
+                let avgLbl = headerView1!.viewWithTag(1001) as! UILabel
+                //            let ratingView = sectionHeaderView.viewWithTag(1002) as! UIView
+                let totalRatingLbl = headerView1!.viewWithTag(1003) as! UILabel
+                
+                
+                avgLbl.text = self.boServicesList?.data?.rating_avg
+                totalRatingLbl.text = "(\(ModalController.toString(self.boServicesList?.data?.rating_count as Any)))"
+                headerView1!.ratingValueView.rating = ModalController.convertInToDouble(str: self.boServicesList?.data?.rating_avg as AnyObject)
+                
+                
+                searchBtn.addTarget(self, action: #selector(searchClicked), for: .touchUpInside)
+                searchTxtFld.addTarget(self, action: #selector(DataEntryListingViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+                
+                filterBtn.addTarget(self, action: #selector(filterClicked), for: .touchUpInside)
+                
+                
+                let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+                
+                searchTxtFld.font = UIFont(name:"\(fontNameLight)",size:12)
+                dataEntryLbl.font = UIFont(name:"\(fontNameLight)",size:16)
+                
+                headerView1!.delegate = self
+            }
+            headerView1!.selectedIndex = Index
            
-           
-            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-            
-            searchTxtFld.font = UIFont(name:"\(fontNameLight)",size:12)
-             dataEntryLbl.font = UIFont(name:"\(fontNameLight)",size:16)
-            
-//
-            sectionHeaderView.selectedIndex = Index
-            sectionHeaderView.delegate = self
-            return sectionHeaderView
+            return headerView1
         }else{
             return UIView()
         }
@@ -544,5 +559,22 @@ extension DataEntryListingViewController : UITableViewDataSource {
         return cell
      
         
+    }
+}
+
+extension DataEntryListingViewController : DataEntryFilterDelegate {
+    
+    func filterApplied(filters : [ChooseFilters]) {
+        self.selectedFilters = filters
+        
+        var count = 0
+        for item in filters {
+            
+            if item.range.isEmpty == false {
+                count = count + 1;
+                
+            }
+        }
+        self.refreshDataEntryCompleteServiceList()
     }
 }
