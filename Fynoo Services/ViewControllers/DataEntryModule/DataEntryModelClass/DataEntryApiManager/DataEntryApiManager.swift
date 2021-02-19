@@ -18,18 +18,26 @@ class DataEntryApiManager: NSObject {
     var dataEntryServiceDetail : serviceDetailData?
     var serviceType : ServiceTypeData?
     
-    func agentServicesOrderListing(tabStatus:String,searchStr:String,pageNumber:Int, completion:@escaping(Bool, DataEntryOrderRequestDatas?) -> ()) {
+    func agentServicesOrderListing(serviceID:String, tabStatus:String,searchStr:String,pageNumber:Int, filter : [ChooseFilters], completion:@escaping(Bool, DataEntryOrderRequestDatas?) -> ()) {
         
 //        var param = [String:String]()
         var url = ""
         
-        let  param = [ "agent_id": Singleton.shared.getUserId(),
+        var  param = ["service_id": serviceID,
+                      "agent_id": Singleton.shared.getUserId(),
                        "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
                        "status" : tabStatus,
                        "search":searchStr,
                        "next_page_no": pageNumber
             
             ]as [String : Any]
+        
+        for item in filter{
+                   
+                   if item.range.isEmpty == false{
+                       param[item.filter_code] = item.range
+                   }
+               }
         
         url = dataEntryModuleApi.agentServicesOrder_list
         print(param)

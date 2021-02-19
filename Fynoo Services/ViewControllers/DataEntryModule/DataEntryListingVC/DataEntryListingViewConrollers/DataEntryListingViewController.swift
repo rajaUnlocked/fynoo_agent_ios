@@ -32,6 +32,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     
     var selectedFilters =  [ChooseFilters]()
     var serviceID:String = ""
+    var appliedFilterCount:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,7 +90,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     }
     
     @objc func filterClicked() {
-        
+        appliedFilterCount = 0
         let vc = DataEntryFilterViewController(nibName: "DataEntryFilterViewController", bundle: nil)
         vc.hidesBottomBarWhenPushed = true
         vc.delegate = self
@@ -136,7 +137,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     
     func getBoServicesRequestListAPI() {
        
-        apiManagerModal.agentServicesOrderListing(tabStatus: self.selectedTab, searchStr: self.searchBoxEntryText, pageNumber: currentPageNumber ) { (success, response) in
+        apiManagerModal.agentServicesOrderListing(serviceID:self.serviceID, tabStatus: self.selectedTab, searchStr: self.searchBoxEntryText, pageNumber: currentPageNumber, filter: selectedFilters ) { (success, response) in
             ModalClass.stopLoading()
             if success{
                 if self.currentPageNumber == 0 {
@@ -232,7 +233,7 @@ extension DataEntryListingViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
-            if headerView1 == nil {
+            if headerView1 == nil || appliedFilterCount > 0 {
                 
                 headerView1 = DataEntryListHeaderView()
                 
@@ -240,12 +241,12 @@ extension DataEntryListingViewController : UITableViewDelegate {
                 let searchBtn = headerView1!.viewWithTag(104) as! UIButton
                 let filterBtn = headerView1!.viewWithTag(105) as! UIButton
                 let dataEntryLbl = headerView1!.viewWithTag(106) as! UILabel
-                //            let newOrderBtn = sectionHeaderView.viewWithTag(107) as! UIButton
+                let filterCount = headerView1!.viewWithTag(1010) as! UILabel
                 
                 let avgLbl = headerView1!.viewWithTag(1001) as! UILabel
                 //            let ratingView = sectionHeaderView.viewWithTag(1002) as! UIView
                 let totalRatingLbl = headerView1!.viewWithTag(1003) as! UILabel
-                
+                filterCount.isHidden = true
                 
                 avgLbl.text = self.boServicesList?.data?.rating_avg
                 totalRatingLbl.text = "(\(ModalController.toString(self.boServicesList?.data?.rating_count as Any)))"
@@ -262,6 +263,16 @@ extension DataEntryListingViewController : UITableViewDelegate {
                 
                 searchTxtFld.font = UIFont(name:"\(fontNameLight)",size:12)
                 dataEntryLbl.font = UIFont(name:"\(fontNameLight)",size:16)
+                
+                if appliedFilterCount > 0 {
+                    filterCount.isHidden = false
+                    filterCount.text = ModalController.toString(appliedFilterCount as Any)
+                    
+                }else{
+                    filterCount.isHidden = true
+                    filterCount.text = ""
+                }
+                
                 
                 headerView1!.delegate = self
             }
@@ -567,14 +578,15 @@ extension DataEntryListingViewController : DataEntryFilterDelegate {
     func filterApplied(filters : [ChooseFilters]) {
         self.selectedFilters = filters
         
-        var count = 0
+         appliedFilterCount = 0
         for item in filters {
             
             if item.range.isEmpty == false {
-                count = count + 1;
+                appliedFilterCount = appliedFilterCount + 1;
                 
             }
         }
+        print("appliedFilterCount:-", appliedFilterCount)
         self.refreshDataEntryCompleteServiceList()
     }
 }

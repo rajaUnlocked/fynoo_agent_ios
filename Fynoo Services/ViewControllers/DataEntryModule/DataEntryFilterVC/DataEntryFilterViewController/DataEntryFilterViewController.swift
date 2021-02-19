@@ -15,7 +15,6 @@ protocol DataEntryFilterDelegate
     func filterApplied(filters : [ChooseFilters])
     
 }
-
 class DataEntryFilterViewController: UIViewController, TTRangeSliderDelegate, RadioTypeFilterTableViewCellDelegate {
     
     var delegate : DataEntryFilterDelegate?
@@ -94,7 +93,7 @@ class DataEntryFilterViewController: UIViewController, TTRangeSliderDelegate, Ra
         }else if fromWhere == "3"{
             tab = "Completed"
         }else if fromWhere == "4"{
-            tab = "Cancelled"
+            tab = "Rejected"
         }
         
         navigationView.titleHeader.text = "Data Entry".localized
@@ -212,6 +211,7 @@ extension DataEntryFilterViewController : UITableViewDataSource {
             let cell = leftTblView.dequeueReusableCell(withIdentifier: "SelectCategoryCell", for: indexPath) as! SelectCategoryCell
             cell.contentView.backgroundColor = .gray
             cell.imgWidth.constant = 0
+            cell.tickIcon.isHidden = true
             
             cell.catTitle.text = dataEntryFilter?[indexPath.row].filter_name
             
@@ -220,11 +220,13 @@ extension DataEntryFilterViewController : UITableViewDataSource {
                 cell.selectedImg.isHidden = false
                 cell.catTitle.textColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
                 cell.contentView.backgroundColor = #colorLiteral(red: 0.9882352941, green: 0.9882352941, blue: 0.9882352941, alpha: 1)
+                cell.tickIcon.isHidden = false
                 
             }else{
                 cell.catTitle.textColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
                 cell.contentView.backgroundColor = #colorLiteral(red: 0.9882352941, green: 0.9882352941, blue: 0.9882352941, alpha: 1)
                 cell.selectedImg.isHidden = true
+                cell.tickIcon.isHidden = true
             }
             return cell
             
@@ -291,8 +293,6 @@ extension DataEntryFilterViewController : UITableViewDataSource {
                         
                         cell.rangeSlider.selectedMaximum = Float(maxVal)!
                     }
-                    
-                    
                 }
                 
                 cell.rangeSlider.delegate = self

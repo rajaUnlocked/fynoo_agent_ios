@@ -17,6 +17,9 @@ class SelectCategoryCell: UITableViewCell {
     @IBOutlet weak var catImg: UIImageView!
     @IBOutlet weak var catTitle: UILabel!
     @IBOutlet weak var selectedImg: UIImageView!
+    
+    @IBOutlet weak var tickIcon: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
             let fontNameLight = NSLocalizedString("LightFontName", comment: "")

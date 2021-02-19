@@ -205,6 +205,22 @@
                     </constraints>
                     <state key="normal" image="filter"/>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" tag="1010" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feT-nU-n5D">
+                    <rect key="frame" x="344" y="120.5" width="14" height="14"/>
+                    <color key="backgroundColor" red="0.92156862750000001" green="0.28627450980000002" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="14" id="Tuc-73-hYZ"/>
+                        <constraint firstAttribute="height" constant="14" id="qbS-ol-PER"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="10"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="7"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
@@ -212,6 +228,7 @@
                 <constraint firstItem="Uwv-It-EBd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3fW-vN-XmC"/>
                 <constraint firstItem="2lc-or-rw9" firstAttribute="top" secondItem="Uwv-It-EBd" secondAttribute="bottom" id="5Mp-zp-D2K"/>
                 <constraint firstItem="kOP-Ve-tQW" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="8WS-nH-S22"/>
+                <constraint firstItem="feT-nU-n5D" firstAttribute="bottom" secondItem="TPq-f7-Kv0" secondAttribute="bottom" constant="-17" id="Ad7-rV-9SM"/>
                 <constraint firstItem="art-cM-Wlg" firstAttribute="top" secondItem="2lc-or-rw9" secondAttribute="bottom" constant="10" id="D4g-M1-IdS"/>
                 <constraint firstItem="TPq-f7-Kv0" firstAttribute="centerY" secondItem="art-cM-Wlg" secondAttribute="centerY" id="E2A-ts-jSI"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="TPq-f7-Kv0" secondAttribute="trailing" constant="20" id="Jf6-Px-bnA"/>
@@ -221,6 +238,7 @@
                 <constraint firstItem="kOP-Ve-tQW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="hFr-EM-GcU"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="art-cM-Wlg" secondAttribute="bottom" constant="8" id="lTw-JU-hS6"/>
                 <constraint firstAttribute="trailing" secondItem="2lc-or-rw9" secondAttribute="trailing" id="nnZ-CM-nNS"/>
+                <constraint firstItem="feT-nU-n5D" firstAttribute="leading" secondItem="TPq-f7-Kv0" secondAttribute="leading" constant="14" id="pDF-cT-fsm"/>
                 <constraint firstAttribute="trailing" secondItem="Uwv-It-EBd" secondAttribute="trailing" id="rfs-Yi-7QW"/>
                 <constraint firstItem="Uwv-It-EBd" firstAttribute="top" secondItem="kOP-Ve-tQW" secondAttribute="bottom" id="xMz-cs-YLv"/>
                 <constraint firstItem="TPq-f7-Kv0" firstAttribute="leading" secondItem="art-cM-Wlg" secondAttribute="trailing" constant="12" id="z78-AS-jfO"/>
