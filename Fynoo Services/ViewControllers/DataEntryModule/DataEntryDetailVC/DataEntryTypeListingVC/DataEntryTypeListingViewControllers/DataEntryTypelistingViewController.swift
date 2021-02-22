@@ -34,7 +34,7 @@ class DataEntryTypelistingViewController: UIViewController {
         self.tableVw.dataSource = self
         self.tableVw.delegate = self
         self.SetFont()
-        self.getServiceTypeAPI()
+      
         
         }
                     
@@ -46,7 +46,9 @@ class DataEntryTypelistingViewController: UIViewController {
         
     }
 
-
+    override func viewWillAppear(_ animated: Bool) {
+          self.getServiceTypeAPI()
+    }
   func setupUiMethod(){
 
     searchField.addTarget(self, action: #selector(DataEntryTypelistingViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
