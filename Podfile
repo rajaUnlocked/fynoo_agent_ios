@@ -35,6 +35,8 @@ pod 'Firebase/Messaging'
 pod 'GoogleMaps', '~>3.7.0'
 pod 'GooglePlaces', '~>3.7.0'
 pod "BSImagePicker"
+pod “TTRangeSlider”
+
 #pod 'goSellSDK'
 
 

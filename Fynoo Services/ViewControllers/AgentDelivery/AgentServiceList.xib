@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -72,16 +72,16 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXp-6k-gq4">
-                                <rect key="frame" x="79" y="35.5" width="14" height="13.5"/>
+                                <rect key="frame" x="79" y="35.5" width="20" height="13.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="14" id="DIX-JB-qtb"/>
+                                    <constraint firstAttribute="width" constant="20" id="DIX-JB-qtb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----------------------------------------------------------------------------------------" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0R-Mx-Pof">
-                                <rect key="frame" x="101" y="31.5" width="2" height="21"/>
+                                <rect key="frame" x="103" y="31.5" width="2" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="r1D-rI-lpZ"/>
                                     <constraint firstAttribute="width" constant="2" id="wrZ-vo-8QB"/>
@@ -91,7 +91,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----------------------------------------------------------------------------------------" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BW0-zI-P7G">
-                                <rect key="frame" x="255" y="31.5" width="2" height="21"/>
+                                <rect key="frame" x="248.5" y="31.5" width="2" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="1hT-1q-Lqv"/>
                                     <constraint firstAttribute="width" constant="2" id="PZH-n2-Ye6"/>
@@ -101,7 +101,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Id: 9876543214" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A36-AX-Ea9">
-                                <rect key="frame" x="111" y="34" width="135.5" height="16"/>
+                                <rect key="frame" x="109" y="34" width="135.5" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="135.5" id="Z37-nL-LGM"/>
                                     <constraint firstAttribute="height" constant="16" id="eor-6n-KvD"/>
@@ -111,7 +111,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wed 32,4020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbD-6t-HKI">
-                                <rect key="frame" x="265" y="34" width="115" height="16"/>
+                                <rect key="frame" x="254.5" y="34" width="125.5" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="1ye-4a-YYT"/>
                                 </constraints>
@@ -126,7 +126,7 @@
                                     <constraint firstAttribute="height" constant="16" id="dmJ-Dh-73f"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address: Plot No. B-3, B Block Sector-6, Noida,Utter Pradesh, India 201301" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpt-KT-V0C">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address: Plot No. B-3, B Block Sector-6, Noida,Utter Pradesh, India 201301" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpt-KT-V0C">
                                 <rect key="frame" x="81" y="59" width="267" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
@@ -182,6 +182,9 @@
                                     <constraint firstAttribute="width" constant="40" id="ZZI-gr-22w"/>
                                 </constraints>
                                 <state key="normal" image="nav"/>
+                                <connections>
+                                    <action selector="navigationClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5I0-UJ-2tg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tpr-1X-lLK">
                                 <rect key="frame" x="295" y="126" width="40" height="40"/>
@@ -190,6 +193,9 @@
                                     <constraint firstAttribute="width" constant="40" id="kA6-yt-H2r"/>
                                 </constraints>
                                 <state key="normal" image="call"/>
+                                <connections>
+                                    <action selector="callClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7Z8-sj-oG4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcS-ns-sJQ">
                                 <rect key="frame" x="257" y="126" width="40" height="40"/>
@@ -198,6 +204,9 @@
                                     <constraint firstAttribute="width" constant="40" id="Ddy-XA-ytH"/>
                                 </constraints>
                                 <state key="normal" image="messae"/>
+                                <connections>
+                                    <action selector="messageClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="boU-Pm-oRo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -207,7 +216,7 @@
                             <constraint firstItem="oRz-4M-4v5" firstAttribute="leading" secondItem="l0Y-oS-MD7" secondAttribute="trailing" constant="7.5" id="4Ob-fa-Sgz"/>
                             <constraint firstItem="oRz-4M-4v5" firstAttribute="centerY" secondItem="l0Y-oS-MD7" secondAttribute="centerY" id="6sp-AI-ZCI"/>
                             <constraint firstItem="sTd-GG-K4i" firstAttribute="top" secondItem="NPY-Ag-UGq" secondAttribute="bottom" constant="12" id="8DZ-PO-qcr"/>
-                            <constraint firstItem="pbD-6t-HKI" firstAttribute="leading" secondItem="BW0-zI-P7G" secondAttribute="trailing" constant="8" id="Cgq-z4-7wB"/>
+                            <constraint firstItem="pbD-6t-HKI" firstAttribute="leading" secondItem="BW0-zI-P7G" secondAttribute="trailing" constant="4" id="Cgq-z4-7wB"/>
                             <constraint firstItem="l0Y-oS-MD7" firstAttribute="leading" secondItem="XdB-Eh-KUl" secondAttribute="trailing" constant="2" id="Fvz-Hl-9vj"/>
                             <constraint firstAttribute="trailing" secondItem="Ze5-CS-aJm" secondAttribute="trailing" constant="14" id="Heb-2C-VHk"/>
                             <constraint firstItem="ajv-mq-bld" firstAttribute="top" secondItem="LbT-ZD-hOn" secondAttribute="top" constant="8" id="HwA-c2-Mez"/>
@@ -242,10 +251,10 @@
                             <constraint firstAttribute="trailing" secondItem="Cpt-KT-V0C" secondAttribute="trailing" constant="40" id="rii-3n-LVu"/>
                             <constraint firstItem="QXd-WT-xFV" firstAttribute="top" secondItem="pbD-6t-HKI" secondAttribute="bottom" constant="32" id="stv-ec-cbu"/>
                             <constraint firstItem="l0Y-oS-MD7" firstAttribute="centerY" secondItem="XdB-Eh-KUl" secondAttribute="centerY" id="vhF-Jn-yXk"/>
-                            <constraint firstItem="BW0-zI-P7G" firstAttribute="leading" secondItem="A36-AX-Ea9" secondAttribute="trailing" constant="8.5" id="xiV-jf-3bS"/>
-                            <constraint firstItem="v0R-Mx-Pof" firstAttribute="leading" secondItem="gXp-6k-gq4" secondAttribute="trailing" constant="8" id="ySn-mL-4wi"/>
+                            <constraint firstItem="BW0-zI-P7G" firstAttribute="leading" secondItem="A36-AX-Ea9" secondAttribute="trailing" constant="4" id="xiV-jf-3bS"/>
+                            <constraint firstItem="v0R-Mx-Pof" firstAttribute="leading" secondItem="gXp-6k-gq4" secondAttribute="trailing" constant="4" id="ySn-mL-4wi"/>
                             <constraint firstItem="pbD-6t-HKI" firstAttribute="centerY" secondItem="A36-AX-Ea9" secondAttribute="centerY" id="yTL-MH-DkA"/>
-                            <constraint firstItem="A36-AX-Ea9" firstAttribute="leading" secondItem="v0R-Mx-Pof" secondAttribute="trailing" constant="8" id="z7C-y7-HJk"/>
+                            <constraint firstItem="A36-AX-Ea9" firstAttribute="leading" secondItem="v0R-Mx-Pof" secondAttribute="trailing" constant="4" id="z7C-y7-HJk"/>
                             <constraint firstItem="cQL-fw-XEP" firstAttribute="centerY" secondItem="EO7-Bv-hfR" secondAttribute="centerY" id="ztY-Wn-RLm"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -268,14 +277,23 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="address" destination="Cpt-KT-V0C" id="Eih-FW-qen"/>
+                <outlet property="almostPriceLbl" destination="l0Y-oS-MD7" id="vFB-xV-PDO"/>
                 <outlet property="avgRating" destination="kY9-4A-7gT" id="OW6-bj-7SF"/>
+                <outlet property="callBtn" destination="Tpr-1X-lLK" id="R70-DS-r9t"/>
+                <outlet property="cardView" destination="LbT-ZD-hOn" id="epw-tA-Nyj"/>
                 <outlet property="date" destination="pbD-6t-HKI" id="xOr-w8-Vwb"/>
+                <outlet property="messageBtn" destination="hcS-ns-sJQ" id="isj-K7-STW"/>
                 <outlet property="name" destination="27R-Pg-PVb" id="hSA-e7-aGD"/>
+                <outlet property="navigationBtn" destination="Ze5-CS-aJm" id="5Gr-X0-8V5"/>
                 <outlet property="orderId" destination="A36-AX-Ea9" id="YAB-fy-hnY"/>
                 <outlet property="price" destination="oRz-4M-4v5" id="eVL-YX-cps"/>
+                <outlet property="profileImageView" destination="ajv-mq-bld" id="Id9-bo-CUp"/>
+                <outlet property="ratingCosmosView" destination="cQL-fw-XEP" id="VKl-cM-jxp"/>
+                <outlet property="statusLbl" destination="9x4-8r-cn7" id="CVR-ya-1bd"/>
                 <outlet property="statusView" destination="AYs-kU-4yi" id="ee7-jl-Rfc"/>
                 <outlet property="totalCount" destination="gXp-6k-gq4" id="3Ot-sf-CKK"/>
                 <outlet property="totalRate" destination="EO7-Bv-hfR" id="iyq-Ul-K6V"/>
+                <outlet property="walletIcon" destination="QXd-WT-xFV" id="mIw-tG-iXa"/>
             </connections>
             <point key="canvasLocation" x="198.55072463768118" y="77.678571428571431"/>
         </tableViewCell>

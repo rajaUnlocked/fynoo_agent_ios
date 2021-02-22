@@ -155,8 +155,8 @@ class Constant: NSObject {
     static let bankIdentifier_List : String = "businessapi/v2/search_iban_number/";
 //         static var BASE_URL : String = "http://61.95.220.248:9092/"
     //      static var BASE_URL : String = "http://61.95.220.248:9095/"  //CLIENT URL FOR NOW
-    static var BASE_URL : String = "https://dev.fynoo.com:8001/"
-    
+    //static var BASE_URL : String = "https://dev.fynoo.com:8001/"
+     static var BASE_URL : String = "http://uat.sendan.com.sa:9003/"
     
     //      static var BASE_URL : String = "http://43.241.61.141:9003/"
     //  static var BASE_URL : String = "http://43.241.61.141:9005/"

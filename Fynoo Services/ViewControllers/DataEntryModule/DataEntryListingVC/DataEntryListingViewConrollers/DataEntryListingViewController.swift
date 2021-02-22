@@ -10,7 +10,7 @@ import UIKit
 import MTPopup
 
 class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDelegate, DECancellationReasonViewControllerDelegate, DataEntryDetailViewControllerDelegate, DataEntryAgentRatingViewControllerDelegate, CompleteDataEntryListTableViewCellrDelegate, DataEntryFormViewControllerDelegate {
- 
+    
     @IBOutlet weak var noDataView: UIView!
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var tableView: UITableView!
@@ -25,8 +25,15 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     var searchBoxEntryText:String = ""
     var selectedTab:String = "1"
     var Index:Int = 0
-     var clickIndex:Int = 99999
+    var clickIndex:Int = 99999
     var rejectReasonID:String = ""
+    
+    var headerView1 : DataEntryListHeaderView? = nil
+    
+    var selectedFilters =  [ChooseFilters]()
+    var serviceID:String = ""
+    var appliedFilterCount:Int = 0
+    var createHeaderAgain:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,10 +58,11 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         currentPageNumber = 0
         self.selectedTab = "2"
         self.Index = 1
+        self.createHeaderAgain = true
         self.getBoServicesRequestListAPI()
         
     }
-
+    
     @objc func methodOfReceivedNotificationRefreshList(_ notification: NSNotification) {
         ModalClass.startLoading(self.view)
         isMoreDataAvailable = false
@@ -84,6 +92,14 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     }
     
     @objc func filterClicked() {
+        appliedFilterCount = 0
+        let vc = DataEntryFilterViewController(nibName: "DataEntryFilterViewController", bundle: nil)
+        vc.hidesBottomBarWhenPushed = true
+        vc.delegate = self
+        vc.fromWhere = self.selectedTab
+        vc.choseFilters = self.selectedFilters
+        vc.dataEntryFilter = self.boServicesList?.data?.filter_list
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
@@ -122,8 +138,8 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     }
     
     func getBoServicesRequestListAPI() {
-       
-        apiManagerModal.agentServicesOrderListing(tabStatus: self.selectedTab, searchStr: self.searchBoxEntryText, pageNumber: currentPageNumber ) { (success, response) in
+        
+        apiManagerModal.agentServicesOrderListing(serviceID:self.serviceID, tabStatus: self.selectedTab, searchStr: self.searchBoxEntryText, pageNumber: currentPageNumber, filter: selectedFilters ) { (success, response) in
             ModalClass.stopLoading()
             if success{
                 if self.currentPageNumber == 0 {
@@ -176,27 +192,27 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         print("reasonID", reasonID)
         self.rejectReasonID = reasonID
         self.cancelDataEntryServiceAPI()
-           
-       }
-
-       func cancelDataEntryServiceAPI() {
-           let serviceData = totalRequestListArray?[self.clickIndex]
-//           let dataEntryServiceID = ModalController.toString(serviceData?.id as Any)
-
-           apiManagerModal.cancelDataEntryFromList(serviceID: ModalController.toString(serviceData?.id as Any), reasonID: self.rejectReasonID) { (success, response) in
-               if success{
-                   if let value = (response?.object(forKey: "error_description") as? String) {
-                       ModalController.showSuccessCustomAlertWith(title: "", msg: value)
-                   }
-                   self.getBoServicesRequestListAPI()
-                   self.tableView.reloadData()
-               }else{
-                   if let value = response?.object(forKey: "error_description") as? String {
-                       ModalController.showNegativeCustomAlertWith(title: "", msg: value)
-                   }
-               }
-           }
-       }
+        
+    }
+    
+    func cancelDataEntryServiceAPI() {
+        let serviceData = totalRequestListArray?[self.clickIndex]
+        //           let dataEntryServiceID = ModalController.toString(serviceData?.id as Any)
+        
+        apiManagerModal.cancelDataEntryFromList(serviceID: ModalController.toString(serviceData?.id as Any), reasonID: self.rejectReasonID) { (success, response) in
+            if success{
+                if let value = (response?.object(forKey: "error_description") as? String) {
+                    ModalController.showSuccessCustomAlertWith(title: "", msg: value)
+                }
+                self.getBoServicesRequestListAPI()
+                self.tableView.reloadData()
+            }else{
+                if let value = response?.object(forKey: "error_description") as? String {
+                    ModalController.showNegativeCustomAlertWith(title: "", msg: value)
+                }
+            }
+        }
+    }
     
     func ratingClicked(_ sender: Any) {
         
@@ -219,40 +235,52 @@ extension DataEntryListingViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
+            if headerView1 == nil || appliedFilterCount > 0 || self.createHeaderAgain == true {
+                
+                headerView1 = DataEntryListHeaderView()
+                
+                let searchTxtFld = headerView1!.viewWithTag(103) as! UITextField
+                let searchBtn = headerView1!.viewWithTag(104) as! UIButton
+                let filterBtn = headerView1!.viewWithTag(105) as! UIButton
+                let dataEntryLbl = headerView1!.viewWithTag(106) as! UILabel
+                let filterCount = headerView1!.viewWithTag(1010) as! UILabel
+                
+                let avgLbl = headerView1!.viewWithTag(1001) as! UILabel
+                //            let ratingView = sectionHeaderView.viewWithTag(1002) as! UIView
+                let totalRatingLbl = headerView1!.viewWithTag(1003) as! UILabel
+                filterCount.isHidden = true
+                
+                avgLbl.text = self.boServicesList?.data?.rating_avg
+                totalRatingLbl.text = "(\(ModalController.toString(self.boServicesList?.data?.rating_count as Any)))"
+                headerView1!.ratingValueView.rating = ModalController.convertInToDouble(str: self.boServicesList?.data?.rating_avg as AnyObject)
+                
+                
+                searchBtn.addTarget(self, action: #selector(searchClicked), for: .touchUpInside)
+                searchTxtFld.addTarget(self, action: #selector(DataEntryListingViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+                
+                filterBtn.addTarget(self, action: #selector(filterClicked), for: .touchUpInside)
+                
+                
+                let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+                
+                searchTxtFld.font = UIFont(name:"\(fontNameLight)",size:12)
+                dataEntryLbl.font = UIFont(name:"\(fontNameLight)",size:16)
+                
+                if appliedFilterCount > 0 {
+                    filterCount.isHidden = false
+                    filterCount.text = ModalController.toString(appliedFilterCount as Any)
+                    
+                }else{
+                    filterCount.isHidden = true
+                    filterCount.text = ""
+                }
+                
+                
+                headerView1!.delegate = self
+            }
+            headerView1!.selectedIndex = Index
             
-            let sectionHeaderView = DataEntryListHeaderView()
-            
-            let searchTxtFld = sectionHeaderView.viewWithTag(103) as! UITextField
-            let searchBtn = sectionHeaderView.viewWithTag(104) as! UIButton
-            let filterBtn = sectionHeaderView.viewWithTag(105) as! UIButton
-            let dataEntryLbl = sectionHeaderView.viewWithTag(106) as! UILabel
-//            let newOrderBtn = sectionHeaderView.viewWithTag(107) as! UIButton
-            
-            let avgLbl = sectionHeaderView.viewWithTag(1001) as! UILabel
-//            let ratingView = sectionHeaderView.viewWithTag(1002) as! UIView
-            let totalRatingLbl = sectionHeaderView.viewWithTag(1003) as! UILabel
-            
-            
-            avgLbl.text = self.boServicesList?.data?.rating_avg
-            totalRatingLbl.text = "(\(ModalController.toString(self.boServicesList?.data?.rating_count as Any)))" 
-            sectionHeaderView.ratingValueView.rating = ModalController.convertInToDouble(str: self.boServicesList?.data?.rating_avg as AnyObject)
-
-
-            searchBtn.addTarget(self, action: #selector(searchClicked), for: .touchUpInside)
-            searchTxtFld.addTarget(self, action: #selector(DataEntryListingViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-            
-            filterBtn.addTarget(self, action: #selector(filterClicked), for: .touchUpInside)
-           
-           
-            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-            
-            searchTxtFld.font = UIFont(name:"\(fontNameLight)",size:12)
-             dataEntryLbl.font = UIFont(name:"\(fontNameLight)",size:16)
-            
-//
-            sectionHeaderView.selectedIndex = Index
-            sectionHeaderView.delegate = self
-            return sectionHeaderView
+            return headerView1
         }else{
             return UIView()
         }
@@ -270,11 +298,11 @@ extension DataEntryListingViewController : UITableViewDelegate {
         
         if let textStr = textField.text {
             self.searchBoxEntryText = textStr
-//            if self.searchBoxEntryText.count == 0{
-//                self.currentPageNumber = 1
-//                self.isMoreDataAvailable = false
-//                self.getBoServicesRequestListAPI()
-//            }
+            //            if self.searchBoxEntryText.count == 0{
+            //                self.currentPageNumber = 1
+            //                self.isMoreDataAvailable = false
+            //                self.getBoServicesRequestListAPI()
+            //            }
         }
         
     }
@@ -282,14 +310,14 @@ extension DataEntryListingViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.section == 0 {
-         return 45
+            return 45
         }else{
             if selectedTab == "4" {
-             return 130
+                return 130
             } else if selectedTab == "3"{
-                 return 260
+                return 260
             }else{
-            return 105
+                return 105
             }
         }
     }
@@ -447,23 +475,21 @@ extension DataEntryListingViewController : UITableViewDataSource {
         
         if requestData?.location == "1" {
             if requestData?.country_code != "" {
-            cell.addressLbl.text = "Online, \(requestData?.country_code ?? "")"
+                cell.addressLbl.text = "Online, \(requestData?.country_code ?? "")"
             }else{
-               cell.addressLbl.text = "Online"
+                cell.addressLbl.text = "Online"
             }
             
         }else if requestData?.location == "2" {
             if requestData?.country_code != "" {
-           cell.addressLbl.text = "\(requestData?.city_name ?? ""), \(requestData?.country_code ?? "")"
+                cell.addressLbl.text = "\(requestData?.city_name ?? ""), \(requestData?.country_code ?? "")"
             }else{
-              cell.addressLbl.text = "\(requestData?.city_name ?? "")"
+                cell.addressLbl.text = "\(requestData?.city_name ?? "")"
             }
         }
         
-        
         return cell
     }
-    
     
     func dataEntryCompleteServiceCell(index : IndexPath) -> UITableViewCell {
         
@@ -521,7 +547,7 @@ extension DataEntryListingViewController : UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if cell.tag == 999999 {
             
@@ -542,7 +568,24 @@ extension DataEntryListingViewController : UITableViewDataSource {
         activityIndicator.frame = CGRect(x: (UIScreen.main.bounds.size.width / 2) - 10, y: 12, width: 20, height: 20)
         
         return cell
-     
         
+    }
+}
+
+extension DataEntryListingViewController : DataEntryFilterDelegate {
+    
+    func filterApplied(filters : [ChooseFilters]) {
+        self.selectedFilters = filters
+        
+        appliedFilterCount = 0
+        for item in filters {
+            
+            if item.range.isEmpty == false {
+                appliedFilterCount = appliedFilterCount + 1;
+                
+            }
+        }
+        print("appliedFilterCount:-", appliedFilterCount)
+        self.refreshDataEntryCompleteServiceList()
     }
 }
