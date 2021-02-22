@@ -129,7 +129,7 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
                         ProductModel.shared.remove()
                  Singleton.shared.setBoId(BoId: self.boID)
                                    ModalClass.startLoading(self.view)
-                        ProductModel.shared.productId = "\(typeData?.product_id ?? 0 )"
+                            ProductModel.shared.productId = "\(typeData?.product_id ?? 0 )"
                                    productmodel.productDetails{ (success, response) in
                                        ModalClass.stopLoading()
                                        
@@ -137,6 +137,7 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
                                        {
                                            
                                 let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                                  vc.serviceid = self.serviceID
                                 self.navigationController?.pushViewController(vc, animated: true)
                                            
                                         }
@@ -149,6 +150,7 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
             ProductModel.shared.remove()
             let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
             Singleton.shared.setBoId(BoId: self.boID)
+                 vc.serviceid = self.serviceID
             self.navigationController?.pushViewController(vc, animated: true)
             }
             

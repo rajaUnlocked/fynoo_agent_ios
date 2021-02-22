@@ -15,7 +15,7 @@ class CreateProductFirstViewController: UIViewController {
     var prolimit:ProductLimit?
     var isDataBank = false
      var isPurchaseData = false
-   
+   var serviceid = ""
     var Currency_Type_List:CurrencyLIST?
     var addproductmodel = AddProductModel()
     var productmodel = AddProductModel()
@@ -356,6 +356,7 @@ class CreateProductFirstViewController: UIViewController {
             if ProductModel.shared.productId == ""
             {
                 ModalClass.startLoading(self.view)
+                addproductmodel.serviceid = self.serviceid
                 addproductmodel.addProductNew { (success, response) in
                     ModalClass.stopLoading()
                     self.editpronew = response
