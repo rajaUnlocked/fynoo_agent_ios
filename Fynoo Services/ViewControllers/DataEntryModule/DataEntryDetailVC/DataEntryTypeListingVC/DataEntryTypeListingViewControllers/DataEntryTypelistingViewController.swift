@@ -44,12 +44,11 @@ class DataEntryTypelistingViewController: UIViewController {
         self.searchField.font = UIFont(name:"\(fontNameLight)",size:16)
         
     }
-<<<<<<< HEAD
-=======
 
     override func viewWillAppear(_ animated: Bool) {
-          self.getServiceTypeAPI()
+        self.getServiceTypeAPI()
     }
+    
   func setupUiMethod(){
 
     searchField.addTarget(self, action: #selector(DataEntryTypelistingViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
@@ -65,25 +64,24 @@ class DataEntryTypelistingViewController: UIViewController {
 //      self.navigationController?.isNavigationBarHidden = true
     self.customHeader.titleHeader.text = "Data Entry Sevice"
     self.customHeader.viewControl = self
->>>>>>> f958bba442eb4de12ff65dddfb56890e36998d64
-    
-    func setupUiMethod() {
-        
-        searchField.addTarget(self, action: #selector(DataEntryTypelistingViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        let yourColor : UIColor = UIColor(red: 233.0/255.0, green: 233.0/255.0, blue: 233.0/255.0, alpha: 1.0)
-        searchVw.layer.masksToBounds = true
-        searchVw.layer.borderColor = yourColor.cgColor
-        searchVw.layer.borderWidth = 1.0
-        searchVw.layer.cornerRadius = 5.0
-        
-        self.searchField.attributedPlaceholder = NSAttributedString(string: "Enter Data Entry Item", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 126.0/255.0, green: 139.0/255.0, blue: 152.0/255.0, alpha: 1.0)])
-        
-        self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-        self.customHeader.titleHeader.text = "Data Entry Sevice"
-        self.customHeader.viewControl = self
-        
-        
     }
+//    func setupUiMethod() {
+//
+//        searchField.addTarget(self, action: #selector(DataEntryTypelistingViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+//        let yourColor : UIColor = UIColor(red: 233.0/255.0, green: 233.0/255.0, blue: 233.0/255.0, alpha: 1.0)
+//        searchVw.layer.masksToBounds = true
+//        searchVw.layer.borderColor = yourColor.cgColor
+//        searchVw.layer.borderWidth = 1.0
+//        searchVw.layer.cornerRadius = 5.0
+//
+//        self.searchField.attributedPlaceholder = NSAttributedString(string: "Enter Data Entry Item", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 126.0/255.0, green: 139.0/255.0, blue: 152.0/255.0, alpha: 1.0)])
+//
+//        self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
+//        self.customHeader.titleHeader.text = "Data Entry Sevice"
+//        self.customHeader.viewControl = self
+//
+//
+//    }
     
     @IBAction func searchBtnClicked(_ sender: Any) {
         self.view.endEditing(true)
