@@ -49,11 +49,13 @@ class Data_lines : Mappable {
    var des_name : String?
     var type_name : String?
     var is_complete : Int?
-   
+    var branch_id :Int?
+    var product_id :Int?
     required init?(map: Map) {}
     
     func mapping(map: Map) {
-        
+          branch_id <- map["branch_id"]
+          product_id <- map["product_id"]
        des_name <- map["des_name"]
         type_name <- map["type_name"]
         is_complete <- map["is_complete"]

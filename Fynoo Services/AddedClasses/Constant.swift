@@ -133,7 +133,7 @@ class Constant: NSObject {
 
     static let getStockDataNew: String = "product_api/getStockData/"
        static let updateStockData: String = "product_api/updateStock/"
-     static let updateBranch : String = "businessapi/v2/updatebranch/";
+     static let updateBranch : String = "services/agent_create_branch/";
     // business gallery
     static let uploadGalleryImg : String = "gallery/business_gallery/"
        static let businessGalleryList: String = "gallery/business_gallery_list/"
@@ -155,8 +155,8 @@ class Constant: NSObject {
     static let bankIdentifier_List : String = "businessapi/v2/search_iban_number/";
 //         static var BASE_URL : String = "http://61.95.220.248:9092/"
     //      static var BASE_URL : String = "http://61.95.220.248:9095/"  //CLIENT URL FOR NOW
-    static var BASE_URL : String = "https://dev.fynoo.com:8001/"
-    
+    //static var BASE_URL : String = "https://dev.fynoo.com:8001/"
+     static var BASE_URL : String = "http://uat.sendan.com.sa:9003/"
     
     //      static var BASE_URL : String = "http://43.241.61.141:9003/"
     //  static var BASE_URL : String = "http://43.241.61.141:9005/"

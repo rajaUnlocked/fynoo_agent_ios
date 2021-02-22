@@ -24,6 +24,7 @@ class AddProductModel: NSObject {
      var isSimilar = false
     var vatnum = ""
     var proid = ""
+    var serviceid = ""
     func addProductNew(completion:@escaping(Bool, EditProductnew?) -> ()) {
         let pro = ProductModel.shared
         var mediaid = ""
@@ -71,6 +72,7 @@ class AddProductModel: NSObject {
              "pro_video_url":pro.videoUrl,
              "pro_purchased_product_id":pro.purchaseId,
              "pro_image_id":pro.purchaseId == "" ? mediaid : "",
+             "service_id" : "36",
              "pro_purchased_image_id":pro.purchaseId == "" ? "" : mediaid] as [String : Any]
         print(str,parameters)
         ServerCalls.postRequest(str, withParameters: parameters)
@@ -558,12 +560,14 @@ class AddProductModel: NSObject {
         {
         str = "\(Constant.BASE_URL)\(Constant.editproductNew)"
         }
+        
        
         
         var parameters =
             ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,
              "pro_agent_id":Singleton.shared.getUserId(),
              "pro_bo_id":Singleton.shared.getBoId(),
+             "service_id":"36",
              "pro_id":pro.productId,
              "pro_filled_step":step,
              "pro_barcode":pro.barcode,

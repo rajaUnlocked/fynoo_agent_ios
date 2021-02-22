@@ -17,7 +17,8 @@ class DataEntryTypelistingViewController: UIViewController {
     @IBOutlet weak var tableVw: UITableView!
     @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var crossBtn: UIButton!
-    
+     var branchmodel = branchsmodel()
+     var productmodel = AddProductModel()
     var serviceID:String = ""
     var boID:String = ""
     var dataEntryType:String = ""
@@ -32,7 +33,7 @@ class DataEntryTypelistingViewController: UIViewController {
         self.tableVw.dataSource = self
         self.tableVw.delegate = self
         self.SetFont()
-        self.getServiceTypeAPI()
+      
         
     }
     
@@ -43,6 +44,28 @@ class DataEntryTypelistingViewController: UIViewController {
         self.searchField.font = UIFont(name:"\(fontNameLight)",size:16)
         
     }
+<<<<<<< HEAD
+=======
+
+    override func viewWillAppear(_ animated: Bool) {
+          self.getServiceTypeAPI()
+    }
+  func setupUiMethod(){
+
+    searchField.addTarget(self, action: #selector(DataEntryTypelistingViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+      let yourColor : UIColor = UIColor(red: 233.0/255.0, green: 233.0/255.0, blue: 233.0/255.0, alpha: 1.0)
+      searchVw.layer.masksToBounds = true
+      searchVw.layer.borderColor = yourColor.cgColor
+      searchVw.layer.borderWidth = 1.0
+      searchVw.layer.cornerRadius = 5.0
+      
+      self.searchField.attributedPlaceholder = NSAttributedString(string: "Enter Data Entry Item", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 126.0/255.0, green: 139.0/255.0, blue: 152.0/255.0, alpha: 1.0)])
+      
+      self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
+//      self.navigationController?.isNavigationBarHidden = true
+    self.customHeader.titleHeader.text = "Data Entry Sevice"
+    self.customHeader.viewControl = self
+>>>>>>> f958bba442eb4de12ff65dddfb56890e36998d64
     
     func setupUiMethod() {
         
@@ -119,14 +142,60 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
         let typeData = serviceTypeList?.data?.data_entry_lines?[indexPath.row]
         
         if typeData?.type_name == "Product" {
+            if (typeData?.product_id ?? 0) > 0
+            {
+                        ProductModel.shared.remove()
+                 Singleton.shared.setBoId(BoId: self.boID)
+                                   ModalClass.startLoading(self.view)
+                            ProductModel.shared.productId = "\(typeData?.product_id ?? 0 )"
+                                   productmodel.productDetails{ (success, response) in
+                                       ModalClass.stopLoading()
+                                       
+                                       if success
+                                       {
+                                           
+                                let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                                  vc.serviceid = self.serviceID
+                                self.navigationController?.pushViewController(vc, animated: true)
+                                           
+                                        }
+                                   }
+            }
+            else
+            {
+                
+                
+            ProductModel.shared.remove()
             let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
             Singleton.shared.setBoId(BoId: self.boID)
+                 vc.serviceid = self.serviceID
             self.navigationController?.pushViewController(vc, animated: true)
+            }
             
         }   else if typeData?.type_name == "Branch" {
+            if (typeData?.branch_id ?? 0) > 0
+            {
+                AddBranch.shared.removeall()
+                 Singleton.shared.setBoId(BoId: self.boID)
+                branchmodel.branchid = "\(typeData?.branch_id ?? 0)"
+                    ModalClass.startLoading(self.view)
+                      branchmodel.branchDetail { (success, response) in
+                          if success {
+                    ModalClass.stopLoading()
+                        let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
+                            vc.serviceid = self.serviceID
+                    self.navigationController?.pushViewController(vc, animated: true)
+                          }
+                      }
+            }
+            else
+            {
+                 AddBranch.shared.removeall()
             let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
             Singleton.shared.setBoId(BoId: self.boID)
+                 vc.serviceid = self.serviceID
             self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     
