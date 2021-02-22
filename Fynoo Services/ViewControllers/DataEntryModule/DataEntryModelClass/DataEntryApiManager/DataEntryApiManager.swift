@@ -23,12 +23,13 @@ class DataEntryApiManager: NSObject {
 //        var param = [String:String]()
         var url = ""
         
-        var  param = ["service_id": serviceID,
-                      "agent_id": Singleton.shared.getUserId(),
-                       "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
-                       "status" : tabStatus,
-                       "search":searchStr,
-                       "next_page_no": pageNumber
+        var  param = [
+            "service_id": serviceID,
+            "agent_id": Singleton.shared.getUserId(),
+            "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
+            "status" : tabStatus,
+            "search":searchStr,
+            "next_page_no": pageNumber
             
             ]as [String : Any]
         

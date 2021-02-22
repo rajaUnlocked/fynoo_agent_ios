@@ -33,6 +33,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     var selectedFilters =  [ChooseFilters]()
     var serviceID:String = ""
     var appliedFilterCount:Int = 0
+    var createHeaderAgain:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +58,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         currentPageNumber = 0
         self.selectedTab = "2"
         self.Index = 1
+        self.createHeaderAgain = true
         self.getBoServicesRequestListAPI()
         
     }
@@ -233,7 +235,7 @@ extension DataEntryListingViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
-            if headerView1 == nil || appliedFilterCount > 0 {
+            if headerView1 == nil || appliedFilterCount > 0 || self.createHeaderAgain == true {
                 
                 headerView1 = DataEntryListHeaderView()
                 

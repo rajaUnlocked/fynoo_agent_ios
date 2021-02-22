@@ -382,5 +382,4 @@ extension DataEntryFilterViewController: DateRangeFilterTableViewCellDelegate {
         }
         
     }
-       
 }

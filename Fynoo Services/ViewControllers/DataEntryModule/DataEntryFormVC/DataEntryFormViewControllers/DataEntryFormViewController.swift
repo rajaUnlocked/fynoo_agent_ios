@@ -269,7 +269,7 @@ class DataEntryFormViewController: UIViewController, DataEntryFormItemPopUpViewC
         }
     }
     
-    func popUpYesClicked(_ sender: Any, fromWhere:String){
+    func popUpYesClicked(_ sender: Any, fromWhere:String) {
         
        self.dataEntryNewFromApi()
     }
