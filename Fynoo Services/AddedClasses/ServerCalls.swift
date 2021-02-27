@@ -192,15 +192,6 @@ class ServerCalls: NSObject {
         }
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     static func fileUploadAPINew(inputUrl:String,parameters:[String:Any],imageName: String,imageFile : UIImage,completion:((AnyObject?,Bool,AnyObject?) -> Void)?){
         
         print(inputUrl)
@@ -374,9 +365,7 @@ class ServerCalls: NSObject {
         }
     }
     
-    static func getRequests(_ urlString: String, completion: ((AnyObject?,Bool) -> Void)?)
-        
-    {
+    static func getRequests(_ urlString: String, completion: ((AnyObject?,Bool) -> Void)?){
         
         
         

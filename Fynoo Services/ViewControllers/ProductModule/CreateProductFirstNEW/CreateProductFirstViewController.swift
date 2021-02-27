@@ -834,13 +834,13 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
                       cell.rgtbtn.setImage(UIImage(named: "uncheck"), for: .normal)
                 }
                 if isOnline
-                               {
-                                      cell.leftbtn.setImage(UIImage(named: "check"), for: .normal)
-                               }
-                               else
-                               {
-                                  cell.leftbtn.setImage(UIImage(named: "uncheck"), for: .normal)
-                }
+                        {
+                        cell.leftbtn.setImage(UIImage(named: "check"), for: .normal)
+                        }
+                        else
+                        {
+                        cell.leftbtn.setImage(UIImage(named: "uncheck"), for: .normal)
+                            }
                 if !isStore && !isOnline
                                {
                                    cell.rgtbtn.setImage(UIImage(named: "check_red_new"), for: .normal)
