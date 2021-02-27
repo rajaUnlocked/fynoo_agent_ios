@@ -34,7 +34,6 @@ class DataEntryTypelistingViewController: UIViewController {
         self.tableVw.delegate = self
         self.SetFont()
       
-        
     }
     
     func SetFont() {
@@ -137,67 +136,63 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let typeData = serviceTypeList?.data?.data_entry_lines?[indexPath.row]
         
         if typeData?.type_name == "Product" {
             if (typeData?.product_id ?? 0) > 0
             {
-                        ProductModel.shared.remove()
-                 Singleton.shared.setBoId(BoId: self.boID)
-                                   ModalClass.startLoading(self.view)
-                            ProductModel.shared.productId = "\(typeData?.product_id ?? 0 )"
-                                   productmodel.productDetails{ (success, response) in
-                                       ModalClass.stopLoading()
-                                       
-                                       if success
-                                       {
-                                           
-                                let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
-                                  vc.serviceid = self.serviceID
-                                self.navigationController?.pushViewController(vc, animated: true)
-                                           
-                                        }
-                                   }
-            }
-            else
-            {
+                ProductModel.shared.remove()
+                Singleton.shared.setBoId(BoId: self.boID)
+                ModalClass.startLoading(self.view)
+                ProductModel.shared.productId = "\(typeData?.product_id ?? 0 )"
+                productmodel.productDetails{ (success, response) in
+                    ModalClass.stopLoading()
+                    
+                    if success{
+                        
+                        let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                        vc.serviceid = self.serviceID
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
+            }else{
                 
-                
-            ProductModel.shared.remove()
-            let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
-            Singleton.shared.setBoId(BoId: self.boID)
-                 vc.serviceid = self.serviceID
-            self.navigationController?.pushViewController(vc, animated: true)
+                ProductModel.shared.remove()
+                let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                Singleton.shared.setBoId(BoId: self.boID)
+                vc.serviceid = self.serviceID
+                self.navigationController?.pushViewController(vc, animated: true)
             }
             
-        }   else if typeData?.type_name == "Branch" {
-            if (typeData?.branch_id ?? 0) > 0
-            {
+        }else if typeData?.type_name == "Branch" {
+            if (typeData?.branch_id ?? 0) > 0{
+                
                 AddBranch.shared.removeall()
-                 Singleton.shared.setBoId(BoId: self.boID)
+                Singleton.shared.setBoId(BoId: self.boID)
                 branchmodel.branchid = "\(typeData?.branch_id ?? 0)"
-                    ModalClass.startLoading(self.view)
-                      branchmodel.branchDetail { (success, response) in
-                          if success {
-                    ModalClass.stopLoading()
+                ModalClass.startLoading(self.view)
+                branchmodel.branchDetail { (success, response) in
+                    if success {
+                        ModalClass.stopLoading()
                         let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
-                            vc.serviceid = self.serviceID
-                    self.navigationController?.pushViewController(vc, animated: true)
-                          }
-                      }
-            }
-            else
-            {
-                 AddBranch.shared.removeall()
-            let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
-            Singleton.shared.setBoId(BoId: self.boID)
-                 vc.serviceid = self.serviceID
-            self.navigationController?.pushViewController(vc, animated: true)
+                        vc.serviceid = self.serviceID
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
+            }else{
+                
+                AddBranch.shared.removeall()
+                let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
+                Singleton.shared.setBoId(BoId: self.boID)
+                vc.serviceid = self.serviceID
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "DataEntryTypeListingTableViewCell", for: indexPath) as! DataEntryTypeListingTableViewCell
         cell.selectionStyle = .none
         cell.tickImageView.isHidden = true
