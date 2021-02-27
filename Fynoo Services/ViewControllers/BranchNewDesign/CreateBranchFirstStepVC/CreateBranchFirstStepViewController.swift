@@ -283,7 +283,7 @@
                {
             if br.bName.count > 0 && br.mail.count > 0 && br.mobileCode.count > 0 && br.MobileNo.count > 0 && br.Descrip.count > 0 && br.BType.count > 0 && br.platformType.count > 0 && br.location.count > 0 && br.branchImgUrl.count > 0 && br.branchLogoId.count > 0 && AddBranch.shared.showImgId.count > 0
             {
-                self.headerImgArr[0] = "section_filled"
+                self.headerImgArr[0] = "section_filled.png"
                 isSave = true
             }
                 else
@@ -296,7 +296,7 @@
                {
                if br.bName.count > 0 && br.mail.count > 0 && br.mobileCode.count > 0 && br.MobileNo.count > 0 && br.Descrip.count > 0 && br.BType.count > 0 && br.platformType.count > 0  && br.branchImgUrl.count > 0 && br.branchLogoId.count > 0 && AddBranch.shared.showImgId.count > 0
                {
-                   self.headerImgArr[0] = "section_filled"
+                   self.headerImgArr[0] = "section_filled.png"
                    isSave = true
                }
                 else

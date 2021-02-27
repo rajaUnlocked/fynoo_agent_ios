@@ -72,7 +72,7 @@ class AddProductModel: NSObject {
              "pro_video_url":pro.videoUrl,
              "pro_purchased_product_id":pro.purchaseId,
              "pro_image_id":pro.purchaseId == "" ? mediaid : "",
-             "service_id" : "36",
+             "service_id" : serviceid,
              "pro_purchased_image_id":pro.purchaseId == "" ? "" : mediaid] as [String : Any]
         print(str,parameters)
         ServerCalls.postRequest(str, withParameters: parameters)

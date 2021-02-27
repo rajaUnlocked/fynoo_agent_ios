@@ -129,7 +129,7 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
             if (typeData?.product_id ?? 0) > 0
             {
                         ProductModel.shared.remove()
-                 Singleton.shared.setBoId(BoId: self.boID)
+                          Singleton.shared.setBoId(BoId: self.boID)
                                    ModalClass.startLoading(self.view)
                             ProductModel.shared.productId = "\(typeData?.product_id ?? 0 )"
                                    productmodel.productDetails{ (success, response) in
@@ -139,7 +139,7 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
                                        {
                                            
                                 let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
-                                  vc.serviceid = self.serviceID
+                                  vc.serviceid = "\(typeData?.form_id ?? 0 )"
                                 self.navigationController?.pushViewController(vc, animated: true)
                                            
                                         }
@@ -152,7 +152,7 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
             ProductModel.shared.remove()
             let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
             Singleton.shared.setBoId(BoId: self.boID)
-                 vc.serviceid = self.serviceID
+                 vc.serviceid = "\(typeData?.form_id ?? 0 )"
             self.navigationController?.pushViewController(vc, animated: true)
             }
             
@@ -167,7 +167,7 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
                           if success {
                     ModalClass.stopLoading()
                         let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
-                            vc.serviceid = self.serviceID
+                            vc.serviceid = "\(typeData?.form_id ?? 0 )"
                     self.navigationController?.pushViewController(vc, animated: true)
                           }
                       }
@@ -177,7 +177,7 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
                  AddBranch.shared.removeall()
             let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
             Singleton.shared.setBoId(BoId: self.boID)
-                 vc.serviceid = self.serviceID
+                vc.serviceid = "\(typeData?.form_id ?? 0 )"
             self.navigationController?.pushViewController(vc, animated: true)
             }
         }
