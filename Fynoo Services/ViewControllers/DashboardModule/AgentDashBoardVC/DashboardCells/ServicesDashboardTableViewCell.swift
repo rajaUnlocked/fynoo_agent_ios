@@ -59,15 +59,16 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
                 let nameStr = ((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_name") as! NSString) as String
                 let idInt = Int((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber)
                 self.delegate?.addServiceClickedHome(id: idInt, name: nameStr,index: indexPath.item)
-            }else if serviceCode == "DATAENTRY" {
-                let vc = DataEntryListingViewController()
-                 vc.serviceID = ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any) 
-                parent.navigationController?.pushViewController(vc, animated: true)
-                
-        }else if serviceCode == "DELIVERY" {
+            }else if serviceCode == "DELIVERY" {
                 let vc = AgentDeliveryViewController()
                 vc.serviceID = ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any) 
                 parent.navigationController?.pushViewController(vc, animated: true)
+            }else{
+                let vc = DataEntryListingViewController()
+                 vc.serviceID = ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any)
+                parent.navigationController?.pushViewController(vc, animated: true)
+                
+
         }
     }
     

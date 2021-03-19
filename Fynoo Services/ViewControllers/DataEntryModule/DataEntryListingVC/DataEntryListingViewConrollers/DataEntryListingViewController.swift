@@ -35,6 +35,10 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     var appliedFilterCount:Int = 0
     var createHeaderAgain:Bool = false
     
+    var serviceName:String = ""
+     var serviceIcon:String = ""
+    var serviceStatus:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,6 +68,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     }
     
     @objc func methodOfReceivedNotificationRefreshList(_ notification: NSNotification) {
+          self.createHeaderAgain = true
         ModalClass.startLoading(self.view)
         isMoreDataAvailable = false
         currentPageNumber = 0
@@ -123,6 +128,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         
     }
     func refreshDataEntryServiceList() {
+          self.createHeaderAgain = true
         isMoreDataAvailable = false
         currentPageNumber = 0
         self.selectedTab = "3"
@@ -588,4 +594,5 @@ extension DataEntryListingViewController : DataEntryFilterDelegate {
         print("appliedFilterCount:-", appliedFilterCount)
         self.refreshDataEntryCompleteServiceList()
     }
+    
 }

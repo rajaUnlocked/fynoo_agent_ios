@@ -607,6 +607,4 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         cell.tag = index.row
         return cell
     }
-    
-    
 }
