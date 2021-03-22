@@ -186,7 +186,7 @@ class DataEntryApiManager: NSObject {
         
         param = ["agent_id":Singleton.shared.getUserId(),
                  "service_id":serviceID,
-                 "reason_id":reasonID,
+                 "reason":reasonID,
                  "lang_code":HeaderHeightSingleton.shared.LanguageSelected
         ]
         
