@@ -179,7 +179,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
                     }else{
                         self.isMoreDataAvailable = true
                     }
-                    if self.selectedTab == "1" && self.serviceStatus == "1" {
+                    if self.selectedTab == "1" && self.serviceStatus == "0" {
                      self.noDataLbl.text = "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information.".localized
                     }else{
                       self.noDataLbl.text = "Oops! No Service Found".localized
@@ -429,11 +429,13 @@ extension DataEntryListingViewController : UITableViewDataSource {
                 let vc = DataEntryFormViewController()
                 vc.isForDetail = tab
                 vc.delegate = self
+//                 vc.mainServiceID = serviceID
                 vc.serviceID = ModalController.toString(totalRequestListArray?[indexPath.row].id as Any)
                 self.navigationController?.pushViewController(vc, animated: true)
             }else if tab == "Inprocess" {
                 let vc = DataEntryDetailViewController()
                 vc.delegate = self
+                vc.mainServiceID = serviceID
                 vc.serviceID = ModalController.toString(totalRequestListArray?[indexPath.row].id as Any)
                 self.navigationController?.pushViewController(vc, animated: true)
             }

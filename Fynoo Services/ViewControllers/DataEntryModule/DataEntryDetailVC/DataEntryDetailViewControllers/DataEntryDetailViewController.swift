@@ -29,10 +29,12 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
     let locationManager = CLLocationManager()
     var latitude = 0.0
     var longitude = 0.0
-
     
     var dataEntryApiMnagagerModal = DataEntryApiManager()
        var serviceDetailData  : serviceDetailData?
+    
+    var mainServiceID:String = ""
+    var isOpenMoreEntryItem:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +59,9 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
         tableView.register(UINib(nibName: "DataEntryFromOrderInstractionTableViewCell", bundle: nil), forCellReuseIdentifier: "DataEntryFromOrderInstractionTableViewCell")
         tableView.register(UINib(nibName: "DEInprogressDetailWorkPlaceTableViewCell", bundle: nil), forCellReuseIdentifier: "DEInprogressDetailWorkPlaceTableViewCell")
         tableView.register(UINib(nibName: "DEInprogressShowInstructionTableViewCell", bundle: nil), forCellReuseIdentifier: "DEInprogressShowInstructionTableViewCell")
+        tableView.register(UINib(nibName: "OtherServicesOrderInformationTableViewCell", bundle: nil), forCellReuseIdentifier: "OtherServicesOrderInformationTableViewCell")
+                tableView.register(UINib(nibName: "MoreDetailSpecificationsTableViewCell", bundle: nil), forCellReuseIdentifier: "MoreDetailSpecificationsTableViewCell")
+               
         
         self.headerView.menuBtn.isHidden = true
         self.headerView.titleHeader.text = "Data Entry Service".localized;
@@ -66,6 +71,16 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
         self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
         
     }
+    
+    @objc func openMoreSpecification(_ sender:UIButton){
+            if self.isOpenMoreEntryItem == true {
+                self.isOpenMoreEntryItem = false
+            }else{
+                self.isOpenMoreEntryItem = true
+            }
+            self.tableView.reloadData()
+
+        }
     
     func getServiceDetailAPI() {
         ModalClass.startLoading(self.view)
@@ -321,6 +336,39 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
 
 extension DataEntryDetailViewController : UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 3 && mainServiceID != "1" {
+            let views = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
+            let label = UILabel(frame: CGRect(x: 20, y: 20, width: view.frame.size.width - 20, height: 20))
+            views.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+            label.font = UIFont(name:"\(fontNameLight)",size:16)
+            label.textAlignment = .left
+            label.text = "Order information"
+            label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
+                if value[0]=="ar"{
+                    label.textAlignment = .right
+                }else if value[0]=="en"{
+                    label.textAlignment = .left
+                }
+            }
+            
+            views.addSubview(label)
+            return views
+        }else{
+            return UIView()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 3 && mainServiceID != "1" {
+            return 50
+        }else{
+            return 0
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.section == 0 {
@@ -334,12 +382,21 @@ extension DataEntryDetailViewController : UITableViewDelegate {
         }else if indexPath.section == 2 {
             return 50
         }else if indexPath.section == 3 {
-            return 120
+            if mainServiceID == "1" {
+                return 120
+            }else{
+                let entryItemCount = serviceDetailData?.data?.data_entry_lines?.count
+                if indexPath.row == entryItemCount! + 1 {
+                    return 50
+                }else{
+                    return UITableView.automaticDimension
+                }
+            }
         }else if indexPath.section == 4 {
             return UITableView.automaticDimension
         }else if indexPath.section == 5 {
             return UITableView.automaticDimension
-//            return 300
+            //            return 300
         }else  {
             if isBranchLocationAvailable == true {
                 return 255
@@ -364,7 +421,28 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         } else if section == 2 {
             return 1
         }else if section == 3 {
-            return 1
+            if mainServiceID == "1" {
+                return 1
+            }else{
+                let entryItemCount  = serviceDetailData?.data?.data_entry_lines?.count
+                if entryItemCount ?? 0 > 0 {
+                    if isOpenMoreEntryItem == true {
+                        if (entryItemCount ?? 0) > 2 {
+                            return (entryItemCount ?? 0) + 1
+                        }else{
+                            return (entryItemCount ?? 0)
+                        }
+                    }else{
+                        if (entryItemCount ?? 0) > 2 {
+                            return 3
+                        }else{
+                            return (entryItemCount ?? 0)
+                        }
+                    }
+                }else {
+                    return 0
+                }
+            }
         }else if section == 4 {
             return 1
         }else if section == 5 {
@@ -391,8 +469,29 @@ extension DataEntryDetailViewController : UITableViewDataSource {
             return dataEntryWorkConfirmationCell(index: indexPath)
             
         }else if indexPath.section == 3 {
-            return dataEntryOrderInformationFirstCell(index: indexPath)
-            
+            if mainServiceID == "1" {
+                return dataEntryOrderInformationFirstCell(index: indexPath)
+            }else{
+                let entryItemCount  = serviceDetailData?.data?.data_entry_lines?.count
+                if isOpenMoreEntryItem == true {
+                    if indexPath.row == entryItemCount!  {
+                        return ProductMoreSpecificationsCell(index: indexPath)
+                    }else{
+                        return OtherServicesOrderInformationFirstCell(index: indexPath)
+                    }
+                }else {
+                    if (entryItemCount ?? 0) > 2 {
+                        if indexPath.row == 2 {
+                            return ProductMoreSpecificationsCell(index: indexPath)
+                        }else{
+                            return OtherServicesOrderInformationFirstCell(index: indexPath)
+                        }
+                    }else{
+                        return OtherServicesOrderInformationFirstCell(index: indexPath)
+                    }
+                }
+            }
+
         }else if indexPath.section == 4 {
             return dataEntryOrderInformationSecondCell(index: indexPath)
             
@@ -541,11 +640,54 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         return cell
     }
     
+    func OtherServicesOrderInformationFirstCell(index : IndexPath) -> UITableViewCell {
+          let cell = tableView.dequeueReusableCell(withIdentifier: "OtherServicesOrderInformationTableViewCell", for: index) as! OtherServicesOrderInformationTableViewCell
+          cell.selectionStyle = .none
+          cell.quantityLbl.isHidden = false
+          
+          let entryItemData = serviceDetailData?.data?.data_entry_lines![index.row]
+          cell.entryName.setTitle("\(entryItemData?.des_name ?? "")", for: .normal)
+          cell.quantityLbl.text = ModalController.toString(entryItemData?.des_type_count as Any)
+        
+//         cell.entryName.underline()
+        
+          if entryItemData?.is_complete == 1 {
+              cell.tickImgView.isHidden = false
+          }else{
+              cell.tickImgView.isHidden = true
+          }
+          
+          return cell
+      }
+      
+      func ProductMoreSpecificationsCell(index : IndexPath) -> UITableViewCell {
+          let cell = tableView.dequeueReusableCell(withIdentifier: "MoreDetailSpecificationsTableViewCell", for: index) as! MoreDetailSpecificationsTableViewCell
+          cell.selectionStyle = .none
+          cell.moreDetailBtn.addTarget(self, action: #selector(openMoreSpecification), for: .touchUpInside)
+          if isOpenMoreEntryItem == true {
+              cell.moreDetailLbl.text = "Hide Details".localized
+              cell.downIconImageView.image = UIImage(named: "upArror_blue")
+          }else {
+              cell.moreDetailLbl.text = "More Details".localized
+              cell.downIconImageView.image = UIImage(named: "DownArror_blue")
+          }
+          
+          cell.tag = index.row
+          return cell
+      }
+
+    
     func dataEntryOrderInformationSecondCell(index : IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DEInprogressOrderInformationSecondTableViewCell", for: index) as! DEInprogressOrderInformationSecondTableViewCell
         cell.selectionStyle = .none
         cell.orderInstructionValueLbl.text = serviceDetailData?.data?.rem_days_text
         
+        if mainServiceID == "1" {
+               cell.upperLbl.isHidden = true
+           }else{
+               cell.upperLbl.isHidden = false
+           }
+           
         
         return cell
     }
