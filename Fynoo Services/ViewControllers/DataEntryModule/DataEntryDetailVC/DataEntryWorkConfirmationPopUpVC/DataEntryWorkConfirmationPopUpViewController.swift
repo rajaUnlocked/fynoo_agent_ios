@@ -31,7 +31,7 @@ class DataEntryWorkConfirmationPopUpViewController: UIViewController {
         
         self.textLbl.text = messageTxtStr
         
-        if comeFromStr == "workConfirmation" || comeFromStr == "startWork"  {
+        if comeFromStr == "workConfirmation" || comeFromStr == "startWork" || comeFromStr == "agentSubmitServiceTask" {
             self.backgroundImageView.image = UIImage(named: "workConfirmationBackGround")
             
         }else if comeFromStr == "acceptOrder"  {

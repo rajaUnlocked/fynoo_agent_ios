@@ -15,10 +15,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
-    
     @IBOutlet weak var noDataLbl: UILabel!
-    
-    
     var apiManagerModal = DataEntryApiManager()
     var boServicesList  : DataEntryOrderRequestDatas?
     var totalRequestListArray:[OrderService_list]?
@@ -32,7 +29,6 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     var rejectReasonID:String = ""
     
     var headerView1 : DataEntryListHeaderView? = nil
-    
     var selectedFilters =  [ChooseFilters]()
     var serviceID:String = ""
     var appliedFilterCount:Int = 0
@@ -139,7 +135,6 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         self.getBoServicesRequestListAPI()
         
     }
-    
     func refreshDataEntryCompleteServiceList() {
         isMoreDataAvailable = false
         currentPageNumber = 0
@@ -431,11 +426,15 @@ extension DataEntryListingViewController : UITableViewDataSource {
                 vc.delegate = self
 //                 vc.mainServiceID = serviceID
                 vc.serviceID = ModalController.toString(totalRequestListArray?[indexPath.row].id as Any)
+                vc.serviceName = self.serviceName
+                vc.serviceIcon = self.serviceIcon
                 self.navigationController?.pushViewController(vc, animated: true)
             }else if tab == "Inprocess" {
                 let vc = DataEntryDetailViewController()
                 vc.delegate = self
                 vc.mainServiceID = serviceID
+                vc.serviceName = self.serviceName
+                vc.serviceIcon = self.serviceIcon
                 vc.serviceID = ModalController.toString(totalRequestListArray?[indexPath.row].id as Any)
                 self.navigationController?.pushViewController(vc, animated: true)
             }
@@ -611,5 +610,4 @@ extension DataEntryListingViewController : DataEntryFilterDelegate {
         print("appliedFilterCount:-", appliedFilterCount)
         self.refreshDataEntryCompleteServiceList()
     }
-    
 }

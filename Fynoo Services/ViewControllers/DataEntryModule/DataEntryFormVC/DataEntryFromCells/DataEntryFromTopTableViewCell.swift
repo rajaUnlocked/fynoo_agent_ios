@@ -11,6 +11,9 @@ import UIKit
 class DataEntryFromTopTableViewCell: UITableViewCell {
     @IBOutlet weak var textLbl: UILabel!
     
+    @IBOutlet weak var serviceImageView: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.SetFont()
