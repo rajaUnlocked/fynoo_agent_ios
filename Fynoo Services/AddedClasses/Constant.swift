@@ -290,7 +290,7 @@ enum dataEntryModuleApi {
     
     static let DataEntry_Agent_StartWork : String =   Constant.BASE_URL + "services/agent_start_data_entry/"
     static let DataEntry_Agent_WorkConfirmation : String =   Constant.BASE_URL + "services/agent_submit_data_entry/"
-     static let otherService_SubmitService_task : String =   Constant.BASE_URL + "services/agent_submit_service_task/"
+     static let otherService_SubmitService_task : String =   Constant.BASE_URL + "services/agent_submit_other_service_task/"
      static let DataEntry_serviceType : String =   Constant.BASE_URL + "services/bo_agent_data_entry_items/"
      static let DataEntry_agentRating : String =   Constant.BASE_URL + "services/add_agent_bo_rating/"
     

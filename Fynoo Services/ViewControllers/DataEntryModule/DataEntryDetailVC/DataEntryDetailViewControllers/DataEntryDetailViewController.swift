@@ -159,15 +159,23 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
             self.present(vc, animated: true, completion: nil)
             
         }else if workStatus == 2 {
-            
-            let vc = DataEntryWorkConfirmationPopUpViewController(nibName: "DataEntryWorkConfirmationPopUpViewController", bundle: nil)
-            vc.messageTxtStr = "Do you want to submit your work?".localized
-            vc.comeFromStr = "workConfirmation"
-            vc.modalPresentationStyle = .overFullScreen
-            vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-            vc.delegate =  self
-            self.present(vc, animated: true, completion: nil)
-            
+            for var i in (0..<(serviceDetailData?.data?.data_entry_lines?.count ?? 0)) {
+               let entryStatus = ModalController.toString (serviceDetailData?.data?.data_entry_lines?[i].is_complete as Any)
+
+                if entryStatus == "1" {
+                    
+                    let vc = DataEntryWorkConfirmationPopUpViewController(nibName: "DataEntryWorkConfirmationPopUpViewController", bundle: nil)
+                    vc.messageTxtStr = "Do you want to submit your work?".localized
+                    vc.comeFromStr = "workConfirmation"
+                    vc.modalPresentationStyle = .overFullScreen
+                    vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+                    vc.delegate =  self
+                    self.present(vc, animated: true, completion: nil)
+                }else{
+                    ModalController.showNegativeCustomAlertWith(title: "Please complete all task before submit your work.".localized, msg: "")
+                    return
+                }
+            }
         }else if workStatus == 3 {
             ModalController.showSuccessCustomAlertWith(title: "You have already submitted the work for this order.", msg: "")
             return
