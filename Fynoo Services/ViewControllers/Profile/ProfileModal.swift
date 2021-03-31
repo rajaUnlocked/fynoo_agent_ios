@@ -211,6 +211,7 @@ class service_list_data : Mappable{
     var service_icon = ""
     var service_id = 0
     var service_name = ""
+    var service_status = 0
     
     required init?(map: Map) {}
     
@@ -222,7 +223,8 @@ class service_list_data : Mappable{
         service_icon <- map["service_icon"]
         service_id <- map["service_id"]
         service_name <- map["service_name"]
-
+        service_status <- map["service_status"]
+        
     }
     
 }
