@@ -71,11 +71,9 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
                layout.scrollDirection = .horizontal
            }
         
-
-      
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -88,7 +86,6 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
         }else{
              return serviceList!.count
         }
-       
       }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
