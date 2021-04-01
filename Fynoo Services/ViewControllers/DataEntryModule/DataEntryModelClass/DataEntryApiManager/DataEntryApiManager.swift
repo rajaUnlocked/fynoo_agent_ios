@@ -186,7 +186,7 @@ class DataEntryApiManager: NSObject {
         
         param = ["agent_id":Singleton.shared.getUserId(),
                  "service_id":serviceID,
-                 "reason_id":reasonID,
+                 "reason":reasonID,
                  "lang_code":HeaderHeightSingleton.shared.LanguageSelected
         ]
         
@@ -250,7 +250,8 @@ class DataEntryApiManager: NSObject {
          
          param = ["service_id":serviceID,
                   "agent_id": Singleton.shared.getUserId(),
-                  "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
+                  "lang_code":HeaderHeightSingleton.shared.LanguageSelected
+        ]
          
          url = dataEntryModuleApi.DataEntry_Agent_StartWork
          print(param)
@@ -298,6 +299,37 @@ class DataEntryApiManager: NSObject {
                 }
             })
         }
+    
+    func agentSubmitServiceTask(entryID:String, completion:@escaping(Bool, NSDictionary?) -> ()) {
+         
+         var param = [String:String]()
+         var url = ""
+         
+         param = ["entry_id":entryID,
+                  "agent_id": Singleton.shared.getUserId(),
+                  "lang_code":HeaderHeightSingleton.shared.LanguageSelected
+        ]
+         
+         url = dataEntryModuleApi.otherService_SubmitService_task
+         print(param)
+         print(url)
+         ServerCalls.postRequest(url, withParameters: param, completion: { (response, success) in
+             ModalClass.stopLoading()
+             if let value = response as? NSDictionary{
+                 let error = value.object(forKey: "error") as! Int
+                 if error == 0{
+                     if let body = response as? [String: Any] {
+                         print(body)
+                     }
+                     completion(true,value)
+                 }else{
+                     completion(false, value)
+                 }
+             }
+         })
+     }
+
+    
     
     func dataEntryTypeListing(serviceId:String, dataEntryType:String, searchStr:String, completion:@escaping(Bool, ServiceTypeData?) -> ()) {
            

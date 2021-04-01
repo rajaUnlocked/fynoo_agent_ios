@@ -13,6 +13,7 @@ class DEInprogressOrderInformationSecondTableViewCell: UITableViewCell {
     @IBOutlet weak var orderInstructionHeaderLbl: UILabel!
     @IBOutlet weak var orderInstructionValueLbl: UILabel!
     
+     @IBOutlet weak var upperLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

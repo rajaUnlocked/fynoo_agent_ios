@@ -534,6 +534,10 @@
 		F64B439425220A5700B9C8CB /* IbanLengthModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64B439325220A5700B9C8CB /* IbanLengthModal.swift */; };
 		F64D5FBC2524400E003DE670 /* CompanyRegViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F64D5FBE2524400E003DE670 /* CompanyRegViewController.xib */; };
 		F64D5FC325244491003DE670 /* CompanyRegTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F64D5FC525244491003DE670 /* CompanyRegTableViewCell.xib */; };
+		F6527E082609CF4D009622DF /* MoreDetailSpecificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6527E042609CF4C009622DF /* MoreDetailSpecificationsTableViewCell.swift */; };
+		F6527E092609CF4D009622DF /* OtherServicesOrderInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6527E052609CF4C009622DF /* OtherServicesOrderInformationTableViewCell.swift */; };
+		F6527E122609D06C009622DF /* OtherServicesOrderInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6527E142609D06C009622DF /* OtherServicesOrderInformationTableViewCell.xib */; };
+		F6527E192609D088009622DF /* MoreDetailSpecificationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6527E1B2609D088009622DF /* MoreDetailSpecificationsTableViewCell.xib */; };
 		F6547ABA25DE594A00171862 /* DEClearFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6547AB125DE594A00171862 /* DEClearFilterTableViewCell.swift */; };
 		F6547ABB25DE594A00171862 /* DEClearFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6547AB225DE594A00171862 /* DEClearFilterTableViewCell.xib */; };
 		F6547ABC25DE594A00171862 /* DataEntryFilterViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6547AB425DE594A00171862 /* DataEntryFilterViewController.strings */; };
@@ -1290,6 +1294,14 @@
 		F64D5FC425244491003DE670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CompanyRegTableViewCell.xib; sourceTree = "<group>"; };
 		F64D5FC725244495003DE670 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyRegTableViewCell.strings; sourceTree = "<group>"; };
 		F64D5FC925244497003DE670 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CompanyRegTableViewCell.strings; sourceTree = "<group>"; };
+		F6527E042609CF4C009622DF /* MoreDetailSpecificationsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreDetailSpecificationsTableViewCell.swift; sourceTree = "<group>"; };
+		F6527E052609CF4C009622DF /* OtherServicesOrderInformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherServicesOrderInformationTableViewCell.swift; sourceTree = "<group>"; };
+		F6527E132609D06C009622DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OtherServicesOrderInformationTableViewCell.xib; sourceTree = "<group>"; };
+		F6527E162609D07A009622DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OtherServicesOrderInformationTableViewCell.strings; sourceTree = "<group>"; };
+		F6527E182609D07D009622DF /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/OtherServicesOrderInformationTableViewCell.strings; sourceTree = "<group>"; };
+		F6527E1A2609D088009622DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MoreDetailSpecificationsTableViewCell.xib; sourceTree = "<group>"; };
+		F6527E1D2609D093009622DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MoreDetailSpecificationsTableViewCell.strings; sourceTree = "<group>"; };
+		F6527E1F2609D094009622DF /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/MoreDetailSpecificationsTableViewCell.strings; sourceTree = "<group>"; };
 		F6547AB125DE594A00171862 /* DEClearFilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEClearFilterTableViewCell.swift; sourceTree = "<group>"; };
 		F6547AB225DE594A00171862 /* DEClearFilterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DEClearFilterTableViewCell.xib; sourceTree = "<group>"; };
 		F6547AB525DE594A00171862 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/DataEntryFilterViewController.strings; sourceTree = "<group>"; };
@@ -3038,6 +3050,10 @@
 		F680D555259B7C2B007EB12C /* DataEntryDetailsCells */ = {
 			isa = PBXGroup;
 			children = (
+				F6527E042609CF4C009622DF /* MoreDetailSpecificationsTableViewCell.swift */,
+				F6527E1B2609D088009622DF /* MoreDetailSpecificationsTableViewCell.xib */,
+				F6527E052609CF4C009622DF /* OtherServicesOrderInformationTableViewCell.swift */,
+				F6527E142609D06C009622DF /* OtherServicesOrderInformationTableViewCell.xib */,
 				F680D556259B7C2B007EB12C /* DEInprogressOrderInformationFirstTableViewCell.swift */,
 				F680D557259B7C2B007EB12C /* DEInprogressDetailTableViewCell.strings */,
 				F680D559259B7C2B007EB12C /* DEInprogressOrderInformationFirstTableViewCell.strings */,
@@ -3644,6 +3660,7 @@
 				CECEFA5625779E8F0090D459 /* NewGalleryHeader.xib in Resources */,
 				CECEFA5E25779E8F0090D459 /* DateFilterTableViewCell.xib in Resources */,
 				F680D643259B7C2C007EB12C /* DataEntryFromOrderInstractionTableViewCell.strings in Resources */,
+				F6527E192609D088009622DF /* MoreDetailSpecificationsTableViewCell.xib in Resources */,
 				CEAD29F225069D58008B1F9C /* DescriptionTableViewCells.xib in Resources */,
 				CECEF9AC2577575B0090D459 /* BusinessLocationSearch2TableViewCell.strings in Resources */,
 				CEAD29E52506324F008B1F9C /* TargetViewController.xib in Resources */,
@@ -3665,6 +3682,7 @@
 				CECEF9E52577575C0090D459 /* CountingTableViewCell.xib in Resources */,
 				2F8463CD250F6EBC0084EB32 /* LoginNewDesignViewController.strings in Resources */,
 				CEE35794250740800097069D /* Segoe UI Bold Italic.ttf in Resources */,
+				F6527E122609D06C009622DF /* OtherServicesOrderInformationTableViewCell.xib in Resources */,
 				2F8463D0250F6EBC0084EB32 /* LoginNewFirstTableViewCell.xib in Resources */,
 				CECEF9902577575B0090D459 /* deleterowTableViewCell.strings in Resources */,
 				F680D646259B7C2C007EB12C /* DataEntryFormFirstTopTableViewCell.strings in Resources */,
@@ -3907,6 +3925,7 @@
 				2F84638C250F67900084EB32 /* selecting_local.swift in Sources */,
 				CECEFAB52577AB250090D459 /* DeliveryPopupViewController.swift in Sources */,
 				F680D63B259B7C2C007EB12C /* DEInprogressDetailTableViewCell.swift in Sources */,
+				F6527E082609CF4D009622DF /* MoreDetailSpecificationsTableViewCell.swift in Sources */,
 				F4828CB22508FFCD006B85D8 /* TwoButtonsTableViewCell.swift in Sources */,
 				CEDD32D925763C8E00023977 /* WholeAddSlabTableViewCell.swift in Sources */,
 				2F84641F250F80D00084EB32 /* ResetPassword.swift in Sources */,
@@ -4067,6 +4086,7 @@
 				CECEFA5D25779E8F0090D459 /* DateFilterTableViewCell.swift in Sources */,
 				CECEF9E72577575C0090D459 /* CountingTableViewCell.swift in Sources */,
 				2F8463D3250F6EBC0084EB32 /* UploadTopView.swift in Sources */,
+				F6527E092609CF4D009622DF /* OtherServicesOrderInformationTableViewCell.swift in Sources */,
 				2F846416250F7F1C0084EB32 /* ResetPasswordViewController.swift in Sources */,
 				CEDD32B72576389700023977 /* ProductModel.swift in Sources */,
 				2F8463FF250F7E9C0084EB32 /* VerifyAccountModal.swift in Sources */,
@@ -5336,6 +5356,26 @@
 				F64D5FC925244497003DE670 /* ar */,
 			);
 			name = CompanyRegTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F6527E142609D06C009622DF /* OtherServicesOrderInformationTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6527E132609D06C009622DF /* Base */,
+				F6527E162609D07A009622DF /* en */,
+				F6527E182609D07D009622DF /* ar */,
+			);
+			name = OtherServicesOrderInformationTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F6527E1B2609D088009622DF /* MoreDetailSpecificationsTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6527E1A2609D088009622DF /* Base */,
+				F6527E1D2609D093009622DF /* en */,
+				F6527E1F2609D094009622DF /* ar */,
+			);
+			name = MoreDetailSpecificationsTableViewCell.xib;
 			sourceTree = "<group>";
 		};
 		F6547AB425DE594A00171862 /* DataEntryFilterViewController.strings */ = {

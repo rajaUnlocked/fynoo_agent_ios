@@ -17,8 +17,6 @@ protocol  DataEntryFormViewControllerDelegate {
 
 class DataEntryFormViewController: UIViewController, DataEntryFormItemPopUpViewControllerDelegate, UITextFieldDelegate,UITextViewDelegate, DataEntryFormWorkPlaceTableViewCellDelegate, DataEntryWorkConfirmationPopUpViewControllerDelegate {
 
-    
-    
     var  delegate : DataEntryFormViewControllerDelegate?
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var tableView: UITableView!
@@ -50,6 +48,9 @@ class DataEntryFormViewController: UIViewController, DataEntryFormItemPopUpViewC
     
      var isForDetail:String = ""
     var serviceID:String = ""
+    
+    var serviceName:String = ""
+    var serviceIcon:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -368,6 +369,7 @@ extension DataEntryFormViewController : UITableViewDataSource {
     func dataEntryFirstTopCell(index : IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DataEntryFormFirstTopTableViewCell", for: index) as! DataEntryFormFirstTopTableViewCell
         cell.selectionStyle = .none
+        cell.createLbl.text = self.serviceName
         
         return cell
     }
@@ -375,6 +377,9 @@ extension DataEntryFormViewController : UITableViewDataSource {
     func dataEntryTopCell(index : IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DataEntryFromTopTableViewCell", for: index) as! DataEntryFromTopTableViewCell
         cell.selectionStyle = .none
+        cell.textLbl.text = self.serviceName
+        cell.serviceImageView.setImageSDWebImage(imgURL: "\(self.serviceIcon)", placeholder: "")
+
         
         return cell
     }
@@ -540,7 +545,6 @@ extension DataEntryFormViewController : UITableViewDataSource {
     }
     
 }
-
 
 extension UITextField {
     

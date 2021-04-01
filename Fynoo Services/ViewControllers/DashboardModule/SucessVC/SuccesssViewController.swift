@@ -73,6 +73,7 @@ class SuccesssViewController: UIViewController {
                         
                         let vc = DataEntryListingViewController(nibName: "DataEntryListingViewController", bundle: nil)
                         vc.hidesBottomBarWhenPushed = true
+                        vc.createHeaderAgain = true
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 }

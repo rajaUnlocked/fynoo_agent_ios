@@ -53,21 +53,30 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
             let opt = "\((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "is_opt") as! NSNumber)"
         
              let serviceCode = ((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_code") as! NSString) as String
+      let serviceStatus =  ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_status") as Any))
         
-            if Int(opt) == 2 {
-               
+        if Int(opt) == 2 {
+            
+            if  serviceStatus == "1" {
+                ModalController.showNegativeCustomAlertWith(title: "This service is disabled. Please contact Fynoo Admin for more information.".localized, msg: "")
+            }else{
                 let nameStr = ((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_name") as! NSString) as String
                 let idInt = Int((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber)
                 self.delegate?.addServiceClickedHome(id: idInt, name: nameStr,index: indexPath.item)
-            }else if serviceCode == "DATAENTRY" {
-                let vc = DataEntryListingViewController()
-                 vc.serviceID = ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any) 
-                parent.navigationController?.pushViewController(vc, animated: true)
-                
+            }
         }else if serviceCode == "DELIVERY" {
                 let vc = AgentDeliveryViewController()
                 vc.serviceID = ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any) 
                 parent.navigationController?.pushViewController(vc, animated: true)
+            }else{
+                let vc = DataEntryListingViewController()
+                 vc.serviceID = ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any)
+                vc.serviceName = ((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_name") as! NSString) as String
+                vc.serviceIcon = ((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_icon") as! NSString) as String
+                vc.serviceStatus  = ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_status") as Any))
+                parent.navigationController?.pushViewController(vc, animated: true)
+                
+
         }
     }
     

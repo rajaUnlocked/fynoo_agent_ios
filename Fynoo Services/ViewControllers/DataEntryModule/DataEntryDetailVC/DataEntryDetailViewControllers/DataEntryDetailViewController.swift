@@ -29,10 +29,15 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
     let locationManager = CLLocationManager()
     var latitude = 0.0
     var longitude = 0.0
-
     
     var dataEntryApiMnagagerModal = DataEntryApiManager()
        var serviceDetailData  : serviceDetailData?
+    
+    var mainServiceID:String = ""
+    var isOpenMoreEntryItem:Bool = false
+    var clickEntryItemID:String = ""
+    var serviceName:String = ""
+    var serviceIcon:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,15 +62,28 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
         tableView.register(UINib(nibName: "DataEntryFromOrderInstractionTableViewCell", bundle: nil), forCellReuseIdentifier: "DataEntryFromOrderInstractionTableViewCell")
         tableView.register(UINib(nibName: "DEInprogressDetailWorkPlaceTableViewCell", bundle: nil), forCellReuseIdentifier: "DEInprogressDetailWorkPlaceTableViewCell")
         tableView.register(UINib(nibName: "DEInprogressShowInstructionTableViewCell", bundle: nil), forCellReuseIdentifier: "DEInprogressShowInstructionTableViewCell")
+        tableView.register(UINib(nibName: "OtherServicesOrderInformationTableViewCell", bundle: nil), forCellReuseIdentifier: "OtherServicesOrderInformationTableViewCell")
+                tableView.register(UINib(nibName: "MoreDetailSpecificationsTableViewCell", bundle: nil), forCellReuseIdentifier: "MoreDetailSpecificationsTableViewCell")
+               
         
         self.headerView.menuBtn.isHidden = true
-        self.headerView.titleHeader.text = "Data Entry Service".localized;
+        self.headerView.titleHeader.text = self.serviceName
         self.headerView.viewControl = self
         
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
         
     }
+    
+    @objc func openMoreSpecification(_ sender:UIButton){
+            if self.isOpenMoreEntryItem == true {
+                self.isOpenMoreEntryItem = false
+            }else{
+                self.isOpenMoreEntryItem = true
+            }
+            self.tableView.reloadData()
+
+        }
     
     func getServiceDetailAPI() {
         ModalClass.startLoading(self.view)
@@ -141,15 +159,23 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
             self.present(vc, animated: true, completion: nil)
             
         }else if workStatus == 2 {
-            
-            let vc = DataEntryWorkConfirmationPopUpViewController(nibName: "DataEntryWorkConfirmationPopUpViewController", bundle: nil)
-            vc.messageTxtStr = "Do you want to submit your work?".localized
-            vc.comeFromStr = "workConfirmation"
-            vc.modalPresentationStyle = .overFullScreen
-            vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-            vc.delegate =  self
-            self.present(vc, animated: true, completion: nil)
-            
+            for var i in (0..<(serviceDetailData?.data?.data_entry_lines?.count ?? 0)) {
+               let entryStatus = ModalController.toString (serviceDetailData?.data?.data_entry_lines?[i].is_complete as Any)
+
+                if entryStatus == "1" {
+                    
+                    let vc = DataEntryWorkConfirmationPopUpViewController(nibName: "DataEntryWorkConfirmationPopUpViewController", bundle: nil)
+                    vc.messageTxtStr = "Do you want to submit your work?".localized
+                    vc.comeFromStr = "workConfirmation"
+                    vc.modalPresentationStyle = .overFullScreen
+                    vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+                    vc.delegate =  self
+                    self.present(vc, animated: true, completion: nil)
+                }else{
+                    ModalController.showNegativeCustomAlertWith(title: "Please complete all task before submit your work.".localized, msg: "")
+                    return
+                }
+            }
         }else if workStatus == 3 {
             ModalController.showSuccessCustomAlertWith(title: "You have already submitted the work for this order.", msg: "")
             return
@@ -183,13 +209,15 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
         }else if fromWhere == "workConfirmation" {
              self.workConfirmationAPI()
             
+        }else if fromWhere == "agentSubmitServiceTask" {
+            self.agentSubmitServiceTask(entryID: self.clickEntryItemID)
+            
         }
     }
        
     func popUpNoClicked(_ sender: Any) {
         
     }
-    
     func startWorkAPI() {
         
         dataEntryApiMnagagerModal.BOStartWork(serviceID: ModalController.toString(serviceDetailData?.data?.id as Any) ) { (success, response) in
@@ -210,6 +238,24 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
     func workConfirmationAPI() {
         
         dataEntryApiMnagagerModal.BOWorkConfirmation(serviceID: ModalController.toString(serviceDetailData?.data?.id as Any) ) { (success, response) in
+            ModalClass.stopLoading()
+            if success{
+                if let value = (response?.object(forKey: "error_description") as? String) {
+                    ModalController.showSuccessCustomAlertWith(title: "", msg: value)
+                }
+                   self.getServiceDetailAPI()
+
+            }else{
+                if let value = response?.object(forKey: "error_description") as? String {
+                    ModalController.showNegativeCustomAlertWith(title: "", msg: value)
+                }
+            }
+        }
+    }
+
+    func agentSubmitServiceTask(entryID:String) {
+        
+        dataEntryApiMnagagerModal.agentSubmitServiceTask(entryID: entryID) { (success, response) in
             ModalClass.stopLoading()
             if success{
                 if let value = (response?.object(forKey: "error_description") as? String) {
@@ -248,6 +294,7 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
     }
     
     func getUserLocation() {
+        
           self.locationManager.requestWhenInUseAuthorization()
           if CLLocationManager.locationServicesEnabled() {
               locationManager.delegate = self
@@ -280,7 +327,6 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
 
     }
     
-    
     @objc func boBranchNavigationClicked(_ sender : UIButton) {
         
         self.BranchLat = ModalController.convertInToDouble(str: self.serviceDetailData?.data?.branch_lat as AnyObject)
@@ -307,9 +353,7 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
                     "https://www.google.co.in/maps/dir/?saddr=\(latStr),\(longStr)&daddr=\(self.BranchLat),\(self.BranchLong)&directionsmode=driving&zoom=14&views=traffic")!)
                 
             }
-            
         }
-        
     }
     
      //MARK: - Message compose method
@@ -317,9 +361,72 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
             //... handle sms screen actions
             self.dismiss(animated: true, completion: nil)
         }
+    
+    @objc func entryItemClicked(_ sender : UIButton) {
+        print("tag", sender.tag)
+        
+        
+        let workStatus = serviceDetailData?.data?.start_work
+       clickEntryItemID = ModalController.toString(serviceDetailData?.data?.data_entry_lines?[sender.tag].des_id as Any)
+        
+        if workStatus == 1 {
+            let vc = DataEntryWorkConfirmationPopUpViewController(nibName: "DataEntryWorkConfirmationPopUpViewController", bundle: nil)
+            vc.messageTxtStr = "Are you sure you want to start the work?".localized
+            vc.comeFromStr = "startWork"
+            vc.modalPresentationStyle = .overFullScreen
+            vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+            vc.delegate =  self
+            self.present(vc, animated: true, completion: nil)
+            
+        }else if workStatus == 2 {
+            
+            let vc = DataEntryWorkConfirmationPopUpViewController(nibName: "DataEntryWorkConfirmationPopUpViewController", bundle: nil)
+            vc.messageTxtStr = "Have you completed this task item?".localized
+            vc.comeFromStr = "agentSubmitServiceTask"
+            vc.modalPresentationStyle = .overFullScreen
+            vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+            vc.delegate =  self
+            self.present(vc, animated: true, completion: nil)
+            
+//            self.agentSubmitServiceTask(entryID: entryID)
+        }
+    }
 }
 
 extension DataEntryDetailViewController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 3 && mainServiceID != "1" {
+            let views = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
+            let label = UILabel(frame: CGRect(x: 20, y: 20, width: view.frame.size.width - 20, height: 20))
+            views.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+            label.font = UIFont(name:"\(fontNameLight)",size:16)
+            label.textAlignment = .left
+            label.text = "Order information"
+            label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
+                if value[0]=="ar"{
+                    label.textAlignment = .right
+                }else if value[0]=="en"{
+                    label.textAlignment = .left
+                }
+            }
+            
+            views.addSubview(label)
+            return views
+        }else{
+            return UIView()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 3 && mainServiceID != "1" {
+            return 50
+        }else{
+            return 0
+        }
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -334,12 +441,20 @@ extension DataEntryDetailViewController : UITableViewDelegate {
         }else if indexPath.section == 2 {
             return 50
         }else if indexPath.section == 3 {
-            return 120
+            if mainServiceID == "1" {
+                return 120
+            }else{
+                let entryItemCount = serviceDetailData?.data?.data_entry_lines?.count
+                if indexPath.row == entryItemCount! + 1 {
+                    return 50
+                }else{
+                    return UITableView.automaticDimension
+                }
+            }
         }else if indexPath.section == 4 {
             return UITableView.automaticDimension
         }else if indexPath.section == 5 {
             return UITableView.automaticDimension
-//            return 300
         }else  {
             if isBranchLocationAvailable == true {
                 return 255
@@ -364,7 +479,28 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         } else if section == 2 {
             return 1
         }else if section == 3 {
-            return 1
+            if mainServiceID == "1" {
+                return 1
+            }else{
+                let entryItemCount  = serviceDetailData?.data?.data_entry_lines?.count
+                if entryItemCount ?? 0 > 0 {
+                    if isOpenMoreEntryItem == true {
+                        if (entryItemCount ?? 0) > 2 {
+                            return (entryItemCount ?? 0) + 1
+                        }else{
+                            return (entryItemCount ?? 0)
+                        }
+                    }else{
+                        if (entryItemCount ?? 0) > 2 {
+                            return 3
+                        }else{
+                            return (entryItemCount ?? 0)
+                        }
+                    }
+                }else {
+                    return 0
+                }
+            }
         }else if section == 4 {
             return 1
         }else if section == 5 {
@@ -391,8 +527,29 @@ extension DataEntryDetailViewController : UITableViewDataSource {
             return dataEntryWorkConfirmationCell(index: indexPath)
             
         }else if indexPath.section == 3 {
-            return dataEntryOrderInformationFirstCell(index: indexPath)
-            
+            if mainServiceID == "1" {
+                return dataEntryOrderInformationFirstCell(index: indexPath)
+            }else{
+                let entryItemCount  = serviceDetailData?.data?.data_entry_lines?.count
+                if isOpenMoreEntryItem == true {
+                    if indexPath.row == entryItemCount!  {
+                        return ProductMoreSpecificationsCell(index: indexPath)
+                    }else{
+                        return OtherServicesOrderInformationFirstCell(index: indexPath)
+                    }
+                }else {
+                    if (entryItemCount ?? 0) > 2 {
+                        if indexPath.row == 2 {
+                            return ProductMoreSpecificationsCell(index: indexPath)
+                        }else{
+                            return OtherServicesOrderInformationFirstCell(index: indexPath)
+                        }
+                    }else{
+                        return OtherServicesOrderInformationFirstCell(index: indexPath)
+                    }
+                }
+            }
+
         }else if indexPath.section == 4 {
             return dataEntryOrderInformationSecondCell(index: indexPath)
             
@@ -407,9 +564,8 @@ extension DataEntryDetailViewController : UITableViewDataSource {
     func dataEntryFirstTopCell(index : IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DataEntryFormFirstTopTableViewCell", for: index) as! DataEntryFormFirstTopTableViewCell
         cell.selectionStyle = .none
-        cell.createLbl.text = "Data Entry Order"
+        cell.createLbl.text = self.serviceName
         cell.bttomLbl.isHidden = true
-        
         
         return cell
     }
@@ -493,7 +649,6 @@ extension DataEntryDetailViewController : UITableViewDataSource {
             cell.workConfirmtionBtn.setTitle("Work Confirmation", for: .normal)
         }
         
-        
         cell.workConfirmtionBtn.addTarget(self, action: #selector(DataEntryWorkConfirmationClicked(_:)), for: .touchUpInside)
         
         
@@ -541,11 +696,54 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         return cell
     }
     
+    func OtherServicesOrderInformationFirstCell(index : IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OtherServicesOrderInformationTableViewCell", for: index) as! OtherServicesOrderInformationTableViewCell
+        cell.selectionStyle = .none
+        cell.quantityLbl.isHidden = false
+        
+        let entryItemData = serviceDetailData?.data?.data_entry_lines![index.row]
+        
+        cell.entryName.underlineButton(text: "\(entryItemData?.des_name ?? "")")
+        cell.quantityLbl.text = ModalController.toString(entryItemData?.des_type_count as Any)
+        
+        if entryItemData?.is_complete == 1 {
+            cell.tickImgView.isHidden = false
+        }else{
+            cell.tickImgView.isHidden = true
+        }
+        cell.entryName.addTarget(self, action: #selector(entryItemClicked(_:)), for: .touchUpInside)
+        
+        
+        cell.entryName.tag = index.row
+        return cell
+    }
+      
+      func ProductMoreSpecificationsCell(index : IndexPath) -> UITableViewCell {
+          let cell = tableView.dequeueReusableCell(withIdentifier: "MoreDetailSpecificationsTableViewCell", for: index) as! MoreDetailSpecificationsTableViewCell
+          cell.selectionStyle = .none
+          cell.moreDetailBtn.addTarget(self, action: #selector(openMoreSpecification), for: .touchUpInside)
+          if isOpenMoreEntryItem == true {
+              cell.moreDetailLbl.text = "Hide Details".localized
+              cell.downIconImageView.image = UIImage(named: "upArror_blue")
+          }else {
+              cell.moreDetailLbl.text = "More Details".localized
+              cell.downIconImageView.image = UIImage(named: "DownArror_blue")
+          }
+          
+          cell.tag = index.row
+          return cell
+      }
+    
     func dataEntryOrderInformationSecondCell(index : IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DEInprogressOrderInformationSecondTableViewCell", for: index) as! DEInprogressOrderInformationSecondTableViewCell
         cell.selectionStyle = .none
         cell.orderInstructionValueLbl.text = serviceDetailData?.data?.rem_days_text
         
+        if mainServiceID == "1" {
+            cell.upperLbl.isHidden = true
+        }else{
+            cell.upperLbl.isHidden = false
+        }
         
         return cell
     }
@@ -554,7 +752,6 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DEInprogressShowInstructionTableViewCell", for: index) as! DEInprogressShowInstructionTableViewCell
         cell.selectionStyle = .none
 
-        
         cell.instructionValueLbl.text = serviceDetailData?.data?.instruction
           
         return cell
@@ -576,37 +773,40 @@ extension DataEntryDetailViewController : UITableViewDataSource {
                 cell.workPlaceTypeLbl.text = "\(serviceDetailData?.data?.city_name ?? "")"
             }
         }
-        
-        
-                if isBranchLocationAvailable == true {
-                    cell.mapViewHeightConstant.constant = 140
-                    var latStr = 0.0
-                    var longStr = 0.0
-                    let lati = self.BranchLat
-                    if lati != 0.0 {
-                        latStr =  self.BranchLat
-                        longStr = self.BranchLong
-                    }
-                    let marker = GMSMarker()
-        
-                    marker.position = CLLocationCoordinate2D(latitude: latStr , longitude: longStr )
-                    let camera = GMSCameraPosition.camera(withLatitude: latStr ,  longitude: longStr , zoom: 8.0)
-        
-                    cell.mapView.camera = camera
-                    marker.title = "Sydney"
-                    marker.snippet = "Australia"
-                    cell.mapView.setMinZoom(10, maxZoom: 15)
-                    marker.map = cell.mapView
-        
-        
-                }else{
-                    cell.mapViewHeightConstant.constant = 0
-                }
+        if isBranchLocationAvailable == true {
+            cell.mapViewHeightConstant.constant = 140
+            var latStr = 0.0
+            var longStr = 0.0
+            let lati = self.BranchLat
+            if lati != 0.0 {
+                latStr =  self.BranchLat
+                longStr = self.BranchLong
+            }
+            let marker = GMSMarker()
+            
+            marker.position = CLLocationCoordinate2D(latitude: latStr , longitude: longStr )
+            let camera = GMSCameraPosition.camera(withLatitude: latStr ,  longitude: longStr , zoom: 8.0)
+            
+            cell.mapView.camera = camera
+            marker.title = "Sydney"
+            marker.snippet = "Australia"
+            cell.mapView.setMinZoom(10, maxZoom: 15)
+            marker.map = cell.mapView
+            
+            
+        }else{
+            cell.mapViewHeightConstant.constant = 0
+        }
         
         
         cell.tag = index.row
         return cell
     }
-    
-    
+}
+extension UIButton {
+    func underlineButton(text: String) {
+        let titleString = NSMutableAttributedString(string: text)
+        titleString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, text.count))
+        self.setAttributedTitle(titleString, for: .normal)
+    }
 }

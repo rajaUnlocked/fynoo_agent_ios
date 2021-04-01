@@ -71,11 +71,9 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
                layout.scrollDirection = .horizontal
            }
         
-
-      
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -88,7 +86,6 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
         }else{
              return serviceList!.count
         }
-       
       }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -110,13 +107,21 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
 //  //          vc.langArr = agentinfo.langArr
 //            viewControl.navigationController?.pushViewController(vc, animated: true)
         }else{
-            if agentinfo.serviceArr.contains(serviceList?[indexPath.row].service_id){
-                
-                agentinfo.serviceArr.remove(serviceList?[indexPath.row].service_id ?? 0 )
-                
+            
+            let serviceStatus = ModalController.toString(serviceList?[indexPath.row].service_status as Any)
+            
+            if serviceStatus == "1" {
+                if agentinfo.serviceArr.contains(serviceList?[indexPath.row].service_id){
+                    
+                    agentinfo.serviceArr.remove(serviceList?[indexPath.row].service_id ?? 0 )
+                    
+                }else{
+                    agentinfo.serviceArr.add(serviceList?[indexPath.row].service_id ?? 0)
+                }
             }else{
-                agentinfo.serviceArr.add(serviceList?[indexPath.row].service_id ?? 0)
+                ModalController.showNegativeCustomAlertWith(title: "This service is disabled. Please contact Fynoo Admin for more information. ".localized, msg: "")
             }
+            
             collectionView.reloadData()
         }
        

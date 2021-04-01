@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="OtherServicesOrderInformationTableViewCell" customModule="Fynoo_Services" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vyd-f9-TTj">
+                        <rect key="frame" x="40" y="0.0" width="240" height="30"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLf-RU-A5t">
+                                <rect key="frame" x="0.0" y="0.0" width="186" height="25"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" red="0.10980392160000001" green="0.61568627450000002" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accepted_tick" translatesAutoresizingMaskIntoConstraints="NO" id="KXV-ox-aQP">
+                                <rect key="frame" x="196" y="6.5" width="12" height="12"/>
+                                <color key="tintColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="7qu-Am-DuH"/>
+                                    <constraint firstAttribute="width" constant="12" id="haX-Ys-tWL"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="106" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MI-8x-15f">
+                                <rect key="frame" x="213" y="2" width="27" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="27" id="CBM-YS-3Kd"/>
+                                    <constraint firstAttribute="height" constant="21" id="Fyw-P6-zP3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KXV-ox-aQP" firstAttribute="leading" secondItem="uLf-RU-A5t" secondAttribute="trailing" constant="10" id="07v-Sj-1B7"/>
+                            <constraint firstItem="4MI-8x-15f" firstAttribute="centerY" secondItem="KXV-ox-aQP" secondAttribute="centerY" id="5aB-Gh-yet"/>
+                            <constraint firstAttribute="trailing" secondItem="4MI-8x-15f" secondAttribute="trailing" id="770-OO-r1O"/>
+                            <constraint firstItem="uLf-RU-A5t" firstAttribute="leading" secondItem="Vyd-f9-TTj" secondAttribute="leading" id="B3V-5R-AH9"/>
+                            <constraint firstAttribute="bottom" secondItem="uLf-RU-A5t" secondAttribute="bottom" constant="5" id="I0Q-Kj-SFL"/>
+                            <constraint firstItem="uLf-RU-A5t" firstAttribute="top" secondItem="Vyd-f9-TTj" secondAttribute="top" id="W8a-6h-Vnc"/>
+                            <constraint firstItem="4MI-8x-15f" firstAttribute="leading" secondItem="KXV-ox-aQP" secondAttribute="trailing" constant="5" id="qa2-HX-FU0"/>
+                            <constraint firstItem="KXV-ox-aQP" firstAttribute="centerY" secondItem="uLf-RU-A5t" secondAttribute="centerY" id="yRp-Tq-dJZ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Vyd-f9-TTj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="2rf-g2-Td1"/>
+                    <constraint firstAttribute="bottom" secondItem="Vyd-f9-TTj" secondAttribute="bottom" id="JpK-rq-S1P"/>
+                    <constraint firstItem="Vyd-f9-TTj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="OUd-AU-Z76"/>
+                    <constraint firstAttribute="trailing" secondItem="Vyd-f9-TTj" secondAttribute="trailing" constant="40" id="tbg-2L-ZWc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="entryName" destination="uLf-RU-A5t" id="Jwl-6v-Udb"/>
+                <outlet property="quantityLbl" destination="4MI-8x-15f" id="gK6-Xf-RXa"/>
+                <outlet property="tickImgView" destination="KXV-ox-aQP" id="AWU-g2-ysn"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="122.54464285714285"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="accepted_tick" width="14" height="14"/>
+    </resources>
+</document>

@@ -760,10 +760,13 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
     
     func signupBtnClicked(){
         
-        let viewController = popupViewController()
-//              viewController.delegate = self
-              self.navigationController?.pushViewController(viewController, animated: true)
+//        let viewController = popupViewController()
+//        //              viewController.delegate = self
+//        self.navigationController?.pushViewController(viewController, animated: true)
         
+        let vc = PersonalRegViewController(nibName: "PersonalRegViewController", bundle: nil)
+              self.navigationController?.pushViewController(vc, animated: false)
+
     }
     
     func forgotPasswordBtnClicked(){

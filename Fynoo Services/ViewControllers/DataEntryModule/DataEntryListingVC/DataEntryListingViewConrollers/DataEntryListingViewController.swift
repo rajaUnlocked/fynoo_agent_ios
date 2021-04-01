@@ -15,7 +15,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
-    
+    @IBOutlet weak var noDataLbl: UILabel!
     var apiManagerModal = DataEntryApiManager()
     var boServicesList  : DataEntryOrderRequestDatas?
     var totalRequestListArray:[OrderService_list]?
@@ -29,11 +29,14 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     var rejectReasonID:String = ""
     
     var headerView1 : DataEntryListHeaderView? = nil
-    
     var selectedFilters =  [ChooseFilters]()
     var serviceID:String = ""
     var appliedFilterCount:Int = 0
     var createHeaderAgain:Bool = false
+    
+    var serviceName:String = ""
+     var serviceIcon:String = ""
+    var serviceStatus:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +67,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     }
     
     @objc func methodOfReceivedNotificationRefreshList(_ notification: NSNotification) {
+//          self.createHeaderAgain = true
         ModalClass.startLoading(self.view)
         isMoreDataAvailable = false
         currentPageNumber = 0
@@ -83,7 +87,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         tableView.register(UINib(nibName: "CompleteDataEntryListTableViewCell", bundle: nil), forCellReuseIdentifier: "CompleteDataEntryListTableViewCell")
         
         self.headerView.menuBtn.isHidden = false
-        self.headerView.titleHeader.text = "Data Entry Service".localized;
+        self.headerView.titleHeader.text = "\(serviceName)".localized;
         self.headerView.viewControl = self
         
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
@@ -123,6 +127,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         
     }
     func refreshDataEntryServiceList() {
+          self.createHeaderAgain = true
         isMoreDataAvailable = false
         currentPageNumber = 0
         self.selectedTab = "3"
@@ -130,7 +135,6 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         self.getBoServicesRequestListAPI()
         
     }
-    
     func refreshDataEntryCompleteServiceList() {
         isMoreDataAvailable = false
         currentPageNumber = 0
@@ -170,7 +174,12 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
                     }else{
                         self.isMoreDataAvailable = true
                     }
-                    
+                    if self.selectedTab == "1" && self.serviceStatus == "0" {
+                     self.noDataLbl.text = "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information.".localized
+                    }else{
+                      self.noDataLbl.text = "Oops! No Service Found".localized
+                    }
+
                 }else{
                     self.isMoreDataAvailable = false
                     self.totalRequestListArray?.removeAll()
@@ -244,6 +253,7 @@ extension DataEntryListingViewController : UITableViewDelegate {
                 let filterBtn = headerView1!.viewWithTag(105) as! UIButton
                 let dataEntryLbl = headerView1!.viewWithTag(106) as! UILabel
                 let filterCount = headerView1!.viewWithTag(1010) as! UILabel
+                let serviceIcon = headerView1!.viewWithTag(1011) as! UIImageView
                 
                 let avgLbl = headerView1!.viewWithTag(1001) as! UILabel
                 //            let ratingView = sectionHeaderView.viewWithTag(1002) as! UIView
@@ -266,6 +276,9 @@ extension DataEntryListingViewController : UITableViewDelegate {
                 searchTxtFld.font = UIFont(name:"\(fontNameLight)",size:12)
                 dataEntryLbl.font = UIFont(name:"\(fontNameLight)",size:16)
                 
+                dataEntryLbl.text = self.serviceName
+                serviceIcon.setImageSDWebImage(imgURL: "\(self.serviceIcon)", placeholder: "")
+                
                 if appliedFilterCount > 0 {
                     filterCount.isHidden = false
                     filterCount.text = ModalController.toString(appliedFilterCount as Any)
@@ -275,6 +288,9 @@ extension DataEntryListingViewController : UITableViewDelegate {
                     filterCount.text = ""
                 }
                 
+                if self.createHeaderAgain == true {
+                    self.createHeaderAgain = false
+                }
                 
                 headerView1!.delegate = self
             }
@@ -408,11 +424,17 @@ extension DataEntryListingViewController : UITableViewDataSource {
                 let vc = DataEntryFormViewController()
                 vc.isForDetail = tab
                 vc.delegate = self
+//                 vc.mainServiceID = serviceID
                 vc.serviceID = ModalController.toString(totalRequestListArray?[indexPath.row].id as Any)
+                vc.serviceName = self.serviceName
+                vc.serviceIcon = self.serviceIcon
                 self.navigationController?.pushViewController(vc, animated: true)
             }else if tab == "Inprocess" {
                 let vc = DataEntryDetailViewController()
                 vc.delegate = self
+                vc.mainServiceID = serviceID
+                vc.serviceName = self.serviceName
+                vc.serviceIcon = self.serviceIcon
                 vc.serviceID = ModalController.toString(totalRequestListArray?[indexPath.row].id as Any)
                 self.navigationController?.pushViewController(vc, animated: true)
             }
