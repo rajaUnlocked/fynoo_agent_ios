@@ -115,9 +115,8 @@
 		2FFDE22F25012173006C5EBD /* Fynoo_ServicesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDE22E25012173006C5EBD /* Fynoo_ServicesUITests.swift */; };
 		2FFDE2412501225A006C5EBD /* AgentDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDE23F2501225A006C5EBD /* AgentDashboardViewController.swift */; };
 		2FFDE2422501225A006C5EBD /* AgentDashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FFDE2402501225A006C5EBD /* AgentDashboardViewController.xib */; };
-		63E947059D50F42AFE72D845 /* Pods_Fynoo_Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E89E5AF83143A45B24DCCC /* Pods_Fynoo_Services.framework */; };
-		9477D55E58751BD981EB4DD7 /* Pods_Fynoo_ServicesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EAB192AFDB0E07EFF42A46 /* Pods_Fynoo_ServicesTests.framework */; };
-		AA65A497F7F52AFD47E0676C /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D386675BEC93A1C2372A22B2 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */; };
+		3EBBEF9433213B23D9C4BC1A /* Pods_Fynoo_Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34F4201751D8F2C6FB8501B /* Pods_Fynoo_Services.framework */; };
+		788758D607ADF036566C3603 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B2018020C6F3800DB3F75B /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */; };
 		CE2EFB3E251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EFB3C251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift */; };
 		CE2EFB3F251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2EFB3D251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib */; };
 		CE2EFB42251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */; };
@@ -456,6 +455,7 @@
 		CEE72CBE251B76AF00B02DAF /* BottomPopupEditProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE72CBA251B76AF00B02DAF /* BottomPopupEditProductViewController.swift */; };
 		CEE72CC0251B795100B02DAF /* OpenGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE72CBF251B795100B02DAF /* OpenGallery.swift */; };
 		CEFC760B257F5E0C00088467 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEFC760A257F5E0C00088467 /* GoogleService-Info.plist */; };
+		EE3CE51536AFB35441D433CC /* Pods_Fynoo_ServicesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37BC6070EBDE8A55FC4A7E83 /* Pods_Fynoo_ServicesTests.framework */; };
 		F415E772250A221900DEF755 /* ProfileModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F415E771250A221900DEF755 /* ProfileModal.swift */; };
 		F438605325230BF200DE0BED /* AddAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438605125230BF200DE0BED /* AddAmountViewController.swift */; };
 		F438605425230BF200DE0BED /* AddAmountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438605225230BF200DE0BED /* AddAmountViewController.xib */; };
@@ -683,6 +683,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09B2018020C6F3800DB3F75B /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_Services_Fynoo_ServicesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0230BD2514902A004F1B0B /* DictionaryExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExt.swift; sourceTree = "<group>"; };
 		2F0230C02514E477004F1B0B /* CommonPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPopupViewController.swift; sourceTree = "<group>"; };
 		2F0230C12514E477004F1B0B /* CommonPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonPopupViewController.xib; sourceTree = "<group>"; };
@@ -810,13 +811,12 @@
 		2FFDE23025012173006C5EBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FFDE23F2501225A006C5EBD /* AgentDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDashboardViewController.swift; sourceTree = "<group>"; };
 		2FFDE2402501225A006C5EBD /* AgentDashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentDashboardViewController.xib; sourceTree = "<group>"; };
-		48ACC555C1E29B7BA0E13D0B /* Pods-Fynoo Services-Fynoo ServicesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		53FCB7C0EB04C45A0C3E4317 /* Pods-Fynoo ServicesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo ServicesTests.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo ServicesTests/Pods-Fynoo ServicesTests.debug.xcconfig"; sourceTree = "<group>"; };
-		550022F8A8E6B1A446ABE40D /* Pods-Fynoo Services.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services.release.xcconfig"; sourceTree = "<group>"; };
-		56668FC5DDC1A7FEBE25F575 /* Pods-Fynoo ServicesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo ServicesTests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo ServicesTests/Pods-Fynoo ServicesTests.release.xcconfig"; sourceTree = "<group>"; };
-		62E89E5AF83143A45B24DCCC /* Pods_Fynoo_Services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_Services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		779305A106C1A50CCEE64B69 /* Pods-Fynoo Services.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services.debug.xcconfig"; sourceTree = "<group>"; };
-		89EAB192AFDB0E07EFF42A46 /* Pods_Fynoo_ServicesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_ServicesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37BC6070EBDE8A55FC4A7E83 /* Pods_Fynoo_ServicesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_ServicesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B89182A71D912BDFE54C5DC /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8520337E115BB44AB8DB671B /* Pods-Fynoo ServicesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo ServicesTests.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo ServicesTests/Pods-Fynoo ServicesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A061CAC65AB8618E1FE73AC2 /* Pods-Fynoo Services.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services.release.xcconfig"; sourceTree = "<group>"; };
+		A773F7CBEC25C835A16F8530 /* Pods-Fynoo ServicesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo ServicesTests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo ServicesTests/Pods-Fynoo ServicesTests.release.xcconfig"; sourceTree = "<group>"; };
+		AC14F5AD44CA06DED48DD025 /* Pods-Fynoo Services.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services.debug.xcconfig"; sourceTree = "<group>"; };
 		CE2EFB3C251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		CE2EFB3D251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleDescriptionTableViewCell.xib; sourceTree = "<group>"; };
 		CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVehicleImageTableViewCell.swift; sourceTree = "<group>"; };
@@ -1201,7 +1201,8 @@
 		CEE72CBA251B76AF00B02DAF /* BottomPopupEditProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupEditProductViewController.swift; sourceTree = "<group>"; };
 		CEE72CBF251B795100B02DAF /* OpenGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGallery.swift; sourceTree = "<group>"; };
 		CEFC760A257F5E0C00088467 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D386675BEC93A1C2372A22B2 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_Services_Fynoo_ServicesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1D4108D26191465A8E871F2 /* Pods-Fynoo Services-Fynoo ServicesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D34F4201751D8F2C6FB8501B /* Pods_Fynoo_Services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_Services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F415E771250A221900DEF755 /* ProfileModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModal.swift; sourceTree = "<group>"; };
 		F438605125230BF200DE0BED /* AddAmountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAmountViewController.swift; sourceTree = "<group>"; };
 		F438605225230BF200DE0BED /* AddAmountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAmountViewController.xib; sourceTree = "<group>"; };
@@ -1462,7 +1463,6 @@
 		F680D68A259B7F27007EB12C /* CancelReasonViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CancelReasonViewCell.xib; sourceTree = "<group>"; };
 		F6A5FB98259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionBuyPaymentMethod.swift; sourceTree = "<group>"; };
 		F6B14CA7251B387200F9F03E /* VatInfoModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatInfoModal.swift; sourceTree = "<group>"; };
-		FA4CA97958AA8EC290CFD6F1 /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1470,7 +1470,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63E947059D50F42AFE72D845 /* Pods_Fynoo_Services.framework in Frameworks */,
+				3EBBEF9433213B23D9C4BC1A /* Pods_Fynoo_Services.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1478,7 +1478,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9477D55E58751BD981EB4DD7 /* Pods_Fynoo_ServicesTests.framework in Frameworks */,
+				EE3CE51536AFB35441D433CC /* Pods_Fynoo_ServicesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1486,7 +1486,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA65A497F7F52AFD47E0676C /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework in Frameworks */,
+				788758D607ADF036566C3603 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1753,7 +1753,7 @@
 				2FFDE22D25012173006C5EBD /* Fynoo ServicesUITests */,
 				2FFDE20A25012166006C5EBD /* Products */,
 				4BDDA7F2B8A2383934876774 /* Pods */,
-				9526CB33466E3B0F29EB845B /* Frameworks */,
+				950B6576476817DE8FBCAE88 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1865,22 +1865,22 @@
 		4BDDA7F2B8A2383934876774 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				779305A106C1A50CCEE64B69 /* Pods-Fynoo Services.debug.xcconfig */,
-				550022F8A8E6B1A446ABE40D /* Pods-Fynoo Services.release.xcconfig */,
-				48ACC555C1E29B7BA0E13D0B /* Pods-Fynoo Services-Fynoo ServicesUITests.debug.xcconfig */,
-				FA4CA97958AA8EC290CFD6F1 /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */,
-				53FCB7C0EB04C45A0C3E4317 /* Pods-Fynoo ServicesTests.debug.xcconfig */,
-				56668FC5DDC1A7FEBE25F575 /* Pods-Fynoo ServicesTests.release.xcconfig */,
+				AC14F5AD44CA06DED48DD025 /* Pods-Fynoo Services.debug.xcconfig */,
+				A061CAC65AB8618E1FE73AC2 /* Pods-Fynoo Services.release.xcconfig */,
+				D1D4108D26191465A8E871F2 /* Pods-Fynoo Services-Fynoo ServicesUITests.debug.xcconfig */,
+				7B89182A71D912BDFE54C5DC /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */,
+				8520337E115BB44AB8DB671B /* Pods-Fynoo ServicesTests.debug.xcconfig */,
+				A773F7CBEC25C835A16F8530 /* Pods-Fynoo ServicesTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		9526CB33466E3B0F29EB845B /* Frameworks */ = {
+		950B6576476817DE8FBCAE88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				62E89E5AF83143A45B24DCCC /* Pods_Fynoo_Services.framework */,
-				D386675BEC93A1C2372A22B2 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */,
-				89EAB192AFDB0E07EFF42A46 /* Pods_Fynoo_ServicesTests.framework */,
+				D34F4201751D8F2C6FB8501B /* Pods_Fynoo_Services.framework */,
+				09B2018020C6F3800DB3F75B /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */,
+				37BC6070EBDE8A55FC4A7E83 /* Pods_Fynoo_ServicesTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3270,12 +3270,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2FFDE23325012173006C5EBD /* Build configuration list for PBXNativeTarget "Fynoo Services" */;
 			buildPhases = (
-				AE8836D7C8D84DB560B15117 /* [CP] Check Pods Manifest.lock */,
+				234D50815AD95CDAA6AB34A0 /* [CP] Check Pods Manifest.lock */,
 				2FFDE20525012166006C5EBD /* Sources */,
 				2FFDE20625012166006C5EBD /* Frameworks */,
 				2FFDE20725012166006C5EBD /* Resources */,
-				606D5FD5E73795E8C2040C0E /* [CP] Embed Pods Frameworks */,
-				9B97B9F55C0EA4A832A447CE /* [CP] Copy Pods Resources */,
+				B2F7DCFF2E3A2324266A8AFA /* [CP] Embed Pods Frameworks */,
+				0DE6262EF1150E3DCF41A56D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3290,7 +3290,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2FFDE23625012173006C5EBD /* Build configuration list for PBXNativeTarget "Fynoo ServicesTests" */;
 			buildPhases = (
-				7BA8C6EB29CF02251969AE27 /* [CP] Check Pods Manifest.lock */,
+				F3F60F6E9902BFD3E8B595BE /* [CP] Check Pods Manifest.lock */,
 				2FFDE21B25012172006C5EBD /* Sources */,
 				2FFDE21C25012172006C5EBD /* Frameworks */,
 				2FFDE21D25012172006C5EBD /* Resources */,
@@ -3309,12 +3309,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2FFDE23925012173006C5EBD /* Build configuration list for PBXNativeTarget "Fynoo ServicesUITests" */;
 			buildPhases = (
-				59BABCA4732F24B6537C403E /* [CP] Check Pods Manifest.lock */,
+				3CA9A9073F9B31BF7BE89B96 /* [CP] Check Pods Manifest.lock */,
 				2FFDE22625012172006C5EBD /* Sources */,
 				2FFDE22725012172006C5EBD /* Frameworks */,
 				2FFDE22825012172006C5EBD /* Resources */,
-				6AF2BD6CA78031AE9577DBA3 /* [CP] Embed Pods Frameworks */,
-				271A576EAEEBEFED2DE5CA58 /* [CP] Copy Pods Resources */,
+				962BDB8254E81E8B8AA52299 /* [CP] Embed Pods Frameworks */,
+				A90366850C5F8E16A15E9665 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3749,24 +3749,46 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		271A576EAEEBEFED2DE5CA58 /* [CP] Copy Pods Resources */ = {
+		0DE6262EF1150E3DCF41A56D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		59BABCA4732F24B6537C403E /* [CP] Check Pods Manifest.lock */ = {
+		234D50815AD95CDAA6AB34A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Fynoo Services-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3CA9A9073F9B31BF7BE89B96 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3788,24 +3810,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		606D5FD5E73795E8C2040C0E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6AF2BD6CA78031AE9577DBA3 /* [CP] Embed Pods Frameworks */ = {
+		962BDB8254E81E8B8AA52299 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3822,7 +3827,41 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7BA8C6EB29CF02251969AE27 /* [CP] Check Pods Manifest.lock */ = {
+		A90366850C5F8E16A15E9665 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2F7DCFF2E3A2324266A8AFA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3F60F6E9902BFD3E8B595BE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3838,45 +3877,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Fynoo ServicesTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9B97B9F55C0EA4A832A447CE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AE8836D7C8D84DB560B15117 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Fynoo Services-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -6063,12 +6063,12 @@
 		};
 		2FFDE23425012173006C5EBD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 779305A106C1A50CCEE64B69 /* Pods-Fynoo Services.debug.xcconfig */;
+			baseConfigurationReference = AC14F5AD44CA06DED48DD025 /* Pods-Fynoo Services.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.0.1;
+				CURRENT_PROJECT_VERSION = 1.0.2;
 				DEVELOPMENT_TEAM = 94V2SEBR29;
 				INFOPLIST_FILE = "Fynoo Services/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -6077,7 +6077,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sendan.Fynoo-Services";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = neeraj_agent6Oct2020;
+				PROVISIONING_PROFILE_SPECIFIER = Fynoo_Service_Dev_14Dec_2020;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -6085,12 +6085,12 @@
 		};
 		2FFDE23525012173006C5EBD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 550022F8A8E6B1A446ABE40D /* Pods-Fynoo Services.release.xcconfig */;
+			baseConfigurationReference = A061CAC65AB8618E1FE73AC2 /* Pods-Fynoo Services.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.0.1;
+				CURRENT_PROJECT_VERSION = 1.0.2;
 				DEVELOPMENT_TEAM = 94V2SEBR29;
 				INFOPLIST_FILE = "Fynoo Services/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -6099,7 +6099,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sendan.Fynoo-Services";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = neeraj_agent6Oct2020;
+				PROVISIONING_PROFILE_SPECIFIER = Fynoo_Service_Dev_14Dec_2020;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -6107,7 +6107,7 @@
 		};
 		2FFDE23725012173006C5EBD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53FCB7C0EB04C45A0C3E4317 /* Pods-Fynoo ServicesTests.debug.xcconfig */;
+			baseConfigurationReference = 8520337E115BB44AB8DB671B /* Pods-Fynoo ServicesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -6129,7 +6129,7 @@
 		};
 		2FFDE23825012173006C5EBD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56668FC5DDC1A7FEBE25F575 /* Pods-Fynoo ServicesTests.release.xcconfig */;
+			baseConfigurationReference = A773F7CBEC25C835A16F8530 /* Pods-Fynoo ServicesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -6151,7 +6151,7 @@
 		};
 		2FFDE23A25012173006C5EBD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 48ACC555C1E29B7BA0E13D0B /* Pods-Fynoo Services-Fynoo ServicesUITests.debug.xcconfig */;
+			baseConfigurationReference = D1D4108D26191465A8E871F2 /* Pods-Fynoo Services-Fynoo ServicesUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -6171,7 +6171,7 @@
 		};
 		2FFDE23B25012173006C5EBD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA4CA97958AA8EC290CFD6F1 /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */;
+			baseConfigurationReference = 7B89182A71D912BDFE54C5DC /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

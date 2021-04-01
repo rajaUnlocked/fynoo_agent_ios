@@ -8,8 +8,10 @@
 
 import UIKit
 import SideMenu
+import CoreLocation
 
-class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource, ServicesDashboardTableViewCellDelegate, CommonPopupViewControllerDelegate ,UIImagePickerControllerDelegate, UINavigationControllerDelegate, OpenGalleryDelegate {
+class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource, ServicesDashboardTableViewCellDelegate, CommonPopupViewControllerDelegate ,UIImagePickerControllerDelegate, UINavigationControllerDelegate, OpenGalleryDelegate, CLLocationManagerDelegate {
+    
     var branchmodel = branchsmodel()
     @IBOutlet weak var tableVw: UITableView!
     @IBOutlet weak var topVwHeightCons: NSLayoutConstraint!
@@ -28,8 +30,14 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     var dataDict = NSDictionary()
     var imageId = ""
     
+    let locationManager = CLLocationManager()
+    var latitude = 0.0
+    var longitude = 0.0
+    var userAddressStr = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        getUserLocation()
         registerNotifications()
         sideMenuCode()
         configureHeaderUI()
@@ -46,6 +54,100 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    }
+    
+    // MARK: - get location
+    func getUserLocation() {
+        self.locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    // MARK: - Location Delegates
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        latitude = locValue.latitude
+        longitude = locValue.longitude
+        
+            HeaderHeightSingleton.shared.longitude = longitude
+            HeaderHeightSingleton.shared.latitude = latitude
+           
+        getAddressFromLatLon(pdblLatitude: "\(latitude)", withLongitude: "\(longitude)")
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        ModalController.showNegativeCustomAlertWith(title: "Please turn on your location services", msg: "")
+        
+        HeaderHeightSingleton.shared.longitude = 0.0
+        HeaderHeightSingleton.shared.latitude = 0.0
+        HeaderHeightSingleton.shared.address = ""
+    
+    }
+    
+    func getAddressFromLatLon(pdblLatitude: String, withLongitude pdblLongitude: String) {
+        var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
+        let lat: Double = Double("\(pdblLatitude)")!
+        let lon: Double = Double("\(pdblLongitude)")!
+        let ceo: CLGeocoder = CLGeocoder()
+        center.latitude = lat
+        center.longitude = lon
+        
+        let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
+        
+        ceo.reverseGeocodeLocation(loc, completionHandler:
+            {(placemarks, error) in
+                if (error != nil)
+                {
+                    print("reverse geodcode fail: \(error!.localizedDescription)")
+                    return
+                }
+                
+                let pm = placemarks! as [CLPlacemark]
+                
+                if pm.count > 0 {
+                    let pm = placemarks![0]
+                    
+                    var addressString : String = ""
+                    if pm.name != nil {
+                        addressString = addressString + pm.name! + ", "
+                    }
+                    if pm.subAdministrativeArea != nil {
+                        addressString = addressString + pm.subAdministrativeArea! + ", "
+                    }
+                    if pm.subLocality != nil {
+                        addressString = addressString + pm.subLocality! + ", "
+                    }
+                    if pm.thoroughfare != nil {
+                        addressString = addressString + pm.thoroughfare! + ", "
+                    }
+                    if pm.locality != nil {
+                        addressString = addressString + pm.locality! + ", "
+                    }
+                    if pm.country != nil {
+                        addressString = addressString + pm.country! + ", "
+                  //      self.country = pm.country!
+                    //     HeaderHeightSingleton.shared.countrySingleton = pm.country!
+                    }
+                    if pm.postalCode != nil {
+                        addressString = addressString + pm.postalCode! + " "
+                    }
+                    
+                    
+                    //               self.addressField.text = addressString
+                    
+                    HeaderHeightSingleton.shared.address = addressString
+                    
+                    //                    self.currentLocation.setTitle(addressString, for: .normal)
+                    print(addressString)
+                }
+        })
+        
     }
     
     // MARK: - registerNotifications
