@@ -359,7 +359,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             cell.langugae.text = "\(deliverData?.data?.user_lang ?? "")"
             
             
-            if deliverData?.data?.agent_information?.del_service_document_uploaded == 1{
+            if deliverData?.data?.agent_information?.del_service_document_uploaded == 1 {
                 cell.delivery.image = UIImage(named: "accepted_tick")
                 //pending
             }else if deliverData?.data?.agent_information?.del_service_document_uploaded == 2{
@@ -374,7 +374,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
                 //edit & approve
                 cell.delivery.image = UIImage(named: "accepted_tick")
 
-            }else if deliverData?.data?.agent_information?.del_service_document_uploaded == 4{
+            }else if deliverData?.data?.agent_information?.del_service_document_uploaded == 5 {
                 //removed
                 cell.delivery.image = UIImage(named: "cross-1")
 
