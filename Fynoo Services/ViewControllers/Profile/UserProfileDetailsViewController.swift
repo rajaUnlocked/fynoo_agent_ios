@@ -130,7 +130,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                  print(last)
                 
             var isvatUpload = 0
-            if pdfVat != agentInfo.vatCertificate{
+            if pdfVat != agentInfo.vatCertificate {
                 isvatUpload = 1
             }
             agentInfo.vatNo = agentInfo.vatNo.replacingOccurrences(of: " ", with: "")

@@ -41,7 +41,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         }
         
-//         let vc = CompanyRegViewController(nibName: "CompanyRegViewController", bundle: nil)
     //   let vc = BasedUrlViewController(nibName: "BasedUrlViewController", bundle: nil)
        let vc = SplashAnimatedViewController(nibName: "SplashAnimatedViewController", bundle: nil)
         nav = UINavigationController.init(rootViewController: vc)
