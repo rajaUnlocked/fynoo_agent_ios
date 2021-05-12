@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 class ProductModel
 {
+   
+    
+    
     //new range Temp Pro
     var isVat = false
     var likeRangeTemp = ""
@@ -234,12 +237,101 @@ class ProductModel
     var documentId = NSMutableArray()
     var documentImage = NSMutableArray()
     var documentImageSize = NSMutableArray()
+    
+    
+    var editproductsell = false
+          
+          var orderQtyPro = ""
+          var PriceOrder = ""
+          var statusOrder = NSMutableArray()
+          var statusOrderTemp = NSMutableArray()
+          var orderQtyProTemp = ""
+          var PriceOrderTemp = ""
+         
+           var datapricesell = NSMutableArray()
+          var statussell = ""
+         var numphotosell = ""
+           var numsoldsell = ""
+            var cataIdsell:String = ""
+          var subcataIdsell:String = ""
+          var datapriceselltemp = NSMutableArray()
+             var statusselltemp = ""
+            var numphotoselltemp = ""
+              var numsoldselltemp = ""
+               var cataIdselltemp:String = ""
+             var subcataIdselltemp:String = ""
+          var daterangesell:String = ""
+           var salecount  = 0
+          
+          var brandIndex = NSMutableArray()
+           var brandIndextemp = NSMutableArray()
+            var pricetemp = ""
+          var likeRangetemp = ""
+          var rangeTemp = ""
+            var rangetemp = ""
+         
+          var ratingrange = ""
+            var discountIdtemp = ""
+             var dropshipingIdtemp = ""
+          var paymentModetemp = NSMutableArray()
+          var primaryKeyss = ""
+         
+            var cataIdtemp:String = ""
+           var cataIdnametemp:String = ""
+          var productfiltercount = 0
+            var subcataIdtemp:String = ""
+           var subcataIdnametemp:String = ""
+          var availIndextemp = NSMutableArray()
+        
+          var boidarr = NSMutableArray()
+          var coponidarr = NSMutableArray()
     //intialilizer class ref
     static let shared = ProductModel()
     // private constructor
     
     func remove()
     {
+        availIndextemp.removeAllObjects()
+        ratingrange = ""
+            discountIdtemp = ""
+             dropshipingIdtemp = ""
+        paymentModetemp.removeAllObjects()
+        primaryKeyss = ""
+         cataIdtemp = ""
+         cataIdnametemp = ""
+        productfiltercount = 0
+          subcataIdtemp = ""
+           subcataIdnametemp = ""
+        boidarr.removeAllObjects()
+        coponidarr.removeAllObjects()
+        likeRangetemp = ""
+        rangeTemp = ""
+        rangetemp = ""
+          pricetemp = ""
+        brandIndex.removeAllObjects()
+        brandIndextemp.removeAllObjects()
+        datapricesell.removeAllObjects()
+                statussell = ""
+               numphotosell = ""
+                 numsoldsell = ""
+                 cataIdsell = ""
+              subcataIdsell = ""
+                datapriceselltemp.removeAllObjects()
+                 statusselltemp = ""
+                numphotoselltemp = ""
+                  numsoldselltemp = ""
+                    cataIdselltemp = ""
+                   subcataIdselltemp = ""
+                daterangesell = ""
+                salecount  = 0
+      editproductsell = false
+                 
+             orderQtyPro = ""
+               PriceOrder = ""
+        statusOrder.removeAllObjects()
+                statusOrderTemp.removeAllObjects()
+               orderQtyProTemp = ""
+                PriceOrderTemp = ""
         RetailProducteMin = ""
         RetailMin = ""
         RetaildiscountPer = ""

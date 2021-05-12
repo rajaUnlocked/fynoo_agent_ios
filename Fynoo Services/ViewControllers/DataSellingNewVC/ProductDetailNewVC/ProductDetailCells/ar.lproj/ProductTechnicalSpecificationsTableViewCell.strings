@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "User Manual"; ObjectID = "ZkN-L2-Hwc"; */
+"ZkN-L2-Hwc.text" = "دليل المستخدم";
+
+/* Class = "UILabel"; text = "More Details"; ObjectID = "aRb-ma-3kY"; */
+"aRb-ma-3kY.text" = "المزيد";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "iuW-RH-aUk"; */
+"iuW-RH-aUk.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Technical Specification"; ObjectID = "rxo-xo-vYz"; */
+"rxo-xo-vYz.text" = "الخصائص التقنية";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ziS-Se-0hF"; */
+"ziS-Se-0hF.normalTitle" = "Button";

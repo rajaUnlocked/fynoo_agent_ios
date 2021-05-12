@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="313" id="KGk-i7-Jjw" customClass="NoDataFoundTableViewCell" customModule="Fynoo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="351" height="313"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="351" height="313"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UnY-Xm-8zi">
+                        <rect key="frame" x="0.0" y="0.0" width="351" height="313"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noBranchFound" translatesAutoresizingMaskIntoConstraints="NO" id="Mqi-3d-j9A">
+                                <rect key="frame" x="85.5" y="30" width="180" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="bVS-PU-rMP"/>
+                                    <constraint firstAttribute="width" constant="180" id="vHn-Wf-svt"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Branch Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUz-0h-k09">
+                                <rect key="frame" x="95.5" y="228.5" width="160" height="23.5"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="20"/>
+                                <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2EV-SC-q1P">
+                                <rect key="frame" x="125.5" y="259.5" width="100" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="ZgY-sG-USE"/>
+                                    <constraint firstAttribute="height" constant="24" id="oiq-3x-6JK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
+                                <state key="normal" title="Go Back">
+                                    <color key="titleColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dUz-0h-k09" firstAttribute="centerX" secondItem="Mqi-3d-j9A" secondAttribute="centerX" id="1zi-sF-7gM"/>
+                            <constraint firstItem="dUz-0h-k09" firstAttribute="top" secondItem="Mqi-3d-j9A" secondAttribute="bottom" constant="18.5" id="62P-dy-rhH"/>
+                            <constraint firstItem="Mqi-3d-j9A" firstAttribute="centerX" secondItem="UnY-Xm-8zi" secondAttribute="centerX" id="MQO-lb-uVH"/>
+                            <constraint firstItem="2EV-SC-q1P" firstAttribute="centerX" secondItem="dUz-0h-k09" secondAttribute="centerX" id="ebv-cZ-z5I"/>
+                            <constraint firstItem="Mqi-3d-j9A" firstAttribute="centerY" secondItem="UnY-Xm-8zi" secondAttribute="centerY" constant="-36.75" id="gHY-g4-Tfa"/>
+                            <constraint firstItem="2EV-SC-q1P" firstAttribute="top" secondItem="dUz-0h-k09" secondAttribute="bottom" constant="7.5" id="qcy-2e-guz"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="UnY-Xm-8zi" secondAttribute="bottom" id="6X5-3G-A0p"/>
+                    <constraint firstItem="UnY-Xm-8zi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8dL-cr-shU"/>
+                    <constraint firstItem="UnY-Xm-8zi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Y3c-Nq-v51"/>
+                    <constraint firstAttribute="trailing" secondItem="UnY-Xm-8zi" secondAttribute="trailing" id="aDS-bA-eQw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="goBackTop" destination="qcy-2e-guz" id="69R-vd-ksb"/>
+                <outlet property="gobackBtn" destination="2EV-SC-q1P" id="5BV-hr-KDV"/>
+                <outlet property="titleLbl" destination="dUz-0h-k09" id="0Ik-5b-nJP"/>
+            </connections>
+            <point key="canvasLocation" x="160.1449275362319" y="89.397321428571431"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="noBranchFound" width="152" height="152"/>
+    </resources>
+</document>

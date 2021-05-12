@@ -20,7 +20,7 @@ class TargetModel: NSObject {
                       userId = ""
 
                     }
-        let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":"308"] as [String : Any]
+        let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":userId] as [String : Any]
         print(str,parameters)
         ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
 
@@ -51,7 +51,7 @@ class TargetModel: NSObject {
                          userId = ""
 
                        }
-           let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":"308"] as [String : Any]
+           let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":userId] as [String : Any]
            print(str,parameters)
            ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
 

@@ -58,7 +58,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
             return 2
         }
          
-        return ((self.targetlist?.data?.total_target ?? 0) == 0 ? 0:self.targetlist?.data?.top_five_agent?.count ?? 0)
+        return ((self.targetlist?.data?.target_end_date ?? "") == "" ? 0:self.targetlist?.data?.top_five_agent?.count ?? 0)
       
     }
     
@@ -68,12 +68,12 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
             if indexPath.row == 0
             {
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "TargetprogressTableViewCell", for: indexPath) as! TargetprogressTableViewCell
-                let attributedString : NSMutableAttributedString = NSMutableAttributedString(string: "\(self.targetlist?.data?.target_to_be_achive ?? 0) /  \(self.targetlist?.data?.total_target ?? 0)")
-                attributedString.setColor(color: #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1), forText: "\(self.targetlist?.data?.total_target ?? 0)")
+                let attributedString : NSMutableAttributedString = NSMutableAttributedString(string: "\(self.targetlist?.data?.target_to_be_achive ?? 0) / \(self.targetlist?.data?.total_target ?? 0)")
+                attributedString.setColor(color: #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1), forText: " \(self.targetlist?.data?.total_target ?? 0)")
                 cell.countlbl.attributedText = attributedString
                 cell.progressvw.isHidden = false
                 cell.targetimg.isHidden = false
-                if self.targetlist?.data?.total_target ?? 0 == 0
+                if self.targetlist?.data?.target_end_date ?? "" == ""
                 {
                     cell.progressvw.isHidden = true
                     cell.targetimg.isHidden = true
@@ -129,7 +129,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
         {
             if indexPath.row == 1
             {
-                if self.targetlist?.data?.media_type ?? 0 == 1
+                if self.targetlist?.data?.media_type ?? 0 == 2
                 {
                     if let url = URL(string: "http://techslides.com/demos/sample-videos/small.3gp"){
                         
@@ -185,7 +185,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
             if indexPath.row == 0
             {
                 
-                if targetlist?.data?.total_target ?? 0 == 0
+                if targetlist?.data?.target_end_date ?? "" == ""
                           {
                             return 60
                           }
