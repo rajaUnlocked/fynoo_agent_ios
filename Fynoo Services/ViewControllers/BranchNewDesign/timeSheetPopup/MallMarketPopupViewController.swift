@@ -93,9 +93,7 @@ class MallMarketPopupViewController: UIViewController,UITableViewDelegate,UITabl
             return cell1
         }
         }
-       
-        if indexPath.row  == (mallmarketArr.count )
-        {
+        if indexPath.row  == (mallmarketArr.count ){
           
                 let cell1 = tabView.dequeueReusableCell(withIdentifier: "marketTableViewCell", for: indexPath) as! marketTableViewCell
             cell1.tag = indexPath.row
@@ -110,12 +108,7 @@ class MallMarketPopupViewController: UIViewController,UITableViewDelegate,UITabl
                                          }
                                        
                                          return cell1
-            }
-           
-        
-       
-            else
-            {
+            }else{
                 let cell1 = tabView.dequeueReusableCell(withIdentifier: "marketTableViewCell", for: indexPath) as! marketTableViewCell
                 cell1.toplbl.isHidden = false
                 cell1.bottomlbl.isHidden = false
@@ -173,21 +166,17 @@ class MallMarketPopupViewController: UIViewController,UITableViewDelegate,UITabl
               isDataLoading = false
           }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if ((self.mallmarketList?.data?.total_records ?? 0) as NSString).doubleValue / ((self.mallmarketList?.data?.page_limit ?? 0) as NSString).doubleValue > ("\(pageno)" as NSString).doubleValue + 1.0
-              {
-                     if ((tabView.contentOffset.y + tabView.frame.size.height) >= tabView.contentSize.height)
-                     {
-                         if !isDataLoading{
-                          
-                             isDataLoading = true
-                             self.pageno=self.pageno + 1
-                         MallMarketList_API()
-                           }
-
-                         }
+        if Double(self.mallmarketList?.data?.total_records ?? 0) / Double(self.mallmarketList?.data?.page_limit ?? 0) > Double(pageno) + 1.0{
+            if ((tabView.contentOffset.y + tabView.frame.size.height) >= tabView.contentSize.height){
+                if !isDataLoading{
+                    isDataLoading = true
+                    self.pageno=self.pageno + 1
+                    MallMarketList_API()
+                }
+            }
         }
-
-       }
+    }
+    
     @objc private func textFieldDidChange(_ textField: UITextField)
              {
                 addressTxtField = textField.text!
@@ -328,7 +317,6 @@ class MallMarketPopupViewController: UIViewController,UITableViewDelegate,UITabl
             }
         }
     }
-
 }
 extension MallMarketPopupViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField,

@@ -661,6 +661,8 @@
 		F680D688259B7E79007EB12C /* CancelViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F680D687259B7E79007EB12C /* CancelViewModal.swift */; };
 		F680D68B259B7F27007EB12C /* CancelReasonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F680D689259B7F27007EB12C /* CancelReasonViewCell.swift */; };
 		F680D68C259B7F27007EB12C /* CancelReasonViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F680D68A259B7F27007EB12C /* CancelReasonViewCell.xib */; };
+		F68B78E32653ADE800B1E69E /* UserPolicyWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68B78E12653ADE800B1E69E /* UserPolicyWebViewController.swift */; };
+		F68B78E42653ADE800B1E69E /* UserPolicyWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68B78E22653ADE800B1E69E /* UserPolicyWebViewController.xib */; };
 		F6A5FB99259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A5FB98259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift */; };
 		F6B14CA8251B387300F9F03E /* VatInfoModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B14CA7251B387200F9F03E /* VatInfoModal.swift */; };
 /* End PBXBuildFile section */
@@ -1461,6 +1463,8 @@
 		F680D687259B7E79007EB12C /* CancelViewModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelViewModal.swift; sourceTree = "<group>"; };
 		F680D689259B7F27007EB12C /* CancelReasonViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelReasonViewCell.swift; sourceTree = "<group>"; };
 		F680D68A259B7F27007EB12C /* CancelReasonViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CancelReasonViewCell.xib; sourceTree = "<group>"; };
+		F68B78E12653ADE800B1E69E /* UserPolicyWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPolicyWebViewController.swift; sourceTree = "<group>"; };
+		F68B78E22653ADE800B1E69E /* UserPolicyWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserPolicyWebViewController.xib; sourceTree = "<group>"; };
 		F6A5FB98259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionBuyPaymentMethod.swift; sourceTree = "<group>"; };
 		F6B14CA7251B387200F9F03E /* VatInfoModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatInfoModal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1804,6 +1808,7 @@
 		2FFDE23C2501221B006C5EBD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F68B78E02653ADE800B1E69E /* UserPolicyVC */,
 				F680D512259B7C2B007EB12C /* DataEntryModule */,
 				CECEFACB2577D3140090D459 /* AllfilterPopup */,
 				CECEFA1925779E8E0090D459 /* BusinessGalleryNewDesign */,
@@ -3263,6 +3268,15 @@
 			path = DataEntryListingCells;
 			sourceTree = "<group>";
 		};
+		F68B78E02653ADE800B1E69E /* UserPolicyVC */ = {
+			isa = PBXGroup;
+			children = (
+				F68B78E12653ADE800B1E69E /* UserPolicyWebViewController.swift */,
+				F68B78E22653ADE800B1E69E /* UserPolicyWebViewController.xib */,
+			);
+			path = UserPolicyVC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3500,6 +3514,7 @@
 				CECEF9B22577575B0090D459 /* LocationDetailsTableViewCell.xib in Resources */,
 				CECEFA4725779E8F0090D459 /* SelectImageTypePopupViewController.strings in Resources */,
 				F680D670259B7C2C007EB12C /* DECancellationReasonViewController.xib in Resources */,
+				F68B78E42653ADE800B1E69E /* UserPolicyWebViewController.xib in Resources */,
 				CECEFA4F25779E8F0090D459 /* NewGalleryHeader.strings in Resources */,
 				2FEB1230251229AF0012FE98 /* ServiceSingleCollectionViewCell.xib in Resources */,
 				CE8E8595250F4C3800B74A9E /* Localizable.strings in Resources */,
@@ -3996,6 +4011,7 @@
 				F62E4B11251493A40021CEE0 /* AgentSignUPModal.swift in Sources */,
 				F680D621259B7C2C007EB12C /* DataEntryTypeListingTableViewCell.swift in Sources */,
 				F658B3F92522ECAD00B37F63 /* LanguageSelectionViewController.swift in Sources */,
+				F68B78E32653ADE800B1E69E /* UserPolicyWebViewController.swift in Sources */,
 				CECEFAD72577D3140090D459 /* AllFilterTableViewCell.swift in Sources */,
 				2F84643F250F83910084EB32 /* PopUpViewCell.swift in Sources */,
 				CE2EFB3E251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift in Sources */,

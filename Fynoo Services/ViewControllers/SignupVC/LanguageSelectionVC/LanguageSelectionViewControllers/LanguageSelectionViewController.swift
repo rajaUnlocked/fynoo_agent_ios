@@ -144,7 +144,7 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
             let myIntValue = Int(topPadding!)
             
             if myIntValue > 0{
-                if myIntValue == 44{
+                if myIntValue == 44 || myIntValue == 47 || myIntValue == 48 {
                     let glblHeight = HeaderHeightSingleton.shared
                     glblHeight.headerHeight = 120
                 }else{

@@ -630,6 +630,11 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
         self.tabView.reloadRows(at: [IndexPath(row: 0, section: 5)], with: .none)
         
     }
+    func userPolicyClicked(_ sender: Any){
+        
+      let vc = UserPolicyWebViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     func signUpBtnClicked(_ sender: Any) {
         
         if isVatNoClicked == true {
