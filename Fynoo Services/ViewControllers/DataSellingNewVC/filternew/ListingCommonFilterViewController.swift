@@ -944,12 +944,12 @@ extension ListingCommonFilterViewController: UITableViewDelegate,UITableViewData
                             
                             
                         }
-                        cell.rangeSlider.minValue = Float(fullNameArr[0])!
+                        cell.rangeSlider.minValue = Float(fullNameArr[0]) ?? 0
                         cell.fromprice.text =  "\(fullNameArr[0])"
-                        cell.rangeSlider.selectedMinimum = Float(fullNameArr[0])!
-                        cell.rangeSlider.selectedMaximum = Float(fullNameArr[1])!
+                        cell.rangeSlider.selectedMinimum = Float(fullNameArr[0]) ?? 0
+                        cell.rangeSlider.selectedMaximum = Float(fullNameArr[1]) ?? 0
                         cell.toprice.text =  "\(fullNameArr[1])"
-                        cell.rangeSlider.maxValue = Float(fullNameArr[1])!
+                        cell.rangeSlider.maxValue = Float(fullNameArr[1]) ?? 0
                     }
                     
                     print(fullname,"hg")

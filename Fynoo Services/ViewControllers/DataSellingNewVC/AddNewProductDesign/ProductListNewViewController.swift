@@ -427,6 +427,7 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
             ProductModel.shared.remove()
             ProductModel.shared.isedit = true
             let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+            
         self.navigationController?.pushViewController(vc, animated: true)
             isCreate = !isCreate
             return

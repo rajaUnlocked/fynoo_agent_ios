@@ -147,6 +147,7 @@ struct CommisionListData : Mappable {
 
 }
 struct Services : Mappable {
+    var currency_type :String?
     var service_id : Int?
     var service_name : String?
     var service_description : String?
@@ -162,6 +163,7 @@ struct Services : Mappable {
     }
 
     mutating func mapping(map: Map) {
+        currency_type <- map["currency_type"]
          service_range <- map["service_range"]
          service_icon <- map["service_icon"]
         service_id <- map["service_id"]

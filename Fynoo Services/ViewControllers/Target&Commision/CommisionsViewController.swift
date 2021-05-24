@@ -18,6 +18,7 @@ var targetmodel = TargetModel()
         super.viewDidLoad()
         headervw.viewControl = self
         headervw.titleHeader.text = "Commission"
+        tabvw.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
         tabvw.delegate = self
         tabvw.dataSource = self
         registernibs()
@@ -96,7 +97,7 @@ extension CommisionsViewController:UITableViewDataSource,UITableViewDelegate
             let cell = tabvw.dequeueReusableCell(withIdentifier: "ServiceListTableViewCell", for: indexPath) as! ServiceListTableViewCell
             cell.servicename.text = self.commisionlist?.data?.services?[indexPath.row - 2].service_name ?? ""
              cell.servicedescrip.text = self.commisionlist?.data?.services?[indexPath.row - 2].service_description ?? ""
-               cell.descriprange.text = self.commisionlist?.data?.services?[indexPath.row - 2].service_range ?? ""
+               cell.descriprange.text = "\(self.commisionlist?.data?.services?[indexPath.row - 2].service_range ?? "") \(self.commisionlist?.data?.services?[indexPath.row - 2].currency_type ?? "")"
             cell.serviceimg.sd_setImage(with: URL(string: self.commisionlist?.data?.services?[indexPath.row - 2].service_icon ?? ""), placeholderImage: UIImage(named: "placeholder"))
             cell.clickvideo.tag = indexPath.row - 2
             cell.clickvideo.addTarget(self, action: #selector(clickVideoClicked(_:)), for: .touchUpInside)
@@ -113,7 +114,7 @@ extension CommisionsViewController:UITableViewDataSource,UITableViewDelegate
               vc.video_url = self.commisionlist?.data?.services?[indexPath.row - 2].video_url ?? ""
              vc.service_desc = self.commisionlist?.data?.services?[indexPath.row - 2].service_description ?? ""
               vc.service_name = self.commisionlist?.data?.services?[indexPath.row - 2].service_name ?? ""
-             vc.range = self.commisionlist?.data?.services?[indexPath.row - 2].service_range ?? ""
+             vc.range = "\(self.commisionlist?.data?.services?[indexPath.row - 2].service_range ?? "") \(self.commisionlist?.data?.services?[indexPath.row - 2].currency_type ?? "")"
               vc.service_icon = self.commisionlist?.data?.services?[indexPath.row - 2].service_icon ?? ""
         self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -127,6 +128,10 @@ extension CommisionsViewController:UITableViewDataSource,UITableViewDelegate
                    {
                     return UITableView.automaticDimension
                }
+        if indexPath.row == (self.commisionlist?.data?.services?.count ?? 0) + 2
+        {
+            return UITableView.automaticDimension
+        }
           return 70
     }
 }

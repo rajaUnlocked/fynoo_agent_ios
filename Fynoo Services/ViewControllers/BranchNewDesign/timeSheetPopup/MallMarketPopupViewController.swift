@@ -173,7 +173,7 @@ class MallMarketPopupViewController: UIViewController,UITableViewDelegate,UITabl
               isDataLoading = false
           }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if ((self.mallmarketList?.data?.total_records ?? 0) as NSString).doubleValue / ((self.mallmarketList?.data?.page_limit ?? 0) as NSString).doubleValue > ("\(pageno)" as NSString).doubleValue + 1.0
+        if Double(self.mallmarketList?.data?.total_records ?? 0) / Double(self.mallmarketList?.data?.page_limit ?? 0) > Double(pageno) + 1.0
               {
                      if ((tabView.contentOffset.y + tabView.frame.size.height) >= tabView.contentSize.height)
                      {

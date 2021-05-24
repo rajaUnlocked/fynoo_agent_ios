@@ -22,6 +22,7 @@ class TargetViewController: UIViewController {
         headervw.titleHeader.text = "Target"
         tabvw.delegate = self
         tabvw.dataSource = self
+        tabvw.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
         registernibs()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -177,7 +178,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
         {
             if indexPath.row == 0
             {
-                return 80
+                return UITableView.automaticDimension
             }
             return 250
         }
@@ -189,6 +190,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
                           {
                             return 60
                           }
+                
                 return 80
             }
             return UITableView.automaticDimension
