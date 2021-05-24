@@ -260,7 +260,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
         
         @objc func sideMenusettingsClicked(_ notification: NSNotification) {
-          
+          let vc = ProductListNewViewController(nibName: "ProductListNewViewController", bundle: nil)
+          self.navigationController?.pushViewController(vc, animated: true)
         }
         
         @objc func sideMenuChangeLanguageClicked(_ notification: NSNotification) {

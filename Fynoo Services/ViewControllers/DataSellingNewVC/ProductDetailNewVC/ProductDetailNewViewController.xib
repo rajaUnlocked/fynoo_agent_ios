@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductDetailNewViewController" customModule="Fynoo" customModuleProvider="target">
+            <connections>
+                <outlet property="headerView" destination="Dvx-BO-y3W" id="MJX-tZ-iAd"/>
+                <outlet property="tableView" destination="Xts-yH-SjS" id="ICX-kN-CM8"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xts-yH-SjS">
+                    <rect key="frame" x="0.0" y="50" width="320" height="518"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dvx-BO-y3W" customClass="NavigationView" customModule="Fynoo" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="4Hj-PE-M8r"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Dvx-BO-y3W" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3Ob-gv-yjL"/>
+                <constraint firstItem="Xts-yH-SjS" firstAttribute="top" secondItem="Dvx-BO-y3W" secondAttribute="bottom" constant="-50" id="55t-Yz-Trj"/>
+                <constraint firstItem="Xts-yH-SjS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WlI-FY-yXo"/>
+                <constraint firstAttribute="trailing" secondItem="Xts-yH-SjS" secondAttribute="trailing" id="eid-2e-cLT"/>
+                <constraint firstItem="Dvx-BO-y3W" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gvD-bu-Fef"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Xts-yH-SjS" secondAttribute="bottom" id="m0k-zX-QKZ"/>
+                <constraint firstAttribute="trailing" secondItem="Dvx-BO-y3W" secondAttribute="trailing" id="nio-3S-lZO"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="131.8840579710145" y="99.776785714285708"/>
+        </view>
+    </objects>
+</document>

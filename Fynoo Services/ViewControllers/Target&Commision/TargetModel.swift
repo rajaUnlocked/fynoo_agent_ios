@@ -20,7 +20,7 @@ class TargetModel: NSObject {
                       userId = ""
 
                     }
-        let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":"308"] as [String : Any]
+        let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":userId] as [String : Any]
         print(str,parameters)
         ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
 
@@ -51,7 +51,7 @@ class TargetModel: NSObject {
                          userId = ""
 
                        }
-           let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":"308"] as [String : Any]
+           let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"user_id":userId] as [String : Any]
            print(str,parameters)
            ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
 
@@ -147,6 +147,7 @@ struct CommisionListData : Mappable {
 
 }
 struct Services : Mappable {
+    var currency_type :String?
     var service_id : Int?
     var service_name : String?
     var service_description : String?
@@ -162,6 +163,7 @@ struct Services : Mappable {
     }
 
     mutating func mapping(map: Map) {
+        currency_type <- map["currency_type"]
          service_range <- map["service_range"]
          service_icon <- map["service_icon"]
         service_id <- map["service_id"]

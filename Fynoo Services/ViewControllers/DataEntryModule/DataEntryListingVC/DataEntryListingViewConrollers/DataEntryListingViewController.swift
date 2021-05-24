@@ -382,7 +382,6 @@ extension DataEntryListingViewController : UITableViewDataSource {
         }
     }
     
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -456,7 +455,6 @@ extension DataEntryListingViewController : UITableViewDataSource {
                 return self.loadingCell()
             }
         }
-        
     }
     func dataEntryDashboardTopCell(index : IndexPath) -> UITableViewCell {
         
@@ -530,7 +528,7 @@ extension DataEntryListingViewController : UITableViewDataSource {
         
         cell.dateLbl.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: "\(requestData?.order_date ?? 0)", format: "E, MMM dd, yyyy h:mm")
         cell.paidTextLbl.text = "Paid"
-        cell.agentProfileImgView.sd_setImage(with: URL(string:(requestData?.bo_name ?? "")), placeholderImage: UIImage(named: "agent_indivdual.png"))
+        cell.agentProfileImgView.sd_setImage(with: URL(string:(requestData?.bo_pic ?? "")), placeholderImage: UIImage(named: "agent_indivdual.png"))
         cell.agentNameLbl.text = requestData?.bo_name
         cell.ratingLbl.text = requestData?.rating_avg
         cell.totalRatingLbl.text = "(\(requestData?.rating_count ?? 0))"

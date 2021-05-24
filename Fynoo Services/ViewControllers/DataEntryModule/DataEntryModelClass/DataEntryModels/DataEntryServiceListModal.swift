@@ -67,6 +67,7 @@ struct OrderService_list : Mappable {
     var bo_email : String?
     var bo_number : String?
     var bo_mob_code : String?
+    var bo_pic : String?
     
     
     var address : String?
@@ -107,6 +108,7 @@ struct OrderService_list : Mappable {
         bo_email <- map["bo_email"]
         bo_number <- map["bo_number"]
         bo_mob_code <- map["bo_mob_code"]
+        bo_pic <- map["bo_pic"]
         
         address <- map["address"]
         rating_count <- map["rating_count"]
