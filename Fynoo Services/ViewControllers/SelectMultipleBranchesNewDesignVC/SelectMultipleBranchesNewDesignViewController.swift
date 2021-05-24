@@ -103,10 +103,9 @@ class SelectMultipleBranchesNewDesignViewController: UIViewController, UITableVi
     {
         ModalClass.startLoading(self.view)
         let str = "\(Constant.BASE_URL)\(Constant.Branch_List)"
-        
-  //      "user_id": Singleton.shared.getUserId(),
+      
         let parameters = [
-            "user_id":Singleton.shared.getBoId(),
+             "user_id": Singleton.shared.getUserId(),
             "lang_code":HeaderHeightSingleton.shared.LanguageSelected
         ]
         print("request -",parameters)

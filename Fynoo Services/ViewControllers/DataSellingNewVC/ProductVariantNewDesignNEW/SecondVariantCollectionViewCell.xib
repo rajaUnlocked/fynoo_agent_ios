@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SecondVariantCollectionViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="65" height="26"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="65" height="26"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKN-BC-AH3">
+                        <rect key="frame" x="0.0" y="0.0" width="65" height="26"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashed_box" translatesAutoresizingMaskIntoConstraints="NO" id="ETN-dR-JQF">
+                                <rect key="frame" x="0.0" y="0.0" width="65" height="26"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32 GB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXv-B7-kRO">
+                                <rect key="frame" x="16" y="7" width="33.5" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="inl-86-M6T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <color key="textColor" red="0.10980392160000001" green="0.61568627450000002" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ETN-dR-JQF" firstAttribute="leading" secondItem="wKN-BC-AH3" secondAttribute="leading" id="1HY-q6-3HC"/>
+                            <constraint firstItem="ETN-dR-JQF" firstAttribute="top" secondItem="wKN-BC-AH3" secondAttribute="top" id="3vG-wq-2Un"/>
+                            <constraint firstAttribute="trailing" secondItem="ETN-dR-JQF" secondAttribute="trailing" id="CEP-Rk-AWh"/>
+                            <constraint firstAttribute="bottom" secondItem="ETN-dR-JQF" secondAttribute="bottom" id="HsD-c8-8WO"/>
+                            <constraint firstItem="FXv-B7-kRO" firstAttribute="centerX" secondItem="ETN-dR-JQF" secondAttribute="centerX" id="Rme-RI-C7s"/>
+                            <constraint firstItem="FXv-B7-kRO" firstAttribute="centerY" secondItem="ETN-dR-JQF" secondAttribute="centerY" id="oB2-Yf-RH8"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="wKN-BC-AH3" secondAttribute="bottom" id="0aW-Xc-F4w"/>
+                <constraint firstItem="wKN-BC-AH3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="C76-mV-9Kg"/>
+                <constraint firstItem="wKN-BC-AH3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="DYW-G3-BmL"/>
+                <constraint firstAttribute="trailing" secondItem="wKN-BC-AH3" secondAttribute="trailing" id="per-qn-7Vk"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="65" height="26"/>
+            <connections>
+                <outlet property="img" destination="ETN-dR-JQF" id="e4w-5c-hDA"/>
+                <outlet property="mainVw" destination="wKN-BC-AH3" id="LU9-Tj-z0Y"/>
+                <outlet property="valLbl" destination="FXv-B7-kRO" id="X2Q-D2-zAb"/>
+            </connections>
+            <point key="canvasLocation" x="148.55072463768118" y="72.991071428571431"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="dashed_box" width="60" height="26"/>
+    </resources>
+</document>

@@ -166,6 +166,7 @@ class MallMarketPopupViewController: UIViewController,UITableViewDelegate,UITabl
               isDataLoading = false
           }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+<<<<<<< HEAD
         if Double(self.mallmarketList?.data?.total_records ?? 0) / Double(self.mallmarketList?.data?.page_limit ?? 0) > Double(pageno) + 1.0{
             if ((tabView.contentOffset.y + tabView.frame.size.height) >= tabView.contentSize.height){
                 if !isDataLoading{
@@ -174,6 +175,20 @@ class MallMarketPopupViewController: UIViewController,UITableViewDelegate,UITabl
                     MallMarketList_API()
                 }
             }
+=======
+        if Double(self.mallmarketList?.data?.total_records ?? 0) / Double(self.mallmarketList?.data?.page_limit ?? 0) > Double(pageno) + 1.0
+              {
+                     if ((tabView.contentOffset.y + tabView.frame.size.height) >= tabView.contentSize.height)
+                     {
+                         if !isDataLoading{
+                          
+                             isDataLoading = true
+                             self.pageno=self.pageno + 1
+                         MallMarketList_API()
+                           }
+
+                         }
+>>>>>>> ad09f41b6545c954d3bff55c47e6ad1d9e188894
         }
     }
     

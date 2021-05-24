@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -51,23 +53,23 @@
                                 <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50-70  %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVY-hl-s4Q">
-                                <rect key="frame" x="209" y="40.5" width="94" height="25.5"/>
-                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50-70  %" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVY-hl-s4Q">
+                                <rect key="frame" x="210" y="42" width="93" height="22"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="19"/>
                                 <color key="textColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="RVY-hl-s4Q" firstAttribute="centerY" secondItem="nBo-N6-y7i" secondAttribute="centerY" id="2bZ-08-vw9"/>
                             <constraint firstItem="9kV-Bc-qGM" firstAttribute="width" secondItem="dex-4Z-8k1" secondAttribute="width" multiplier="0.372204" id="2iF-3g-kD9"/>
+                            <constraint firstItem="RVY-hl-s4Q" firstAttribute="leading" secondItem="8Wh-be-23h" secondAttribute="trailing" constant="10" id="3OC-sJ-B6c"/>
                             <constraint firstItem="8Wh-be-23h" firstAttribute="bottom" secondItem="nBo-N6-y7i" secondAttribute="bottom" constant="-5" id="BXW-uQ-Ao0"/>
                             <constraint firstItem="8Wh-be-23h" firstAttribute="top" secondItem="9kV-Bc-qGM" secondAttribute="bottom" id="KdS-dt-XFT"/>
                             <constraint firstItem="8Wh-be-23h" firstAttribute="width" secondItem="dex-4Z-8k1" secondAttribute="width" multiplier="0.4" id="MLb-Q4-a4n"/>
                             <constraint firstItem="8Wh-be-23h" firstAttribute="leading" secondItem="nBo-N6-y7i" secondAttribute="trailing" constant="10" id="OxP-NK-NED"/>
                             <constraint firstAttribute="trailing" secondItem="RVY-hl-s4Q" secondAttribute="trailing" constant="10" id="RDZ-6U-79J"/>
-                            <constraint firstItem="RVY-hl-s4Q" firstAttribute="width" secondItem="dex-4Z-8k1" secondAttribute="width" multiplier="0.3" id="USE-IL-sX7"/>
                             <constraint firstItem="nBo-N6-y7i" firstAttribute="leading" secondItem="dex-4Z-8k1" secondAttribute="leading" constant="15" id="hyq-ey-fH4"/>
                             <constraint firstItem="9kV-Bc-qGM" firstAttribute="centerY" secondItem="G0K-8Y-R3k" secondAttribute="centerY" id="i5i-ZI-kf2"/>
                             <constraint firstItem="9kV-Bc-qGM" firstAttribute="leading" secondItem="G0K-8Y-R3k" secondAttribute="trailing" constant="10" id="nfH-d6-785"/>
@@ -108,5 +110,8 @@
     </objects>
     <resources>
         <image name="youtube" width="51" height="51"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

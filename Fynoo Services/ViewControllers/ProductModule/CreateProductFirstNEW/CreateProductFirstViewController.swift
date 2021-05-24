@@ -13,7 +13,7 @@ import ObjectMapper
 import BarcodeScanner
 class CreateProductFirstViewController: UIViewController {
     var prolimit:ProductLimit?
-    var isDataBank = false
+    var isDataBank = true
      var isPurchaseData = false
    var serviceid = ""
     var Currency_Type_List:CurrencyLIST?
@@ -1191,9 +1191,9 @@ extension CreateProductFirstViewController:UITableViewDelegate,UITextViewDelegat
             if isDataBank
             {
                 switch indexPath.row {
-                case 0:
+                case 0,1:
                     return 40
-                case 1,2,4:
+                case 2,4:
                     return 0
                     case 3:
                     return 70

@@ -95,6 +95,10 @@ enum ValidationMessages {
 class Constant: NSObject {
      static let currency : String = "SAR".localized
     //service
+    
+     static let productVariantList: String = "/customerapi/v1/variantProduct/"
+     static let getproductlistfilter : String = "customerapi/v1/product_list_filter/";
+      static let removedatasellproduct : String = "product_api/customerDataBankDeleteProduct/";
      static let payment_method_list : String = "product_api/payment_page/"
     static let addproductNew : String = "/services/agent_add_product/";
    static let productlimit : String = "product_api/ProductLimit/";
@@ -197,7 +201,7 @@ enum Service {
     
     static let selectCategory = Constant.BASE_URL + "customerapi/v1/categorylist/"
        static let selectSubCategory = Constant.BASE_URL + "customerapi/v1/subcategorylist/"
-       
+        static let productVariantList =  Constant.BASE_URL + "product_api/variantProduct/"
     static let deactivateService = Constant.BASE_URL + "agentapis/v2/deactivate_services/"
     static let saveLanguage = Constant.BASE_URL + "agentapi/v1/save_language/"
     static let activateService = Constant.BASE_URL + "agentapis/v2/activate_services/"
@@ -223,8 +227,12 @@ enum Service {
 }
 
 enum Authentication {
+     static let productVariantList =  Constant.BASE_URL + "product_api/variantProduct/"
+    static let similaralllist = Constant.BASE_URL +   "product_api/customerDataBankAllProductList/"
+     static let databankProductView = Constant.BASE_URL +   "product_api/customerDataBankProductView/"
     static let changePassword = Constant.BASE_URL +    "customerapi/v2/changepassword/"
-
+    static let dataBankSelling = Constant.BASE_URL +   "product_api/customerDataBankList/"
+       static let dataBankSellingfilter = Constant.BASE_URL +   "product_api/customerDataBankListFilter/"
      static let viewDelivery =  Constant.BASE_URL + "bo_order_api/bo_delivery_charge_details/"
      static let deliverySaved =  Constant.BASE_URL + "bo_order_api/add_update_bo_delivery_charge/"
     static let CouriercompanyList =  Constant.BASE_URL + "bo_order_api/courier_company/"

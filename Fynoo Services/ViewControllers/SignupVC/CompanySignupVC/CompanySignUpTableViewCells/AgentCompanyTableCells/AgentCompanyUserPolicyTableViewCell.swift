@@ -8,6 +8,7 @@
 
 import UIKit
 protocol AgentCompanyUserPolicyTableViewCellDelegate {
+    
     func userPolicySelected(_ sender: Any)
     func signUpBtnClicked(_ sender: Any)
      func loginClickedd(_ sender: Any)

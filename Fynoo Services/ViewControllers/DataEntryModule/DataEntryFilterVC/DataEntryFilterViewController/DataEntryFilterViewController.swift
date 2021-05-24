@@ -55,7 +55,7 @@ class DataEntryFilterViewController: UIViewController, TTRangeSliderDelegate, Ra
     @IBAction func closeBtnClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
        }
-       @IBAction func applyBtnClicked(_ sender: Any) {
+        @IBAction func applyBtnClicked(_ sender: Any) {
         
         self.delegate?.filterApplied(filters: choseFilters)
         self.navigationController?.popViewController(animated: true)

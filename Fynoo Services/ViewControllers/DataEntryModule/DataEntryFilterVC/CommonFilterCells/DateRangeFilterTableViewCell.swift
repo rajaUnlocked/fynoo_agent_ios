@@ -18,6 +18,8 @@ class DateRangeFilterTableViewCell: UITableViewCell {
     var endDateTimeStamp: String = ""
     var startDateInDate: Date? = nil
     
+    @IBOutlet weak var tolbl: UILabel!
+    @IBOutlet weak var fromlbl: UILabel!
     @IBOutlet weak var headerLbl: UILabel!
     
     @IBOutlet weak var toDateLbl: UILabel!
