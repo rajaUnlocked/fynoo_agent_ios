@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductDetailsViewC" customModule="Fynoo_Services" customModuleProvider="target">
+            <connections>
+                <outlet property="headerHeightConstant" destination="Nf2-N9-jnQ" id="IUV-6I-l9P"/>
+                <outlet property="headerView" destination="fpc-zJ-wRb" id="S6j-Pf-HMM"/>
+                <outlet property="tableView" destination="EG1-n1-rNY" id="cDx-Mf-zgq"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="K8u-Js-1mj">
+                    <rect key="frame" x="0.0" y="367" width="285" height="201"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="201" id="PzS-dr-RDE"/>
+                        <constraint firstAttribute="width" constant="285" id="zxh-2l-Wgy"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpc-zJ-wRb" customClass="NavigationView" customModule="Fynoo_Services" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="Nf2-N9-jnQ"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EG1-n1-rNY">
+                    <rect key="frame" x="0.0" y="90" width="320" height="396"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Esc-LZ-IrR">
+                    <rect key="frame" x="0.0" y="504" width="320" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWO-nU-V4a">
+                            <rect key="frame" x="20" y="5" width="280" height="34"/>
+                            <color key="backgroundColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="Confirm and upload Invoice">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="oWO-nU-V4a" firstAttribute="top" secondItem="Esc-LZ-IrR" secondAttribute="top" constant="5" id="80M-Lk-Y50"/>
+                        <constraint firstAttribute="height" constant="44" id="Bhm-ae-xrt"/>
+                        <constraint firstItem="oWO-nU-V4a" firstAttribute="leading" secondItem="Esc-LZ-IrR" secondAttribute="leading" constant="20" id="QEw-Xx-JVS"/>
+                        <constraint firstAttribute="bottom" secondItem="oWO-nU-V4a" secondAttribute="bottom" constant="5" id="enN-My-frj"/>
+                        <constraint firstAttribute="trailing" secondItem="oWO-nU-V4a" secondAttribute="trailing" constant="20" id="tOX-Ib-PUD"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fpc-zJ-wRb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="14j-ka-eVX"/>
+                <constraint firstItem="fpc-zJ-wRb" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="5iX-oe-3Kk"/>
+                <constraint firstItem="Esc-LZ-IrR" firstAttribute="top" secondItem="EG1-n1-rNY" secondAttribute="bottom" constant="18" id="6md-tY-F7b"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Esc-LZ-IrR" secondAttribute="trailing" id="HsN-lE-x4w"/>
+                <constraint firstItem="EG1-n1-rNY" firstAttribute="top" secondItem="fpc-zJ-wRb" secondAttribute="bottom" id="IEW-an-st3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="K8u-Js-1mj" secondAttribute="bottom" id="L1h-9u-PdX"/>
+                <constraint firstItem="EG1-n1-rNY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="P3G-tr-hsF"/>
+                <constraint firstItem="Esc-LZ-IrR" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-20" id="XKi-nE-DS5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="EG1-n1-rNY" secondAttribute="trailing" id="fRJ-5C-ZkT"/>
+                <constraint firstItem="fpc-zJ-wRb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nyZ-rK-Nxa"/>
+                <constraint firstItem="K8u-Js-1mj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rnQ-eX-akz"/>
+                <constraint firstItem="Esc-LZ-IrR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wMG-fm-hSi"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="31.884057971014496" y="51.5625"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backgroundImage" width="297" height="208"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

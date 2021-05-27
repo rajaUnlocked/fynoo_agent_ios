@@ -7,7 +7,7 @@
 /////////////////////////             TAP PAYMENT             /////////////////////////
 
 // MARK: Common
-"common_edit"    = "تعديل";
+"common_edit"      = "تعديل";
 "common_cancel"    = "إلغاء";
 
 // MARK: Pay Button Titles
@@ -214,31 +214,31 @@
 "alert_error_2105_title"     = "API Credentials";
 
 "alert_error_2106_message"     = "Public API key given. Please use secret API key instead.";
-"alert_error_2106_title"     = "API Key";
+"alert_error_2106_title"       = "API Key";
 
 "alert_error_3100_message"     = "Insufficient permissions.";
-"alert_error_3100_title"     = "Permission Denied";
+"alert_error_3100_title"       = "Permission Denied";
 
 "alert_error_8000_message"     = "Country code is invalid.";
-"alert_error_8000_title"     = "Country Code";
+"alert_error_8000_title"       = "Country Code";
 
 "alert_error_8001_message"     = "Amount modificator type is invalid.";
-"alert_error_8001_title"     = "Amount Modificator Type";
+"alert_error_8001_title"       = "Amount Modificator Type";
 
 "alert_error_8002_message"     = "Measurement unit is invalid.";
-"alert_error_8002_title"     = "Measurement Unit";
+"alert_error_8002_title"       = "Measurement Unit";
 
 "alert_error_8003_message"     = "Measurement is invalid.";
-"alert_error_8003_title"     = "Measurement";
+"alert_error_8003_title"       = "Measurement";
 
 "alert_error_8004_message"     = "Failed to deserialize an enum.";
-"alert_error_8004_title"     = "Serialization";
+"alert_error_8004_title"       = "Serialization";
 
 "alert_error_8100_message"     = "Serialization error has occured.";
-"alert_error_8100_title"     = "Serialization";
+"alert_error_8100_title"       = "Serialization";
 
 "alert_error_8200_message"     = "Network error has occured.";
-"alert_error_8200_title"     = "Network";
+"alert_error_8200_title"       = "Network";
 
 "alert_error_8302_message"    = "This card already exists.";
 "alert_error_8302_title"    = "Card Exists";

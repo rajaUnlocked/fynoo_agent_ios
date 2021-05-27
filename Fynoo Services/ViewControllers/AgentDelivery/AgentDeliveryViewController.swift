@@ -289,6 +289,12 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     
     func navigationClicked(_ sender: Any) {
         
+//      let vc = AgentDeliveryDetailViewController()
+        
+        let vc = SearchedProductDeatailViewC()
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
 }
 
@@ -396,6 +402,15 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             return cell
         }
     }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+                let vc = ProductDetailsViewC()
+        //        vc.serviceID = ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any)
+                self.navigationController?.pushViewController(vc, animated: true)
+     
     }
     
     func deliveryServiceListCell(index : IndexPath) -> UITableViewCell {
