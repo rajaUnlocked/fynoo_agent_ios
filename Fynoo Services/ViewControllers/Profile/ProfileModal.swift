@@ -204,7 +204,7 @@ class ProfileData : Mappable{
 
 class service_list_data : Mappable{
     
-    
+    var check_service = false
     var is_active = 0
     var is_opt = 0
     var service_code = ""
@@ -216,7 +216,7 @@ class service_list_data : Mappable{
     required init?(map: Map) {}
     
     func mapping(map: Map) {
-        
+        check_service <- map["check_service"]
         is_active <- map["is_active"]
         is_opt <- map["is_opt"]
         service_code <- map["service_code"]

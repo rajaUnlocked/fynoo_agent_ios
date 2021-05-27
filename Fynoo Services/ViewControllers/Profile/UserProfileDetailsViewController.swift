@@ -245,7 +245,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     
     
     @objc func selectCityCountry(_ tag: UIButton){
-        if isEdit{
+  
             let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
             vc.delegate = self
             if tag.tag == 2 {
@@ -262,8 +262,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                 vc.isForCity = true
             }
             self.navigationController?.pushViewController(vc, animated: true)
-        }
-        
+       
         
     }
     
@@ -286,8 +285,9 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                             let val = self.profileInfo?.data?.service_list_data?.count
                         
                         for i in 0..<val!{
-                            self.agentInfo.serviceArr.add( self.profileInfo?.data?.service_list_data?[i].service_id ?? 0)
-                        }
+                        if self.profileInfo?.data?.service_list_data?[i].is_active ?? 0 == 1
+                            {
+    self.agentInfo.serviceArr.add( self.profileInfo?.data?.service_list_data?[i].service_id ?? 0)  } }
                         let lang = self.profileInfo?.data?.language_list?.count
                         for i in 0..<lang!{
                             print(self.profileInfo?.data?.language_list?[i].lang_id ?? 0,"jldkj")
@@ -460,9 +460,11 @@ extension UserProfileDetailsViewController : UITableViewDelegate{
         }
         
         if "Password Information" == sectionHeading[indexPath.section]{
+          
             let vc = ChangePasswordViewController(nibName: "ChangePasswordViewController", bundle: nil)
             vc.userInfo  = profileInfo
             self.navigationController?.pushViewController(vc, animated: true)
+            
         }
         
         
@@ -650,7 +652,11 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         case 1:
             let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileServiceTableViewCell",for: indexPath) as! ProfileServiceTableViewCell
             cell.isForLanguage = false
-            
+            cell.isUserInteractionEnabled = false
+            if isEdit
+            {
+                cell.isUserInteractionEnabled = true
+            }
             print(self.agentInfo.serviceArr.count,"services")
             cell.agentinfo = self.agentInfo
             cell.serviceList = profileInfo?.data?.service_list_data
@@ -712,6 +718,11 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     func LanguageCell(indexPath:IndexPath) -> UITableViewCell{
         if indexPath.row == 1{
             let cell = self.tableVw.dequeueReusableCell(withIdentifier: "TwoButtonsTableViewCell",for: indexPath) as! TwoButtonsTableViewCell
+            cell.isUserInteractionEnabled = false
+                       if isEdit
+                       {
+                           cell.isUserInteractionEnabled = true
+                       }
             cell.save.addTarget(self, action: #selector(saveChange), for: .touchUpInside)
             cell.cancel.addTarget(self, action: #selector(cancel), for: .touchUpInside)
             cell.selectionStyle = .none
@@ -719,12 +730,18 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             return cell
         }else{
             let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileServiceTableViewCell",for: indexPath) as! ProfileServiceTableViewCell
+            cell.isUserInteractionEnabled = false
+                       if isEdit
+                       {
+                           cell.isUserInteractionEnabled = true
+                       }
             cell.agentinfo = self.agentInfo
             cell.selectionStyle = .none
 
             cell.delegate = self
             cell.viewControl = self
             cell.languageList = self.profileInfo?.data?.language_list
+            cell.isEdit = isEdit
             cell.isForLanguage = true
             cell.collectionView.reloadData()
             return cell
@@ -733,6 +750,11 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     
     func passwordCell(indexPath:IndexPath) -> UITableViewCell{
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
+        cell.isUserInteractionEnabled = false
+                   if isEdit
+                   {
+                       cell.isUserInteractionEnabled = true
+                   }
         cell.entryLbl.attributedText = ModalController.setStricColor(str: "Password *", str1: "Password", str2:" *" )
         cell.selectionStyle = .none
         cell.widthImg.constant = 0
@@ -753,6 +775,11 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     
     func personalCell(indexPath : IndexPath) -> UITableViewCell{
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
+        cell.isUserInteractionEnabled = false
+                   if isEdit
+                   {
+                       cell.isUserInteractionEnabled = true
+                   }
        cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(personalDetail[indexPath.row]) *", str1: "\(personalDetail[indexPath.row])", str2:" *" )
         cell.headingLbl.isUserInteractionEnabled = true
         cell.selectionStyle = .none
@@ -815,6 +842,11 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     func BankDetailCell(indexPath : IndexPath) -> UITableViewCell{
         
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
+        cell.isUserInteractionEnabled = false
+                   if isEdit
+                   {
+                       cell.isUserInteractionEnabled = true
+                   }
         cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(bankDetail[indexPath.row]) *", str1: "\(bankDetail[indexPath.row])", str2:" *" )
         cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         cell.selectionStyle = .none
@@ -884,7 +916,11 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
         cell.selectionStyle = .none
-
+        cell.isUserInteractionEnabled = false
+                   if isEdit
+                   {
+                       cell.isUserInteractionEnabled = true
+                   }
         cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         cell.genderWidth.constant = 0
         cell.genderHorizantal.constant = 0
@@ -1025,6 +1061,11 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     func VatCell(indexPath : IndexPath) -> UITableViewCell{
         if indexPath.row == 0{
             let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
+            cell.isUserInteractionEnabled = false
+                       if isEdit
+                       {
+                           cell.isUserInteractionEnabled = true
+                       }
             cell.entryLbl.attributedText = ModalController.setStricColor(str: "VAT Number *", str1: "VAT Number", str2:" *" )
             cell.flagImg.isHidden = true
             cell.mobileCode.isHidden = true
@@ -1044,7 +1085,11 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileVatTableViewCell",for: indexPath) as! ProfileVatTableViewCell
             cell.imgView.image = self.pdfImage
             cell.selectionStyle = .none
-
+            cell.isUserInteractionEnabled = false
+            if isEdit
+            {
+            cell.isUserInteractionEnabled = true
+             }
             if pdfVat != "" {
                 cell.addIon.isHidden = true
                 cell.addText.isHidden = true
@@ -1065,6 +1110,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
 extension UserProfileDetailsViewController : ProfileDetailTableViewCellDelegate{
     func edit() {
         isEdit = !isEdit
+
         tableVw.reloadData()
     }
     

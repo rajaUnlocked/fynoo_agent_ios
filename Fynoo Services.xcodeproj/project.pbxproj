@@ -184,6 +184,10 @@
 		CE9CCE1C264BF0B6005AE619 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CCE0F264BF0B6005AE619 /* FilterModel.swift */; };
 		CE9CCE1D264BF0B6005AE619 /* ListingnewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CCE10264BF0B6005AE619 /* ListingnewTableViewCell.swift */; };
 		CE9CCE23264BFF67005AE619 /* CustomerProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CCE22264BFF67005AE619 /* CustomerProductViewModel.swift */; };
+		CEA24F5B265BCC9C00B3227D /* GalleryPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA24F59265BCC9B00B3227D /* GalleryPopUpViewController.swift */; };
+		CEA24F5C265BCC9C00B3227D /* GalleryPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA24F5A265BCC9C00B3227D /* GalleryPopUpViewController.xib */; };
+		CEA24F62265BD00D00B3227D /* BottomPopCellsNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA24F60265BD00D00B3227D /* BottomPopCellsNewTableViewCell.swift */; };
+		CEA24F63265BD00D00B3227D /* BottomPopCellsNewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA24F61265BD00D00B3227D /* BottomPopCellsNewTableViewCell.xib */; };
 		CEAD29E42506324F008B1F9C /* TargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD29E22506324F008B1F9C /* TargetViewController.swift */; };
 		CEAD29E52506324F008B1F9C /* TargetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29E32506324F008B1F9C /* TargetViewController.xib */; };
 		CEAD29E9250632BB008B1F9C /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAD29E7250632BB008B1F9C /* NavigationView.xib */; };
@@ -953,6 +957,10 @@
 		CE9CCE0F264BF0B6005AE619 /* FilterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		CE9CCE10264BF0B6005AE619 /* ListingnewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingnewTableViewCell.swift; sourceTree = "<group>"; };
 		CE9CCE22264BFF67005AE619 /* CustomerProductViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerProductViewModel.swift; sourceTree = "<group>"; };
+		CEA24F59265BCC9B00B3227D /* GalleryPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryPopUpViewController.swift; sourceTree = "<group>"; };
+		CEA24F5A265BCC9C00B3227D /* GalleryPopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryPopUpViewController.xib; sourceTree = "<group>"; };
+		CEA24F60265BD00D00B3227D /* BottomPopCellsNewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopCellsNewTableViewCell.swift; sourceTree = "<group>"; };
+		CEA24F61265BD00D00B3227D /* BottomPopCellsNewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomPopCellsNewTableViewCell.xib; sourceTree = "<group>"; };
 		CEAD29E22506324F008B1F9C /* TargetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetViewController.swift; sourceTree = "<group>"; };
 		CEAD29E32506324F008B1F9C /* TargetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TargetViewController.xib; sourceTree = "<group>"; };
 		CEAD29E7250632BB008B1F9C /* NavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
@@ -1987,6 +1995,10 @@
 		2FFDE23E2501221B006C5EBD /* AgentDashBoardVC */ = {
 			isa = PBXGroup;
 			children = (
+				CEA24F60265BD00D00B3227D /* BottomPopCellsNewTableViewCell.swift */,
+				CEA24F61265BD00D00B3227D /* BottomPopCellsNewTableViewCell.xib */,
+				CEA24F59265BCC9B00B3227D /* GalleryPopUpViewController.swift */,
+				CEA24F5A265BCC9C00B3227D /* GalleryPopUpViewController.xib */,
 				2FEB122025120DF80012FE98 /* DashboardCells */,
 				2FFDE23F2501225A006C5EBD /* AgentDashboardViewController.swift */,
 				2FFDE2402501225A006C5EBD /* AgentDashboardViewController.xib */,
@@ -3723,6 +3735,7 @@
 				CECEF9DF2577575C0090D459 /* BranchTimingTableViewCell.strings in Resources */,
 				CEDD332C25765BBA00023977 /* ViewAllImagesNewDesignCollectionViewCell.xib in Resources */,
 				CEE3578E250740800097069D /* RobotoSlab-Thin.ttf in Resources */,
+				CEA24F63265BD00D00B3227D /* BottomPopCellsNewTableViewCell.xib in Resources */,
 				CECEF8B525774F9B0090D459 /* AddWholeSlabViewCell.xib in Resources */,
 				F680D661259B7C2C007EB12C /* DataEntryFormItemPopUpViewController.strings in Resources */,
 				CE9CCD47264BAA14005AE619 /* ProductListNewViewController.xib in Resources */,
@@ -3812,6 +3825,7 @@
 				CECEF9912577575B0090D459 /* addrowTableViewCell.strings in Resources */,
 				F680D630259B7C2C007EB12C /* DEInprogressOrderInformationFirstTableViewCell.strings in Resources */,
 				CEDD32F425763C8E00023977 /* CreateProductSecondViewController.xib in Resources */,
+				CEA24F5C265BCC9C00B3227D /* GalleryPopUpViewController.xib in Resources */,
 				F62E4AEF25148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.xib in Resources */,
 				CEE3578F250740800097069D /* Segoe UI Italic.ttf in Resources */,
 				CEE72CB5251B5E2700B02DAF /* ServiceDetailTableViewCell.xib in Resources */,
@@ -4222,6 +4236,7 @@
 				F4828CA42508DFA9006B85D8 /* ProfileServiceViewCell.swift in Sources */,
 				CECEFA6725779F930090D459 /* galleryFilterList.swift in Sources */,
 				F472BA1C2519DF120094C13E /* AgentDeliveryViewController.swift in Sources */,
+				CEA24F62265BD00D00B3227D /* BottomPopCellsNewTableViewCell.swift in Sources */,
 				CEDD32DA25763C8E00023977 /* ORTableViewCell.swift in Sources */,
 				CEE357A32507585F0097069D /* ServiceListTableViewCell.swift in Sources */,
 				CEDD32E925763C8E00023977 /* DeleteSlabPopupViewController.swift in Sources */,
@@ -4303,6 +4318,7 @@
 				2F84638E250F69840084EB32 /* SectionHeader.swift in Sources */,
 				CECEFA6025779E8F0090D459 /* SelectImageTypePopupViewController.swift in Sources */,
 				2FFDE2412501225A006C5EBD /* AgentDashboardViewController.swift in Sources */,
+				CEA24F5B265BCC9C00B3227D /* GalleryPopUpViewController.swift in Sources */,
 				F680D627259B7C2C007EB12C /* AddedServicesInDataEntryViewController.swift in Sources */,
 				CEDD333525765BBA00023977 /* SelectSubCat.swift in Sources */,
 				CEE72CC0251B795100B02DAF /* OpenGallery.swift in Sources */,

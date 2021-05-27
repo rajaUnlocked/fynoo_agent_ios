@@ -9,7 +9,7 @@
 import UIKit
 import SideMenu
 import CoreLocation
-
+import MTPopup
 class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource, ServicesDashboardTableViewCellDelegate, CommonPopupViewControllerDelegate ,UIImagePickerControllerDelegate, UINavigationControllerDelegate, OpenGalleryDelegate, CLLocationManagerDelegate {
     
     var branchmodel = branchsmodel()
@@ -369,7 +369,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            if showWallet { return 1 } else { return 0 }
+             return 1
         }
         else if section == 3 {
             return mandatoryArray.count
@@ -384,6 +384,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         return 1
         }
     }
+   
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
@@ -400,12 +401,26 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1
+        {
+            let vc = TargetViewController(nibName: "TargetViewController", bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 170
+            if showWallet
+            {
+                return 170
+            }
+            return 0
+            
         }else if indexPath.section == 1{
+            if dataDict.object(forKey: "target_end_date") as! String == ""
+            {
+                return 0
+            }
             return 120
         }else if indexPath.section == 2{
             
@@ -416,7 +431,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
             return (CGFloat((total*150) + 10))
             
         }else if indexPath.section == 3{
-            return 175
+            return UITableView.automaticDimension
         }else{
             return getHeightDynamicForMultipleBanner(index: indexPath)
         }
@@ -446,6 +461,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         
         cell.progressVW.setProgress(perToSet, animated: true)
         cell.targetStartLbl.text = "\(dataDict.object(forKey: "target_achived") as! Float)/"
+        if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+        {
+            cell.targetStartLbl.text = "/\(dataDict.object(forKey: "target_achived") as! Float)"
+        }
         cell.targetEndLbl.text = "\(dataDict.object(forKey: "target_to_be_achive") as! Float)"
         cell.endDate.text = "Wallet End Date: \(dataDict.object(forKey: "target_end_date") as! String)"
         
@@ -539,20 +558,35 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
     }
     @IBAction func cameraClicked(_ sender: Any) {
-        
-        let alert = UIAlertController(title: "Message", message: "", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+        let vc = GalleryPopUpViewController(nibName: "GalleryPopUpViewController", bundle: nil)
+       
+        vc.choosenOption = { (str) in
             OpenGallery.shared.delegate = self
             OpenGallery.shared.viewControl = self
-            OpenGallery.shared.openCamera()
-        }))
-        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { (action) in
-            OpenGallery.shared.delegate = self
-            OpenGallery.shared.viewControl = self
-            OpenGallery.shared.openGallery()
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+            
+            if str == "Camera".localized{
+                OpenGallery.shared.delegate = self
+                OpenGallery.shared.viewControl = self
+                OpenGallery.shared.openCamera()
+            }else{
+                OpenGallery.shared.delegate = self
+                OpenGallery.shared.viewControl = self
+                OpenGallery.shared.openGallery()
+                //self.imgaes()
+            }
+        }
+        let popupController = MTPopupController(rootViewController: vc)
+        popupController.autoAdjustKeyboardEvent = false
+        popupController.style = .bottomSheet
+        popupController.navigationBarHidden = true
+        popupController.hidesCloseButton = false
+        let blurEffect = UIBlurEffect(style: .dark)
+        popupController.backgroundView = UIVisualEffectView(effect: blurEffect)
+        popupController.backgroundView?.alpha = 0.6
+        popupController.backgroundView?.onClick {
+            popupController.dismiss()
+        }
+        popupController.present(in: self)
         
     }
     
@@ -627,10 +661,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     let msg = value.object(forKey: "error_description") as! String
                     let error = value.object(forKey: "error_code") as! Int
                     if error == 100{
-                        ModalController.showNegativeCustomAlertWith(title:" Error", msg: msg)
+                        ModalController.showNegativeCustomAlertWith(title:msg, msg: "")
                     }else{
                         self.imageId = ""
-                        ModalController.showSuccessCustomAlertWith(title:"", msg: msg)
+                        ModalController.showSuccessCustomAlertWith(title:msg, msg: "")
                         AuthorisedUser.shared.user?.data?.profile_image = value.object(forKey: "user_photo") as! String
                         
                         let strIMage = value.object(forKey: "user_photo") as! String
@@ -702,7 +736,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     
                     let results5 = (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "manadatory_services") as! NSArray
                     for var i in (0..<results5.count){
-                        let dict : NSDictionary = NSDictionary(dictionary: results3.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
+                        let dict : NSDictionary = NSDictionary(dictionary: results5.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
                         self.mandatoryArray.add(dict)
                     }
                     
