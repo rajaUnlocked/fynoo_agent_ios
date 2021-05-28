@@ -61,7 +61,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
 
     var personalDetail = ["Name","Gender","Dob","Education","Major"]
     var basicInfo = ["Business Name","Email","Country","City","Mobile Number","Phone Number","Maroof Link"]
-    var bankDetail = ["Bank Name","Card Holder Name","IBAN Number"]
+    var bankDetail = ["IBAN Number","Bank Name","Card Holder Name"]
     var sectionHeading = ["","Services","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
     var pdfVat = ""
     var userType = ""
@@ -392,13 +392,21 @@ extension UserProfileDetailsViewController : UITableViewDelegate{
             
             if indexPath.section == 2{
                 if indexPath.row == 2{
-                    let curr_date = Calendar.current.date(byAdding: .year, value: 0, to: Date())
-                    
-                    
-                    
-                    
-                 
-                    DatePickerDialog().show("Select Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", minimumDate: nil, datePickerMode: .dateAndTime) {
+                    let calendar = Calendar(identifier: .gregorian)
+                                   let currentDate = Date()
+                                   var components = DateComponents()
+                                   components.calendar = calendar
+                                 components.year = -18
+                           //components.year = -(Int(personalAgentSignUPModal.PersonalAgentAge_limit) ?? 18)
+                                   components.month = 12
+                                   let maxDate = calendar.date(byAdding: components, to: currentDate)!
+
+                                   let minDate = Calendar.current.date(from: DateComponents(year: 1900 , month: 1, day: 1))
+                                   
+                                   print(minDate as Any)
+                                    print(maxDate as Any)
+                                           
+                           DatePickerDialog().show("Select - Date of Birth".localized, doneButtonTitle: "Done".localized, cancelButtonTitle: "Cancel".localized,  minimumDate: minDate, maximumDate: maxDate,  datePickerMode: .date){
                         (date) -> Void in
                         if let dt = date {
                             
@@ -625,6 +633,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                 
             }else{
                 let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileDetailTableViewCell",for: indexPath) as! ProfileDetailTableViewCell
+                cell.agentimg.image = UIImage(named: "agent_indivdual")
                 cell.delegate = self
                 cell.selectionStyle = .none
 
@@ -775,6 +784,8 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     
     func personalCell(indexPath : IndexPath) -> UITableViewCell{
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
+        cell.headingLbl.isHidden = true
+        cell.genderView.isHidden = true
         cell.isUserInteractionEnabled = false
                    if isEdit
                    {
@@ -782,8 +793,8 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                    }
        cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(personalDetail[indexPath.row]) *", str1: "\(personalDetail[indexPath.row])", str2:" *" )
         cell.headingLbl.isUserInteractionEnabled = true
-        cell.selectionStyle = .none
         cell.headingLbl.isHidden = false
+        cell.selectionStyle = .none
                cell.codeBtnWidth.constant = 0
                cell.widthImg.constant = 0
                cell.mobileCodeWidth.constant = 0
@@ -801,17 +812,20 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                   
               }
         if indexPath.row == 0{
+            cell.headingLbl.isHidden = false
             cell.headingLbl.text = agentInfo.name
             
         }else if indexPath.row == 1{
             cell.genderWidth.constant = 150
             cell.genderHorizantal.constant = 0
             if isEdit{
-                cell.genderView.isUserInteractionEnabled = false
-            }else{
                 cell.genderView.isUserInteractionEnabled = true
+            }else{
+                cell.genderView.isUserInteractionEnabled = false
 
             }
+            cell.headingLbl.isHidden = true
+            cell.genderView.isHidden = false
             cell.headingLbl.isUserInteractionEnabled = false
             cell.genderView.text = agentInfo.gender
             cell.genderView.optionArray = ["Male","Female"]
@@ -824,14 +838,18 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             }
         }
         else if indexPath.row == 2 {
+            cell.headingLbl.isHidden = false
+            cell.headingLbl.isUserInteractionEnabled = false
             cell.headingLbl.text = agentInfo.dob
             
         }
         else if indexPath.row == 3{
+            cell.headingLbl.isHidden = false
             cell.headingLbl.text = agentInfo.education
             cell.headingLbl.isUserInteractionEnabled = false
         }
         else if indexPath.row == 4{
+            cell.headingLbl.isHidden = false
             cell.headingLbl.text = agentInfo.major
             cell.headingLbl.isUserInteractionEnabled = false
 
@@ -842,6 +860,8 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     func BankDetailCell(indexPath : IndexPath) -> UITableViewCell{
         
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
+        cell.headingLbl.isHidden = true
+        cell.genderView.isHidden = true
         cell.isUserInteractionEnabled = false
                    if isEdit
                    {
@@ -865,15 +885,15 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         cell.genderHorizantal.constant = 0
         cell.selectBtn.isHidden = true
         
-        if indexPath.row == 0{
+        if indexPath.row == 1{
             cell.headingLbl.isUserInteractionEnabled = false
             cell.headingLbl.text = agentInfo.bankname
             cell.headingLbl.tag = 1000
             cell.headingLbl.delegate=self
-        }else if indexPath.row == 1{
+        }else if indexPath.row == 2{
             cell.headingLbl.tag = 1001
             cell.headingLbl.text = agentInfo.cardHolderName
-        }else if indexPath.row == 2{
+        }else if indexPath.row == 0{
             cell.headingLbl.tag = 1002
             cell.headingLbl.delegate = self
             cell.headingLbl.text = agentInfo.iban
@@ -912,9 +932,11 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
        
         
     }
+    
     func BasicInfoCell(indexPath : IndexPath) -> UITableViewCell{
         
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
+        cell.genderView.isHidden = true
         cell.selectionStyle = .none
         cell.isUserInteractionEnabled = false
                    if isEdit
@@ -1061,6 +1083,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     func VatCell(indexPath : IndexPath) -> UITableViewCell{
         if indexPath.row == 0{
             let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
+            cell.genderView.isHidden = true
             cell.isUserInteractionEnabled = false
                        if isEdit
                        {
@@ -1343,7 +1366,7 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
         case 5:
             agentInfo.maroof = textField.text!
             
-        case 1002:
+        case 1000:
             agentInfo.iban = textField.text!
             
             if textField.text!.count == 2{
@@ -1355,7 +1378,7 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
                 
             }
             
-        case 1000:
+        case 1002:
             
             agentInfo.bankname = textField.text!
            

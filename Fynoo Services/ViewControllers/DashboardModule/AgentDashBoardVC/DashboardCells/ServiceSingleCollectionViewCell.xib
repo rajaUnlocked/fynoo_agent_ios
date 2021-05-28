@@ -62,10 +62,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_service" translatesAutoresizingMaskIntoConstraints="NO" id="XFy-M8-yiA">
-                                <rect key="frame" x="113" y="107" width="20" height="20"/>
+                                <rect key="frame" x="105" y="104" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="Azs-v7-7of"/>
-                                    <constraint firstAttribute="width" constant="20" id="v42-lh-0Bv"/>
+                                    <constraint firstAttribute="height" constant="30" id="Azs-v7-7of"/>
+                                    <constraint firstAttribute="width" constant="30" id="v42-lh-0Bv"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxd-NZ-rHr">
@@ -86,13 +86,13 @@
                             <constraint firstItem="dxd-NZ-rHr" firstAttribute="leading" secondItem="pZ9-LU-9kJ" secondAttribute="leading" id="QiZ-kT-GGH"/>
                             <constraint firstItem="gP2-um-Xaj" firstAttribute="centerX" secondItem="cJP-IG-3s5" secondAttribute="centerX" constant="-33" id="Sf8-4c-9uy"/>
                             <constraint firstItem="dxd-NZ-rHr" firstAttribute="width" secondItem="pZ9-LU-9kJ" secondAttribute="width" id="VOY-sd-gY3"/>
-                            <constraint firstAttribute="bottom" secondItem="XFy-M8-yiA" secondAttribute="bottom" constant="3" id="WV4-BZ-x9C"/>
+                            <constraint firstItem="XFy-M8-yiA" firstAttribute="centerY" secondItem="pZ9-LU-9kJ" secondAttribute="centerY" constant="4" id="arb-qM-Vve"/>
                             <constraint firstItem="UG9-a7-yva" firstAttribute="top" secondItem="cJP-IG-3s5" secondAttribute="top" constant="31" id="e0P-wB-9bD"/>
                             <constraint firstItem="dxd-NZ-rHr" firstAttribute="height" secondItem="pZ9-LU-9kJ" secondAttribute="height" id="goS-pq-wCU"/>
                             <constraint firstItem="dxd-NZ-rHr" firstAttribute="bottom" secondItem="pZ9-LU-9kJ" secondAttribute="bottom" id="hVc-3z-tNe"/>
                             <constraint firstItem="dxd-NZ-rHr" firstAttribute="trailing" secondItem="pZ9-LU-9kJ" secondAttribute="trailing" id="hvQ-wy-JVu"/>
                             <constraint firstItem="JWc-wZ-UTR" firstAttribute="centerX" secondItem="gP2-um-Xaj" secondAttribute="centerX" id="nAc-qf-Vmw"/>
-                            <constraint firstAttribute="trailing" secondItem="XFy-M8-yiA" secondAttribute="trailing" constant="7" id="ofx-2I-PH4"/>
+                            <constraint firstAttribute="trailing" secondItem="XFy-M8-yiA" secondAttribute="trailing" constant="5" id="ofx-2I-PH4"/>
                             <constraint firstItem="gP2-um-Xaj" firstAttribute="top" secondItem="cJP-IG-3s5" secondAttribute="top" constant="22" id="rpd-2i-X0J"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -108,7 +108,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus_dash" translatesAutoresizingMaskIntoConstraints="NO" id="aqK-7R-93R">
-                        <rect key="frame" x="107" y="-5" width="40" height="40"/>
+                        <rect key="frame" x="106" y="-5" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="IDc-7i-EUx"/>
                             <constraint firstAttribute="width" constant="40" id="bqH-ga-52w"/>
@@ -150,7 +150,7 @@
                 <constraint firstItem="oyP-A6-eqx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="S5U-Z4-xvB"/>
                 <constraint firstAttribute="trailing" secondItem="oyP-A6-eqx" secondAttribute="trailing" id="Tnb-SW-qD8"/>
                 <constraint firstAttribute="bottom" secondItem="cJP-IG-3s5" secondAttribute="bottom" constant="10" id="UvC-vh-WK9"/>
-                <constraint firstAttribute="trailing" secondItem="aqK-7R-93R" secondAttribute="trailing" constant="-7" id="WyG-GB-gTj"/>
+                <constraint firstAttribute="trailing" secondItem="aqK-7R-93R" secondAttribute="trailing" constant="-6" id="WyG-GB-gTj"/>
                 <constraint firstItem="cJP-IG-3s5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="YTm-ht-ZVL"/>
                 <constraint firstItem="cJP-IG-3s5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="ack-xF-1wy"/>
                 <constraint firstItem="aqK-7R-93R" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="-5" id="aep-7B-Djl"/>
@@ -167,7 +167,7 @@
                 <outlet property="plusOutlet" destination="uFR-TH-jCu" id="wCy-4I-mEs"/>
                 <outlet property="totalCountLbl" destination="oyP-A6-eqx" id="BXm-BA-x9e"/>
             </connections>
-            <point key="canvasLocation" x="139" y="125"/>
+            <point key="canvasLocation" x="137.68115942028987" y="124.55357142857142"/>
         </collectionViewCell>
     </objects>
     <resources>

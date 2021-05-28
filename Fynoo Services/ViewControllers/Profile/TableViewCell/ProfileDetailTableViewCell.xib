@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -51,7 +52,7 @@
                                 <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iB8-NO-iaC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iB8-NO-iaC">
                                 <rect key="frame" x="0.0" y="0.0" width="108.5" height="45"/>
                                 <connections>
                                     <action selector="followersClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bEf-jR-Z8L"/>
@@ -100,7 +101,7 @@
                                 <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FT4-fJ-DeL">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FT4-fJ-DeL">
                                 <rect key="frame" x="0.0" y="0.0" width="108" height="45"/>
                                 <connections>
                                     <action selector="branchesClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8LR-aH-PET"/>
@@ -146,7 +147,7 @@
                                 <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2P-FG-byA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2P-FG-byA">
                                 <rect key="frame" x="0.0" y="0.0" width="108.5" height="45"/>
                                 <connections>
                                     <action selector="productsClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7I2-B0-S6b"/>
@@ -192,7 +193,7 @@
                                 <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4J-He-Yjf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4J-He-Yjf">
                                 <rect key="frame" x="0.0" y="0.0" width="108" height="45"/>
                                 <connections>
                                     <action selector="likesClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="W4g-Ee-8Zr"/>
@@ -240,7 +241,7 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9BK-KA-K5W">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9BK-KA-K5W">
                         <rect key="frame" x="326.5" y="45" width="100.5" height="34"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="34" id="frg-V3-eM7"/>
@@ -252,7 +253,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ve9-VZ-jCA">
                         <rect key="frame" x="0.0" y="81" width="433" height="45"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="agentCompany" translatesAutoresizingMaskIntoConstraints="NO" id="U1L-qJ-AxR">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="agent_indivdual" translatesAutoresizingMaskIntoConstraints="NO" id="U1L-qJ-AxR">
                                 <rect key="frame" x="15" y="12.5" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="159-oH-heF"/>
@@ -260,7 +261,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agent Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4t-zh-GvE">
-                                <rect key="frame" x="43" y="12" width="122.5" height="21"/>
+                                <rect key="frame" x="43" y="11" width="122.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="5Jq-M9-sgR"/>
                                 </constraints>
@@ -272,7 +273,7 @@
                         <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="p4t-zh-GvE" firstAttribute="leading" secondItem="U1L-qJ-AxR" secondAttribute="trailing" constant="8" id="LON-jB-HUz"/>
-                            <constraint firstItem="p4t-zh-GvE" firstAttribute="centerY" secondItem="U1L-qJ-AxR" secondAttribute="centerY" id="bOF-ep-p6L"/>
+                            <constraint firstItem="p4t-zh-GvE" firstAttribute="centerY" secondItem="U1L-qJ-AxR" secondAttribute="centerY" constant="-1" id="bOF-ep-p6L"/>
                             <constraint firstItem="U1L-qJ-AxR" firstAttribute="centerY" secondItem="ve9-VZ-jCA" secondAttribute="centerY" id="gCS-dU-RIq"/>
                             <constraint firstItem="U1L-qJ-AxR" firstAttribute="leading" secondItem="ve9-VZ-jCA" secondAttribute="leading" constant="15" id="w1M-bB-4zz"/>
                         </constraints>
@@ -307,10 +308,11 @@
                     <constraint firstAttribute="trailing" secondItem="Nbw-fw-Kv0" secondAttribute="trailing" id="zsi-Ux-8vf"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="BRANCHlBL" destination="gS6-9J-bvr" id="frz-0j-Kal"/>
+                <outlet property="agentimg" destination="U1L-qJ-AxR" id="9yC-FG-lnv"/>
                 <outlet property="branches" destination="vlk-Rj-G5R" id="qpM-kk-GbK"/>
                 <outlet property="editBtn" destination="9BK-KA-K5W" id="VTJ-BP-xe3"/>
                 <outlet property="editHeight" destination="frg-V3-eM7" id="5jy-Ea-i6J"/>
@@ -329,7 +331,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="agentCompany" width="20" height="20"/>
+        <image name="agent_indivdual" width="80" height="80"/>
         <image name="edit_red" width="20" height="20"/>
     </resources>
 </document>

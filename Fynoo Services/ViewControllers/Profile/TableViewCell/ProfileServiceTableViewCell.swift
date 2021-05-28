@@ -69,7 +69,7 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
 
 
            if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-               layout.scrollDirection = .horizontal
+               layout.scrollDirection = .vertical
            }
         
         // Initialization code
@@ -114,7 +114,7 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
             let serviceStatus = ModalController.toString(serviceList?[indexPath.row].service_status as Any)
             
             if serviceStatus == "1" {
-                if !(serviceList?[indexPath.row].check_service)!
+                if !(serviceList?[indexPath.row].check_service)! || !agentinfo.serviceArr.contains((serviceList?[indexPath.row].service_id)!)
                 {
                 if agentinfo.serviceArr.contains((serviceList?[indexPath.row].service_id)!){
                     
