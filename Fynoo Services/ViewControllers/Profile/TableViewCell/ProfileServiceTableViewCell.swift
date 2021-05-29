@@ -125,10 +125,10 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
                 }
                 }
                 else{
-                    ModalController.showNegativeCustomAlertWith(title: "This service is inprogress".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "You can not opt out this service, because your service in inprocess".localized, msg: "")
                 }
             }else{
-                ModalController.showNegativeCustomAlertWith(title: "This service is disabled. Please contact Fynoo Admin for more information. ".localized, msg: "")
+            ModalController.showNegativeCustomAlertWith(title: "This service is disabled. Please contact Fynoo Admin for more information. ".localized, msg: "")
             }
             
             collectionView.reloadData()

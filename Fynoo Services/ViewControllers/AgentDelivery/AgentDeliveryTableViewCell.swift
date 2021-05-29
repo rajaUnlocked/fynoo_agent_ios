@@ -62,7 +62,7 @@ class AgentDeliveryTableViewCell: UITableViewCell {
         self.earning.font = UIFont(name:"\(fontNameLight)",size:16)
         self.earningStaticLbl.font = UIFont(name:"\(fontNameLight)",size:10)
         self.cod.font = UIFont(name:"\(fontNameLight)",size:16)
-        self.totalCODStaticLbl.font = UIFont(name:"\(fontNameLight)",size:10)
+        self.totalCODStaticLbl.font = UIFont(name:"\(fontNameLight)",size:16)
          self.deliveryDocumentLbl.font = UIFont(name:"\(fontNameLight)",size:16)
         
         

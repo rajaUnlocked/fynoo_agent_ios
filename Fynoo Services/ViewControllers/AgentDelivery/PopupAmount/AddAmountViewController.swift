@@ -52,7 +52,7 @@ class AddAmountViewController: UIViewController {
         let param = ["user_id":"1128","lang_code":"en","cod_amount":"1000"]
         print(param)
         ServerCalls.postRequest(str, withParameters: param) { (response, success) in
-            print(response)
+            self.dismiss(animated: true, completion: nil)
         }
         
     }

@@ -149,7 +149,9 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                 outputFormatter.dateFormat = "YYYY-MM-dd"
 
                 let showDate = inputFormatter.date(from: agentInfo.dob)
+                if showDate != nil{
                 agentInfo.dob = outputFormatter.string(from: showDate!)
+                }
                 
                 print(agentInfo.dob,"vhdfbjh")
     //            let dateFormatter = DateFormatter()
@@ -269,7 +271,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     func getProfileData(){
         let parameter = ["user_id":"\(Singleton.shared.getUserId())",
         "lang_code":"EN"]
-        ServerCalls.postRequest(Service.getProfile, withParameters: parameter) { (response, success) in
+        ServerCalls.postRequest(Service.getProfile, withParameters: parameter) { [self] (response, success) in
             if let value = response as? NSDictionary{
                 let error = value.object(forKey: "error") as! Int
                 if error == 0{
@@ -343,8 +345,17 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                         self.pdfVat = self.profileInfo?.data?.user_data?.vat_certificate ?? ""
                         
                         self.agentInfo.gender = self.profileInfo?.data?.user_data?.gender ?? ""
+                        
                         self.agentInfo.dob = self.profileInfo?.data?.user_data?.dob ?? ""
-
+                       
+                        let dateString = self.agentInfo.dob
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                        dateFormatter.dateFormat = "MM-dd-yyyy"
+                        let date = dateFormatter.date(from: dateString)!
+                        dateFormatter.dateFormat = "YYYY-MM-dd"
+                        self.agentInfo.dob = dateFormatter.string(from:date)
+                       
                         self.agentInfo.education = self.profileInfo?.data?.user_data?.education ?? ""
                         self.agentInfo.educationId = self.profileInfo?.data?.user_data?.education_new ?? 0
 
@@ -357,8 +368,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                         
                         self.agentInfo.phoneLength = self.profileInfo?.data?.user_data?.phone_length ?? 0
 
-                        self.agentInfo.dob = self.profileInfo?.data?.user_data?.dob ?? ""
-                        
+                       
                         if self.pdfVat != ""{
                             let url = URL(string: self.pdfVat)
                             //self.pdfImage = self.pdfThumbnail(url: url!)!
@@ -393,20 +403,20 @@ extension UserProfileDetailsViewController : UITableViewDelegate{
             if indexPath.section == 2{
                 if indexPath.row == 2{
                     let calendar = Calendar(identifier: .gregorian)
-                                   let currentDate = Date()
-                                   var components = DateComponents()
-                                   components.calendar = calendar
-                                 components.year = -18
-                           //components.year = -(Int(personalAgentSignUPModal.PersonalAgentAge_limit) ?? 18)
-                                   components.month = 12
-                                   let maxDate = calendar.date(byAdding: components, to: currentDate)!
+                            let currentDate = Date()
+                            var components = DateComponents()
+                            components.calendar = calendar
+                          components.year = -18
+                   // components.year = -(Int(personalAgentSignUPModal.PersonalAgentAge_limit) ?? 18)
+                            components.month = 12
+                            let maxDate = calendar.date(byAdding: components, to: currentDate)!
 
-                                   let minDate = Calendar.current.date(from: DateComponents(year: 1900 , month: 1, day: 1))
-                                   
-                                   print(minDate as Any)
-                                    print(maxDate as Any)
-                                           
-                           DatePickerDialog().show("Select - Date of Birth".localized, doneButtonTitle: "Done".localized, cancelButtonTitle: "Cancel".localized,  minimumDate: minDate, maximumDate: maxDate,  datePickerMode: .date){
+                            let minDate = Calendar.current.date(from: DateComponents(year: 1900 , month: 1, day: 1))
+                            
+                            print(minDate as Any)
+                             print(maxDate as Any)
+                                    
+                    DatePickerDialog().show("Select - Date of Birth".localized, doneButtonTitle: "Done".localized, cancelButtonTitle: "Cancel".localized,  minimumDate: minDate, maximumDate: maxDate,  datePickerMode: .date){
                         (date) -> Void in
                         if let dt = date {
                             

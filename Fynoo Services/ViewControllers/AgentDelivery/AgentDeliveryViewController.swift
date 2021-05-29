@@ -320,7 +320,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         
         if indexPath.section == 0{
             if indexPath.row == 0{
-                return 340
+                return 365
             }else {
                 return 190
             }
@@ -461,7 +461,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
           if section == 0{
               return 0
           }
-          return 70
+          return 90
       }
       
     
