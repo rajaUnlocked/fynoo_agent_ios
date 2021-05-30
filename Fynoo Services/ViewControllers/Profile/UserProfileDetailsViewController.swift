@@ -1217,7 +1217,7 @@ extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
         print("countryDict",countryDict)
         print(selectedCountryDict)
       
-        
+        tableVw.reloadData()
     }
     
     func selectedCityMethod(cityDict: NSMutableDictionary) {
@@ -1227,6 +1227,7 @@ extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
             agentInfo.city=(selectedCityDict.value(forKey: "city_name") as? String)!
             
         }
+        tableVw.reloadData()
     }
     
     func selectedEducationMethod(educationDict: NSMutableDictionary) {
@@ -1235,18 +1236,20 @@ extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
         selectedEducation = educationDict
         agentInfo.education = educationDict.object(forKey: "education_type") as! String
         agentInfo.educationId = educationDict.object(forKey: "education_id") as! Int
-        agentInfo.major =  ((educationDict.object(forKey: "list_value") as! NSArray).object(at: 0) as! NSDictionary).object(forKey: "education_major") as! String
-        agentInfo.majorId =  ((educationDict.object(forKey: "list_value") as! NSArray).object(at: 0) as! NSDictionary).object(forKey: "education_major_id") as! Int
+        agentInfo.major = ""
         tableVw.reloadData()
         
         
     }
     
     func selectedMajorEducationMethod(educationDict: NSMutableDictionary) {
-        
+        agentInfo.major =  educationDict.object(forKey: "education_major") as! String
+        agentInfo.majorId =  educationDict.object(forKey: "education_major_id") as! Int
+        tableVw.reloadData()
     }
     
     func selectedCurrency(currency: NSMutableDictionary) {
+        
         
     }
     

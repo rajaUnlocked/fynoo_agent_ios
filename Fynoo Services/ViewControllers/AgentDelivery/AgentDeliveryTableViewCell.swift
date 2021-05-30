@@ -10,6 +10,8 @@ import UIKit
 import Cosmos
 class AgentDeliveryTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var clickedProfile: UIButton!
+    @IBOutlet weak var widthconst: NSLayoutConstraint!
     @IBOutlet weak var deliveryStatusLbl: UILabel!
     @IBOutlet weak var profileLbl: UILabel!
     @IBOutlet weak var tripStaticLbl: UILabel!

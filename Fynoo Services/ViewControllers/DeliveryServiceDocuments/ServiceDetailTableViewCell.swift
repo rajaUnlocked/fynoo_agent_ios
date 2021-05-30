@@ -9,6 +9,8 @@
 import UIKit
 
 class ServiceDetailTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var bottomConst: NSLayoutConstraint!
     @IBOutlet weak var title: UILabel!
     
     @IBOutlet weak var topconstant: NSLayoutConstraint!

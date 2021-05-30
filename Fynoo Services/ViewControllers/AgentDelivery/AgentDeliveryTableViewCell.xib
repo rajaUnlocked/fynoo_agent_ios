@@ -65,19 +65,19 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abdullah Ahmed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8g-Ac-yqg">
-                        <rect key="frame" x="76" y="112" width="122.5" height="18.5"/>
+                        <rect key="frame" x="82" y="112" width="122.5" height="18.5"/>
                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
                         <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROa-eA-U7b">
-                        <rect key="frame" x="76" y="132.5" width="15.5" height="14"/>
+                        <rect key="frame" x="82" y="132.5" width="15.5" height="14"/>
                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
                         <color key="textColor" red="0.99215686270000003" green="0.81568627449999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EAa-V6-ZYz" customClass="CosmosView" customModule="Cosmos">
-                        <rect key="frame" x="99.5" y="135.5" width="75" height="17"/>
+                        <rect key="frame" x="105.5" y="135.5" width="75" height="17"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="75" id="X2q-F3-liv"/>
@@ -93,19 +93,19 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(17.6)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gsp-0z-gWB">
-                        <rect key="frame" x="192.5" y="133" width="23.5" height="14"/>
+                        <rect key="frame" x="198.5" y="133" width="23.5" height="14"/>
                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
                         <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English, Arabic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiF-ht-6IW">
-                        <rect key="frame" x="76" y="149" width="80" height="14"/>
+                        <rect key="frame" x="82" y="149" width="80" height="14"/>
                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
                         <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8i8-FG-mAI">
-                        <rect key="frame" x="9" y="174" width="62" height="12"/>
+                        <rect key="frame" x="3" y="174" width="74" height="12"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="ikd-8S-OEd"/>
                         </constraints>
@@ -287,7 +287,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit_feature" translatesAutoresizingMaskIntoConstraints="NO" id="iS8-nD-jSb">
-                                        <rect key="frame" x="368" y="5" width="20" height="20"/>
+                                        <rect key="frame" x="363" y="5" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="52V-3M-OaE"/>
                                             <constraint firstAttribute="height" constant="20" id="B6e-PH-3Vg"/>
@@ -314,7 +314,7 @@
                                     <constraint firstItem="EMh-hp-Gly" firstAttribute="centerY" secondItem="N6B-uT-ZPv" secondAttribute="centerY" id="fd1-Vj-RL5"/>
                                     <constraint firstItem="rfi-Fi-pnw" firstAttribute="centerY" secondItem="EMh-hp-Gly" secondAttribute="centerY" id="h6w-ea-HGc"/>
                                     <constraint firstItem="Y7P-63-xyK" firstAttribute="centerX" secondItem="N6B-uT-ZPv" secondAttribute="centerX" id="hng-gW-IZI"/>
-                                    <constraint firstAttribute="trailing" secondItem="iS8-nD-jSb" secondAttribute="trailing" constant="10" id="prS-fF-uvX"/>
+                                    <constraint firstAttribute="trailing" secondItem="iS8-nD-jSb" secondAttribute="trailing" constant="15" id="prS-fF-uvX"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8OC-XK-PFB">
@@ -353,7 +353,7 @@
                                     <constraint firstItem="Vjt-O9-EJu" firstAttribute="leading" secondItem="8OC-XK-PFB" secondAttribute="leading" constant="20" id="JLN-Q7-oil"/>
                                     <constraint firstItem="Vjt-O9-EJu" firstAttribute="centerY" secondItem="8OC-XK-PFB" secondAttribute="centerY" id="THW-LQ-qYF"/>
                                     <constraint firstItem="SSU-oy-y48" firstAttribute="centerY" secondItem="bFk-22-Bl5" secondAttribute="centerY" id="TYN-8w-AcO"/>
-                                    <constraint firstAttribute="trailing" secondItem="bFk-22-Bl5" secondAttribute="trailing" constant="40" id="mFM-Et-q8P"/>
+                                    <constraint firstItem="SSU-oy-y48" firstAttribute="leading" secondItem="bFk-22-Bl5" secondAttribute="trailing" constant="8" symbolic="YES" id="Z8O-c3-9hJ"/>
                                     <constraint firstItem="a9F-RI-Pjp" firstAttribute="width" secondItem="8OC-XK-PFB" secondAttribute="width" id="mWY-k1-t8X"/>
                                     <constraint firstAttribute="trailing" secondItem="SSU-oy-y48" secondAttribute="trailing" constant="8" id="nlD-dc-NcJ"/>
                                     <constraint firstItem="a9F-RI-Pjp" firstAttribute="centerX" secondItem="8OC-XK-PFB" secondAttribute="centerX" id="okh-mj-y9X"/>
@@ -382,6 +382,15 @@
                         <state key="normal" image="off-btn"/>
                         <state key="selected" image="on_switch"/>
                     </button>
+                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hM6-wV-xwE">
+                        <rect key="frame" x="353" y="106.5" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="9Le-Gy-DVR"/>
+                            <constraint firstAttribute="height" constant="30" id="k8C-ov-gKs"/>
+                        </constraints>
+                        <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                        <state key="normal" image="edit_feature"/>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
@@ -398,6 +407,7 @@
                     <constraint firstItem="kiF-ht-6IW" firstAttribute="leading" secondItem="ROa-eA-U7b" secondAttribute="leading" id="LGR-sd-P4N"/>
                     <constraint firstItem="3bl-6n-ziI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="LyG-fe-DsL"/>
                     <constraint firstAttribute="trailing" secondItem="HRN-jD-evi" secondAttribute="trailing" constant="0.10000000000000001" id="NOj-yJ-7Hu"/>
+                    <constraint firstAttribute="trailing" secondItem="hM6-wV-xwE" secondAttribute="trailing" constant="15" id="OiP-bL-vWj"/>
                     <constraint firstItem="Gsp-0z-gWB" firstAttribute="leading" secondItem="EAa-V6-ZYz" secondAttribute="trailing" constant="18" id="QaL-s3-EEf"/>
                     <constraint firstItem="UxE-kC-ELd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="70" id="Qp8-hN-9xF"/>
                     <constraint firstItem="mue-sS-2Dr" firstAttribute="centerY" secondItem="UxE-kC-ELd" secondAttribute="centerY" id="RQg-Fg-hRK"/>
@@ -410,7 +420,8 @@
                     <constraint firstItem="M8g-Ac-yqg" firstAttribute="top" secondItem="KqP-40-f5A" secondAttribute="bottom" constant="8" id="eMU-gn-LaX"/>
                     <constraint firstAttribute="trailing" secondItem="mue-sS-2Dr" secondAttribute="trailing" constant="20" id="f4b-4K-ddM"/>
                     <constraint firstItem="HRN-jD-evi" firstAttribute="top" secondItem="wrM-Hp-XpD" secondAttribute="bottom" constant="8" id="fdx-5n-4XJ"/>
-                    <constraint firstItem="M8g-Ac-yqg" firstAttribute="leading" secondItem="3bl-6n-ziI" secondAttribute="trailing" constant="6" id="nPX-pR-XWK"/>
+                    <constraint firstItem="hM6-wV-xwE" firstAttribute="centerY" secondItem="M8g-Ac-yqg" secondAttribute="centerY" id="mZe-IH-7Ot"/>
+                    <constraint firstItem="M8g-Ac-yqg" firstAttribute="leading" secondItem="3bl-6n-ziI" secondAttribute="trailing" constant="12" id="nPX-pR-XWK"/>
                     <constraint firstItem="kiF-ht-6IW" firstAttribute="leading" secondItem="8i8-FG-mAI" secondAttribute="trailing" constant="5" id="qYx-xd-MF4"/>
                     <constraint firstItem="Gsp-0z-gWB" firstAttribute="centerY" secondItem="EAa-V6-ZYz" secondAttribute="centerY" constant="-4" id="qhM-xK-8hK"/>
                     <constraint firstItem="8i8-FG-mAI" firstAttribute="centerX" secondItem="3bl-6n-ziI" secondAttribute="centerX" id="unR-Da-ay1"/>
@@ -422,6 +433,7 @@
             <connections>
                 <outlet property="agentProfileImageView" destination="3bl-6n-ziI" id="xui-he-mNr"/>
                 <outlet property="avgRating" destination="ROa-eA-U7b" id="HAV-HF-TqR"/>
+                <outlet property="clickedProfile" destination="hM6-wV-xwE" id="OZd-hI-I6y"/>
                 <outlet property="clickservicedocument" destination="a9F-RI-Pjp" id="bM4-PF-Vav"/>
                 <outlet property="cod" destination="rfi-Fi-pnw" id="1lg-qx-ntn"/>
                 <outlet property="delivery" destination="bFk-22-Bl5" id="ufU-hY-27T"/>
@@ -441,6 +453,7 @@
                 <outlet property="totalRating" destination="Gsp-0z-gWB" id="Ahr-Tg-8BY"/>
                 <outlet property="trip" destination="WuV-zE-St8" id="bNQ-zq-tl5"/>
                 <outlet property="tripStaticLbl" destination="Enj-JZ-VwU" id="J3R-eB-PGj"/>
+                <outlet property="widthconst" destination="kQE-ev-ywC" id="WRq-un-E6z"/>
                 <outlet property="year" destination="TDR-Ci-YgP" id="NXj-kk-VMG"/>
                 <outlet property="yearStaticLbl" destination="PEx-MG-K8C" id="Foa-q6-Nmc"/>
             </connections>

@@ -18,7 +18,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     var isReasonForVehicle = false
     var upload:ServiceUpload?
     var topArr = ["Full Name","Date of Birth","National ID / Iqama ID","Date of Expiry"]
-    var headertitlearr = ["Upload National Id / Iqama","Upload Driving License Front ","Upload Car Registration","Upload Car Insurance","Upload Driving Authorization","Upload Car Description"]
+    var headertitlearr = ["Upload National Id / Iqama","Upload Driving License Front ","Upload Vehicle Registration","Upload Vehicle Insurance","Upload Driving Authorization","Upload Vehicle Description"]
     var toptxtArr = ["","","",""]
     var txtArr = ["","","","","","","",""]
     
@@ -42,7 +42,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     var vehicleColoridArr = [Int]()
     var vehicledescriparr = ["Registration Type ","Vehicle Brand ","Vehicle Name","Production Year","Vehicle Color","Vehicle kind","Maximum Load ","Plat Number"]
     var service = ServiceModel()
-    var headerarr = ["National Id / Iqama","Driving License Front ","Car Registration","Car Insurance","Driving Authorization","Car Description","Reason For Vehicle Change"]
+    var headerarr = ["National Id / Iqama","Driving License Front ","Vehicle Registration","Vehicle Insurance","Driving Authorization","Vehicle Description","Reason For Vehicle Change"]
     var vehiclenamelist:VehicleName?
     var servicelist:SeviceDocument?
     var typecolorlist:TypeBrandColor?
@@ -96,7 +96,8 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         components.calendar = calendar
         //                  components.year = -18
         //                  components.month = 12
-        let maxDate = calendar.date(byAdding: components, to: currentDate)!
+        var maxDate : Date?
+        maxDate = calendar.date(byAdding: components, to: currentDate)!
         var minDate = Date()
         
         minDate = Calendar.current.date(from: DateComponents(year: 1900 , month: 1, day: 1))!
@@ -108,12 +109,15 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 return
             }
             minDate =  self.fdate
+            maxDate = nil
         }
         print(minDate as Any)
-        
+       
+       
         DatePickerDialog().show("Select - Date of Birth".localized, doneButtonTitle: "Done".localized, cancelButtonTitle: "Cancel".localized,  minimumDate: minDate, maximumDate: maxDate,  datePickerMode: .date){
             (date) -> Void in
             if let dt = date {
+               
                 if tag == 1
                 {
                     self.fdate = dt
@@ -230,12 +234,16 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         if servicelist?.data?.status ?? 0 == 1
                {
                    ModalController.showNegativeCustomAlertWith(title: " You cannot edit the form when it is pending for approval", msg: "")
+            
                                   return
                }
+        if self.servicelist?.data?.show_iqama_section ?? false
+        {
         if !imgIdArr[0]
         {
            ModalController.showNegativeCustomAlertWith(title: "Please filled National Id / Iqama", msg: "")
             return
+        }
         }
         else if !imgIdArr[1]
         {
@@ -244,17 +252,17 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         }
         else if !imgIdArr[2]
         {
-           ModalController.showNegativeCustomAlertWith(title: "Please filled Car Registration", msg: "")
+           ModalController.showNegativeCustomAlertWith(title: "Please filled Vehicle Registration", msg: "")
              return
         }
         else if !imgIdArr[3]
         {
-           ModalController.showNegativeCustomAlertWith(title: "Please filled Car Insurance", msg: "")
+           ModalController.showNegativeCustomAlertWith(title: "Please filled Vehicle Insurance", msg: "")
              return
         }
         else if !imgIdArr[5]
         {
-           ModalController.showNegativeCustomAlertWith(title: "Please filled Car Description", msg: "")
+           ModalController.showNegativeCustomAlertWith(title: "Please filled Vehicle Description", msg: "")
              return
         }
             
@@ -262,7 +270,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         {
             if self.servicelist?.data?.new_upload_enable ?? false
             {
-                ModalController.showNegativeCustomAlertWith(title: "Please filled Car Description", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please filled Vehicle Description", msg: "")
                            return
             }
          
@@ -302,8 +310,10 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 self.txtArr = [self.servicelist?.data?.registration_type ?? "",self.servicelist?.data?.vehicle_brand ?? "",self.servicelist?.data?.vehicle_name ?? "",self.servicelist?.data?.production_year ?? "",self.servicelist?.data?.vehicle_color ?? "",self.servicelist?.data?.vehicle_kind ?? "",self.servicelist?.data?.maximum_load ?? "",self.servicelist?.data?.plate_no ?? ""]
                 self.txtIdArr = [self.servicelist?.data?.registration_type_id ?? 0,self.servicelist?.data?.vehicle_brand_id ?? 0 ,self.servicelist?.data?.vehicle_name_id ?? 0,0,self.servicelist?.data?.vehicle_color_id ?? 0,self.servicelist?.data?.vehicle_kind_id ?? 0,0,0]
                 self.submit.setTitle("Submit for approval", for: .normal)
+                self.submit.backgroundColor = .systemGreen
                 if self.servicelist?.data?.status ?? 0 == 1
                 {
+                    self.submit.backgroundColor = .lightGray
                 self.submit.setTitle("Pending for approval", for: .normal)
                 }
                 if self.servicelist?.data?.front_side ?? "" != ""{
@@ -774,12 +784,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 }
                 if sender.tag == 2
                 {
-                    ModalController.showNegativeCustomAlertWith(title: "Please Upload Car Registration", msg: "")
+                    ModalController.showNegativeCustomAlertWith(title: "Please Upload Vehicle Registration", msg: "")
                     return
                 }
                 if sender.tag == 3
                 {
-                    ModalController.showNegativeCustomAlertWith(title: "Please Upload Car Insurance", msg: "")
+                    ModalController.showNegativeCustomAlertWith(title: "Please Upload Vehicle Insurance", msg: "")
                     return
                 }
                 else{
@@ -806,11 +816,13 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             {
                
                 self.servicelist = response
+                ModalController.showSuccessCustomAlertWith(title: self.servicelist?.error_description ?? "", msg: "")
               self.imgArr = [self.servicelist?.data?.national_id ?? "",self.servicelist?.data?.driving_license ?? "",self.servicelist?.data?.registration ?? "",self.servicelist?.data?.insurance ?? "",self.servicelist?.data?.authorization ?? "",self.servicelist?.data?.front_side ?? ""]
                  self.imgIdArr = [self.servicelist?.data?.national_id_uploaded ?? false,self.servicelist?.data?.driving_license_uploaded ?? false,self.servicelist?.data?.registration_uploaded ?? false,self.servicelist?.data?.insurance_uploaded ?? false,self.servicelist?.data?.authorization_uploaded ?? false,self.servicelist?.data?.front_side ?? "" == "" ? false : true,self.servicelist?.data?.reason_for_change ?? "" == "" ? false : true]
                 self.descriparr = [self.servicelist?.data?.national_id_content ?? "", "",self.servicelist?.data?.registration_content ?? "", "",self.servicelist?.data?.authorization_content ?? ""]
                 self.toptxtArr = [self.servicelist?.data?.full_name ?? "",self.servicelist?.data?.dob ?? "",self.servicelist?.data?.iqama_no ?? "",self.servicelist?.data?.doe ?? ""]
                 self.txtArr = [self.servicelist?.data?.registration_type ?? "",self.servicelist?.data?.vehicle_brand ?? "",self.servicelist?.data?.vehicle_name ?? "",self.servicelist?.data?.production_year ?? "",self.servicelist?.data?.vehicle_color ?? "",self.servicelist?.data?.vehicle_kind ?? "",self.servicelist?.data?.maximum_load ?? "",self.servicelist?.data?.plate_no ?? ""]
+                self.servicedocList_API()
                 self.tabvw.reloadData()
             }
         }
@@ -918,39 +930,55 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
     func service_DetailCell(index:IndexPath) ->UITableViewCell
     {
         let cell = tabvw.dequeueReusableCell(withIdentifier: "ServiceDetailTableViewCell", for: index) as! ServiceDetailTableViewCell
+        var section = index.section
+        cell.bottomConst.constant = 0
+        if index.section == 3
+        {
+            if index.row == 1
+            {
+               
+                cell.bottomConst.constant = -60
+            }
+        if index.row == 2
+        {
+            cell.topconstant.constant = -20
+            section = headerarr.count - 1
+        }
+        }
         cell.topconstant.constant = 5
         if index.section == 1
         {
             cell.topconstant.constant = -10
         }
         
-        cell.title.text = headertitlearr[index.section - 1]
-        cell.uploadimg.tag = index.section - 1
-        cell.crossclicked.tag = index.section - 1
-        cell.uploadbtn.tag = index.section - 1
+        cell.title.text = headertitlearr[section - 1]
+        cell.uploadimg.tag = section - 1
+        cell.crossclicked.tag = section - 1
+        cell.uploadbtn.tag = section - 1
+        
         cell.uploadimg.addTarget(self, action: #selector(clickupload(_:)), for: .touchUpInside)
         cell.crossclicked.addTarget(self, action: #selector(clickcrossed(_:)), for: .touchUpInside)
         cell.uploadbtn.addTarget(self, action: #selector(clickuploadclicked(_:)), for: .touchUpInside)
         cell.crossclicked.isHidden =  true
         cell.uploadimg.isUserInteractionEnabled = true
-        if imgArr[index.section - 1] != ""
+        if imgArr[section - 1] != ""
         {
-            cell.pswdimg.sd_setImage(with: URL(string: imgArr[index.section - 1]), placeholderImage: UIImage(named: "passport"))
+            cell.pswdimg.sd_setImage(with: URL(string: imgArr[section - 1]), placeholderImage: UIImage(named: "passport"))
         }
             if imglocalArr[index.section - 1] != nil {
-                cell.pswdimg.image = imglocalArr[index.section - 1]
+                cell.pswdimg.image = imglocalArr[section - 1]
             cell.crossclicked.isHidden =  false
                      cell.uploadimg.isUserInteractionEnabled = false
             }
             
       
-        else if documentlocalArr[index.section - 1] != nil
+        else if documentlocalArr[section - 1] != nil
         {
-            cell.pswdimg.image = pdfThumbnail(url: documentlocalArr[index.section - 1]!)
+            cell.pswdimg.image = pdfThumbnail(url: documentlocalArr[section - 1]!)
             cell.crossclicked.isHidden =  false
             cell.uploadimg.isUserInteractionEnabled = false
         }
-        if imgIdArr[index.section - 1]
+        if imgIdArr[section - 1]
         {
           cell.crossclicked.isHidden =  false
         cell.uploadimg.isUserInteractionEnabled = false
@@ -984,7 +1012,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         {
             return 1
         }
-        if section == 1
+        else if section == 1
         {
             if self.servicelist?.data?.show_iqama_section ?? false
             {
@@ -996,7 +1024,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             }
            return 0
         }
-        if section == headerarr.count - 1
+        else if section == headerarr.count - 1
         {
             if SelectedIndex.contains(section)
             {
@@ -1004,7 +1032,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             }
             return 1
         }
-        if section == headerarr.count
+        else if section == headerarr.count
         {
             if isReasonForVehicle
             {
@@ -1012,16 +1040,32 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             }
             return 0
         }
-        if section == headerarr.count + 1
+        else if section == headerarr.count + 1
         {
             
             return 1
         }
+        else if section == headerarr.count - 2
+        {
+            
+            return 0
+        }
+        else if section == 3
+        {
+            if SelectedIndex.contains(section)
+            {
+                return 3
+            }
+            return 1
+        }
+        else
+        {
         if SelectedIndex.contains(section)
         {
             return 2
         }
         return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -1147,7 +1191,9 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 return doc_headerCell(index: indexPath)
             }
             else{
+            
                 return service_DetailCell(index: indexPath)
+                
             }
             
             
@@ -1186,7 +1232,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 vc.tag1 = indexPath.row - 1
                 vc.delegate = self
                 vc.isfiletr = true
-                vc.nameAr = ["car","car","car","car","car","car","car","car"]
+                vc.nameAr = ["Vehicle","Vehicle","Vehicle","Vehicle","Vehicle","Vehicle","Vehicle","Vehicle"]
                 vc.nameArId = [1,1,1,1,1,1,1,1]
                 vc.namelock = [1,1,1,1,1,1,1,1]
                 if indexPath.row == 1
@@ -1244,7 +1290,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         {
             return 100
         }
-        if indexPath.section == 1
+        else if indexPath.section == 1
         {
             if indexPath.row == 0
             {
@@ -1268,7 +1314,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             }
             return 90
         }
-        if  indexPath.section == headerarr.count
+        else if  indexPath.section == headerarr.count
         {
             
             if indexPath.row == 1
@@ -1277,13 +1323,13 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             }
             return 57
         }
-        if  indexPath.section == headerarr.count + 1
+        else if  indexPath.section == headerarr.count + 1
         {
             return UITableView.automaticDimension
         }
         else
         {
-            if indexPath.row == 1
+            if indexPath.row == 1 || indexPath.row == 2
             {
                 return UITableView.automaticDimension
             }
