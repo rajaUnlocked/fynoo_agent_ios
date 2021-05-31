@@ -57,6 +57,9 @@ class PersonalAgentBasicInformationTableViewCell: UITableViewCell {
     @IBOutlet weak var confirmPassHeaderLbl: UILabel!
     
     
+    @IBOutlet weak var confirmTxtFldTrailingConstant: NSLayoutConstraint!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setShadowsInFields()

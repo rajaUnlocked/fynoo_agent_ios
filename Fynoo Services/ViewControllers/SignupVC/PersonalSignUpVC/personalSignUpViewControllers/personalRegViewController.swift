@@ -432,6 +432,7 @@ func uploadProfileImagesAPI(){
                         
         DatePickerDialog().show("Select - Date of Birth".localized, doneButtonTitle: "Done".localized, cancelButtonTitle: "Cancel".localized,  minimumDate: minDate, maximumDate: maxDate,  datePickerMode: .date){
             (date) -> Void in
+         
             if let dt = date {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy/MM/dd"
@@ -530,6 +531,7 @@ func uploadProfileImagesAPI(){
         func selectedEducationMethod(educationDict: NSMutableDictionary) {
             if self.selectedAgentEducationDict != educationDict {
             self.selectedAgentMajorEducationDict.removeAllObjects()
+            self.personalAgentSignUPModal.personalAgentMajorEducation = ""
             if let value =  selectedAgentEducationDict.object(forKey: "education_id") as? Int{
             personalAgentSignUPModal.personalAgentEducation = "\(value)"
               }
@@ -958,19 +960,19 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         if serviceCount == 0 || serviceCount == 1 || serviceCount == 2 {
             serviceCellHeight = 40
         }else if serviceCount ==  3 || serviceCount == 4 {
-            serviceCellHeight = 70
+            serviceCellHeight = 75
         }else if serviceCount ==  5 || serviceCount == 6 {
-            serviceCellHeight = 100
+            serviceCellHeight = 110
         }else if serviceCount ==  7 || serviceCount == 8 {
-            serviceCellHeight = 130
+            serviceCellHeight = 145
         }else if serviceCount ==  9 || serviceCount == 10 {
-            serviceCellHeight = 160
+            serviceCellHeight = 180
         }else if serviceCount ==  11 || serviceCount == 12 {
-            serviceCellHeight = 190
+            serviceCellHeight = 215
         }else if serviceCount ==  13 || serviceCount == 14 {
-            serviceCellHeight = 220
+            serviceCellHeight = 250
         }else if serviceCount ==  15 || serviceCount == 16 {
-            serviceCellHeight = 230
+            serviceCellHeight = 285
         }
         
         if indexPath.section == 0 {
@@ -1255,6 +1257,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                 if let imageView = self.view.viewWithTag(203) as? UIImageView{
                     imageView.isHidden = false
                      cell.confirmPasswordGreenTickWIdhtConstant.constant = 22
+                    cell.confirmTxtFldTrailingConstant.constant = 8
                     imageView.image = UIImage(named:"greenTick")
                      ModalController.setViewBorderColor(color:#colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.emailView)
                      ModalController.setViewBorderColor(color:#colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.confirmEmailView)
@@ -1263,6 +1266,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                 if let imageView = self.view.viewWithTag(203) as? UIImageView{
                     imageView.isHidden = true
                      cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
+                    cell.confirmTxtFldTrailingConstant.constant = 0
                     ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.emailView)
                     ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.confirmEmailView)
                 }
@@ -1270,6 +1274,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         }else{
             if let imageView = self.view.viewWithTag(203) as? UIImageView{
                 cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
+                cell.confirmTxtFldTrailingConstant.constant = 0
                 imageView.isHidden = true
             }
         }
@@ -1758,6 +1763,8 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         case 1001:
             personalAgentSignUPModal.personalAgentEmail = textField.text!.lowercased()
             let   cell = tabView.cellForRow(at: IndexPath(row:1 , section: 3)) as! PersonalAgentBasicInformationTableViewCell
+            cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
+            cell.confirmTxtFldTrailingConstant.constant = 0
             personalAgentSignUPModal.personalAgentEmail = textField.text!.lowercased()
             let confirmEmail = personalAgentSignUPModal.personalAgentConfirmEmail.lowercased()
             let email = personalAgentSignUPModal.personalAgentEmail.lowercased()
@@ -1777,6 +1784,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                             imageView.isHidden = false
                             imageView.image = UIImage(named:"greenTick")
                             cell.confirmPasswordGreenTickWIdhtConstant.constant = 22
+                            cell.confirmTxtFldTrailingConstant.constant = 8
                             if companyConfirmEmail {
                                 ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.confirmEmailView)
                             }else{
@@ -1787,6 +1795,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                         if let imageView = self.view.viewWithTag(203) as? UIImageView{
                             imageView.isHidden = true
                             cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
+                            cell.confirmTxtFldTrailingConstant.constant = 0
                             ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.confirmEmailView)
                         }
                     }
@@ -1794,6 +1803,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                     if let imageView = self.view.viewWithTag(203) as? UIImageView{
                         imageView.isHidden = true
                         cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
+                        cell.confirmTxtFldTrailingConstant.constant = 0
                         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.confirmEmailView)
                     }
                 }
@@ -1801,6 +1811,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                 if let imageView = self.view.viewWithTag(203) as? UIImageView{
                     imageView.isHidden = true
                     cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
+                    cell.confirmTxtFldTrailingConstant.constant = 0
                     ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.confirmEmailView)
                 }
             }
@@ -1821,6 +1832,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                         if let imageView = self.view.viewWithTag(203) as? UIImageView{
                             imageView.isHidden = false
                             cell.confirmPasswordGreenTickWIdhtConstant.constant = 22
+                            cell.confirmTxtFldTrailingConstant.constant = 8
                             imageView.image = UIImage(named:"greenTick")
                             if companyConfirmEmail {
                                 ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.confirmEmailView)
@@ -1832,6 +1844,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                         if let imageView = self.view.viewWithTag(203) as? UIImageView{
                             imageView.isHidden = true
                             cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
+                            cell.confirmTxtFldTrailingConstant.constant = 0
                             ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.confirmEmailView)
                         }
                     }
@@ -1839,6 +1852,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                     if let imageView = self.view.viewWithTag(203) as? UIImageView{
                         imageView.isHidden = true
                         cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
+                        cell.confirmTxtFldTrailingConstant.constant = 0
                         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.confirmEmailView)
                     }
                 }
@@ -1846,6 +1860,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                 if let imageView = self.view.viewWithTag(203) as? UIImageView{
                     imageView.isHidden = true
                     cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
+                    cell.confirmTxtFldTrailingConstant.constant = 0
                     ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.confirmEmailView)
                 }
             }
