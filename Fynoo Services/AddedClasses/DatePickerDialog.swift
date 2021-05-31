@@ -114,7 +114,9 @@ open class DatePickerDialog: UIView {
         self.defaultDate = defaultDate
         self.datePicker.datePickerMode = self.datePickerMode ?? UIDatePicker.Mode.date
         self.datePicker.date = self.defaultDate ?? Date()
-        
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = UIDatePickerStyle.wheels
+        }
         //set hardcore current date-- aishwarya
         
 //        let date1 = Date()

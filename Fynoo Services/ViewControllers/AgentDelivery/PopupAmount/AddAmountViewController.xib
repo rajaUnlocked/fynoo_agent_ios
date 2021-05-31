@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -11,6 +13,7 @@
             <connections>
                 <outlet property="aamount" destination="ync-2I-VBa" id="NHY-BT-Bhy"/>
                 <outlet property="containter" destination="ce1-qH-amd" id="JZu-Sg-85i"/>
+                <outlet property="descriptiontxt" destination="Khp-4d-xcb" id="Dz8-Dd-zpZ"/>
                 <outlet property="reasonView" destination="iWZ-6X-iuz" id="gew-4w-KUr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -34,7 +37,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rejected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxL-td-Kbh">
-                            <rect key="frame" x="153.5" y="55" width="67.5" height="21"/>
+                            <rect key="frame" x="153.5" y="55" width="67" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="cgK-Li-VfH"/>
                             </constraints>
@@ -79,7 +82,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="ZvD-MQ-11K" firstAttribute="centerY" secondItem="qZS-7p-lup" secondAttribute="centerY" id="Xcl-mD-7Pa"/>
                                 <constraint firstItem="ZvD-MQ-11K" firstAttribute="leading" secondItem="qZS-7p-lup" secondAttribute="leading" constant="22" id="fE8-Ud-ZNM"/>
@@ -110,7 +113,7 @@ you can change it any time.</string>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8q-Gc-W4n">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8q-Gc-W4n">
                             <rect key="frame" x="15" y="238" width="344" height="50"/>
                             <color key="backgroundColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -139,7 +142,7 @@ you can change it any time.</string>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="ync-2I-VBa" firstAttribute="leading" secondItem="fNt-ZA-koD" secondAttribute="trailing" constant="8" symbolic="YES" id="0Jh-2R-f4R"/>
                         <constraint firstItem="qZS-7p-lup" firstAttribute="top" secondItem="ce1-qH-amd" secondAttribute="top" constant="0.10000000000000001" id="0c7-Y2-5q6"/>
@@ -163,6 +166,7 @@ you can change it any time.</string>
                     </constraints>
                 </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ce1-qH-amd" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="2EO-Ws-JJr"/>
@@ -174,12 +178,17 @@ you can change it any time.</string>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iWZ-6X-iuz" secondAttribute="trailing" constant="20" id="k12-sb-Ilw"/>
                 <constraint firstItem="iWZ-6X-iuz" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="ugU-Rp-a0t"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="107.8125"/>
         </view>
     </objects>
     <resources>
         <image name="boxes" width="323" height="178"/>
         <image name="cross-1" width="19" height="19"/>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

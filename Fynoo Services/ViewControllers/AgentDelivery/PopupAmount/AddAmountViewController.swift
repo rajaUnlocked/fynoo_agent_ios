@@ -9,7 +9,8 @@
 import UIKit
 
 class AddAmountViewController: UIViewController {
-
+     var descrptxt = ""
+    @IBOutlet weak var descriptiontxt: UILabel!
     @IBOutlet weak var reasonView: UIView!
     @IBOutlet weak var containter: UIView!
     @IBOutlet weak var aamount: UITextField!
@@ -21,6 +22,7 @@ class AddAmountViewController: UIViewController {
         if isFrom {
             reasonView.isHidden = false
             containter.isHidden = true
+           descriptiontxt.text = descrptxt
         }else{
             containter.isHidden = false
              reasonView.isHidden = true
@@ -52,7 +54,7 @@ class AddAmountViewController: UIViewController {
         let param = ["user_id":"1128","lang_code":"en","cod_amount":"1000"]
         print(param)
         ServerCalls.postRequest(str, withParameters: param) { (response, success) in
-            print(response)
+            self.dismiss(animated: true, completion: nil)
         }
         
     }

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BottomPopCellsNewTableViewCell" id="KGk-i7-Jjw" customClass="BottomPopCellsNewTableViewCell" customModule="Fynoo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="348" height="36"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="348" height="36"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGy-2R-8Gy">
+                        <rect key="frame" x="63" y="3" width="240" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="CYl-3M-r3H"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                        <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buT-pE-G51">
+                        <rect key="frame" x="10" y="35" width="328" height="1"/>
+                        <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Sgj-e6-Rp8"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle_pin" translatesAutoresizingMaskIntoConstraints="NO" id="T3f-Nj-o7U">
+                        <rect key="frame" x="20" y="8" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="APV-eZ-QeI"/>
+                            <constraint firstAttribute="height" constant="20" id="mlj-Tf-H8W"/>
+                        </constraints>
+                    </imageView>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_tick_new" translatesAutoresizingMaskIntoConstraints="NO" id="6wc-TB-sux">
+                        <rect key="frame" x="311" y="11" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="GYS-pd-YyD"/>
+                            <constraint firstAttribute="width" constant="15" id="fdk-r5-vtt"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="6wc-TB-sux" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="7v0-QK-Izo"/>
+                    <constraint firstItem="gGy-2R-8Gy" firstAttribute="leading" secondItem="T3f-Nj-o7U" secondAttribute="trailing" constant="23" id="Eig-5o-F04"/>
+                    <constraint firstAttribute="bottom" secondItem="buT-pE-G51" secondAttribute="bottom" id="FlA-HG-ODw"/>
+                    <constraint firstItem="buT-pE-G51" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Gv7-oa-gLg"/>
+                    <constraint firstItem="T3f-Nj-o7U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="TFj-Hl-sXE"/>
+                    <constraint firstAttribute="trailing" secondItem="buT-pE-G51" secondAttribute="trailing" constant="10" id="VfX-jF-CI4"/>
+                    <constraint firstAttribute="trailing" secondItem="6wc-TB-sux" secondAttribute="trailing" constant="22" id="YHg-qB-MGu"/>
+                    <constraint firstItem="gGy-2R-8Gy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="f3e-AM-sYG"/>
+                    <constraint firstItem="T3f-Nj-o7U" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="jby-Tz-9BS"/>
+                    <constraint firstAttribute="trailing" secondItem="gGy-2R-8Gy" secondAttribute="trailing" constant="45" id="mpe-3a-wre"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="img" destination="T3f-Nj-o7U" id="QJY-jD-WQo"/>
+                <outlet property="lbl" destination="gGy-2R-8Gy" id="hFw-Un-hhr"/>
+                <outlet property="tickImage" destination="6wc-TB-sux" id="5xy-uU-SiR"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="119"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="circle_pin" width="40" height="40"/>
+        <image name="green_tick_new" width="15" height="15"/>
+    </resources>
+</document>

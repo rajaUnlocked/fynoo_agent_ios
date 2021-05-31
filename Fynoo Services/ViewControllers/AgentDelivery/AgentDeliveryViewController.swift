@@ -40,9 +40,6 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         
         isMoreDataAvailable = false
         currentPageNumber = 0
-        getTripData()
-        
-        getAgentData()
         self.SetFont()
         
         tableView.delegate=self
@@ -54,7 +51,10 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         self.headerView.viewControl = self
         
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        getTripData()
+        getAgentData()
+    }
     func SetFont() {
         
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
@@ -204,10 +204,14 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         getTripData()
         // tableView.reloadData()
     }
-    
+    @objc func profileClicked(){
+        let vc = UserProfileDetailsViewController(nibName: "UserProfileDetailsViewController", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     @objc func infoClicked(){
         let vc = AddAmountViewController(nibName: "AddAmountViewController", bundle: nil)
         vc.isFrom = true
+        vc.descrptxt = deliverData?.data?.agent_information?.del_service_document_reason ?? ""
         vc.modalPresentationStyle = .overFullScreen
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         self.present(vc, animated: true, completion: nil)
@@ -241,12 +245,16 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     @objc func clickedservicedoc(_ sender: UIButton)
     {
         let vc = DeliveryDocumentViewController(nibName: "DeliveryDocumentViewController", bundle: nil)
-        vc.primaryid = self.deliverData?.data?.agent_information?.dsd_id ?? 0
+      vc.primaryid = self.deliverData?.data?.agent_information?.dsd_id ?? 0
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc func switchClicked(_ sender: UIButton){
         print("switch")
-        
+        if deliverData?.data?.agent_information?.del_service_document_uploaded == 1
+        {
+            ModalController.showNegativeCustomAlertWith(title: "Delivery services cannot be activated until delivery documents are approved by Fynoo Admin", msg: "")
+            return
+        }
         if sender.isSelected {
             sender.isSelected = false
             
@@ -320,7 +328,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         
         if indexPath.section == 0{
             if indexPath.row == 0{
-                return 340
+                return 365
             }else {
                 return 190
             }
@@ -354,34 +362,37 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             cell.trip.text = "\(deliverData?.data?.agent_information?.total_trips ?? 0)"
             cell.year.text = "\(deliverData?.data?.agent_information?.active_years ?? 0)"
             cell.earning.text = "\(deliverData?.data?.agent_information?.total_earnings ?? 0)"
-            cell.cod.text = "\(deliverData?.data?.del_accept_limit?.today_cod ?? 0)"
+            cell.cod.text = (deliverData?.data?.del_accept_limit?.today_cod ?? 0) == 0 ? "" : "\(deliverData?.data?.del_accept_limit?.today_cod ?? 0)"
             cell.agentProfileImageView.sd_setImage(with: URL(string: deliverData?.data?.agent_information?.user_img ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
             cell.langugae.text = "\(deliverData?.data?.user_lang ?? "")"
-            
-            
-            if deliverData?.data?.agent_information?.del_service_document_uploaded == 1 {
-                cell.delivery.image = UIImage(named: "accepted_tick")
+            cell.infoClicked.isHidden = true
+            cell.widthconst.constant = 0
+            if deliverData?.data?.agent_information?.del_service_document_uploaded == 0 {
+                cell.delivery.image = UIImage(named: "grayTick")
+                //pending
+            }
+            else if deliverData?.data?.agent_information?.del_service_document_uploaded == 1 {
+                cell.delivery.image = UIImage(named: "timer")
                 //pending
             }else if deliverData?.data?.agent_information?.del_service_document_uploaded == 2{
                 //approved
-                cell.delivery.image = UIImage(named: "grayTick")
+                cell.delivery.image = UIImage(named: "accepted_tick")
 
             }else if deliverData?.data?.agent_information?.del_service_document_uploaded == 3{
                 //reject
                 cell.delivery.image = UIImage(named: "cross-1")
+                cell.infoClicked.isHidden = false
+                cell.widthconst.constant = 24
 
             }else if deliverData?.data?.agent_information?.del_service_document_uploaded == 4{
                 //edit & approve
                 cell.delivery.image = UIImage(named: "accepted_tick")
-
-            }else if deliverData?.data?.agent_information?.del_service_document_uploaded == 5 {
-                //removed
-                cell.delivery.image = UIImage(named: "cross-1")
-
+                cell.infoClicked.isHidden = false
+                cell.widthconst.constant = 24
             }
             cell.editAmount.addTarget(self, action: #selector(editAmountClicked), for: .touchUpInside)
             cell.infoClicked.addTarget(self, action: #selector(infoClicked), for: .touchUpInside)
-            
+            cell.clickedProfile.addTarget(self, action: #selector(profileClicked), for: .touchUpInside)
             
             cell.selectionStyle = .none
               return cell
@@ -461,7 +472,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
           if section == 0{
               return 0
           }
-          return 70
+          return 90
       }
       
     

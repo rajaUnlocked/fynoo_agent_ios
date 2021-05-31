@@ -16,6 +16,8 @@ protocol ProfileDetailTableViewCellDelegate {
 }
 class ProfileDetailTableViewCell: UITableViewCell {
     var delegate:ProfileDetailTableViewCellDelegate?
+    
+    @IBOutlet weak var agentimg: UIImageView!
     @IBOutlet weak var editHeight: NSLayoutConstraint!
     
     @IBOutlet weak var titleLbl: UILabel!
