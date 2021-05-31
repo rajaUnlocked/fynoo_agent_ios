@@ -7,8 +7,11 @@
 //
 
 import UIKit
-
+protocol AddAmountDelegate {
+    func reloadPage()
+}
 class AddAmountViewController: UIViewController {
+    var delegate:AddAmountDelegate?
      var descrptxt = ""
     @IBOutlet weak var descriptiontxt: UILabel!
     @IBOutlet weak var reasonView: UIView!
@@ -51,9 +54,10 @@ class AddAmountViewController: UIViewController {
 //                   "lang_code":"en",
             //                "cod_amount":"1000"]
         
-        let param = ["user_id":"1128","lang_code":"en","cod_amount":"1000"]
+        let param = ["user_id":Singleton.shared.getUserId(),"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"cod_amount":aamount.text!]
         print(param)
         ServerCalls.postRequest(str, withParameters: param) { (response, success) in
+            self.delegate?.reloadPage()
             self.dismiss(animated: true, completion: nil)
         }
         

@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+protocol dismiss {
+    func dismissController()
+}
 class SuccesssViewController: UIViewController {
   
     var isDataBank = false

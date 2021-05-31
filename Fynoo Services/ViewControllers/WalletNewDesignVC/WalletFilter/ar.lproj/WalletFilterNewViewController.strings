@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "To"; ObjectID = "4lr-vb-R8O"; */
+"4lr-vb-R8O.text" = "To";
+
+/* Class = "UILabel"; text = "Filter by"; ObjectID = "CIy-9R-vJy"; */
+"CIy-9R-vJy.text" = "تصفية حسب";
+
+/* Class = "UILabel"; text = "From"; ObjectID = "Eab-Sn-s5f"; */
+"Eab-Sn-s5f.text" = "From";
+
+/* Class = "UIButton"; normalTitle = "Apply"; ObjectID = "IEc-mu-cS1"; */
+"IEc-mu-cS1.normalTitle" = "تطبيق";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "LY2-D6-fg6"; */
+"LY2-D6-fg6.normalTitle" = "إلغاء";
+
+/* Class = "UILabel"; text = "Enter Transaction Amount Range"; ObjectID = "OIM-qv-M6j"; */
+"OIM-qv-M6j.text" = "Enter Transaction Amount Range";
+
+/* Class = "UILabel"; text = "Amount"; ObjectID = "WR1-Dg-2VJ"; */
+"WR1-Dg-2VJ.text" = "Amount";
+
+/* Class = "UIButton"; normalTitle = "Clear All"; ObjectID = "bHB-Kj-LSH"; */
+"bHB-Kj-LSH.normalTitle" = "مسح الكل";
+
+/* Class = "UILabel"; text = "Enter Date"; ObjectID = "ep2-kk-qG3"; */
+"ep2-kk-qG3.text" = "Enter Date";
+
+/* Class = "UILabel"; text = "Wallet"; ObjectID = "qQ3-ZA-1eS"; */
+"qQ3-ZA-1eS.text" = "المحفظة";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "tOK-th-cpi"; */
+"tOK-th-cpi.text" = "Date";

@@ -287,7 +287,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                             let val = self.profileInfo?.data?.service_list_data?.count
                         
                         for i in 0..<val!{
-                        if self.profileInfo?.data?.service_list_data?[i].is_active ?? 0 == 1
+                        if self.profileInfo?.data?.service_list_data?[i].is_opt ?? 0 == 1
                             {
     self.agentInfo.serviceArr.add( self.profileInfo?.data?.service_list_data?[i].service_id ?? 0)  } }
                         let lang = self.profileInfo?.data?.language_list?.count

@@ -20,7 +20,13 @@ class ModalController: NSObject {
         view.borderColor = color
         
     }
-   
+    static  func setStricColor1(str: String,str1:String,str2:String) -> NSMutableAttributedString{
+        let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: str)
+        attributedString.setColor(color: #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1), forText: str2)
+        attributedString.setColor(color: #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1), forText: str1)
+        return attributedString
+        
+    }
     
     static func showSuccessCustomAlertWith(title: String, msg: String)
     {

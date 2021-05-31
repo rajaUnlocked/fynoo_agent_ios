@@ -10,7 +10,8 @@ import UIKit
 import ObjectMapper
 import MessageUI
 
-class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDelegate, MFMessageComposeViewControllerDelegate, AgentServiceListDelegate {
+class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDelegate, MFMessageComposeViewControllerDelegate, AgentServiceListDelegate,AddAmountDelegate {
+   
     
     @IBOutlet weak var tableView: UITableView!
     var selectedVl = 1000
@@ -51,6 +52,11 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         self.headerView.viewControl = self
         
     }
+    func reloadPage() {
+        getTripData()
+        getAgentData()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         getTripData()
         getAgentData()
@@ -193,7 +199,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     
     @objc func editAmountClicked(){
         let vc = AddAmountViewController(nibName: "AddAmountViewController", bundle: nil)
-        
+        vc.delegate = self
         vc.modalPresentationStyle = .overFullScreen
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         self.present(vc, animated: true, completion: nil)

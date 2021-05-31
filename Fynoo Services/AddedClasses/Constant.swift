@@ -94,13 +94,24 @@ enum ValidationMessages {
 
 class Constant: NSObject {
      static let currency : String = "SAR".localized
+    //wallet
+    static let DeleteBankURL: String = "businessapi/v2/bankdelete/"
+    static let allWalletTransactionsAPI : String = "wallet/wallet_balance_list/"
+    static let addedBanksList : String = "businessapi/v2/users_bank_list/"
+    static let transferMoneyApi : String = "agentapi/v1/transfer_to_bank/"
+    static let addNewBankAPI : String = "wallet/add_bank/"
+    static let updateBankAPI : String = "wallet/update_bank/"
+    static let deleteBankNewAPI : String = "businessapi/v2/users_bank_delete/"
+    static let send_wallet_pdf_email : String = "wallet/send_wallet_pdf_email/"
+    static let bankIdentifier_List : String = "businessapi/v2/search_iban_number/";
+    
     //service
     
      static let productVariantList: String = "/customerapi/v1/variantProduct/"
      static let getproductlistfilter : String = "customerapi/v1/product_list_filter/";
       static let removedatasellproduct : String = "product_api/customerDataBankDeleteProduct/";
      static let payment_method_list : String = "product_api/payment_page/"
-    static let addproductNew : String = "/services/agent_add_product/";
+    static let addproductNew : String = "services/agent_add_product/";
    static let productlimit : String = "product_api/ProductLimit/";
       static let productsellinfo : String = "product_api/sellProductInfo/";
     static let productcode : String = "product_api/getProductCode/";
@@ -156,7 +167,7 @@ class Constant: NSObject {
     static let Bank_List : String = "businessapi/v2/bank_list/";
     static let Education_List : String = "businessapi/v3/education_list/";
     static let Service_List : String = "agentapi/v1/agentservices/";
-    static let bankIdentifier_List : String = "businessapi/v2/search_iban_number/";
+  
 //         static var BASE_URL : String = "http://61.95.220.248:9092/"
     //      static var BASE_URL : String = "http://61.95.220.248:9095/"  //CLIENT URL FOR NOW
     //static var BASE_URL : String = "https://dev.fynoo.com:8001/"
@@ -198,6 +209,16 @@ class Constant: NSObject {
 }
 
 enum Service {
+    //wallet
+    static let BankList  = Constant.BASE_URL + "businessapi/v2/banklist/"
+    
+    static let AddBankDetailURL = Constant.BASE_URL + "businessapi/v2/addbankdetails/"
+    static let DeleteBankURL = Constant.BASE_URL + "businessapi/v2/bankdelete/"
+    static let UpdateBankDetailsURL = Constant.BASE_URL + "businessapi/v2/updatebankdetails/"
+    static let Bank_List : String =  Constant.BASE_URL + "businessapi/v2/bank_name_list/"
+    static let transferApi : String = Constant.BASE_URL +  "agentapi/v1/transfer_to_bank/"
+    static let bankTransferHistory = Constant.BASE_URL +   "agentapi/v1/bank_transfer_list/"
+    
     
     static let selectCategory = Constant.BASE_URL + "customerapi/v1/categorylist/"
        static let selectSubCategory = Constant.BASE_URL + "customerapi/v1/subcategorylist/"

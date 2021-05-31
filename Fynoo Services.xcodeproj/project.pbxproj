@@ -204,6 +204,47 @@
 		CEAEA5122530379300F866E7 /* CommisionDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAEA5102530379300F866E7 /* CommisionDetailsViewController.xib */; };
 		CEAEA51525303A1500F866E7 /* CommisionTopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEA51325303A1500F866E7 /* CommisionTopTableViewCell.swift */; };
 		CEAEA51625303A1500F866E7 /* CommisionTopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAEA51425303A1500F866E7 /* CommisionTopTableViewCell.xib */; };
+		CEBCD7292664A7FE001BF767 /* BankTransferController.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6E02664A7FE001BF767 /* BankTransferController.strings */; };
+		CEBCD72A2664A7FE001BF767 /* WalletFilterNewViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6E42664A7FE001BF767 /* WalletFilterNewViewController.strings */; };
+		CEBCD72B2664A7FE001BF767 /* WalletFilterNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6E72664A7FE001BF767 /* WalletFilterNewViewController.swift */; };
+		CEBCD72C2664A7FE001BF767 /* WalletFilterNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6E82664A7FE001BF767 /* WalletFilterNewViewController.xib */; };
+		CEBCD72D2664A7FE001BF767 /* BankList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6EA2664A7FE001BF767 /* BankList.swift */; };
+		CEBCD72E2664A7FE001BF767 /* DeleteBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6EB2664A7FE001BF767 /* DeleteBank.swift */; };
+		CEBCD72F2664A7FE001BF767 /* BankTransferController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6EC2664A7FE001BF767 /* BankTransferController.xib */; };
+		CEBCD7302664A7FE001BF767 /* BankHeader.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6EF2664A7FE001BF767 /* BankHeader.strings */; };
+		CEBCD7312664A7FE001BF767 /* WalletAvailableTopCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6F12664A7FE001BF767 /* WalletAvailableTopCell.strings */; };
+		CEBCD7322664A7FE001BF767 /* PaymentProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6F52664A7FE001BF767 /* PaymentProgressTableViewCell.swift */; };
+		CEBCD7332664A7FE001BF767 /* BankAllListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6F62664A7FE001BF767 /* BankAllListViewController.xib */; };
+		CEBCD7342664A7FE001BF767 /* BankHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6F72664A7FE001BF767 /* BankHeader.xib */; };
+		CEBCD7352664A7FE001BF767 /* WalletAvailableTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6F92664A7FE001BF767 /* WalletAvailableTopCell.xib */; };
+		CEBCD7362664A7FE001BF767 /* WalletTransferReqNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6FB2664A7FE001BF767 /* WalletTransferReqNewTableViewCell.swift */; };
+		CEBCD7372664A7FE001BF767 /* WalletNewSimpleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6FC2664A7FE001BF767 /* WalletNewSimpleTableViewCell.swift */; };
+		CEBCD7382664A7FE001BF767 /* BankHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6FD2664A7FE001BF767 /* BankHeader.swift */; };
+		CEBCD7392664A7FE001BF767 /* WalletAvailableTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6FE2664A7FE001BF767 /* WalletAvailableTopCell.swift */; };
+		CEBCD73A2664A7FE001BF767 /* BankAllListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6FF2664A7FE001BF767 /* BankAllListViewController.swift */; };
+		CEBCD73B2664A7FE001BF767 /* WalletNewSimpleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD7002664A7FE001BF767 /* WalletNewSimpleTableViewCell.xib */; };
+		CEBCD73C2664A7FE001BF767 /* PaymentProgressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD7012664A7FE001BF767 /* PaymentProgressTableViewCell.xib */; };
+		CEBCD73D2664A7FE001BF767 /* WalletTransferReqNewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD7022664A7FE001BF767 /* WalletTransferReqNewTableViewCell.xib */; };
+		CEBCD73E2664A7FE001BF767 /* ShowMoreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD7032664A7FE001BF767 /* ShowMoreViewCell.swift */; };
+		CEBCD73F2664A7FE001BF767 /* BankTransferController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD7042664A7FE001BF767 /* BankTransferController.swift */; };
+		CEBCD7402664A7FE001BF767 /* AddNewBankViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD7062664A7FE001BF767 /* AddNewBankViewController.strings */; };
+		CEBCD7412664A7FE001BF767 /* AddNewBankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD7092664A7FE001BF767 /* AddNewBankViewController.xib */; };
+		CEBCD7422664A7FE001BF767 /* AddNewBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD70B2664A7FE001BF767 /* AddNewBankViewController.swift */; };
+		CEBCD7442664A7FE001BF767 /* TransactionNewPopupViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD70E2664A7FE001BF767 /* TransactionNewPopupViewController.strings */; };
+		CEBCD7452664A7FE001BF767 /* TransactionNewPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD7112664A7FE001BF767 /* TransactionNewPopupViewController.xib */; };
+		CEBCD7462664A7FE001BF767 /* TransactionNewPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD7132664A7FE001BF767 /* TransactionNewPopupViewController.swift */; };
+		CEBCD7472664A7FE001BF767 /* ShowMoreViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD7142664A7FE001BF767 /* ShowMoreViewCell.xib */; };
+		CEBCD7482664A7FE001BF767 /* BankModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD7152664A7FE001BF767 /* BankModal.swift */; };
+		CEBCD7492664A7FE001BF767 /* BankListViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD7172664A7FE001BF767 /* BankListViewController.strings */; };
+		CEBCD74A2664A7FE001BF767 /* SearchBankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD71B2664A7FE001BF767 /* SearchBankTableViewCell.xib */; };
+		CEBCD74B2664A7FE001BF767 /* SearchBankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD71C2664A7FE001BF767 /* SearchBankTableViewCell.swift */; };
+		CEBCD74C2664A7FE001BF767 /* BankListTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD71E2664A7FE001BF767 /* BankListTableViewCell.strings */; };
+		CEBCD74D2664A7FE001BF767 /* BankListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD7202664A7FE001BF767 /* BankListTableViewCell.swift */; };
+		CEBCD74E2664A7FE001BF767 /* BankListAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD7222664A7FE001BF767 /* BankListAddCell.swift */; };
+		CEBCD74F2664A7FE001BF767 /* BankListAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD7232664A7FE001BF767 /* BankListAddCell.xib */; };
+		CEBCD7502664A7FE001BF767 /* BankListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD7242664A7FE001BF767 /* BankListTableViewCell.xib */; };
+		CEBCD7512664A7FE001BF767 /* BankListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD7262664A7FE001BF767 /* BankListViewController.xib */; };
+		CEBCD7522664A7FE001BF767 /* BankListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD7282664A7FE001BF767 /* BankListViewController.swift */; };
 		CECEF8B125774EE20090D459 /* RetailPriceListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEF8AF25774EE10090D459 /* RetailPriceListViewCell.xib */; };
 		CECEF8B225774EE20090D459 /* RetailPriceListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEF8B025774EE20090D459 /* RetailPriceListViewCell.swift */; };
 		CECEF8B525774F9B0090D459 /* AddWholeSlabViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEF8B325774F9B0090D459 /* AddWholeSlabViewCell.xib */; };
@@ -977,6 +1018,55 @@
 		CEAEA5102530379300F866E7 /* CommisionDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommisionDetailsViewController.xib; sourceTree = "<group>"; };
 		CEAEA51325303A1500F866E7 /* CommisionTopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommisionTopTableViewCell.swift; sourceTree = "<group>"; };
 		CEAEA51425303A1500F866E7 /* CommisionTopTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommisionTopTableViewCell.xib; sourceTree = "<group>"; };
+		CEBCD6E12664A7FE001BF767 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BankTransferController.strings; sourceTree = "<group>"; };
+		CEBCD6E22664A7FE001BF767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BankTransferController.strings; sourceTree = "<group>"; };
+		CEBCD6E52664A7FE001BF767 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WalletFilterNewViewController.strings; sourceTree = "<group>"; };
+		CEBCD6E62664A7FE001BF767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WalletFilterNewViewController.strings; sourceTree = "<group>"; };
+		CEBCD6E72664A7FE001BF767 /* WalletFilterNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletFilterNewViewController.swift; sourceTree = "<group>"; };
+		CEBCD6E92664A7FE001BF767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WalletFilterNewViewController.xib; sourceTree = "<group>"; };
+		CEBCD6EA2664A7FE001BF767 /* BankList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankList.swift; sourceTree = "<group>"; };
+		CEBCD6EB2664A7FE001BF767 /* DeleteBank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteBank.swift; sourceTree = "<group>"; };
+		CEBCD6ED2664A7FE001BF767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BankTransferController.xib; sourceTree = "<group>"; };
+		CEBCD6F02664A7FE001BF767 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BankHeader.strings; sourceTree = "<group>"; };
+		CEBCD6F22664A7FE001BF767 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WalletAvailableTopCell.strings; sourceTree = "<group>"; };
+		CEBCD6F32664A7FE001BF767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BankHeader.strings; sourceTree = "<group>"; };
+		CEBCD6F42664A7FE001BF767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WalletAvailableTopCell.strings; sourceTree = "<group>"; };
+		CEBCD6F52664A7FE001BF767 /* PaymentProgressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentProgressTableViewCell.swift; sourceTree = "<group>"; };
+		CEBCD6F62664A7FE001BF767 /* BankAllListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankAllListViewController.xib; sourceTree = "<group>"; };
+		CEBCD6F82664A7FE001BF767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BankHeader.xib; sourceTree = "<group>"; };
+		CEBCD6FA2664A7FE001BF767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WalletAvailableTopCell.xib; sourceTree = "<group>"; };
+		CEBCD6FB2664A7FE001BF767 /* WalletTransferReqNewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletTransferReqNewTableViewCell.swift; sourceTree = "<group>"; };
+		CEBCD6FC2664A7FE001BF767 /* WalletNewSimpleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletNewSimpleTableViewCell.swift; sourceTree = "<group>"; };
+		CEBCD6FD2664A7FE001BF767 /* BankHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankHeader.swift; sourceTree = "<group>"; };
+		CEBCD6FE2664A7FE001BF767 /* WalletAvailableTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletAvailableTopCell.swift; sourceTree = "<group>"; };
+		CEBCD6FF2664A7FE001BF767 /* BankAllListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankAllListViewController.swift; sourceTree = "<group>"; };
+		CEBCD7002664A7FE001BF767 /* WalletNewSimpleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletNewSimpleTableViewCell.xib; sourceTree = "<group>"; };
+		CEBCD7012664A7FE001BF767 /* PaymentProgressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentProgressTableViewCell.xib; sourceTree = "<group>"; };
+		CEBCD7022664A7FE001BF767 /* WalletTransferReqNewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletTransferReqNewTableViewCell.xib; sourceTree = "<group>"; };
+		CEBCD7032664A7FE001BF767 /* ShowMoreViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMoreViewCell.swift; sourceTree = "<group>"; };
+		CEBCD7042664A7FE001BF767 /* BankTransferController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankTransferController.swift; sourceTree = "<group>"; };
+		CEBCD7072664A7FE001BF767 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/AddNewBankViewController.strings; sourceTree = "<group>"; };
+		CEBCD7082664A7FE001BF767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AddNewBankViewController.strings; sourceTree = "<group>"; };
+		CEBCD70A2664A7FE001BF767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AddNewBankViewController.xib; sourceTree = "<group>"; };
+		CEBCD70B2664A7FE001BF767 /* AddNewBankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewBankViewController.swift; sourceTree = "<group>"; };
+		CEBCD70F2664A7FE001BF767 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TransactionNewPopupViewController.strings; sourceTree = "<group>"; };
+		CEBCD7102664A7FE001BF767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TransactionNewPopupViewController.strings; sourceTree = "<group>"; };
+		CEBCD7122664A7FE001BF767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TransactionNewPopupViewController.xib; sourceTree = "<group>"; };
+		CEBCD7132664A7FE001BF767 /* TransactionNewPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionNewPopupViewController.swift; sourceTree = "<group>"; };
+		CEBCD7142664A7FE001BF767 /* ShowMoreViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowMoreViewCell.xib; sourceTree = "<group>"; };
+		CEBCD7152664A7FE001BF767 /* BankModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankModal.swift; sourceTree = "<group>"; };
+		CEBCD7182664A7FE001BF767 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BankListViewController.strings; sourceTree = "<group>"; };
+		CEBCD7192664A7FE001BF767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BankListViewController.strings; sourceTree = "<group>"; };
+		CEBCD71B2664A7FE001BF767 /* SearchBankTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBankTableViewCell.xib; sourceTree = "<group>"; };
+		CEBCD71C2664A7FE001BF767 /* SearchBankTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBankTableViewCell.swift; sourceTree = "<group>"; };
+		CEBCD71F2664A7FE001BF767 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BankListTableViewCell.strings; sourceTree = "<group>"; };
+		CEBCD7202664A7FE001BF767 /* BankListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankListTableViewCell.swift; sourceTree = "<group>"; };
+		CEBCD7212664A7FE001BF767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BankListTableViewCell.strings; sourceTree = "<group>"; };
+		CEBCD7222664A7FE001BF767 /* BankListAddCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankListAddCell.swift; sourceTree = "<group>"; };
+		CEBCD7232664A7FE001BF767 /* BankListAddCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankListAddCell.xib; sourceTree = "<group>"; };
+		CEBCD7252664A7FE001BF767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BankListTableViewCell.xib; sourceTree = "<group>"; };
+		CEBCD7272664A7FE001BF767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BankListViewController.xib; sourceTree = "<group>"; };
+		CEBCD7282664A7FE001BF767 /* BankListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankListViewController.swift; sourceTree = "<group>"; };
 		CECEF8AF25774EE10090D459 /* RetailPriceListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RetailPriceListViewCell.xib; sourceTree = "<group>"; };
 		CECEF8B025774EE20090D459 /* RetailPriceListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetailPriceListViewCell.swift; sourceTree = "<group>"; };
 		CECEF8B325774F9B0090D459 /* AddWholeSlabViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddWholeSlabViewCell.xib; sourceTree = "<group>"; };
@@ -1942,6 +2032,7 @@
 		2FFDE23C2501221B006C5EBD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CEBCD6DF2664A7FE001BF767 /* WalletNewDesignVC */,
 				F68B78E02653ADE800B1E69E /* UserPolicyVC */,
 				CE9CCC77264BAA13005AE619 /* DataSellingNewVC */,
 				F680D512259B7C2B007EB12C /* DataEntryModule */,
@@ -2233,6 +2324,110 @@
 				CEAEA51425303A1500F866E7 /* CommisionTopTableViewCell.xib */,
 			);
 			path = CommisionDetails;
+			sourceTree = "<group>";
+		};
+		CEBCD6DF2664A7FE001BF767 /* WalletNewDesignVC */ = {
+			isa = PBXGroup;
+			children = (
+				CEBCD6E02664A7FE001BF767 /* BankTransferController.strings */,
+				CEBCD6E32664A7FE001BF767 /* WalletFilter */,
+				CEBCD6EA2664A7FE001BF767 /* BankList.swift */,
+				CEBCD6EB2664A7FE001BF767 /* DeleteBank.swift */,
+				CEBCD6EC2664A7FE001BF767 /* BankTransferController.xib */,
+				CEBCD6EE2664A7FE001BF767 /* BankFirst */,
+				CEBCD7032664A7FE001BF767 /* ShowMoreViewCell.swift */,
+				CEBCD7042664A7FE001BF767 /* BankTransferController.swift */,
+				CEBCD7052664A7FE001BF767 /* AddNewBankVC */,
+				CEBCD70D2664A7FE001BF767 /* TransPop */,
+				CEBCD7142664A7FE001BF767 /* ShowMoreViewCell.xib */,
+				CEBCD7152664A7FE001BF767 /* BankModal.swift */,
+				CEBCD7162664A7FE001BF767 /* BankListVC */,
+			);
+			path = WalletNewDesignVC;
+			sourceTree = "<group>";
+		};
+		CEBCD6E32664A7FE001BF767 /* WalletFilter */ = {
+			isa = PBXGroup;
+			children = (
+				CEBCD6E42664A7FE001BF767 /* WalletFilterNewViewController.strings */,
+				CEBCD6E72664A7FE001BF767 /* WalletFilterNewViewController.swift */,
+				CEBCD6E82664A7FE001BF767 /* WalletFilterNewViewController.xib */,
+			);
+			path = WalletFilter;
+			sourceTree = "<group>";
+		};
+		CEBCD6EE2664A7FE001BF767 /* BankFirst */ = {
+			isa = PBXGroup;
+			children = (
+				CEBCD6EF2664A7FE001BF767 /* BankHeader.strings */,
+				CEBCD6F12664A7FE001BF767 /* WalletAvailableTopCell.strings */,
+				CEBCD6F52664A7FE001BF767 /* PaymentProgressTableViewCell.swift */,
+				CEBCD6F62664A7FE001BF767 /* BankAllListViewController.xib */,
+				CEBCD6F72664A7FE001BF767 /* BankHeader.xib */,
+				CEBCD6F92664A7FE001BF767 /* WalletAvailableTopCell.xib */,
+				CEBCD6FB2664A7FE001BF767 /* WalletTransferReqNewTableViewCell.swift */,
+				CEBCD6FC2664A7FE001BF767 /* WalletNewSimpleTableViewCell.swift */,
+				CEBCD6FD2664A7FE001BF767 /* BankHeader.swift */,
+				CEBCD6FE2664A7FE001BF767 /* WalletAvailableTopCell.swift */,
+				CEBCD6FF2664A7FE001BF767 /* BankAllListViewController.swift */,
+				CEBCD7002664A7FE001BF767 /* WalletNewSimpleTableViewCell.xib */,
+				CEBCD7012664A7FE001BF767 /* PaymentProgressTableViewCell.xib */,
+				CEBCD7022664A7FE001BF767 /* WalletTransferReqNewTableViewCell.xib */,
+			);
+			path = BankFirst;
+			sourceTree = "<group>";
+		};
+		CEBCD7052664A7FE001BF767 /* AddNewBankVC */ = {
+			isa = PBXGroup;
+			children = (
+				CEBCD7062664A7FE001BF767 /* AddNewBankViewController.strings */,
+				CEBCD7092664A7FE001BF767 /* AddNewBankViewController.xib */,
+				CEBCD70B2664A7FE001BF767 /* AddNewBankViewController.swift */,
+			);
+			path = AddNewBankVC;
+			sourceTree = "<group>";
+		};
+		CEBCD70D2664A7FE001BF767 /* TransPop */ = {
+			isa = PBXGroup;
+			children = (
+				CEBCD70E2664A7FE001BF767 /* TransactionNewPopupViewController.strings */,
+				CEBCD7112664A7FE001BF767 /* TransactionNewPopupViewController.xib */,
+				CEBCD7132664A7FE001BF767 /* TransactionNewPopupViewController.swift */,
+			);
+			path = TransPop;
+			sourceTree = "<group>";
+		};
+		CEBCD7162664A7FE001BF767 /* BankListVC */ = {
+			isa = PBXGroup;
+			children = (
+				CEBCD7172664A7FE001BF767 /* BankListViewController.strings */,
+				CEBCD71A2664A7FE001BF767 /* SearchBankCell */,
+				CEBCD71D2664A7FE001BF767 /* BankListCell */,
+				CEBCD7262664A7FE001BF767 /* BankListViewController.xib */,
+				CEBCD7282664A7FE001BF767 /* BankListViewController.swift */,
+			);
+			path = BankListVC;
+			sourceTree = "<group>";
+		};
+		CEBCD71A2664A7FE001BF767 /* SearchBankCell */ = {
+			isa = PBXGroup;
+			children = (
+				CEBCD71B2664A7FE001BF767 /* SearchBankTableViewCell.xib */,
+				CEBCD71C2664A7FE001BF767 /* SearchBankTableViewCell.swift */,
+			);
+			path = SearchBankCell;
+			sourceTree = "<group>";
+		};
+		CEBCD71D2664A7FE001BF767 /* BankListCell */ = {
+			isa = PBXGroup;
+			children = (
+				CEBCD71E2664A7FE001BF767 /* BankListTableViewCell.strings */,
+				CEBCD7202664A7FE001BF767 /* BankListTableViewCell.swift */,
+				CEBCD7222664A7FE001BF767 /* BankListAddCell.swift */,
+				CEBCD7232664A7FE001BF767 /* BankListAddCell.xib */,
+				CEBCD7242664A7FE001BF767 /* BankListTableViewCell.xib */,
+			);
+			path = BankListCell;
 			sourceTree = "<group>";
 		};
 		CECEF8BF2577575B0090D459 /* BranchNewDesign */ = {
@@ -3733,6 +3928,7 @@
 				CEDD33B3257674BA00023977 /* WholesaleListViewCell.xib in Resources */,
 				F4828CA52508DFA9006B85D8 /* ProfileServiceViewCell.xib in Resources */,
 				CECEF9DF2577575C0090D459 /* BranchTimingTableViewCell.strings in Resources */,
+				CEBCD7302664A7FE001BF767 /* BankHeader.strings in Resources */,
 				CEDD332C25765BBA00023977 /* ViewAllImagesNewDesignCollectionViewCell.xib in Resources */,
 				CEE3578E250740800097069D /* RobotoSlab-Thin.ttf in Resources */,
 				CEA24F63265BD00D00B3227D /* BottomPopCellsNewTableViewCell.xib in Resources */,
@@ -3741,14 +3937,17 @@
 				CE9CCD47264BAA14005AE619 /* ProductListNewViewController.xib in Resources */,
 				CECEFAD42577D3140090D459 /* AllfiterHeaderTableViewCell.strings in Resources */,
 				CEDD32DE25763C8E00023977 /* SpecificationTableViewCell.xib in Resources */,
+				CEBCD73B2664A7FE001BF767 /* WalletNewSimpleTableViewCell.xib in Resources */,
 				2F8463E4250F6EBC0084EB32 /* LoginIntroSecond.xib in Resources */,
 				F46DB929251B23980061A232 /* TripAchievementViewCell.xib in Resources */,
 				CECEF9932577575B0090D459 /* BusinessTimesheet1PopupViewController.strings in Resources */,
 				F4828C922508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib in Resources */,
 				CEDD31F52576206500023977 /* CreateProductFirstViewController.xib in Resources */,
 				CECEF9E82577575C0090D459 /* topBranchTableViewCell.strings in Resources */,
+				CEBCD7412664A7FE001BF767 /* AddNewBankViewController.xib in Resources */,
 				CEDD32EB25763C8E00023977 /* DeleteSlabPopupViewController.xib in Resources */,
 				F4CEC2FD2511D351003C35E8 /* VatpopnewchangeViewController.xib in Resources */,
+				CEBCD73C2664A7FE001BF767 /* PaymentProgressTableViewCell.xib in Resources */,
 				CEE3578C250740800097069D /* Poppins-Light.ttf in Resources */,
 				CEDD33A22576705A00023977 /* AddFilterTopTableViewCell.strings in Resources */,
 				CE9CCDF5264BEDBD005AE619 /* ProductTechnicalSpecificationsTableViewCell.strings in Resources */,
@@ -3776,8 +3975,10 @@
 				F680D632259B7C2C007EB12C /* DEInprogressOrderInformationSecondTableViewCell.strings in Resources */,
 				CEDD31EE2576206500023977 /* SelectProductTypeNewTableViewCell.strings in Resources */,
 				2F74CB4E250A365300DE21EF /* logo-animeted.gif in Resources */,
+				CEBCD72F2664A7FE001BF767 /* BankTransferController.xib in Resources */,
 				CECEFAD52577D3140090D459 /* AllFilterTableViewCell.xib in Resources */,
 				CECEFAC02577AF5F0090D459 /* SelectBusinesstypeTableViewCell.xib in Resources */,
+				CEBCD7292664A7FE001BF767 /* BankTransferController.strings in Resources */,
 				F4828CB02508FFBC006B85D8 /* TwoButtonsTableViewCell.xib in Resources */,
 				CECEF9992577575B0090D459 /* BusinessTimesheet1PopupViewController.xib in Resources */,
 				CECEF9D52577575C0090D459 /* CommonSearchViewController.strings in Resources */,
@@ -3813,7 +4014,9 @@
 				CE9CCDFB264BEDBD005AE619 /* ProductDetailSelectTabTableViewCell.xib in Resources */,
 				F680D62B259B7C2C007EB12C /* DataEntryWorkConfirmationPopUpViewController.strings in Resources */,
 				CEDD33A82576705A00023977 /* AddFilterTopTableViewCell.xib in Resources */,
+				CEBCD7342664A7FE001BF767 /* BankHeader.xib in Resources */,
 				2F9DA67425237FCA00C46952 /* SearchCategoryTableViewCell.xib in Resources */,
+				CEBCD7452664A7FE001BF767 /* TransactionNewPopupViewController.xib in Resources */,
 				CECEF9B22577575B0090D459 /* LocationDetailsTableViewCell.xib in Resources */,
 				CECEFA4725779E8F0090D459 /* SelectImageTypePopupViewController.strings in Resources */,
 				F680D670259B7C2C007EB12C /* DECancellationReasonViewController.xib in Resources */,
@@ -3835,6 +4038,7 @@
 				2F846393250F6D270084EB32 /* BasedUrlViewController.xib in Resources */,
 				2F964B6F25136B05005FFEDC /* DropShipDashboardTableViewCell.xib in Resources */,
 				F680D652259B7C2C007EB12C /* DataEntryFormAddItemTableViewCell.xib in Resources */,
+				CEBCD72C2664A7FE001BF767 /* WalletFilterNewViewController.xib in Resources */,
 				F62E4AF125148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.strings in Resources */,
 				CEAD29EE25063FA2008B1F9C /* TargetprogressTableViewCell.xib in Resources */,
 				CEDD334625765C4C00023977 /* BarCodePopupNewViewController.xib in Resources */,
@@ -3850,6 +4054,7 @@
 				CEDD332E25765BBA00023977 /* SelectCategoryCell.xib in Resources */,
 				CEE35799250740800097069D /* Gilroy-Light.otf in Resources */,
 				F680D683259B7C2C007EB12C /* DataEntryListingTopTableViewCell.xib in Resources */,
+				CEBCD7402664A7FE001BF767 /* AddNewBankViewController.strings in Resources */,
 				CECEFA14257783D80090D459 /* purchasedHeaderTableViewCell.xib in Resources */,
 				F62E4AF625148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.xib in Resources */,
 				F6547AD025DE5D9400171862 /* DateRangeFilterTableViewCell.xib in Resources */,
@@ -3859,6 +4064,7 @@
 				CE2EFB3F251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib in Resources */,
 				F680D67B259B7C2C007EB12C /* DataEntryListHeaderView.xib in Resources */,
 				CECEFA7D2577A0BE0090D459 /* UploadImgeViewController.strings in Resources */,
+				CEBCD7312664A7FE001BF767 /* WalletAvailableTopCell.strings in Resources */,
 				F680D664259B7C2C007EB12C /* DataEntryFormViewController.strings in Resources */,
 				CEDD338925766FB900023977 /* DatabankpopupViewController.xib in Resources */,
 				F62E4AFA25148EC60021CEE0 /* AgentCompanyServicesTableViewCell.xib in Resources */,
@@ -3892,7 +4098,9 @@
 				CEDD334E25765DD000023977 /* spacingTableViewCell.xib in Resources */,
 				2FEB12112511F0010012FE98 /* UnderDevelopmentViewController.xib in Resources */,
 				CEDD330A25765A7400023977 /* ScannerNewViewController.xib in Resources */,
+				CEBCD7502664A7FE001BF767 /* BankListTableViewCell.xib in Resources */,
 				2FEB121B2511F1530012FE98 /* SignOutViewController.xib in Resources */,
+				CEBCD74C2664A7FE001BF767 /* BankListTableViewCell.strings in Resources */,
 				F44E35B2251C72C6002E41E2 /* AgentServiceList.xib in Resources */,
 				CEE3578D250740800097069D /* Roboto-Regular.ttf in Resources */,
 				2F846415250F7F1C0084EB32 /* ResetPasswordViewController.xib in Resources */,
@@ -3920,6 +4128,7 @@
 				CE9CCD42264BAA14005AE619 /* TimingShowTableViewCell.xib in Resources */,
 				F680D638259B7C2C007EB12C /* DEInprogressDetailWorkPlaceTableViewCell.xib in Resources */,
 				CEDD31EF2576206500023977 /* CreateProductFirstViewController.strings in Resources */,
+				CEBCD72A2664A7FE001BF767 /* WalletFilterNewViewController.strings in Resources */,
 				CECEF9F32577575C0090D459 /* CollectionViewTableViewCell.strings in Resources */,
 				F680D63D259B7C2C007EB12C /* DataEntryAgentRatingViewController.strings in Resources */,
 				F680D681259B7C2C007EB12C /* CompleteDataEntryListTableViewCell.xib in Resources */,
@@ -3973,11 +4182,13 @@
 				CEE72CA9251B36C400B02DAF /* DeliveryDocumentViewController.xib in Resources */,
 				CEDAF67525283DF900B846E5 /* ReasonForChangeTableViewCell.xib in Resources */,
 				F635979D25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.xib in Resources */,
+				CEBCD74A2664A7FE001BF767 /* SearchBankTableViewCell.xib in Resources */,
 				CEDD32EC25763C8E00023977 /* ProductHeader2TableViewCell.xib in Resources */,
 				2FEB12092511EC930012FE98 /* SideMenuViewController.xib in Resources */,
 				CEDD32E525763C8E00023977 /* ProductHeaderTableViewCell.xib in Resources */,
 				F680D67E259B7C2C007EB12C /* DataEntryListingTopTableViewCell.strings in Resources */,
 				2F8463CE250F6EBC0084EB32 /* LoginNewSecondTableViewCell.strings in Resources */,
+				CEBCD7332664A7FE001BF767 /* BankAllListViewController.xib in Resources */,
 				2F846412250F7F1C0084EB32 /* ResetPasswordViewController.strings in Resources */,
 				F4A7E54C251A047D00ED8008 /* AgentDeliveryTableViewCell.xib in Resources */,
 				F680D64E259B7C2C007EB12C /* DataEntryFormWorkPlaceTableViewCell.xib in Resources */,
@@ -3989,6 +4200,7 @@
 				CECEFA5625779E8F0090D459 /* NewGalleryHeader.xib in Resources */,
 				CECEFA5E25779E8F0090D459 /* DateFilterTableViewCell.xib in Resources */,
 				F680D643259B7C2C007EB12C /* DataEntryFromOrderInstractionTableViewCell.strings in Resources */,
+				CEBCD7352664A7FE001BF767 /* WalletAvailableTopCell.xib in Resources */,
 				F6527E192609D088009622DF /* MoreDetailSpecificationsTableViewCell.xib in Resources */,
 				CEAD29F225069D58008B1F9C /* DescriptionTableViewCells.xib in Resources */,
 				CECEF9AC2577575B0090D459 /* BusinessLocationSearch2TableViewCell.strings in Resources */,
@@ -4003,6 +4215,7 @@
 				F62E4AFD25148EC60021CEE0 /* CompanyAgentBankDetailsTableViewCell.strings in Resources */,
 				F680D634259B7C2C007EB12C /* DEInprogressDetailTableViewCell.xib in Resources */,
 				2F8463D8250F6EBC0084EB32 /* LoginNewDesignViewController.xib in Resources */,
+				CEBCD7442664A7FE001BF767 /* TransactionNewPopupViewController.strings in Resources */,
 				CECEF9E02577575C0090D459 /* CheckedTableViewCell.xib in Resources */,
 				CEDD33A92576705A00023977 /* AddFilterViewController.xib in Resources */,
 				CE9CCDFF264BEDBD005AE619 /* ProductTechnicalSpecificationsTableViewCell.xib in Resources */,
@@ -4027,11 +4240,13 @@
 				CECEFA5925779E8F0090D459 /* BussinessGalleryViewController.xib in Resources */,
 				CECEF9F92577575C0090D459 /* PhoneNumberTableViewCell.strings in Resources */,
 				CEDD32DB25763C8E00023977 /* ProductSecondTableViewCell.xib in Resources */,
+				CEBCD7512664A7FE001BF767 /* BankListViewController.xib in Resources */,
 				2FEB12062511EC930012FE98 /* SideMenuSecondTableViewCell.xib in Resources */,
 				CEAD29FA2506A43D008B1F9C /* VideoTableViewCell.xib in Resources */,
 				CE9CCD52264BAA14005AE619 /* ProductVariantCollectionViewCell.xib in Resources */,
 				CECEF99B2577575B0090D459 /* TimeSheetPOpUpViewController.xib in Resources */,
 				CEDD33CB257676F100023977 /* InventoryDetailTableViewCell.xib in Resources */,
+				CEBCD74F2664A7FE001BF767 /* BankListAddCell.xib in Resources */,
 				2FEB122425120E0F0012FE98 /* DashboardWalletTableViewCell.xib in Resources */,
 				CECEF9EB2577575C0090D459 /* topBranchTableViewCell.xib in Resources */,
 				CECEFAD62577D3140090D459 /* AllfiterHeaderTableViewCell.xib in Resources */,
@@ -4050,6 +4265,8 @@
 				CECEF9D92577575C0090D459 /* CommonSearchTableViewCell.xib in Resources */,
 				CE9CCDF6264BEDBD005AE619 /* ProductDetailBannerTableViewCell.strings in Resources */,
 				CEDD32EF25763C8E00023977 /* WholeAddSlabTableViewCell.xib in Resources */,
+				CEBCD7492664A7FE001BF767 /* BankListViewController.strings in Resources */,
+				CEBCD73D2664A7FE001BF767 /* WalletTransferReqNewTableViewCell.xib in Resources */,
 				CEE35796250740800097069D /* Poppins-Regular.ttf in Resources */,
 				CEDD33C7257676F100023977 /* InventoryTableViewCell.strings in Resources */,
 				CEDD32E825763C8E00023977 /* InstorePaymentTableViewCell.xib in Resources */,
@@ -4062,6 +4279,7 @@
 				2F8463F7250F7D4B0084EB32 /* VerifyAccountViewController.strings in Resources */,
 				F6547AD225DE5D9400171862 /* RangeFilterTableViewCell.xib in Resources */,
 				F62E4AE925148EC60021CEE0 /* popupViewController.strings in Resources */,
+				CEBCD7472664A7FE001BF767 /* ShowMoreViewCell.xib in Resources */,
 				CE9CCE19264BF0B6005AE619 /* ListingCommonFilterViewController.xib in Resources */,
 				CECEF9962577575B0090D459 /* addrowTableViewCell.xib in Resources */,
 				2F8463D2250F6EBC0084EB32 /* UploadTopView.xib in Resources */,
@@ -4271,6 +4489,7 @@
 				F680D63B259B7C2C007EB12C /* DEInprogressDetailTableViewCell.swift in Sources */,
 				F6527E082609CF4D009622DF /* MoreDetailSpecificationsTableViewCell.swift in Sources */,
 				F4828CB22508FFCD006B85D8 /* TwoButtonsTableViewCell.swift in Sources */,
+				CEBCD7362664A7FE001BF767 /* WalletTransferReqNewTableViewCell.swift in Sources */,
 				CEDD32D925763C8E00023977 /* WholeAddSlabTableViewCell.swift in Sources */,
 				2F84641F250F80D00084EB32 /* ResetPassword.swift in Sources */,
 				F635979C25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift in Sources */,
@@ -4317,6 +4536,7 @@
 				CECEF9D82577575C0090D459 /* CommonSearchViewController.swift in Sources */,
 				2F84638E250F69840084EB32 /* SectionHeader.swift in Sources */,
 				CECEFA6025779E8F0090D459 /* SelectImageTypePopupViewController.swift in Sources */,
+				CEBCD7382664A7FE001BF767 /* BankHeader.swift in Sources */,
 				2FFDE2412501225A006C5EBD /* AgentDashboardViewController.swift in Sources */,
 				CEA24F5B265BCC9C00B3227D /* GalleryPopUpViewController.swift in Sources */,
 				F680D627259B7C2C007EB12C /* AddedServicesInDataEntryViewController.swift in Sources */,
@@ -4351,6 +4571,7 @@
 				F68B78E32653ADE800B1E69E /* UserPolicyWebViewController.swift in Sources */,
 				CECEFAD72577D3140090D459 /* AllFilterTableViewCell.swift in Sources */,
 				2F84643F250F83910084EB32 /* PopUpViewCell.swift in Sources */,
+				CEBCD72E2664A7FE001BF767 /* DeleteBank.swift in Sources */,
 				CE9CCE02264BEDBD005AE619 /* TitleHeaderTableViewCell.swift in Sources */,
 				CE2EFB3E251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift in Sources */,
 				F62E4AEB25148EC60021CEE0 /* popupViewController.swift in Sources */,
@@ -4360,6 +4581,7 @@
 				CE9CCDFA264BEDBD005AE619 /* ProductWarrentySupportTableViewCell.swift in Sources */,
 				F4C4DC622507952C0075F520 /* ProfileNameTableViewCell.swift in Sources */,
 				F438605325230BF200DE0BED /* AddAmountViewController.swift in Sources */,
+				CEBCD7372664A7FE001BF767 /* WalletNewSimpleTableViewCell.swift in Sources */,
 				CE9CCDC2264BE2D7005AE619 /* DeleteBranchPopupViewController.swift in Sources */,
 				CECEFA4A25779E8F0090D459 /* ViewImagesViewController.swift in Sources */,
 				CEDD33B0257674BA00023977 /* WholesaleListViewCell.swift in Sources */,
@@ -4396,24 +4618,30 @@
 				CE9CCD46264BAA14005AE619 /* ProductListDataBankSellingTableViewCell.swift in Sources */,
 				F680D665259B7C2C007EB12C /* DataEntryFormViewController.swift in Sources */,
 				CE9CCD50264BAA14005AE619 /* ProductVariantDetailTableViewCell.swift in Sources */,
+				CEBCD74B2664A7FE001BF767 /* SearchBankTableViewCell.swift in Sources */,
 				F64B439425220A5700B9C8CB /* IbanLengthModal.swift in Sources */,
 				CEDD333025765BBA00023977 /* SelectCategoryCell.swift in Sources */,
 				CECEF9B92577575B0090D459 /* BusinessLocationSearch2TableViewCell.swift in Sources */,
 				F4C4DC5E250794B20075F520 /* ProfileDetailTableViewCell.swift in Sources */,
 				2FFDE20F25012166006C5EBD /* SceneDelegate.swift in Sources */,
+				CEBCD73E2664A7FE001BF767 /* ShowMoreViewCell.swift in Sources */,
 				CECEFA812577A0BE0090D459 /* UploadBottomTableViewCell.swift in Sources */,
 				CECEFA5125779E8F0090D459 /* GallerySearchCollectionViewCell.swift in Sources */,
 				2F8463CF250F6EBC0084EB32 /* LoginNewFirstTableViewCell.swift in Sources */,
 				F680D655259B7C2C007EB12C /* DataEntryPricePayTableViewCell.swift in Sources */,
 				F62E4B142514983A0021CEE0 /* ImageUpload.swift in Sources */,
+				CEBCD72D2664A7FE001BF767 /* BankList.swift in Sources */,
 				CECEF98F2577575B0090D459 /* TimeSheetPOpUpViewController.swift in Sources */,
+				CEBCD7462664A7FE001BF767 /* TransactionNewPopupViewController.swift in Sources */,
 				2F74CB5C250A365F00DE21EF /* VersionPopupViewController.swift in Sources */,
 				CE9CCD48264BAA14005AE619 /* ProductListHeader.swift in Sources */,
 				F62E4B2225149B370021CEE0 /* DatePickerDialog.swift in Sources */,
 				2F9DA67125237FCA00C46952 /* SearchCategoryTableViewCell.swift in Sources */,
 				2FEB122325120E0F0012FE98 /* DashboardWalletTableViewCell.swift in Sources */,
+				CEBCD72B2664A7FE001BF767 /* WalletFilterNewViewController.swift in Sources */,
 				2F964B752513751B005FFEDC /* MultiBannerVw.swift in Sources */,
 				2F07D1AA2505F89100193658 /* ModalClass.swift in Sources */,
+				CEBCD73A2664A7FE001BF767 /* BankAllListViewController.swift in Sources */,
 				CECEF9D72577575C0090D459 /* CommonSearchTableViewCell.swift in Sources */,
 				2F8463D7250F6EBC0084EB32 /* LoginNewDesignViewController.swift in Sources */,
 				F680D686259B7C2C007EB12C /* DataEntryListingTopTableViewCell.swift in Sources */,
@@ -4457,6 +4685,7 @@
 				2F8463D3250F6EBC0084EB32 /* UploadTopView.swift in Sources */,
 				F6527E092609CF4D009622DF /* OtherServicesOrderInformationTableViewCell.swift in Sources */,
 				2F846416250F7F1C0084EB32 /* ResetPasswordViewController.swift in Sources */,
+				CEBCD73F2664A7FE001BF767 /* BankTransferController.swift in Sources */,
 				CEDD32B72576389700023977 /* ProductModel.swift in Sources */,
 				2F8463FF250F7E9C0084EB32 /* VerifyAccountModal.swift in Sources */,
 				2FEB121E2511F5E20012FE98 /* SideMenuEarningTableViewCell.swift in Sources */,
@@ -4487,12 +4716,15 @@
 				CEDD32EA25763C8E00023977 /* SendForAPProvalTableViewCell.swift in Sources */,
 				CEE72CB4251B5E2700B02DAF /* ServiceDetailTableViewCell.swift in Sources */,
 				F62E4B0C25148EC60021CEE0 /* personalRegViewController.swift in Sources */,
+				CEBCD7422664A7FE001BF767 /* AddNewBankViewController.swift in Sources */,
 				F680D63A259B7C2C007EB12C /* DEInprogressOrderInformationSecondTableViewCell.swift in Sources */,
 				2F07D1AD2505FC8600193658 /* Banner.swift in Sources */,
+				CEBCD74E2664A7FE001BF767 /* BankListAddCell.swift in Sources */,
 				CECEFA0C257773D00090D459 /* GetLocationViewController.swift in Sources */,
 				2FEB12072511EC930012FE98 /* SideMenuSecondTableViewCell.swift in Sources */,
 				CEDD31F22576206500023977 /* CreateProductFirstViewController.swift in Sources */,
 				F62E4B0325148EC60021CEE0 /* ImageSelectPopUpDialogViewController.swift in Sources */,
+				CEBCD7322664A7FE001BF767 /* PaymentProgressTableViewCell.swift in Sources */,
 				F680D673259B7C2C007EB12C /* DECancellationTableViewCell.swift in Sources */,
 				2F07D1B32505FE1C00193658 /* Singleton.swift in Sources */,
 				2F846421250F81F10084EB32 /* ForgotPassword.swift in Sources */,
@@ -4509,9 +4741,11 @@
 				CEDD332D25765BBA00023977 /* ViewAllImagesNewDesignCollectionViewCell.swift in Sources */,
 				CECEFA5825779E8F0090D459 /* GalleryItemCollectionViewCell.swift in Sources */,
 				F680D67C259B7C2C007EB12C /* DataEntryHeaderCollectionViewCell.swift in Sources */,
+				CEBCD74D2664A7FE001BF767 /* BankListTableViewCell.swift in Sources */,
 				F4E772AA252D9F930045BD86 /* ChangePasswordViewController.swift in Sources */,
 				2F8463E1250F6EBC0084EB32 /* LoginIntroFourth.swift in Sources */,
 				CECEFAC62577C3790090D459 /* otherTableViewCell.swift in Sources */,
+				CEBCD7482664A7FE001BF767 /* BankModal.swift in Sources */,
 				F6547AE025DE5E1C00171862 /* ListingTableViewCell.swift in Sources */,
 				CECEF9B52577575B0090D459 /* BusinessLocationTableViewCell.swift in Sources */,
 				CECEFADA2577D4CC0090D459 /* NewInventoryManageModel.swift in Sources */,
@@ -4519,6 +4753,7 @@
 				CE9CCD53264BAA14005AE619 /* ProductVariantCollectionViewCell.swift in Sources */,
 				CECEF9EC2577575C0090D459 /* topBranchTableViewCell.swift in Sources */,
 				CEDD33A42576705A00023977 /* AddFilterInfoTableViewCell.swift in Sources */,
+				CEBCD7522664A7FE001BF767 /* BankListViewController.swift in Sources */,
 				F680D62A259B7C2C007EB12C /* DataEntryDetailViewController.swift in Sources */,
 				2F07D1A82505F89100193658 /* Constant.swift in Sources */,
 				F680D66D259B7C2C007EB12C /* DataEntryTypeListingModal.swift in Sources */,
@@ -4540,6 +4775,7 @@
 				CECEF9F12577575C0090D459 /* ViewLocationTableViewCell.swift in Sources */,
 				2F07D1AB2505F89100193658 /* ServerCalls.swift in Sources */,
 				2F84641A250F7F1C0084EB32 /* ForgotPasswordViewController.swift in Sources */,
+				CEBCD7392664A7FE001BF767 /* WalletAvailableTopCell.swift in Sources */,
 				CEDD330925765A7400023977 /* ScannerNewViewController.swift in Sources */,
 				CEDD32E225763C8E00023977 /* CreateProductSecondViewController.swift in Sources */,
 				CEE3579F250751020097069D /* CommisionsViewController.swift in Sources */,
@@ -4903,6 +5139,142 @@
 				CE9CCDEA264BEDBD005AE619 /* Base */,
 			);
 			name = ProductTechnicalSpecificationsTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		CEBCD6E02664A7FE001BF767 /* BankTransferController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD6E12664A7FE001BF767 /* ar */,
+				CEBCD6E22664A7FE001BF767 /* en */,
+			);
+			name = BankTransferController.strings;
+			sourceTree = "<group>";
+		};
+		CEBCD6E42664A7FE001BF767 /* WalletFilterNewViewController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD6E52664A7FE001BF767 /* ar */,
+				CEBCD6E62664A7FE001BF767 /* en */,
+			);
+			name = WalletFilterNewViewController.strings;
+			sourceTree = "<group>";
+		};
+		CEBCD6E82664A7FE001BF767 /* WalletFilterNewViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD6E92664A7FE001BF767 /* Base */,
+			);
+			name = WalletFilterNewViewController.xib;
+			sourceTree = "<group>";
+		};
+		CEBCD6EC2664A7FE001BF767 /* BankTransferController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD6ED2664A7FE001BF767 /* Base */,
+			);
+			name = BankTransferController.xib;
+			sourceTree = "<group>";
+		};
+		CEBCD6EF2664A7FE001BF767 /* BankHeader.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD6F02664A7FE001BF767 /* ar */,
+				CEBCD6F32664A7FE001BF767 /* en */,
+			);
+			name = BankHeader.strings;
+			sourceTree = "<group>";
+		};
+		CEBCD6F12664A7FE001BF767 /* WalletAvailableTopCell.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD6F22664A7FE001BF767 /* ar */,
+				CEBCD6F42664A7FE001BF767 /* en */,
+			);
+			name = WalletAvailableTopCell.strings;
+			sourceTree = "<group>";
+		};
+		CEBCD6F72664A7FE001BF767 /* BankHeader.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD6F82664A7FE001BF767 /* Base */,
+			);
+			name = BankHeader.xib;
+			sourceTree = "<group>";
+		};
+		CEBCD6F92664A7FE001BF767 /* WalletAvailableTopCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD6FA2664A7FE001BF767 /* Base */,
+			);
+			name = WalletAvailableTopCell.xib;
+			sourceTree = "<group>";
+		};
+		CEBCD7062664A7FE001BF767 /* AddNewBankViewController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD7072664A7FE001BF767 /* ar */,
+				CEBCD7082664A7FE001BF767 /* en */,
+			);
+			name = AddNewBankViewController.strings;
+			sourceTree = "<group>";
+		};
+		CEBCD7092664A7FE001BF767 /* AddNewBankViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD70A2664A7FE001BF767 /* Base */,
+			);
+			name = AddNewBankViewController.xib;
+			sourceTree = "<group>";
+		};
+		CEBCD70E2664A7FE001BF767 /* TransactionNewPopupViewController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD70F2664A7FE001BF767 /* ar */,
+				CEBCD7102664A7FE001BF767 /* en */,
+			);
+			name = TransactionNewPopupViewController.strings;
+			sourceTree = "<group>";
+		};
+		CEBCD7112664A7FE001BF767 /* TransactionNewPopupViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD7122664A7FE001BF767 /* Base */,
+			);
+			name = TransactionNewPopupViewController.xib;
+			sourceTree = "<group>";
+		};
+		CEBCD7172664A7FE001BF767 /* BankListViewController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD7182664A7FE001BF767 /* ar */,
+				CEBCD7192664A7FE001BF767 /* en */,
+			);
+			name = BankListViewController.strings;
+			sourceTree = "<group>";
+		};
+		CEBCD71E2664A7FE001BF767 /* BankListTableViewCell.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD71F2664A7FE001BF767 /* ar */,
+				CEBCD7212664A7FE001BF767 /* en */,
+			);
+			name = BankListTableViewCell.strings;
+			sourceTree = "<group>";
+		};
+		CEBCD7242664A7FE001BF767 /* BankListTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD7252664A7FE001BF767 /* Base */,
+			);
+			name = BankListTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		CEBCD7262664A7FE001BF767 /* BankListViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD7272664A7FE001BF767 /* Base */,
+			);
+			name = BankListViewController.xib;
 			sourceTree = "<group>";
 		};
 		CECEF8C22577575B0090D459 /* deleterowTableViewCell.strings */ = {

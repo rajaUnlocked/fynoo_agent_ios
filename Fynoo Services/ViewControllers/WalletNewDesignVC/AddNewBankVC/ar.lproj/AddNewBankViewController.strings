@@ -1,0 +1,33 @@
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "1qM-gk-MdB"; */
+"1qM-gk-MdB.normalTitle" = "إلغاء";
+
+/* Class = "UILabel"; text = "IBAN Number"; ObjectID = "2a3-Jc-nsm"; */
+"2a3-Jc-nsm.text" = "رقم الآيبان";
+
+/* Class = "UILabel"; text = "Please make ensure that your IBAN number is confirmed."; ObjectID = "3Un-en-e2O"; */
+"3Un-en-e2O.text" = "الرجاء التأكد من مطابقة رقم الآيبان ";
+
+/* Class = "UILabel"; text = "Re-enter IBAN Number"; ObjectID = "DbL-IS-mVz"; */
+"DbL-IS-mVz.text" = "إعادة إدخال رقم الآيبان";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "MhU-yw-io7"; */
+"MhU-yw-io7.normalTitle" = "حفظ";
+
+/* Class = "UILabel"; text = "Send Money from wallet to Bank"; ObjectID = "Nvf-sO-WFH"; */
+"Nvf-sO-WFH.text" = "تحويل المبالغ من المحفظة إلى حسابك البنكي";
+
+/* Class = "UILabel"; text = "Name On Account"; ObjectID = "P6q-Sg-eqb"; */
+"P6q-Sg-eqb.text" = "الاسم كما يظهر في بطاقة الصراف";
+
+/* Class = "UILabel"; text = "Currency"; ObjectID = "SCD-Mh-Zxs"; */
+"SCD-Mh-Zxs.text" = "العملة";
+
+/* Class = "UILabel"; text = "Account Information"; ObjectID = "clP-vj-ewE"; */
+"clP-vj-ewE.text" = "معلومات الحساب البنكي";
+
+/* Class = "UILabel"; text = "Bank Name"; ObjectID = "xkl-je-5pY"; */
+"xkl-je-5pY.text" = "اسم البنك";
+
+/* Class = "UITextField"; text = "SAR"; ObjectID = "xqZ-xA-yQw"; */
+"xqZ-xA-yQw.text" = "ر.س.";

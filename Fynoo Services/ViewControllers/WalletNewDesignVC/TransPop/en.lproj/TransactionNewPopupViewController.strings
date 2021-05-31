@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Are you sure you want transfer\nthe request?"; ObjectID = "329-hj-qjs"; */
+"329-hj-qjs.text" = "Are you sure you want transfer\nthe request?";
+
+/* Class = "UIButton"; normalTitle = "Yes"; ObjectID = "UNu-W7-LHV"; */
+"UNu-W7-LHV.normalTitle" = "Yes";
+
+/* Class = "UIButton"; normalTitle = "No"; ObjectID = "cRU-ty-Hld"; */
+"cRU-ty-Hld.normalTitle" = "No";
