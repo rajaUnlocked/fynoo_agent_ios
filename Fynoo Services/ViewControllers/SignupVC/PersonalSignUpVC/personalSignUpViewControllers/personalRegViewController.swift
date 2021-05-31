@@ -1218,21 +1218,31 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         cell.confirmTxtFld.text = personalAgentSignUPModal.personalAgentConfirmEmail
         cell.mobileTxtFld.text = personalAgentSignUPModal.personalAgentContactNbr
         
+        
+        
         if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
             if value[0]=="ar"{
-                
+                print("arabic langugage")
                 cell.emailTxtFld.textAlignment = .left
                 cell.confirmTxtFld.textAlignment = .left
-                cell.maroofTxtFld.textAlignment = .left
-                cell.passwordTxtFld.textAlignment = .left
                 cell.confirmPasswordTxtFld.textAlignment = .left
-                
-            }else if value[0]=="en" {
+                cell.passwordTxtFld.textAlignment = .left
+                cell.maroofTxtFld.textAlignment = .left
+                cell.mobileTxtFld.textAlignment = .left
+                cell.rotateView.semanticContentAttribute = .forceLeftToRight
+                cell.mobileCodeTxtFld.semanticContentAttribute = .forceLeftToRight
+                cell.mobileCodeFlagImageView.semanticContentAttribute = .forceLeftToRight
+            }else if value[0]=="en"{
                 cell.emailTxtFld.textAlignment = .left
                 cell.confirmTxtFld.textAlignment = .left
-                cell.maroofTxtFld.textAlignment = .left
-                cell.passwordTxtFld.textAlignment = .left
                 cell.confirmPasswordTxtFld.textAlignment = .left
+                cell.passwordTxtFld.textAlignment = .left
+                cell.maroofTxtFld.textAlignment = .left
+                cell.mobileTxtFld.textAlignment = .left
+                cell.rotateView.semanticContentAttribute = .forceLeftToRight
+                cell.mobileCodeTxtFld.semanticContentAttribute = .forceLeftToRight
+                cell.mobileCodeFlagImageView.semanticContentAttribute = .forceLeftToRight
+//                cell.paymentmodeLbl.textAlignment = .left
             }
         }
         
@@ -1281,7 +1291,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         
         let count  = personalAgentSignUPModal.personalAgentmobileLength
                 let str = cell.mobileTxtFld.text?.replacingOccurrences(of: " ", with: "")
-                if str!.count == count {
+                if str!.count == count && count != 0 {
                     ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.mobileNumberView)
                 }else{
                     ModalController.setViewBorderColor(color: #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.mobileNumberView)
@@ -1884,7 +1894,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                 count = personalAgentSignUPModal.personalAgentmobileLength
                 
                 let str = cell.mobileTxtFld.text?.replacingOccurrences(of: " ", with: "")
-                if str!.count == count {
+                if str!.count == count && count != 0 {
                     ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.mobileNumberView)
                 }else{
                     ModalController.setViewBorderColor(color: #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.mobileNumberView)
