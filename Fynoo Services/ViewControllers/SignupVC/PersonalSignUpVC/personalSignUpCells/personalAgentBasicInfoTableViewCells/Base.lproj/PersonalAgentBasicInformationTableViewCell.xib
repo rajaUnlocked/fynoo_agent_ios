@@ -349,7 +349,7 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" tag="1005" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RoT-cZ-vrO">
-                                        <rect key="frame" x="46" y="10.5" width="258" height="18"/>
+                                        <rect key="frame" x="46" y="10.5" width="250" height="18"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
@@ -358,7 +358,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="2rH-2B-aY0"/>
                                     <constraint firstItem="YdQ-Sr-5wp" firstAttribute="centerY" secondItem="nid-1Y-kbg" secondAttribute="centerY" id="8q5-Qm-kD8"/>
-                                    <constraint firstAttribute="trailing" secondItem="RoT-cZ-vrO" secondAttribute="trailing" id="D54-ZB-FMF"/>
+                                    <constraint firstAttribute="trailing" secondItem="RoT-cZ-vrO" secondAttribute="trailing" constant="8" id="D54-ZB-FMF"/>
                                     <constraint firstItem="RoT-cZ-vrO" firstAttribute="centerY" secondItem="YdQ-Sr-5wp" secondAttribute="centerY" id="EYy-c1-mVh"/>
                                     <constraint firstItem="YdQ-Sr-5wp" firstAttribute="leading" secondItem="nid-1Y-kbg" secondAttribute="leading" constant="20" id="Fhx-Eb-14E"/>
                                     <constraint firstItem="RoT-cZ-vrO" firstAttribute="leading" secondItem="YdQ-Sr-5wp" secondAttribute="trailing" constant="12" id="YNf-m3-RqM"/>

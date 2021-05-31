@@ -66,6 +66,22 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
         
         customHeader.viewControl = self
         
+        
+        if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
+            if value[0]=="ar"
+            {
+                let img2 = UIImage(named: "back_new")
+                let image2 = UIImage(cgImage: (img2?.cgImage)!, scale: (img2?.scale)!, orientation: UIImage.Orientation.upMirrored)
+                backBtn.setImage(image2, for: .normal)
+            }
+            else if value[0]=="en"
+            {
+                let image12 = UIImage(named: "back_new")
+                backBtn.setImage(image12, for: .normal)
+            }
+        }
+   
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

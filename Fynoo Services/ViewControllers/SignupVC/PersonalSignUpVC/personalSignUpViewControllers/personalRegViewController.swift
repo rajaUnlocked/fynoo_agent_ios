@@ -433,8 +433,18 @@ func uploadProfileImagesAPI(){
         DatePickerDialog().show("Select - Date of Birth".localized, doneButtonTitle: "Done".localized, cancelButtonTitle: "Cancel".localized,  minimumDate: minDate, maximumDate: maxDate,  datePickerMode: .date){
             (date) -> Void in
          
+            
+//            let RFC3339DateFormatter = DateFormatter()
+//            RFC3339DateFormatter.locale = Locale(localeIdentifier: "en_US_POSIX")
+//            RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+//            RFC3339DateFormatter.timeZone = TimeZone(forSecondsFromGMT: 0)
+//
+//            let date = Date()
+//            let string = RFC3339DateFormatter.stringFromDate(date)
+//            
             if let dt = date {
                 let formatter = DateFormatter()
+                formatter.locale = Locale(identifier: "en_US_POSIX")
                 formatter.dateFormat = "yyyy/MM/dd"
                 print(formatter.string(from: dt))
                 self.personalAgentDOB = formatter.string(from: dt)
@@ -1481,7 +1491,6 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
             
         }
         
-        
         if isVatNoClicked {
             cell.noBtn.isSelected = true
             personalAgentSignUPModal.isVatNotSelected = cell.noBtn.isSelected
@@ -2035,15 +2044,15 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                 print("agentCountryCode:-", agentCountryCode)
                 self.getIbanLengthAPI(countryCode: agentCountryCode)
                 
-            }else if personalAgentSignUPModal.personalAgentAccountNbr.count == 4 {
+            }else if personalAgentSignUPModal.personalAgentAccountNbr.count == 6 {
                 
                 let str = personalAgentSignUPModal.personalAgentAccountNbr
-                let bankStr =  str.substring(from: 2, to: 3)
+                let bankStr =  str.substring(from: 4, to: 5)
                 print("bankIdentifier:-", bankStr)
                 self.bankNameApi(identifier: bankStr)
             }
             
-            if personalAgentSignUPModal.personalAgentAccountNbr.count < 4 {
+            if personalAgentSignUPModal.personalAgentAccountNbr.count < 6 {
                 cell.bankNameTxtFld.text = ""
                 ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.bankNameView)
             }

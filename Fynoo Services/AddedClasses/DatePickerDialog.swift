@@ -74,11 +74,11 @@ open class DatePickerDialog: UIView {
 //        if (@available(iOS 13.4, *)) {
 //                 [datePicker setPreferredDatePickerStyle:UIDatePickerStyleWheels];
 //             }
-        if #available(iOS 13.4, *) {
-            datePicker.preferredDatePickerStyle = .wheels
-        } else {
-            // Fallback on earlier versions
-        }
+//        if #available(iOS 13.4, *) {
+//            datePicker.preferredDatePickerStyle = .wheels
+//        } else {
+//            // Fallback on earlier versions
+//        }
         
     }
 
