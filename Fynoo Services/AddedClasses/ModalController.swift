@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreLocation
 @available(iOS 10.0, *)
 class ModalController: NSObject {
     
@@ -738,4 +738,15 @@ extension String {
         return predicate.evaluate(with: self)
     }
 }
+
+
+func calculateDistance(mobileLocationX:Double,mobileLocationY:Double,DestinationX:Double,DestinationY:Double) -> Double {
+
+        let coordinate₀ = CLLocation(latitude: mobileLocationX, longitude: mobileLocationY)
+        let coordinate₁ = CLLocation(latitude: DestinationX, longitude:  DestinationY)
+
+        let distanceInMeters = coordinate₀.distance(from: coordinate₁)
+
+        return distanceInMeters
+    }
 

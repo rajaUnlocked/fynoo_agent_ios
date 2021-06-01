@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="HeaderView" destination="Tgm-q7-3bW" id="OR2-Pg-t2L"/>
                 <outlet property="headerHeightConstant" destination="WOQ-Fc-sqj" id="jGo-FE-Gdg"/>
+                <outlet property="mapVw" destination="vhE-Pj-iET" id="Moe-qI-NVi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,20 +29,9 @@
                         <constraint firstAttribute="height" constant="201" id="Q7x-Jz-v5X"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhE-Pj-iET">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhE-Pj-iET" customClass="GMSMapView">
                     <rect key="frame" x="0.0" y="90" width="320" height="338"/>
-                    <subviews>
-                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5Dq-z3-Omk">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="318"/>
-                        </mapView>
-                    </subviews>
                     <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="5Dq-z3-Omk" secondAttribute="trailing" id="Wbt-9c-2PL"/>
-                        <constraint firstItem="5Dq-z3-Omk" firstAttribute="top" secondItem="vhE-Pj-iET" secondAttribute="top" id="bz9-u9-KKP"/>
-                        <constraint firstItem="5Dq-z3-Omk" firstAttribute="leading" secondItem="vhE-Pj-iET" secondAttribute="leading" id="cQb-FW-wuj"/>
-                        <constraint firstAttribute="bottom" secondItem="5Dq-z3-Omk" secondAttribute="bottom" constant="20" id="tm2-T7-Qon"/>
-                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tgm-q7-3bW" customClass="NavigationView" customModule="Fynoo_Services" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>

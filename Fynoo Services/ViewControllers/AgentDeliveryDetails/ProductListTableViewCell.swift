@@ -9,6 +9,17 @@
 import UIKit
 
 class ProductListTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var lblAddress: UILabel!
+    @IBOutlet weak var lblQty: UIImageView!
+    @IBOutlet weak var lblPriceAlmost: UILabel!
+    @IBOutlet weak var imgProduct: UIImageView!
+    @IBOutlet weak var btnDelete: UIButton!
+    @IBOutlet weak var btnReduceQuantity: UIButton!
+    @IBOutlet weak var btnCart: UIButton!
+    
+   
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,5 +30,8 @@ class ProductListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+    
+    
+    
     
 }

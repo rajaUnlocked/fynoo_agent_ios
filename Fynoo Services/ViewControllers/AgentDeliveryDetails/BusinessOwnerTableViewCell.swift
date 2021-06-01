@@ -7,8 +7,16 @@
 //
 
 import UIKit
-
+import Cosmos
 class BusinessOwnerTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var lblBoName : UILabel!
+    @IBOutlet weak var lblBoAddress : UILabel!
+    @IBOutlet weak var bo_rating : UILabel!
+    @IBOutlet weak var bo_total_rating : UILabel!
+    @IBOutlet weak var imgbo_pic : UIImageView!
+    @IBOutlet weak var ratingCosmosView: CosmosView!
+
 
     override func awakeFromNib() {
         super.awakeFromNib()

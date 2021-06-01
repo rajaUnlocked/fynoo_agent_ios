@@ -13,12 +13,16 @@
 		1840E7FD26568D81003FDFB9 /* BOCustomerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1840E7FB26568D81003FDFB9 /* BOCustomerTableViewCell.xib */; };
 		1840E803265695AB003FDFB9 /* BusinessOwnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840E801265695AB003FDFB9 /* BusinessOwnerTableViewCell.swift */; };
 		1840E804265695AB003FDFB9 /* BusinessOwnerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1840E802265695AB003FDFB9 /* BusinessOwnerTableViewCell.xib */; };
+		185373D9266645B4001E0C2A /* DoubleExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185373D8266645B4001E0C2A /* DoubleExtended.swift */; };
+		185373DF266646E3001E0C2A /* String+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185373DE266646E3001E0C2A /* String+Utilities.swift */; };
 		1858082D265B921B002A891C /* SearchedProductDeatailViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858082B265B921B002A891C /* SearchedProductDeatailViewC.swift */; };
 		1858082E265B921B002A891C /* SearchedProductDeatailViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1858082C265B921B002A891C /* SearchedProductDeatailViewC.xib */; };
 		18BBD7B3265A00A800C19D8F /* ProductListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBD7B1265A00A800C19D8F /* ProductListTableViewCell.swift */; };
 		18BBD7B4265A00A800C19D8F /* ProductListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBD7B2265A00A800C19D8F /* ProductListTableViewCell.xib */; };
 		18BBD7BA265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBD7B8265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.swift */; };
 		18BBD7BB265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBD7B9265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.xib */; };
+		18C0673A2664DAE1000F3CA3 /* OtpForCodViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C067382664DAE1000F3CA3 /* OtpForCodViewC.swift */; };
+		18C0673B2664DAE1000F3CA3 /* OtpForCodViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C067392664DAE1000F3CA3 /* OtpForCodViewC.xib */; };
 		18C69292265527D400B7347B /* AgentDeliveryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C69290265527D400B7347B /* AgentDeliveryDetailViewController.swift */; };
 		18C69293265527D400B7347B /* AgentDeliveryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C69291265527D400B7347B /* AgentDeliveryDetailViewController.xib */; };
 		2F0230BE2514902B004F1B0B /* DictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0230BD2514902A004F1B0B /* DictionaryExt.swift */; };
@@ -704,12 +708,16 @@
 		1840E7FB26568D81003FDFB9 /* BOCustomerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BOCustomerTableViewCell.xib; sourceTree = "<group>"; };
 		1840E801265695AB003FDFB9 /* BusinessOwnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessOwnerTableViewCell.swift; sourceTree = "<group>"; };
 		1840E802265695AB003FDFB9 /* BusinessOwnerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessOwnerTableViewCell.xib; sourceTree = "<group>"; };
+		185373D8266645B4001E0C2A /* DoubleExtended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleExtended.swift; path = Double/DoubleExtended.swift; sourceTree = "<group>"; };
+		185373DE266646E3001E0C2A /* String+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utilities.swift"; sourceTree = "<group>"; };
 		1858082B265B921B002A891C /* SearchedProductDeatailViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedProductDeatailViewC.swift; sourceTree = "<group>"; };
 		1858082C265B921B002A891C /* SearchedProductDeatailViewC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchedProductDeatailViewC.xib; sourceTree = "<group>"; };
 		18BBD7B1265A00A800C19D8F /* ProductListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListTableViewCell.swift; sourceTree = "<group>"; };
 		18BBD7B2265A00A800C19D8F /* ProductListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductListTableViewCell.xib; sourceTree = "<group>"; };
 		18BBD7B8265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInvoiceInformationTableViewCell.swift; sourceTree = "<group>"; };
 		18BBD7B9265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddInvoiceInformationTableViewCell.xib; sourceTree = "<group>"; };
+		18C067382664DAE1000F3CA3 /* OtpForCodViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpForCodViewC.swift; sourceTree = "<group>"; };
+		18C067392664DAE1000F3CA3 /* OtpForCodViewC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtpForCodViewC.xib; sourceTree = "<group>"; };
 		18C69290265527D400B7347B /* AgentDeliveryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDeliveryDetailViewController.swift; sourceTree = "<group>"; };
 		18C69291265527D400B7347B /* AgentDeliveryDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentDeliveryDetailViewController.xib; sourceTree = "<group>"; };
 		2F0230BD2514902A004F1B0B /* DictionaryExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExt.swift; sourceTree = "<group>"; };
@@ -1521,6 +1529,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		185373D7266644D0001E0C2A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				185373D8266645B4001E0C2A /* DoubleExtended.swift */,
+				185373DD266646E3001E0C2A /* String */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		185373DD266646E3001E0C2A /* String */ = {
+			isa = PBXGroup;
+			children = (
+				185373DE266646E3001E0C2A /* String+Utilities.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 		18580832265B9282002A891C /* SearchedDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -1528,6 +1553,15 @@
 				1858082C265B921B002A891C /* SearchedProductDeatailViewC.xib */,
 			);
 			path = SearchedDetails;
+			sourceTree = "<group>";
+		};
+		18C0673F2664DC10000F3CA3 /* OtpForCOD */ = {
+			isa = PBXGroup;
+			children = (
+				18C067382664DAE1000F3CA3 /* OtpForCodViewC.swift */,
+				18C067392664DAE1000F3CA3 /* OtpForCodViewC.xib */,
+			);
+			path = OtpForCOD;
 			sourceTree = "<group>";
 		};
 		18C6928F2655272E00B7347B /* AgentDeliveryDetails */ = {
@@ -1561,6 +1595,7 @@
 		2F07D1A32505F89100193658 /* AddedClasses */ = {
 			isa = PBXGroup;
 			children = (
+				185373D7266644D0001E0C2A /* Extensions */,
 				2F0230BD2514902A004F1B0B /* DictionaryExt.swift */,
 				F62E4B2125149B360021CEE0 /* DatePickerDialog.swift */,
 				2F84638B250F67900084EB32 /* selecting_local.swift */,
@@ -1879,6 +1914,7 @@
 				2F74CB4F250A365F00DE21EF /* Splash */,
 				F472BA192519DED60094C13E /* AgentDelivery */,
 				18580832265B9282002A891C /* SearchedDetails */,
+				18C0673F2664DC10000F3CA3 /* OtpForCOD */,
 				18C6928F2655272E00B7347B /* AgentDeliveryDetails */,
 				F4EC04A12514D2A0005AF7B0 /* PopUp */,
 				F4CEC2F92511D340003C35E8 /* VatInfo */,
@@ -3766,6 +3802,7 @@
 				2FEB122425120E0F0012FE98 /* DashboardWalletTableViewCell.xib in Resources */,
 				CECEF9EB2577575C0090D459 /* topBranchTableViewCell.xib in Resources */,
 				CECEFAD62577D3140090D459 /* AllfiterHeaderTableViewCell.xib in Resources */,
+				18C0673B2664DAE1000F3CA3 /* OtpForCodViewC.xib in Resources */,
 				F680D67A259B7C2C007EB12C /* DataEntryHeaderCollectionViewCell.xib in Resources */,
 				CEDD32E425763C8E00023977 /* ProductSpecCatagoryTableViewCell.xib in Resources */,
 				F680D651259B7C2C007EB12C /* DataEntryPricePayTableViewCell.xib in Resources */,
@@ -4053,6 +4090,7 @@
 				CEDAF67825285ACC00B846E5 /* BottomLblTableViewCell.swift in Sources */,
 				CEE72CB0251B586400B02DAF /* DocHeaderTableViewCell.swift in Sources */,
 				CEDD32DF25763C8E00023977 /* ProductHeader2TableViewCell.swift in Sources */,
+				185373DF266646E3001E0C2A /* String+Utilities.swift in Sources */,
 				2FEB1227251215F50012FE98 /* ProgressDashboardTableViewCell.swift in Sources */,
 				CEDD33CF257676F100023977 /* InventoryDetailTableViewCell.swift in Sources */,
 				CEE72CBC251B76AF00B02DAF /* BottomPopupTableViewCell.swift in Sources */,
@@ -4107,6 +4145,7 @@
 				F4C4DC5E250794B20075F520 /* ProfileDetailTableViewCell.swift in Sources */,
 				2FFDE20F25012166006C5EBD /* SceneDelegate.swift in Sources */,
 				CECEFA812577A0BE0090D459 /* UploadBottomTableViewCell.swift in Sources */,
+				18C0673A2664DAE1000F3CA3 /* OtpForCodViewC.swift in Sources */,
 				CECEFA5125779E8F0090D459 /* GallerySearchCollectionViewCell.swift in Sources */,
 				2F8463CF250F6EBC0084EB32 /* LoginNewFirstTableViewCell.swift in Sources */,
 				F680D655259B7C2C007EB12C /* DataEntryPricePayTableViewCell.swift in Sources */,
@@ -4257,6 +4296,7 @@
 				CEE72CA8251B36C400B02DAF /* DeliveryDocumentViewController.swift in Sources */,
 				CEDD32FE25763DAB00023977 /* UIUtilities.swift in Sources */,
 				CECEF99A2577575B0090D459 /* BusinessTimesheet1PopupViewController.swift in Sources */,
+				185373D9266645B4001E0C2A /* DoubleExtended.swift in Sources */,
 				CECEFA4925779E8F0090D459 /* ViewImageitemCell.swift in Sources */,
 				2F84641D250F80570084EB32 /* LoginModal.swift in Sources */,
 			);

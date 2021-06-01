@@ -7,13 +7,13 @@
 //
 
 import UIKit
-
+import ObjectMapper
 class ProductDetailsViewC: UIViewController {
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
 
     @IBOutlet weak var tableView: UITableView!
-    
+    var orderDetailData : orderDetail?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +33,50 @@ class ProductDetailsViewC: UIViewController {
         self.headerView.titleHeader.text = "Product Details"
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
+        
+        getOrderDetail()
+        
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
+    
+    
+    
+        func getOrderDetail(){
+            
+            var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
+            
+            if userId == "0"{
+                userId = ""
+                
+            }
+            let param = ["order_id": "OD83451622344381",
+                         "user_id":userId,
+                         "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
+            
+            print("request:-", param)
+            print("Url:-", Service.orderDetail)
+            ServerCalls.postRequest(Service.orderDetail, withParameters: param) { [self] (response, success) in
+                if success{
+                    
+                    if let body = response as? [String: Any] {
+                        self.orderDetailData  = Mapper<orderDetail>().map(JSON: body)
+                        
+                        print(self.orderDetailData?.data?.bo_name ?? "")
+                        
+                        self.tableView.reloadData()
+
+                    }
+                }
+            }
+        }
+    
+    
  
 }
 
@@ -70,6 +113,8 @@ extension ProductDetailsViewC : UITableViewDataSource {
                 return 280
         }else if indexPath.section == 3{
             return 380
+        }else if indexPath.section == 0{
+            return 150
         }else
         {
             return 160
@@ -137,6 +182,15 @@ extension ProductDetailsViewC : UITableViewDataSource {
         
             let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessOwnerTableViewCell",for: indexPath) as! BusinessOwnerTableViewCell
             cell.selectionStyle = .none
+          
+                    cell.lblBoName.text = orderDetailData?.data?.bo_name ?? ""
+                    cell.lblBoAddress.text = orderDetailData?.data?.bo_address ?? ""
+                    cell.bo_total_rating.text = orderDetailData?.data?.bo_total_rating ?? "0"
+                    cell.bo_rating.text = orderDetailData?.data?.bo_rating ?? "0"
+                    
+                    cell.imgbo_pic.sd_setImage(with: URL(string: orderDetailData?.data?.bo_pic ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+                    
+//                    cell.langugae.text = "\(deliverData?.data?.user_lang ?? "")"
             
 //            cell.tripAchivementData = deliverData?.data?.agent_information?.trips_achievements
 //            cell.collectionView.reloadData()
@@ -146,6 +200,28 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     
                     let cell = tableView.dequeueReusableCell(withIdentifier: "BOCustomerTableViewCell",for: indexPath) as! BOCustomerTableViewCell
                     cell.selectionStyle = .none
+                    
+                    
+                    cell.lblCustName.text = orderDetailData?.data?.cust_name ?? ""
+                    cell.lblCustAddress.text = orderDetailData?.data?.cust_address ?? ""
+                    
+                    cell.lblQty.text = "\(orderDetailData?.data?.order_qty ?? 0)"
+                    
+                    cell.lblOrderId.text = " Order Id :  \(orderDetailData?.data?.order_id ?? "0")"
+                    cell.lblOrderDate.text = "\(orderDetailData?.data?.order_date ?? 0)"
+                    
+                    cell.lblCustrating.text = orderDetailData?.data?.cust_rating ?? "0"
+                    cell.lblCusttotalrating.text = orderDetailData?.data?.cust_total_rating ?? "0"
+                    cell.lblCurrencyCode.text = orderDetailData?.data?.currency_code ?? "0"
+                    
+                    cell.order_price.text = "\(orderDetailData?.data?.order_price ?? 0.0)"
+                    cell.imgCustpic.sd_setImage(with: URL(string: orderDetailData?.data?.cust_pic ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+                    cell.imgPaymentIcon.sd_setImage(with: URL(string: orderDetailData?.data?.payment_icon ?? ""), placeholderImage: UIImage(named: "cod_icon"))
+                    
+                    let dist = calculateDistance(mobileLocationX:Double.getDouble(orderDetailData?.data?.bo_lat ?? ""), mobileLocationY:Double.getDouble(orderDetailData?.data?.bo_long ?? ""), DestinationX:Double.getDouble(orderDetailData?.data?.cust_lat ?? ""), DestinationY:Double.getDouble(orderDetailData?.data?.cust_long ?? ""))
+                    
+                    print("abc\(dist)")
+                    
                     
                     return cell
                 }else if indexPath.section == 3{
@@ -158,6 +234,8 @@ extension ProductDetailsViewC : UITableViewDataSource {
                 {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "ProductListTableViewCell",for: indexPath) as! ProductListTableViewCell
                     cell.selectionStyle = .none
+                    
+//                    tableView.reloadData()
                     
                     return cell
                 }
