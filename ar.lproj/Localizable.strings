@@ -1048,6 +1048,7 @@
 "Manage Products"="إدارة المنتجات";
 "Product"="المنتج";
 
+
 // dataEntry
 
 "Order Summary" = "Order Summary";
@@ -1058,4 +1059,10 @@
 "Are you sure you want accept the order?" = "Are you sure you want accept the order?";
 "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information." = "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information.";
 
-
+"Start Work" = "بدء العمل";
+"Submit your work" = "Submit your work";
+"Already Submitted" = "Already Submitted";
+"Amount to be paid for this order." = "قيمة تنفيذ الطلب";
+"Number of days for order completion." = "كم عدد الأيام المطلوبة لإنهاء العمل";
+"Online" = "Online";
+"Holding" = "Holding";

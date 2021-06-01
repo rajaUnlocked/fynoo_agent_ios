@@ -1024,3 +1024,11 @@
 "Data entry" = "Data entry";
 "Are you sure you want accept the order?" = "Are you sure you want accept the order?";
 "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information." = "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information.";
+
+"Start Work" = "Start Work";
+"Submit your work" = "Submit your work";
+"Already Submitted" = "Already Submitted";
+"Amount to be paid for this order." = "Amount to be paid for this order.";
+"Number of days for order completion." = "Number of days for order completion.";
+"Online" = "Online";
+"Holding" = "Holding";

@@ -8,8 +8,12 @@
 
 import UIKit
 import MTPopup
+import MessageUI
+import CoreLocation
+import GoogleMaps
 
-class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDelegate, DECancellationReasonViewControllerDelegate, DataEntryDetailViewControllerDelegate, DataEntryAgentRatingViewControllerDelegate, CompleteDataEntryListTableViewCellrDelegate, DataEntryFormViewControllerDelegate {
+class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDelegate, DECancellationReasonViewControllerDelegate, DataEntryDetailViewControllerDelegate, DataEntryAgentRatingViewControllerDelegate, CompleteDataEntryListTableViewCellrDelegate, DataEntryFormViewControllerDelegate, MFMessageComposeViewControllerDelegate, CLLocationManagerDelegate {
+    
     
     @IBOutlet weak var noDataView: UIView!
     @IBOutlet weak var headerView: NavigationView!
@@ -38,9 +42,15 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
      var serviceIcon:String = ""
     var serviceStatus:String = ""
     
+    var BranchLat = 0.0
+    var BranchLong = 0.0
+    let locationManager = CLLocationManager()
+    var latitude = 0.0
+    var longitude = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.getUserLocation()
         self.setUpUI()
         
         ModalClass.startLoading(self.view)
@@ -238,6 +248,93 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         self.present(vc, animated: true, completion: nil)
         
     }
+    func callClicked(_ sender: Any) {
+        print("sender.tag", (sender as AnyObject).tag!)
+        guard let number = URL(string: "tel://" + ((self.totalRequestListArray?[(sender as AnyObject).tag].bo_number)!))
+                               else { return }
+        UIApplication.shared.open(number)
+    }
+    
+    func messageClicked(_ sender: Any) {
+        print("sender.tag", (sender as AnyObject).tag!)
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.body = ""
+            controller.recipients = ["\((self.totalRequestListArray?[(sender as AnyObject).tag].bo_number)!)"]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+        }
+
+    }
+    
+    //MARK: - Message compose method
+   func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+           //... handle sms screen actions
+           self.dismiss(animated: true, completion: nil)
+       }
+    
+    func navigationClicked(_ sender: Any){
+        
+        self.BranchLat = ModalController.convertInToDouble(str: self.totalRequestListArray?[(sender as AnyObject).tag].lat as AnyObject)
+        self.BranchLong = ModalController.convertInToDouble(str: self.totalRequestListArray?[(sender as AnyObject).tag].long as AnyObject)
+        
+        if HeaderHeightSingleton.shared.longitude == 0.0 {
+            ModalController.showNegativeCustomAlertWith(title: "Please turn on your location services for navigation", msg: "")
+        }else{
+            print("GoogleNavigation")
+            var latStr = 0.0
+            var longStr = 0.0
+            let lati = HeaderHeightSingleton.shared.latitude
+            if lati != 0.0 {
+                latStr = HeaderHeightSingleton.shared.latitude
+                longStr = HeaderHeightSingleton.shared.longitude
+            }
+            
+            if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
+                UIApplication.shared.openURL(URL(string:"comgooglemaps://?saddr=\(latStr),\(longStr)&daddr=\(self.BranchLat),\(self.BranchLong)&directionsmode=driving&zoom=14&views=traffic")!)
+                
+            }else{
+                //            self.openTrackerInBrowser()
+                UIApplication.shared.openURL(URL(string:
+                    "https://www.google.co.in/maps/dir/?saddr=\(latStr),\(longStr)&daddr=\(self.BranchLat),\(self.BranchLong)&directionsmode=driving&zoom=14&views=traffic")!)
+                
+            }
+        }
+    }
+    func getUserLocation() {
+        
+          self.locationManager.requestWhenInUseAuthorization()
+          if CLLocationManager.locationServicesEnabled() {
+              locationManager.delegate = self
+              locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+              locationManager.startUpdatingLocation()
+          }
+      }
+      
+    // MARK: - Location Delegates
+     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+         
+         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+         print("locations = \(locValue.latitude) \(locValue.longitude)")
+         latitude = locValue.latitude
+         longitude = locValue.longitude
+         
+         if HeaderHeightSingleton.shared.longitude == 0.0 {
+             HeaderHeightSingleton.shared.longitude = longitude
+             HeaderHeightSingleton.shared.latitude = latitude
+            
+         }
+         locationManager.stopUpdatingLocation()
+     }
+     
+     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+         ModalController.showNegativeCustomAlertWith(title: "Please turn on your location services", msg: "")
+         
+         HeaderHeightSingleton.shared.longitude = 0.0
+         HeaderHeightSingleton.shared.latitude = 0.0
+
+    }
+    
 }
 
 extension DataEntryListingViewController : UITableViewDelegate {

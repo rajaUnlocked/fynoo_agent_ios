@@ -183,6 +183,11 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
                 if let value = (response?.object(forKey: "error_description") as? String) {
                     ModalController.showSuccessCustomAlertWith(title: "", msg: value)
                     
+                    DispatchQueue.main.async {
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.UserDetailsAPI()
+                    }
+                    
                     if self.isFrom{
                         self.languageSelect!("hgf")
 
