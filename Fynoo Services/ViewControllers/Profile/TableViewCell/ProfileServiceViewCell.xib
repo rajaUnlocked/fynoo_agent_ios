@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +22,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="141" height="102"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="Jtn-ad-LsY">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="Jtn-ad-LsY">
                         <rect key="frame" x="10" y="63" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="U5i-Xr-t6f"/>
@@ -36,13 +37,13 @@
                     </label>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="Jtn-ad-LsY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Ja7-W2-k55"/>
                 <constraint firstItem="DQd-1F-FAt" firstAttribute="centerY" secondItem="Jtn-ad-LsY" secondAttribute="centerY" id="Tbn-5o-cAD"/>
                 <constraint firstItem="DQd-1F-FAt" firstAttribute="leading" secondItem="Jtn-ad-LsY" secondAttribute="trailing" constant="9" id="dOS-sF-XnK"/>
                 <constraint firstItem="Jtn-ad-LsY" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="udF-uS-OC7"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="141" height="102"/>
             <connections>
                 <outlet property="imgCheck" destination="Jtn-ad-LsY" id="IT5-9G-DJ1"/>

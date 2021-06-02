@@ -153,7 +153,14 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="bgView" destination="all-qm-gmu" id="Z3D-yb-FbY"/>
+                <outlet property="commisionlbl" destination="1YE-WN-wFV" id="25I-7J-M6J"/>
+                <outlet property="commisionprice" destination="J2i-oc-w9s" id="g3S-jX-XpF"/>
+                <outlet property="currencycode" destination="du2-5W-6aR" id="4xl-7s-rcA"/>
                 <outlet property="img" destination="ZsH-nS-KYY" id="a8U-ei-arV"/>
+                <outlet property="productlbl" destination="81Q-cS-xzr" id="CZR-VM-U8y"/>
+                <outlet property="proprice" destination="pvr-Xe-bv6" id="KtE-7B-sfH"/>
+                <outlet property="soldprice" destination="71I-gD-bPi" id="HG1-da-cZ6"/>
+                <outlet property="soldproductlbl" destination="GyA-54-GE7" id="RGr-T3-qPn"/>
                 <outlet property="titleLbl" destination="6SR-PG-Wic" id="e5w-9d-Eok"/>
             </connections>
             <point key="canvasLocation" x="139" y="125"/>

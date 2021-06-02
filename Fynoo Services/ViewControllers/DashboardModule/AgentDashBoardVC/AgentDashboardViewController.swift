@@ -485,8 +485,16 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     func DropShipDashboardCell(index : IndexPath) -> UITableViewCell {
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "DropShipDashboardTableViewCell",for: index) as! DropShipDashboardTableViewCell
         cell.selectionStyle = .none
-        cell.titleLbl.text = (mandatoryArray.object(at: index.item) as! NSDictionary).object(forKey: "service_name") as! String
+        cell.titleLbl.text = (mandatoryArray.object(at: index.item) as! NSDictionary).object(forKey: "service_name") as? String
         cell.img.sd_setImage(with: URL(string: "\((mandatoryArray.object(at: index.item) as! NSDictionary).object(forKey: "service_icon") as! String)"), placeholderImage: UIImage(named: ""))
+        let mandatoryservicelist = (mandatoryArray.object(at: index.item) as! NSDictionary).object(forKey: "mandatory_service_list") as! NSArray
+        cell.productlbl.text = (mandatoryservicelist.object(at: 0) as! NSDictionary).object(forKey: "text") as? String
+        cell.soldproductlbl.text = (mandatoryservicelist.object(at: 1) as! NSDictionary).object(forKey: "text") as? String
+        cell.commisionlbl.text = (mandatoryservicelist.object(at: 2) as! NSDictionary).object(forKey: "text") as? String
+        cell.proprice.text = (mandatoryservicelist.object(at: 0) as! NSDictionary).object(forKey: "values") as? String
+        cell.soldprice.text = (mandatoryservicelist.object(at: 1) as! NSDictionary).object(forKey: "values") as? String
+        cell.commisionprice.text = (mandatoryservicelist.object(at: 2) as! NSDictionary).object(forKey: "values") as? String
+        cell.currencycode.text = (mandatoryservicelist.object(at: 2) as! NSDictionary).object(forKey: "currency_code") as? String
         return cell
     }
     

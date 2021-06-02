@@ -947,6 +947,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
         cell.genderView.isHidden = true
+        cell.selectBtn.isHidden = true
         cell.selectionStyle = .none
         cell.isUserInteractionEnabled = false
                    if isEdit

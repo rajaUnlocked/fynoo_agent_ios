@@ -101,6 +101,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         var minDate = Date()
         
         minDate = Calendar.current.date(from: DateComponents(year: 1900 , month: 1, day: 1))!
+        var title = "Select - Date of Birth"
         if tag == 3
         {
             if self.toptxtArr[1] == ""
@@ -108,13 +109,14 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 ModalController.showNegativeCustomAlertWith(title: "Please Select DOB First ", msg: "")
                 return
             }
+            title = "Select - Date of Expiry"
             minDate =  self.fdate
             maxDate = nil
         }
         print(minDate as Any)
        
        
-        DatePickerDialog().show("Select - Date of Birth".localized, doneButtonTitle: "Done".localized, cancelButtonTitle: "Cancel".localized,  minimumDate: minDate, maximumDate: maxDate,  datePickerMode: .date){
+        DatePickerDialog().show("\(title)".localized, doneButtonTitle: "Done".localized, cancelButtonTitle: "Cancel".localized,  minimumDate: minDate, maximumDate: maxDate,  datePickerMode: .date){
             (date) -> Void in
             if let dt = date {
                
@@ -1084,7 +1086,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             {
                 return doc_headerCell(index: indexPath)
             }
-            if indexPath.row <= 4
+            if indexPath.row <= 41
             {
                 
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "VehicleDescriptionTableViewCell", for: indexPath) as! VehicleDescriptionTableViewCell
@@ -1195,10 +1197,6 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 return service_DetailCell(index: indexPath)
                 
             }
-            
-            
-            
-            
             
         }
     }

@@ -245,6 +245,8 @@
 		CEBCD7502664A7FE001BF767 /* BankListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD7242664A7FE001BF767 /* BankListTableViewCell.xib */; };
 		CEBCD7512664A7FE001BF767 /* BankListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD7262664A7FE001BF767 /* BankListViewController.xib */; };
 		CEBCD7522664A7FE001BF767 /* BankListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD7282664A7FE001BF767 /* BankListViewController.swift */; };
+		CEBCD7B226669A28001BF767 /* NoTripFoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD7B026669A28001BF767 /* NoTripFoundTableViewCell.swift */; };
+		CEBCD7B326669A28001BF767 /* NoTripFoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD7B126669A28001BF767 /* NoTripFoundTableViewCell.xib */; };
 		CECEF8B125774EE20090D459 /* RetailPriceListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEF8AF25774EE10090D459 /* RetailPriceListViewCell.xib */; };
 		CECEF8B225774EE20090D459 /* RetailPriceListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEF8B025774EE20090D459 /* RetailPriceListViewCell.swift */; };
 		CECEF8B525774F9B0090D459 /* AddWholeSlabViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEF8B325774F9B0090D459 /* AddWholeSlabViewCell.xib */; };
@@ -1067,6 +1069,8 @@
 		CEBCD7252664A7FE001BF767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BankListTableViewCell.xib; sourceTree = "<group>"; };
 		CEBCD7272664A7FE001BF767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BankListViewController.xib; sourceTree = "<group>"; };
 		CEBCD7282664A7FE001BF767 /* BankListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankListViewController.swift; sourceTree = "<group>"; };
+		CEBCD7B026669A28001BF767 /* NoTripFoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTripFoundTableViewCell.swift; sourceTree = "<group>"; };
+		CEBCD7B126669A28001BF767 /* NoTripFoundTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoTripFoundTableViewCell.xib; sourceTree = "<group>"; };
 		CECEF8AF25774EE10090D459 /* RetailPriceListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RetailPriceListViewCell.xib; sourceTree = "<group>"; };
 		CECEF8B025774EE20090D459 /* RetailPriceListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetailPriceListViewCell.swift; sourceTree = "<group>"; };
 		CECEF8B325774F9B0090D459 /* AddWholeSlabViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddWholeSlabViewCell.xib; sourceTree = "<group>"; };
@@ -3102,6 +3106,8 @@
 				F635979725C66DFD003BF9E2 /* TripAchivementCollectionViewCell.xib */,
 				F635979A25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift */,
 				F635979B25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.xib */,
+				CEBCD7B026669A28001BF767 /* NoTripFoundTableViewCell.swift */,
+				CEBCD7B126669A28001BF767 /* NoTripFoundTableViewCell.xib */,
 			);
 			path = AgentDelivery;
 			sourceTree = "<group>";
@@ -4215,6 +4221,7 @@
 				F62E4AFD25148EC60021CEE0 /* CompanyAgentBankDetailsTableViewCell.strings in Resources */,
 				F680D634259B7C2C007EB12C /* DEInprogressDetailTableViewCell.xib in Resources */,
 				2F8463D8250F6EBC0084EB32 /* LoginNewDesignViewController.xib in Resources */,
+				CEBCD7B326669A28001BF767 /* NoTripFoundTableViewCell.xib in Resources */,
 				CEBCD7442664A7FE001BF767 /* TransactionNewPopupViewController.strings in Resources */,
 				CECEF9E02577575C0090D459 /* CheckedTableViewCell.xib in Resources */,
 				CEDD33A92576705A00023977 /* AddFilterViewController.xib in Resources */,
@@ -4684,6 +4691,7 @@
 				CECEF9E72577575C0090D459 /* CountingTableViewCell.swift in Sources */,
 				2F8463D3250F6EBC0084EB32 /* UploadTopView.swift in Sources */,
 				F6527E092609CF4D009622DF /* OtherServicesOrderInformationTableViewCell.swift in Sources */,
+				CEBCD7B226669A28001BF767 /* NoTripFoundTableViewCell.swift in Sources */,
 				2F846416250F7F1C0084EB32 /* ResetPasswordViewController.swift in Sources */,
 				CEBCD73F2664A7FE001BF767 /* BankTransferController.swift in Sources */,
 				CEDD32B72576389700023977 /* ProductModel.swift in Sources */,
