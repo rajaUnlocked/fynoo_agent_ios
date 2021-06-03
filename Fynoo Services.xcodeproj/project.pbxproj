@@ -3609,8 +3609,6 @@
 				F680D57F259B7C2B007EB12C /* DataEntryFromTopTableViewCell.strings */,
 				F680D581259B7C2B007EB12C /* DataEntryFormWorkPlaceTableViewCell.strings */,
 				F680D583259B7C2B007EB12C /* DataEntryFromOrderInstractionTableViewCell.strings */,
-				F680D585259B7C2B007EB12C /* DataEntryPricePayTableViewCell.strings */,
-				F680D587259B7C2B007EB12C /* DataEntryFormDayTableViewCell.strings */,
 				F680D589259B7C2B007EB12C /* DataEntryFormFirstTopTableViewCell.strings */,
 				F680D58B259B7C2B007EB12C /* DataEntryItemEntryTableViewCell.strings */,
 				F680D58D259B7C2B007EB12C /* DataEntryFormAddItemTableViewCell.strings */,
@@ -3619,10 +3617,12 @@
 				F680D599259B7C2B007EB12C /* DataEntryFormWorkPlaceTableViewCell.swift */,
 				F680D59A259B7C2B007EB12C /* DataEntryFromTopTableViewCell.xib */,
 				F680D59C259B7C2B007EB12C /* DataEntryFormDayTableViewCell.xib */,
+				F680D587259B7C2B007EB12C /* DataEntryFormDayTableViewCell.strings */,
 				F680D59E259B7C2B007EB12C /* DataEntryFormWorkPlaceTableViewCell.xib */,
 				F680D5A0259B7C2B007EB12C /* DataEntryFromOrderInstractionTableViewCell.xib */,
 				F680D5A2259B7C2B007EB12C /* DataEntryFormFirstTopTableViewCell.xib */,
 				F680D5A4259B7C2B007EB12C /* DataEntryPricePayTableViewCell.xib */,
+				F680D585259B7C2B007EB12C /* DataEntryPricePayTableViewCell.strings */,
 				F680D5A6259B7C2B007EB12C /* DataEntryFormAddItemTableViewCell.xib */,
 				F680D5A8259B7C2B007EB12C /* DataEntryItemEntryTableViewCell.xib */,
 				F680D5AA259B7C2B007EB12C /* DataEntryFromTopTableViewCell.swift */,
@@ -6890,8 +6890,8 @@
 			baseConfigurationReference = AC14F5AD44CA06DED48DD025 /* Pods-Fynoo Services.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.2;
 				DEVELOPMENT_TEAM = 94V2SEBR29;
 				INFOPLIST_FILE = "Fynoo Services/Info.plist";
@@ -6901,7 +6901,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sendan.Fynoo-Services";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = neeraj_agent6Oct2020;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -6912,8 +6912,8 @@
 			baseConfigurationReference = A061CAC65AB8618E1FE73AC2 /* Pods-Fynoo Services.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.2;
 				DEVELOPMENT_TEAM = 94V2SEBR29;
 				INFOPLIST_FILE = "Fynoo Services/Info.plist";
@@ -6923,7 +6923,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sendan.Fynoo-Services";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = neeraj_agent6Oct2020;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

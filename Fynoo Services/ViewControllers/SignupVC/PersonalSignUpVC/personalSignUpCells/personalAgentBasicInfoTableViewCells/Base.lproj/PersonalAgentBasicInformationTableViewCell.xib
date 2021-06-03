@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -90,14 +92,14 @@
                                         </constraints>
                                     </imageView>
                                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" tag="203" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenTick" translatesAutoresizingMaskIntoConstraints="NO" id="pen-Ay-gUW">
-                                        <rect key="frame" x="268" y="8.5" width="22" height="22"/>
+                                        <rect key="frame" x="274" y="8.5" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="22" id="nsi-sR-zCx"/>
                                             <constraint firstAttribute="height" constant="22" id="rMB-73-igx"/>
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JEX-3y-ckL" customClass="CustomUITextField" customModule="Fynoo_Services" customModuleProvider="target">
-                                        <rect key="frame" x="48" y="10.5" width="212" height="18"/>
+                                        <rect key="frame" x="48" y="10.5" width="218" height="18"/>
                                         <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -111,7 +113,7 @@
                                     <constraint firstItem="aBS-wC-2f1" firstAttribute="leading" secondItem="sWc-2i-0tU" secondAttribute="leading" constant="20" id="HDS-0H-wUU"/>
                                     <constraint firstItem="JEX-3y-ckL" firstAttribute="leading" secondItem="aBS-wC-2f1" secondAttribute="trailing" constant="12" id="MoK-FB-SGT"/>
                                     <constraint firstItem="pen-Ay-gUW" firstAttribute="leading" secondItem="JEX-3y-ckL" secondAttribute="trailing" constant="8" id="egw-2L-rsg"/>
-                                    <constraint firstAttribute="trailing" secondItem="pen-Ay-gUW" secondAttribute="trailing" constant="14" id="oxj-NW-4It"/>
+                                    <constraint firstAttribute="trailing" secondItem="pen-Ay-gUW" secondAttribute="trailing" constant="8" id="oxj-NW-4It"/>
                                     <constraint firstAttribute="height" constant="39" id="waH-AV-PE1"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -145,7 +147,7 @@
                                             <constraint firstAttribute="height" constant="16" id="mwB-E8-x5o"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkd-Kp-gf0">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkd-Kp-gf0">
                                         <rect key="frame" x="42" y="0.0" width="95" height="39"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                                         <state key="normal">
@@ -203,7 +205,7 @@
                                             <constraint firstAttribute="width" constant="16" id="oJB-RO-lnE"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Myz-KC-OPR">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Myz-KC-OPR">
                                         <rect key="frame" x="42" y="0.0" width="111" height="39"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                                         <state key="normal" title="City">
@@ -263,61 +265,57 @@
                                             <constraint firstAttribute="height" constant="16" id="z9u-ad-2d3"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropDown_icon" translatesAutoresizingMaskIntoConstraints="NO" id="bQI-xr-GJp">
-                                        <rect key="frame" x="41" y="12" width="15" height="15"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYD-Vj-ASY">
+                                        <rect key="frame" x="40" y="0.0" width="254" height="39"/>
+                                        <subviews>
+                                            <textField opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5eM-l6-riJ">
+                                                <rect key="frame" x="66" y="0.0" width="180" height="39.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="39.5" id="PNa-fZ-mte"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="501" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J51-x4-uoz">
+                                                <rect key="frame" x="24" y="19.5" width="40" height="0.0"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="8B4-lt-LZL"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
+                                                <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="401" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aJM-F9-RO6">
+                                                <rect key="frame" x="0.0" y="9.5" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="Kr8-rz-jsQ"/>
+                                                    <constraint firstAttribute="height" constant="20" id="iQO-1c-qdV"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="15" id="dyZ-ae-T5t"/>
-                                            <constraint firstAttribute="height" constant="15" id="gGe-Ot-zZN"/>
+                                            <constraint firstItem="5eM-l6-riJ" firstAttribute="centerY" secondItem="tYD-Vj-ASY" secondAttribute="centerY" id="8JD-CN-5HL"/>
+                                            <constraint firstAttribute="trailing" secondItem="5eM-l6-riJ" secondAttribute="trailing" constant="8" id="OCd-92-WiE"/>
+                                            <constraint firstItem="5eM-l6-riJ" firstAttribute="leading" secondItem="J51-x4-uoz" secondAttribute="trailing" constant="2" id="baQ-dH-VXr"/>
+                                            <constraint firstItem="aJM-F9-RO6" firstAttribute="centerY" secondItem="tYD-Vj-ASY" secondAttribute="centerY" id="gXg-gj-jTU"/>
+                                            <constraint firstItem="aJM-F9-RO6" firstAttribute="leading" secondItem="tYD-Vj-ASY" secondAttribute="leading" constant="0.10000000000000001" id="isl-Qj-Ucn"/>
+                                            <constraint firstItem="J51-x4-uoz" firstAttribute="leading" secondItem="aJM-F9-RO6" secondAttribute="trailing" constant="4" id="oO8-J7-Uuf"/>
+                                            <constraint firstItem="J51-x4-uoz" firstAttribute="centerY" secondItem="aJM-F9-RO6" secondAttribute="centerY" id="wgU-fv-VbG"/>
                                         </constraints>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EPo-Iq-hZ4">
-                                        <rect key="frame" x="61" y="10" width="25" height="19"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="25" id="j2B-2d-Tw4"/>
-                                        </constraints>
-                                    </imageView>
-                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6wS-2n-gKc">
-                                        <rect key="frame" x="86" y="10.5" width="45" height="18"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="45" id="2Tt-0W-UPb"/>
-                                        </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OVW-kD-pD9">
-                                        <rect key="frame" x="131" y="10.5" width="168" height="18"/>
-                                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QM-LZ-ErF">
-                                        <rect key="frame" x="41" y="0.0" width="90" height="39"/>
-                                        <connections>
-                                            <action selector="mobileCodeDropDownClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="HK3-yq-flE"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="7QM-LZ-ErF" firstAttribute="trailing" secondItem="6wS-2n-gKc" secondAttribute="trailing" id="0XK-PV-3ZQ"/>
-                                    <constraint firstItem="OVW-kD-pD9" firstAttribute="leading" secondItem="6wS-2n-gKc" secondAttribute="trailing" id="7oW-1C-TN2"/>
-                                    <constraint firstItem="7QM-LZ-ErF" firstAttribute="leading" secondItem="bQI-xr-GJp" secondAttribute="leading" id="A8m-0M-Jgn"/>
-                                    <constraint firstItem="6wS-2n-gKc" firstAttribute="centerY" secondItem="EPo-Iq-hZ4" secondAttribute="centerY" id="HfX-vg-26J"/>
-                                    <constraint firstAttribute="trailing" secondItem="OVW-kD-pD9" secondAttribute="trailing" constant="5" id="KN4-3w-kdv"/>
-                                    <constraint firstItem="7QM-LZ-ErF" firstAttribute="top" secondItem="ESg-re-mIP" secondAttribute="top" id="ORy-ud-Jqs"/>
-                                    <constraint firstItem="EPo-Iq-hZ4" firstAttribute="top" secondItem="ESg-re-mIP" secondAttribute="top" constant="10" id="P79-Nh-wMw"/>
-                                    <constraint firstAttribute="bottom" secondItem="EPo-Iq-hZ4" secondAttribute="bottom" constant="10" id="PYb-jS-W1b"/>
-                                    <constraint firstItem="bQI-xr-GJp" firstAttribute="leading" secondItem="5nX-2e-YQJ" secondAttribute="trailing" constant="5" id="Qnd-gj-16M"/>
-                                    <constraint firstAttribute="bottom" secondItem="7QM-LZ-ErF" secondAttribute="bottom" id="YsB-qb-whD"/>
-                                    <constraint firstItem="6wS-2n-gKc" firstAttribute="leading" secondItem="EPo-Iq-hZ4" secondAttribute="trailing" id="ZmK-IK-e1K"/>
+                                    <constraint firstItem="tYD-Vj-ASY" firstAttribute="top" secondItem="ESg-re-mIP" secondAttribute="top" id="Jgx-nh-4pv"/>
+                                    <constraint firstAttribute="bottom" secondItem="tYD-Vj-ASY" secondAttribute="bottom" id="PsG-cl-QjK"/>
+                                    <constraint firstItem="tYD-Vj-ASY" firstAttribute="centerY" secondItem="5nX-2e-YQJ" secondAttribute="centerY" id="R9o-Sz-atq"/>
                                     <constraint firstItem="5nX-2e-YQJ" firstAttribute="centerY" secondItem="ESg-re-mIP" secondAttribute="centerY" id="aPB-Dv-jHD"/>
+                                    <constraint firstAttribute="trailing" secondItem="tYD-Vj-ASY" secondAttribute="trailing" constant="10" id="dAH-sd-9f9"/>
                                     <constraint firstAttribute="height" constant="39" id="dyj-MI-5Sa"/>
-                                    <constraint firstItem="OVW-kD-pD9" firstAttribute="centerY" secondItem="5nX-2e-YQJ" secondAttribute="centerY" id="eLt-Gu-Xlp"/>
                                     <constraint firstItem="5nX-2e-YQJ" firstAttribute="leading" secondItem="ESg-re-mIP" secondAttribute="leading" constant="20" id="frx-tc-hCw"/>
-                                    <constraint firstItem="EPo-Iq-hZ4" firstAttribute="leading" secondItem="bQI-xr-GJp" secondAttribute="trailing" constant="5" id="pvP-21-eSO"/>
-                                    <constraint firstItem="bQI-xr-GJp" firstAttribute="centerY" secondItem="5nX-2e-YQJ" secondAttribute="centerY" id="tPT-1S-nej"/>
-                                    <constraint firstItem="7QM-LZ-ErF" firstAttribute="centerY" secondItem="ESg-re-mIP" secondAttribute="centerY" id="uvU-A8-XNa"/>
+                                    <constraint firstItem="tYD-Vj-ASY" firstAttribute="leading" secondItem="5nX-2e-YQJ" secondAttribute="trailing" constant="4" id="nGo-Ql-2zX"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -351,7 +349,7 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" tag="1005" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RoT-cZ-vrO">
-                                        <rect key="frame" x="46" y="10.5" width="258" height="18"/>
+                                        <rect key="frame" x="46" y="10.5" width="250" height="18"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
@@ -360,7 +358,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="2rH-2B-aY0"/>
                                     <constraint firstItem="YdQ-Sr-5wp" firstAttribute="centerY" secondItem="nid-1Y-kbg" secondAttribute="centerY" id="8q5-Qm-kD8"/>
-                                    <constraint firstAttribute="trailing" secondItem="RoT-cZ-vrO" secondAttribute="trailing" id="D54-ZB-FMF"/>
+                                    <constraint firstAttribute="trailing" secondItem="RoT-cZ-vrO" secondAttribute="trailing" constant="8" id="D54-ZB-FMF"/>
                                     <constraint firstItem="RoT-cZ-vrO" firstAttribute="centerY" secondItem="YdQ-Sr-5wp" secondAttribute="centerY" id="EYy-c1-mVh"/>
                                     <constraint firstItem="YdQ-Sr-5wp" firstAttribute="leading" secondItem="nid-1Y-kbg" secondAttribute="leading" constant="20" id="Fhx-Eb-14E"/>
                                     <constraint firstItem="RoT-cZ-vrO" firstAttribute="leading" secondItem="YdQ-Sr-5wp" secondAttribute="trailing" constant="12" id="YNf-m3-RqM"/>
@@ -564,8 +562,8 @@
                     <constraint firstItem="c3i-eq-F3D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vBc-Cr-76g"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="cityBtn" destination="Myz-KC-OPR" id="N84-Oa-XGg"/>
                 <outlet property="cityHeaderLbl" destination="7I2-74-9SU" id="jtH-mn-GXf"/>
@@ -578,6 +576,7 @@
                 <outlet property="confirmPasswordTxtFld" destination="kPL-Ki-9it" id="BzT-dP-1G1"/>
                 <outlet property="confirmPasswordView" destination="2O5-L5-V7n" id="jdy-PP-AjD"/>
                 <outlet property="confirmTxtFld" destination="JEX-3y-ckL" id="O0j-XG-moP"/>
+                <outlet property="confirmTxtFldTrailingConstant" destination="egw-2L-rsg" id="4ce-Ux-ehx"/>
                 <outlet property="countryBtn" destination="Qkd-Kp-gf0" id="43j-gE-r96"/>
                 <outlet property="countryHeaderLbl" destination="7Q3-oX-sHw" id="iUt-8t-PCc"/>
                 <outlet property="countryView" destination="LFG-z3-oPG" id="Na3-JY-LYq"/>
@@ -589,19 +588,24 @@
                 <outlet property="maroofHeaderLbl" destination="9KL-Xz-zF6" id="oAw-yC-QCh"/>
                 <outlet property="maroofTxtFld" destination="RoT-cZ-vrO" id="aio-53-2Rd"/>
                 <outlet property="maroofView" destination="nid-1Y-kbg" id="TaH-4n-WxP"/>
-                <outlet property="mobileCodeDropDownBtn" destination="7QM-LZ-ErF" id="eCr-Rt-TYp"/>
-                <outlet property="mobileCodeFlagImageView" destination="EPo-Iq-hZ4" id="cCY-sH-2CF"/>
-                <outlet property="mobileCodeTxtFld" destination="6wS-2n-gKc" id="ejE-My-wi4"/>
+                <outlet property="mobileCodeFlagImageView" destination="aJM-F9-RO6" id="usl-E7-cyt"/>
+                <outlet property="mobileCodeTxtFld" destination="J51-x4-uoz" id="OkW-Kx-8KJ"/>
                 <outlet property="mobileHeaderLbl" destination="GPW-h0-e9a" id="BgE-RA-hyy"/>
                 <outlet property="mobileNumberView" destination="ESg-re-mIP" id="Bs6-3y-Cgh"/>
-                <outlet property="mobileTxtFld" destination="OVW-kD-pD9" id="RCe-sf-1aA"/>
+                <outlet property="mobileTxtFld" destination="5eM-l6-riJ" id="VYL-Bi-fts"/>
                 <outlet property="passwordHeaderLbl" destination="i9Z-Um-Oro" id="PPz-K1-eMV"/>
                 <outlet property="passwordTxtFld" destination="cdk-W6-1ct" id="B92-tw-uOo"/>
                 <outlet property="passwordView" destination="gus-TJ-KHv" id="ycX-bZ-dUv"/>
+                <outlet property="rotateView" destination="tYD-Vj-ASY" id="hL2-AP-TI2"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="107.8125"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="JEX-3y-ckL">
+            <size key="intrinsicContentSize" width="4" height="18"/>
+        </designable>
+    </designables>
     <resources>
         <image name="city" width="14" height="12"/>
         <image name="dropDown_icon" width="12" height="7"/>
@@ -613,5 +617,8 @@
         <image name="maroof" width="14" height="14"/>
         <image name="message" width="17" height="13"/>
         <image name="mobile" width="14" height="16"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

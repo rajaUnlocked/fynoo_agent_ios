@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,110 +25,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HrG-Z3-DEp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgw-rE-Bp4">
-                                <rect key="frame" x="28" y="8" width="64.5" height="14"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="14" id="iGR-jY-HPj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
-                                <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcd-ta-khC">
-                                <rect key="frame" x="8" y="30" width="304" height="39"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bankLogo" translatesAutoresizingMaskIntoConstraints="NO" id="18e-4e-0Kt">
-                                        <rect key="frame" x="20" y="10" width="16" height="19"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="19" id="PlB-pD-7hS"/>
-                                            <constraint firstAttribute="width" constant="16" id="USi-v2-pK3"/>
-                                        </constraints>
-                                    </imageView>
-                                    <textField opaque="NO" userInteractionEnabled="NO" tag="1008" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KGH-Nm-yRT">
-                                        <rect key="frame" x="48" y="10.5" width="248" height="18"/>
-                                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blr-38-w65">
-                                        <rect key="frame" x="0.0" y="0.0" width="304" height="39"/>
-                                        <connections>
-                                            <action selector="bankClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yJi-Qd-mJ7"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="KGH-Nm-yRT" firstAttribute="centerY" secondItem="18e-4e-0Kt" secondAttribute="centerY" id="6hT-Ja-est"/>
-                                    <constraint firstAttribute="trailing" secondItem="KGH-Nm-yRT" secondAttribute="trailing" constant="8" id="7Rq-5i-xal"/>
-                                    <constraint firstAttribute="bottom" secondItem="blr-38-w65" secondAttribute="bottom" id="7uq-yc-Gog"/>
-                                    <constraint firstItem="18e-4e-0Kt" firstAttribute="leading" secondItem="Mcd-ta-khC" secondAttribute="leading" constant="20" id="8u2-KP-iFw"/>
-                                    <constraint firstItem="blr-38-w65" firstAttribute="leading" secondItem="Mcd-ta-khC" secondAttribute="leading" id="9GE-GL-KPF"/>
-                                    <constraint firstItem="18e-4e-0Kt" firstAttribute="centerY" secondItem="Mcd-ta-khC" secondAttribute="centerY" id="Hpj-zj-ywI"/>
-                                    <constraint firstAttribute="trailing" secondItem="blr-38-w65" secondAttribute="trailing" id="czT-gM-JJW"/>
-                                    <constraint firstItem="KGH-Nm-yRT" firstAttribute="leading" secondItem="18e-4e-0Kt" secondAttribute="trailing" constant="12" id="ebJ-cu-smW"/>
-                                    <constraint firstItem="blr-38-w65" firstAttribute="top" secondItem="Mcd-ta-khC" secondAttribute="top" id="oU8-5l-SaH"/>
-                                    <constraint firstAttribute="height" constant="39" id="rVS-sU-dvs"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.40000000000000002"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Holder Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoC-NB-IPY">
-                                <rect key="frame" x="28" y="77" width="123" height="14"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="14" id="7n4-gu-L9D"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
-                                <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2SZ-B2-aCJ">
-                                <rect key="frame" x="8" y="99" width="304" height="39"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accountHolderLogo" translatesAutoresizingMaskIntoConstraints="NO" id="UA1-Qh-DE6">
-                                        <rect key="frame" x="20" y="10.5" width="20" height="18"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="WLv-Wv-tPA"/>
-                                            <constraint firstAttribute="height" constant="18" id="pI8-lH-h9x"/>
-                                        </constraints>
-                                    </imageView>
-                                    <textField opaque="NO" tag="1009" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PWw-Sq-Fr4">
-                                        <rect key="frame" x="52" y="10.5" width="244" height="18"/>
-                                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="PWw-Sq-Fr4" firstAttribute="leading" secondItem="UA1-Qh-DE6" secondAttribute="trailing" constant="12" id="LsE-9f-9jQ"/>
-                                    <constraint firstItem="PWw-Sq-Fr4" firstAttribute="centerY" secondItem="UA1-Qh-DE6" secondAttribute="centerY" id="XjM-Ke-U3X"/>
-                                    <constraint firstAttribute="height" constant="39" id="Ymk-s8-CsN"/>
-                                    <constraint firstItem="UA1-Qh-DE6" firstAttribute="centerY" secondItem="2SZ-B2-aCJ" secondAttribute="centerY" id="fFy-Ri-zqX"/>
-                                    <constraint firstAttribute="trailing" secondItem="PWw-Sq-Fr4" secondAttribute="trailing" constant="8" id="hTa-jO-XfT"/>
-                                    <constraint firstItem="UA1-Qh-DE6" firstAttribute="leading" secondItem="2SZ-B2-aCJ" secondAttribute="leading" constant="20" id="huH-dY-ws8"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.40000000000000002"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.3921568627" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IBAN Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Use-1K-rQn">
-                                <rect key="frame" x="28" y="146" width="73.5" height="14"/>
+                                <rect key="frame" x="28" y="8" width="73.5" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="14" id="8ri-Fu-fbl"/>
                                 </constraints>
@@ -136,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r3o-f5-z3J">
-                                <rect key="frame" x="8" y="168" width="304" height="39"/>
+                                <rect key="frame" x="8" y="30" width="304" height="39"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IBAN_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="gdt-C8-IuL">
                                         <rect key="frame" x="20" y="10.5" width="20" height="18"/>
@@ -172,20 +71,122 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgw-rE-Bp4">
+                                <rect key="frame" x="28" y="77" width="64.5" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="iGR-jY-HPj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcd-ta-khC">
+                                <rect key="frame" x="8" y="99" width="304" height="39"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bankLogo" translatesAutoresizingMaskIntoConstraints="NO" id="18e-4e-0Kt">
+                                        <rect key="frame" x="20" y="10" width="16" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="PlB-pD-7hS"/>
+                                            <constraint firstAttribute="width" constant="16" id="USi-v2-pK3"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" userInteractionEnabled="NO" tag="1008" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KGH-Nm-yRT">
+                                        <rect key="frame" x="48" y="10.5" width="248" height="18"/>
+                                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blr-38-w65">
+                                        <rect key="frame" x="0.0" y="0.0" width="304" height="39"/>
+                                        <connections>
+                                            <action selector="bankClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yJi-Qd-mJ7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="KGH-Nm-yRT" firstAttribute="centerY" secondItem="18e-4e-0Kt" secondAttribute="centerY" id="6hT-Ja-est"/>
+                                    <constraint firstAttribute="trailing" secondItem="KGH-Nm-yRT" secondAttribute="trailing" constant="8" id="7Rq-5i-xal"/>
+                                    <constraint firstAttribute="bottom" secondItem="blr-38-w65" secondAttribute="bottom" id="7uq-yc-Gog"/>
+                                    <constraint firstItem="18e-4e-0Kt" firstAttribute="leading" secondItem="Mcd-ta-khC" secondAttribute="leading" constant="20" id="8u2-KP-iFw"/>
+                                    <constraint firstItem="blr-38-w65" firstAttribute="leading" secondItem="Mcd-ta-khC" secondAttribute="leading" id="9GE-GL-KPF"/>
+                                    <constraint firstItem="18e-4e-0Kt" firstAttribute="centerY" secondItem="Mcd-ta-khC" secondAttribute="centerY" id="Hpj-zj-ywI"/>
+                                    <constraint firstAttribute="trailing" secondItem="blr-38-w65" secondAttribute="trailing" id="czT-gM-JJW"/>
+                                    <constraint firstItem="KGH-Nm-yRT" firstAttribute="leading" secondItem="18e-4e-0Kt" secondAttribute="trailing" constant="12" id="ebJ-cu-smW"/>
+                                    <constraint firstItem="blr-38-w65" firstAttribute="top" secondItem="Mcd-ta-khC" secondAttribute="top" id="oU8-5l-SaH"/>
+                                    <constraint firstAttribute="height" constant="39" id="rVS-sU-dvs"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.40000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Holder Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoC-NB-IPY">
+                                <rect key="frame" x="28" y="146" width="123" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="7n4-gu-L9D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2SZ-B2-aCJ">
+                                <rect key="frame" x="8" y="168" width="304" height="39"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accountHolderLogo" translatesAutoresizingMaskIntoConstraints="NO" id="UA1-Qh-DE6">
+                                        <rect key="frame" x="20" y="10.5" width="20" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="WLv-Wv-tPA"/>
+                                            <constraint firstAttribute="height" constant="18" id="pI8-lH-h9x"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" tag="1009" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PWw-Sq-Fr4">
+                                        <rect key="frame" x="52" y="10.5" width="244" height="18"/>
+                                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="PWw-Sq-Fr4" firstAttribute="leading" secondItem="UA1-Qh-DE6" secondAttribute="trailing" constant="12" id="LsE-9f-9jQ"/>
+                                    <constraint firstItem="PWw-Sq-Fr4" firstAttribute="centerY" secondItem="UA1-Qh-DE6" secondAttribute="centerY" id="XjM-Ke-U3X"/>
+                                    <constraint firstAttribute="height" constant="39" id="Ymk-s8-CsN"/>
+                                    <constraint firstItem="UA1-Qh-DE6" firstAttribute="centerY" secondItem="2SZ-B2-aCJ" secondAttribute="centerY" id="fFy-Ri-zqX"/>
+                                    <constraint firstAttribute="trailing" secondItem="PWw-Sq-Fr4" secondAttribute="trailing" constant="8" id="hTa-jO-XfT"/>
+                                    <constraint firstItem="UA1-Qh-DE6" firstAttribute="leading" secondItem="2SZ-B2-aCJ" secondAttribute="leading" constant="20" id="huH-dY-ws8"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.40000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.3921568627" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Mcd-ta-khC" firstAttribute="top" secondItem="qgw-rE-Bp4" secondAttribute="bottom" constant="8" id="1cE-d4-MhJ"/>
                             <constraint firstItem="r3o-f5-z3J" firstAttribute="leading" secondItem="HrG-Z3-DEp" secondAttribute="leading" constant="8" id="2gN-hZ-yNT"/>
                             <constraint firstItem="2SZ-B2-aCJ" firstAttribute="leading" secondItem="HrG-Z3-DEp" secondAttribute="leading" constant="8" id="5u9-QJ-yNh"/>
-                            <constraint firstItem="Use-1K-rQn" firstAttribute="top" secondItem="2SZ-B2-aCJ" secondAttribute="bottom" constant="8" id="AKb-rp-QAX"/>
+                            <constraint firstItem="qgw-rE-Bp4" firstAttribute="top" secondItem="r3o-f5-z3J" secondAttribute="bottom" constant="8" id="9gw-0O-30X"/>
                             <constraint firstItem="qgw-rE-Bp4" firstAttribute="leading" secondItem="HrG-Z3-DEp" secondAttribute="leading" constant="28" id="GRY-7b-6al"/>
                             <constraint firstItem="KoC-NB-IPY" firstAttribute="top" secondItem="Mcd-ta-khC" secondAttribute="bottom" constant="8" id="Geg-bV-RO2"/>
                             <constraint firstAttribute="trailing" secondItem="2SZ-B2-aCJ" secondAttribute="trailing" constant="8" id="II7-Ca-kAB"/>
                             <constraint firstAttribute="trailing" secondItem="Mcd-ta-khC" secondAttribute="trailing" constant="8" id="IMr-4o-aaM"/>
+                            <constraint firstItem="Use-1K-rQn" firstAttribute="top" secondItem="HrG-Z3-DEp" secondAttribute="top" constant="8" id="UsG-6g-zCH"/>
                             <constraint firstItem="2SZ-B2-aCJ" firstAttribute="top" secondItem="KoC-NB-IPY" secondAttribute="bottom" constant="8" id="WDx-HZ-rjY"/>
                             <constraint firstItem="Mcd-ta-khC" firstAttribute="leading" secondItem="HrG-Z3-DEp" secondAttribute="leading" constant="8" id="ZUR-rQ-66G"/>
-                            <constraint firstItem="qgw-rE-Bp4" firstAttribute="top" secondItem="HrG-Z3-DEp" secondAttribute="top" constant="8" id="aDf-5P-gRV"/>
                             <constraint firstItem="Use-1K-rQn" firstAttribute="leading" secondItem="HrG-Z3-DEp" secondAttribute="leading" constant="28" id="amf-VD-DBD"/>
                             <constraint firstAttribute="trailing" secondItem="r3o-f5-z3J" secondAttribute="trailing" constant="8" id="nxR-sL-3Bh"/>
                             <constraint firstItem="r3o-f5-z3J" firstAttribute="top" secondItem="Use-1K-rQn" secondAttribute="bottom" constant="8" id="wSO-mI-YB3"/>
@@ -200,8 +201,8 @@
                     <constraint firstItem="HrG-Z3-DEp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="QZG-Q5-4QS"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="IbanNumberHeaderLbl" destination="Use-1K-rQn" id="md1-fT-kr2"/>
                 <outlet property="accountHolderNameLbl" destination="KoC-NB-IPY" id="YV1-v7-yqt"/>

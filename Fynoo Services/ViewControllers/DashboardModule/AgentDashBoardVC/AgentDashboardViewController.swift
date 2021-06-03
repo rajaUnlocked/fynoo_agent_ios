@@ -693,11 +693,11 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     func dashboardAPI()
     {
         let user_id:UserData = AuthorisedUser.shared.getAuthorisedUser()
-        var userID = "\(user_id.data!.id)"
+        let userID = "\(user_id.data!.id)"
         ModalClass.startLoading(self.view)
         let str = "\(Constant.BASE_URL)\(Constant.agent_dashboard)"
         let parameters = [
-            "user_id": userID,
+            "user_id": Singleton.shared.getUserId(),
             "lang_code":HeaderHeightSingleton.shared.LanguageSelected
         ]
         print("request -",parameters)

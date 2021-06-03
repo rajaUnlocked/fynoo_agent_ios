@@ -37,6 +37,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           FirebaseApp.configure()
         return true
     }
+    
+    
+    //  MARK: - UserDetails API
+    func UserDetailsAPI(){
+//        ModalClass.startLoading(self.view)
+        let str = "\(Service.getProfile)"
+        let parameters = [
+            "user_id": Singleton.shared.getUserId(),
+            "lang_code":HeaderHeightSingleton.shared.LanguageSelected
+        ]
+        print("request -",parameters)
+        ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
+            ModalClass.stopLoading()
+            if success == true {
+                let ResponseDict : NSDictionary = (response as? NSDictionary)!
+                print("ResponseDictionary %@",ResponseDict)
+                let x = ResponseDict.object(forKey: "error") as! Bool
+                if x {
+                    ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "error_description") as? String)!, msg: "")
+                }else{
+                    let results = (ResponseDict.object(forKey: "data") as! NSDictionary)
+                    let userID:String = ModalController.toString(results.object(forKey: "id") as AnyObject)
+                    Singleton.shared.setUserId(UserId: "\(userID)")
+                    AuthorisedUser.shared.setAuthorisedUser(with:response as Any)
+        }
+            }else{
+                if response == nil
+                {
+                    print ("connection error")
+                    ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                }else{
+                    print ("data not in proper json")
+                }
+            }
+        }
+    }
+    
+    
 
     // MARK: UISceneSession Lifecycle
 

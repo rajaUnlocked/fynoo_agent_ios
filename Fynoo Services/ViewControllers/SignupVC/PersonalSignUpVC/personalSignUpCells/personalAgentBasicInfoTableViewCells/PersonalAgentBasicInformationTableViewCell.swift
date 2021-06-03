@@ -29,7 +29,12 @@ class PersonalAgentBasicInformationTableViewCell: UITableViewCell {
     @IBOutlet var hideShowPassword: UIButton!
     @IBOutlet var confirmPasswordTxtFld: UITextField!
     @IBOutlet var confirmPasswordMatchBtn: UIButton!
-    @IBOutlet var mobileCodeTxtFld: UITextField!
+    
+    
+    @IBOutlet weak var rotateView: UIView!
+    
+    @IBOutlet weak var mobileCodeTxtFld: UILabel!
+    
     @IBOutlet var mobileCodeFlagImageView: UIImageView!
     @IBOutlet var showConfirmPassword: UIButton!
     @IBOutlet var showPassword: UIButton!
@@ -55,7 +60,7 @@ class PersonalAgentBasicInformationTableViewCell: UITableViewCell {
     @IBOutlet weak var passwordHeaderLbl: UILabel!
     
     @IBOutlet weak var confirmPassHeaderLbl: UILabel!
-    
+    @IBOutlet weak var confirmTxtFldTrailingConstant: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -69,6 +74,12 @@ class PersonalAgentBasicInformationTableViewCell: UITableViewCell {
         self.confirmPasswordTxtFld.keyboardType = .asciiCapable
         
         self.SetFontAndTextColor()
+          
+//
+//        if HeaderHeightSingleton.shared.LanguageSelected == "AR" {
+//
+//        }
+//
         
         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: emailView)
         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: confirmEmailView)
