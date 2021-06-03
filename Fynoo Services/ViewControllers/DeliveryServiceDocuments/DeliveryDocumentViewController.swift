@@ -737,6 +737,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     return
                 }
             }
+            
         if  imglocalArr[sender.tag] == nil && documentlocalArr[sender.tag] == nil {
                 ModalController.showNegativeCustomAlertWith(title: "Please Upload the Front side Photo", msg: "")
                 return

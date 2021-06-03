@@ -175,12 +175,13 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
                         if arr.count < 10 {
                             self.isMoreDataAvailable = false
                         }else{
-                            self.isMoreDataAvailable = true
+                            self.isMoreDataAvailable = false
                         }
                         
                     }else{
+                        
                         self.isMoreDataAvailable = false
-                        self.tripListListArray?.removeAll()
+                       // self.tripListListArray?.removeAll()
                        
                     }
                     
@@ -323,7 +324,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
                     return 1
                 }
             }else{
-                return (tripListListArray?.count) ?? 0 + 1
+                return ((tripListListArray?.count) ?? 0) + 1
             }
         }
     }
@@ -461,11 +462,11 @@ extension AgentDeliveryViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
            
-           if cell.tag == 999999 {
-               
-               currentPageNumber += 1
-               self.getTripData()
-           }
+//           if cell.tag == 999999 {
+//
+//               currentPageNumber += 1
+//               self.getTripData()
+//           }
        }
     
     func loadingCell() -> UITableViewCell {
