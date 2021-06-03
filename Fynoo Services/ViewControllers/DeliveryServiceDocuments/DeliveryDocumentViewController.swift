@@ -199,7 +199,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         }
     }
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        
+        if servicelist?.data?.status ?? 0 == 1
+               {
+                   ModalController.showNegativeCustomAlertWith(title: " You cannot edit the form when it is pending for approval", msg: "")
+            
+                                  return false
+               }
         let touchPoint = textView.convert(CGPoint.zero, to: tabvw)
         let clickedBtn = tabvw.indexPathForRow(at: touchPoint)
         let row = Int(clickedBtn!.row)
@@ -329,7 +334,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         }
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
+        if servicelist?.data?.status ?? 0 == 1
+               {
+                   ModalController.showNegativeCustomAlertWith(title: " You cannot edit the form when it is pending for approval", msg: "")
+            
+                                  return false
+               }
         let touchPoint = textField.convert(CGPoint.zero, to: tabvw)
         let clickedBtn = tabvw.indexPathForRow(at: touchPoint)
         let row = Int(clickedBtn!.row)
@@ -847,6 +857,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     }
     @objc func clickedvehicleUpload(_ sender:UIButton)
     {
+        if servicelist?.data?.status ?? 0 == 1
+               {
+                   ModalController.showNegativeCustomAlertWith(title: " You cannot edit the form when it is pending for approval", msg: "")
+            
+                                  return
+               }
         tag1 = sender.tag
         
         OpenGallery.shared.viewControl = self
@@ -854,6 +870,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         OpenGallery.shared.delegate = self
     }
     @objc func clickupload(_ sender:UIButton) {
+        if servicelist?.data?.status ?? 0 == 1
+               {
+                   ModalController.showNegativeCustomAlertWith(title: " You cannot edit the form when it is pending for approval", msg: "")
+            
+                                  return
+               }
         let vc = BottomPopupEditProductViewController(nibName: "BottomPopupEditProductViewController", bundle: nil)
         vc.delegate = self
         vc.isproduct = true
@@ -1227,6 +1249,12 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         {
             if indexPath.row > 0 && indexPath.row < 9
             {
+                if servicelist?.data?.status ?? 0 == 1
+                       {
+                           ModalController.showNegativeCustomAlertWith(title: " You cannot edit the form when it is pending for approval", msg: "")
+                    
+                                          return
+                       }
                 let vc = BottomPopupEditProductViewController(nibName: "BottomPopupEditProductViewController", bundle: nil)
                 vc.tag1 = indexPath.row - 1
                 vc.delegate = self
