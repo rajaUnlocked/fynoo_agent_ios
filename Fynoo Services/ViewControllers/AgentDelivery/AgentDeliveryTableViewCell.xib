@@ -293,8 +293,8 @@
                                             <constraint firstAttribute="height" constant="20" id="B6e-PH-3Vg"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfi-Fi-pnw">
-                                        <rect key="frame" x="140" y="0.0" width="0.0" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfi-Fi-pnw">
+                                        <rect key="frame" x="343" y="0.0" width="0.0" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="WGO-d4-Phi"/>
                                         </constraints>
@@ -306,13 +306,13 @@
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="EMh-hp-Gly" firstAttribute="leading" secondItem="N6B-uT-ZPv" secondAttribute="leading" constant="20" id="63A-eK-S3v"/>
-                                    <constraint firstItem="rfi-Fi-pnw" firstAttribute="leading" secondItem="EMh-hp-Gly" secondAttribute="trailing" constant="20" id="Fmb-nQ-NQ5"/>
                                     <constraint firstItem="Y7P-63-xyK" firstAttribute="height" secondItem="N6B-uT-ZPv" secondAttribute="height" id="IZh-5D-6QW"/>
                                     <constraint firstItem="iS8-nD-jSb" firstAttribute="centerY" secondItem="EMh-hp-Gly" secondAttribute="centerY" id="Jfd-sg-7du"/>
                                     <constraint firstItem="Y7P-63-xyK" firstAttribute="centerY" secondItem="N6B-uT-ZPv" secondAttribute="centerY" id="QDM-qd-syI"/>
                                     <constraint firstItem="Y7P-63-xyK" firstAttribute="width" secondItem="N6B-uT-ZPv" secondAttribute="width" id="TS1-KZ-7Ms"/>
                                     <constraint firstItem="EMh-hp-Gly" firstAttribute="centerY" secondItem="N6B-uT-ZPv" secondAttribute="centerY" id="fd1-Vj-RL5"/>
                                     <constraint firstItem="rfi-Fi-pnw" firstAttribute="centerY" secondItem="EMh-hp-Gly" secondAttribute="centerY" id="h6w-ea-HGc"/>
+                                    <constraint firstItem="iS8-nD-jSb" firstAttribute="leading" secondItem="rfi-Fi-pnw" secondAttribute="trailing" constant="20" id="hbj-wT-IrU"/>
                                     <constraint firstItem="Y7P-63-xyK" firstAttribute="centerX" secondItem="N6B-uT-ZPv" secondAttribute="centerX" id="hng-gW-IZI"/>
                                     <constraint firstAttribute="trailing" secondItem="iS8-nD-jSb" secondAttribute="trailing" constant="15" id="prS-fF-uvX"/>
                                 </constraints>
@@ -460,11 +460,6 @@
             <point key="canvasLocation" x="-520.28985507246375" y="20.758928571428569"/>
         </tableViewCell>
     </objects>
-    <designables>
-        <designable name="EAa-V6-ZYz">
-            <size key="intrinsicContentSize" width="80" height="12"/>
-        </designable>
-    </designables>
     <resources>
         <image name="edit_feature" width="66" height="66"/>
         <image name="grayTick" width="20" height="20"/>

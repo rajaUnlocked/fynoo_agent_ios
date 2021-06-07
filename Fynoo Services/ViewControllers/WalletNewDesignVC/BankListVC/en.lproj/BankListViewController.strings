@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "2560.70"; ObjectID = "0Ia-ja-lbK"; */
+"0Ia-ja-lbK.text" = "";
+
+/* Class = "UILabel"; text = "Add a new bank details"; ObjectID = "6NJ-5T-CVA"; */
+"6NJ-5T-CVA.text" = "Add a new bank details";
+
+/* Class = "UILabel"; text = "Available Balance:  SAR"; ObjectID = "aTW-WN-n22"; */
+"aTW-WN-n22.text" = "Available Balance:  SAR";
+
+/* Class = "UILabel"; text = "Send Money "; ObjectID = "gfo-vV-QFL"; */
+"gfo-vV-QFL.text" = "Send Money ";
+
+/* Class = "UILabel"; text = "from wallet to Bank"; ObjectID = "uj9-Bx-gdv"; */
+"uj9-Bx-gdv.text" = "from wallet to Bank";

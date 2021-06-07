@@ -65,14 +65,19 @@ class TripAchievementViewCell: UITableViewCell,UICollectionViewDataSource, UICol
     }
     
       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-          return CGSize(width: 105, height: 130)
-      }
-      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-          return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-      }
-      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat{
-          return 0
-      }
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let size = CGSize(width: (screenWidth / 4) , height: (screenWidth / 4 + 20))
+        if let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout{
+            let width = UIScreen.main.bounds.width
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+            layout.minimumInteritemSpacing = 0
+            layout.minimumLineSpacing = 0
+        }
+        return size
+    }
+      
+    
       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
           return 0
       }

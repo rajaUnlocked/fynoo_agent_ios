@@ -10,7 +10,8 @@ import UIKit
 import ObjectMapper
 import MessageUI
 
-class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDelegate, MFMessageComposeViewControllerDelegate, AgentServiceListDelegate {
+class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDelegate, MFMessageComposeViewControllerDelegate, AgentServiceListDelegate,AddAmountDelegate {
+   
     
     @IBOutlet weak var tableView: UITableView!
     var selectedVl = 1000
@@ -18,7 +19,6 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     
     @IBOutlet weak var deliveryDashboardHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var headerView: NavigationView!
-    @IBOutlet weak var backView: UIView!
     
     var selectedTab:String = "1"
     var Index:Int = 0
@@ -37,6 +37,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         tableView.register(UINib(nibName: "AgentDeliveryTableViewCell", bundle: nil), forCellReuseIdentifier: "AgentDeliveryTableViewCell");
         tableView.register(UINib(nibName: "TripAchievementViewCell", bundle: nil), forCellReuseIdentifier: "TripAchievementViewCell");
         tableView.register(UINib(nibName: "AgentServiceList", bundle: nil), forCellReuseIdentifier: "AgentServiceList");
+        tableView.register(UINib(nibName: "NoTripFoundTableViewCell", bundle: nil), forCellReuseIdentifier: "NoTripFoundTableViewCell");
         
         isMoreDataAvailable = false
         currentPageNumber = 0
@@ -51,6 +52,11 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         self.headerView.viewControl = self
         
     }
+    func reloadPage() {
+        getTripData()
+        getAgentData()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         getTripData()
         getAgentData()
@@ -150,8 +156,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
                         self.tripListListArray?.removeAll()
                     }
                     if self.tripList?.data?.trip_list?.count ?? 0 > 0 {
-                        self.backView.isHidden = true
-                        
+                       
                         guard let arr = self.tripList?.data?.trip_list as NSArray? else {
                             
                             self.isMoreDataAvailable = false
@@ -170,20 +175,20 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
                         if arr.count < 10 {
                             self.isMoreDataAvailable = false
                         }else{
-                            self.isMoreDataAvailable = true
+                            self.isMoreDataAvailable = false
                         }
                         
                     }else{
+                        
                         self.isMoreDataAvailable = false
-                        self.tripListListArray?.removeAll()
-                        self.backView.isHidden = false
+                       // self.tripListListArray?.removeAll()
+                       
                     }
                     
                     self.tableView.reloadData()
                 }
             }else{
                 ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.tripList?.error_description ?? "")")
-                self.backView.isHidden = false
                 self.currentPageNumber = 0
                 self.isMoreDataAvailable = false
                 self.tableView.reloadData()
@@ -193,7 +198,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     
     @objc func editAmountClicked(){
         let vc = AddAmountViewController(nibName: "AddAmountViewController", bundle: nil)
-        
+        vc.delegate = self
         vc.modalPresentationStyle = .overFullScreen
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         self.present(vc, animated: true, completion: nil)
@@ -208,9 +213,10 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         let vc = UserProfileDetailsViewController(nibName: "UserProfileDetailsViewController", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    @objc func infoClicked(){
+    @objc func infoClicked(_ sender:UIButton){
         let vc = AddAmountViewController(nibName: "AddAmountViewController", bundle: nil)
         vc.isFrom = true
+        vc.taG = sender.tag
         vc.descrptxt = deliverData?.data?.agent_information?.del_service_document_reason ?? ""
         vc.modalPresentationStyle = .overFullScreen
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
@@ -244,9 +250,9 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     
     @objc func clickedservicedoc(_ sender: UIButton)
     {
-        let vc = DeliveryDocumentViewController(nibName: "DeliveryDocumentViewController", bundle: nil)
+     let vc = DeliveryDocumentViewController(nibName: "DeliveryDocumentViewController", bundle: nil)
       vc.primaryid = self.deliverData?.data?.agent_information?.dsd_id ?? 0
-        self.navigationController?.pushViewController(vc, animated: true)
+     self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc func switchClicked(_ sender: UIButton){
         print("switch")
@@ -315,10 +321,10 @@ extension AgentDeliveryViewController : UITableViewDataSource {
                 if let count = self.tripListListArray?.count {
                     return count + 1
                 }else{
-                    return 0
+                    return 1
                 }
             }else{
-                return (tripListListArray?.count) ?? 0
+                return ((tripListListArray?.count) ?? 0) + 1
             }
         }
     }
@@ -334,13 +340,22 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             }
         }
        else{
+        if tripListListArray?.count ?? 0 == 0
+        {
+            return 300
+        }
             return 236
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if indexPath.section == 1{
-            if indexPath.row < (tripListListArray!.count) {
+            if tripListListArray?.count ?? 0 == 0
+            {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NoTripFoundTableViewCell",for: indexPath) as! NoTripFoundTableViewCell
+            return cell
+            }
+            else if indexPath.row < (tripListListArray!.count) {
                 return deliveryServiceListCell(index: indexPath)
             }else{
                 return self.loadingCell()
@@ -358,7 +373,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             }
             cell.name.text = deliverData?.data?.agent_information?.name ?? ""
             cell.avgRating.text = "\(deliverData?.data?.agent_information?.avg_rating ?? 0)"
-            cell.totalRating.text = "\(deliverData?.data?.agent_information?.total_rating ?? 0)"
+            cell.totalRating.text = "(\(deliverData?.data?.agent_information?.total_rating ?? 0))"
             cell.trip.text = "\(deliverData?.data?.agent_information?.total_trips ?? 0)"
             cell.year.text = "\(deliverData?.data?.agent_information?.active_years ?? 0)"
             cell.earning.text = "\(deliverData?.data?.agent_information?.total_earnings ?? 0)"
@@ -380,12 +395,14 @@ extension AgentDeliveryViewController : UITableViewDataSource {
 
             }else if deliverData?.data?.agent_information?.del_service_document_uploaded == 3{
                 //reject
+                cell.infoClicked.tag = 1
                 cell.delivery.image = UIImage(named: "cross-1")
                 cell.infoClicked.isHidden = false
                 cell.widthconst.constant = 24
 
             }else if deliverData?.data?.agent_information?.del_service_document_uploaded == 4{
                 //edit & approve
+                cell.infoClicked.tag = 2
                 cell.delivery.image = UIImage(named: "accepted_tick")
                 cell.infoClicked.isHidden = false
                 cell.widthconst.constant = 24
@@ -445,11 +462,11 @@ extension AgentDeliveryViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
            
-           if cell.tag == 999999 {
-               
-               currentPageNumber += 1
-               self.getTripData()
-           }
+//           if cell.tag == 999999 {
+//
+//               currentPageNumber += 1
+//               self.getTripData()
+//           }
        }
     
     func loadingCell() -> UITableViewCell {

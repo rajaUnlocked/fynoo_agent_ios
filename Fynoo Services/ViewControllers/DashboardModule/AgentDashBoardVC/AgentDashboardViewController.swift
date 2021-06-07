@@ -249,7 +249,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         }
         
         @objc func sideMenuwalletClicked(_ notification: NSNotification) {
-            let vc = DeliveryDocumentViewController(nibName: "DeliveryDocumentViewController", bundle: nil)
+            let vc = BankAllListViewController(nibName: "BankAllListViewController", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
             
         }
@@ -260,8 +260,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
         
         @objc func sideMenusettingsClicked(_ notification: NSNotification) {
-          let vc = ProductListNewViewController(nibName: "ProductListNewViewController", bundle: nil)
-          self.navigationController?.pushViewController(vc, animated: true)
+        
         }
         
         @objc func sideMenuChangeLanguageClicked(_ notification: NSNotification) {
@@ -349,6 +348,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         }
         
         @objc func sideMenuaddProductDataForSaleBtnClicked(_ notification: NSNotification) {
+            let vc = ProductListNewViewController(nibName: "ProductListNewViewController", bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
    
     // MARK: - LOGOUT DELEGATE
@@ -485,8 +486,16 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     func DropShipDashboardCell(index : IndexPath) -> UITableViewCell {
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "DropShipDashboardTableViewCell",for: index) as! DropShipDashboardTableViewCell
         cell.selectionStyle = .none
-        cell.titleLbl.text = (mandatoryArray.object(at: index.item) as! NSDictionary).object(forKey: "service_name") as! String
+        cell.titleLbl.text = (mandatoryArray.object(at: index.item) as! NSDictionary).object(forKey: "service_name") as? String
         cell.img.sd_setImage(with: URL(string: "\((mandatoryArray.object(at: index.item) as! NSDictionary).object(forKey: "service_icon") as! String)"), placeholderImage: UIImage(named: ""))
+        let mandatoryservicelist = (mandatoryArray.object(at: index.item) as! NSDictionary).object(forKey: "mandatory_service_list") as! NSArray
+        cell.productlbl.text = (mandatoryservicelist.object(at: 0) as! NSDictionary).object(forKey: "text") as? String
+        cell.soldproductlbl.text = (mandatoryservicelist.object(at: 1) as! NSDictionary).object(forKey: "text") as? String
+        cell.commisionlbl.text = (mandatoryservicelist.object(at: 2) as! NSDictionary).object(forKey: "text") as? String
+        cell.proprice.text = (mandatoryservicelist.object(at: 0) as! NSDictionary).object(forKey: "values") as? String
+        cell.soldprice.text = (mandatoryservicelist.object(at: 1) as! NSDictionary).object(forKey: "values") as? String
+        cell.commisionprice.text = (mandatoryservicelist.object(at: 2) as! NSDictionary).object(forKey: "values") as? String
+        cell.currencycode.text = (mandatoryservicelist.object(at: 2) as! NSDictionary).object(forKey: "currency_code") as? String
         return cell
     }
     
@@ -543,19 +552,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
 //                           ProductModel.shared.remove()
 //                           self.navigationController?.pushViewController(vc, animated: true)
 //                }}
-   
-        print("Edit Product")
-                   ProductModel.shared.remove()
-                   //            ModalClass.startLoading(self.view)
-                   ProductModel.shared.productId = "132796"
-                   productmodel.productDetails{ (success, response) in
-                       ModalClass.stopLoading()
-                       if success{
-                           let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
-                           self.navigationController?.pushViewController(vc, animated: true)
-                       }
-     
-    }
+
     }
     @IBAction func cameraClicked(_ sender: Any) {
         let vc = GalleryPopUpViewController(nibName: "GalleryPopUpViewController", bundle: nil)

@@ -108,10 +108,10 @@ class DataBankHeader: UIView, UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
-        let size = CGSize(width: (screenWidth / 3) + 20  , height: 35 )
+        let size = CGSize(width: (screenWidth / 4) , height: 35 )
         if let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout{
             let width = UIScreen.main.bounds.width
-            layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             layout.minimumInteritemSpacing = 0
             layout.minimumLineSpacing = 0
         }

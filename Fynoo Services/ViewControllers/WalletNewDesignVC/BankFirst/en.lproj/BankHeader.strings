@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "SAR"; ObjectID = "5vk-Md-kwe"; */
+"5vk-Md-kwe.text" = "SAR";
+
+/* Class = "UIButton"; normalTitle = "Download"; ObjectID = "67f-GN-rGQ"; */
+"67f-GN-rGQ.normalTitle" = "Download";
+
+/* Class = "UILabel"; text = "Payment Successful"; ObjectID = "7hh-zb-vS8"; */
+"7hh-zb-vS8.text" = "Payment Successful";
+
+/* Class = "UIButton"; normalTitle = "Bank Transfer"; ObjectID = "NAc-yC-wTs"; */
+"NAc-yC-wTs.normalTitle" = "Bank Transfer";
+
+/* Class = "UILabel"; text = "Available: SAR 400"; ObjectID = "TJd-bI-Jph"; */
+"TJd-bI-Jph.text" = "Available: SAR 400";
+
+/* Class = "UIButton"; normalTitle = "Holding Amount"; ObjectID = "UrO-No-RIk"; */
+"UrO-No-RIk.normalTitle" = "Holding Amount";
+
+/* Class = "UIButton"; normalTitle = "Email"; ObjectID = "WdB-MC-dic"; */
+"WdB-MC-dic.normalTitle" = "Email";
+
+/* Class = "UILabel"; text = "Payment in Progress"; ObjectID = "m4E-gc-76m"; */
+"m4E-gc-76m.text" = "Payment in Progress";
+
+/* Class = "UIButton"; normalTitle = "Wallet Balance"; ObjectID = "oC8-2L-3yK"; */
+"oC8-2L-3yK.normalTitle" = "Wallet Balance";
+
+/* Class = "UITextField"; placeholder = "Search Transactions"; ObjectID = "tzT-qR-Hq4"; */
+"tzT-qR-Hq4.placeholder" = "Search Transactions";
+
+/* Class = "UILabel"; text = "14,500.00"; ObjectID = "x8v-CK-med"; */
+"x8v-CK-med.text" = "14,500.00";

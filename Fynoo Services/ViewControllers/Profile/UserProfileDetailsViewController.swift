@@ -287,7 +287,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                             let val = self.profileInfo?.data?.service_list_data?.count
                         
                         for i in 0..<val!{
-                        if self.profileInfo?.data?.service_list_data?[i].is_active ?? 0 == 1
+                        if self.profileInfo?.data?.service_list_data?[i].is_opt ?? 0 == 1
                             {
     self.agentInfo.serviceArr.add( self.profileInfo?.data?.service_list_data?[i].service_id ?? 0)  } }
                         let lang = self.profileInfo?.data?.language_list?.count
@@ -947,6 +947,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
         cell.genderView.isHidden = true
+        cell.selectBtn.isHidden = true
         cell.selectionStyle = .none
         cell.isUserInteractionEnabled = false
                    if isEdit
@@ -1001,6 +1002,8 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         
         
         if "Mobile Number" == basicInfo[indexPath.row]{
+            cell.genderView.isHidden = false
+            cell.selectBtn.isHidden = true
             cell.mobileCode.text = agentInfo.mobileCode
             cell.headingLbl.text = agentInfo.mobileNo
             cell.codeBtn.tag = 1099
