@@ -96,7 +96,7 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
     func categoryCell(index : IndexPath) -> UICollectionViewCell {
         
     let cell = collectionVw.dequeueReusableCell(withReuseIdentifier: "ServiceSingleCollectionViewCell", for: index) as! ServiceSingleCollectionViewCell
-        
+        cell.inprocessLbl.text = "Inprocess".localized
         cell.nameLbl.text = "  \((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "service_name") as! String)"
         cell.img.sd_setImage(with: URL(string: "\((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "service_icon") as! String)"), placeholderImage: UIImage(named: "moving-truck"))
         

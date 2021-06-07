@@ -468,6 +468,12 @@
 
 
 //Dashboard
+"Sign out" = "تسجيل خروج";
+"Settings" = "لإعدادات";
+"Wallet" = "لمحفظة";
+"Service Requests" = "طلبات الخدمات";
+"Available Amount" = "المبلغ المتاح";
+"Inprocess" = "قيد التنفيذ";
 "Hello"="مرحباً";
 "ID"="رقم المعرف";
 "Home"="الرئيسية";
@@ -482,7 +488,7 @@
 "Manage FBA Shipment"="إدارة شحنة FBA";
 "Manage Drop Shipping"="إدارة Drop Shipping";
 "Manage Discount Code"="إدارة أكواد الخصم";
-"Manage Services"="إدارة الخدمات";
+"Manage Services"="دارة الخدمات";
 
 //Product
 "No. of Branches:  " = "عدد الفروع  ";

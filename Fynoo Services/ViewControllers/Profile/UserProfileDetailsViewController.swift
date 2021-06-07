@@ -59,10 +59,10 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
     var pdfImage =  UIImage()
 
-    var personalDetail = ["Name","Gender","Dob","Education","Major"]
-    var basicInfo = ["Business Name","Email","Country","City","Mobile Number","Phone Number","Maroof Link"]
-    var bankDetail = ["IBAN Number","Bank Name","Card Holder Name"]
-    var sectionHeading = ["","Services","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
+    var personalDetail = ["Name".localized,"Gender".localized,"Dob".localized,"Education".localized,"Major".localized]
+    var basicInfo = ["Business Name".localized,"Email".localized,"Country".localized,"City".localized,"Mobile Number".localized,"Phone Number".localized,"Maroof Link".localized]
+    var bankDetail = ["IBAN Number".localized,"Bank Name".localized,"Card Holder Name".localized]
+    var sectionHeading = ["","Services".localized,"Basic Information".localized,"Bank Detail".localized,"Vat Information".localized,"Password Information".localized,"Language Information".localized]
     var pdfVat = ""
     var userType = ""
 
@@ -85,7 +85,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
 
         headerView.viewControl = self
 
-        headerView.titleHeader.text = "Profile"
+        headerView.titleHeader.text = "Profile".localized
         
     }
     func profileImageSelected(){
@@ -307,7 +307,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                         }
                         
                         if self.isPersonal{
-                            self.basicInfo = ["Email","Country","City","Mobile Number","Maroof Link"]
+                            self.basicInfo = ["Email".localized,"Country".localized,"City".localized,"Mobile Number".localized,"Maroof Link".localized]
                             self.sectionHeading = ["","Services","Personal Information","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
                              }
                         
@@ -801,7 +801,8 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                    {
                        cell.isUserInteractionEnabled = true
                    }
-       cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(personalDetail[indexPath.row]) *", str1: "\(personalDetail[indexPath.row])", str2:" *" )
+        
+        cell.entryLbl.attributedText = ModalController.setStricColor(str: "\("\(personalDetail[indexPath.row])".localized) *", str1: "\(personalDetail[indexPath.row])".localized, str2:" *" )
         cell.headingLbl.isUserInteractionEnabled = true
         cell.headingLbl.isHidden = false
         cell.selectionStyle = .none
@@ -969,11 +970,12 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.headingLbl.isUserInteractionEnabled = false
             
         }
-        cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(basicInfo[indexPath.row]) *", str1: "\(basicInfo[indexPath.row])", str2:" *" )
+        cell.entryLbl.attributedText = ModalController.setStricColor(str: " \(basicInfo[indexPath.row]) *", str1: "\(basicInfo[indexPath.row])", str2:" *" )
         
         print(basicInfo[indexPath.row],"sd")
         cell.codeBtn.isHidden = true
         if "Country" == basicInfo[indexPath.row]{
+            
             cell.contentView.insertSubview(cell.selectBtn, aboveSubview: cell.rotateVw)
             cell.selectBtn.isHidden = false
             cell.selectBtn.tag = 2

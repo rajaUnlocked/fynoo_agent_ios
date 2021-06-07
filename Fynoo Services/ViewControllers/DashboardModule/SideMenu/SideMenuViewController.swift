@@ -13,7 +13,7 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var tableVw: UITableView!
-    var cellTextArray = ["Home".localized, "Manage Services", "Service Requests", "", "", "Wallet".localized, "User Profile".localized, "Settings".localized, "Change Language".localized, "Sign out".localized]
+    var cellTextArray = ["Home".localized, "Manage Services".localized, "Service Requests".localized, "", "", "Wallet".localized, "User Profile".localized, "Settings".localized, "Change Language".localized, "Sign out".localized]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +77,7 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
         else{
             return profileCell(index: indexPath)
         }
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

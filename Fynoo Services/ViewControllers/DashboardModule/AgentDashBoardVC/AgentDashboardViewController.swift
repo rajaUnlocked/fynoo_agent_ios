@@ -12,6 +12,7 @@ import CoreLocation
 import MTPopup
 class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource, ServicesDashboardTableViewCellDelegate, CommonPopupViewControllerDelegate ,UIImagePickerControllerDelegate, UINavigationControllerDelegate, OpenGalleryDelegate, CLLocationManagerDelegate {
     
+    @IBOutlet weak var availamount: UILabel!
     var branchmodel = branchsmodel()
     @IBOutlet weak var tableVw: UITableView!
     @IBOutlet weak var topVwHeightCons: NSLayoutConstraint!
@@ -210,6 +211,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
     
     func registerCellNibs(){
+        availamount.text = "Available Amount".localized
         tableVw.register(UINib(nibName: "DashboardWalletTableViewCell", bundle: nil), forCellReuseIdentifier: "DashboardWalletTableViewCell");
         tableVw.register(UINib(nibName: "ProgressDashboardTableViewCell", bundle: nil), forCellReuseIdentifier: "ProgressDashboardTableViewCell");
         tableVw.register(UINib(nibName: "ServicesDashboardTableViewCell", bundle: nil), forCellReuseIdentifier: "ServicesDashboardTableViewCell");
@@ -432,7 +434,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
             return (CGFloat((total*150) + 10))
             
         }else if indexPath.section == 3{
-            return UITableView.automaticDimension
+            return 175
         }else{
             return getHeightDynamicForMultipleBanner(index: indexPath)
         }
