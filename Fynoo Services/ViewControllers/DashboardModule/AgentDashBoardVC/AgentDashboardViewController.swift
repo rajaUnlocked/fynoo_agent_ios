@@ -260,8 +260,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
         
         @objc func sideMenusettingsClicked(_ notification: NSNotification) {
-          let vc = ProductListNewViewController(nibName: "ProductListNewViewController", bundle: nil)
-          self.navigationController?.pushViewController(vc, animated: true)
+        
         }
         
         @objc func sideMenuChangeLanguageClicked(_ notification: NSNotification) {
@@ -349,6 +348,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         }
         
         @objc func sideMenuaddProductDataForSaleBtnClicked(_ notification: NSNotification) {
+            let vc = ProductListNewViewController(nibName: "ProductListNewViewController", bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
    
     // MARK: - LOGOUT DELEGATE
@@ -551,19 +552,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
 //                           ProductModel.shared.remove()
 //                           self.navigationController?.pushViewController(vc, animated: true)
 //                }}
-   
-        print("Edit Product")
-                   ProductModel.shared.remove()
-                   //            ModalClass.startLoading(self.view)
-                   ProductModel.shared.productId = "132796"
-                   productmodel.productDetails{ (success, response) in
-                       ModalClass.stopLoading()
-                       if success{
-                           let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
-                           self.navigationController?.pushViewController(vc, animated: true)
-                       }
-     
-    }
+
     }
     @IBAction func cameraClicked(_ sender: Any) {
         let vc = GalleryPopUpViewController(nibName: "GalleryPopUpViewController", bundle: nil)

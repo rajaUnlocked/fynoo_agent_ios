@@ -1002,6 +1002,8 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         
         
         if "Mobile Number" == basicInfo[indexPath.row]{
+            cell.genderView.isHidden = false
+            cell.selectBtn.isHidden = true
             cell.mobileCode.text = agentInfo.mobileCode
             cell.headingLbl.text = agentInfo.mobileNo
             cell.codeBtn.tag = 1099

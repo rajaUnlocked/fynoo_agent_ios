@@ -12,7 +12,7 @@ import Alamofire
 class ServerCalls: NSObject {
     
     static func PdfFileUpload(inputUrl:String,parameters:[String:Any],pdfname: String,pdfurl:String,completion:((AnyObject?,Bool,AnyObject?) -> Void)?){
-           
+           print(inputUrl,parameters,pdfname)
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             
             if pdfurl != ""{
@@ -194,7 +194,7 @@ class ServerCalls: NSObject {
     }
     static func fileUploadAPINew(inputUrl:String,parameters:[String:Any],imageName: String,imageFile : UIImage,completion:((AnyObject?,Bool,AnyObject?) -> Void)?){
         
-        print(inputUrl)
+        print(inputUrl,parameters,imageName)
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             
             

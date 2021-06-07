@@ -13,7 +13,7 @@ import ObjectMapper
 import BarcodeScanner
 class CreateProductFirstViewController: UIViewController {
     var prolimit:ProductLimit?
-    var isDataBank = true
+    var isDataBank = false
      var isPurchaseData = false
    var serviceid = ""
     var Currency_Type_List:CurrencyLIST?
@@ -36,8 +36,6 @@ class CreateProductFirstViewController: UIViewController {
     var selectedBranch:NSMutableArray = NSMutableArray()
     var isOnline = true
      var isStore = false
-    
-   
     var headerLbl = ["Manage Products","General Information","Product/Service Pictures"]
     var headerImg = ["producticon","edit_feature","cameras-1"]
     var headerLbl1 = ["Scan Bar Code","Currency","Product/Service Name","Select Branch","Description"]
@@ -199,6 +197,7 @@ class CreateProductFirstViewController: UIViewController {
         }
     }
     func checkMadatory()
+    
     {
         
         let pro = ProductModel.shared
@@ -389,6 +388,7 @@ class CreateProductFirstViewController: UIViewController {
             if ProductModel.shared.productId == ""
             {
                 ModalClass.startLoading(self.view)
+                addproductmodel.serviceid = self.serviceid
                 addproductmodel.addProductNew { (success, response) in
                     ModalClass.stopLoading()
                     if success {
@@ -603,6 +603,8 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
     {
         
       let controller = BarcodeScannerViewController()
+        controller.headerViewController.titleLabel.text = "Scan"
+         controller.headerViewController.closeButton.setTitle("Close", for: .normal)
              controller.codeDelegate = self
                     controller.errorDelegate = self
                     controller.dismissalDelegate = self
@@ -725,13 +727,13 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
                 cell.trailingConst.constant = 25
                 cell.ocrbtn.isHidden = true
                 cell.downarrow.isHidden = true
-                cell.imgbtn.isHidden = true
+                cell.imgbtn.isHidden = false
                 cell.lblk.text = "\(headerLbl1[indexPath.row - 1])".localized
                 cell.bordertxt.layer.borderColor =  ModalController.hexStringToUIColor(hex: borderColor[indexPath.row - 1]).cgColor
                 if isDataBank
                 {
-                 cell.lblk.isHidden = true
-                 cell.img.isHidden = true
+                 //cell.lblk.isHidden = true
+                 //cell.img.isHidden = true
                 cell.nameTextField.isHidden = true
                 }
                 if indexPath.row == 1{
@@ -1191,11 +1193,11 @@ extension CreateProductFirstViewController:UITableViewDelegate,UITextViewDelegat
             if isDataBank
             {
                 switch indexPath.row {
-                case 0,1:
+                case 0:
                     return 40
                 case 2,4:
                     return 0
-                    case 3:
+                    case 1,3:
                     return 70
                 case 5:
                     return 120

@@ -18,7 +18,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     var isReasonForVehicle = false
     var upload:ServiceUpload?
     var topArr = ["Full Name","Date of Birth","National ID / Iqama ID","Date of Expiry"]
-    var headertitlearr = ["Upload National Id / Iqama","Upload Driving License Front ","Upload Vehicle Registration","Upload Vehicle Insurance","Upload Driving Authorization","Upload Vehicle Description"]
+    var headertitlearr = ["Upload National Id / Iqama","Upload Driving License Front ","Upload Vehicle Registration","Upload Vehicle Insurance","Upload Driving Authorization(not required)","Upload Vehicle Description"]
     var toptxtArr = ["","","",""]
     var txtArr = ["","","","","","","",""]
     
@@ -135,7 +135,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     func vehicleKind_API(brandid:Int)
     {
         
-        ModalClass.startLoading(self.view)
+        //ModalClass.startLoading(self.view)
         service.vehicleId = 10
         service.getvehicleKind { (success, response) in
             ModalClass.stopLoading()
@@ -155,7 +155,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     func vehicleName_API(brandid:Int)
     {
         
-        ModalClass.startLoading(self.view)
+       // ModalClass.startLoading(self.view)
         service.vehicleId = brandid
         service.getvehicleName { (success, response) in
             ModalClass.stopLoading()
@@ -306,11 +306,28 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         ModalClass.startLoading(self.view)
         service.primaryid = primaryid
         service.getservicedocument { (success, response) in
-            ModalClass.stopLoading()
+            ModalClass.stopLoadingAllLoaders(self.view)
             if success
             {
                 self.servicelist = response
                 self.imgArr = [self.servicelist?.data?.national_id ?? "",self.servicelist?.data?.driving_license ?? "",self.servicelist?.data?.registration ?? "",self.servicelist?.data?.insurance ?? "",self.servicelist?.data?.authorization ?? "",self.servicelist?.data?.front_side ?? ""]
+                for i in 0...self.imgArr.count - 1
+                {
+                    if self.imgArr[i] != ""
+                    {
+                        let imageUrl = URL(string: self.imgArr[i])!
+
+                        let imageData = try! Data(contentsOf: imageUrl)
+
+                        self.imglocalArr[i] = UIImage(data: imageData)
+                    }
+                    else
+                    {
+                        self.imglocalArr[i] = nil
+                    }
+                }
+               
+                
                 self.imgIdArr = [self.servicelist?.data?.national_id_uploaded ?? false,self.servicelist?.data?.driving_license_uploaded ?? false,self.servicelist?.data?.registration_uploaded ?? false,self.servicelist?.data?.insurance_uploaded ?? false,self.servicelist?.data?.authorization_uploaded ?? false,self.servicelist?.data?.front_side ?? "" == "" ? false : true,false]
                 self.descriparr = [self.servicelist?.data?.national_id_content ?? "", "",self.servicelist?.data?.registration_content ?? "", "",self.servicelist?.data?.authorization_content ?? ""]
                 self.toptxtArr = [self.servicelist?.data?.full_name ?? "",self.servicelist?.data?.dob ?? "",self.servicelist?.data?.iqama_no ?? "",self.servicelist?.data?.doe ?? ""]
@@ -323,13 +340,14 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     self.submit.backgroundColor = .lightGray
                 self.submit.setTitle("Pending for approval", for: .normal)
                 }
+               
                 if self.servicelist?.data?.front_side ?? "" != ""{
                     self.vehicleKind_API(brandid: (self.servicelist?.data?.registration_type_id)!)
                     self.vehicleName_API(brandid: (self.servicelist?.data?.vehicle_brand_id)!)
                     ModalClass.stopLoadingAllLoaders(self.view)
                 }
-              
                 self.tabvw.reloadData()
+               
             }
         }
     }
@@ -624,7 +642,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                                   return
                }
         imglocalArr[sender.tag] = nil
-        imgArr[sender.tag] = ""
+       // imgArr[sender.tag] = ""
         tabvw.reloadData()
     }
     @objc func clickedaddnewcar()
@@ -786,6 +804,29 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
           service.sendforapproval = "1"
             service.isType = 8
         }
+        else if sender.tag == 4
+        {
+            if  imglocalArr[2] == nil && documentlocalArr[2] == nil
+            {
+                ModalController.showNegativeCustomAlertWith(title: "Please Upload Vehicle Registration", msg: "")
+                return
+            }
+            if  imglocalArr[sender.tag] == nil && documentlocalArr[sender.tag] == nil
+            {
+                ModalController.showNegativeCustomAlertWith(title: "Upload Driving Authorization ", msg: "")
+                return
+            }
+            service.isType = sender.tag + 1
+            service.sendforapproval = "0"
+            if imglocalArr[sender.tag] == nil{
+                service.docfilereg = documentlocalArr[2]
+                service.docfile = documentlocalArr[4]
+            }
+            else{
+                service.imgfilereg = imglocalArr[2]
+                service.imgfile = imglocalArr[4]
+            }
+        }
         else
         {
             if  imglocalArr[sender.tag] == nil && documentlocalArr[sender.tag] == nil
@@ -805,6 +846,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     ModalController.showNegativeCustomAlertWith(title: "Please Upload Vehicle Insurance", msg: "")
                     return
                 }
+                
                 else{
                     ModalController.showNegativeCustomAlertWith(title: "Upload Driving Authorization ", msg: "")
                     return
@@ -824,13 +866,29 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         
         service.primaryid = primaryid
         service.uploadImage { (success, response) in
-            ModalClass.stopLoading()
+            ModalClass.stopLoadingAllLoaders(self.view)
             if success
             {
                
                 self.servicelist = response
                 ModalController.showSuccessCustomAlertWith(title: self.servicelist?.error_description ?? "", msg: "")
               self.imgArr = [self.servicelist?.data?.national_id ?? "",self.servicelist?.data?.driving_license ?? "",self.servicelist?.data?.registration ?? "",self.servicelist?.data?.insurance ?? "",self.servicelist?.data?.authorization ?? "",self.servicelist?.data?.front_side ?? ""]
+                for i in 0...self.imgArr.count - 1
+                {
+                    if self.imgArr[i] != ""
+                    {
+                        let imageUrl = URL(string: self.imgArr[i])!
+
+                        let imageData = try! Data(contentsOf: imageUrl)
+
+                        self.imglocalArr[i] = UIImage(data: imageData)
+                    }
+                    else
+                    {
+                        self.imglocalArr[i] = nil
+                    }
+                }
+                
                  self.imgIdArr = [self.servicelist?.data?.national_id_uploaded ?? false,self.servicelist?.data?.driving_license_uploaded ?? false,self.servicelist?.data?.registration_uploaded ?? false,self.servicelist?.data?.insurance_uploaded ?? false,self.servicelist?.data?.authorization_uploaded ?? false,self.servicelist?.data?.front_side ?? "" == "" ? false : true,self.servicelist?.data?.reason_for_change ?? "" == "" ? false : true]
                 self.descriparr = [self.servicelist?.data?.national_id_content ?? "", "",self.servicelist?.data?.registration_content ?? "", "",self.servicelist?.data?.authorization_content ?? ""]
                 self.toptxtArr = [self.servicelist?.data?.full_name ?? "",self.servicelist?.data?.dob ?? "",self.servicelist?.data?.iqama_no ?? "",self.servicelist?.data?.doe ?? ""]
@@ -961,13 +1019,12 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         {
             if index.row == 1
             {
-               
-                cell.bottomConst.constant = -60
+               cell.bottomConst.constant = -60
             }
         if index.row == 2
         {
-            cell.topconstant.constant = -20
-            section = headerarr.count - 1
+            cell.topconstant.constant = -40
+            section = headerarr.count - 2
         }
         }
         cell.topconstant.constant = 5
@@ -981,16 +1038,49 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         cell.crossclicked.tag = section - 1
         cell.uploadbtn.tag = section - 1
         
+       
+       // if index.section == 3
+//        {
+//            if index.row == 1
+//            {
+//                cell.uploadimg.tag = index.section - 1
+//                cell.crossclicked.tag = index.section - 1
+//
+//            }
+//            for i in 0...1
+//            {
+//                if i == 0
+//                {
+//                    cell.uploadbtn.tag = index.section - 1
+//                    cell.uploadbtn.addTarget(self, action: #selector(clickuploadclicked(_:)), for: .touchUpInside)
+//                }
+//                else
+//                {
+//                    cell.uploadbtn.tag = section - 1
+//                    cell.uploadbtn.addTarget(self, action: #selector(clickuploadclicked(_:)), for: .touchUpInside)
+//                }
+//
+//            }
+//
+//
+//
+//        }
+       
+      
+            cell.uploadbtn.addTarget(self, action: #selector(clickuploadclicked(_:)), for: .touchUpInside)
         cell.uploadimg.addTarget(self, action: #selector(clickupload(_:)), for: .touchUpInside)
+            
         cell.crossclicked.addTarget(self, action: #selector(clickcrossed(_:)), for: .touchUpInside)
-        cell.uploadbtn.addTarget(self, action: #selector(clickuploadclicked(_:)), for: .touchUpInside)
+       
         cell.crossclicked.isHidden =  true
         cell.uploadimg.isUserInteractionEnabled = true
-        if imgArr[section - 1] != ""
-        {
-            cell.pswdimg.sd_setImage(with: URL(string: imgArr[section - 1]), placeholderImage: UIImage(named: "passport"))
-        }
-            if imglocalArr[index.section - 1] != nil {
+//        if imgArr[section - 1] != ""
+//        {
+//            cell.pswdimg.sd_setImage(with: URL(string: imgArr[section - 1]), placeholderImage: UIImage(named: "passport"))
+//
+//        }
+        cell.pswdimg.image = UIImage(named: "passport")
+            if imglocalArr[section - 1] != nil {
                 cell.pswdimg.image = imglocalArr[section - 1]
             cell.crossclicked.isHidden =  false
                      cell.uploadimg.isUserInteractionEnabled = false
@@ -1154,13 +1244,13 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 cell.uploadvehicle.tag = indexPath.section - 1
                 cell.uploadvehicle.addTarget(self, action: #selector(clickedvehicleUpload(_:)), for: .touchUpInside)
                   cell.uploadvehicle.layer.borderColor = UIColor.clear.cgColor
-                if imgArr[indexPath.section - 1] != ""
-                {
-                 cell.vehicleimage.sd_setImage(with: URL(string:imgArr[indexPath.section - 1]), placeholderImage: UIImage(named: "vehicle"))
-                    cell.crossclicked.isHidden = false
-                    cell.uploadvehicle.isUserInteractionEnabled = false
-                }
-                    else if imglocalArr[indexPath.section - 1] != nil
+//                if imgArr[indexPath.section - 1] != ""
+//                {
+//                 cell.vehicleimage.sd_setImage(with: URL(string:imgArr[indexPath.section - 1]), placeholderImage: UIImage(named: "vehicle"))
+//                    cell.crossclicked.isHidden = false
+//                    cell.uploadvehicle.isUserInteractionEnabled = false
+//                }
+                     if imglocalArr[indexPath.section - 1] != nil
                 {
                      cell.crossclicked.isHidden = false
                     cell.vehicleimage.image = imglocalArr[indexPath.section - 1]
