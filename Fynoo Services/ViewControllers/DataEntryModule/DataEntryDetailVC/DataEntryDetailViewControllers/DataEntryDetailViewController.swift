@@ -459,12 +459,12 @@ extension DataEntryDetailViewController : UITableViewDelegate {
             if isBranchLocationAvailable == true {
                 return 255
             }else{
-                return 100
+                return 110
             }
         }
     }
 }
-//should choose someone who choose as you.
+
 extension DataEntryDetailViewController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {

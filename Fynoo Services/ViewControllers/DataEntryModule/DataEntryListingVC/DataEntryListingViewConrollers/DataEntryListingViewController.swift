@@ -186,7 +186,13 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
                     }
                     if self.selectedTab == "1" && self.serviceStatus == "0" {
                      self.noDataLbl.text = "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information.".localized
-                    }else{
+                    } else if  self.selectedTab == "1" && self.boServicesList?.data?.is_active == false {
+                        
+                        let active = "please active".localized
+                        let service = "services to receive new order request.".localized
+                        self.noDataLbl.text = "\(active) \(self.serviceName) \(service)"
+                    }
+                    else{
                       self.noDataLbl.text = "Oops! No Service Found".localized
                     }
 
