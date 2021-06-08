@@ -11,7 +11,18 @@ import SideMenu
 import CoreLocation
 import MTPopup
 class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource, ServicesDashboardTableViewCellDelegate, CommonPopupViewControllerDelegate ,UIImagePickerControllerDelegate, UINavigationControllerDelegate, OpenGalleryDelegate, CLLocationManagerDelegate {
+    var refreshControl = UIRefreshControl()
+    @IBOutlet weak var walletHeightConst: NSLayoutConstraint!
+    @IBOutlet weak var walletvw: UIView!
+    @IBOutlet weak var walletLbl: UILabel!
+    @IBOutlet weak var holdingLBl: UILabel!
+    @IBOutlet weak var inprocessLbl: UILabel!
+    @IBOutlet weak var arrow1: UIImageView!
+    @IBOutlet weak var arrow2: UIImageView!
+    @IBOutlet weak var arrow3: UIImageView!
     
+    
+    @IBOutlet weak var availamount: UILabel!
     var branchmodel = branchsmodel()
     @IBOutlet weak var tableVw: UITableView!
     @IBOutlet weak var topVwHeightCons: NSLayoutConstraint!
@@ -34,7 +45,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     var latitude = 0.0
     var longitude = 0.0
     var userAddressStr = ""
-    
+    var ResponseDict : NSDictionary = NSDictionary()
     override func viewDidLoad() {
         super.viewDidLoad()
         getUserLocation()
@@ -42,6 +53,9 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         sideMenuCode()
         configureHeaderUI()
         registerCellNibs()
+        addUIRefreshToTable()
+        walletHeightConst.constant = 0
+        walletvw.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +69,25 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
-    
+    func addUIRefreshToTable() {
+            refreshControl = UIRefreshControl()
+            tableVw.addSubview(refreshControl)
+            refreshControl.backgroundColor = UIColor.clear
+            refreshControl.tintColor = UIColor.lightGray
+            refreshControl.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
+        }
+    @objc func refreshTable() {
+        let x = ResponseDict.object(forKey: "error") as! Bool
+           if x{
+               if self.refreshControl.isRefreshing {
+                   self.refreshControl.endRefreshing()
+               }
+           }else{
+              
+             dashboardAPI()
+           }
+       }
+
     // MARK: - get location
     func getUserLocation() {
         self.locationManager.requestWhenInUseAuthorization()
@@ -210,6 +242,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
     
     func registerCellNibs(){
+        availamount.text = "Available Amount".localized
+        arrow1.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"rightArrow_dash")!)
+        arrow2.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"rightArrow_dash")!)
+        arrow3.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"rightArrow_dash")!)
         tableVw.register(UINib(nibName: "DashboardWalletTableViewCell", bundle: nil), forCellReuseIdentifier: "DashboardWalletTableViewCell");
         tableVw.register(UINib(nibName: "ProgressDashboardTableViewCell", bundle: nil), forCellReuseIdentifier: "ProgressDashboardTableViewCell");
         tableVw.register(UINib(nibName: "ServicesDashboardTableViewCell", bundle: nil), forCellReuseIdentifier: "ServicesDashboardTableViewCell");
@@ -411,10 +447,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            if showWallet
-            {
-                return 170
-            }
+//            if showWallet
+//            {
+//                return 170
+//            }
             return 0
             
         }else if indexPath.section == 1{
@@ -432,7 +468,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
             return (CGFloat((total*150) + 10))
             
         }else if indexPath.section == 3{
-            return UITableView.automaticDimension
+            return 175
         }else{
             return getHeightDynamicForMultipleBanner(index: indexPath)
         }
@@ -519,6 +555,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
     
     @IBAction func qrcodeBtn(_ sender: Any) {
+                let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
 //        let vc = BranchQrCodePopupViewController(nibName: "BranchQrCodePopupViewController", bundle: nil)
 //        vc.isType = true
 //        vc.url = homeGraph?.data?.bo_qr_code ?? ""
@@ -693,11 +731,14 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
             ModalClass.stopLoading()
             if success == true {
-                let ResponseDict : NSDictionary = (response as? NSDictionary)!
-                print("ResponseDictionary %@",ResponseDict)
-                let x = ResponseDict.object(forKey: "error") as! Bool
+                if self.refreshControl.isRefreshing {
+                           self.refreshControl.endRefreshing()
+                       }
+                self.ResponseDict = (response as? NSDictionary)!
+                print("ResponseDictionary %@",self.ResponseDict)
+                let x = self.ResponseDict.object(forKey: "error") as! Bool
                 if x {
-                    ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "error_description") as? String)!, msg: "")
+                    ModalController.showNegativeCustomAlertWith(title:(self.ResponseDict.object(forKey: "error_description") as? String)!, msg: "")
                     self.agentInfoArray.removeAllObjects()
                     self.bannerArray.removeAllObjects()
                     self.servicesArray.removeAllObjects()
@@ -713,31 +754,31 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     self.mandatoryArray.removeAllObjects()
                     self.dataDict = NSDictionary()
                     
-                    let results1 = (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "agent_information") as! NSArray
+                    let results1 = (self.ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "agent_information") as! NSArray
                     for var i in (0..<results1.count){
                         let dict : NSDictionary = NSDictionary(dictionary: results1.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
                         self.agentInfoArray.add(dict)
                     }
 
-                    let results2 = (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "banner_list") as! NSArray
+                    let results2 = (self.ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "banner_list") as! NSArray
                     for var i in (0..<results2.count){
                         let dict : NSDictionary = NSDictionary(dictionary: results2.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
                         self.bannerArray.add(dict)
                     }
 
-                    let results3 = (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "services") as! NSArray
+                    let results3 = (self.ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "services") as! NSArray
                     for var i in (0..<results3.count){
                         let dict : NSDictionary = NSDictionary(dictionary: results3.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
                         self.servicesArray.add(dict)
                     }
                     
-                    let results5 = (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "manadatory_services") as! NSArray
+                    let results5 = (self.ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "manadatory_services") as! NSArray
                     for var i in (0..<results5.count){
                         let dict : NSDictionary = NSDictionary(dictionary: results5.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
                         self.mandatoryArray.add(dict)
                     }
                     
-                    let results4 = (ResponseDict.object(forKey: "data") as! NSDictionary)
+                    let results4 = (self.ResponseDict.object(forKey: "data") as! NSDictionary)
                     let dict : NSDictionary = NSDictionary(dictionary: results4).RemoveNullValueFromDic()
                     self.dataDict = dict
                     
@@ -754,7 +795,9 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     let val1 = "Hello".localized
                     let val2 = "ID".localized
                     self.userDetails.text = "\(val1) \(nameStr)\n \(val2): \(idStr)"
-                    
+                    self.walletLbl.text = "\(self.dataDict.object(forKey: "wallet_balance") as! Float)"
+                    self.holdingLBl.text = "\(self.dataDict.object(forKey: "holding_amount") as! Float)"
+                    self.inprocessLbl.text = "\(self.dataDict.object(forKey: "payment_in_progress") as! Float)"
                     self.tableVw.reloadData()
                 }
             }else{
@@ -772,9 +815,13 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         if showWallet {
             showWallet = false
             self.arrowImg.image = UIImage(named: "down-arrow-3")
+            walletHeightConst.constant = 150
+            walletvw.isHidden = false
         }else{
             showWallet = true
             self.arrowImg.image = UIImage(named: "up-arrow-3")
+            walletHeightConst.constant = 0
+            walletvw.isHidden = true
         }
         self.tableVw.reloadData()
     }

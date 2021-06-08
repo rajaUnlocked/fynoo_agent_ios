@@ -98,9 +98,7 @@
 		2FEB121A2511F1530012FE98 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB12182511F1530012FE98 /* SignOutViewController.swift */; };
 		2FEB121B2511F1530012FE98 /* SignOutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FEB12192511F1530012FE98 /* SignOutViewController.xib */; };
 		2FEB121E2511F5E20012FE98 /* SideMenuEarningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB121C2511F5E20012FE98 /* SideMenuEarningTableViewCell.swift */; };
-		2FEB121F2511F5E20012FE98 /* SideMenuEarningTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FEB121D2511F5E20012FE98 /* SideMenuEarningTableViewCell.xib */; };
 		2FEB122325120E0F0012FE98 /* DashboardWalletTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB122125120E0F0012FE98 /* DashboardWalletTableViewCell.swift */; };
-		2FEB122425120E0F0012FE98 /* DashboardWalletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FEB122225120E0F0012FE98 /* DashboardWalletTableViewCell.xib */; };
 		2FEB1227251215F50012FE98 /* ProgressDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB1225251215F50012FE98 /* ProgressDashboardTableViewCell.swift */; };
 		2FEB1228251215F50012FE98 /* ProgressDashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FEB1226251215F50012FE98 /* ProgressDashboardTableViewCell.xib */; };
 		2FEB122B251225A30012FE98 /* ServicesDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB1229251225A30012FE98 /* ServicesDashboardTableViewCell.swift */; };
@@ -414,6 +412,8 @@
 		CEDAF67525283DF900B846E5 /* ReasonForChangeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDAF67325283DF900B846E5 /* ReasonForChangeTableViewCell.xib */; };
 		CEDAF67825285ACC00B846E5 /* BottomLblTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDAF67625285ACC00B846E5 /* BottomLblTableViewCell.swift */; };
 		CEDAF67925285ACC00B846E5 /* BottomLblTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDAF67725285ACC00B846E5 /* BottomLblTableViewCell.xib */; };
+		CEDBFDB6266DF71E00A8D318 /* DashboardWalletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDBFDB8266DF71E00A8D318 /* DashboardWalletTableViewCell.xib */; };
+		CEDBFDC0266DFBDD00A8D318 /* SideMenuEarningTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDBFDC2266DFBDD00A8D318 /* SideMenuEarningTableViewCell.xib */; };
 		CEDD31EE2576206500023977 /* SelectProductTypeNewTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEDD31A72576206500023977 /* SelectProductTypeNewTableViewCell.strings */; };
 		CEDD31EF2576206500023977 /* CreateProductFirstViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEDD31A92576206500023977 /* CreateProductFirstViewController.strings */; };
 		CEDD31F02576206500023977 /* SelectProductTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDD31AD2576206500023977 /* SelectProductTypeTableViewCell.xib */; };
@@ -898,9 +898,7 @@
 		2FEB12182511F1530012FE98 /* SignOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
 		2FEB12192511F1530012FE98 /* SignOutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignOutViewController.xib; sourceTree = "<group>"; };
 		2FEB121C2511F5E20012FE98 /* SideMenuEarningTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuEarningTableViewCell.swift; sourceTree = "<group>"; };
-		2FEB121D2511F5E20012FE98 /* SideMenuEarningTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuEarningTableViewCell.xib; sourceTree = "<group>"; };
 		2FEB122125120E0F0012FE98 /* DashboardWalletTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWalletTableViewCell.swift; sourceTree = "<group>"; };
-		2FEB122225120E0F0012FE98 /* DashboardWalletTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardWalletTableViewCell.xib; sourceTree = "<group>"; };
 		2FEB1225251215F50012FE98 /* ProgressDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDashboardTableViewCell.swift; sourceTree = "<group>"; };
 		2FEB1226251215F50012FE98 /* ProgressDashboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressDashboardTableViewCell.xib; sourceTree = "<group>"; };
 		2FEB1229251225A30012FE98 /* ServicesDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesDashboardTableViewCell.swift; sourceTree = "<group>"; };
@@ -1270,6 +1268,12 @@
 		CEDAF67325283DF900B846E5 /* ReasonForChangeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReasonForChangeTableViewCell.xib; sourceTree = "<group>"; };
 		CEDAF67625285ACC00B846E5 /* BottomLblTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomLblTableViewCell.swift; sourceTree = "<group>"; };
 		CEDAF67725285ACC00B846E5 /* BottomLblTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomLblTableViewCell.xib; sourceTree = "<group>"; };
+		CEDBFDB7266DF71E00A8D318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DashboardWalletTableViewCell.xib; sourceTree = "<group>"; };
+		CEDBFDBA266DF72500A8D318 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DashboardWalletTableViewCell.strings; sourceTree = "<group>"; };
+		CEDBFDBC266DF72900A8D318 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/DashboardWalletTableViewCell.strings; sourceTree = "<group>"; };
+		CEDBFDC1266DFBDD00A8D318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SideMenuEarningTableViewCell.xib; sourceTree = "<group>"; };
+		CEDBFDC4266DFBE900A8D318 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SideMenuEarningTableViewCell.strings; sourceTree = "<group>"; };
+		CEDBFDC6266DFBEB00A8D318 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/SideMenuEarningTableViewCell.strings; sourceTree = "<group>"; };
 		CEDD31A82576206500023977 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/SelectProductTypeNewTableViewCell.strings; sourceTree = "<group>"; };
 		CEDD31AA2576206500023977 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CreateProductFirstViewController.strings; sourceTree = "<group>"; };
 		CEDD31AB2576206500023977 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SelectProductTypeNewTableViewCell.strings; sourceTree = "<group>"; };
@@ -1934,7 +1938,7 @@
 				2FEB12002511EC930012FE98 /* SideMenuSecondTableViewCell.swift */,
 				2FEB12012511EC930012FE98 /* SideMenuTableViewCell.xib */,
 				2FEB121C2511F5E20012FE98 /* SideMenuEarningTableViewCell.swift */,
-				2FEB121D2511F5E20012FE98 /* SideMenuEarningTableViewCell.xib */,
+				CEDBFDC2266DFBDD00A8D318 /* SideMenuEarningTableViewCell.xib */,
 			);
 			path = SideMenuCells;
 			sourceTree = "<group>";
@@ -1962,7 +1966,7 @@
 			children = (
 				2F964B702513751B005FFEDC /* MultiBannerCells */,
 				2FEB122125120E0F0012FE98 /* DashboardWalletTableViewCell.swift */,
-				2FEB122225120E0F0012FE98 /* DashboardWalletTableViewCell.xib */,
+				CEDBFDB8266DF71E00A8D318 /* DashboardWalletTableViewCell.xib */,
 				2FEB1225251215F50012FE98 /* ProgressDashboardTableViewCell.swift */,
 				2FEB1226251215F50012FE98 /* ProgressDashboardTableViewCell.xib */,
 				2FEB1229251225A30012FE98 /* ServicesDashboardTableViewCell.swift */,
@@ -4128,7 +4132,7 @@
 				CECEFA0A257773D00090D459 /* GetLocationViewController.strings in Resources */,
 				2F8463D1250F6EBC0084EB32 /* LoginNewSecondTableViewCell.xib in Resources */,
 				F680D61F259B7C2C007EB12C /* DataEntryTypeListingTableViewCell.strings in Resources */,
-				2FEB121F2511F5E20012FE98 /* SideMenuEarningTableViewCell.xib in Resources */,
+				CEDBFDC0266DFBDD00A8D318 /* SideMenuEarningTableViewCell.xib in Resources */,
 				CECEF9B32577575B0090D459 /* BusinessLocationTableViewCell.xib in Resources */,
 				F680D641259B7C2C007EB12C /* DataEntryFromTopTableViewCell.strings in Resources */,
 				CE9CCD42264BAA14005AE619 /* TimingShowTableViewCell.xib in Resources */,
@@ -4254,7 +4258,7 @@
 				CECEF99B2577575B0090D459 /* TimeSheetPOpUpViewController.xib in Resources */,
 				CEDD33CB257676F100023977 /* InventoryDetailTableViewCell.xib in Resources */,
 				CEBCD74F2664A7FE001BF767 /* BankListAddCell.xib in Resources */,
-				2FEB122425120E0F0012FE98 /* DashboardWalletTableViewCell.xib in Resources */,
+				CEDBFDB6266DF71E00A8D318 /* DashboardWalletTableViewCell.xib in Resources */,
 				CECEF9EB2577575C0090D459 /* topBranchTableViewCell.xib in Resources */,
 				CECEFAD62577D3140090D459 /* AllfiterHeaderTableViewCell.xib in Resources */,
 				F680D67A259B7C2C007EB12C /* DataEntryHeaderCollectionViewCell.xib in Resources */,
@@ -5827,6 +5831,26 @@
 				CECEFAD12577D3140090D459 /* Base */,
 			);
 			name = AllfiterHeaderTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		CEDBFDB8266DF71E00A8D318 /* DashboardWalletTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEDBFDB7266DF71E00A8D318 /* Base */,
+				CEDBFDBA266DF72500A8D318 /* en */,
+				CEDBFDBC266DF72900A8D318 /* ar */,
+			);
+			name = DashboardWalletTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		CEDBFDC2266DFBDD00A8D318 /* SideMenuEarningTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEDBFDC1266DFBDD00A8D318 /* Base */,
+				CEDBFDC4266DFBE900A8D318 /* en */,
+				CEDBFDC6266DFBEB00A8D318 /* ar */,
+			);
+			name = SideMenuEarningTableViewCell.xib;
 			sourceTree = "<group>";
 		};
 		CEDD31A72576206500023977 /* SelectProductTypeNewTableViewCell.strings */ = {

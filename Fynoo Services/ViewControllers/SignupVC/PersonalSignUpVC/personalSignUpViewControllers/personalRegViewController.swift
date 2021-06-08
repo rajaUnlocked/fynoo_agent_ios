@@ -2126,8 +2126,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
     }
     
     @objc func handleTextChange(_ textField: UITextField) {
-        
-    if textField.text!.count < 2 {
+        if textField.text!.count < 2 {
       textField.keyboardType = .asciiCapable
       textField.reloadInputViews() // need to reload the input view for this to work
     } else if textField.text!.count > 2 || textField.text!.count == 2 {

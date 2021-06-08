@@ -306,6 +306,8 @@
 "Select Your Business Type"="Select Your Business Type";
 
 "Basic Information"="Basic Information";
+ 
+
 
 // Main Branch
 "Open Now" = "Open Now";
@@ -429,6 +431,9 @@
 
 
 //DashBoard
+"Service Requests" = "Service Requests";
+"Available Amount" = "Available Amount";
+"Inprocess" = "Inprocess";
 "Hello"="Hello";
 "ID"="ID";
 "Home"="Home";
@@ -444,7 +449,9 @@
 "Manage Drop Shipping"="Manage Drop Shipping";
 "Manage Discount Code"="Manage Discount Code";
 "Manage Services"="Manage Services";
-
+"Wallet" = "Wallet";
+"Settings" = "Settings";
+"Sign out" = "Sign out";
 //profile
 "Name"="Name";
 "Email"="Email";
