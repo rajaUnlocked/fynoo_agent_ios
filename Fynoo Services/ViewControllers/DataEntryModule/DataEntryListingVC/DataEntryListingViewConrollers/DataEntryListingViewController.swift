@@ -280,7 +280,6 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
             controller.messageComposeDelegate = self
             self.present(controller, animated: true, completion: nil)
         }
-
     }
     
     //MARK: - Message compose method
