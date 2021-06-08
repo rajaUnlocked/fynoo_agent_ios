@@ -110,12 +110,7 @@ class MallMarketPopupViewController: UIViewController,UITableViewDelegate,UITabl
             }
             
             return cell1
-        }
-        
-        
-        
-        else
-        {
+        }else{
             let cell1 = tabView.dequeueReusableCell(withIdentifier: "marketTableViewCell", for: indexPath) as! marketTableViewCell
             cell1.toplbl.isHidden = false
             cell1.bottomlbl.isHidden = false
@@ -131,7 +126,6 @@ class MallMarketPopupViewController: UIViewController,UITableViewDelegate,UITabl
             return cell1
         }
     }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.row == (mallmarketArr.count ))

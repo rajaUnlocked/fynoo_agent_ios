@@ -530,6 +530,13 @@ class PersonalAgentSignUPModal: NSObject {
             vatAvailable = 0
         }
         
+        var gender = ""
+        if personalAgentGender == "Male".localized {
+            gender = "M"
+        }else if personalAgentGender == "Female".localized {
+            gender = "F"
+        }
+         
         let param = ["user_type":"AI",
                      "email":personalAgentEmail,
                      "password":personalAgentPassword,
@@ -541,7 +548,7 @@ class PersonalAgentSignUPModal: NSObject {
                      "bank_name":personalAgentbankName,
                      "iban_no":personalAgentAccountNbr,
                      "maroof_link":personalAgentMaroofLink,
-                     "gender":personalAgentGender,
+                     "gender":gender,
                      "dob":personalAgentDob,
                      "education":personalAgentEducation,
                      "education_major_id":personalAgentMajorEducation,
@@ -552,7 +559,8 @@ class PersonalAgentSignUPModal: NSObject {
                      "vat_number":personalAgentVatNumber,
                      "services":ModalController.toString(appDelegate?.selectServiceStr as Any),
                      "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
-                     "is_vat_available": vatAvailable] as [String : Any]
+                     "is_vat_available": vatAvailable] as [String : Any
+                     ]
         
         print(param)
         ServerCalls.PdfFileAndImageUpload(inputUrl: str, parameters: param, pdfname: pdfdoc, pdfurl: pfurl ?? "",imageName: "user_img",imageFile:ProfileImage ?? nil) { (response, success, resp) in

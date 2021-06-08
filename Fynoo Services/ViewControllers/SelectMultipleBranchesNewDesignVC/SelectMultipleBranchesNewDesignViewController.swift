@@ -105,7 +105,7 @@ class SelectMultipleBranchesNewDesignViewController: UIViewController, UITableVi
         let str = "\(Constant.BASE_URL)\(Constant.Branch_List)"
       
         let parameters = [
-             "user_id": Singleton.shared.getUserId(),
+             "user_id": Singleton.shared.getBoId(),
             "lang_code":HeaderHeightSingleton.shared.LanguageSelected
         ]
         print("request -",parameters)
@@ -324,7 +324,7 @@ class SelectMultipleBranchesNewDesignViewController: UIViewController, UITableVi
         }
         }
                 
-                if isFromProductList {
+        if isFromProductList {
                     cell.branchLogo.sd_setImage(with: URL(string:"\(branchImage[index.row] as! String)"), placeholderImage: UIImage(named: "category_placeholder"))
                 }
         }

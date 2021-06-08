@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Gilroy-ExtraBold.otf">
-            <string>Gilroy-ExtraBold</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AgentDeliveryViewController" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
-                <outlet property="backView" destination="i17-N8-WuP" id="DLt-U6-Zqy"/>
                 <outlet property="deliveryDashboardHeightConstant" destination="cvl-p6-Lh9" id="azj-UA-Dtx"/>
                 <outlet property="headerView" destination="uNd-5Q-CXm" id="4Bb-wa-PM4"/>
                 <outlet property="tableView" destination="Gdc-kd-QDX" id="4V8-VW-hmO"/>
@@ -33,36 +28,6 @@
                         <constraint firstAttribute="height" constant="201" id="yPk-8h-Y8u"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i17-N8-WuP">
-                    <rect key="frame" x="95" y="70" width="220" height="250"/>
-                    <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trip_bg" translatesAutoresizingMaskIntoConstraints="NO" id="WEM-p4-W5J">
-                            <rect key="frame" x="13" y="10" width="194" height="195"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="195" id="Y1r-wH-rwt"/>
-                                <constraint firstAttribute="width" priority="195" constant="195" id="nKo-Pa-bd2"/>
-                            </constraints>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Trips Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDM-o0-sPM">
-                            <rect key="frame" x="41.5" y="225" width="137" height="21"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="21" id="nvj-NK-epM"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Gilroy-ExtraBold" family="Gilroy" pointSize="20"/>
-                            <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstItem="WEM-p4-W5J" firstAttribute="top" secondItem="i17-N8-WuP" secondAttribute="top" constant="10" id="4R5-69-Uzv"/>
-                        <constraint firstItem="WDM-o0-sPM" firstAttribute="top" secondItem="WEM-p4-W5J" secondAttribute="bottom" constant="20" id="4gw-ez-diR"/>
-                        <constraint firstAttribute="width" constant="220" id="9PM-bw-gDM"/>
-                        <constraint firstItem="WEM-p4-W5J" firstAttribute="centerX" secondItem="i17-N8-WuP" secondAttribute="centerX" id="YMA-am-cf1"/>
-                        <constraint firstAttribute="height" constant="250" id="vze-na-Oqi"/>
-                        <constraint firstItem="WDM-o0-sPM" firstAttribute="centerX" secondItem="i17-N8-WuP" secondAttribute="centerX" id="yof-YW-Y4L"/>
-                    </constraints>
-                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gdc-kd-QDX">
                     <rect key="frame" x="0.0" y="50" width="410" height="320"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,9 +40,9 @@
                     </constraints>
                 </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="i17-N8-WuP" secondAttribute="bottom" constant="50" id="60j-uU-eP9"/>
                 <constraint firstItem="Gdc-kd-QDX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="0.10000000000000001" id="754-Hf-QBw"/>
                 <constraint firstItem="uNd-5Q-CXm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="0.10000000000000001" id="Du1-iA-vba"/>
                 <constraint firstItem="Gdc-kd-QDX" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="0.10000000000000001" id="Ea8-x5-LIQ"/>
@@ -85,17 +50,14 @@
                 <constraint firstItem="uNd-5Q-CXm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="0.10000000000000001" id="YXG-O0-3kk"/>
                 <constraint firstItem="NW5-VS-zWb" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Ydb-Eh-twN"/>
                 <constraint firstAttribute="trailing" secondItem="uNd-5Q-CXm" secondAttribute="trailing" constant="0.10000000000000001" id="i8A-Pw-SjE"/>
-                <constraint firstItem="i17-N8-WuP" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="pL9-df-0el"/>
                 <constraint firstItem="Gdc-kd-QDX" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="0.10000000000000001" id="woX-rT-PM6"/>
                 <constraint firstItem="Gdc-kd-QDX" firstAttribute="top" secondItem="uNd-5Q-CXm" secondAttribute="bottom" constant="-40" id="ymE-P2-SSy"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="98.550724637681171" y="14.732142857142856"/>
         </view>
     </objects>
     <resources>
         <image name="backgroundImage" width="297" height="208"/>
-        <image name="trip_bg" width="194" height="194"/>
     </resources>
 </document>

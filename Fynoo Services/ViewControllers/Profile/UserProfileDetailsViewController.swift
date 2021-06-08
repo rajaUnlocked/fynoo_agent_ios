@@ -59,10 +59,10 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
     var pdfImage =  UIImage()
 
-    var personalDetail = ["Name","Gender","Dob","Education","Major"]
-    var basicInfo = ["Business Name","Email","Country","City","Mobile Number","Phone Number","Maroof Link"]
-    var bankDetail = ["Bank Name","Card Holder Name","IBAN Number"]
-    var sectionHeading = ["","Services","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
+    var personalDetail = ["Name".localized,"Gender".localized,"Dob".localized,"Education".localized,"Major".localized]
+    var basicInfo = ["Business Name".localized,"Email".localized,"Country".localized,"City".localized,"Mobile Number".localized,"Phone Number".localized,"Maroof Link".localized]
+    var bankDetail = ["IBAN Number".localized,"Bank Name".localized,"Card Holder Name".localized]
+    var sectionHeading = ["","Services".localized,"Basic Information".localized,"Bank Detail".localized,"Vat Information".localized,"Password Information".localized,"Language Information".localized]
     var pdfVat = ""
     var userType = ""
 
@@ -85,7 +85,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
 
         headerView.viewControl = self
 
-        headerView.titleHeader.text = "Profile"
+        headerView.titleHeader.text = "Profile".localized
         
     }
     func profileImageSelected(){
@@ -149,7 +149,9 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                 outputFormatter.dateFormat = "YYYY-MM-dd"
 
                 let showDate = inputFormatter.date(from: agentInfo.dob)
+                if showDate != nil{
                 agentInfo.dob = outputFormatter.string(from: showDate!)
+                }
                 
                 print(agentInfo.dob,"vhdfbjh")
     //            let dateFormatter = DateFormatter()
@@ -245,7 +247,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     
     
     @objc func selectCityCountry(_ tag: UIButton){
-        if isEdit{
+  
             let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
             vc.delegate = self
             if tag.tag == 2 {
@@ -262,15 +264,14 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                 vc.isForCity = true
             }
             self.navigationController?.pushViewController(vc, animated: true)
-        }
-        
+       
         
     }
     
     func getProfileData(){
         let parameter = ["user_id":"\(Singleton.shared.getUserId())",
         "lang_code":"EN"]
-        ServerCalls.postRequest(Service.getProfile, withParameters: parameter) { (response, success) in
+        ServerCalls.postRequest(Service.getProfile, withParameters: parameter) { [self] (response, success) in
             if let value = response as? NSDictionary{
                 let error = value.object(forKey: "error") as! Int
                 if error == 0{
@@ -286,8 +287,9 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                             let val = self.profileInfo?.data?.service_list_data?.count
                         
                         for i in 0..<val!{
-                            self.agentInfo.serviceArr.add( self.profileInfo?.data?.service_list_data?[i].service_id ?? 0)
-                        }
+                        if self.profileInfo?.data?.service_list_data?[i].is_opt ?? 0 == 1
+                            {
+    self.agentInfo.serviceArr.add( self.profileInfo?.data?.service_list_data?[i].service_id ?? 0)  } }
                         let lang = self.profileInfo?.data?.language_list?.count
                         for i in 0..<lang!{
                             print(self.profileInfo?.data?.language_list?[i].lang_id ?? 0,"jldkj")
@@ -305,7 +307,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                         }
                         
                         if self.isPersonal{
-                            self.basicInfo = ["Email","Country","City","Mobile Number","Maroof Link"]
+                            self.basicInfo = ["Email".localized,"Country".localized,"City".localized,"Mobile Number".localized,"Maroof Link".localized]
                             self.sectionHeading = ["","Services","Personal Information","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
                              }
                         
@@ -343,8 +345,17 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                         self.pdfVat = self.profileInfo?.data?.user_data?.vat_certificate ?? ""
                         
                         self.agentInfo.gender = self.profileInfo?.data?.user_data?.gender ?? ""
+                        
                         self.agentInfo.dob = self.profileInfo?.data?.user_data?.dob ?? ""
-
+                       
+                        let dateString = self.agentInfo.dob
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                        dateFormatter.dateFormat = "MM-dd-yyyy"
+                        let date = dateFormatter.date(from: dateString)!
+                        dateFormatter.dateFormat = "YYYY-MM-dd"
+                        self.agentInfo.dob = dateFormatter.string(from:date)
+                       
                         self.agentInfo.education = self.profileInfo?.data?.user_data?.education ?? ""
                         self.agentInfo.educationId = self.profileInfo?.data?.user_data?.education_new ?? 0
 
@@ -357,8 +368,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                         
                         self.agentInfo.phoneLength = self.profileInfo?.data?.user_data?.phone_length ?? 0
 
-                        self.agentInfo.dob = self.profileInfo?.data?.user_data?.dob ?? ""
-                        
+                       
                         if self.pdfVat != ""{
                             let url = URL(string: self.pdfVat)
                             //self.pdfImage = self.pdfThumbnail(url: url!)!
@@ -392,13 +402,21 @@ extension UserProfileDetailsViewController : UITableViewDelegate{
             
             if indexPath.section == 2{
                 if indexPath.row == 2{
-                    let curr_date = Calendar.current.date(byAdding: .year, value: 0, to: Date())
-                    
-                    
-                    
-                    
-                 
-                    DatePickerDialog().show("Select Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", minimumDate: nil, datePickerMode: .dateAndTime) {
+                    let calendar = Calendar(identifier: .gregorian)
+                            let currentDate = Date()
+                            var components = DateComponents()
+                            components.calendar = calendar
+                          components.year = -18
+                   // components.year = -(Int(personalAgentSignUPModal.PersonalAgentAge_limit) ?? 18)
+                            components.month = 12
+                            let maxDate = calendar.date(byAdding: components, to: currentDate)!
+
+                            let minDate = Calendar.current.date(from: DateComponents(year: 1900 , month: 1, day: 1))
+                            
+                            print(minDate as Any)
+                             print(maxDate as Any)
+                                    
+                    DatePickerDialog().show("Select - Date of Birth".localized, doneButtonTitle: "Done".localized, cancelButtonTitle: "Cancel".localized,  minimumDate: minDate, maximumDate: maxDate,  datePickerMode: .date){
                         (date) -> Void in
                         if let dt = date {
                             
@@ -460,9 +478,11 @@ extension UserProfileDetailsViewController : UITableViewDelegate{
         }
         
         if "Password Information" == sectionHeading[indexPath.section]{
+          
             let vc = ChangePasswordViewController(nibName: "ChangePasswordViewController", bundle: nil)
             vc.userInfo  = profileInfo
             self.navigationController?.pushViewController(vc, animated: true)
+            
         }
         
         
@@ -623,6 +643,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                 
             }else{
                 let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileDetailTableViewCell",for: indexPath) as! ProfileDetailTableViewCell
+                cell.agentimg.image = UIImage(named: "agent_indivdual")
                 cell.delegate = self
                 cell.selectionStyle = .none
 
@@ -650,7 +671,11 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         case 1:
             let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileServiceTableViewCell",for: indexPath) as! ProfileServiceTableViewCell
             cell.isForLanguage = false
-            
+            cell.isUserInteractionEnabled = false
+            if isEdit
+            {
+                cell.isUserInteractionEnabled = true
+            }
             print(self.agentInfo.serviceArr.count,"services")
             cell.agentinfo = self.agentInfo
             cell.serviceList = profileInfo?.data?.service_list_data
@@ -712,6 +737,11 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     func LanguageCell(indexPath:IndexPath) -> UITableViewCell{
         if indexPath.row == 1{
             let cell = self.tableVw.dequeueReusableCell(withIdentifier: "TwoButtonsTableViewCell",for: indexPath) as! TwoButtonsTableViewCell
+            cell.isUserInteractionEnabled = false
+                       if isEdit
+                       {
+                           cell.isUserInteractionEnabled = true
+                       }
             cell.save.addTarget(self, action: #selector(saveChange), for: .touchUpInside)
             cell.cancel.addTarget(self, action: #selector(cancel), for: .touchUpInside)
             cell.selectionStyle = .none
@@ -719,12 +749,18 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             return cell
         }else{
             let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileServiceTableViewCell",for: indexPath) as! ProfileServiceTableViewCell
+            cell.isUserInteractionEnabled = false
+                       if isEdit
+                       {
+                           cell.isUserInteractionEnabled = true
+                       }
             cell.agentinfo = self.agentInfo
             cell.selectionStyle = .none
 
             cell.delegate = self
             cell.viewControl = self
             cell.languageList = self.profileInfo?.data?.language_list
+            cell.isEdit = isEdit
             cell.isForLanguage = true
             cell.collectionView.reloadData()
             return cell
@@ -733,6 +769,11 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     
     func passwordCell(indexPath:IndexPath) -> UITableViewCell{
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
+        cell.isUserInteractionEnabled = false
+                   if isEdit
+                   {
+                       cell.isUserInteractionEnabled = true
+                   }
         cell.entryLbl.attributedText = ModalController.setStricColor(str: "Password *", str1: "Password", str2:" *" )
         cell.selectionStyle = .none
         cell.widthImg.constant = 0
@@ -753,10 +794,18 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     
     func personalCell(indexPath : IndexPath) -> UITableViewCell{
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
-       cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(personalDetail[indexPath.row]) *", str1: "\(personalDetail[indexPath.row])", str2:" *" )
+        cell.headingLbl.isHidden = true
+        cell.genderView.isHidden = true
+        cell.isUserInteractionEnabled = false
+                   if isEdit
+                   {
+                       cell.isUserInteractionEnabled = true
+                   }
+        
+        cell.entryLbl.attributedText = ModalController.setStricColor(str: "\("\(personalDetail[indexPath.row])".localized) *", str1: "\(personalDetail[indexPath.row])".localized, str2:" *" )
         cell.headingLbl.isUserInteractionEnabled = true
-        cell.selectionStyle = .none
         cell.headingLbl.isHidden = false
+        cell.selectionStyle = .none
                cell.codeBtnWidth.constant = 0
                cell.widthImg.constant = 0
                cell.mobileCodeWidth.constant = 0
@@ -774,17 +823,20 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                   
               }
         if indexPath.row == 0{
+            cell.headingLbl.isHidden = false
             cell.headingLbl.text = agentInfo.name
             
         }else if indexPath.row == 1{
             cell.genderWidth.constant = 150
             cell.genderHorizantal.constant = 0
             if isEdit{
-                cell.genderView.isUserInteractionEnabled = false
-            }else{
                 cell.genderView.isUserInteractionEnabled = true
+            }else{
+                cell.genderView.isUserInteractionEnabled = false
 
             }
+            cell.headingLbl.isHidden = true
+            cell.genderView.isHidden = false
             cell.headingLbl.isUserInteractionEnabled = false
             cell.genderView.text = agentInfo.gender
             cell.genderView.optionArray = ["Male","Female"]
@@ -797,14 +849,18 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             }
         }
         else if indexPath.row == 2 {
+            cell.headingLbl.isHidden = false
+            cell.headingLbl.isUserInteractionEnabled = false
             cell.headingLbl.text = agentInfo.dob
             
         }
         else if indexPath.row == 3{
+            cell.headingLbl.isHidden = false
             cell.headingLbl.text = agentInfo.education
             cell.headingLbl.isUserInteractionEnabled = false
         }
         else if indexPath.row == 4{
+            cell.headingLbl.isHidden = false
             cell.headingLbl.text = agentInfo.major
             cell.headingLbl.isUserInteractionEnabled = false
 
@@ -815,6 +871,13 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     func BankDetailCell(indexPath : IndexPath) -> UITableViewCell{
         
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
+        cell.headingLbl.isHidden = true
+        cell.genderView.isHidden = true
+        cell.isUserInteractionEnabled = false
+                   if isEdit
+                   {
+                       cell.isUserInteractionEnabled = true
+                   }
         cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(bankDetail[indexPath.row]) *", str1: "\(bankDetail[indexPath.row])", str2:" *" )
         cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         cell.selectionStyle = .none
@@ -833,24 +896,26 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         cell.genderHorizantal.constant = 0
         cell.selectBtn.isHidden = true
         
-        if indexPath.row == 0{
+        if indexPath.row == 1{
             cell.headingLbl.isUserInteractionEnabled = false
             cell.headingLbl.text = agentInfo.bankname
             cell.headingLbl.tag = 1000
             cell.headingLbl.delegate=self
-        }else if indexPath.row == 1{
+        }else if indexPath.row == 2{
             cell.headingLbl.tag = 1001
             cell.headingLbl.text = agentInfo.cardHolderName
-        }else if indexPath.row == 2{
+        }else if indexPath.row == 0{
             cell.headingLbl.tag = 1002
             cell.headingLbl.delegate = self
             cell.headingLbl.text = agentInfo.iban
+            
             cell.headingLbl.delegate = self
             cell.headingLbl.isHidden = false
             cell.codeBtnWidth.constant = 0
             cell.widthImg.constant = 0
             cell.mobileCodeWidth.constant = 0
             cell.selectBtn.isHidden = true
+            cell.headingLbl.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         }
         return cell
     }
@@ -859,6 +924,18 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
 //          vc.isFromCountryMobileCode = true
 //           vc.selectedCountryDict = self.selectedCountryCodeDict
 //          self.navigationController?.pushViewController(vc, animated: true)
+    @objc func handleTextChange(_ textField: UITextField) {
+        if textField.tag == 1002
+        {
+        if textField.text!.count < 2 {
+      textField.keyboardType = .asciiCapable
+      textField.reloadInputViews() // need to reload the input view for this to work
+    } else if textField.text!.count > 2 || textField.text!.count == 2 {
+      textField.keyboardType = .asciiCapableNumberPad
+      textField.reloadInputViews()
+    }
+        }
+    }
     @objc func codeClicked(_ sender : UIButton){
         
         if sender.tag == 1098{
@@ -880,11 +957,18 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
        
         
     }
+    
     func BasicInfoCell(indexPath : IndexPath) -> UITableViewCell{
         
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
+        cell.genderView.isHidden = true
+        cell.selectBtn.isHidden = true
         cell.selectionStyle = .none
-
+        cell.isUserInteractionEnabled = false
+                   if isEdit
+                   {
+                       cell.isUserInteractionEnabled = true
+                   }
         cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         cell.genderWidth.constant = 0
         cell.genderHorizantal.constant = 0
@@ -900,11 +984,12 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.headingLbl.isUserInteractionEnabled = false
             
         }
-        cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(basicInfo[indexPath.row]) *", str1: "\(basicInfo[indexPath.row])", str2:" *" )
+        cell.entryLbl.attributedText = ModalController.setStricColor(str: " \(basicInfo[indexPath.row]) *", str1: "\(basicInfo[indexPath.row])", str2:" *" )
         
         print(basicInfo[indexPath.row],"sd")
         cell.codeBtn.isHidden = true
         if "Country" == basicInfo[indexPath.row]{
+            
             cell.contentView.insertSubview(cell.selectBtn, aboveSubview: cell.rotateVw)
             cell.selectBtn.isHidden = false
             cell.selectBtn.tag = 2
@@ -933,6 +1018,8 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         
         
         if "Mobile Number" == basicInfo[indexPath.row]{
+            cell.genderView.isHidden = true
+            cell.selectBtn.isHidden = true
             cell.mobileCode.text = agentInfo.mobileCode
             cell.headingLbl.text = agentInfo.mobileNo
             cell.codeBtn.tag = 1099
@@ -954,13 +1041,15 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         }
         
         if "Maroof Link" ==  basicInfo[indexPath.row]{
+            
             cell.headingLbl.tag = 5
             cell.headingLbl.delegate = self
             cell.headingLbl.text = agentInfo.maroof
             cell.codeBtnWidth.constant = 0
             cell.widthImg.constant = 0
             cell.mobileCodeWidth.constant = 0
-            
+            cell.headingLbl.keyboardType = .asciiCapableNumberPad
+           
         }
         if "Business Name" == basicInfo[indexPath.row]{
             cell.headingLbl.tag = 0
@@ -1025,6 +1114,12 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     func VatCell(indexPath : IndexPath) -> UITableViewCell{
         if indexPath.row == 0{
             let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
+            cell.genderView.isHidden = true
+            cell.isUserInteractionEnabled = false
+                       if isEdit
+                       {
+                           cell.isUserInteractionEnabled = true
+                       }
             cell.entryLbl.attributedText = ModalController.setStricColor(str: "VAT Number *", str1: "VAT Number", str2:" *" )
             cell.flagImg.isHidden = true
             cell.mobileCode.isHidden = true
@@ -1044,7 +1139,11 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileVatTableViewCell",for: indexPath) as! ProfileVatTableViewCell
             cell.imgView.image = self.pdfImage
             cell.selectionStyle = .none
-
+            cell.isUserInteractionEnabled = false
+            if isEdit
+            {
+            cell.isUserInteractionEnabled = true
+             }
             if pdfVat != "" {
                 cell.addIon.isHidden = true
                 cell.addText.isHidden = true
@@ -1065,6 +1164,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
 extension UserProfileDetailsViewController : ProfileDetailTableViewCellDelegate{
     func edit() {
         isEdit = !isEdit
+
         tableVw.reloadData()
     }
     
@@ -1138,7 +1238,7 @@ extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
         print("countryDict",countryDict)
         print(selectedCountryDict)
       
-        
+        tableVw.reloadData()
     }
     
     func selectedCityMethod(cityDict: NSMutableDictionary) {
@@ -1148,6 +1248,7 @@ extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
             agentInfo.city=(selectedCityDict.value(forKey: "city_name") as? String)!
             
         }
+        tableVw.reloadData()
     }
     
     func selectedEducationMethod(educationDict: NSMutableDictionary) {
@@ -1156,18 +1257,20 @@ extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
         selectedEducation = educationDict
         agentInfo.education = educationDict.object(forKey: "education_type") as! String
         agentInfo.educationId = educationDict.object(forKey: "education_id") as! Int
-        agentInfo.major =  ((educationDict.object(forKey: "list_value") as! NSArray).object(at: 0) as! NSDictionary).object(forKey: "education_major") as! String
-        agentInfo.majorId =  ((educationDict.object(forKey: "list_value") as! NSArray).object(at: 0) as! NSDictionary).object(forKey: "education_major_id") as! Int
+        agentInfo.major = ""
         tableVw.reloadData()
         
         
     }
     
     func selectedMajorEducationMethod(educationDict: NSMutableDictionary) {
-        
+        agentInfo.major =  educationDict.object(forKey: "education_major") as! String
+        agentInfo.majorId =  educationDict.object(forKey: "education_major_id") as! Int
+        tableVw.reloadData()
     }
     
     func selectedCurrency(currency: NSMutableDictionary) {
+        
         
     }
     
@@ -1297,7 +1400,7 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
         case 5:
             agentInfo.maroof = textField.text!
             
-        case 1002:
+        case 1000:
             agentInfo.iban = textField.text!
             
             if textField.text!.count == 2{
@@ -1309,7 +1412,7 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
                 
             }
             
-        case 1000:
+        case 1002:
             
             agentInfo.bankname = textField.text!
            

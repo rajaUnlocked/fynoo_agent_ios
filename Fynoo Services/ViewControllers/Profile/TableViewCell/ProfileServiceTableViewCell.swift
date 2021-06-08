@@ -54,6 +54,7 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
     var serviceList : [service_list_data]?
     var languageList : [language_lists]?
     var isForLanguage = false
+    var isEdit = false
     var agentinfo = AgentProfile()
     var layout = UICollectionViewFlowLayout()
     var viewControl = UIViewController()
@@ -68,7 +69,7 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
 
 
            if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-               layout.scrollDirection = .horizontal
+               layout.scrollDirection = .vertical
            }
         
         // Initialization code
@@ -91,7 +92,8 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if isForLanguage{
-            
+            if isEdit
+            {
             let vc = LanguageSelectionViewController(nibName: "LanguageSelectionViewController", bundle: nil)
             vc.languageSelect = { str in
                 print("InSide Closure")
@@ -106,20 +108,27 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
 ////            vc.isForLanguage = true
 //  //          vc.langArr = agentinfo.langArr
 //            viewControl.navigationController?.pushViewController(vc, animated: true)
+            }
         }else{
             
             let serviceStatus = ModalController.toString(serviceList?[indexPath.row].service_status as Any)
             
             if serviceStatus == "1" {
-                if agentinfo.serviceArr.contains(serviceList?[indexPath.row].service_id){
+                if !(serviceList?[indexPath.row].check_service)! || !agentinfo.serviceArr.contains((serviceList?[indexPath.row].service_id)!)
+                {
+                if agentinfo.serviceArr.contains((serviceList?[indexPath.row].service_id)!){
                     
-                    agentinfo.serviceArr.remove(serviceList?[indexPath.row].service_id ?? 0 )
+                    agentinfo.serviceArr.remove((serviceList?[indexPath.row].service_id)!)
                     
                 }else{
-                    agentinfo.serviceArr.add(serviceList?[indexPath.row].service_id ?? 0)
+                    agentinfo.serviceArr.add((serviceList?[indexPath.row].service_id)!)
+                }
+                }
+                else{
+                ModalController.showNegativeCustomAlertWith(title: "You can not opt out this service, because your service in inprocess".localized, msg: "")
                 }
             }else{
-                ModalController.showNegativeCustomAlertWith(title: "This service is disabled. Please contact Fynoo Admin for more information. ".localized, msg: "")
+            ModalController.showNegativeCustomAlertWith(title: "This service is disabled. Please contact Fynoo Admin for more information. ".localized, msg: "")
             }
             
             collectionView.reloadData()
@@ -134,7 +143,7 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
             cell.serviceName.text = languageList?[indexPath.row].lang_name
             cell.imgCheck.image = UIImage(named: "accepted_tick")
         }else{
-            if agentinfo.serviceArr.contains(serviceList?[indexPath.row].service_id){
+            if agentinfo.serviceArr.contains((serviceList?[indexPath.row].service_id)!){
                 cell.imgCheck.image = UIImage(named: "check")
             }else{
                 cell.imgCheck.image = UIImage(named: "uncheck")

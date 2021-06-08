@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "Remarks"; ObjectID = "5t8-0m-phn"; */
+"5t8-0m-phn.text" = "Remarks";
+
+/* Class = "UIButton"; normalTitle = "Proceed To Transfer To Bank"; ObjectID = "7pO-9H-G2L"; */
+"7pO-9H-G2L.normalTitle" = "Proceed To Transfer To Bank";
+
+/* Class = "UITextField"; placeholder = "Amount"; ObjectID = "Ocq-dC-rv7"; */
+"Ocq-dC-rv7.placeholder" = "Amount";
+
+/* Class = "UILabel"; text = "SAR 14567"; ObjectID = "PKv-Rf-FT9"; */
+"PKv-Rf-FT9.text" = "SAR 14567";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Rvg-cy-daG"; */
+"Rvg-cy-daG.text" = "Label";
+
+/* Class = "UILabel"; text = "SAR"; ObjectID = "ayK-yo-NxM"; */
+"ayK-yo-NxM.text" = "SAR";
+
+/* Class = "UILabel"; text = "Available Balance:"; ObjectID = "fGa-UB-5GG"; */
+"fGa-UB-5GG.text" = "Available Balance:";
+
+/* Class = "UILabel"; text = "Add Money To"; ObjectID = "txM-56-haQ"; */
+"txM-56-haQ.text" = "Add Money To";
+
+/* Class = "UILabel"; text = "Bank From Wallet"; ObjectID = "uOx-VB-hMU"; */
+"uOx-VB-hMU.text" = "Bank From Wallet";

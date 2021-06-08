@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WalletNewSimpleTableViewCell" id="KGk-i7-Jjw" customClass="WalletNewSimpleTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="94"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="94"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy Subscription" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ov9-MM-AzK">
+                        <rect key="frame" x="15" y="16" width="92" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="DOz-Mn-bDt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trans_new" translatesAutoresizingMaskIntoConstraints="NO" id="jJ8-3H-pl0">
+                        <rect key="frame" x="15" y="39" width="17" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="17" id="5Mt-oO-zcL"/>
+                            <constraint firstAttribute="height" constant="17" id="xGn-eq-efg"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0D945438717716819717" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqD-aK-nOK">
+                        <rect key="frame" x="41" y="41" width="110.5" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="NdJ-Ee-2gX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="11"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallet_neww" translatesAutoresizingMaskIntoConstraints="NO" id="IND-OP-Oev">
+                        <rect key="frame" x="162" y="39" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="X1y-DG-uGK"/>
+                            <constraint firstAttribute="width" constant="16" id="lxw-uY-oo0"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Holding" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPq-Th-30F">
+                        <rect key="frame" x="184" y="41" width="39.5" height="12"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="IAi-HW-yPm"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="11"/>
+                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rect_box_new" translatesAutoresizingMaskIntoConstraints="NO" id="8FE-we-4St">
+                        <rect key="frame" x="15" y="64" width="17" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="AQW-Ss-2yv"/>
+                            <constraint firstAttribute="width" constant="17" id="WVo-ei-iHx"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I438717716819717 11-Jan-2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UV0-dT-hRF">
+                        <rect key="frame" x="41" y="66" width="146" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="HAL-nk-g8T"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="11"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAR 3,591.32" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0F-y3-7lU">
+                        <rect key="frame" x="239" y="65" width="66" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="3fM-f8-lK3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                        <color key="textColor" red="0.38039215686274508" green="0.75294117647058822" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUW-7f-BTa">
+                        <rect key="frame" x="0.0" y="93.5" width="320" height="0.5"/>
+                        <color key="backgroundColor" red="0.68627450980000004" green="0.68627450980000004" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="hhQ-nv-mhd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.68627450980000004" green="0.68627450980000004" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="wUW-7f-BTa" firstAttribute="top" secondItem="8FE-we-4St" secondAttribute="bottom" constant="12.5" id="4Gv-s1-UEs"/>
+                    <constraint firstItem="8FE-we-4St" firstAttribute="top" secondItem="jJ8-3H-pl0" secondAttribute="bottom" constant="8" id="7A1-Oy-Kp3"/>
+                    <constraint firstItem="PqD-aK-nOK" firstAttribute="top" secondItem="ov9-MM-AzK" secondAttribute="bottom" constant="13" id="9eU-wK-iPE"/>
+                    <constraint firstItem="ov9-MM-AzK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Ceg-1p-HEn"/>
+                    <constraint firstItem="X0F-y3-7lU" firstAttribute="top" secondItem="UV0-dT-hRF" secondAttribute="top" constant="-1" id="F4O-uH-Bjr"/>
+                    <constraint firstItem="TPq-Th-30F" firstAttribute="leading" secondItem="IND-OP-Oev" secondAttribute="trailing" constant="6" id="NgO-Tu-n6W"/>
+                    <constraint firstItem="UV0-dT-hRF" firstAttribute="top" secondItem="8FE-we-4St" secondAttribute="top" constant="2" id="Q3n-9C-VsW"/>
+                    <constraint firstItem="wUW-7f-BTa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="S5j-pu-xHx"/>
+                    <constraint firstAttribute="bottom" secondItem="wUW-7f-BTa" secondAttribute="bottom" id="T6f-UN-CWv"/>
+                    <constraint firstItem="8FE-we-4St" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="TdE-Rc-bb0"/>
+                    <constraint firstItem="jJ8-3H-pl0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ZyK-fT-gDY"/>
+                    <constraint firstItem="wUW-7f-BTa" firstAttribute="top" secondItem="X0F-y3-7lU" secondAttribute="bottom" constant="16.5" id="bJ9-BS-yl1"/>
+                    <constraint firstItem="PqD-aK-nOK" firstAttribute="leading" secondItem="jJ8-3H-pl0" secondAttribute="trailing" constant="9" id="cVD-aH-p3i"/>
+                    <constraint firstItem="IND-OP-Oev" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="39" id="dBB-e2-4Za"/>
+                    <constraint firstItem="ov9-MM-AzK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="iCN-sy-1rA"/>
+                    <constraint firstItem="UV0-dT-hRF" firstAttribute="leading" secondItem="8FE-we-4St" secondAttribute="trailing" constant="9" id="jc7-ke-48l"/>
+                    <constraint firstItem="jJ8-3H-pl0" firstAttribute="top" secondItem="ov9-MM-AzK" secondAttribute="bottom" constant="11" id="lQE-zb-N7N"/>
+                    <constraint firstItem="IND-OP-Oev" firstAttribute="leading" secondItem="PqD-aK-nOK" secondAttribute="trailing" constant="10.5" id="nwF-5S-TiU"/>
+                    <constraint firstAttribute="trailing" secondItem="wUW-7f-BTa" secondAttribute="trailing" id="nzD-Ag-2Ea"/>
+                    <constraint firstItem="TPq-Th-30F" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="41" id="sdI-Sf-ZGC"/>
+                    <constraint firstAttribute="trailing" secondItem="X0F-y3-7lU" secondAttribute="trailing" constant="15" id="wFi-6w-dRG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="holdingLbl" destination="TPq-Th-30F" id="p8g-LX-HfR"/>
+                <outlet property="orderIdLbl" destination="UV0-dT-hRF" id="yjd-jI-vUa"/>
+                <outlet property="priceLbl" destination="X0F-y3-7lU" id="oPe-Gk-d08"/>
+                <outlet property="titleLbl" destination="ov9-MM-AzK" id="2AU-3R-wWE"/>
+                <outlet property="transHeight" destination="xGn-eq-efg" id="i8l-Jn-Tuz"/>
+                <outlet property="transIcon" destination="jJ8-3H-pl0" id="dyT-KU-WgY"/>
+                <outlet property="transactionLbl" destination="PqD-aK-nOK" id="xjd-gx-pHp"/>
+                <outlet property="walletIcon" destination="IND-OP-Oev" id="0w6-Vw-ott"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="123"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="rect_box_new" width="10" height="9"/>
+        <image name="trans_new" width="54" height="54"/>
+        <image name="wallet_neww" width="10" height="8"/>
+    </resources>
+</document>

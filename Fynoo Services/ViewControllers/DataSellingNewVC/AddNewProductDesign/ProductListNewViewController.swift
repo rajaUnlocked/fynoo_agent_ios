@@ -225,6 +225,7 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
                     if success {
                               
                     let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                        vc.isDataBank = true
                         self.navigationController?.pushViewController(vc, animated: true)
                                                       }
                                       }
@@ -345,15 +346,17 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
     }
     @objc func addProductClicked() {
         ProductModel.shared.remove()
-        
-        let controller = BarcodeScannerViewController()
-       controller.headerViewController.titleLabel.text = "Scan"
-        controller.headerViewController.closeButton.setTitle("Close", for: .normal)
-            controller.codeDelegate = self
-            controller.errorDelegate = self
-            controller.dismissalDelegate = self
-             isCreate = true
-        present(controller, animated: true, completion: nil)
+        let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+        vc.isDataBank = true
+    self.navigationController?.pushViewController(vc, animated: true)
+//        let controller = BarcodeScannerViewController()
+//       controller.headerViewController.titleLabel.text = "Scan"
+//        controller.headerViewController.closeButton.setTitle("Close", for: .normal)
+//            controller.codeDelegate = self
+//            controller.errorDelegate = self
+//            controller.dismissalDelegate = self
+//             isCreate = true
+//        present(controller, animated: true, completion: nil)
 //        let vc = QRCOdeViewController(nibName: "QRCOdeViewController", bundle: nil)
 //        vc.delegate = self
 //        isCreate = true
@@ -427,7 +430,7 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
             ProductModel.shared.remove()
             ProductModel.shared.isedit = true
             let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
-            
+            vc.isDataBank = true
         self.navigationController?.pushViewController(vc, animated: true)
             isCreate = !isCreate
             return
@@ -501,6 +504,7 @@ extension ProductListNewViewController : BottomPopupEditProductViewControllerDel
                                                if success {
                        
                                                    let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                                                vc.isDataBank = true
                                                    self.navigationController?.pushViewController(vc, animated: true)
                                                }
                                }
@@ -516,6 +520,7 @@ extension ProductListNewViewController : BottomPopupEditProductViewControllerDel
                                                   if success {
                           
                                             let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                                                    vc.isDataBank = true
                                                     vc.isVarient = true; self.navigationController?.pushViewController(vc, animated: true)
                                                   }
                                   }
@@ -532,7 +537,9 @@ extension ProductListNewViewController : BottomPopupEditProductViewControllerDel
                                                   if success {
                           
                                                       let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
-                                                    vc.isSimilar = true; self.navigationController?.pushViewController(vc, animated: true)
+                                                    vc.isSimilar = true;
+                                                    vc.isDataBank = true
+                                                    self.navigationController?.pushViewController(vc, animated: true)
                                                   }
                                   }
                 }
@@ -540,6 +547,7 @@ extension ProductListNewViewController : BottomPopupEditProductViewControllerDel
                     ProductModel.shared.remove()
                     ProductModel.shared.isedit = true
                     let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                    vc.isDataBank = true
                     self.navigationController?.pushViewController(vc, animated: true)
                     
                 }
@@ -558,6 +566,7 @@ extension ProductListNewViewController : BottomPopupEditProductViewControllerDel
                                                   if success {
                           
                                                       let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                                                    vc.isDataBank = true
                                                     self.navigationController?.pushViewController(vc, animated: true)
                                                   }
                                   }
@@ -577,7 +586,9 @@ extension ProductListNewViewController : BottomPopupEditProductViewControllerDel
                                                   if success {
                           
                                                       let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
-                                                    vc.isSimilar = true; self.navigationController?.pushViewController(vc, animated: true)
+                                                    vc.isSimilar = true;
+                                                    vc.isDataBank = true
+                                                    self.navigationController?.pushViewController(vc, animated: true)
                                                   }
                                   }
                 }
@@ -585,6 +596,7 @@ extension ProductListNewViewController : BottomPopupEditProductViewControllerDel
                    ProductModel.shared.remove()
                     ProductModel.shared.isedit = true
                     let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                    vc.isDataBank = true
                     self.navigationController?.pushViewController(vc, animated: true)
                     
                 }

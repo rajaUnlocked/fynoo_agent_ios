@@ -80,8 +80,8 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
         headerView.titleHeader.text = "Verification".localized
         self.headerView.viewControl = self
         self.headerView.backButton.isHidden = true
-        let intLetters = mobile.prefix(3)
-        let endLetters = mobile.suffix(3)
+        let intLetters = mobile.prefix(1)
+        let endLetters = mobile.suffix(1)
         let newString = intLetters + "*****" + endLetters
         print(newString)
         mobileNo.text = "\(newString)"

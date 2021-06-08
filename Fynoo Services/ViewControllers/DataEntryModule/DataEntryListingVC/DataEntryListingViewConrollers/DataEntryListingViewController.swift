@@ -8,8 +8,12 @@
 
 import UIKit
 import MTPopup
+import MessageUI
+import CoreLocation
+import GoogleMaps
 
-class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDelegate, DECancellationReasonViewControllerDelegate, DataEntryDetailViewControllerDelegate, DataEntryAgentRatingViewControllerDelegate, CompleteDataEntryListTableViewCellrDelegate, DataEntryFormViewControllerDelegate {
+class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDelegate, DECancellationReasonViewControllerDelegate, DataEntryDetailViewControllerDelegate, DataEntryAgentRatingViewControllerDelegate, CompleteDataEntryListTableViewCellrDelegate, DataEntryFormViewControllerDelegate, MFMessageComposeViewControllerDelegate, CLLocationManagerDelegate {
+    
     
     @IBOutlet weak var noDataView: UIView!
     @IBOutlet weak var headerView: NavigationView!
@@ -38,14 +42,21 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
      var serviceIcon:String = ""
     var serviceStatus:String = ""
     
+    var BranchLat = 0.0
+    var BranchLong = 0.0
+    let locationManager = CLLocationManager()
+    var latitude = 0.0
+    var longitude = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.getUserLocation()
         self.setUpUI()
         
         ModalClass.startLoading(self.view)
         isMoreDataAvailable = false
         currentPageNumber = 0
+       
         self.getBoServicesRequestListAPI()
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationRefreshList(_:)), name: NSNotification.Name(rawValue: "refreshDataEntryList"), object: nil)
         
@@ -143,7 +154,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     
     func getBoServicesRequestListAPI() {
         
-        apiManagerModal.agentServicesOrderListing(serviceID:self.serviceID, tabStatus: self.selectedTab, searchStr: self.searchBoxEntryText, pageNumber: currentPageNumber, filter: selectedFilters ) { (success, response) in
+        apiManagerModal.agentServicesOrderListing(serviceID:self.serviceID, tabStatus: self.selectedTab, searchStr: self.searchBoxEntryText, pageNumber: currentPageNumber, filter: selectedFilters ) { [self] (success, response) in
             ModalClass.stopLoading()
             if success{
                 if self.currentPageNumber == 0 {
@@ -176,15 +187,30 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
                     }
                     if self.selectedTab == "1" && self.serviceStatus == "0" {
                      self.noDataLbl.text = "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information.".localized
-                    }else{
+                    } else if  self.selectedTab == "1" && self.boServicesList?.data?.is_active == false {
+                        
+                        let active = "please active".localized
+                        let service = "services to receive new order request.".localized
+                        self.noDataLbl.text = "\(active) \(self.serviceName) \(service)"
+                    }
+                    else{
                       self.noDataLbl.text = "Oops! No Service Found".localized
                     }
 
                 }else{
+                    if self.currentPageNumber == 0 {
+                        self.totalRequestListArray?.removeAll()
+                    }
                     self.isMoreDataAvailable = false
-                    self.totalRequestListArray?.removeAll()
                     self.noDataView.isHidden = false
-                }                
+                }
+                self.headerView1 = DataEntryListHeaderView()
+                let avgLbl = self.headerView1!.viewWithTag(1001) as! UILabel
+                //            let ratingView = sectionHeaderView.viewWithTag(1002) as! UIView
+                let totalRatingLbl = self.headerView1!.viewWithTag(1003) as! UILabel
+                avgLbl.text = self.boServicesList?.data?.rating_avg
+                totalRatingLbl.text = "(\(ModalController.toString(self.boServicesList?.data?.rating_count as Any)))"
+                self.headerView1!.ratingValueView.rating = ModalController.convertInToDouble(str: self.boServicesList?.data?.rating_avg as AnyObject)
                 
                 self.tableView.reloadData()
             }else{
@@ -238,6 +264,92 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         self.present(vc, animated: true, completion: nil)
         
     }
+    func callClicked(_ sender: Any) {
+        print("sender.tag", (sender as AnyObject).tag!)
+        guard let number = URL(string: "tel://" + ((self.totalRequestListArray?[(sender as AnyObject).tag].bo_number)!))
+                               else { return }
+        UIApplication.shared.open(number)
+    }
+    
+    func messageClicked(_ sender: Any) {
+        print("sender.tag", (sender as AnyObject).tag!)
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.body = ""
+            controller.recipients = ["\((self.totalRequestListArray?[(sender as AnyObject).tag].bo_number)!)"]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
+    
+    //MARK: - Message compose method
+   func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+           //... handle sms screen actions
+           self.dismiss(animated: true, completion: nil)
+       }
+    
+    func navigationClicked(_ sender: Any){
+        
+        self.BranchLat = ModalController.convertInToDouble(str: self.totalRequestListArray?[(sender as AnyObject).tag].lat as AnyObject)
+        self.BranchLong = ModalController.convertInToDouble(str: self.totalRequestListArray?[(sender as AnyObject).tag].long as AnyObject)
+        
+        if HeaderHeightSingleton.shared.longitude == 0.0 {
+            ModalController.showNegativeCustomAlertWith(title: "Please turn on your location services for navigation", msg: "")
+        }else{
+            print("GoogleNavigation")
+            var latStr = 0.0
+            var longStr = 0.0
+            let lati = HeaderHeightSingleton.shared.latitude
+            if lati != 0.0 {
+                latStr = HeaderHeightSingleton.shared.latitude
+                longStr = HeaderHeightSingleton.shared.longitude
+            }
+            
+            if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
+                UIApplication.shared.openURL(URL(string:"comgooglemaps://?saddr=\(latStr),\(longStr)&daddr=\(self.BranchLat),\(self.BranchLong)&directionsmode=driving&zoom=14&views=traffic")!)
+                
+            }else{
+                //            self.openTrackerInBrowser()
+                UIApplication.shared.openURL(URL(string:
+                    "https://www.google.co.in/maps/dir/?saddr=\(latStr),\(longStr)&daddr=\(self.BranchLat),\(self.BranchLong)&directionsmode=driving&zoom=14&views=traffic")!)
+                
+            }
+        }
+    }
+    func getUserLocation() {
+        
+          self.locationManager.requestWhenInUseAuthorization()
+          if CLLocationManager.locationServicesEnabled() {
+              locationManager.delegate = self
+              locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+              locationManager.startUpdatingLocation()
+          }
+      }
+      
+    // MARK: - Location Delegates
+     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+         
+         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+         print("locations = \(locValue.latitude) \(locValue.longitude)")
+         latitude = locValue.latitude
+         longitude = locValue.longitude
+         
+         if HeaderHeightSingleton.shared.longitude == 0.0 {
+             HeaderHeightSingleton.shared.longitude = longitude
+             HeaderHeightSingleton.shared.latitude = latitude
+            
+         }
+         locationManager.stopUpdatingLocation()
+     }
+     
+     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+         ModalController.showNegativeCustomAlertWith(title: "Please turn on your location services", msg: "")
+         
+         HeaderHeightSingleton.shared.longitude = 0.0
+         HeaderHeightSingleton.shared.latitude = 0.0
+
+    }
+    
 }
 
 extension DataEntryListingViewController : UITableViewDelegate {
@@ -292,10 +404,10 @@ extension DataEntryListingViewController : UITableViewDelegate {
                     self.createHeaderAgain = false
                 }
                 
-                headerView1!.delegate = self
+              
             }
             headerView1!.selectedIndex = Index
-            
+            headerView1!.delegate = self
             return headerView1
         }else{
             return UIView()
@@ -562,6 +674,19 @@ extension DataEntryListingViewController : UITableViewDataSource {
             cell.ratingStrImageView.image = UIImage(named: "ratingHalfStar")
         }
         
+        self.BranchLat = ModalController.convertInToDouble(str: requestData?.lat as AnyObject)
+        self.BranchLong = ModalController.convertInToDouble(str: requestData?.long as AnyObject)
+        
+        if self.BranchLat != 0.0 {
+            cell.boLocationBtn.isHidden = false
+            cell.locationBtnWidthConstant.constant = 50
+            
+        }else{
+            cell.boLocationBtn.isHidden = true
+            cell.locationBtnWidthConstant.constant = 0
+        }
+        
+        
         cell.delegate = self
         cell.tag = index.row
         return cell
@@ -608,4 +733,7 @@ extension DataEntryListingViewController : DataEntryFilterDelegate {
         print("appliedFilterCount:-", appliedFilterCount)
         self.refreshDataEntryCompleteServiceList()
     }
+    
+    
+    
 }

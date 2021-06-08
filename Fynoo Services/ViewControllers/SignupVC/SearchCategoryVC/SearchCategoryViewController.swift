@@ -152,6 +152,7 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
                 }
             }
         }
+        
     }
     func registerCellNibs(){
         tableVw.register(UINib(nibName: "SearchCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchCategoryTableViewCell");

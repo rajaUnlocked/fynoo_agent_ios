@@ -204,7 +204,7 @@ class ProfileData : Mappable{
 
 class service_list_data : Mappable{
     
-    
+    var check_service = false
     var is_active = 0
     var is_opt = 0
     var service_code = ""
@@ -216,7 +216,7 @@ class service_list_data : Mappable{
     required init?(map: Map) {}
     
     func mapping(map: Map) {
-        
+        check_service <- map["check_service"]
         is_active <- map["is_active"]
         is_opt <- map["is_opt"]
         service_code <- map["service_code"]
@@ -316,6 +316,7 @@ class agentInfo : Mappable{
 
     var trips_achievements:[trips_achievements]?
     var del_service_document = ""
+   var del_service_document_reason = ""
     var del_service_document_uploaded = 0
     var del_service_status = 0
     var dsd_id = 0
@@ -335,6 +336,8 @@ class agentInfo : Mappable{
     required init?(map: Map) {}
     
     func mapping(map: Map) {
+        
+        del_service_document_reason <- map["del_service_document_reason"]
           dsd_id <- map["dsd_id"]
           trips_achievements <- map["trips_achievements"]
         del_service_document <- map["del_service_document"]

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,6 +22,30 @@
                 <rect key="frame" x="0.0" y="0.0" width="135" height="32"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhK-RC-AgM">
+                        <rect key="frame" x="0.0" y="1" width="135" height="31"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZi-bJ-YOP">
+                                <rect key="frame" x="0.0" y="-2" width="134" height="32"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <color key="textColor" red="0.10980392156862745" green="0.61568627450980395" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="sZi-bJ-YOP" secondAttribute="trailing" constant="1" id="QWk-b1-OBN"/>
+                            <constraint firstItem="sZi-bJ-YOP" firstAttribute="top" secondItem="ZhK-RC-AgM" secondAttribute="top" constant="-2" id="Uvi-5I-kaf"/>
+                            <constraint firstItem="sZi-bJ-YOP" firstAttribute="leading" secondItem="ZhK-RC-AgM" secondAttribute="leading" id="lhk-Rq-B7p"/>
+                            <constraint firstAttribute="bottom" secondItem="sZi-bJ-YOP" secondAttribute="bottom" constant="1" id="pGg-bC-oHo"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vW-qn-yLP">
                         <rect key="frame" x="0.0" y="0.0" width="135" height="1"/>
                         <color key="backgroundColor" red="0.90980392160000001" green="0.29411764709999999" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -31,26 +56,9 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhK-RC-AgM">
-                        <rect key="frame" x="0.0" y="1" width="135" height="31"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZi-bJ-YOP">
-                                <rect key="frame" x="0.0" y="0.0" width="135" height="31"/>
-                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
-                                <color key="textColor" red="0.10980392156862745" green="0.61568627450980395" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="sZi-bJ-YOP" secondAttribute="trailing" id="QWk-b1-OBN"/>
-                            <constraint firstItem="sZi-bJ-YOP" firstAttribute="top" secondItem="ZhK-RC-AgM" secondAttribute="top" id="Uvi-5I-kaf"/>
-                            <constraint firstItem="sZi-bJ-YOP" firstAttribute="leading" secondItem="ZhK-RC-AgM" secondAttribute="leading" id="lhk-Rq-B7p"/>
-                            <constraint firstAttribute="bottom" secondItem="sZi-bJ-YOP" secondAttribute="bottom" id="pGg-bC-oHo"/>
-                        </constraints>
-                    </view>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="3vW-qn-yLP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="FmX-8K-CcY"/>
                 <constraint firstItem="3vW-qn-yLP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="GIx-VI-BRa"/>
@@ -60,7 +68,6 @@
                 <constraint firstItem="ZhK-RC-AgM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="v3b-5f-Smg"/>
                 <constraint firstAttribute="trailing" secondItem="ZhK-RC-AgM" secondAttribute="trailing" id="yYh-jj-T9h"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
                 <outlet property="mainView" destination="ZhK-RC-AgM" id="BXa-xP-SfL"/>
                 <outlet property="textLbl" destination="sZi-bJ-YOP" id="GPl-7m-NXj"/>

@@ -11,6 +11,9 @@ import UIKit
 protocol  CompleteDataEntryListTableViewCellrDelegate {
     
      func ratingClicked(_ sender: Any)
+    func callClicked(_ sender: Any)
+    func messageClicked(_ sender: Any)
+    func navigationClicked(_ sender: Any)
 }
 
 class CompleteDataEntryListTableViewCell: UITableViewCell {
@@ -93,9 +96,13 @@ class CompleteDataEntryListTableViewCell: UITableViewCell {
     }
     
     @IBAction func textMessageClicked(_ sender: Any) {
+        self.delegate?.messageClicked(self)
+        
     }
     
     @IBAction func callBtnClicked(_ sender: Any) {
+        self.delegate?.callClicked(self)
+        
     }
     
     @IBAction func giveRatingClicked(_ sender: Any) {
@@ -103,6 +110,7 @@ class CompleteDataEntryListTableViewCell: UITableViewCell {
     }
     
     @IBAction func boLocationClicked(_ sender: Any) {
+        self.delegate?.navigationClicked(self)
     }
     
 }
