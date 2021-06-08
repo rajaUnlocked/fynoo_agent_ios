@@ -56,6 +56,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         ModalClass.startLoading(self.view)
         isMoreDataAvailable = false
         currentPageNumber = 0
+       
         self.getBoServicesRequestListAPI()
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationRefreshList(_:)), name: NSNotification.Name(rawValue: "refreshDataEntryList"), object: nil)
         
@@ -153,7 +154,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     
     func getBoServicesRequestListAPI() {
         
-        apiManagerModal.agentServicesOrderListing(serviceID:self.serviceID, tabStatus: self.selectedTab, searchStr: self.searchBoxEntryText, pageNumber: currentPageNumber, filter: selectedFilters ) { (success, response) in
+        apiManagerModal.agentServicesOrderListing(serviceID:self.serviceID, tabStatus: self.selectedTab, searchStr: self.searchBoxEntryText, pageNumber: currentPageNumber, filter: selectedFilters ) { [self] (success, response) in
             ModalClass.stopLoading()
             if success{
                 if self.currentPageNumber == 0 {
@@ -202,7 +203,14 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
                     }
                     self.isMoreDataAvailable = false
                     self.noDataView.isHidden = false
-                }                
+                }
+                self.headerView1 = DataEntryListHeaderView()
+                let avgLbl = self.headerView1!.viewWithTag(1001) as! UILabel
+                //            let ratingView = sectionHeaderView.viewWithTag(1002) as! UIView
+                let totalRatingLbl = self.headerView1!.viewWithTag(1003) as! UILabel
+                avgLbl.text = self.boServicesList?.data?.rating_avg
+                totalRatingLbl.text = "(\(ModalController.toString(self.boServicesList?.data?.rating_count as Any)))"
+                self.headerView1!.ratingValueView.rating = ModalController.convertInToDouble(str: self.boServicesList?.data?.rating_avg as AnyObject)
                 
                 self.tableView.reloadData()
             }else{
@@ -397,10 +405,10 @@ extension DataEntryListingViewController : UITableViewDelegate {
                     self.createHeaderAgain = false
                 }
                 
-                headerView1!.delegate = self
+              
             }
             headerView1!.selectedIndex = Index
-            
+            headerView1!.delegate = self
             return headerView1
         }else{
             return UIView()
@@ -666,6 +674,19 @@ extension DataEntryListingViewController : UITableViewDataSource {
         }else {
             cell.ratingStrImageView.image = UIImage(named: "ratingHalfStar")
         }
+        
+        self.BranchLat = ModalController.convertInToDouble(str: requestData?.lat as AnyObject)
+        self.BranchLong = ModalController.convertInToDouble(str: requestData?.long as AnyObject)
+        
+        if self.BranchLat != 0.0 {
+            cell.boLocationBtn.isHidden = false
+            cell.locationBtnWidthConstant.constant = 50
+            
+        }else{
+            cell.boLocationBtn.isHidden = true
+            cell.locationBtnWidthConstant.constant = 0
+        }
+        
         
         cell.delegate = self
         cell.tag = index.row

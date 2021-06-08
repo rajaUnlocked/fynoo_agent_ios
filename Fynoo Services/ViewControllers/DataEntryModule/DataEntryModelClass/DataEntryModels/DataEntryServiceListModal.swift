@@ -85,14 +85,6 @@ struct OrderService_list : Mappable {
     var rating_count : Int?
     var rating_avg : String?
     var rating_given : Int?
-//    var agent_name : String?
-//    var agent_email : String?
-//    var agent_number : String?
-//    var agent_mob_code : String?
-//    var agent_country : String?
-//    var agent_city : String?
-//    var agent_pic : String?
-//    var agent_lang : String?
     var reason : String?
     
     
