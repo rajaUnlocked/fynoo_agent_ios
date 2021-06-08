@@ -336,13 +336,14 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             if indexPath.row == 0{
                 return 365
             }else {
-                return 190
+                return 195
+                
             }
         }
        else{
         if tripListListArray?.count ?? 0 == 0
         {
-            return 300
+            return 400
         }
             return 236
         }

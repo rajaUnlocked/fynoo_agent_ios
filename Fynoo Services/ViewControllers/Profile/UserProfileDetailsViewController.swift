@@ -908,12 +908,14 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.headingLbl.tag = 1002
             cell.headingLbl.delegate = self
             cell.headingLbl.text = agentInfo.iban
+            
             cell.headingLbl.delegate = self
             cell.headingLbl.isHidden = false
             cell.codeBtnWidth.constant = 0
             cell.widthImg.constant = 0
             cell.mobileCodeWidth.constant = 0
             cell.selectBtn.isHidden = true
+            cell.headingLbl.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         }
         return cell
     }
@@ -922,6 +924,18 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
 //          vc.isFromCountryMobileCode = true
 //           vc.selectedCountryDict = self.selectedCountryCodeDict
 //          self.navigationController?.pushViewController(vc, animated: true)
+    @objc func handleTextChange(_ textField: UITextField) {
+        if textField.tag == 1002
+        {
+        if textField.text!.count < 2 {
+      textField.keyboardType = .asciiCapable
+      textField.reloadInputViews() // need to reload the input view for this to work
+    } else if textField.text!.count > 2 || textField.text!.count == 2 {
+      textField.keyboardType = .asciiCapableNumberPad
+      textField.reloadInputViews()
+    }
+        }
+    }
     @objc func codeClicked(_ sender : UIButton){
         
         if sender.tag == 1098{
@@ -1004,7 +1018,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         
         
         if "Mobile Number" == basicInfo[indexPath.row]{
-            cell.genderView.isHidden = false
+            cell.genderView.isHidden = true
             cell.selectBtn.isHidden = true
             cell.mobileCode.text = agentInfo.mobileCode
             cell.headingLbl.text = agentInfo.mobileNo
@@ -1027,13 +1041,15 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         }
         
         if "Maroof Link" ==  basicInfo[indexPath.row]{
+            
             cell.headingLbl.tag = 5
             cell.headingLbl.delegate = self
             cell.headingLbl.text = agentInfo.maroof
             cell.codeBtnWidth.constant = 0
             cell.widthImg.constant = 0
             cell.mobileCodeWidth.constant = 0
-            
+            cell.headingLbl.keyboardType = .asciiCapableNumberPad
+           
         }
         if "Business Name" == basicInfo[indexPath.row]{
             cell.headingLbl.tag = 0
