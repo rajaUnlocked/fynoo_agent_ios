@@ -197,8 +197,10 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
                     }
 
                 }else{
+                    if self.currentPageNumber == 0 {
+                        self.totalRequestListArray?.removeAll()
+                    }
                     self.isMoreDataAvailable = false
-                    self.totalRequestListArray?.removeAll()
                     self.noDataView.isHidden = false
                 }                
                 
