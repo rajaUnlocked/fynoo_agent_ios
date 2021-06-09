@@ -20,6 +20,8 @@ class OtpForCodViewC: UIViewController {
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
         SetFont()
+        
+        
     }
 
     func SetFont() {
