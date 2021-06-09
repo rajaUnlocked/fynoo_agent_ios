@@ -9,7 +9,6 @@
 import UIKit
 
 class UnderDevelopmentViewController: UIViewController {
-
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var downImage: UIImageView!
@@ -34,6 +33,8 @@ class UnderDevelopmentViewController: UIViewController {
         self.headerView.backButton.isHidden = true
         }
           self.comeSoonOutlet.setAllSideShadowForFields(shadowShowSize: 2.0, sizeFloat: 132)
+        self.headerView.isHidden  = false
+        self.headerView.backButton.isHidden = false
         }
             
     @IBAction func comeSoonBtn(_ sender: Any) {
