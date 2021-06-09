@@ -19,12 +19,10 @@ class AgentDeliveryDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.headerHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         self.headerView.titleHeader.text = "Product Details"
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
-        
         SetFont()
         getAcceptedTripDetail()
     }
