@@ -54,6 +54,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         configureHeaderUI()
         registerCellNibs()
         addUIRefreshToTable()
+        showWallet = true
+        self.arrowImg.image = UIImage(named: "up-arrow-3")
         walletHeightConst.constant = 0
         walletvw.isHidden = true
     }

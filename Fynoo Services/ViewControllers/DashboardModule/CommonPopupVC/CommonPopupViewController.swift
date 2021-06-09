@@ -14,7 +14,7 @@ protocol  CommonPopupViewControllerDelegate {
 }
 
 class CommonPopupViewController: UIViewController {
-
+     var isRemove = false
     var  delegate : CommonPopupViewControllerDelegate?
     @IBOutlet weak var yesOutlet: UIButton!
     @IBOutlet weak var noOutlet: UIButton!
@@ -35,6 +35,14 @@ class CommonPopupViewController: UIViewController {
     }
     
     func setUI() {
+        if isRemove
+        {
+            self.titleLbl.text = "Are you sure you want to delete this image? "
+            self.popupBG.image = UIImage(named: "blank_service_popup")
+            self.serviceImg.isHidden = false
+            self.serviceImg.image = UIImage(named: "delete_grey")
+            return
+        }
         if isDoc
         {
           self.titleLbl.text = "Are you sure you want to submit for Approval? "
@@ -72,7 +80,11 @@ class CommonPopupViewController: UIViewController {
         
         @IBAction func yesClicked(_ sender: Any) {
             self.dismiss(animated: true, completion: nil)
-            
+            if isRemove
+            {
+                self.delegate?.yesBtnClicked(name: "-100", id: serviceID)
+                return
+            }
             if showActive {
                 if isForActivate {
                     self.delegate?.yesBtnForActivate(name: name, id: serviceID, forActivate: true)
