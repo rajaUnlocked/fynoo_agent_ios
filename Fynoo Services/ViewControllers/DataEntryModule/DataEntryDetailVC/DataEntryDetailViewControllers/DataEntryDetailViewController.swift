@@ -41,11 +41,16 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.getServiceDetailAPI()
+        ModalClass.startLoading(self.view)
+       
         self.getUserLocation()
         self.setUpUI()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.getServiceDetailAPI()
+    }
+    
     
     func setUpUI() {
         
@@ -86,7 +91,7 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
         }
     
     func getServiceDetailAPI() {
-        ModalClass.startLoading(self.view)
+
         dataEntryApiMnagagerModal.dataEntryDetail(serviceID: serviceID) { (success, response) in
             ModalClass.stopLoading()
             if success{
