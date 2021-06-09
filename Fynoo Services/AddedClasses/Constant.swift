@@ -238,7 +238,9 @@ enum Service {
     static let getBankDetail = Constant.BASE_URL + "agentapi/v1/get_bank_name_by_identifier/"
     static let getIbanLength = Constant.BASE_URL + "agentapi/v1/get_iban_length/"
     static let uploadimage = Constant.BASE_URL + "agentapi/v1/vehicle_service_document/"
-       
+    static let gettripDetail = Constant.BASE_URL + "shared_economy/agent/trip_details/"
+    static let acceptedTripDetail = Constant.BASE_URL + "shared_economy/agent/accepted_trip_details/"
+    static let orderDetail = Constant.BASE_URL + "shared_economy/agent/order_detail/"
     
 }
 

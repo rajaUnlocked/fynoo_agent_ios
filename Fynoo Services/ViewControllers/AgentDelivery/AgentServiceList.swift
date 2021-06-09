@@ -15,7 +15,8 @@ protocol  AgentServiceListDelegate {
      func messageClicked(_ sender: Any)
      func navigationClicked(_ sender: Any)
 }
-class AgentServiceList: UITableViewCell {
+class AgentServiceList: UITableViewCell,UITableViewDelegate {
+   
     
  var  delegate : AgentServiceListDelegate?
     
@@ -41,6 +42,8 @@ class AgentServiceList: UITableViewCell {
     @IBOutlet weak var walletIcon: UIImageView!
     @IBOutlet weak var statusLbl: UILabel!
     
+    
+      
     override func awakeFromNib() {
         super.awakeFromNib()
         self.SetFont()
@@ -66,10 +69,10 @@ class AgentServiceList: UITableViewCell {
          
           
       }
-    
-    
+   
     @IBAction func navigationClicked(_ sender: Any) {
         self.delegate?.navigationClicked(self)
+  
     }
     
     @IBAction func callClicked(_ sender: Any) {

@@ -134,7 +134,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsz-if-q90">
-                            <rect key="frame" x="51.5" y="146" width="97.5" height="30"/>
+                            <rect key="frame" x="48.5" y="146" width="103" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="cpm-hJ-pMz"/>
                             </constraints>
@@ -295,7 +295,7 @@ ID:245636737838</string>
                     <rect key="frame" x="0.0" y="200" width="465" height="150"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GK1-v0-D9x">
-                            <rect key="frame" x="20" y="10" width="113" height="19"/>
+                            <rect key="frame" x="20" y="10" width="106" height="19"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="19" id="ef6-lm-ToH"/>
                             </constraints>
@@ -321,7 +321,7 @@ ID:245636737838</string>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYW-oS-EDF">
-                            <rect key="frame" x="51" y="51" width="85" height="14"/>
+                            <rect key="frame" x="51" y="51" width="79.5" height="14"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="14" id="vZ6-66-bFU"/>
                             </constraints>
@@ -374,7 +374,7 @@ ID:245636737838</string>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Holding Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Kz-xc-eIm">
-                            <rect key="frame" x="51" y="87" width="90" height="14"/>
+                            <rect key="frame" x="51" y="87" width="87" height="14"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="14" id="uYU-eV-dDA"/>
                             </constraints>
@@ -427,7 +427,7 @@ ID:245636737838</string>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment in progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYm-sk-amg">
-                            <rect key="frame" x="51" y="123" width="112" height="14"/>
+                            <rect key="frame" x="51" y="123" width="110.5" height="14"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="14" id="sQk-99-D2P"/>
                             </constraints>

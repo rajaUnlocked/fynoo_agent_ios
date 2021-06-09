@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1840E7F5265675F4003FDFB9 /* ProductDetailsViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840E7F3265675F4003FDFB9 /* ProductDetailsViewC.swift */; };
+		1840E7F6265675F4003FDFB9 /* ProductDetailsViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1840E7F4265675F4003FDFB9 /* ProductDetailsViewC.xib */; };
+		1840E7FC26568D81003FDFB9 /* BOCustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840E7FA26568D81003FDFB9 /* BOCustomerTableViewCell.swift */; };
+		1840E7FD26568D81003FDFB9 /* BOCustomerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1840E7FB26568D81003FDFB9 /* BOCustomerTableViewCell.xib */; };
+		1840E803265695AB003FDFB9 /* BusinessOwnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840E801265695AB003FDFB9 /* BusinessOwnerTableViewCell.swift */; };
+		1840E804265695AB003FDFB9 /* BusinessOwnerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1840E802265695AB003FDFB9 /* BusinessOwnerTableViewCell.xib */; };
+		185373D9266645B4001E0C2A /* DoubleExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185373D8266645B4001E0C2A /* DoubleExtended.swift */; };
+		185373DF266646E3001E0C2A /* String+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185373DE266646E3001E0C2A /* String+Utilities.swift */; };
+		1858082D265B921B002A891C /* SearchedProductDeatailViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858082B265B921B002A891C /* SearchedProductDeatailViewC.swift */; };
+		1858082E265B921B002A891C /* SearchedProductDeatailViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1858082C265B921B002A891C /* SearchedProductDeatailViewC.xib */; };
+		18BBD7B3265A00A800C19D8F /* ProductListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBD7B1265A00A800C19D8F /* ProductListTableViewCell.swift */; };
+		18BBD7B4265A00A800C19D8F /* ProductListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBD7B2265A00A800C19D8F /* ProductListTableViewCell.xib */; };
+		18BBD7BA265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBD7B8265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.swift */; };
+		18BBD7BB265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBD7B9265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.xib */; };
+		18C0673A2664DAE1000F3CA3 /* OtpForCodViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C067382664DAE1000F3CA3 /* OtpForCodViewC.swift */; };
+		18C0673B2664DAE1000F3CA3 /* OtpForCodViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C067392664DAE1000F3CA3 /* OtpForCodViewC.xib */; };
+		18C69292265527D400B7347B /* AgentDeliveryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C69290265527D400B7347B /* AgentDeliveryDetailViewController.swift */; };
+		18C69293265527D400B7347B /* AgentDeliveryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C69291265527D400B7347B /* AgentDeliveryDetailViewController.xib */; };
 		2F0230BE2514902B004F1B0B /* DictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0230BD2514902A004F1B0B /* DictionaryExt.swift */; };
 		2F0230C22514E477004F1B0B /* CommonPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0230C02514E477004F1B0B /* CommonPopupViewController.swift */; };
 		2F0230C32514E477004F1B0B /* CommonPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0230C12514E477004F1B0B /* CommonPopupViewController.xib */; };
@@ -794,6 +812,24 @@
 
 /* Begin PBXFileReference section */
 		09B2018020C6F3800DB3F75B /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_Services_Fynoo_ServicesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1840E7F3265675F4003FDFB9 /* ProductDetailsViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewC.swift; sourceTree = "<group>"; };
+		1840E7F4265675F4003FDFB9 /* ProductDetailsViewC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailsViewC.xib; sourceTree = "<group>"; };
+		1840E7FA26568D81003FDFB9 /* BOCustomerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BOCustomerTableViewCell.swift; sourceTree = "<group>"; };
+		1840E7FB26568D81003FDFB9 /* BOCustomerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BOCustomerTableViewCell.xib; sourceTree = "<group>"; };
+		1840E801265695AB003FDFB9 /* BusinessOwnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessOwnerTableViewCell.swift; sourceTree = "<group>"; };
+		1840E802265695AB003FDFB9 /* BusinessOwnerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessOwnerTableViewCell.xib; sourceTree = "<group>"; };
+		185373D8266645B4001E0C2A /* DoubleExtended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleExtended.swift; path = Double/DoubleExtended.swift; sourceTree = "<group>"; };
+		185373DE266646E3001E0C2A /* String+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utilities.swift"; sourceTree = "<group>"; };
+		1858082B265B921B002A891C /* SearchedProductDeatailViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedProductDeatailViewC.swift; sourceTree = "<group>"; };
+		1858082C265B921B002A891C /* SearchedProductDeatailViewC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchedProductDeatailViewC.xib; sourceTree = "<group>"; };
+		18BBD7B1265A00A800C19D8F /* ProductListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListTableViewCell.swift; sourceTree = "<group>"; };
+		18BBD7B2265A00A800C19D8F /* ProductListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductListTableViewCell.xib; sourceTree = "<group>"; };
+		18BBD7B8265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInvoiceInformationTableViewCell.swift; sourceTree = "<group>"; };
+		18BBD7B9265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddInvoiceInformationTableViewCell.xib; sourceTree = "<group>"; };
+		18C067382664DAE1000F3CA3 /* OtpForCodViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpForCodViewC.swift; sourceTree = "<group>"; };
+		18C067392664DAE1000F3CA3 /* OtpForCodViewC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtpForCodViewC.xib; sourceTree = "<group>"; };
+		18C69290265527D400B7347B /* AgentDeliveryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDeliveryDetailViewController.swift; sourceTree = "<group>"; };
+		18C69291265527D400B7347B /* AgentDeliveryDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentDeliveryDetailViewController.xib; sourceTree = "<group>"; };
 		2F0230BD2514902A004F1B0B /* DictionaryExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExt.swift; sourceTree = "<group>"; };
 		2F0230C02514E477004F1B0B /* CommonPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPopupViewController.swift; sourceTree = "<group>"; };
 		2F0230C12514E477004F1B0B /* CommonPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonPopupViewController.xib; sourceTree = "<group>"; };
@@ -1729,6 +1765,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		185373D7266644D0001E0C2A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				185373D8266645B4001E0C2A /* DoubleExtended.swift */,
+				185373DD266646E3001E0C2A /* String */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		185373DD266646E3001E0C2A /* String */ = {
+			isa = PBXGroup;
+			children = (
+				185373DE266646E3001E0C2A /* String+Utilities.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		18580832265B9282002A891C /* SearchedDetails */ = {
+			isa = PBXGroup;
+			children = (
+				1858082B265B921B002A891C /* SearchedProductDeatailViewC.swift */,
+				1858082C265B921B002A891C /* SearchedProductDeatailViewC.xib */,
+			);
+			path = SearchedDetails;
+			sourceTree = "<group>";
+		};
+		18C0673F2664DC10000F3CA3 /* OtpForCOD */ = {
+			isa = PBXGroup;
+			children = (
+				18C067382664DAE1000F3CA3 /* OtpForCodViewC.swift */,
+				18C067392664DAE1000F3CA3 /* OtpForCodViewC.xib */,
+			);
+			path = OtpForCOD;
+			sourceTree = "<group>";
+		};
+		18C6928F2655272E00B7347B /* AgentDeliveryDetails */ = {
+			isa = PBXGroup;
+			children = (
+				18C69290265527D400B7347B /* AgentDeliveryDetailViewController.swift */,
+				18C69291265527D400B7347B /* AgentDeliveryDetailViewController.xib */,
+				1840E7F3265675F4003FDFB9 /* ProductDetailsViewC.swift */,
+				1840E7F4265675F4003FDFB9 /* ProductDetailsViewC.xib */,
+				1840E7FA26568D81003FDFB9 /* BOCustomerTableViewCell.swift */,
+				1840E7FB26568D81003FDFB9 /* BOCustomerTableViewCell.xib */,
+				1840E801265695AB003FDFB9 /* BusinessOwnerTableViewCell.swift */,
+				1840E802265695AB003FDFB9 /* BusinessOwnerTableViewCell.xib */,
+				18BBD7B1265A00A800C19D8F /* ProductListTableViewCell.swift */,
+				18BBD7B2265A00A800C19D8F /* ProductListTableViewCell.xib */,
+				18BBD7B8265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.swift */,
+				18BBD7B9265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.xib */,
+			);
+			path = AgentDeliveryDetails;
+			sourceTree = "<group>";
+		};
 		2F0230BF2514E459004F1B0B /* CommonPopupVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1741,6 +1831,7 @@
 		2F07D1A32505F89100193658 /* AddedClasses */ = {
 			isa = PBXGroup;
 			children = (
+				185373D7266644D0001E0C2A /* Extensions */,
 				2F0230BD2514902A004F1B0B /* DictionaryExt.swift */,
 				F62E4B2125149B360021CEE0 /* DatePickerDialog.swift */,
 				2F84638B250F67900084EB32 /* selecting_local.swift */,
@@ -2061,6 +2152,9 @@
 				F62E4A9E25148EC60021CEE0 /* SignupVC */,
 				2F74CB4F250A365F00DE21EF /* Splash */,
 				F472BA192519DED60094C13E /* AgentDelivery */,
+				18580832265B9282002A891C /* SearchedDetails */,
+				18C0673F2664DC10000F3CA3 /* OtpForCOD */,
+				18C6928F2655272E00B7347B /* AgentDeliveryDetails */,
 				F4EC04A12514D2A0005AF7B0 /* PopUp */,
 				F4CEC2F92511D340003C35E8 /* VatInfo */,
 				F419CA55250B6F4B008087FA /* Search */,
@@ -3997,6 +4091,7 @@
 				F62E4AEA25148EC60021CEE0 /* popupViewController.xib in Resources */,
 				CEDD31F02576206500023977 /* SelectProductTypeTableViewCell.xib in Resources */,
 				F680D650259B7C2C007EB12C /* DataEntryFormFirstTopTableViewCell.xib in Resources */,
+				1840E7FD26568D81003FDFB9 /* BOCustomerTableViewCell.xib in Resources */,
 				F6547ABE25DE594A00171862 /* DataEntryFilterViewController.xib in Resources */,
 				2F8463E5250F6EBC0084EB32 /* LoginIntroFirst.xib in Resources */,
 				CECEF9DE2577575C0090D459 /* DescriptionTableViewCell.strings in Resources */,
@@ -4105,6 +4200,7 @@
 				CECEFA5A25779E8F0090D459 /* SelectImageTypePopupViewController.xib in Resources */,
 				CEE3579C250740800097069D /* sst-arabic-light.ttf in Resources */,
 				CEE35797250740800097069D /* Roboto-Italic.ttf in Resources */,
+				18C69293265527D400B7347B /* AgentDeliveryDetailViewController.xib in Resources */,
 				CEDD334E25765DD000023977 /* spacingTableViewCell.xib in Resources */,
 				2FEB12112511F0010012FE98 /* UnderDevelopmentViewController.xib in Resources */,
 				CEDD330A25765A7400023977 /* ScannerNewViewController.xib in Resources */,
@@ -4125,6 +4221,7 @@
 				CE9CCDFE264BEDBD005AE619 /* ProductWarrentySupportTableViewCell.xib in Resources */,
 				F680D68C259B7F27007EB12C /* CancelReasonViewCell.xib in Resources */,
 				CECEF9AE2577575B0090D459 /* BusinessLocation1ViewController.strings in Resources */,
+				1858082E265B921B002A891C /* SearchedProductDeatailViewC.xib in Resources */,
 				CECEFA5B25779E8F0090D459 /* UploadImageViewController.xib in Resources */,
 				CE9CCD4E264BAA14005AE619 /* AddProductHeaderTableViewCell.xib in Resources */,
 				CE9CCD4A264BAA14005AE619 /* ProductSpecificationsTableViewCell.xib in Resources */,
@@ -4150,6 +4247,7 @@
 				F62E4B0925148EC60021CEE0 /* agentPersonalDetailsTableViewCell.xib in Resources */,
 				F4C4DC602507951B0075F520 /* ProfileNameTableViewCell.xib in Resources */,
 				2FFDE21625012171006C5EBD /* Assets.xcassets in Resources */,
+				1840E804265695AB003FDFB9 /* BusinessOwnerTableViewCell.xib in Resources */,
 				2F9DA67225237FCA00C46952 /* SearchCategoryViewController.xib in Resources */,
 				2F8463DB250F6EBC0084EB32 /* LoginIntroFourth.strings in Resources */,
 				2F0230C32514E477004F1B0B /* CommonPopupViewController.xib in Resources */,
@@ -4172,6 +4270,7 @@
 				F62E4B0B25148EC60021CEE0 /* PersonalRegViewController.xib in Resources */,
 				F680D666259B7C2C007EB12C /* DataEntryFormViewController.xib in Resources */,
 				CECEFA4E25779E8F0090D459 /* GallerySearchCollectionViewCell.strings in Resources */,
+				1840E7F6265675F4003FDFB9 /* ProductDetailsViewC.xib in Resources */,
 				CEDD31F62576206500023977 /* SelectProductTypeNewTableViewCell.xib in Resources */,
 				CECEF9F82577575C0090D459 /* HeaderBranchTableViewCell.strings in Resources */,
 				CE9CCDF7264BEDBD005AE619 /* TitleHeaderTableViewCell.xib in Resources */,
@@ -4182,6 +4281,7 @@
 				CEE35798250740800097069D /* Roboto-Bold.ttf in Resources */,
 				CEDD334425765C4C00023977 /* BarCodePopupNewViewController.strings in Resources */,
 				F67B5E20252574F40083DA66 /* ServiceCollectionViewCell.xib in Resources */,
+				18BBD7B4265A00A800C19D8F /* ProductListTableViewCell.xib in Resources */,
 				2F84643A250F83910084EB32 /* PopUpViewCell.xib in Resources */,
 				CEE35791250740800097069D /* RobotoSlab-Bold.ttf in Resources */,
 				F62E4AF725148EC60021CEE0 /* AgentProfileImageTableViewCell.xib in Resources */,
@@ -4196,6 +4296,7 @@
 				CEDD32EC25763C8E00023977 /* ProductHeader2TableViewCell.xib in Resources */,
 				2FEB12092511EC930012FE98 /* SideMenuViewController.xib in Resources */,
 				CEDD32E525763C8E00023977 /* ProductHeaderTableViewCell.xib in Resources */,
+				18BBD7BB265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.xib in Resources */,
 				F680D67E259B7C2C007EB12C /* DataEntryListingTopTableViewCell.strings in Resources */,
 				2F8463CE250F6EBC0084EB32 /* LoginNewSecondTableViewCell.strings in Resources */,
 				CEBCD7332664A7FE001BF767 /* BankAllListViewController.xib in Resources */,
@@ -4261,6 +4362,7 @@
 				CEDBFDB6266DF71E00A8D318 /* DashboardWalletTableViewCell.xib in Resources */,
 				CECEF9EB2577575C0090D459 /* topBranchTableViewCell.xib in Resources */,
 				CECEFAD62577D3140090D459 /* AllfiterHeaderTableViewCell.xib in Resources */,
+				18C0673B2664DAE1000F3CA3 /* OtpForCodViewC.xib in Resources */,
 				F680D67A259B7C2C007EB12C /* DataEntryHeaderCollectionViewCell.xib in Resources */,
 				CEDD32E425763C8E00023977 /* ProductSpecCatagoryTableViewCell.xib in Resources */,
 				CE9CCE05264BEDBD005AE619 /* ProductVarientNewTableViewCell.xib in Resources */,
@@ -4503,6 +4605,7 @@
 				CEBCD7362664A7FE001BF767 /* WalletTransferReqNewTableViewCell.swift in Sources */,
 				CEDD32D925763C8E00023977 /* WholeAddSlabTableViewCell.swift in Sources */,
 				2F84641F250F80D00084EB32 /* ResetPassword.swift in Sources */,
+				18BBD7BA265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.swift in Sources */,
 				F635979C25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift in Sources */,
 				F680D668259B7C2C007EB12C /* DataEntryServiceDetailModal.swift in Sources */,
 				CEAD29EA250632BB008B1F9C /* NavigationView.swift in Sources */,
@@ -4570,6 +4673,7 @@
 				CEDAF67825285ACC00B846E5 /* BottomLblTableViewCell.swift in Sources */,
 				CEE72CB0251B586400B02DAF /* DocHeaderTableViewCell.swift in Sources */,
 				CEDD32DF25763C8E00023977 /* ProductHeader2TableViewCell.swift in Sources */,
+				185373DF266646E3001E0C2A /* String+Utilities.swift in Sources */,
 				2FEB1227251215F50012FE98 /* ProgressDashboardTableViewCell.swift in Sources */,
 				CEDD33CF257676F100023977 /* InventoryDetailTableViewCell.swift in Sources */,
 				CEE72CBC251B76AF00B02DAF /* BottomPopupTableViewCell.swift in Sources */,
@@ -4613,6 +4717,7 @@
 				F680D68B259B7F27007EB12C /* CancelReasonViewCell.swift in Sources */,
 				CE9CCE00264BEDBD005AE619 /* ProductVarientNewCollectionViewCell.swift in Sources */,
 				F4A7E54B251A047D00ED8008 /* AgentDeliveryTableViewCell.swift in Sources */,
+				1840E803265695AB003FDFB9 /* BusinessOwnerTableViewCell.swift in Sources */,
 				F6B14CA8251B387300F9F03E /* VatInfoModal.swift in Sources */,
 				F680D64A259B7C2C007EB12C /* DataEntryFromOrderInstractionTableViewCell.swift in Sources */,
 				CECEFA13257783D80090D459 /* purchasedHeaderTableViewCell.swift in Sources */,
@@ -4637,6 +4742,7 @@
 				2FFDE20F25012166006C5EBD /* SceneDelegate.swift in Sources */,
 				CEBCD73E2664A7FE001BF767 /* ShowMoreViewCell.swift in Sources */,
 				CECEFA812577A0BE0090D459 /* UploadBottomTableViewCell.swift in Sources */,
+				18C0673A2664DAE1000F3CA3 /* OtpForCodViewC.swift in Sources */,
 				CECEFA5125779E8F0090D459 /* GallerySearchCollectionViewCell.swift in Sources */,
 				2F8463CF250F6EBC0084EB32 /* LoginNewFirstTableViewCell.swift in Sources */,
 				F680D655259B7C2C007EB12C /* DataEntryPricePayTableViewCell.swift in Sources */,
@@ -4662,6 +4768,7 @@
 				2FEB12132511F0010012FE98 /* UnderDevelopmentViewController.swift in Sources */,
 				2F8463E0250F6EBC0084EB32 /* LoginIntroFifth.swift in Sources */,
 				F62E4AFE25148EC60021CEE0 /* CompanyAgentBankDetailsTableViewCell.swift in Sources */,
+				1858082D265B921B002A891C /* SearchedProductDeatailViewC.swift in Sources */,
 				F6547ACF25DE5D9400171862 /* DiscountFilterRadioTableViewCell.swift in Sources */,
 				CECEFA6825779F930090D459 /* GalleryImage.swift in Sources */,
 				CE9CCD54264BAA14005AE619 /* VariantSpecificationTableViewCell.swift in Sources */,
@@ -4681,6 +4788,7 @@
 				2F8463D4250F6EBC0084EB32 /* LoginNewSecondTableViewCell.swift in Sources */,
 				CECEFA862577A22F0090D459 /* NodatafoundCollectionViewCell.swift in Sources */,
 				CECEFA972577A2C90090D459 /* ExteriorTableViewCell.swift in Sources */,
+				18C69292265527D400B7347B /* AgentDeliveryDetailViewController.swift in Sources */,
 				F62E4AF025148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.swift in Sources */,
 				CECEFA5F25779E8F0090D459 /* GalleryFilterViewController.swift in Sources */,
 				F4828C942508B27E006B85D8 /* ProfileEnteriesTableViewCell.swift in Sources */,
@@ -4709,6 +4817,7 @@
 				F62E4B152514983A0021CEE0 /* BankIdentifierListModal.swift in Sources */,
 				CECEF9ED2577575C0090D459 /* LogoTableViewCell.swift in Sources */,
 				F62E4B0A25148EC60021CEE0 /* agentPersonalDetailsTableViewCell.swift in Sources */,
+				1840E7F5265675F4003FDFB9 /* ProductDetailsViewC.swift in Sources */,
 				CECEFA952577A2C90090D459 /* BranchUpload.swift in Sources */,
 				F680D688259B7E79007EB12C /* CancelViewModal.swift in Sources */,
 				CEDD333725765BBA00023977 /* SelectMultipleBranchesNewDesignTableViewCell.swift in Sources */,
@@ -4802,13 +4911,16 @@
 				CECEFA6125779E8F0090D459 /* UploadImageViewController.swift in Sources */,
 				CE9CCD8D264BAA14005AE619 /* ProductDetailNewViewController.swift in Sources */,
 				F680D654259B7C2C007EB12C /* DataEntryFromTopTableViewCell.swift in Sources */,
+				1840E7FC26568D81003FDFB9 /* BOCustomerTableViewCell.swift in Sources */,
 				2FEB12032511EC930012FE98 /* SideMenuViewController.swift in Sources */,
+				18BBD7B3265A00A800C19D8F /* ProductListTableViewCell.swift in Sources */,
 				2FEB121A2511F1530012FE98 /* SignOutViewController.swift in Sources */,
 				CEDA6C412525C4C900301F82 /* ServiceUpload.swift in Sources */,
 				2F964B772513751B005FFEDC /* MultiBannerTableViewCell.swift in Sources */,
 				CEE72CA8251B36C400B02DAF /* DeliveryDocumentViewController.swift in Sources */,
 				CEDD32FE25763DAB00023977 /* UIUtilities.swift in Sources */,
 				CECEF99A2577575B0090D459 /* BusinessTimesheet1PopupViewController.swift in Sources */,
+				185373D9266645B4001E0C2A /* DoubleExtended.swift in Sources */,
 				CECEFA4925779E8F0090D459 /* ViewImageitemCell.swift in Sources */,
 				2F84641D250F80570084EB32 /* LoginModal.swift in Sources */,
 			);

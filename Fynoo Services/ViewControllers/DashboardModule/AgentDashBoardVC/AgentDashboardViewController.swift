@@ -898,11 +898,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     }
                 }
             }
-        }
-        
-        
-        
-        else{
+        }else{
             let user_id:UserData = AuthorisedUser.shared.getAuthorisedUser()
             var userID = "\(user_id.data!.id)"
             ModalClass.startLoading(self.view)
@@ -938,9 +934,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         }
     }
     
+    
     // MARK: - ADD SERVICE API
-    func addServiceAPI(serviceID : Int)
-    {
+    func addServiceAPI(serviceID : Int){
+        
         let user_id:UserData = AuthorisedUser.shared.getAuthorisedUser()
         var userID = "\(user_id.data!.id)"
         ModalClass.startLoading(self.view)
