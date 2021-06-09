@@ -28,7 +28,5 @@ class OtpForCodViewC: UIViewController {
         
         self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
         
-        
-        }
-
+    }
 }
