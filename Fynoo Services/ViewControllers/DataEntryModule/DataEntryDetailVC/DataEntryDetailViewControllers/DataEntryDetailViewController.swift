@@ -144,6 +144,11 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
         })
     }
     
+    
+    
+    
+    
+    
     @objc func DataEntryWorkConfirmationClicked(_ sender : UIButton) {
         
         let workStatus = serviceDetailData?.data?.start_work
@@ -459,7 +464,7 @@ extension DataEntryDetailViewController : UITableViewDelegate {
             if isBranchLocationAvailable == true {
                 return 255
             }else{
-                return 100
+                return 110
             }
         }
     }

@@ -33,17 +33,28 @@ struct DataEntryOrderList : Mappable {
     var service_list : [OrderService_list]?
     var in_progress_limit : Int?
     var filter_list : [DataEntry_Filter]?
+    var is_active : Bool?
+    var per_page_limit : Int?
+    var total_records_count : Int?
+    var service_name : String?
+    var service_icon : String?
+    
+    
     
     init?(map: Map) {
     }
     mutating func mapping(map: Map) {
         
         rating_count <- map["rating_count"]
+        per_page_limit <- map["per_page_limit"]
+        total_records_count <- map["total_records_count"]
+        service_name <- map["service_name"]
+        service_icon <- map["service_icon"]
+        is_active <- map["is_active"]
         rating_avg <- map["rating_avg"]
         service_list <- map["service_list"]
         in_progress_limit <- map["in_progress_limit"]
         filter_list <- map["filter_list"]
-        
     }
 }
 
@@ -74,14 +85,6 @@ struct OrderService_list : Mappable {
     var rating_count : Int?
     var rating_avg : String?
     var rating_given : Int?
-//    var agent_name : String?
-//    var agent_email : String?
-//    var agent_number : String?
-//    var agent_mob_code : String?
-//    var agent_country : String?
-//    var agent_city : String?
-//    var agent_pic : String?
-//    var agent_lang : String?
     var reason : String?
     
     
