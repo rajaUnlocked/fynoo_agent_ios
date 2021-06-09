@@ -3,7 +3,7 @@
 "4Dp-lh-vts.text" = "What time";
 
 /* Class = "UILabel"; text = "How many days for order completion?"; ObjectID = "62H-37-sB5"; */
-"62H-37-sB5.text" = "How many days for order completion?";
+"62H-37-sB5.text" = "Number of days for order completion.";
 
 /* Class = "UILabel"; text = "You will suggest your price with estimated time period."; ObjectID = "lpx-Sa-M66"; */
 "lpx-Sa-M66.text" = "You will suggest your price with estimated time period.";

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-ExtraBold.otf">
+            <string>Gilroy-ExtraBold</string>
+        </array>
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="159" id="KGk-i7-Jjw" customClass="VariantSpecificationTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pf5-lp-Lp4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="variant_color" translatesAutoresizingMaskIntoConstraints="NO" id="7qB-V8-CS9">
+                                <rect key="frame" x="25" y="20" width="22" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="HyE-up-Qax"/>
+                                    <constraint firstAttribute="height" constant="20" id="boE-UJ-Eah"/>
+                                </constraints>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="DcW-ah-ZXl">
+                                <rect key="frame" x="0.0" y="75" width="320" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wsj-E1-7cp">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lny-XZ-zLI">
+                                <rect key="frame" x="57" y="22.5" width="34" height="15"/>
+                                <fontDescription key="fontDescription" name="Gilroy-ExtraBold" family="Gilroy" pointSize="12"/>
+                                <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Glaciar Blue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2z-cY-c7x">
+                                <rect key="frame" x="111" y="23" width="67.5" height="14"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <color key="textColor" red="0.10980392160000001" green="0.61568627450000002" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5y-2k-NgN">
+                                <rect key="frame" x="35" y="158" width="42" height="0.0"/>
+                                <color key="backgroundColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="7b1-R7-nb6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storage:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZn-Pf-xKm">
+                                <rect key="frame" x="25" y="50" width="48" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="feQ-a7-NgJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gilroy-ExtraBold" family="Gilroy" pointSize="12"/>
+                                <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTm-mr-L8N">
+                                <rect key="frame" x="83" y="50.5" width="31" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="cfy-Tq-cy0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <color key="textColor" red="0.10980392160000001" green="0.61568627450000002" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="DcW-ah-ZXl" secondAttribute="bottom" constant="4" id="1tT-AX-TMK"/>
+                            <constraint firstItem="BTm-mr-L8N" firstAttribute="centerY" secondItem="eZn-Pf-xKm" secondAttribute="centerY" id="Ben-sl-AgT"/>
+                            <constraint firstItem="lny-XZ-zLI" firstAttribute="leading" secondItem="7qB-V8-CS9" secondAttribute="trailing" constant="10" id="EQu-Ua-KB0"/>
+                            <constraint firstItem="eZn-Pf-xKm" firstAttribute="top" secondItem="7qB-V8-CS9" secondAttribute="bottom" constant="10" id="MDL-7x-SfD"/>
+                            <constraint firstItem="7qB-V8-CS9" firstAttribute="leading" secondItem="pf5-lp-Lp4" secondAttribute="leading" constant="25" id="ahs-Z5-LIE"/>
+                            <constraint firstAttribute="trailing" secondItem="r5y-2k-NgN" secondAttribute="trailing" constant="10" id="c9T-34-I6S"/>
+                            <constraint firstItem="r5y-2k-NgN" firstAttribute="leading" secondItem="pf5-lp-Lp4" secondAttribute="leading" constant="10" id="ecA-Qc-qlc"/>
+                            <constraint firstItem="lny-XZ-zLI" firstAttribute="centerY" secondItem="7qB-V8-CS9" secondAttribute="centerY" id="lLK-Mk-sKh"/>
+                            <constraint firstItem="DcW-ah-ZXl" firstAttribute="top" secondItem="eZn-Pf-xKm" secondAttribute="bottom" constant="10" id="mVs-1v-LTC"/>
+                            <constraint firstAttribute="bottom" secondItem="r5y-2k-NgN" secondAttribute="bottom" constant="1" id="mma-eo-7h2"/>
+                            <constraint firstAttribute="trailing" secondItem="DcW-ah-ZXl" secondAttribute="trailing" id="nH3-8L-jWO"/>
+                            <constraint firstItem="D2z-cY-c7x" firstAttribute="leading" secondItem="lny-XZ-zLI" secondAttribute="trailing" constant="20" id="o7g-OV-ctm"/>
+                            <constraint firstItem="BTm-mr-L8N" firstAttribute="leading" secondItem="eZn-Pf-xKm" secondAttribute="trailing" constant="10" id="qA6-bS-s7Z"/>
+                            <constraint firstItem="DcW-ah-ZXl" firstAttribute="leading" secondItem="pf5-lp-Lp4" secondAttribute="leading" id="qWS-SG-6TK"/>
+                            <constraint firstItem="eZn-Pf-xKm" firstAttribute="leading" secondItem="7qB-V8-CS9" secondAttribute="leading" id="qn9-52-HQj"/>
+                            <constraint firstItem="D2z-cY-c7x" firstAttribute="centerY" secondItem="lny-XZ-zLI" secondAttribute="centerY" id="tBT-HX-Hzd"/>
+                            <constraint firstItem="7qB-V8-CS9" firstAttribute="top" secondItem="pf5-lp-Lp4" secondAttribute="top" constant="20" id="uEK-P7-2rD"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="pf5-lp-Lp4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4bB-OC-fZz"/>
+                    <constraint firstAttribute="trailing" secondItem="pf5-lp-Lp4" secondAttribute="trailing" id="CQC-Bk-VeJ"/>
+                    <constraint firstItem="pf5-lp-Lp4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Twl-RT-ruf"/>
+                    <constraint firstAttribute="bottom" secondItem="pf5-lp-Lp4" secondAttribute="bottom" id="giM-5c-q86"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="collectionView" destination="DcW-ah-ZXl" id="WuT-Ow-JGi"/>
+                <outlet property="height" destination="cfy-Tq-cy0" id="goj-GI-13b"/>
+                <outlet property="height2" destination="feQ-a7-NgJ" id="tJN-Hx-wA0"/>
+                <outlet property="img" destination="7qB-V8-CS9" id="eEL-0Z-v8A"/>
+                <outlet property="nameLbl" destination="D2z-cY-c7x" id="NGo-h5-vOh"/>
+                <outlet property="property2" destination="eZn-Pf-xKm" id="fdL-Ae-XIX"/>
+                <outlet property="property2Value" destination="BTm-mr-L8N" id="0rp-dw-dsC"/>
+                <outlet property="propertyLbl" destination="lny-XZ-zLI" id="2yC-Ut-KVK"/>
+                <outlet property="underLbl" destination="r5y-2k-NgN" id="cmy-ZM-Slg"/>
+                <outlet property="view" destination="pf5-lp-Lp4" id="opr-kM-FKC"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="139.62053571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="variant_color" width="22" height="20"/>
+    </resources>
+</document>

@@ -33,6 +33,8 @@ class DataEntryTypelistingViewController: UIViewController {
         self.tableVw.dataSource = self
         self.tableVw.delegate = self
         self.SetFont()
+        ModalClass.startLoading(self.view)
+        
       
     }
     
@@ -96,7 +98,7 @@ class DataEntryTypelistingViewController: UIViewController {
     
     func getServiceTypeAPI() {
         
-        apiManagerModal.dataEntryTypeListing(serviceId: self.serviceID,dataEntryType: dataEntryType , searchStr: "") { (success, response) in
+        apiManagerModal.dataEntryTypeListing(serviceId: self.serviceID,dataEntryType: dataEntryType , searchStr: self.searchField.text!) { (success, response) in
             ModalClass.stopLoading()
             if success{
                 self.serviceTypeList = response

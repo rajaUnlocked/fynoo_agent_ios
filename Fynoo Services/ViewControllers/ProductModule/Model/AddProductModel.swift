@@ -567,7 +567,7 @@ class AddProductModel: NSObject {
             ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,
              "pro_agent_id":Singleton.shared.getUserId(),
              "pro_bo_id":Singleton.shared.getBoId(),
-             "service_id":"36",
+             "service_id":serviceid,
              "pro_id":pro.productId,
              "pro_filled_step":step,
              "pro_barcode":pro.barcode,

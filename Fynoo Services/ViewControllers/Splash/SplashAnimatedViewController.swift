@@ -11,7 +11,7 @@ import SwiftyGif
 import StoreKit
 
 class SplashAnimatedViewController: UIViewController, VersionPopupViewControllerDelegate, SKStoreProductViewControllerDelegate {
-
+    
     @IBOutlet weak var bgImage: UIImageView!
     let logoAnimationView = LogoAnimationView()
     var userTypeStr = ""
@@ -19,13 +19,13 @@ class SplashAnimatedViewController: UIViewController, VersionPopupViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         if  HeaderHeightSingleton.shared.LanguageSelected == "AR" {
+        if  HeaderHeightSingleton.shared.LanguageSelected == "AR" {
             print("ar")
         }else{
-          
-              UserDefaults.standard.set(["en","ar"], forKey: "AppleLanguages")
-              HeaderHeightSingleton.shared.LanguageSelected = "EN"
-    //          HeaderHeightSingleton.shared.Currency = "SAR".localized
+            
+            UserDefaults.standard.set(["en","ar"], forKey: "AppleLanguages")
+            HeaderHeightSingleton.shared.LanguageSelected = "EN"
+            //          HeaderHeightSingleton.shared.Currency = "SAR".localized
         }
         
         
@@ -37,28 +37,28 @@ class SplashAnimatedViewController: UIViewController, VersionPopupViewController
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
-
+        
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
         swipeDown.direction = .down
         self.view.addGestureRecognizer(swipeDown)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-      view.addSubview(logoAnimationView)
+        view.addSubview(logoAnimationView)
         logoAnimationView.pinEdgesToSuperView()
         logoAnimationView.logoGifImageView.delegate = self
         self.view.bringSubviewToFront(bgImage)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-            super.viewDidAppear(animated)
-            logoAnimationView.logoGifImageView.startAnimatingGif()
+        super.viewDidAppear(animated)
+        logoAnimationView.logoGifImageView.startAnimatingGif()
     }
     
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-
+        
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-
+            
             switch swipeGesture.direction {
             case .right:
                 print("Swiped right")
@@ -109,7 +109,7 @@ class SplashAnimatedViewController: UIViewController, VersionPopupViewController
             let myIntValue = Int(topPadding!)
             
             if myIntValue > 0{
-                if myIntValue == 44{
+                if myIntValue == 44 || myIntValue == 47 || myIntValue == 48 {
                     let glblHeight = HeaderHeightSingleton.shared
                     glblHeight.headerHeight = 120
                 }else{
@@ -121,24 +121,24 @@ class SplashAnimatedViewController: UIViewController, VersionPopupViewController
     }
     
     // MARK: - APP VERSION API
-      func appVersionAPI()
-      {
-          ModalClass.startLoading(self.view)
-          let str = "\(Constant.BASE_URL)\(Constant.getAppVersion)"
-          let parameters = [
-              "device_type": "ios",
-              "application_type": "Agent"
-          ]
-          print("request -",parameters)
-          ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
+    func appVersionAPI()
+    {
+        ModalClass.startLoading(self.view)
+        let str = "\(Constant.BASE_URL)\(Constant.getAppVersion)"
+        let parameters = [
+            "device_type": "ios",
+            "application_type": "Agent"
+        ]
+        print("request -",parameters)
+        ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
             ModalClass.stopLoading()
-              if success == true {
-                  let ResponseDict : NSDictionary = (response as? NSDictionary)!
-                  print("ResponseDictionary %@",ResponseDict)
-                  let x = ResponseDict.object(forKey: "error") as! Bool
-                  if x {
-                  }
-                  else{
+            if success == true {
+                let ResponseDict : NSDictionary = (response as? NSDictionary)!
+                print("ResponseDictionary %@",ResponseDict)
+                let x = ResponseDict.object(forKey: "error") as! Bool
+                if x {
+                }
+                else{
                     if let text = Bundle.main.infoDictionary?["CFBundleVersion"] as? NSString {
                         let results = ResponseDict.object(forKey: "data") as! NSDictionary
                         let phoneAppVersion = (text).floatValue
@@ -148,13 +148,13 @@ class SplashAnimatedViewController: UIViewController, VersionPopupViewController
                         if phoneAppVersion < current_version {
                             
                             if current_version <  forcefully_update_version {
-                            let vc = VersionPopupViewController(nibName:
-                                "VersionPopupViewController", bundle: nil)
+                                let vc = VersionPopupViewController(nibName:
+                                                                        "VersionPopupViewController", bundle: nil)
                                 vc.isForForceUpdate = true
-                            vc.modalPresentationStyle = .overFullScreen
-                            vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-                            vc.delegate =  self
-                            self.present(vc, animated: true, completion: nil)
+                                vc.modalPresentationStyle = .overFullScreen
+                                vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+                                vc.delegate =  self
+                                self.present(vc, animated: true, completion: nil)
                             }else{
                                 let vc = VersionPopupViewController(nibName: "VersionPopupViewController", bundle: nil)
                                 vc.modalPresentationStyle = .overFullScreen
@@ -168,17 +168,17 @@ class SplashAnimatedViewController: UIViewController, VersionPopupViewController
                     }else{
                         self.setupNav()
                     }
-                  }
-              }else{
-                  if response == nil {
-                      print ("connection error")
-                      ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
-                  }else{
-                      print ("data not in proper json")
-                  }
-              }
-          }
-      }
+                }
+            }else{
+                if response == nil {
+                    print ("connection error")
+                    ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                }else{
+                    print ("data not in proper json")
+                }
+            }
+        }
+    }
     
     func updateLaterClicked() {
         setupNav()
@@ -209,60 +209,60 @@ class SplashAnimatedViewController: UIViewController, VersionPopupViewController
     func setupNav() {
         
         
-        if AuthorisedUser.shared.isAuthorised{
-                        let userData:UserData = AuthorisedUser.shared.getAuthorisedUser()
+        if AuthorisedUser.shared.isAuthorised {
+            let userData:UserData = AuthorisedUser.shared.getAuthorisedUser()
+            
+            Singleton.shared.setUserId(UserId: "\(userData.data!.id)")
+            Singleton.shared.setLoggedInUserType(UserType: "\(userData.data!.user_type)")
+            let userid:UserData = AuthorisedUser.shared.getAuthorisedUser()
+            userTypeStr = userid.data!.user_type
+            
+            var isNewUser = ""
+            if userTypeStr == "AI" || userTypeStr == "AC" {
+                isNewUser = ModalController.toString(userid.data!.is_new_user as AnyObject)
+                if isNewUser == "1" {
+                    
+                    if userData.error_description == "Verification Pending" {
+                        let vc = VerifyAccountViewController(nibName: "VerifyAccountViewController", bundle: nil)
                         
-                        Singleton.shared.setUserId(UserId: "\(userData.data!.id)")
-                        Singleton.shared.setLoggedInUserType(UserType: "\(userData.data!.user_type)")
-                        let userid:UserData = AuthorisedUser.shared.getAuthorisedUser()
-                              userTypeStr = userid.data!.user_type
+                        vc.mobile = userData.data!.mobile_number
+                        vc.emailId = userData.data!.email
+                        vc.fynooId = userData.data!.fynoo_id
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }else{
                         
-                         var isNewUser = ""
-                         if userTypeStr == "AI" || userTypeStr == "AC" {
-                            isNewUser = ModalController.toString(userid.data!.is_new_user as AnyObject)
-                              if isNewUser == "1" {
-                                
-                                if userData.error_description == "Verification Pending" {
-                                    let vc = VerifyAccountViewController(nibName: "VerifyAccountViewController", bundle: nil)
-
-                                    vc.mobile = userData.data!.mobile_number
-                                    vc.emailId = userData.data!.email
-                                    vc.fynooId = userData.data!.fynoo_id
-                                    self.navigationController?.pushViewController(vc, animated: true)
-                                }else{
-
-                                    if userid.data!.is_language_added == true {
-                                        let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
-                                        self.navigationController?.pushViewController(vc, animated: true)
-                                    }else {
-                                        let vc = LanguageSelectionViewController(nibName: "LanguageSelectionViewController", bundle: nil)
-                                        self.navigationController?.pushViewController(vc, animated: true)
-                                    }
-                                }
-                            }else {
-                                if userid.data!.is_language_added == true {
-                                    let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
-                                    self.navigationController?.pushViewController(vc, animated: true)
-                                }else{
-                                    let vc = LanguageSelectionViewController(nibName: "LanguageSelectionViewController", bundle: nil)
-                                    self.navigationController?.pushViewController(vc, animated: true)
-                                }
-
-                                }
-                         }else{
-if userid.data!.is_language_added == true {
-    let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
-    self.navigationController?.pushViewController(vc, animated: true)
-}else{
-    let vc = LanguageSelectionViewController(nibName: "LanguageSelectionViewController", bundle: nil)
-    self.navigationController?.pushViewController(vc, animated: true)
-}
+                        if userid.data!.is_language_added == true {
+                            let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }else {
+                            let vc = LanguageSelectionViewController(nibName: "LanguageSelectionViewController", bundle: nil)
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
                     }
+                }else {
+                    if userid.data!.is_language_added == true {
+                        let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }else{
+                        let vc = LanguageSelectionViewController(nibName: "LanguageSelectionViewController", bundle: nil)
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                    
+                }
             }else{
-                        let vc = LoginNewDesignViewController(nibName: "LoginNewDesignViewController", bundle: nil)
-                        self.navigationController?.pushViewController(vc, animated: false)
+                if userid.data!.is_language_added == true {
+                    let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }else{
+                    let vc = LanguageSelectionViewController(nibName: "LanguageSelectionViewController", bundle: nil)
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             }
+        }else{
+            let vc = LoginNewDesignViewController(nibName: "LoginNewDesignViewController", bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: false)
         }
+    }
 }
 
 extension SplashAnimatedViewController: SwiftyGifDelegate {

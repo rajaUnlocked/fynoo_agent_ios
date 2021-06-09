@@ -232,7 +232,7 @@ class DataEntryApiManager: NSObject {
                     completion(false,nil)
                 }else{
                     if let body = response as? [String: Any] {
-                        print(body)
+//                        print(body)
                         self.dataEntryServiceDetail = Mapper<serviceDetailData>().map(JSON: body)
                         completion(true, self.dataEntryServiceDetail)
                         return

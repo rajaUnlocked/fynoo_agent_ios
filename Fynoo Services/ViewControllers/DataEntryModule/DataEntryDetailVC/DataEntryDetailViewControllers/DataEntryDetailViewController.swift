@@ -41,11 +41,16 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.getServiceDetailAPI()
+        ModalClass.startLoading(self.view)
+       
         self.getUserLocation()
         self.setUpUI()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.getServiceDetailAPI()
+    }
+    
     
     func setUpUI() {
         
@@ -86,7 +91,7 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
         }
     
     func getServiceDetailAPI() {
-        ModalClass.startLoading(self.view)
+
         dataEntryApiMnagagerModal.dataEntryDetail(serviceID: serviceID) { (success, response) in
             ModalClass.stopLoading()
             if success{
@@ -143,6 +148,11 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
                 }
         })
     }
+    
+    
+    
+    
+    
     
     @objc func DataEntryWorkConfirmationClicked(_ sender : UIButton) {
         
@@ -459,7 +469,7 @@ extension DataEntryDetailViewController : UITableViewDelegate {
             if isBranchLocationAvailable == true {
                 return 255
             }else{
-                return 100
+                return 110
             }
         }
     }
@@ -608,16 +618,20 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         cell.agentNameLbl.text = requestData?.bo_name
         cell.ratingLbl.text = requestData?.rating_avg
         cell.totalRatingLbl.text = "(\(requestData?.rating_count ?? 0))"
-        cell.agentAddressLbl.text = "\(requestData?.address ?? "")"
+        
+        let online = "Online".localized
         
         if requestData?.work_place == 1 {
+            cell.agentAddressLbl.text = "\(online)"
             if requestData?.country_code != "" {
-                cell.addressLbl.text = "Online, \(requestData?.country_code ?? "")"
+                cell.addressLbl.text = "\(online), \(requestData?.country_code ?? "")"
             }else{
-                cell.addressLbl.text = "Online"
+                cell.addressLbl.text = "\(online)"
+              
             }
             
         }else if requestData?.work_place == 2 {
+            cell.agentAddressLbl.text = "\(requestData?.address ?? "")"
             if requestData?.country_code != "" {
                 cell.addressLbl.text = "\(requestData?.city_name ?? ""), \(requestData?.country_code ?? "")"
             }else{
@@ -644,9 +658,18 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         let workStatus = serviceDetailData?.data?.start_work
         
         if workStatus == 1 {
-            cell.workConfirmtionBtn.setTitle("Start Work", for: .normal)
+            cell.workConfirmtionBtn.setTitle("Start Work".localized, for: .normal)
+            cell.workConfirmtionBtn.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+            // green color
         }else if workStatus == 2 {
-            cell.workConfirmtionBtn.setTitle("Work Confirmation", for: .normal)
+            // green
+           
+            cell.workConfirmtionBtn.setTitle("Submit your work".localized, for: .normal)
+            cell.workConfirmtionBtn.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+        }else{
+            // grey
+            cell.workConfirmtionBtn.setTitle("Already Submitted".localized, for: .normal)
+            cell.workConfirmtionBtn.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         }
         
         cell.workConfirmtionBtn.addTarget(self, action: #selector(DataEntryWorkConfirmationClicked(_:)), for: .touchUpInside)

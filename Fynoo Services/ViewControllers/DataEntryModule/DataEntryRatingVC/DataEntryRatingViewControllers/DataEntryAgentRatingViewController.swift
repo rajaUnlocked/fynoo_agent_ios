@@ -33,6 +33,7 @@ class DataEntryAgentRatingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ratingView.settings.minTouchRating = 0.5
         
         self.agentProfileImageView.sd_setImage(with: URL(string:(agentProfilePic)), placeholderImage: UIImage(named: "agent_indivdual.png"))
         self.agentNameLbl.text = self.agentName

@@ -8,9 +8,11 @@
 
 import UIKit
 protocol AgentCompanyUserPolicyTableViewCellDelegate {
+    
     func userPolicySelected(_ sender: Any)
     func signUpBtnClicked(_ sender: Any)
      func loginClickedd(_ sender: Any)
+    func userPolicyClicked(_ sender: Any)
 }
 
 class AgentCompanyUserPolicyTableViewCell: UITableViewCell {
@@ -77,5 +79,10 @@ class AgentCompanyUserPolicyTableViewCell: UITableViewCell {
     @IBAction func signUpBtnClicked(_ sender: Any) {
         self.delegate?.signUpBtnClicked(self)
        }
+    
+    @IBAction func userPolicyClicked(_ sender: Any) {
+        self.delegate?.userPolicyClicked(self)
+    }
+    
 }
 

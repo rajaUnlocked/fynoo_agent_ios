@@ -1,0 +1,33 @@
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "1qM-gk-MdB"; */
+"1qM-gk-MdB.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "IBAN Number"; ObjectID = "2a3-Jc-nsm"; */
+"2a3-Jc-nsm.text" = "IBAN Number";
+
+/* Class = "UILabel"; text = "Please make ensure that your IBAN number is confirmed."; ObjectID = "3Un-en-e2O"; */
+"3Un-en-e2O.text" = "Please make ensure that your IBAN number is confirmed.";
+
+/* Class = "UILabel"; text = "Re-enter IBAN Number"; ObjectID = "DbL-IS-mVz"; */
+"DbL-IS-mVz.text" = "Re-enter IBAN Number";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "MhU-yw-io7"; */
+"MhU-yw-io7.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Send Money from wallet to Bank"; ObjectID = "Nvf-sO-WFH"; */
+"Nvf-sO-WFH.text" = "Send Money from wallet to Bank";
+
+/* Class = "UILabel"; text = "Name On Account"; ObjectID = "P6q-Sg-eqb"; */
+"P6q-Sg-eqb.text" = "Name On Account";
+
+/* Class = "UILabel"; text = "Currency"; ObjectID = "SCD-Mh-Zxs"; */
+"SCD-Mh-Zxs.text" = "Currency";
+
+/* Class = "UILabel"; text = "Account Information"; ObjectID = "clP-vj-ewE"; */
+"clP-vj-ewE.text" = "Account Information";
+
+/* Class = "UILabel"; text = "Bank Name"; ObjectID = "xkl-je-5pY"; */
+"xkl-je-5pY.text" = "Bank Name";
+
+/* Class = "UITextField"; text = "SAR"; ObjectID = "xqZ-xA-yQw"; */
+"xqZ-xA-yQw.text" = "SAR";

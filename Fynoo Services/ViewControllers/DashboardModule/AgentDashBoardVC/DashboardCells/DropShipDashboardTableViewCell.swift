@@ -10,6 +10,13 @@ import UIKit
 
 class DropShipDashboardTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var currencycode: UILabel!
+    @IBOutlet weak var commisionprice: UILabel!
+    @IBOutlet weak var soldprice: UILabel!
+    @IBOutlet weak var proprice: UILabel!
+    @IBOutlet weak var commisionlbl: UILabel!
+    @IBOutlet weak var soldproductlbl: UILabel!
+    @IBOutlet weak var productlbl: UILabel!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var img: UIImageView!

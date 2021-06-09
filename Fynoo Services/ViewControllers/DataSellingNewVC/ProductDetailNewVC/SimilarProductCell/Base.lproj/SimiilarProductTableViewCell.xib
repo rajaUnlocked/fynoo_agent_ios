@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-ExtraBold.otf">
+            <string>Gilroy-ExtraBold</string>
+        </array>
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SimiilarProductTableViewCell" customModule="Fynoo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="380"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="380"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="AcW-0e-8s2">
+                        <rect key="frame" x="0.0" y="54" width="320" height="286"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aI7-6x-Nq0">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="-1" id="AOB-Hd-2C1"/>
+                            <outlet property="delegate" destination="-1" id="yOZ-S6-EIQ"/>
+                        </connections>
+                    </collectionView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Similar Product" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rav-JM-ARw">
+                        <rect key="frame" x="20" y="24" width="85.5" height="15"/>
+                        <fontDescription key="fontDescription" name="Gilroy-ExtraBold" family="Gilroy" pointSize="12"/>
+                        <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0G6-ns-7go">
+                        <rect key="frame" x="254" y="21.5" width="50" height="20"/>
+                        <color key="backgroundColor" red="0.10980392156862745" green="0.61568627450980395" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="TUC-cf-nhf"/>
+                            <constraint firstAttribute="width" constant="50" id="ysd-ym-mLW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="10"/>
+                        <state key="normal" title="View All">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="viewAllClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dVE-VA-WFs"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="rav-JM-ARw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="8fZ-Bq-fLD"/>
+                    <constraint firstAttribute="trailing" secondItem="AcW-0e-8s2" secondAttribute="trailing" id="E1u-rl-15m"/>
+                    <constraint firstItem="rav-JM-ARw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="LIl-oZ-oqL"/>
+                    <constraint firstItem="AcW-0e-8s2" firstAttribute="top" secondItem="rav-JM-ARw" secondAttribute="bottom" constant="15" id="Noq-sK-eV5"/>
+                    <constraint firstItem="AcW-0e-8s2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Ore-QW-AF3"/>
+                    <constraint firstAttribute="bottom" secondItem="AcW-0e-8s2" secondAttribute="bottom" constant="40" id="UWq-4J-kzu"/>
+                    <constraint firstItem="0G6-ns-7go" firstAttribute="centerY" secondItem="rav-JM-ARw" secondAttribute="centerY" id="ggb-6T-IIg"/>
+                    <constraint firstAttribute="trailing" secondItem="0G6-ns-7go" secondAttribute="trailing" constant="16" id="lfq-5b-DJZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="collectionView" destination="AcW-0e-8s2" id="stC-YX-ADP"/>
+                <outlet property="headerLbl" destination="rav-JM-ARw" id="HXx-m4-o9I"/>
+                <outlet property="topLbl" destination="rav-JM-ARw" id="V91-Yz-MNi"/>
+                <outlet property="viewAllBtn" destination="0G6-ns-7go" id="psZ-0F-PNB"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="125.89285714285714"/>
+        </tableViewCell>
+    </objects>
+</document>

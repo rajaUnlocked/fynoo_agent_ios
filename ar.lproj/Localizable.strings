@@ -282,7 +282,7 @@
 /////////////////////////             TAP PAYMENT             /////////////////////////
 
 
-
+"User Policy" = "سياسة المستخدم";
 "Are you registered in VAT?" = " هل تم التسجيل في ضريبة القيمة المضافة؟";
 "Verification"="التحقق";
 "Upload VAT Registration Certificate" = "ارفع شهادة التسجيل بضريبة القيمة المضافة";
@@ -468,6 +468,12 @@
 
 
 //Dashboard
+"Sign out" = "تسجيل خروج";
+"Settings" = "لإعدادات";
+"Wallet" = "لمحفظة";
+"Service Requests" = "طلبات الخدمات";
+"Available Amount" = "المبلغ المتاح";
+"Inprocess" = "قيد التنفيذ";
 "Hello"="مرحباً";
 "ID"="رقم المعرف";
 "Home"="الرئيسية";
@@ -482,7 +488,7 @@
 "Manage FBA Shipment"="إدارة شحنة FBA";
 "Manage Drop Shipping"="إدارة Drop Shipping";
 "Manage Discount Code"="إدارة أكواد الخصم";
-"Manage Services"="إدارة الخدمات";
+"Manage Services"="دارة الخدمات";
 
 //Product
 "No. of Branches:  " = "عدد الفروع  ";
@@ -1048,6 +1054,7 @@
 "Manage Products"="إدارة المنتجات";
 "Product"="المنتج";
 
+
 // dataEntry
 
 "Order Summary" = "Order Summary";
@@ -1058,4 +1065,12 @@
 "Are you sure you want accept the order?" = "Are you sure you want accept the order?";
 "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information." = "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information.";
 
-
+"Start Work" = "بدء العمل";
+"Submit your work" = "Submit your work";
+"Already Submitted" = "Already Submitted";
+"Amount to be paid for this order." = "قيمة تنفيذ الطلب";
+"Number of days for order completion." = "كم عدد الأيام المطلوبة لإنهاء العمل";
+"Online" = "Online";
+"Holding" = "Holding";
+"please active" = "please active";
+"services to receive new order request." = "services to receive new order request.";

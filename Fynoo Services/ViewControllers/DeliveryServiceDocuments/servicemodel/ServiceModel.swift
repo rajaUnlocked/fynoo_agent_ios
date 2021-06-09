@@ -15,7 +15,9 @@ class ServiceModel: NSObject {
      var vehicleId = 1
     var isType = 1
     var imgname = ""
+    var imgfilereg:UIImage?
     var imgfile:UIImage?
+    var docfilereg:URL?
     var docfile:URL?
     var primaryid = 0
     var username = ""
@@ -177,14 +179,38 @@ class ServiceModel: NSObject {
             }
     else if docfile == nil
     {
+       
             ServerCalls.fileUploadAPINew(inputUrl: str, parameters: parameters, imageName: imgname, imageFile: imgfile!) { (response, success, resp) in
     
                    if let value = response as? NSDictionary{
     
                            if let body = response as? [String: Any] {
+                            if self.isType == 5
+                            {
                             let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
                                completion(true, val)
-                               return
+                            
+                                ServerCalls.fileUploadAPINew(inputUrl: str, parameters: parameters, imageName: "car_registration", imageFile: self.imgfilereg!) { (response, success, resp) in
+                    
+                                   if let value = response as? NSDictionary{
+                    
+                                           if let body = response as? [String: Any] {
+                                            let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
+                                               completion(true, val)
+                                            
+                                               return
+                                           }
+                                           completion(false,nil)
+                    
+                                   }
+                                   }
+                               }
+                            else{
+                                let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
+                                   completion(true, val)
+                                return
+                            }
+                              
                            }
                            completion(false,nil)
     
@@ -197,11 +223,32 @@ class ServiceModel: NSObject {
         ServerCalls.PdfFileUpload(inputUrl: str, parameters: parameters, pdfname: imgname, pdfurl: pfurl ?? "") { (response, success, resp) in
                  
                  if let value = response as? NSDictionary{
-                    
+    
                          if let body = response as? [String: Any] {
+                            if self.isType == 5
+                            {
+                                var pfurl : String? = self.docfilereg?.absoluteString
+                              ServerCalls.PdfFileUpload(inputUrl: str, parameters: parameters, pdfname: "car_registration", pdfurl: pfurl ?? "") { (response, success, resp) in
+                                       
+                                       if let value = response as? NSDictionary{
+                                          
+                                               if let body = response as? [String: Any] {
+                                                  let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
+                                                   completion(true, val)
+                                                   return
+                                               }
+                                               completion(false,nil)
+                                          
+                                           
+                                       }
+                                   }
+                            }
+                            else
+                            {
                             let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
                              completion(true, val)
                              return
+                            }
                          }
                          completion(false,nil)
                     

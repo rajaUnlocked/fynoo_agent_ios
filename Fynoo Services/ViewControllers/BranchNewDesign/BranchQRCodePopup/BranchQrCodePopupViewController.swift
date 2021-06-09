@@ -9,7 +9,7 @@
 import UIKit
 
 class BranchQrCodePopupViewController: UIViewController {
-    
+    var isFrom = ""
     var url = ""
     var isType = false
     var businessName = ""

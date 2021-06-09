@@ -45,8 +45,19 @@ class CompanyAgentVatDetailTableViewCell: UITableViewCell {
         self.vatNumberTxtFld.keyboardType = .asciiCapableNumberPad
         self.SetFontAndTextColor()
         self.setShadowsInFields()
-       
+        
         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: vatNumberView)
+        
+        if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
+            if value[0]=="ar"{
+                print("arabic langugage")
+                headerTxtLbl.textAlignment = .right
+                
+            }else if value[0]=="en"{
+                headerTxtLbl.textAlignment = .left
+                
+            }
+        }
         
     }
     

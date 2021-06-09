@@ -66,6 +66,22 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
         
         customHeader.viewControl = self
         
+        
+        if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
+            if value[0]=="ar"
+            {
+                let img2 = UIImage(named: "back_new")
+                let image2 = UIImage(cgImage: (img2?.cgImage)!, scale: (img2?.scale)!, orientation: UIImage.Orientation.upMirrored)
+                backBtn.setImage(image2, for: .normal)
+            }
+            else if value[0]=="en"
+            {
+                let image12 = UIImage(named: "back_new")
+                backBtn.setImage(image12, for: .normal)
+            }
+        }
+   
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -144,7 +160,7 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
             let myIntValue = Int(topPadding!)
             
             if myIntValue > 0{
-                if myIntValue == 44{
+                if myIntValue == 44 || myIntValue == 47 || myIntValue == 48 {
                     let glblHeight = HeaderHeightSingleton.shared
                     glblHeight.headerHeight = 120
                 }else{
@@ -166,6 +182,11 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
             if success{
                 if let value = (response?.object(forKey: "error_description") as? String) {
                     ModalController.showSuccessCustomAlertWith(title: "", msg: value)
+                    
+                    DispatchQueue.main.async {
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.UserDetailsAPI()
+                    }
                     
                     if self.isFrom{
                         self.languageSelect!("hgf")

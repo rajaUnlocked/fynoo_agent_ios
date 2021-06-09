@@ -20,7 +20,7 @@ class MultiBannerTableViewCell: UITableViewCell, UIScrollViewDelegate {
         super.awakeFromNib()
         timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
         
-        let width = UIScreen.main.bounds.size.width - 20
+        let width = UIScreen.main.bounds.size.width - 30
         let widthEsti = 835 / width
         let height = 500 / widthEsti
         

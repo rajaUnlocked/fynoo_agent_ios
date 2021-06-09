@@ -306,6 +306,8 @@
 "Select Your Business Type"="Select Your Business Type";
 
 "Basic Information"="Basic Information";
+ 
+
 
 // Main Branch
 "Open Now" = "Open Now";
@@ -381,6 +383,7 @@
 "Login"="Login";
 
 //Sign Up Agent
+"User Policy" = "User Policy";
 "Agent Company Registration" ="Agent Company Registration";
 "Agent Personal Registration" ="Agent Personal Registration";
 "Services" = "Services";
@@ -428,6 +431,9 @@
 
 
 //DashBoard
+"Service Requests" = "Service Requests";
+"Available Amount" = "Available Amount";
+"Inprocess" = "Inprocess";
 "Hello"="Hello";
 "ID"="ID";
 "Home"="Home";
@@ -443,7 +449,9 @@
 "Manage Drop Shipping"="Manage Drop Shipping";
 "Manage Discount Code"="Manage Discount Code";
 "Manage Services"="Manage Services";
-
+"Wallet" = "Wallet";
+"Settings" = "Settings";
+"Sign out" = "Sign out";
 //profile
 "Name"="Name";
 "Email"="Email";
@@ -1023,3 +1031,13 @@
 "Data entry" = "Data entry";
 "Are you sure you want accept the order?" = "Are you sure you want accept the order?";
 "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information." = "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information.";
+
+"Start Work" = "Start Work";
+"Submit your work" = "Submit your work";
+"Already Submitted" = "Already Submitted";
+"Amount to be paid for this order." = "Amount to be paid for this order.";
+"Number of days for order completion." = "Number of days for order completion.";
+"Online" = "Online";
+"Holding" = "Holding";
+"please active" = "please active";
+"services to receive new order request." = "services to receive new order request.";

@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "SAR"; ObjectID = "XK7-iM-gdO"; */
+"XK7-iM-gdO.text" = "SAR";
+
+/* Class = "UILabel"; text = "13,009.08"; ObjectID = "n00-SO-rFw"; */
+"n00-SO-rFw.text" = "13,009.08";
+
+/* Class = "UILabel"; text = "Total Amount"; ObjectID = "ohW-ki-UJZ"; */
+"ohW-ki-UJZ.text" = "Total Amount";
+
+/* Class = "UILabel"; text = "Send Money To Your Bank Account"; ObjectID = "t4y-xR-x2p"; */
+"t4y-xR-x2p.text" = "Send Money To Your Bank Account";
+
+/* Class = "UILabel"; text = "Available: SAR 400"; ObjectID = "u9l-dS-nSX"; */
+"u9l-dS-nSX.text" = "Available: SAR 400";

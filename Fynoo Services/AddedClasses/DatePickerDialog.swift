@@ -70,6 +70,16 @@ open class DatePickerDialog: UIView {
         self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
 
         self.addSubview(self.dialogView!)
+        
+//        if (@available(iOS 13.4, *)) {
+//                 [datePicker setPreferredDatePickerStyle:UIDatePickerStyleWheels];
+//             }
+//        if #available(iOS 13.4, *) {
+//            datePicker.preferredDatePickerStyle = .wheels
+//        } else {
+//            // Fallback on earlier versions
+//        }
+        
     }
 
     /// Handle device orientation changes
@@ -104,7 +114,9 @@ open class DatePickerDialog: UIView {
         self.defaultDate = defaultDate
         self.datePicker.datePickerMode = self.datePickerMode ?? UIDatePicker.Mode.date
         self.datePicker.date = self.defaultDate ?? Date()
-        
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = UIDatePickerStyle.wheels
+        }
         //set hardcore current date-- aishwarya
         
 //        let date1 = Date()

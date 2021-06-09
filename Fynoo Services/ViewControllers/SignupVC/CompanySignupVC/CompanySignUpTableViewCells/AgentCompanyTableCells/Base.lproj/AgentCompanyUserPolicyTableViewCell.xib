@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,7 +35,7 @@
                             <action selector="checkBoxBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Nyb-nB-pru"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p1w-As-rIu">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p1w-As-rIu">
                         <rect key="frame" x="245" y="68" width="69" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="69" id="bzQ-2j-tmW"/>
@@ -55,7 +56,7 @@
                             <action selector="loginCicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eTl-HO-GUh"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vi5-PM-hnn">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vi5-PM-hnn">
                         <rect key="frame" x="141" y="66" width="100" height="24"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -71,21 +72,24 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Jw-oc-H5s">
-                        <rect key="frame" x="48" y="35.5" width="57" height="25.5"/>
+                        <rect key="frame" x="78" y="35" width="64" height="26.5"/>
                         <state key="normal">
                             <attributedString key="attributedTitle">
                                 <fragment content="User Policy">
                                     <attributes>
                                         <color key="NSColor" red="0.3921568627" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <font key="NSFont" size="12" name=".SFNS-Regular"/>
+                                        <font key="NSFont" metaFont="cellTitle"/>
                                         <integer key="NSUnderline" value="1"/>
                                     </attributes>
                                 </fragment>
                             </attributedString>
                         </state>
+                        <connections>
+                            <action selector="userPolicyClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="azc-DT-TpI"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epe-DD-Eoz">
-                        <rect key="frame" x="46" y="36" width="0.0" height="22"/>
+                        <rect key="frame" x="46" y="36" width="30" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="5Ku-fr-xUd"/>
                         </constraints>
@@ -93,6 +97,12 @@
                         <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Eg-CT-Ryx">
+                        <rect key="frame" x="46" y="36" width="30" height="22"/>
+                        <connections>
+                            <action selector="checkBoxBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8bG-E3-W63"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="p1w-As-rIu" secondAttribute="trailing" constant="6" id="1AK-X7-ghn"/>
@@ -101,14 +111,18 @@
                     <constraint firstItem="Vi5-PM-hnn" firstAttribute="centerY" secondItem="p1w-As-rIu" secondAttribute="centerY" id="DBN-ca-smB"/>
                     <constraint firstItem="9Jw-oc-H5s" firstAttribute="leading" secondItem="epe-DD-Eoz" secondAttribute="trailing" constant="2" id="DQQ-Ku-UhD"/>
                     <constraint firstItem="epe-DD-Eoz" firstAttribute="leading" secondItem="LOI-bD-jxL" secondAttribute="trailing" constant="1" id="JJH-3h-0Id"/>
+                    <constraint firstItem="6Eg-CT-Ryx" firstAttribute="bottom" secondItem="epe-DD-Eoz" secondAttribute="bottom" id="Qnb-cb-VSv"/>
                     <constraint firstItem="epe-DD-Eoz" firstAttribute="centerY" secondItem="LOI-bD-jxL" secondAttribute="centerY" constant="-3" id="Rxo-CR-suA"/>
                     <constraint firstItem="p1w-As-rIu" firstAttribute="leading" secondItem="Vi5-PM-hnn" secondAttribute="trailing" constant="4" id="ThC-oa-VFK"/>
                     <constraint firstItem="LOI-bD-jxL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="V25-Gs-w0v"/>
+                    <constraint firstItem="6Eg-CT-Ryx" firstAttribute="trailing" secondItem="epe-DD-Eoz" secondAttribute="trailing" id="bhm-Q8-MEz"/>
+                    <constraint firstItem="6Eg-CT-Ryx" firstAttribute="top" secondItem="epe-DD-Eoz" secondAttribute="top" id="rBa-92-QdJ"/>
+                    <constraint firstItem="6Eg-CT-Ryx" firstAttribute="leading" secondItem="epe-DD-Eoz" secondAttribute="leading" id="uG3-mR-aNm"/>
                     <constraint firstItem="p1w-As-rIu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="68" id="xhd-1M-OUb"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="agreeLbl" destination="epe-DD-Eoz" id="FP7-GC-u5H"/>
                 <outlet property="checkBoxBtn" destination="LOI-bD-jxL" id="KBc-Tu-rnm"/>
