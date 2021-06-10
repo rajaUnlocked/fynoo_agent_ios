@@ -22,8 +22,10 @@ class DEInprogressShowInstructionTableViewCell: UITableViewCell {
         if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
             if value[0]=="ar"{
                 self.instructionValueLbl.textAlignment = .right
+                self.orderInstructionLbl.textAlignment = .right
             }else if value[0]=="en"{
                 self.instructionValueLbl.textAlignment = .left
+                self.orderInstructionLbl.textAlignment = .left
             }
         }
     }

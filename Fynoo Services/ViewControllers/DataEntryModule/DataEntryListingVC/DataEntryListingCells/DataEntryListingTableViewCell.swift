@@ -29,11 +29,12 @@ class DataEntryListingTableViewCell: UITableViewCell {
         if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
             if value[0]=="ar"{
                 self.headerTxt.textAlignment = .right
+                self.addressLbl.textAlignment = .right
             }else if value[0]=="en"{
                 self.headerTxt.textAlignment = .left
+                self.addressLbl.textAlignment = .left
             }
         }
-
     }
     
     func SetFont() {
