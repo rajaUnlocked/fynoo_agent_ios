@@ -9,6 +9,8 @@
 import UIKit
 
 class ProfileVatTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var vatcertlbl: UILabel!
     @IBOutlet weak var addText: UILabel!
     @IBOutlet weak var addIon: UIImageView!
     @IBOutlet weak var imgView: UIImageView!

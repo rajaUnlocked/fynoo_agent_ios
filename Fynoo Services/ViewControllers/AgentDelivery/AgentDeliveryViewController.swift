@@ -127,9 +127,17 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
                 
                 if let body = response as? [String: Any] {
                     self.deliverData  = Mapper<deliveryDashboard>().map(JSON: body)
-                    
+                    if self.deliverData?.data?.agent_information?.del_service_document_uploaded == 0 {
+                    let vc = AddAmountViewController(nibName: "AddAmountViewController", bundle: nil)
+                     vc.isNotFill = true
+                     vc.isFrom = true
+                        vc.descrptxt = "Please fill the document service form to activate the delivery service"
+                    vc.modalPresentationStyle = .overFullScreen
+                    vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+                    self.present(vc, animated: true, completion: nil)
                     print(self.deliverData?.data?.agent_information?.del_service_document ?? "","del_service_document")
                     self.tableView.reloadData()
+                    }
                     
                 }
             }
@@ -436,9 +444,9 @@ extension AgentDeliveryViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
-                let vc = ProductDetailsViewC()
-        //        vc.serviceID = ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any)
-                self.navigationController?.pushViewController(vc, animated: true)
+//                let vc = ProductDetailsViewC()
+//        //        vc.serviceID = ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any)
+//                self.navigationController?.pushViewController(vc, animated: true)
      
     }
     

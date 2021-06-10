@@ -130,7 +130,6 @@
 		2FFDE22425012172006C5EBD /* Fynoo_ServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDE22325012172006C5EBD /* Fynoo_ServicesTests.swift */; };
 		2FFDE22F25012173006C5EBD /* Fynoo_ServicesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDE22E25012173006C5EBD /* Fynoo_ServicesUITests.swift */; };
 		2FFDE2412501225A006C5EBD /* AgentDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDE23F2501225A006C5EBD /* AgentDashboardViewController.swift */; };
-		2FFDE2422501225A006C5EBD /* AgentDashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FFDE2402501225A006C5EBD /* AgentDashboardViewController.xib */; };
 		3EBBEF9433213B23D9C4BC1A /* Pods_Fynoo_Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34F4201751D8F2C6FB8501B /* Pods_Fynoo_Services.framework */; };
 		788758D607ADF036566C3603 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B2018020C6F3800DB3F75B /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */; };
 		CE2EFB3E251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EFB3C251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift */; };
@@ -138,6 +137,8 @@
 		CE2EFB42251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */; };
 		CE2EFB43251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2EFB41251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib */; };
 		CE3E9A59251E0B0300B60038 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E9A58251E0B0300B60038 /* ServiceModel.swift */; };
+		CE40A25126708B3500A8C944 /* AgentDashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE40A25326708B3500A8C944 /* AgentDashboardViewController.xib */; };
+		CE40A2612670E15000A8C944 /* ProfileDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE40A2632670E15000A8C944 /* ProfileDetailTableViewCell.xib */; };
 		CE8E8595250F4C3800B74A9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE8E8597250F4C3800B74A9E /* Localizable.strings */; };
 		CE9CCD3F264BAA14005AE619 /* TimingShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CCC89264BAA13005AE619 /* TimingShowTableViewCell.swift */; };
 		CE9CCD42264BAA14005AE619 /* TimingShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9CCC8C264BAA13005AE619 /* TimingShowTableViewCell.xib */; };
@@ -608,7 +609,6 @@
 		F4A7E54C251A047D00ED8008 /* AgentDeliveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A7E54A251A047D00ED8008 /* AgentDeliveryTableViewCell.xib */; };
 		F4C4DC572507943A0075F520 /* UserProfileDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4C4DC562507943A0075F520 /* UserProfileDetailsViewController.xib */; };
 		F4C4DC59250794490075F520 /* UserProfileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4DC58250794490075F520 /* UserProfileDetailsViewController.swift */; };
-		F4C4DC5C250794A50075F520 /* ProfileDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4C4DC5B250794A50075F520 /* ProfileDetailTableViewCell.xib */; };
 		F4C4DC5E250794B20075F520 /* ProfileDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4DC5D250794B20075F520 /* ProfileDetailTableViewCell.swift */; };
 		F4C4DC602507951B0075F520 /* ProfileNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4C4DC5F2507951A0075F520 /* ProfileNameTableViewCell.xib */; };
 		F4C4DC622507952C0075F520 /* ProfileNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4DC612507952C0075F520 /* ProfileNameTableViewCell.swift */; };
@@ -954,7 +954,6 @@
 		2FFDE22E25012173006C5EBD /* Fynoo_ServicesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fynoo_ServicesUITests.swift; sourceTree = "<group>"; };
 		2FFDE23025012173006C5EBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FFDE23F2501225A006C5EBD /* AgentDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDashboardViewController.swift; sourceTree = "<group>"; };
-		2FFDE2402501225A006C5EBD /* AgentDashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentDashboardViewController.xib; sourceTree = "<group>"; };
 		37BC6070EBDE8A55FC4A7E83 /* Pods_Fynoo_ServicesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_ServicesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B89182A71D912BDFE54C5DC /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8520337E115BB44AB8DB671B /* Pods-Fynoo ServicesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo ServicesTests.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo ServicesTests/Pods-Fynoo ServicesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -966,6 +965,12 @@
 		CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVehicleImageTableViewCell.swift; sourceTree = "<group>"; };
 		CE2EFB41251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadVehicleImageTableViewCell.xib; sourceTree = "<group>"; };
 		CE3E9A58251E0B0300B60038 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
+		CE40A25226708B3500A8C944 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AgentDashboardViewController.xib; sourceTree = "<group>"; };
+		CE40A25826708B3B00A8C944 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AgentDashboardViewController.strings; sourceTree = "<group>"; };
+		CE40A25A26708B4300A8C944 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/AgentDashboardViewController.strings; sourceTree = "<group>"; };
+		CE40A2622670E15000A8C944 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileDetailTableViewCell.xib; sourceTree = "<group>"; };
+		CE40A2652670E15B00A8C944 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProfileDetailTableViewCell.strings; sourceTree = "<group>"; };
+		CE40A2672670E15F00A8C944 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ProfileDetailTableViewCell.strings; sourceTree = "<group>"; };
 		CE8E8594250F4C1B00B74A9E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		CE8E8596250F4C3800B74A9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE8E8598250F4C4200B74A9E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1499,7 +1504,6 @@
 		F4A7E54A251A047D00ED8008 /* AgentDeliveryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentDeliveryTableViewCell.xib; sourceTree = "<group>"; };
 		F4C4DC562507943A0075F520 /* UserProfileDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileDetailsViewController.xib; sourceTree = "<group>"; };
 		F4C4DC58250794490075F520 /* UserProfileDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDetailsViewController.swift; sourceTree = "<group>"; };
-		F4C4DC5B250794A50075F520 /* ProfileDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileDetailTableViewCell.xib; sourceTree = "<group>"; };
 		F4C4DC5D250794B20075F520 /* ProfileDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailTableViewCell.swift; sourceTree = "<group>"; };
 		F4C4DC5F2507951A0075F520 /* ProfileNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileNameTableViewCell.xib; sourceTree = "<group>"; };
 		F4C4DC612507952C0075F520 /* ProfileNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileNameTableViewCell.swift; sourceTree = "<group>"; };
@@ -2194,7 +2198,7 @@
 				CEA24F5A265BCC9C00B3227D /* GalleryPopUpViewController.xib */,
 				2FEB122025120DF80012FE98 /* DashboardCells */,
 				2FFDE23F2501225A006C5EBD /* AgentDashboardViewController.swift */,
-				2FFDE2402501225A006C5EBD /* AgentDashboardViewController.xib */,
+				CE40A25326708B3500A8C944 /* AgentDashboardViewController.xib */,
 			);
 			path = AgentDashBoardVC;
 			sourceTree = "<group>";
@@ -3235,7 +3239,7 @@
 				F4C4DC612507952C0075F520 /* ProfileNameTableViewCell.swift */,
 				F4C4DC5F2507951A0075F520 /* ProfileNameTableViewCell.xib */,
 				F4C4DC5D250794B20075F520 /* ProfileDetailTableViewCell.swift */,
-				F4C4DC5B250794A50075F520 /* ProfileDetailTableViewCell.xib */,
+				CE40A2632670E15000A8C944 /* ProfileDetailTableViewCell.xib */,
 				F4828C9E2508DF3E006B85D8 /* ProfileServiceTableViewCell.swift */,
 				F4828C9F2508DF3E006B85D8 /* ProfileServiceTableViewCell.xib */,
 				F4828CA22508DFA9006B85D8 /* ProfileServiceViewCell.swift */,
@@ -4225,7 +4229,7 @@
 				CECEFA5B25779E8F0090D459 /* UploadImageViewController.xib in Resources */,
 				CE9CCD4E264BAA14005AE619 /* AddProductHeaderTableViewCell.xib in Resources */,
 				CE9CCD4A264BAA14005AE619 /* ProductSpecificationsTableViewCell.xib in Resources */,
-				F4C4DC5C250794A50075F520 /* ProfileDetailTableViewCell.xib in Resources */,
+				CE40A2612670E15000A8C944 /* ProfileDetailTableViewCell.xib in Resources */,
 				CECEFA0A257773D00090D459 /* GetLocationViewController.strings in Resources */,
 				2F8463D1250F6EBC0084EB32 /* LoginNewSecondTableViewCell.xib in Resources */,
 				F680D61F259B7C2C007EB12C /* DataEntryTypeListingTableViewCell.strings in Resources */,
@@ -4265,7 +4269,7 @@
 				F4E772AC252D9F990045BD86 /* ChangePasswordViewController.xib in Resources */,
 				F66AA1AF2525B53300C1E058 /* DiscountTypePopUpViewController.strings in Resources */,
 				CECEFA872577A22F0090D459 /* NodatafoundCollectionViewCell.xib in Resources */,
-				2FFDE2422501225A006C5EBD /* AgentDashboardViewController.xib in Resources */,
+				CE40A25126708B3500A8C944 /* AgentDashboardViewController.xib in Resources */,
 				CECEF9FC2577575C0090D459 /* HeaderBranchTableViewCell.xib in Resources */,
 				F62E4B0B25148EC60021CEE0 /* PersonalRegViewController.xib in Resources */,
 				F680D666259B7C2C007EB12C /* DataEntryFormViewController.xib in Resources */,
@@ -5186,6 +5190,26 @@
 				CE8E8594250F4C1B00B74A9E /* ar */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CE40A25326708B3500A8C944 /* AgentDashboardViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE40A25226708B3500A8C944 /* Base */,
+				CE40A25826708B3B00A8C944 /* en */,
+				CE40A25A26708B4300A8C944 /* ar */,
+			);
+			name = AgentDashboardViewController.xib;
+			sourceTree = "<group>";
+		};
+		CE40A2632670E15000A8C944 /* ProfileDetailTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE40A2622670E15000A8C944 /* Base */,
+				CE40A2652670E15B00A8C944 /* en */,
+				CE40A2672670E15F00A8C944 /* ar */,
+			);
+			name = ProfileDetailTableViewCell.xib;
 			sourceTree = "<group>";
 		};
 		CE8E8597250F4C3800B74A9E /* Localizable.strings */ = {

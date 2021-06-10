@@ -54,6 +54,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         configureHeaderUI()
         registerCellNibs()
         addUIRefreshToTable()
+        showWallet = true
+        self.arrowImg.image = UIImage(named: "up-arrow-3")
         walletHeightConst.constant = 0
         walletvw.isHidden = true
     }
@@ -340,11 +342,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
             load_app()
         }
         
-           var window: UIWindow?
         func load_app(){
-            let rootviewcontroller: UIWindow = self.view.window!
+            let rootviewcontroller: UIWindow = (SceneDelegate.shared?.window)!
             let appDelegate = SceneDelegate()
-            
+          
             let obj = AgentDashboardViewController()
             
             appDelegate.nav = UINavigationController.init(rootViewController: obj)
@@ -384,7 +385,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         }
         
         @objc func sideMenuaddProductDataForSaleBtnClicked(_ notification: NSNotification) {
-            let vc = ProductListNewViewController(nibName: "ProductListNewViewController", bundle: nil)
+//            let vc = ProductListNewViewController(nibName: "ProductListNewViewController", bundle: nil)
+//            self.navigationController?.pushViewController(vc, animated: true)
+          
+            let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
         }
    

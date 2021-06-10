@@ -135,7 +135,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     func vehicleKind_API(brandid:Int)
     {
         
-        //ModalClass.startLoading(self.view)
+        ModalClass.startLoading(self.view)
         service.vehicleId = 10
         service.getvehicleKind { (success, response) in
             ModalClass.stopLoading()
@@ -155,10 +155,10 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     func vehicleName_API(brandid:Int)
     {
         
-       // ModalClass.startLoading(self.view)
+        ModalClass.startLoading(self.view)
         service.vehicleId = brandid
         service.getvehicleName { (success, response) in
-            ModalClass.stopLoading()
+            ModalClass.stopLoadingAllLoaders(self.view)
             if success
             {
                 self.vehiclenamelist = response
@@ -173,9 +173,9 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     }
     func servicetypeColor_API()
     {
-        // ModalClass.startLoading(self.view)
+         ModalClass.startLoading(self.view)
         service.getservicetypecolor { (success, response) in
-            ModalClass.stopLoading()
+            ModalClass.stopLoadingAllLoaders(self.view)
             if success
             {
                 self.typecolorlist = response
@@ -229,6 +229,15 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     }
     
     func yesBtnClicked(name: String, id: Int) {
+        if name == "-100"
+        {
+            imglocalArr[id] = nil
+            documentlocalArr[id] = nil
+            imgIdArr[id] = false
+            tabvw.reloadData()
+            return
+
+        }
           submit.tag = 8
          clickuploadclicked(submit)
        }
@@ -306,7 +315,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         ModalClass.startLoading(self.view)
         service.primaryid = primaryid
         service.getservicedocument { (success, response) in
-            ModalClass.stopLoadingAllLoaders(self.view)
+            
             if success
             {
                 self.servicelist = response
@@ -344,7 +353,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 if self.servicelist?.data?.front_side ?? "" != ""{
                     self.vehicleKind_API(brandid: (self.servicelist?.data?.registration_type_id)!)
                     self.vehicleName_API(brandid: (self.servicelist?.data?.vehicle_brand_id)!)
-                    ModalClass.stopLoadingAllLoaders(self.view)
+                   
                 }
                 self.tabvw.reloadData()
                
@@ -629,10 +638,15 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                    ModalController.showNegativeCustomAlertWith(title: " You cannot edit the form when it is pending for approval", msg: "")
                                   return
                }
-        imglocalArr[sender.tag] = nil
-        documentlocalArr[sender.tag] = nil
-        imgIdArr[sender.tag] = false
-        tabvw.reloadData()
+        let vc = CommonPopupViewController(nibName: "CommonPopupViewController", bundle: nil)
+                vc.modalPresentationStyle = .overFullScreen
+                vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+                vc.delegate =  self
+                vc.isRemove = true
+        vc.serviceID = sender.tag
+                vc.setUI()
+                self.present(vc, animated: true, completion: nil)
+        
     }
     @objc func clickremoveimage(_ sender:UIButton)
        {
@@ -642,8 +656,11 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                                   return
                }
         imglocalArr[sender.tag] = nil
-       // imgArr[sender.tag] = ""
-        tabvw.reloadData()
+               // imgArr[sender.tag] = ""
+                tabvw.reloadData()
+
+     
+       
     }
     @objc func clickedaddnewcar()
     {
