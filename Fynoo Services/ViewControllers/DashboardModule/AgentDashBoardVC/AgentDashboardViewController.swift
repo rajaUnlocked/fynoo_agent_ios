@@ -342,11 +342,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
             load_app()
         }
         
-           var window: UIWindow?
         func load_app(){
-            let rootviewcontroller: UIWindow = self.view.window!
+            let rootviewcontroller: UIWindow = (SceneDelegate.shared?.window)!
             let appDelegate = SceneDelegate()
-            
+          
             let obj = AgentDashboardViewController()
             
             appDelegate.nav = UINavigationController.init(rootViewController: obj)
