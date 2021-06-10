@@ -390,7 +390,6 @@
 "Personal Details" = "Personal Details";
 "Basic Information" = "Basic Information";
 "Bank Details" = "Bank Details";
-"Vat Information" = "Vat Information";
 "https://www.maroof.com/" = "https://www.maroof.com/";
 "Error" = "Error";
 "Connection Error" = "Connection Error";
@@ -453,6 +452,24 @@
 "Settings" = "Settings";
 "Sign out" = "Sign out";
 //profile
+"Gender" = "Gender";
+"Dob" = "Dob";
+"Education" = "Education";
+"Major" = "Major";
+"Services" = "Services";
+"Basic Information" = "Basic Information";
+"Personal Information" = "Personal Information";
+"Mobile Number" = "Mobile Number";
+"Bank Detail" = "Bank Detail";
+"IBAN Number" = "IBAN Number";
+"Bank Name" = "Bank Name";
+"Card Holder Name" = "Card Holder Name";
+"Vat Information" = "Vat Information";
+"Password Information" = "Password Information";
+"Language Information" = "Language Information";
+"Vat Certificate" = "Vat Certificate";
+
+
 "Name"="Name";
 "Email"="Email";
 "Country"="Country";
@@ -981,7 +998,6 @@
 "Personal Details" = "Personal Details";
 "Basic Information" = "Basic Information";
 "Bank Details" = "Bank Details";
-"Vat Information" = "Vat Information";
 "https://www.maroof.com/" = "https://www.maroof.com/";
 "Error" = "Error";
 "Connection Error" = "Connection Error";

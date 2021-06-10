@@ -434,6 +434,25 @@
 "Uploaded VAT Certificate" = "Uploaded VAT Certificate";
 
 //Profile Page
+
+"Gender" = "لجنس";
+"Dob" = "تاريخ الميلاد";
+"Education" = "التعليم";
+"Major" = "لتخصص";
+"Services" = "تحديد الخدمات";
+"Basic Information" = "المعلومات الاساسية";
+"Personal Information" = "Personal Information";
+"Mobile Number" = "رقم الجوال";
+"Bank Detail" = "تفاصيل الحساب البنكي";
+"IBAN Number" = "رقم الآيبان";
+"Bank Name" = "اسم البنك";
+"Card Holder Name" = "Card Holder Name";
+"Vat Information" = "بيانات ضريبة القيمة المضافة";
+"Password Information" = "Password Information";
+"Language Information" = "لغات التحدث";
+"Vat Certificate" = "Vat Certificate";
+
+
 "Profile"="الملف الشخصي";
 "ID"="رقم التعريف";
 "Followers"="المتابعين";
@@ -516,7 +535,6 @@
 "Personal Details" = "البيانات الشخصية";
 "Basic Information" = "المعلومات الأساسية";
 "Bank Details" = "تفاصيل الحساب البنكي";
-"Vat Information" = "بيانات ضريبة القيمة المضافة";
 "Cancel" = "إلغاء" ;
 "https://www.maroof.com/" = "https://www.maroof.com/";
 "Error" = "Error";

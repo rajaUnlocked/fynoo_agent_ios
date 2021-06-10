@@ -308,7 +308,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                         
                         if self.isPersonal{
                             self.basicInfo = ["Email".localized,"Country".localized,"City".localized,"Mobile Number".localized,"Maroof Link".localized]
-                            self.sectionHeading = ["","Services","Personal Information","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
+                            self.sectionHeading = ["","Services".localized,"Personal Information".localized,"Basic Information".localized,"Bank Detail".localized,"Vat Information".localized,"Password Information".localized,"Language Information".localized]
                              }
                         
                         self.agentInfo.name = self.profileInfo?.data?.user_data?.name ?? ""
@@ -648,9 +648,9 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                 cell.selectionStyle = .none
 
                 if isPersonal{
-                    cell.titleLbl.text = "Agent Personal"
+                    cell.titleLbl.text = "Agent Personal".localized
                 }else{
-                    cell.titleLbl.text = "Agent Company"
+                    cell.titleLbl.text = "Agent Company".localized
 
                 }
                 if isEdit{
@@ -1120,7 +1120,8 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                        {
                            cell.isUserInteractionEnabled = true
                        }
-            cell.entryLbl.attributedText = ModalController.setStricColor(str: "VAT Number *", str1: "VAT Number", str2:" *" )
+            let vt = "VAT Number".localized;
+            cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(vt) *", str1: vt, str2:" *" )
             cell.flagImg.isHidden = true
             cell.mobileCode.isHidden = true
             cell.mobileCodeWidth.constant = 0
@@ -1140,6 +1141,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.imgView.image = self.pdfImage
             cell.selectionStyle = .none
             cell.isUserInteractionEnabled = false
+            cell.vatcertlbl.text = "Vat Certificate".localized
             if isEdit
             {
             cell.isUserInteractionEnabled = true
