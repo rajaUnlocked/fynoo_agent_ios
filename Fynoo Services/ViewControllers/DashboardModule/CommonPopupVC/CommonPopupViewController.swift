@@ -37,7 +37,7 @@ class CommonPopupViewController: UIViewController {
     func setUI() {
         if isRemove
         {
-            self.titleLbl.text = "Are you sure you want to delete this image? "
+            self.titleLbl.text = "Do you want to delete this file? "
             self.popupBG.image = UIImage(named: "blank_service_popup")
             self.serviceImg.isHidden = false
             self.serviceImg.image = UIImage(named: "delete_grey")
@@ -45,7 +45,7 @@ class CommonPopupViewController: UIViewController {
         }
         if isDoc
         {
-          self.titleLbl.text = "Are you sure you want to submit for Approval? "
+          self.titleLbl.text = "Are you sure you want to submit for Approval?"
             self.popupBG.image = UIImage(named: "popop")
             self.serviceImg.isHidden = true
             return

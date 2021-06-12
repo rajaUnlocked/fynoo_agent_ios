@@ -333,8 +333,17 @@
 "Password and confirm password do not match"="كلمة المرور غير متطابقة";
 "Please check user policy"="الرجاء الموافقة على سياسة الاستخدام";
 "Please enter valid OTP"="الرجاء إدخال رمز التحقق";
-
-
+// delivery dashboard
+"Trips Achievement" = "إتمام الرحلات";
+"Current" = "الطلبات الحالية";
+"Next" = "الطلبات التالية";
+"Previous" = "الطلبات السابقة";
+"Cancelled" = "الطلبات الملغاة";
+"Almost Total Price" = "المبلغ الإجمالي التقريبي";
+"Order Id" = "رقم الطلب";
+"Address" = "Address";
+"Delivery Services" = "خدمة التوصيل";
+"No Trips Found" = "لاتوجد رحلات";
 //Forget Password
 "Business Owner" = "صاحب العمل";
 "Agent Company" = "شركة الوكيل";
@@ -343,6 +352,47 @@
 "Country" = "نسيت كلمة المرور";
 "Sign Up" = "تسجيل";
 "Reset Password" = "إعادة تعيين كلمة المرور";
+//delivery document
+"Upload National Id / Iqama" = "قم بإرفاق صورة الهوية الوطنية أو الإقامة";
+"Upload Driving License Front" = "إرفاق صورة رخصة القيادة";
+"Upload Vehicle Registration" = "إرفاق صورة إستمارة السيارة";
+"Upload Vehicle Insurance" = "إرفاق وثيقة تأمين المركبة";
+"Upload Driving Authorization(Not Required for the Owner)" = "Upload Driving Authorization(Not Required for the Owner)";
+"Upload Vehicle Description" = "Upload Vehicle Description";
+"Full Name" = "الاسم الكامل";
+"Date of Birth" = "تاريخ الميلاد";
+"National ID / Iqama ID" = "رقم الهوية الوطنية أو الإقامة";
+"Date of Expiry" = "تاريخ الإنتهاء";
+"Registration Type" = "نوع تسجيل المركبة";
+"Vehicle Brand" = "ماركة المركبة";
+"Vehicle Name" = "فئة المركبة";
+"Production Year" = "سنة الصنع";
+"Vehicle Color" = "لون المركبة";
+"Vehicle kind" = "نوع المركبة";
+"Maximum Load" = "أقصى حمولة";
+"Plat Number" = "رقم لوحة المركبة";
+"National Id / Iqama" = "الهوية الوطنية/ الإقامة";
+"Driving License Front" = "رخصة القيادة";
+"Vehicle Registration" = "إستمارة المركبة";
+"Vehicle Insurance" = "وثيقة تأمين المركبة";
+"Driving Authorization" = "تفويض قيادة المركبة";
+"Vehicle Description" = "مواصفات المركبة";
+"Reason For Vehicle Change" = "سبب تغيير المركبة";
+"Upload & Save" = "إرفاق وحفظ";
+"Submit for approval" = "إرسال للموافقة";
+"Pending for approval" = "في إنتظار الموافقة";
+"Upload the Front side Photo" = "إرفاق صورة واجهة المركبة";
+"Are you sure you want to submit for Approval?" = "هل تريد إرسال الطلب للتدقيق والموافقة؟";
+"Do you want to delete this file? " = "هل تريد حذف الملف؟";
+"Delivery Services Documents" = "وثائق خدمة التوصيل";
+"Select Registration Type" = "إختر نوع تسجيل المركبة";
+"Select Vehicle Brand" = "إختر ماركة المركبة";
+"Select Vehicle Name" = "أختر فئة المركبة";
+"Production Year" = "سنة الصنع";
+"Select Vehicle Color" = "إختر لون المركبة";
+"Maximum Load" = "أقصى حمولة";
+"Plate Number" = "رقم لوحة المركبة";
+"Reason for different vehicle registration" = "سبب تغيير تسجيل المركبة";
 
 // Business Type List
 "Business Type List" = "قائمة نوع العمل";
