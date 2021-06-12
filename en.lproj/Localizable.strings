@@ -1038,6 +1038,10 @@
 
 // dataEntry
 
+"Waiting List" = "Waiting List";
+"Completed" = "Completed";
+"Order Id" = "Order Id";
+
 "Order Summary" = "Order Summary";
 "Payment Method" = "Payment Method";
 "Give Ratings" = "Give Ratings";
@@ -1057,3 +1061,4 @@
 "Holding" = "Holding";
 "please active" = "please active";
 "services to receive new order request." = "services to receive new order request.";
+"Paid" = "Paid";

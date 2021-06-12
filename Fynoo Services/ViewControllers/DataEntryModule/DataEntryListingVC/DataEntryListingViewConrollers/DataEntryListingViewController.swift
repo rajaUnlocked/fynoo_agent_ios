@@ -593,23 +593,24 @@ extension DataEntryListingViewController : UITableViewDataSource {
             cell.rejectReasonLbl.isHidden = true
             cell.rejectReasonHeightConstant.constant = 0
         }
-        let reason = "Reason:"
-        cell.rejectReasonLbl.text = "\(reason) \(requestData?.reason ?? "")"
+        let reason = "Reason"
+        cell.rejectReasonLbl.text = "\(reason): \(requestData?.reason ?? "")"
         
         
         cell.headerTxt.text = requestData?.instruction
         
-        let orderIdTxt = "Order Id:"
-        cell.orderIdLbl.text = "\(orderIdTxt) \(requestData?.order_id ?? "")"
+        let orderIdTxt = "Order Id".localized
+        cell.orderIdLbl.text = "\(orderIdTxt): \(requestData?.order_id ?? "")"
         cell.priceLbl.text = "\(Constant.currency) \(requestData?.order_price ?? 0.00)"
         
         cell.dateLbl.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: "\(requestData?.order_date ?? 0)", format: "E, MMM dd, yyyy h:mm")
         
+        let online = "Online".localized
         if requestData?.location == "1" {
             if requestData?.country_code != "" {
-                cell.addressLbl.text = "Online, \(requestData?.country_code ?? "")"
+                cell.addressLbl.text = "\(online), \(requestData?.country_code ?? "")"
             }else{
-                cell.addressLbl.text = "Online"
+                cell.addressLbl.text = "\(online)"
             }
             
         }else if requestData?.location == "2" {
@@ -633,8 +634,8 @@ extension DataEntryListingViewController : UITableViewDataSource {
         cell.headerLbl.text = requestData?.instruction
         cell.giveRatingBtn.isHidden = true
         
-        let orderIdTxt = "Order Id:"
-        cell.orderIdLbl.text = "\(orderIdTxt) \(requestData?.order_id ?? "")"
+        let orderIdTxt = "Order Id".localized
+        cell.orderIdLbl.text = "\(orderIdTxt): \(requestData?.order_id ?? "")"
         cell.priceValueLbl.text = "\(Constant.currency) \(requestData?.order_price ?? 0.00)"
         cell.addressLbl.text = "\(requestData?.address ?? "")"
         
@@ -646,11 +647,12 @@ extension DataEntryListingViewController : UITableViewDataSource {
         cell.totalRatingLbl.text = "(\(requestData?.rating_count ?? 0))"
         cell.agentAddressLbl.text = "\(requestData?.branch_address ?? "")"
         
+        let online = "Online".localized
         if requestData?.location == "1" {
             if requestData?.country_code != "" {
-                cell.addressLbl.text = "Online, \(requestData?.country_code ?? "")"
+                cell.addressLbl.text = "\(online), \(requestData?.country_code ?? "")"
             }else{
-                cell.addressLbl.text = "Online"
+                cell.addressLbl.text = "\(online)"
             }
         }else if requestData?.location == "2" {
             if requestData?.country_code != "" {

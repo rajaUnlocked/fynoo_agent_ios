@@ -282,6 +282,34 @@
 /////////////////////////             TAP PAYMENT             /////////////////////////
 
 
+// dataEntry
+
+"Waiting List" = "قائمة الإنتظار";
+"Inprocess" = "قيد التنفيذ";
+"Completed" = "مكتملة";
+"Rejected" = "مرفوض";
+"Order Id" = "رقم الطلب";
+
+"Order Summary" = "Order Summary";
+"Payment Method" = "Payment Method";
+"Give Ratings" = "Give Ratings";
+"Has the agent completed this work ?" = "Has the agent completed this work ?";
+"data entry" = "مدخل بيانات";
+"Are you sure you want accept the order?" = "Are you sure you want accept the order?";
+"You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information." = "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information.";
+
+"Start Work" = "بدء العمل";
+"Submit your work" = "Submit your work";
+"Already Submitted" = "Already Submitted";
+"Amount to be paid for this order." = "قيمة تنفيذ الطلب";
+"Number of days for order completion." = "كم عدد الأيام المطلوبة لإنهاء العمل";
+"Holding" = "مبالغ معلقة";
+"please active" = "please active";
+"services to receive new order request." = "services to receive new order request.";
+"Paid" = "تم الدفع";
+
+//////////////////////////////
+
 "User Policy" = "سياسة المستخدم";
 "Are you registered in VAT?" = " هل تم التسجيل في ضريبة القيمة المضافة؟";
 "Verification"="التحقق";
@@ -492,7 +520,6 @@
 "Wallet" = "لمحفظة";
 "Service Requests" = "طلبات الخدمات";
 "Available Amount" = "المبلغ المتاح";
-"Inprocess" = "قيد التنفيذ";
 "Hello"="مرحباً";
 "ID"="رقم المعرف";
 "Home"="الرئيسية";
@@ -772,7 +799,6 @@
 "Status" = "الحالة";
 "Pending" = "معلق";
 "Expired" = "منتهي الصلاحية";
-"Rejected" = "مرفوض";
 "Product Description" = "وصف المنتج";
 //Price History
 ;"تاريخ السعر" = "Price History"
@@ -1072,23 +1098,3 @@
 "Manage Products"="إدارة المنتجات";
 "Product"="المنتج";
 
-
-// dataEntry
-
-"Order Summary" = "Order Summary";
-"Payment Method" = "Payment Method";
-"Give Ratings" = "Give Ratings";
-"Has the agent completed this work ?" = "Has the agent completed this work ?";
-"data entry" = "مدخل بيانات";
-"Are you sure you want accept the order?" = "Are you sure you want accept the order?";
-"You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information." = "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information.";
-
-"Start Work" = "بدء العمل";
-"Submit your work" = "Submit your work";
-"Already Submitted" = "Already Submitted";
-"Amount to be paid for this order." = "قيمة تنفيذ الطلب";
-"Number of days for order completion." = "كم عدد الأيام المطلوبة لإنهاء العمل";
-"Online" = "Online";
-"Holding" = "Holding";
-"please active" = "please active";
-"services to receive new order request." = "services to receive new order request.";
