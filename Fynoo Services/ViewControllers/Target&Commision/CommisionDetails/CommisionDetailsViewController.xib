@@ -21,9 +21,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GCf-bq-aYc">
-                    <rect key="frame" x="0.0" y="52" width="414" height="792"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GCf-bq-aYc">
+                    <rect key="frame" x="0.0" y="100" width="414" height="762"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBT-Oy-atf" customClass="NavigationView" customModule="Fynoo_Services" customModuleProvider="target">
@@ -37,9 +36,13 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="GCf-bq-aYc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7Df-uo-dlZ"/>
                 <constraint firstItem="yBT-Oy-atf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ddw-fK-SyD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yBT-Oy-atf" secondAttribute="trailing" id="Dhs-Qz-fhZ"/>
                 <constraint firstItem="yBT-Oy-atf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GeA-w8-F3L"/>
+                <constraint firstItem="GCf-bq-aYc" firstAttribute="top" secondItem="yBT-Oy-atf" secondAttribute="bottom" id="PXd-de-8qw"/>
+                <constraint firstItem="GCf-bq-aYc" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="hTw-nQ-QBS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="GCf-bq-aYc" secondAttribute="bottom" id="l1e-DB-tkI"/>
             </constraints>
             <point key="canvasLocation" x="140.57971014492756" y="85.714285714285708"/>
         </view>

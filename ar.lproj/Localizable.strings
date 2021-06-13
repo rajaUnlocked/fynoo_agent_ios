@@ -310,7 +310,12 @@
 "Enter platform name" = "الرجاء إدخال اسم المنصة";
 
 "hello" = "مرحبا";
+// Target
 
+"Target" = "تحقيق الأهداف";
+"Commission" = "العمولات";
+"Note" = "ملاحظة";
+"No Target Activated" = "No Target Activated";
 // BSIMAGE PICKER - MULTIPLE IMAGE PICKER
 "BSImagePicker.Done" = "Done";
 
@@ -484,19 +489,20 @@
 "Uploaded VAT Certificate" = "Uploaded VAT Certificate";
 
 //Profile Page
-
+"VAT Number" = "الرقم الضريبي";
+"Agent Personal" = "وكيل - شخص";
 "Gender" = "لجنس";
 "Dob" = "تاريخ الميلاد";
 "Education" = "التعليم";
 "Major" = "لتخصص";
 "Services" = "تحديد الخدمات";
 "Basic Information" = "المعلومات الاساسية";
-"Personal Information" = "Personal Information";
+"Personal Information" = "بيانات الوكيل - شخص";
 "Mobile Number" = "رقم الجوال";
 "Bank Detail" = "تفاصيل الحساب البنكي";
 "IBAN Number" = "رقم الآيبان";
 "Bank Name" = "اسم البنك";
-"Card Holder Name" = "Card Holder Name";
+"Card Holder Name" = "الاسم كما يظهر في بطاقة الصراف";
 "Vat Information" = "بيانات ضريبة القيمة المضافة";
 "Password Information" = "Password Information";
 "Language Information" = "لغات التحدث";
@@ -710,8 +716,9 @@
 "Store On Map"="متجر على الخريطة";
 "Permanently Closed"="مغلق دائماً";
 "Products"="المنتجات";
-
+"Welcome, Let's Select Your Time" = "مرحباً، قم بتحديد أوقات العمل";
 //Product
+"Manage Your Products" = "إدارة المنتجات";
 "Subscription Products:"="متنتجات الاشتراك";
 "Active Products:"="منتجات فعالة";
 "Inactive Products:"="منتجات غير فعالة";
@@ -739,7 +746,7 @@
 "In Store" = "في المتجر";
 "Product/Service Pictures" = "صور المنتج/الخدمة";
 "Main" = "الرئيسية";
-"Video URL" = "فيديو URL";
+"Video URL" = "رابط الفيديو";
 "Save As Draft" = "حفظ كمسودة";
 "Next" = "التالي";
 "Select Image From" = "اختر صورة من";
@@ -943,7 +950,6 @@
 "Recent Transaction" = "Recent Transaction" ;
 "Go Back" = "Go Back";
 "Only active products added in Online store in retail mode will appear here"; = "Only active products added in Online store in retail mode will appear here";
-"Manage your Products" = "Manage your Products";
 "Message" = "Message";
 "Are you sure you want to delete this discount." = "Are you sure you want to delete this discount.";
 "Are you sure you want to deactivate this discount ?" = "Are you sure you want to deactivate this discount ?";

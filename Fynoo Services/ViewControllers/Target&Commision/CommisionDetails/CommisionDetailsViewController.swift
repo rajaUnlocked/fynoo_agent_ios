@@ -23,7 +23,7 @@ class CommisionDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         headervw.viewControl = self
-        headervw.titleHeader.text = "Commission"
+        headervw.titleHeader.text = "Commission".localized
         tabvw.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
         registernibs()
         //commisiondetail_api()
@@ -92,6 +92,8 @@ extension CommisionDetailsViewController: UITableViewDelegate,UITableViewDataSou
         if indexPath.row == 0
         {
             let cell = tabvw.dequeueReusableCell(withIdentifier: "CommisionTopTableViewCell", for: indexPath) as! CommisionTopTableViewCell
+            cell.commisionlbl.text = "Commission".localized
+            cell.commisionrangelbl.text = "Commission Range".localized
             cell.detaillbl.text = service_desc
             cell.servicename.text = service_name
             cell.percentagelbl.text = range

@@ -9,9 +9,12 @@
 import UIKit
 
 class CommisionTopTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var commisionlbl: UILabel!
     @IBOutlet weak var serviceicon: UIImageView!
     @IBOutlet weak var servicename: UILabel!
     
+    @IBOutlet weak var commisionrangelbl: UILabel!
     @IBOutlet weak var percentagelbl: UILabel!
     @IBOutlet weak var detaillbl: UILabel!
     override func awakeFromNib() {

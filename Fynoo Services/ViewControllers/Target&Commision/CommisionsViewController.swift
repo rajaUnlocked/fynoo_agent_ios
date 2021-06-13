@@ -17,7 +17,7 @@ var targetmodel = TargetModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         headervw.viewControl = self
-        headervw.titleHeader.text = "Commission"
+        headervw.titleHeader.text = "Commission".localized
         tabvw.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
         tabvw.delegate = self
         tabvw.dataSource = self
@@ -81,14 +81,14 @@ extension CommisionsViewController:UITableViewDataSource,UITableViewDelegate
         }
         else if indexPath.row == 1{
             let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCells", for: indexPath) as! DescriptionTableViewCells
-            cell.toplbl.text = "Commission"
+            cell.toplbl.text = "Commission".localized
             cell.topdescripConst.constant = -8
             cell.descriplbl.text = self.commisionlist?.data?.top_content ?? ""
             return cell
         }
         else if indexPath.row == (self.commisionlist?.data?.services?.count ?? 0) + 2{
                    let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCells", for: indexPath) as! DescriptionTableViewCells
-             cell.toplbl.text = "Note:"
+            cell.toplbl.text = "\("Note".localized):"
                cell.topdescripConst.constant = 0
              cell.descriplbl.text = self.commisionlist?.data?.bottom_content ?? ""
                    return cell

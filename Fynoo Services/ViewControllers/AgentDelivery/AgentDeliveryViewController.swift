@@ -338,7 +338,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         }else{
             if isMoreDataAvailable == true {
                 if let count = self.tripListListArray?.count {
-                    return count
+                    return count + 1
                 }else{
                     return 1
                 }
@@ -498,11 +498,10 @@ extension AgentDeliveryViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
            
            if cell.tag == 999999 {
-             if isMoreDataAvailable
-             {
+            
                currentPageNumber += 1
                self.getTripData()
-             }
+             
            }
        }
     

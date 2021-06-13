@@ -132,6 +132,7 @@
 		2FFDE2412501225A006C5EBD /* AgentDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDE23F2501225A006C5EBD /* AgentDashboardViewController.swift */; };
 		3EBBEF9433213B23D9C4BC1A /* Pods_Fynoo_Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34F4201751D8F2C6FB8501B /* Pods_Fynoo_Services.framework */; };
 		788758D607ADF036566C3603 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B2018020C6F3800DB3F75B /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */; };
+		CE0B0EC42675D5AD00B046D5 /* nextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0B0EC62675D5AD00B046D5 /* nextTableViewCell.xib */; };
 		CE2EFB3E251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EFB3C251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift */; };
 		CE2EFB3F251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2EFB3D251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib */; };
 		CE2EFB42251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */; };
@@ -352,7 +353,6 @@
 		CECEFA13257783D80090D459 /* purchasedHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEFA11257783D80090D459 /* purchasedHeaderTableViewCell.swift */; };
 		CECEFA14257783D80090D459 /* purchasedHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEFA12257783D80090D459 /* purchasedHeaderTableViewCell.xib */; };
 		CECEFA1725779A2E0090D459 /* nextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEFA1525779A2E0090D459 /* nextTableViewCell.swift */; };
-		CECEFA1825779A2E0090D459 /* nextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEFA1625779A2E0090D459 /* nextTableViewCell.xib */; };
 		CECEFA4725779E8F0090D459 /* SelectImageTypePopupViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = CECEFA1A25779E8E0090D459 /* SelectImageTypePopupViewController.strings */; };
 		CECEFA4825779E8F0090D459 /* UploadImageViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = CECEFA1C25779E8E0090D459 /* UploadImageViewController.strings */; };
 		CECEFA4925779E8F0090D459 /* ViewImageitemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEFA1F25779E8E0090D459 /* ViewImageitemCell.swift */; };
@@ -960,6 +960,9 @@
 		A061CAC65AB8618E1FE73AC2 /* Pods-Fynoo Services.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services.release.xcconfig"; sourceTree = "<group>"; };
 		A773F7CBEC25C835A16F8530 /* Pods-Fynoo ServicesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo ServicesTests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo ServicesTests/Pods-Fynoo ServicesTests.release.xcconfig"; sourceTree = "<group>"; };
 		AC14F5AD44CA06DED48DD025 /* Pods-Fynoo Services.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services.debug.xcconfig"; sourceTree = "<group>"; };
+		CE0B0EC52675D5AD00B046D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/nextTableViewCell.xib; sourceTree = "<group>"; };
+		CE0B0EC82675D5B300B046D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/nextTableViewCell.strings; sourceTree = "<group>"; };
+		CE0B0ECA2675D5B700B046D5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/nextTableViewCell.strings; sourceTree = "<group>"; };
 		CE2EFB3C251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		CE2EFB3D251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleDescriptionTableViewCell.xib; sourceTree = "<group>"; };
 		CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVehicleImageTableViewCell.swift; sourceTree = "<group>"; };
@@ -1222,7 +1225,6 @@
 		CECEFA11257783D80090D459 /* purchasedHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = purchasedHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		CECEFA12257783D80090D459 /* purchasedHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = purchasedHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		CECEFA1525779A2E0090D459 /* nextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nextTableViewCell.swift; sourceTree = "<group>"; };
-		CECEFA1625779A2E0090D459 /* nextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = nextTableViewCell.xib; sourceTree = "<group>"; };
 		CECEFA1B25779E8E0090D459 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/SelectImageTypePopupViewController.strings; sourceTree = "<group>"; };
 		CECEFA1D25779E8E0090D459 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/UploadImageViewController.strings; sourceTree = "<group>"; };
 		CECEFA1F25779E8E0090D459 /* ViewImageitemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewImageitemCell.swift; sourceTree = "<group>"; };
@@ -2682,7 +2684,7 @@
 			isa = PBXGroup;
 			children = (
 				CECEFA1525779A2E0090D459 /* nextTableViewCell.swift */,
-				CECEFA1625779A2E0090D459 /* nextTableViewCell.xib */,
+				CE0B0EC62675D5AD00B046D5 /* nextTableViewCell.xib */,
 				CECEF96F2577575B0090D459 /* BusinessTableViewCell.strings */,
 				CECEF9712577575B0090D459 /* CollectionViewTableViewCell.strings */,
 				CECEF9752577575B0090D459 /* BusinessTableViewCell.swift */,
@@ -4108,7 +4110,7 @@
 				F680D648259B7C2C007EB12C /* DataEntryFormAddItemTableViewCell.strings in Resources */,
 				CEE72CAD251B405F00B02DAF /* ServiceHeaderTableViewCell.xib in Resources */,
 				2F74CB5B250A365F00DE21EF /* VersionPopupViewController.xib in Resources */,
-				CECEFA1825779A2E0090D459 /* nextTableViewCell.xib in Resources */,
+				CE0B0EC42675D5AD00B046D5 /* nextTableViewCell.xib in Resources */,
 				F62E4AFF25148EC60021CEE0 /* CompanyAgentBankDetailsTableViewCell.xib in Resources */,
 				CECEFA4825779E8F0090D459 /* UploadImageViewController.strings in Resources */,
 				CE9CCDC8264BE5BE005AE619 /* NoDataFoundTableViewCell.xib in Resources */,
@@ -5192,6 +5194,16 @@
 				CE8E8594250F4C1B00B74A9E /* ar */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CE0B0EC62675D5AD00B046D5 /* nextTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE0B0EC52675D5AD00B046D5 /* Base */,
+				CE0B0EC82675D5B300B046D5 /* en */,
+				CE0B0ECA2675D5B700B046D5 /* ar */,
+			);
+			name = nextTableViewCell.xib;
 			sourceTree = "<group>";
 		};
 		CE40A25326708B3500A8C944 /* AgentDashboardViewController.xib */ = {

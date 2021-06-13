@@ -283,9 +283,12 @@
 
 /////////////////////////             TAP PAYMENT             /////////////////////////
 
+// Target
 
-"hello" = "Hello";
-
+"Target" = "Target";
+"Commission" = "Commission";
+"Note" = "Note";
+"No Target Activated" = "No Target Activated";
 // delivery dashboard
 
 "Trips Achievement" = "Trips Achievement";
@@ -509,6 +512,8 @@
 "Settings" = "Settings";
 "Sign out" = "Sign out";
 //profile
+"VAT Number" = "VAT Number";
+"Agent Personal" = "Agent Personal";
 "Gender" = "Gender";
 "Dob" = "Dob";
 "Education" = "Education";
@@ -646,8 +651,9 @@
 "Online Store"="Online Store";
 "Store On Map"="Store On Map";
 "Permanently Closed"="Permanently Closed";
-
+"Welcome, Let's Select Your Time" = "Welcome, Let's Select Your Time";
 //Product
+"Manage Your Products" = "Manage Your Products";
 "Subscription Products:"="Subscription Products:";
 "Active Products:"="Active Products";
 "Inactive Products:"="Inactive Products";
@@ -869,7 +875,6 @@
 "Recent Transaction" = "Recent Transaction" ;
 "Go Back" = "Go Back";
 "Only active products added in Online store in retail mode will appear here"; = "Only active products added in Online store in retail mode will appear here";
-"Manage your Products" = "Manage your Products";
 "Message" = "Message";
 "Message" = "Message";
 "Are you sure you want to delete this discount." = "Are you sure you want to delete this discount.";
