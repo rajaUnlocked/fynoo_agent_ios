@@ -19,7 +19,7 @@ class TargetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         headervw.viewControl = self
-        headervw.titleHeader.text = "Target"
+        headervw.titleHeader.text = "Target".localized
         tabvw.delegate = self
         tabvw.dataSource = self
         tabvw.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
@@ -90,6 +90,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
             }
             else{
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "DescriptionTableViewCells", for: indexPath) as! DescriptionTableViewCells
+                cell.toplbl.text = "Target".localized
                 cell.topconst.constant = 10
                 cell.toplbl.isHidden = false
                 cell.descriplbl.text = self.targetlist?.data?.top_content ?? ""

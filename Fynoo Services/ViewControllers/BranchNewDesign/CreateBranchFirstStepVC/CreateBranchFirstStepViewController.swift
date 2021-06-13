@@ -629,7 +629,7 @@
                                                         {
                                              if br.video_url.isArabic
                                                                                  {
-                                                                                    ModalController.showNegativeCustomAlertWith(title: "Enter valid link".localized, msg: "" )
+                              ModalController.showNegativeCustomAlertWith(title: "Enter valid link".localized, msg: "" )
                                                                                                                                                             return
                                                                                                                       }
                                                             if !br.video_url.isValidURL()

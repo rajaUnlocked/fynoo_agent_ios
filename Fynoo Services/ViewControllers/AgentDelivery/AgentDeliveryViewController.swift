@@ -47,7 +47,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         tableView.dataSource=self
         
         self.deliveryDashboardHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-        self.headerView.titleHeader.text = "Delivery Services"
+        self.headerView.titleHeader.text = "Delivery Services".localized
         self.headerView.menuBtn.isHidden = false
         self.headerView.viewControl = self
         
@@ -58,8 +58,9 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getTripData()
+      
         getAgentData()
+        getTripData()
     }
     func SetFont() {
         
@@ -163,6 +164,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
                     if self.currentPageNumber == 0 {
                         self.tripListListArray?.removeAll()
                     }
+                   
                     if self.tripList?.data?.trip_list?.count ?? 0 > 0 {
                        
                         guard let arr = self.tripList?.data?.trip_list as NSArray? else {
@@ -183,18 +185,21 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
                         if arr.count < 10 {
                             self.isMoreDataAvailable = false
                         }else{
-                            self.isMoreDataAvailable = false
+                            self.isMoreDataAvailable = true
                         }
                         
                     }else{
-                        
+                        if self.currentPageNumber == 0
+                        {
+                            self.tripListListArray?.removeAll()
+                        }
                         self.isMoreDataAvailable = false
-                       // self.tripListListArray?.removeAll()
                        
                     }
                     
                     self.tableView.reloadData()
                 }
+               
             }else{
                 ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.tripList?.error_description ?? "")")
                 self.currentPageNumber = 0
@@ -259,7 +264,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     @objc func clickedservicedoc(_ sender: UIButton)
     {
      let vc = DeliveryDocumentViewController(nibName: "DeliveryDocumentViewController", bundle: nil)
-      vc.primaryid = self.deliverData?.data?.agent_information?.dsd_id ?? 0
+     // vc.primaryid = self.deliverData?.data?.agent_information?.dsd_id ?? 0
      self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc func switchClicked(_ sender: UIButton){
@@ -338,7 +343,12 @@ extension AgentDeliveryViewController : UITableViewDataSource {
                     return 1
                 }
             }else{
-                return ((tripListListArray?.count) ?? 0) + 1
+                if self.tripListListArray?.count ?? 0 == 0
+                {
+                    return 1
+                }
+                
+                return ((tripListListArray?.count) ?? 0)
             }
         }
     }
@@ -368,6 +378,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             if tripListListArray?.count ?? 0 == 0
             {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NoTripFoundTableViewCell",for: indexPath) as! NoTripFoundTableViewCell
+                cell.notripfoundlbl.text = "No Trips Found".localized
             return cell
             }
             else if indexPath.row < (tripListListArray!.count) {
@@ -431,7 +442,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "TripAchievementViewCell",for: indexPath) as! TripAchievementViewCell
             cell.selectionStyle = .none
-            
+            cell.tripAchivementLbl.text = "Trips Achievement".localized
             cell.tripAchivementData = deliverData?.data?.agent_information?.trips_achievements
             cell.collectionView.reloadData()
             
@@ -459,16 +470,16 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         cell.cardView.cornerRadius = 8
         cell.statusView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         cell.cardView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        
+        cell.almostPriceLbl.text = "Almost Total Price".localized
         cell.name.text = tripListListArray?[index.row].cust_name ?? ""
         cell.profileImageView.sd_setImage(with: URL(string: tripListListArray?[index.row].cust_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
         cell.avgRating.text = "\(tripListListArray?[index.row].avg_rating ?? "")"
         cell.totalRate.text = "(\(tripListListArray?[index.row].total_rating ?? ""))"
         cell.totalCount.text = "\(tripListListArray?[index.row].qty ?? 0)"
-        cell.orderId.text = "Order Id:\(tripListListArray?[index.row].order_id ?? "")"
+        cell.orderId.text = "\("Order Id".localized):\(tripListListArray?[index.row].order_id ?? "")"
         cell.date.text  = tripListListArray?[index.row].order_date ?? ""
-        cell.address.text = "Address:\(tripListListArray?[index.row].address ?? "")"
-        cell.price.text = "SAR \(ModalController.toString(tripListListArray?[index.row].almost_total_price ?? 0.0 as Any))"
+        cell.address.text = "\("Address".localized):\(tripListListArray?[index.row].address ?? "")"
+        cell.price.text = "\(tripListListArray?[index.row].currency ?? "") \(ModalController.toString(tripListListArray?[index.row].almost_total_price ?? 0.0 as Any))"
         cell.walletIcon.sd_setImage(with: URL(string: tripListListArray?[index.row].payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
         cell.statusLbl.text = tripListListArray?[index.row].status_desc
         
@@ -486,11 +497,12 @@ extension AgentDeliveryViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
            
-//           if cell.tag == 999999 {
-//
-//               currentPageNumber += 1
-//               self.getTripData()
-//           }
+           if cell.tag == 999999 {
+            
+               currentPageNumber += 1
+               self.getTripData()
+             
+           }
        }
     
     func loadingCell() -> UITableViewCell {
