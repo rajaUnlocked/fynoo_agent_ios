@@ -1038,6 +1038,12 @@
 
 // dataEntry
 
+"Accept Order" = "Accept Order";
+"Product Data Entry" = "Product Data Entry";
+"Branch Data Entry" = "Branch Data Entry";
+"Order information" = "Order information";
+
+
 "Waiting List" = "Waiting List";
 "Completed" = "Completed";
 "Order Id" = "Order Id";

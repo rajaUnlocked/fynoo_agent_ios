@@ -279,10 +279,15 @@
 "payment_status_alert_successful"    = "تم اتمام العملية بنجاح";
 "payment_status_alert_failed"        = "فشل عملية الدفع";
 
-/////////////////////////             TAP PAYMENT             /////////////////////////
+/////////////////////////             TAP PAYMENT
 
 
 // dataEntry
+
+"Accept Order" = "قبول الطلب";
+"Product Data Entry" = "إدخال بيانات المنتج";
+"Branch Data Entry" = "إدخال بيانات الفرع";
+"Order information" = "معلومات الطلب";
 
 "Waiting List" = "قائمة الإنتظار";
 "Inprocess" = "قيد التنفيذ";
@@ -292,14 +297,14 @@
 
 "Order Summary" = "Order Summary";
 "Payment Method" = "Payment Method";
-"Give Ratings" = "Give Ratings";
+"Give Ratings" = "التقييم";
 "Has the agent completed this work ?" = "Has the agent completed this work ?";
 "data entry" = "مدخل بيانات";
 "Are you sure you want accept the order?" = "Are you sure you want accept the order?";
 "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information." = "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information.";
 
 "Start Work" = "بدء العمل";
-"Submit your work" = "Submit your work";
+"Submit your work" = "تسليم العمل";
 "Already Submitted" = "Already Submitted";
 "Amount to be paid for this order." = "قيمة تنفيذ الطلب";
 "Number of days for order completion." = "كم عدد الأيام المطلوبة لإنهاء العمل";
@@ -574,7 +579,7 @@
 "Please select education first" = "Please select education first";
 "Please select country first" = "Please select country first" ;
 "Email Sent Success" = "Email Sent Success" ;
-"I've agreed to the" = "I've agreed to the";
+"I've agreed to the" = "أوافق على";
 "SA" = "SA";
 "Male" = "Male";
 "Female" = "Female" ;
@@ -871,7 +876,7 @@
 "% OFF" = "% OFF";
 "Instore Quantity" = "Instore Quantity";
 "Specifications" = "Specifications";
-"Hide Details" = "Hide Details";
+"Hide Details" = "إخفاء";
 "rating and" = "rating and";
 "k" = "k";
 "Check Out This Product" = "Check Out This Product";

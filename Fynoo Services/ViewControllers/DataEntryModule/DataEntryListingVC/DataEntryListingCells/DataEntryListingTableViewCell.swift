@@ -30,9 +30,11 @@ class DataEntryListingTableViewCell: UITableViewCell {
             if value[0]=="ar"{
                 self.headerTxt.textAlignment = .right
                 self.addressLbl.textAlignment = .right
+                self.rejectReasonLbl.textAlignment = .right
             }else if value[0]=="en"{
                 self.headerTxt.textAlignment = .left
                 self.addressLbl.textAlignment = .left
+                self.rejectReasonLbl.textAlignment = .left
             }
         }
     }

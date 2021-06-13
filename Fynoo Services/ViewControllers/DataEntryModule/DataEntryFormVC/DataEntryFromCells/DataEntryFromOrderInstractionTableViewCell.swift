@@ -19,13 +19,16 @@ class DataEntryFromOrderInstractionTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.SetFont()
         
-   if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
-         if value[0]=="ar"{
-             self.headerLbl.textAlignment = .right
-         }else if value[0]=="en"{
-             self.headerLbl.textAlignment = .left
-         }
-     }
+        if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
+              if value[0]=="ar"{
+                  self.headerLbl.textAlignment = .right
+                 self.instructionTxtView.textAlignment = .right
+              }else if value[0]=="en"{
+                  self.headerLbl.textAlignment = .left
+                 self.instructionTxtView.textAlignment = .left
+              }
+          }
+
         
     }
     func SetFont() {

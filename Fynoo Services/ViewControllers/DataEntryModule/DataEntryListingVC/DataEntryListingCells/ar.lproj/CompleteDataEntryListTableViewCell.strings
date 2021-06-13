@@ -12,7 +12,7 @@
 "OEz-bv-4Co.text" = "Price: 12390";
 
 /* Class = "UILabel"; text = "Amount included VAT"; ObjectID = "W9K-IU-kNj"; */
-"W9K-IU-kNj.text" = "Amount included VAT";
+"W9K-IU-kNj.text" = "المبلغ شامل ضريبة القيمة المضافة";
 
 /* Class = "UILabel"; text = "Price: 12390"; ObjectID = "Wex-xl-e5m"; */
 "Wex-xl-e5m.text" = "Price: 12390";

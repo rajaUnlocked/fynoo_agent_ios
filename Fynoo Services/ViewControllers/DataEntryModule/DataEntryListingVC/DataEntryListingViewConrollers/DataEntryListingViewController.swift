@@ -593,7 +593,7 @@ extension DataEntryListingViewController : UITableViewDataSource {
             cell.rejectReasonLbl.isHidden = true
             cell.rejectReasonHeightConstant.constant = 0
         }
-        let reason = "Reason"
+        let reason = "Reason".localized
         cell.rejectReasonLbl.text = "\(reason): \(requestData?.reason ?? "")"
         
         
