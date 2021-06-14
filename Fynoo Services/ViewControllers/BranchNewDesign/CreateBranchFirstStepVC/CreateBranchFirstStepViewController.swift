@@ -12,7 +12,19 @@
     import GoogleMaps
     import MTPopup
     import BSImagePicker
-    class CreateBranchFirstStepViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,LogoTableViewCellDelegate,OpenGalleryDelegate, businessTypeDelegate1{
+    class CreateBranchFirstStepViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,LogoTableViewCellDelegate,OpenGalleryDelegate, businessTypeDelegate1,SearchCategoryViewControllerDelegate{
+      func selectedCountryCodeMethod(mobileCodeDict: NSMutableDictionary) {
+         print("")
+      }
+      
+      func selectPhoneCodeMethod(phoneCodeDict: NSMutableDictionary) {
+         print("")
+      }
+      
+      func selectetBranchMethod(BranchDict: NSMutableDictionary) {
+         print("")
+      }
+      
        
         
         @IBOutlet weak var backNewOutlet: UIButton!
@@ -213,11 +225,7 @@
                                         
                                     }
                                 }
-                                
-                                
-                                
-                                
-                                
+                            
                             }
                             self.tableVw.reloadData()
                         }
@@ -779,7 +787,7 @@
         @objc func countryClicked(_ sender : UIButton){
             
             let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
-            //vc.delegate = self
+            vc.delegate = self
             
             vc.isForCountry = true
             vc.isForCity = false
