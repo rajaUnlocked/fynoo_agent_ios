@@ -107,6 +107,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     }
     
     @objc func filterClicked() {
+        print("filterClicked")
         appliedFilterCount = 0
         let vc = DataEntryFilterViewController(nibName: "DataEntryFilterViewController", bundle: nil)
         vc.hidesBottomBarWhenPushed = true
@@ -194,7 +195,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
                         self.noDataLbl.text = "\(active) \(self.serviceName) \(service)"
                     }
                     else{
-                      self.noDataLbl.text = "Oops! No Service Found".localized
+                      self.noDataLbl.text = "Sorry! No Order Found".localized
                     }
 
                 }else{
@@ -204,14 +205,13 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
                     self.isMoreDataAvailable = false
                     self.noDataView.isHidden = false
                 }
-                self.headerView1 = DataEntryListHeaderView()
                 let avgLbl = self.headerView1!.viewWithTag(1001) as! UILabel
                 //            let ratingView = sectionHeaderView.viewWithTag(1002) as! UIView
                 let totalRatingLbl = self.headerView1!.viewWithTag(1003) as! UILabel
                 avgLbl.text = self.boServicesList?.data?.rating_avg
                 totalRatingLbl.text = "(\(ModalController.toString(self.boServicesList?.data?.rating_count as Any)))"
                 self.headerView1!.ratingValueView.rating = ModalController.convertInToDouble(str: self.boServicesList?.data?.rating_avg as AnyObject)
-                
+
                 self.tableView.reloadData()
             }else{
                 ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.boServicesList?.error_description! ?? "")")
@@ -363,14 +363,21 @@ extension DataEntryListingViewController : UITableViewDelegate {
                 let searchTxtFld = headerView1!.viewWithTag(103) as! UITextField
                 let searchBtn = headerView1!.viewWithTag(104) as! UIButton
                 let filterBtn = headerView1!.viewWithTag(105) as! UIButton
-                let dataEntryLbl = headerView1!.viewWithTag(106) as! UILabel
                 let filterCount = headerView1!.viewWithTag(1010) as! UILabel
+                let avgLbl = headerView1!.viewWithTag(1001) as! UILabel
+                let totalRatingLbl = headerView1!.viewWithTag(1003) as! UILabel
+                let dataEntryLbl = headerView1!.viewWithTag(106) as! UILabel
                 let serviceIcon = headerView1!.viewWithTag(1011) as! UIImageView
                 
-                let avgLbl = headerView1!.viewWithTag(1001) as! UILabel
-                //            let ratingView = sectionHeaderView.viewWithTag(1002) as! UIView
-                let totalRatingLbl = headerView1!.viewWithTag(1003) as! UILabel
+                
+                let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+                dataEntryLbl.font = UIFont(name:"\(fontNameLight)",size:16)
+                searchTxtFld.font = UIFont(name:"\(fontNameLight)",size:12)
+                
                 filterCount.isHidden = true
+                
+                dataEntryLbl.text = self.serviceName
+                serviceIcon.setImageSDWebImage(imgURL: "\(self.serviceIcon)", placeholder: "")
                 
                 avgLbl.text = self.boServicesList?.data?.rating_avg
                 totalRatingLbl.text = "(\(ModalController.toString(self.boServicesList?.data?.rating_count as Any)))"
@@ -382,14 +389,8 @@ extension DataEntryListingViewController : UITableViewDelegate {
                 
                 filterBtn.addTarget(self, action: #selector(filterClicked), for: .touchUpInside)
                 
-                
-                let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-                
-                searchTxtFld.font = UIFont(name:"\(fontNameLight)",size:12)
-                dataEntryLbl.font = UIFont(name:"\(fontNameLight)",size:16)
-                
-                dataEntryLbl.text = self.serviceName
-                serviceIcon.setImageSDWebImage(imgURL: "\(self.serviceIcon)", placeholder: "")
+             
+               
                 
                 if appliedFilterCount > 0 {
                     filterCount.isHidden = false
@@ -404,10 +405,11 @@ extension DataEntryListingViewController : UITableViewDelegate {
                     self.createHeaderAgain = false
                 }
                 
-              
+                headerView1!.delegate = self
             }
+
             headerView1!.selectedIndex = Index
-            headerView1!.delegate = self
+         
             return headerView1
         }else{
             return UIView()
