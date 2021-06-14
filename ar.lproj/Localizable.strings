@@ -294,6 +294,8 @@
 "Completed" = "مكتملة";
 "Rejected" = "مرفوض";
 "Order Id" = "رقم الطلب";
+"Sorry! No Order Found" = "عذراً! لاتوجد طلبات";
+"Service Orders" = "طلبات الخدمات";
 
 "Order Summary" = "Order Summary";
 "Payment Method" = "Payment Method";
