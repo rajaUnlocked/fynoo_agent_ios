@@ -1100,6 +1100,16 @@
 
 // dataEntry
 
+"Accept Order" = "Accept Order";
+"Product Data Entry" = "Product Data Entry";
+"Branch Data Entry" = "Branch Data Entry";
+"Order information" = "Order information";
+
+
+"Waiting List" = "Waiting List";
+"Completed" = "Completed";
+"Order Id" = "Order Id";
+
 "Order Summary" = "Order Summary";
 "Payment Method" = "Payment Method";
 "Give Ratings" = "Give Ratings";
@@ -1119,3 +1129,4 @@
 "Holding" = "Holding";
 "please active" = "please active";
 "services to receive new order request." = "services to receive new order request.";
+"Paid" = "Paid";

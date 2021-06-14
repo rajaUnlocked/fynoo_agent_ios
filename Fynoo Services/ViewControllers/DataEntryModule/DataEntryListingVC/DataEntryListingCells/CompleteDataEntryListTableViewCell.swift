@@ -53,8 +53,16 @@ class CompleteDataEntryListTableViewCell: UITableViewCell {
         if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
               if value[0]=="ar"{
                   self.headerLbl.textAlignment = .right
+                self.addressLbl.textAlignment = .right
+                self.agentNameLbl.textAlignment = .right
+                self.agentAddressLbl.textAlignment = .right
+                self.priceValueLbl.textAlignment = .right
               }else if value[0]=="en"{
                   self.headerLbl.textAlignment = .left
+                self.addressLbl.textAlignment = .left
+                self.agentNameLbl.textAlignment = .left
+                self.agentAddressLbl.textAlignment = .left
+                self.priceValueLbl.textAlignment = .left
               }
           }
     }
