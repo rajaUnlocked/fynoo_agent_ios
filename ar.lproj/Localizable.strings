@@ -300,6 +300,10 @@
 "Yes" = "نعم";
 "Retake" = "إعادة إلتقاط";
 "Use Photo" = "إستمرار";
+
+"Please wait" = "الرجاء الإنتظار";
+"before requesting\nanother SMS/Email Code" = "قبل طلب رمز تأكيد جديد";
+
 // dataEntry
 
 "Accept Order" = "قبول الطلب";

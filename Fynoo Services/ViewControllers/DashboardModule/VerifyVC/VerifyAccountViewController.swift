@@ -391,7 +391,12 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
          let seconds = Int(counter) % 60
         
          let str = (String(format:"%02i:%02i", minutes, seconds))
-         counterrText.text="Please wait \(str) before requesting\nanother SMS/Email Code"
+        
+        let please = "Please wait".localized
+        let before  = "before requesting\nanother SMS/Email Code".localized
+        
+        
+         counterrText.text="\(please) \(str) \(before)"
           counterTime.text = "\(str)"
         if counter == 0{
             timer?.invalidate()

@@ -833,7 +833,7 @@ extension CompanyRegViewController : UITableViewDelegate,UITableViewDataSource
         }
         
         if indexPath.section == 0 {
-            return 205
+            return 220
         }else if indexPath.section == 1 {
             if indexPath.row == 0 {
                 return 50

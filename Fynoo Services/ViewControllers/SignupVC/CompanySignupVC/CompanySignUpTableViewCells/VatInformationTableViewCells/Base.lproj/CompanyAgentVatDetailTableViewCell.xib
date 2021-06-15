@@ -78,16 +78,16 @@
                                 <rect key="frame" x="25" y="86" width="270" height="244"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploaded VAT Certificate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jo-mD-abC">
-                                        <rect key="frame" x="10" y="10" width="260" height="14"/>
+                                        <rect key="frame" x="10" y="10" width="260" height="59"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
                                         <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6w-jU-yij">
-                                        <rect key="frame" x="0.0" y="39" width="270" height="195"/>
+                                        <rect key="frame" x="0.0" y="84" width="270" height="150"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vatSample_image" translatesAutoresizingMaskIntoConstraints="NO" id="jBz-zK-Cdg">
-                                                <rect key="frame" x="0.0" y="0.0" width="270" height="195"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="270" height="150"/>
                                             </imageView>
                                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vatAddIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Pkc-LM-2zK">
                                                 <rect key="frame" x="124.5" y="80" width="21" height="21"/>
@@ -103,11 +103,20 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZ7-0w-oOa">
-                                                <rect key="frame" x="0.0" y="0.0" width="270" height="195"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="270" height="150"/>
                                                 <connections>
                                                     <action selector="addDocumentClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kkl-WH-E5Z"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is sample image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dui-e8-n5R">
+                                                <rect key="frame" x="87" y="135" width="96" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="Fe6-0d-yJ5"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="10"/>
+                                                <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHB-d7-YiD">
                                                 <rect key="frame" x="247" y="-20" width="43" height="42"/>
                                                 <constraints>
@@ -131,9 +140,11 @@
                                             <constraint firstAttribute="width" constant="270" id="GQy-by-S5Y"/>
                                             <constraint firstItem="fZ7-0w-oOa" firstAttribute="leading" secondItem="jBz-zK-Cdg" secondAttribute="leading" id="Gfe-LN-ty7"/>
                                             <constraint firstItem="dHB-d7-YiD" firstAttribute="top" secondItem="p6w-jU-yij" secondAttribute="top" constant="-20" id="HyS-u4-CZR"/>
+                                            <constraint firstItem="dui-e8-n5R" firstAttribute="bottom" secondItem="jBz-zK-Cdg" secondAttribute="bottom" id="KKS-jN-XLo"/>
                                             <constraint firstItem="jBz-zK-Cdg" firstAttribute="top" secondItem="p6w-jU-yij" secondAttribute="top" id="LPv-Dr-LYZ"/>
                                             <constraint firstItem="fZ7-0w-oOa" firstAttribute="bottom" secondItem="jBz-zK-Cdg" secondAttribute="bottom" id="LvG-Nx-1gF"/>
                                             <constraint firstItem="fZ7-0w-oOa" firstAttribute="centerX" secondItem="p6w-jU-yij" secondAttribute="centerX" id="Pml-sq-6aM"/>
+                                            <constraint firstItem="dui-e8-n5R" firstAttribute="centerX" secondItem="jBz-zK-Cdg" secondAttribute="centerX" id="c4X-v6-uRP"/>
                                             <constraint firstItem="Pkc-LM-2zK" firstAttribute="centerX" secondItem="p6w-jU-yij" secondAttribute="centerX" id="ddK-cJ-Nuq"/>
                                             <constraint firstAttribute="trailing" secondItem="dHB-d7-YiD" secondAttribute="trailing" constant="-20" id="mUf-gM-U8b"/>
                                             <constraint firstItem="9aE-Hl-nHp" firstAttribute="top" secondItem="Pkc-LM-2zK" secondAttribute="bottom" constant="2" id="sJ0-0z-glV"/>
@@ -295,7 +306,7 @@
     <resources>
         <image name="deleteVatDocumentIcon" width="69" height="66"/>
         <image name="vatAddIcon" width="63" height="63"/>
-        <image name="vatSample_image" width="930" height="450"/>
+        <image name="vatSample_image" width="310" height="150"/>
         <image name="vatSelected" width="50" height="50"/>
         <image name="vatUnselected" width="118" height="118"/>
         <systemColor name="systemBackgroundColor">

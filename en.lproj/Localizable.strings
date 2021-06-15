@@ -1118,6 +1118,9 @@
 
 // dataEntry
 
+"Please wait" = "Please wait";
+"before requesting\nanother SMS/Email Code" = "before requesting\nanother SMS/Email Code";
+
 "Accept Order" = "Accept Order";
 "Product Data Entry" = "Product Data Entry";
 "Branch Data Entry" = "Branch Data Entry";

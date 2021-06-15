@@ -18,7 +18,7 @@
 "hSt-os-DIN.text" = "00s";
 
 /* Class = "UIButton"; normalTitle = "Resend Otp"; ObjectID = "kVi-K2-Umh"; */
-"kVi-K2-Umh.normalTitle" = "إعادة إرسال رمز تحقق";
+"kVi-K2-Umh.normalTitle" ="إعادة إرسال الرمز";
 
 /* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "rA9-L9-Cym"; */
 "rA9-L9-Cym.normalTitle" = "SUBMIT";

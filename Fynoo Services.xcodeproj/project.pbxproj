@@ -600,7 +600,6 @@
 		F4828C922508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4828C912508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib */; };
 		F4828C942508B27E006B85D8 /* ProfileEnteriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828C932508B27D006B85D8 /* ProfileEnteriesTableViewCell.swift */; };
 		F4828C9B2508C574006B85D8 /* ProfileVatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828C9A2508C574006B85D8 /* ProfileVatTableViewCell.swift */; };
-		F4828C9D2508C57F006B85D8 /* ProfileVatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4828C9C2508C57F006B85D8 /* ProfileVatTableViewCell.xib */; };
 		F4828CA02508DF3E006B85D8 /* ProfileServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828C9E2508DF3E006B85D8 /* ProfileServiceTableViewCell.swift */; };
 		F4828CA12508DF3E006B85D8 /* ProfileServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4828C9F2508DF3E006B85D8 /* ProfileServiceTableViewCell.xib */; };
 		F4828CA42508DFA9006B85D8 /* ProfileServiceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4828CA22508DFA9006B85D8 /* ProfileServiceViewCell.swift */; };
@@ -617,6 +616,7 @@
 		F4CEC2FF2511D9FF003C35E8 /* UploadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CEC2FE2511D9FE003C35E8 /* UploadImage.swift */; };
 		F4E772AA252D9F930045BD86 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E772A9252D9F920045BD86 /* ChangePasswordViewController.swift */; };
 		F4E772AC252D9F990045BD86 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4E772AB252D9F990045BD86 /* ChangePasswordViewController.xib */; };
+		F61CF76326787F0100EAEB0C /* ProfileVatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61CF76526787F0100EAEB0C /* ProfileVatTableViewCell.xib */; };
 		F62E4AE925148EC60021CEE0 /* popupViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AA025148EC60021CEE0 /* popupViewController.strings */; };
 		F62E4AEA25148EC60021CEE0 /* popupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AA325148EC60021CEE0 /* popupViewController.xib */; };
 		F62E4AEB25148EC60021CEE0 /* popupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4AA525148EC60021CEE0 /* popupViewController.swift */; };
@@ -1501,7 +1501,6 @@
 		F4828C912508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileEnteriesTableViewCell.xib; sourceTree = "<group>"; };
 		F4828C932508B27D006B85D8 /* ProfileEnteriesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEnteriesTableViewCell.swift; sourceTree = "<group>"; };
 		F4828C9A2508C574006B85D8 /* ProfileVatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVatTableViewCell.swift; sourceTree = "<group>"; };
-		F4828C9C2508C57F006B85D8 /* ProfileVatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileVatTableViewCell.xib; sourceTree = "<group>"; };
 		F4828C9E2508DF3E006B85D8 /* ProfileServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceTableViewCell.swift; sourceTree = "<group>"; };
 		F4828C9F2508DF3E006B85D8 /* ProfileServiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileServiceTableViewCell.xib; sourceTree = "<group>"; };
 		F4828CA22508DFA9006B85D8 /* ProfileServiceViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceViewCell.swift; sourceTree = "<group>"; };
@@ -1518,6 +1517,9 @@
 		F4CEC2FE2511D9FE003C35E8 /* UploadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImage.swift; sourceTree = "<group>"; };
 		F4E772A9252D9F920045BD86 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		F4E772AB252D9F990045BD86 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
+		F61CF76426787F0100EAEB0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileVatTableViewCell.xib; sourceTree = "<group>"; };
+		F61CF76A26787F1200EAEB0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProfileVatTableViewCell.strings; sourceTree = "<group>"; };
+		F61CF76C26787F1400EAEB0C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ProfileVatTableViewCell.strings; sourceTree = "<group>"; };
 		F62E4AA125148EC60021CEE0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/popupViewController.strings; sourceTree = "<group>"; };
 		F62E4AA225148EC60021CEE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/popupViewController.strings; sourceTree = "<group>"; };
 		F62E4AA425148EC60021CEE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/popupViewController.xib; sourceTree = "<group>"; };
@@ -3238,8 +3240,8 @@
 			children = (
 				CE4F872B267783D300B2CDE7 /* TwoButtonsTableViewCell.xib */,
 				F4828CB12508FFCD006B85D8 /* TwoButtonsTableViewCell.swift */,
-				F4828C9C2508C57F006B85D8 /* ProfileVatTableViewCell.xib */,
 				F4828C9A2508C574006B85D8 /* ProfileVatTableViewCell.swift */,
+				F61CF76526787F0100EAEB0C /* ProfileVatTableViewCell.xib */,
 				F4828C932508B27D006B85D8 /* ProfileEnteriesTableViewCell.swift */,
 				F4828C912508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib */,
 				F4C4DC612507952C0075F520 /* ProfileNameTableViewCell.swift */,
@@ -4096,7 +4098,7 @@
 				CE4F8729267783D300B2CDE7 /* TwoButtonsTableViewCell.xib in Resources */,
 				CECEF9992577575B0090D459 /* BusinessTimesheet1PopupViewController.xib in Resources */,
 				CECEF9D52577575C0090D459 /* CommonSearchViewController.strings in Resources */,
-				F4828C9D2508C57F006B85D8 /* ProfileVatTableViewCell.xib in Resources */,
+				F61CF76326787F0100EAEB0C /* ProfileVatTableViewCell.xib in Resources */,
 				CECEF8BE257754B90090D459 /* SingleButtonViewCell.xib in Resources */,
 				F62E4AEA25148EC60021CEE0 /* popupViewController.xib in Resources */,
 				CEDD31F02576206500023977 /* SelectProductTypeTableViewCell.xib in Resources */,
@@ -6227,6 +6229,16 @@
 				CEDD33C4257676F000023977 /* Base */,
 			);
 			name = InventoryViewController.xib;
+			sourceTree = "<group>";
+		};
+		F61CF76526787F0100EAEB0C /* ProfileVatTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F61CF76426787F0100EAEB0C /* Base */,
+				F61CF76A26787F1200EAEB0C /* en */,
+				F61CF76C26787F1400EAEB0C /* ar */,
+			);
+			name = ProfileVatTableViewCell.xib;
 			sourceTree = "<group>";
 		};
 		F62E4AA025148EC60021CEE0 /* popupViewController.strings */ = {
