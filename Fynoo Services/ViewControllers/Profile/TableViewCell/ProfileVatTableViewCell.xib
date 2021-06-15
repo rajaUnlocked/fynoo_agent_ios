@@ -39,7 +39,7 @@
                                 <rect key="frame" x="10" y="1" width="303" height="181"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vatSample_image" translatesAutoresizingMaskIntoConstraints="NO" id="Nxq-Go-YZ5">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vatSample_image" translatesAutoresizingMaskIntoConstraints="NO" id="Nxq-Go-YZ5">
                                 <rect key="frame" x="10" y="0.0" width="303" height="192"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addBtn_new" translatesAutoresizingMaskIntoConstraints="NO" id="PQK-Rn-lCz">
@@ -109,7 +109,7 @@
     </objects>
     <resources>
         <image name="addBtn_new" width="42" height="42"/>
-        <image name="vatSample_image" width="930" height="450"/>
+        <image name="vatSample_image" width="310" height="150"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
