@@ -101,7 +101,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         var minDate = Date()
         
         minDate = Calendar.current.date(from: DateComponents(year: 1900 , month: 1, day: 1))!
-        var title = "Select - Date of Birth"
+        var title = "Select - Date of Birth".localized
         if tag == 3
         {
             if self.toptxtArr[1] == ""
@@ -109,7 +109,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 ModalController.showNegativeCustomAlertWith(title: "Please Select DOB First ", msg: "")
                 return
             }
-            title = "Select - Date of Expiry"
+            title = "Select - Date of Expiry".localized
             minDate =  self.fdate
             maxDate = nil
         }

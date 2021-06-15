@@ -393,7 +393,7 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
          let str = (String(format:"%02i:%02i", minutes, seconds))
         
         let please = "Please wait".localized
-        let before  = "before requesting\nanother SMS/Email Code".localized
+        let before  = "before requesting\nanother Email Code".localized
         
         
          counterrText.text="\(please) \(str) \(before)"

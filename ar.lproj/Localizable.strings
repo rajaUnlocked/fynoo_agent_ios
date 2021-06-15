@@ -302,7 +302,7 @@
 "Use Photo" = "إستمرار";
 
 "Please wait" = "الرجاء الإنتظار";
-"before requesting\nanother SMS/Email Code" = "قبل طلب رمز تأكيد جديد";
+"before requesting\nanother Email Code" = "قبل طلب رمز تأكيد جديد";
 
 // dataEntry
 
@@ -601,8 +601,8 @@
 
 //Dashboard
 "Sign out" = "تسجيل خروج";
-"Settings" = "لإعدادات";
-"Wallet" = "لمحفظة";
+"Settings" = "الإعدادات";
+"Wallet" = "المحفظة";
 "Service Requests" = "طلبات الخدمات";
 "Available Amount" = "الرصيد المتوفر";
 "Hello"="مرحباً";
@@ -619,7 +619,7 @@
 "Manage FBA Shipment"="إدارة شحنة FBA";
 "Manage Drop Shipping"="إدارة Drop Shipping";
 "Manage Discount Code"="إدارة أكواد الخصم";
-"Manage Services"="دارة الخدمات";
+"Manage Services"="إدارة الخدمات";
 
 //Product
 "No. of Branches:  " = "عدد الفروع  ";
@@ -640,7 +640,6 @@
 "Cancel" = "إلغاء";
 "Profile" = "الملف الشخصي";
 "Confirm Password" = "تأكيد كلمة المرور";
-"New Password" = "كلمة مرور جديدة";
 "Current Password" = "كلمة المرور الحالية";
 "Agent Personal Registration" = "بيانات الوكيل - شخص";
 "Services" = "الخدمات المقدمة";
