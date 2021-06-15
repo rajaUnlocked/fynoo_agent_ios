@@ -33,6 +33,8 @@ class DataEntryTypelistingViewController: UIViewController {
         self.tableVw.dataSource = self
         self.tableVw.delegate = self
         self.SetFont()
+        ModalClass.startLoading(self.view)
+        
       
     }
     

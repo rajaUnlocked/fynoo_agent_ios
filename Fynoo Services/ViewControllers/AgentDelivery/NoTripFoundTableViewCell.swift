@@ -9,7 +9,8 @@
 import UIKit
 
 class NoTripFoundTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var notripfoundlbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -48,8 +48,9 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
         registerCellNibs()
         customHeader.viewControl = self
         customHeader.backButton.isHidden = true
-        self.customHeader.titleHeader.text = "Please Select Language"
-        self.searchField.placeholder = "Enter Language"
+        self.customHeader.titleHeader.text = "Please Select Language".localized
+        self.searchField.placeholder = "Search".localized
+        self.headerLbl.text = "Please select languages you can speak and write".localized
         languageListAPI()
         
         print(selectedArray,"dhf")
@@ -270,7 +271,7 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
     // MARK: - TableView Cells Return
     func languageCell(index : IndexPath) -> UITableViewCell {
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "LanguageSelectionTableViewCell",for: index) as! LanguageSelectionTableViewCell
-        
+       
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         cell.catName.font = UIFont(name:"\(fontNameLight)",size:12)
         

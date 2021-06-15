@@ -7,7 +7,7 @@
 /////////////////////////             TAP PAYMENT             /////////////////////////
 
 // MARK: Common
-"common_edit"    = "تعديل";
+"common_edit"      = "تعديل";
 "common_cancel"    = "إلغاء";
 
 // MARK: Pay Button Titles
@@ -214,31 +214,31 @@
 "alert_error_2105_title"     = "API Credentials";
 
 "alert_error_2106_message"     = "Public API key given. Please use secret API key instead.";
-"alert_error_2106_title"     = "API Key";
+"alert_error_2106_title"       = "API Key";
 
 "alert_error_3100_message"     = "Insufficient permissions.";
-"alert_error_3100_title"     = "Permission Denied";
+"alert_error_3100_title"       = "Permission Denied";
 
 "alert_error_8000_message"     = "Country code is invalid.";
-"alert_error_8000_title"     = "Country Code";
+"alert_error_8000_title"       = "Country Code";
 
 "alert_error_8001_message"     = "Amount modificator type is invalid.";
-"alert_error_8001_title"     = "Amount Modificator Type";
+"alert_error_8001_title"       = "Amount Modificator Type";
 
 "alert_error_8002_message"     = "Measurement unit is invalid.";
-"alert_error_8002_title"     = "Measurement Unit";
+"alert_error_8002_title"       = "Measurement Unit";
 
 "alert_error_8003_message"     = "Measurement is invalid.";
-"alert_error_8003_title"     = "Measurement";
+"alert_error_8003_title"       = "Measurement";
 
 "alert_error_8004_message"     = "Failed to deserialize an enum.";
-"alert_error_8004_title"     = "Serialization";
+"alert_error_8004_title"       = "Serialization";
 
 "alert_error_8100_message"     = "Serialization error has occured.";
-"alert_error_8100_title"     = "Serialization";
+"alert_error_8100_title"       = "Serialization";
 
 "alert_error_8200_message"     = "Network error has occured.";
-"alert_error_8200_title"     = "Network";
+"alert_error_8200_title"       = "Network";
 
 "alert_error_8302_message"    = "This card already exists.";
 "alert_error_8302_title"    = "Card Exists";
@@ -279,13 +279,70 @@
 "payment_status_alert_successful"    = "تم اتمام العملية بنجاح";
 "payment_status_alert_failed"        = "فشل عملية الدفع";
 
-/////////////////////////             TAP PAYMENT             /////////////////////////
+/////////////////////////             TAP PAYMENT
 
+//new
+"Change Password" = "تغيير كلمة المرور";
+"Password" = "كلمة المرور";
+"Services " = "تحديد الخدمات";
+"Camera" = "الكاميرا";
+"Select Major" = "إختر التخصص";
+"Select Country" = "إختر البلد";
+"Enter Country Name" = "أدخل اسم البلد";
+"Select City" = "إختر المدينة";
+"Enter City Name" = "أدخل اسم المدينة";
+"This is Sample image" = "هذه صورة رمزية";
+"Please Select Language" = "قم بتحديد اللغة";
+"Please select languages you can speak and write" = "الرجاء تحديد اللغات التي تجيدها تحدثاً وكتابة";
+"Target End Date" = "تاريخ الإنتهاء";
+"Enter Registered VAT Number" = "أدخل الرقم الضريبي";
+"No" = "لا";
+"Yes" = "نعم";
+"Retake" = "إعادة إلتقاط";
+"Use Photo" = "إستمرار";
+
+"Please wait" = "الرجاء الإنتظار";
+"before requesting\nanother SMS/Email Code" = "قبل طلب رمز تأكيد جديد";
+
+// dataEntry
+
+"Accept Order" = "قبول الطلب";
+"Product Data Entry" = "إدخال بيانات المنتج";
+"Branch Data Entry" = "إدخال بيانات الفرع";
+"Order information" = "معلومات الطلب";
+
+"Waiting List" = "قائمة الإنتظار";
+"Inprocess" = "قيد التنفيذ";
+"Completed" = "مكتملة";
+"Rejected" = "مرفوض";
+"Order Id" = "رقم الطلب";
+"Sorry! No Order Found" = "عذراً! لاتوجد طلبات";
+"Service Orders" = "طلبات الخدمات";
+
+"Order Summary" = "Order Summary";
+"Payment Method" = "Payment Method";
+"Give Ratings" = "التقييم";
+"Has the agent completed this work ?" = "Has the agent completed this work ?";
+"data entry" = "مدخل بيانات";
+"Are you sure you want accept the order?" = "Are you sure you want accept the order?";
+"You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information." = "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information.";
+
+"Start Work" = "بدء العمل";
+"Submit your work" = "تسليم العمل";
+"Already Submitted" = "Already Submitted";
+"Amount to be paid for this order." = "قيمة تنفيذ الطلب";
+"Number of days for order completion." = "كم عدد الأيام المطلوبة لإنهاء العمل";
+"Holding" = "مبالغ معلقة";
+"please active" = "please active";
+"services to receive new order request." = "services to receive new order request.";
+"Paid" = "تم الدفع";
+
+//////////////////////////////
 
 "User Policy" = "سياسة المستخدم";
 "Are you registered in VAT?" = " هل تم التسجيل في ضريبة القيمة المضافة؟";
 "Verification"="التحقق";
-"Upload VAT Registration Certificate" = "ارفع شهادة التسجيل بضريبة القيمة المضافة";
+"Upload VAT Registration Certificate" = "أرفق شهادة تسجيل ضريبة القيمة المضافة";
 "A to Z"="تصاعدي";
 "Z to A"="تنازلي";
 "Lowest to Highest Price"="من الأقل إلى الأعلى سعراً";
@@ -310,7 +367,12 @@
 "Enter platform name" = "الرجاء إدخال اسم المنصة";
 
 "hello" = "مرحبا";
+// Target
 
+"Target" = "تحقيق الأهداف";
+"Commission" = "العمولات";
+"Note" = "ملاحظة";
+"No Target Activated" = "No Target Activated";
 // BSIMAGE PICKER - MULTIPLE IMAGE PICKER
 "BSImagePicker.Done" = "Done";
 
@@ -333,8 +395,17 @@
 "Password and confirm password do not match"="كلمة المرور غير متطابقة";
 "Please check user policy"="الرجاء الموافقة على سياسة الاستخدام";
 "Please enter valid OTP"="الرجاء إدخال رمز التحقق";
-
-
+// delivery dashboard
+"Trips Achievement" = "إتمام الرحلات";
+"Current" = "الطلبات الحالية";
+"Next" = "الطلبات التالية";
+"Previous" = "الطلبات السابقة";
+"Cancelled" = "الطلبات الملغاة";
+"Almost Total Price" = "المبلغ الإجمالي التقريبي";
+"Order Id" = "رقم الطلب";
+"Address" = "Address";
+"Delivery Services" = "خدمة التوصيل";
+"No Trips Found" = "لاتوجد رحلات";
 //Forget Password
 "Business Owner" = "صاحب العمل";
 "Agent Company" = "شركة الوكيل";
@@ -343,6 +414,47 @@
 "Country" = "نسيت كلمة المرور";
 "Sign Up" = "تسجيل";
 "Reset Password" = "إعادة تعيين كلمة المرور";
+//delivery document
+"Upload National Id / Iqama" = "قم بإرفاق صورة الهوية الوطنية أو الإقامة";
+"Upload Driving License Front" = "إرفاق صورة رخصة القيادة";
+"Upload Vehicle Registration" = "إرفاق صورة إستمارة السيارة";
+"Upload Vehicle Insurance" = "إرفاق وثيقة تأمين المركبة";
+"Upload Driving Authorization(Not Required for the Owner)" = "Upload Driving Authorization(Not Required for the Owner)";
+"Upload Vehicle Description" = "Upload Vehicle Description";
+"Full Name" = "الاسم الكامل";
+"Date of Birth" = "تاريخ الميلاد";
+"National ID / Iqama ID" = "رقم الهوية الوطنية أو الإقامة";
+"Date of Expiry" = "تاريخ الإنتهاء";
+"Registration Type" = "نوع تسجيل المركبة";
+"Vehicle Brand" = "ماركة المركبة";
+"Vehicle Name" = "فئة المركبة";
+"Production Year" = "سنة الصنع";
+"Vehicle Color" = "لون المركبة";
+"Vehicle kind" = "نوع المركبة";
+"Maximum Load" = "أقصى حمولة";
+"Plat Number" = "رقم لوحة المركبة";
+"National Id / Iqama" = "الهوية الوطنية/ الإقامة";
+"Driving License Front" = "رخصة القيادة";
+"Vehicle Registration" = "إستمارة المركبة";
+"Vehicle Insurance" = "وثيقة تأمين المركبة";
+"Driving Authorization" = "تفويض قيادة المركبة";
+"Vehicle Description" = "مواصفات المركبة";
+"Reason For Vehicle Change" = "سبب تغيير المركبة";
+"Upload & Save" = "إرفاق وحفظ";
+"Submit for approval" = "إرسال للموافقة";
+"Pending for approval" = "في إنتظار الموافقة";
+"Upload the Front side Photo" = "إرفاق صورة واجهة المركبة";
+"Are you sure you want to submit for Approval?" = "هل تريد إرسال الطلب للتدقيق والموافقة؟";
+"Do you want to delete this file? " = "هل تريد حذف الملف؟";
+"Delivery Services Documents" = "وثائق خدمة التوصيل";
+"Select Registration Type" = "إختر نوع تسجيل المركبة";
+"Select Vehicle Brand" = "إختر ماركة المركبة";
+"Select Vehicle Name" = "أختر فئة المركبة";
+"Production Year" = "سنة الصنع";
+"Select Vehicle Color" = "إختر لون المركبة";
+"Maximum Load" = "أقصى حمولة";
+"Plate Number" = "رقم لوحة المركبة";
+"Reason for different vehicle registration" = "سبب تغيير تسجيل المركبة";
 
 // Business Type List
 "Business Type List" = "قائمة نوع العمل";
@@ -424,7 +536,7 @@
 //Sign Up
 "Welcome, Let's Create An Account"="مرحبا، أنشئ حسابك الآن";
 "Business Owner"="صاحب عمل";
-"User Policy"="سياسة المستخدم";
+"User Policy"="سياسة الإستخدام";
 "Login"="دخول";
 
 //"I'v Agreed to the user policy"
@@ -434,6 +546,26 @@
 "Uploaded VAT Certificate" = "Uploaded VAT Certificate";
 
 //Profile Page
+"VAT Number" = "الرقم الضريبي";
+"Agent Personal" = "وكيل - شخص";
+"Gender" = "الجنس";
+"Dob" = "تاريخ الميلاد";
+"Education" = "التعليم";
+"Major" = "التخصص";
+"Services" = "تحديد الخدمات";
+"Basic Information" = "المعلومات الاساسية";
+"Personal Information" = "البيانات الشخصية";
+"Mobile Number" = "رقم الجوال";
+"Bank Detail" = "تفاصيل الحساب البنكي";
+"IBAN Number" = "رقم الآيبان";
+"Bank Name" = "اسم البنك";
+"Card Holder Name" = "الاسم كما يظهر في بطاقة الصراف";
+"Vat Information" = "بيانات ضريبة القيمة المضافة";
+"Password Information" = "إعدادات كلمة المرور";
+"Language Information" = "لغات التحدث";
+"Vat Certificate" = "شهادة ضريبة القيمة المضافة";
+
+
 "Profile"="الملف الشخصي";
 "ID"="رقم التعريف";
 "Followers"="المتابعين";
@@ -442,7 +574,7 @@
 "Likes"="الإعجابات";
 "Edit Profile"="تحرير الملف الشخصي";
 "Current Password"="كلمة المرور الحالية";
-"New Password"="كلمة مرور جديدة";
+"New Password"="كلمة المرور الجديدة";
 "Confirm Password"="تأكيد كلمة المرور";
 
   
@@ -472,8 +604,7 @@
 "Settings" = "لإعدادات";
 "Wallet" = "لمحفظة";
 "Service Requests" = "طلبات الخدمات";
-"Available Amount" = "المبلغ المتاح";
-"Inprocess" = "قيد التنفيذ";
+"Available Amount" = "الرصيد المتوفر";
 "Hello"="مرحباً";
 "ID"="رقم المعرف";
 "Home"="الرئيسية";
@@ -516,7 +647,6 @@
 "Personal Details" = "البيانات الشخصية";
 "Basic Information" = "المعلومات الأساسية";
 "Bank Details" = "تفاصيل الحساب البنكي";
-"Vat Information" = "بيانات ضريبة القيمة المضافة";
 "Cancel" = "إلغاء" ;
 "https://www.maroof.com/" = "https://www.maroof.com/";
 "Error" = "Error";
@@ -524,18 +654,19 @@
 "please select logo." = "please select logo." ;
 "please select a service." = "please select a service.";
 "please select minimum one service." = "please select minimum one service." ;
-"Select - Date of Birth" = "Select - Date of Birth";
-"Done" = "Done" ;
+"Select - Date of Birth" = "تحديد تاريخ الميلاد";
+"Done" = "تم" ;
 "Please select education first" = "Please select education first";
 "Please select country first" = "Please select country first" ;
 "Email Sent Success" = "Email Sent Success" ;
-"I've agreed to the" = "I've agreed to the";
+"I've agreed to the" = "أوافق على";
 "SA" = "SA";
-"Male" = "Male";
-"Female" = "Female" ;
+"Male" = "ذكر";
+"Female" = "أنثى" ;
 "Warranty & Support" = "Warranty & Support";
 "Product Description" = "Product Description";
-
+"Select Education" = "إختر مستوى التعليم";
+"Enter Language" = "";
 
 // subscriptionPackage List
 "Welcome, Let's Select Your Plan" = "مرحبا، لنختار الباقة المناسبة لك";
@@ -642,8 +773,9 @@
 "Store On Map"="متجر على الخريطة";
 "Permanently Closed"="مغلق دائماً";
 "Products"="المنتجات";
-
+"Welcome, Let's Select Your Time" = "مرحباً، قم بتحديد أوقات العمل";
 //Product
+"Manage Your Products" = "إدارة المنتجات";
 "Subscription Products:"="متنتجات الاشتراك";
 "Active Products:"="منتجات فعالة";
 "Inactive Products:"="منتجات غير فعالة";
@@ -671,7 +803,7 @@
 "In Store" = "في المتجر";
 "Product/Service Pictures" = "صور المنتج/الخدمة";
 "Main" = "الرئيسية";
-"Video URL" = "فيديو URL";
+"Video URL" = "رابط الفيديو";
 "Save As Draft" = "حفظ كمسودة";
 "Next" = "التالي";
 "Select Image From" = "اختر صورة من";
@@ -754,7 +886,6 @@
 "Status" = "الحالة";
 "Pending" = "معلق";
 "Expired" = "منتهي الصلاحية";
-"Rejected" = "مرفوض";
 "Product Description" = "وصف المنتج";
 //Price History
 ;"تاريخ السعر" = "Price History"
@@ -827,7 +958,7 @@
 "% OFF" = "% OFF";
 "Instore Quantity" = "Instore Quantity";
 "Specifications" = "Specifications";
-"Hide Details" = "Hide Details";
+"Hide Details" = "إخفاء";
 "rating and" = "rating and";
 "k" = "k";
 "Check Out This Product" = "Check Out This Product";
@@ -853,8 +984,7 @@
 "100" = "100";
 "0" = "0";
 "Are you sure you want to activate the discount ?";
-"No" = "No";
-"Yes" = "Yes";
+
 "Are you sure you want to activate the discount ?" = "Are you sure you want to activate the discount ?";
 "No discount found." = "No discount found.";
 "You can not apply this discount." = "You can not apply this discount." ;
@@ -875,7 +1005,6 @@
 "Recent Transaction" = "Recent Transaction" ;
 "Go Back" = "Go Back";
 "Only active products added in Online store in retail mode will appear here"; = "Only active products added in Online store in retail mode will appear here";
-"Manage your Products" = "Manage your Products";
 "Message" = "Message";
 "Are you sure you want to delete this discount." = "Are you sure you want to delete this discount.";
 "Are you sure you want to deactivate this discount ?" = "Are you sure you want to deactivate this discount ?";
@@ -1054,23 +1183,3 @@
 "Manage Products"="إدارة المنتجات";
 "Product"="المنتج";
 
-
-// dataEntry
-
-"Order Summary" = "Order Summary";
-"Payment Method" = "Payment Method";
-"Give Ratings" = "Give Ratings";
-"Has the agent completed this work ?" = "Has the agent completed this work ?";
-"data entry" = "مدخل بيانات";
-"Are you sure you want accept the order?" = "Are you sure you want accept the order?";
-"You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information." = "You cannot receive any new request for this service as it is disabled. Please contact Fynoo Admin for more information.";
-
-"Start Work" = "بدء العمل";
-"Submit your work" = "Submit your work";
-"Already Submitted" = "Already Submitted";
-"Amount to be paid for this order." = "قيمة تنفيذ الطلب";
-"Number of days for order completion." = "كم عدد الأيام المطلوبة لإنهاء العمل";
-"Online" = "Online";
-"Holding" = "Holding";
-"please active" = "please active";
-"services to receive new order request." = "services to receive new order request.";

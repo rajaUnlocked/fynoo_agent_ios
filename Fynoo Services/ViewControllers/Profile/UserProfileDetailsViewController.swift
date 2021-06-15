@@ -59,10 +59,10 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
     var pdfImage =  UIImage()
 
-    var personalDetail = ["Name".localized,"Gender".localized,"Dob".localized,"Education".localized,"Major".localized]
-    var basicInfo = ["Business Name".localized,"Email".localized,"Country".localized,"City".localized,"Mobile Number".localized,"Phone Number".localized,"Maroof Link".localized]
-    var bankDetail = ["IBAN Number".localized,"Bank Name".localized,"Card Holder Name".localized]
-    var sectionHeading = ["","Services".localized,"Basic Information".localized,"Bank Detail".localized,"Vat Information".localized,"Password Information".localized,"Language Information".localized]
+    var personalDetail = ["Name","Gender","Dob","Education","Major"]
+    var basicInfo = ["Business Name","Email","Country","City","Mobile Number","Phone Number","Maroof Link"]
+    var bankDetail = ["IBAN Number","Bank Name","Card Holder Name"]
+    var sectionHeading = ["","Services ","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
     var pdfVat = ""
     var userType = ""
 
@@ -270,7 +270,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     
     func getProfileData(){
         let parameter = ["user_id":"\(Singleton.shared.getUserId())",
-        "lang_code":"EN"]
+                         "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
         ServerCalls.postRequest(Service.getProfile, withParameters: parameter) { [self] (response, success) in
             if let value = response as? NSDictionary{
                 let error = value.object(forKey: "error") as! Int
@@ -307,8 +307,8 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                         }
                         
                         if self.isPersonal{
-                            self.basicInfo = ["Email".localized,"Country".localized,"City".localized,"Mobile Number".localized,"Maroof Link".localized]
-                            self.sectionHeading = ["","Services","Personal Information","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
+                            self.basicInfo = ["Email","Country","City","Mobile Number","Maroof Link"]
+                            self.sectionHeading = ["","Services ","Personal Information","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
                              }
                         
                         self.agentInfo.name = self.profileInfo?.data?.user_data?.name ?? ""
@@ -494,7 +494,7 @@ extension UserProfileDetailsViewController : UITableViewDelegate{
         }else{
             let view = SectionHeader()
             view.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: 40)
-            view.sectionText.text = sectionHeading[section]
+            view.sectionText.text = sectionHeading[section].localized
             return view
         }
         
@@ -648,9 +648,9 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                 cell.selectionStyle = .none
 
                 if isPersonal{
-                    cell.titleLbl.text = "Agent Personal"
+                    cell.titleLbl.text = "Agent Personal".localized
                 }else{
-                    cell.titleLbl.text = "Agent Company"
+                    cell.titleLbl.text = "Agent Company".localized
 
                 }
                 if isEdit{
@@ -774,7 +774,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                    {
                        cell.isUserInteractionEnabled = true
                    }
-        cell.entryLbl.attributedText = ModalController.setStricColor(str: "Password *", str1: "Password", str2:" *" )
+        cell.entryLbl.attributedText = ModalController.setStricColor(str: "\("Password".localized) *", str1: "\("Password".localized)", str2:" *" )
         cell.selectionStyle = .none
         cell.widthImg.constant = 0
         cell.codeBtn.isHidden = true
@@ -878,7 +878,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                    {
                        cell.isUserInteractionEnabled = true
                    }
-        cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(bankDetail[indexPath.row]) *", str1: "\(bankDetail[indexPath.row])", str2:" *" )
+        cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(bankDetail[indexPath.row].localized) *", str1: "\(bankDetail[indexPath.row].localized)", str2:" *" )
         cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         cell.selectionStyle = .none
 
@@ -984,7 +984,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.headingLbl.isUserInteractionEnabled = false
             
         }
-        cell.entryLbl.attributedText = ModalController.setStricColor(str: " \(basicInfo[indexPath.row]) *", str1: "\(basicInfo[indexPath.row])", str2:" *" )
+        cell.entryLbl.attributedText = ModalController.setStricColor(str: " \(basicInfo[indexPath.row].localized) *", str1: "\(basicInfo[indexPath.row].localized)", str2:" *" )
         
         print(basicInfo[indexPath.row],"sd")
         cell.codeBtn.isHidden = true
@@ -1120,7 +1120,8 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                        {
                            cell.isUserInteractionEnabled = true
                        }
-            cell.entryLbl.attributedText = ModalController.setStricColor(str: "VAT Number *", str1: "VAT Number", str2:" *" )
+            let vt = "VAT Number".localized;
+            cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(vt) *", str1: vt, str2:" *" )
             cell.flagImg.isHidden = true
             cell.mobileCode.isHidden = true
             cell.mobileCodeWidth.constant = 0
@@ -1140,6 +1141,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.imgView.image = self.pdfImage
             cell.selectionStyle = .none
             cell.isUserInteractionEnabled = false
+            cell.vatcertlbl.text = "Vat Certificate".localized
             if isEdit
             {
             cell.isUserInteractionEnabled = true

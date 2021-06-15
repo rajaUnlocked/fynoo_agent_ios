@@ -260,13 +260,13 @@
 "alert_error_9999_title"     = "Unknown Error";
 
 "alert_error_btn_retry_title"    = "Retry";
-"alert_error_btn_dismiss_title"    = "Dismiss";
-"alert_error_btn_report_title"    = "Report";
+"alert_error_btn_dismiss_title"  = "Dismiss";
+"alert_error_btn_report_title"   = "Report";
 
 // MARK: Payment Statuses
 
 "payment_status_initiated"         = "Initiated";
-"payment_status_in_progress"    = "In Progress";
+"payment_status_in_progress"       = "In Progress";
 "payment_status_abandoned"         = "Abandoned";
 "payment_status_cancelled"         = "Cancelled";
 "payment_status_failed"         = "Failed";
@@ -282,9 +282,86 @@
 
 
 /////////////////////////             TAP PAYMENT             /////////////////////////
+//new
+"Change Password" = "Change Password";
+"Password" = "Password";
+"Services " = "Services ";
+"Camera" = "Camera";
+"Select Major" = "Select Major";
+"Select Country" = "Select Country";
+"Enter Country Name" = "Enter Country Name";
+"Select City" = "Select City";
+"Enter City Name" = "Enter City Name";
+"This is Sample image" = "This is Sample image";
+"Please Select Language" = "Please Select Language";
+"Enter Language" = "Enter Language";
+"Please select languages you can speak and write" = "Please select languages you can speak and write";
+"Target End Date" = "Target End Date";
+"Enter Registered VAT Number" = "Enter Registered VAT Number";
+"Retake" = "Retake";
+"Use Photo" = "Use Photo";
+// Target
 
+"Target" = "Target";
+"Commission" = "Commission";
+"Note" = "Note";
+"No Target Activated" = "No Target Activated";
+// delivery dashboard
 
-"hello" = "Hello";
+"Trips Achievement" = "Trips Achievement";
+"Current" = "Current";
+"Next" = "Next";
+"Previous" = "Previous";
+"Cancelled" = "Cancelled";
+ "Almost Total Price" = "Almost Total Price";
+  "Order Id" = "Order Id";
+"Address" = "Address";
+"Delivery Services" = "Delivery Services";
+"No Trips Found" = "No Trips Found";
+
+// sercice document
+"Upload National Id / Iqama" = "Upload National Id / Iqama";
+"Upload Driving License Front" = "Upload Driving License Front";
+"Upload Vehicle Registration" = "Upload Vehicle Registration";
+"Upload Vehicle Insurance" = "Upload Vehicle Insurance";
+"Upload Driving Authorization(Not Required for the Owner)" = "Upload Driving Authorization(Not Required for the Owner)";
+"Upload Vehicle Description" = "Upload Vehicle Description";
+"Full Name" = "Full Name";
+"Date of Birth" = "Date of Birth";
+"National ID / Iqama ID" = "National ID / Iqama ID";
+"Date of Expiry" = "Date of Expiry";
+"Registration Type" = "Registration Type";
+"Vehicle Brand" = "Vehicle Brand";
+"Vehicle Name" = "Vehicle Name";
+"Production Year" = "Production Year";
+"Vehicle Color" = "Vehicle Color";
+"Vehicle kind" = "Vehicle kind";
+"Maximum Load" = "Maximum Load";
+"Plat Number" = "Plat Number";
+"National Id / Iqama" = "National Id / Iqama";
+"Driving License Front" = "Driving License Front";
+"Vehicle Registration" = "Vehicle Registration";
+"Vehicle Insurance" = "Vehicle Insurance";
+"Driving Authorization" = "Driving Authorization";
+"Vehicle Description" = "Vehicle Description";
+"Reason For Vehicle Change" = "Reason For Vehicle Change";
+"Upload & Save" = "Upload & Save";
+"Submit for approval" = "Submit for approval";
+"Pending for approval" = "Pending for approval";
+"Upload the Front side Photo" = "Upload the Front side Photo";
+"Are you sure you want to submit for Approval?" = "Are you sure you want to submit for Approval?";
+"Do you want to delete this file? " = "Do you want to delete this file? ";
+"Delivery Services Documents" = "Delivery Services Documents";
+"Select Registration Type" = "Select Registration Type";
+"Select Vehicle Brand" = "Select Vehicle Brand";
+"Select Vehicle Name" = "Select Vehicle Name";
+"Production Year" = "Production Year";
+"Select Vehicle Color" = "Select Vehicle Color";
+"Select Vehicle kind" = "Select Vehicle kind";
+"Maximum Load" = "Maximum Load";
+"Plate Number" = "Plate Number";
+"Reason for different vehicle registration" = "Reason for different vehicle registration";
+
 
 
 // BSIMAGE PICKER - MULTIPLE IMAGE PICKER
@@ -390,7 +467,6 @@
 "Personal Details" = "Personal Details";
 "Basic Information" = "Basic Information";
 "Bank Details" = "Bank Details";
-"Vat Information" = "Vat Information";
 "https://www.maroof.com/" = "https://www.maroof.com/";
 "Error" = "Error";
 "Connection Error" = "Connection Error";
@@ -407,6 +483,7 @@
 "SA" = "SA";
 "Male" = "Male";
 "Female" = "Female" ;
+"Select Education" = "Select Education";
 
 
 //Side menu
@@ -453,6 +530,26 @@
 "Settings" = "Settings";
 "Sign out" = "Sign out";
 //profile
+"VAT Number" = "VAT Number";
+"Agent Personal" = "Agent Personal";
+"Gender" = "Gender";
+"Dob" = "Dob";
+"Education" = "Education";
+"Major" = "Major";
+"Services" = "Services";
+"Basic Information" = "Basic Information";
+"Personal Information" = "Personal Information";
+"Mobile Number" = "Mobile Number";
+"Bank Detail" = "Bank Detail";
+"IBAN Number" = "IBAN Number";
+"Bank Name" = "Bank Name";
+"Card Holder Name" = "Card Holder Name";
+"Vat Information" = "Vat Information";
+"Password Information" = "Password Information";
+"Language Information" = "Language Information";
+"Vat Certificate" = "Vat Certificate";
+
+
 "Name"="Name";
 "Email"="Email";
 "Country"="Country";
@@ -572,8 +669,9 @@
 "Online Store"="Online Store";
 "Store On Map"="Store On Map";
 "Permanently Closed"="Permanently Closed";
-
+"Welcome, Let's Select Your Time" = "Welcome, Let's Select Your Time";
 //Product
+"Manage Your Products" = "Manage Your Products";
 "Subscription Products:"="Subscription Products:";
 "Active Products:"="Active Products";
 "Inactive Products:"="Inactive Products";
@@ -795,7 +893,6 @@
 "Recent Transaction" = "Recent Transaction" ;
 "Go Back" = "Go Back";
 "Only active products added in Online store in retail mode will appear here"; = "Only active products added in Online store in retail mode will appear here";
-"Manage your Products" = "Manage your Products";
 "Message" = "Message";
 "Message" = "Message";
 "Are you sure you want to delete this discount." = "Are you sure you want to delete this discount.";
@@ -981,7 +1078,6 @@
 "Personal Details" = "Personal Details";
 "Basic Information" = "Basic Information";
 "Bank Details" = "Bank Details";
-"Vat Information" = "Vat Information";
 "https://www.maroof.com/" = "https://www.maroof.com/";
 "Error" = "Error";
 "Connection Error" = "Connection Error";
@@ -1022,6 +1118,21 @@
 
 // dataEntry
 
+"Please wait" = "Please wait";
+"before requesting\nanother SMS/Email Code" = "before requesting\nanother SMS/Email Code";
+
+"Accept Order" = "Accept Order";
+"Product Data Entry" = "Product Data Entry";
+"Branch Data Entry" = "Branch Data Entry";
+"Order information" = "Order information";
+
+"Sorry! No Order Found" = "Sorry! No Order Found";
+"Service Orders" = "Service Orders";
+
+"Waiting List" = "Waiting List";
+"Completed" = "Completed";
+"Order Id" = "Order Id";
+
 "Order Summary" = "Order Summary";
 "Payment Method" = "Payment Method";
 "Give Ratings" = "Give Ratings";
@@ -1041,3 +1152,4 @@
 "Holding" = "Holding";
 "please active" = "please active";
 "services to receive new order request." = "services to receive new order request.";
+"Paid" = "Paid";

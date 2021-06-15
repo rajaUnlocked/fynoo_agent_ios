@@ -1,3 +1,3 @@
 
-/* Class = "UILabel"; text = "Oops! No Service Found"; ObjectID = "qVC-sM-kRf"; */
-"qVC-sM-kRf.text" = "Oops! No Service Found";
+/* Class = "UILabel"; text = "Sorry! No Order Found"; ObjectID = "qVC-sM-kRf"; */
+"qVC-sM-kRf.text" = "عذراً! لاتوجد طلبات";

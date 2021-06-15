@@ -103,7 +103,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount included VAT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9K-IU-kNj">
-                        <rect key="frame" x="20" y="114.5" width="375" height="21"/>
+                        <rect key="frame" x="20" y="114.5" width="137.5" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Ukf-qY-A4d"/>
                         </constraints>
@@ -284,7 +284,6 @@ Utter Pradesh, India 201301</string>
                     <constraint firstItem="ss2-o1-W4r" firstAttribute="top" secondItem="WaC-Km-OyV" secondAttribute="bottom" constant="12" id="F91-qs-6jk"/>
                     <constraint firstItem="14E-Nh-ZwP" firstAttribute="leading" secondItem="7HB-Hr-zlw" secondAttribute="trailing" constant="10" id="Fj1-dR-RH4"/>
                     <constraint firstAttribute="trailing" secondItem="14E-Nh-ZwP" secondAttribute="trailing" constant="20" id="H68-2E-raD"/>
-                    <constraint firstAttribute="trailing" secondItem="W9K-IU-kNj" secondAttribute="trailing" constant="20" id="K6e-mJ-AUv"/>
                     <constraint firstItem="WaC-Km-OyV" firstAttribute="leading" secondItem="o5S-SU-rBS" secondAttribute="leading" id="P8v-ho-FJg"/>
                     <constraint firstItem="wnd-xz-wkc" firstAttribute="top" secondItem="dDm-gu-PgN" secondAttribute="bottom" constant="10" id="PKa-3U-dKS"/>
                     <constraint firstItem="z25-gl-ymx" firstAttribute="leading" secondItem="7HB-Hr-zlw" secondAttribute="leading" id="TJr-wb-KyQ"/>

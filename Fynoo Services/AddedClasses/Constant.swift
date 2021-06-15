@@ -194,6 +194,7 @@ class Constant: NSObject {
     static let language_List : String = "agentapi/v1/agent_language_list/";
     static let saveSelected_Language : String = "agentapi/v1/save_language/";
     
+    
     // MARK: - COLORS AND FONTS
     static let Green_TEXT_COLOR = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
     static let Blue_TEXT_COLOR = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
@@ -238,7 +239,9 @@ enum Service {
     static let getBankDetail = Constant.BASE_URL + "agentapi/v1/get_bank_name_by_identifier/"
     static let getIbanLength = Constant.BASE_URL + "agentapi/v1/get_iban_length/"
     static let uploadimage = Constant.BASE_URL + "agentapi/v1/vehicle_service_document/"
-       
+    static let gettripDetail = Constant.BASE_URL + "shared_economy/agent/trip_details/"
+    static let acceptedTripDetail = Constant.BASE_URL + "shared_economy/agent/accepted_trip_details/"
+    static let orderDetail = Constant.BASE_URL + "shared_economy/agent/order_detail/"
     
 }
 

@@ -8,6 +8,9 @@
 /* Class = "UILabel"; text = "Add"; ObjectID = "9aE-Hl-nHp"; */
 "9aE-Hl-nHp.text" = "Add";
 
+/* Class = "UILabel"; text = "This is sample image"; ObjectID = "dui-e8-n5R"; */
+"dui-e8-n5R.text" = "This is sample image";
+
 /* Class = "UILabel"; text = "No"; ObjectID = "f8d-fZ-oEO"; */
 "f8d-fZ-oEO.text" = "No";
 

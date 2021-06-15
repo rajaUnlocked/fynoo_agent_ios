@@ -54,6 +54,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         configureHeaderUI()
         registerCellNibs()
         addUIRefreshToTable()
+        showWallet = true
+        self.arrowImg.image = UIImage(named: "up-arrow-3")
         walletHeightConst.constant = 0
         walletvw.isHidden = true
     }
@@ -340,11 +342,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
             load_app()
         }
         
-           var window: UIWindow?
         func load_app(){
-            let rootviewcontroller: UIWindow = self.view.window!
+            let rootviewcontroller: UIWindow = (SceneDelegate.shared?.window)!
             let appDelegate = SceneDelegate()
-            
+          
             let obj = AgentDashboardViewController()
             
             appDelegate.nav = UINavigationController.init(rootViewController: obj)
@@ -384,7 +385,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         }
         
         @objc func sideMenuaddProductDataForSaleBtnClicked(_ notification: NSNotification) {
-            let vc = ProductListNewViewController(nibName: "ProductListNewViewController", bundle: nil)
+//            let vc = ProductListNewViewController(nibName: "ProductListNewViewController", bundle: nil)
+//            self.navigationController?.pushViewController(vc, animated: true)
+          
+            let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
         }
    
@@ -503,7 +507,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
             cell.targetStartLbl.text = "/\(dataDict.object(forKey: "target_achived") as! Float)"
         }
         cell.targetEndLbl.text = "\(dataDict.object(forKey: "target_to_be_achive") as! Float)"
-        cell.endDate.text = "Wallet End Date: \(dataDict.object(forKey: "target_end_date") as! String)"
+        cell.endDate.text = "\("Target End Date".localized): \(dataDict.object(forKey: "target_end_date") as! String)"
         
         return cell
     }
@@ -898,11 +902,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     }
                 }
             }
-        }
-        
-        
-        
-        else{
+        }else{
             let user_id:UserData = AuthorisedUser.shared.getAuthorisedUser()
             var userID = "\(user_id.data!.id)"
             ModalClass.startLoading(self.view)
@@ -938,9 +938,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         }
     }
     
+    
     // MARK: - ADD SERVICE API
-    func addServiceAPI(serviceID : Int)
-    {
+    func addServiceAPI(serviceID : Int){
+        
         let user_id:UserData = AuthorisedUser.shared.getAuthorisedUser()
         var userID = "\(user_id.data!.id)"
         ModalClass.startLoading(self.view)

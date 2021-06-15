@@ -228,7 +228,7 @@ class CreateProductSecondViewController: UIViewController{
         }
         SelectedRadio = [true,false,false,false]
         self.TopHeightConst.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-        self.headervw.titleHeader.text = "Manage Your Products";
+        self.headervw.titleHeader.text = "Manage Your Products".localized;
         self.headervw.viewControl = self
         
         

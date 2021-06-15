@@ -252,6 +252,28 @@ class deliveryDashboard : Mappable {
     
 }
 
+
+
+class deliveryTripDetail : Mappable {
+    
+    
+    var error = ""
+    var error_code  = ""
+    var error_description = ""
+    var data : DeliveryTripDetail?
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        
+        error <- map["error"]
+        error_code <- map["error_code"]
+        error_description <- map["error_description"]
+        data <- map["data"]
+    }
+    
+}
+
 class DeliveryInfo : Mappable {
     
     var user_lang : String?
@@ -270,6 +292,25 @@ class DeliveryInfo : Mappable {
     }
     
 }
+
+class DeliveryTripDetail : Mappable {
+    
+    var user_lang : String?
+    var trip_details : tripDetailInfo?
+//    var del_accept_limit : acceptInfo?
+//    var user_lang : [language_lists]?
+
+    
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        trip_details <- map["trip_details"]
+//      del_accept_limit <- map["del_accept_limit"]
+        user_lang <- map["user_lang"]
+    }
+}
+
 class trips_achievements : Mappable{
     
     
@@ -362,6 +403,66 @@ class agentInfo : Mappable{
     
 }
 
+
+class tripDetailInfo : Mappable{
+    
+    var search_id = 0
+    var service_id = 0
+    var qty = 0.0
+    var purchase_price = ""
+    var delivery_price = ""
+    var total_price = ""
+    var otp_time = 0
+    var payment_mode = ""
+    var payment_icon = ""
+    var currency = ""
+    var order_id = ""
+    var weight = ""
+    var size = ""
+    var pick_up_time = ""
+    var created_by = ""
+    var rating = ""
+    var total_rating = ""
+    var cust_lat = ""
+    var cust_long = ""
+    var bo_lat = ""
+    var bo_long = ""
+    var agent_lat = ""
+    var agent_long = ""
+    
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        search_id <- map["search_id"]
+        service_id <- map["service_id"]
+        qty <- map["qty"]
+        purchase_price <- map["purchase_price"]
+        delivery_price <- map["delivery_price"]
+        total_price <- map["total_price"]
+        
+        otp_time <- map["otp_time"]
+        payment_mode <- map["payment_mode"]
+        payment_icon <- map["payment_icon"]
+        currency <- map["currency"]
+        order_id <- map["order_id"]
+        weight <- map["weight"]
+        size <- map["size"]
+        pick_up_time <- map["pick_up_time"]
+        total_rating <- map["total_rating"]
+        created_by <- map["created_by"]
+        rating <- map["rating"]
+        total_rating <- map["total_rating"]
+        cust_lat <- map["cust_lat"]
+        cust_long <- map["cust_long"]
+        bo_lat <- map["bo_lat"]
+        bo_long <- map["bo_long"]
+        agent_lat <- map["agent_lat"]
+        agent_long <- map["agent_long"]
+    }
+    
+}
+
 class TripListInfo : Mappable{
     
     
@@ -448,3 +549,190 @@ class triplist : Mappable{
     }
     
 }
+
+
+// mark - Arv
+
+
+class orderDetail : Mappable {
+    var error = ""
+    var error_code  = ""
+    var error_description = ""
+    var data : OrderDetailsInfo?
+    
+   
+    required init?(map: Map) {}
+
+     func mapping(map: Map) {
+
+        error <- map["error"]
+        error_code <- map["error_code"]
+        error_description <- map["error_description"]
+        data <- map["data"]
+    }
+
+}
+
+
+class OrderDetailsInfo : Mappable {
+    var order_pk : Int?
+    var order_id : String?
+    var total_order : Int?
+    var total_accepted_order : Int?
+    var expected_time : String?
+    var is_vat_available : Bool?
+    var agent_lat : String?
+    var agent_long : String?
+    var is_agent_reached : Int?
+    var bo_lat : String?
+    var bo_long : String?
+    var otp : Int?
+    var bo_id : Int?
+    var bo_name : String?
+    var bo_mob_no : String?
+    var bo_pic : String?
+    var bo_address : String?
+    var bo_rating : String?
+    var bo_total_rating : String?
+    var cust_id : Int?
+    var cust_name : String?
+    var cust_lat : String?
+    var cust_long : String?
+    var cust_mob_no : String?
+    var cust_pic : String?
+    var cust_rating : String?
+    var cust_total_rating : String?
+    var cust_address : String?
+    var invoice_image : String?
+    var total_amount_without_vat : Double?
+    var vat_amount : Double?
+    var total_amount_with_vat : Double?
+    var order_qty : Int?
+    var order_price : Double?
+    var total_weight : Double?
+    var total_size : Double?
+    var payment_icon : String?
+    var order_date : Int?
+    var currency_id : Int?
+    var user_type : String?
+    var currency_code : String?
+    var report_to_bo : Bool?
+    var item_detail : [Item_detail]?
+    var delivery_times : [Delivery_times]?
+    var order_status : Int?
+    var order_status_desc : String?
+    var del_service_id : Int?
+    var service_status : Int?
+
+    required init?(map: Map) {
+
+    }
+
+    func mapping(map: Map) {
+
+        order_pk <- map["order_pk"]
+        order_id <- map["order_id"]
+        total_order <- map["total_order"]
+        total_accepted_order <- map["total_accepted_order"]
+        expected_time <- map["expected_time"]
+        is_vat_available <- map["is_vat_available"]
+        agent_lat <- map["agent_lat"]
+        agent_long <- map["agent_long"]
+        is_agent_reached <- map["is_agent_reached"]
+        bo_lat <- map["bo_lat"]
+        bo_long <- map["bo_long"]
+        otp <- map["otp"]
+        bo_id <- map["bo_id"]
+        bo_name <- map["bo_name"]
+        bo_mob_no <- map["bo_mob_no"]
+        bo_pic <- map["bo_pic"]
+        bo_address <- map["bo_address"]
+        bo_rating <- map["bo_rating"]
+        bo_total_rating <- map["bo_total_rating"]
+        cust_id <- map["cust_id"]
+        cust_name <- map["cust_name"]
+        cust_lat <- map["cust_lat"]
+        cust_long <- map["cust_long"]
+        cust_mob_no <- map["cust_mob_no"]
+        cust_pic <- map["cust_pic"]
+        cust_rating <- map["cust_rating"]
+        cust_total_rating <- map["cust_total_rating"]
+        cust_address <- map["cust_address"]
+        invoice_image <- map["invoice_image"]
+        total_amount_without_vat <- map["total_amount_without_vat"]
+        vat_amount <- map["vat_amount"]
+        total_amount_with_vat <- map["total_amount_with_vat"]
+        order_qty <- map["order_qty"]
+        order_price <- map["order_price"]
+        total_weight <- map["total_weight"]
+        total_size <- map["total_size"]
+        payment_icon <- map["payment_icon"]
+        order_date <- map["order_date"]
+        currency_id <- map["currency_id"]
+        user_type <- map["user_type"]
+        currency_code <- map["currency_code"]
+        report_to_bo <- map["report_to_bo"]
+        item_detail <- map["item_detail"]
+        delivery_times <- map["delivery_times"]
+        order_status <- map["order_status"]
+        order_status_desc <- map["order_status_desc"]
+        del_service_id <- map["del_service_id"]
+        service_status <- map["service_status"]
+    }
+
+}
+
+
+class Item_detail : Mappable {
+    var item_id : Int?
+    var pro_id : Int?
+    var pro_name : String?
+    var pro_image_id : Int?
+    var product_pic : String?
+    var qty : Int?
+    var price : Double?
+    var currency_id : Int?
+    var currency_code : String?
+    var item_status : Int?
+    var item_status_desc : String?
+    var reason : String?
+
+    required init?(map: Map) {
+
+    }
+
+    func mapping(map: Map) {
+
+        item_id <- map["item_id"]
+        pro_id <- map["pro_id"]
+        pro_name <- map["pro_name"]
+        pro_image_id <- map["pro_image_id"]
+        product_pic <- map["product_pic"]
+        qty <- map["qty"]
+        price <- map["price"]
+        currency_id <- map["currency_id"]
+        currency_code <- map["currency_code"]
+        item_status <- map["item_status"]
+        item_status_desc <- map["item_status_desc"]
+        reason <- map["reason"]
+    }
+
+}
+
+class Delivery_times : Mappable {
+    var distance : String?
+    var time : String?
+
+    required init?(map: Map) {
+
+    }
+
+    func mapping(map: Map) {
+
+        distance <- map["distance"]
+        time <- map["time"]
+    }
+
+}
+
+

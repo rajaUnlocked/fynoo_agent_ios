@@ -12,6 +12,7 @@ class ReasonForChangeTableViewCell: UITableViewCell {
     @IBOutlet weak var txtvw: UITextView!
     @IBOutlet weak var upload: UIButton!
    
+    @IBOutlet weak var vehiclelbl: UILabel!
     @IBOutlet weak var count: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

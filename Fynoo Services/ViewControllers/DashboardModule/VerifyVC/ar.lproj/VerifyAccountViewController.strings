@@ -3,7 +3,7 @@
 "FOM-iq-Zau.text" = "الرجاء الانتظار 00ثانية قبل طلب رمز تحقق جديد";
 
 /* Class = "UILabel"; text = "OTP"; ObjectID = "IaG-6e-ewM"; */
-"IaG-6e-ewM.text" = "رمز التحقق";
+"IaG-6e-ewM.text" = "رمز التأكيد";
 
 /* Class = "UILabel"; text = "999*****990"; ObjectID = "Ph5-EK-jlX"; */
 "Ph5-EK-jlX.text" = "999*****990";
@@ -18,7 +18,7 @@
 "hSt-os-DIN.text" = "00s";
 
 /* Class = "UIButton"; normalTitle = "Resend Otp"; ObjectID = "kVi-K2-Umh"; */
-"kVi-K2-Umh.normalTitle" = "إعادة إرسال رمز تحقق";
+"kVi-K2-Umh.normalTitle" ="إعادة إرسال الرمز";
 
 /* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "rA9-L9-Cym"; */
 "rA9-L9-Cym.normalTitle" = "SUBMIT";
