@@ -1520,6 +1520,8 @@
 		F61CF76426787F0100EAEB0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileVatTableViewCell.xib; sourceTree = "<group>"; };
 		F61CF76A26787F1200EAEB0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProfileVatTableViewCell.strings; sourceTree = "<group>"; };
 		F61CF76C26787F1400EAEB0C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ProfileVatTableViewCell.strings; sourceTree = "<group>"; };
+		F61CF7712678816400EAEB0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
+		F61CF7732678816A00EAEB0C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
 		F62E4AA125148EC60021CEE0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/popupViewController.strings; sourceTree = "<group>"; };
 		F62E4AA225148EC60021CEE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/popupViewController.strings; sourceTree = "<group>"; };
 		F62E4AA425148EC60021CEE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/popupViewController.xib; sourceTree = "<group>"; };
@@ -1567,8 +1569,6 @@
 		F635979725C66DFD003BF9E2 /* TripAchivementCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripAchivementCollectionViewCell.xib; sourceTree = "<group>"; };
 		F635979A25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDashboardHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		F635979B25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryDashboardHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
-		F647705325187CFB00ED2BD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
-		F647705525187CFF00ED2BD0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
 		F64B439325220A5700B9C8CB /* IbanLengthModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanLengthModal.swift; sourceTree = "<group>"; };
 		F64D5FBD2524400E003DE670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CompanyRegViewController.xib; sourceTree = "<group>"; };
 		F64D5FC025244011003DE670 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyRegViewController.strings; sourceTree = "<group>"; };
@@ -6262,8 +6262,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				F62E4AB025148EC60021CEE0 /* Base */,
-				F647705325187CFB00ED2BD0 /* en */,
-				F647705525187CFF00ED2BD0 /* ar */,
+				F61CF7712678816400EAEB0C /* en */,
+				F61CF7732678816A00EAEB0C /* ar */,
 			);
 			name = CompanyAgentVatDetailTableViewCell.xib;
 			sourceTree = "<group>";
