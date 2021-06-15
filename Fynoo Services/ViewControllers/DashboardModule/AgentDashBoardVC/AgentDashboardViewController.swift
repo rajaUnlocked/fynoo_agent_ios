@@ -507,7 +507,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
             cell.targetStartLbl.text = "/\(dataDict.object(forKey: "target_achived") as! Float)"
         }
         cell.targetEndLbl.text = "\(dataDict.object(forKey: "target_to_be_achive") as! Float)"
-        cell.endDate.text = "Wallet End Date: \(dataDict.object(forKey: "target_end_date") as! String)"
+        cell.endDate.text = "\("Target End Date".localized): \(dataDict.object(forKey: "target_end_date") as! String)"
         
         return cell
     }

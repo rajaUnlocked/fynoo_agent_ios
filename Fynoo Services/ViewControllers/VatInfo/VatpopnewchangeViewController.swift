@@ -36,15 +36,20 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var add: UIButton!
     @IBOutlet weak var imgheight: NSLayoutConstraint!
     
+    @IBOutlet weak var yeslbl: UILabel!
     var vatNo = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        vatcertificate.text = "Upload VAT Registration Certificate"
-        registerlbl.text = "Are you registered in VAT?"
+        vatcertificate.text = "Upload VAT Registration Certificate".localized
+        registerlbl.text = "Are you registered in VAT?".localized
+        txtField.placeholder = "Enter Registered VAT Number".localized
         self.saveBtn.setAllSideShadow(shadowShowSize: 3.0)
         self.yesCheck.setAllSideShadow(shadowShowSize: 3.0)
         self.noCheck.setAllSideShadow(shadowShowSize: 3.0)
-        saveBtn.setTitle("Save", for: .normal)
+        saveBtn.setTitle("Save".localized, for: .normal)
+        yeslbl.text = "Yes".localized
+        addlbl.text = "Add".localized
+        noTxt.text = "No".localized
         txtField.delegate = self
         txtField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         if vatNo != "" {

@@ -3,7 +3,7 @@
 "FOM-iq-Zau.text" = "الرجاء الانتظار 00ثانية قبل طلب رمز تحقق جديد";
 
 /* Class = "UILabel"; text = "OTP"; ObjectID = "IaG-6e-ewM"; */
-"IaG-6e-ewM.text" = "رمز التحقق";
+"IaG-6e-ewM.text" = "رمز التأكيد";
 
 /* Class = "UILabel"; text = "999*****990"; ObjectID = "Ph5-EK-jlX"; */
 "Ph5-EK-jlX.text" = "999*****990";

@@ -54,8 +54,8 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
         registerCellNibs()
         customHeader.viewControl = self
         if isForCountry {
-            self.customHeader.titleHeader.text = "Select Country"
-            self.searchField.placeholder = "Enter Country Name"
+            self.customHeader.titleHeader.text = "Select Country".localized
+            self.searchField.placeholder = "Enter Country Name".localized
             countryAPI()
             
         }else if isForBankList {
@@ -64,13 +64,13 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
             bankListAPI()
             
         }else if isForCity {
-            self.customHeader.titleHeader.text = "Select City"
-            self.searchField.placeholder = "Enter City Name"
+            self.customHeader.titleHeader.text = "Select City".localized
+            self.searchField.placeholder = "Enter City Name".localized
             cityAPI()
             
         }else if isForEducationList {
-            self.customHeader.titleHeader.text = "Select Education"
-            self.searchField.placeholder = "Enter Education Name"
+            self.customHeader.titleHeader.text = "Select Education".localized
+            self.searchField.placeholder = "Search".localized
             EducationListAPI()
             
         }else if currencyLists {
@@ -79,21 +79,21 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
             bankListAPI()
         }
         else if isForMajorEducationList {
-            self.customHeader.titleHeader.text = "Select Major Education"
+            self.customHeader.titleHeader.text = "Select Major".localized
             print("majorDict-", self.selectedOLDCountryDict)
             let array =  selectedOLDCountryDict.object(forKey: "list_value") as! NSArray
             self.countryListArray = NSMutableArray(array: array)
             self.tableVw.reloadData()
             
         }else if isFromCountryMobileCode {
-            self.customHeader.titleHeader.text = "Select Country"
-            self.searchField.placeholder = "Enter Country Name"
+            self.customHeader.titleHeader.text = "Select Country".localized
+            self.searchField.placeholder = "Enter Country Name".localized
             
             countryAPI()
             
         }else if isFromCountryPhoneCode {
-            self.customHeader.titleHeader.text = "Select Country"
-            self.searchField.placeholder = "Enter Country Name"
+            self.customHeader.titleHeader.text = "Select Country".localized
+            self.searchField.placeholder = "Enter Country Name".localized
             
             countryAPI()
             
@@ -120,7 +120,7 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
         searchVw.layer.borderWidth = 1.0
         searchVw.layer.cornerRadius = 5.0
         
-        self.searchField.attributedPlaceholder = NSAttributedString(string: "Type here", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 126.0/255.0, green: 139.0/255.0, blue: 152.0/255.0, alpha: 1.0)])
+        self.searchField.attributedPlaceholder = NSAttributedString(string: "Search".localized, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 126.0/255.0, green: 139.0/255.0, blue: 152.0/255.0, alpha: 1.0)])
         
         self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         self.navigationController?.isNavigationBarHidden = true

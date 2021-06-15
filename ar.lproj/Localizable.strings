@@ -281,7 +281,25 @@
 
 /////////////////////////             TAP PAYMENT
 
-
+//new
+"Change Password" = "تغيير كلمة المرور";
+"Password" = "كلمة المرور";
+"Services " = "تحديد الخدمات";
+"Camera" = "الكاميرا";
+"Select Major" = "إختر التخصص";
+"Select Country" = "إختر البلد";
+"Enter Country Name" = "أدخل اسم البلد";
+"Select City" = "إختر المدينة";
+"Enter City Name" = "أدخل اسم المدينة";
+"This is Sample image" = "هذه صورة رمزية";
+"Please Select Language" = "قم بتحديد اللغة";
+"Please select languages you can speak and write" = "الرجاء تحديد اللغات التي تجيدها تحدثاً وكتابة";
+"Target End Date" = "تاريخ الإنتهاء";
+"Enter Registered VAT Number" = "أدخل الرقم الضريبي";
+"No" = "لا";
+"Yes" = "نعم";
+"Retake" = "إعادة إلتقاط";
+"Use Photo" = "إستمرار";
 // dataEntry
 
 "Accept Order" = "قبول الطلب";
@@ -320,7 +338,7 @@
 "User Policy" = "سياسة المستخدم";
 "Are you registered in VAT?" = " هل تم التسجيل في ضريبة القيمة المضافة؟";
 "Verification"="التحقق";
-"Upload VAT Registration Certificate" = "ارفع شهادة التسجيل بضريبة القيمة المضافة";
+"Upload VAT Registration Certificate" = "أرفق شهادة تسجيل ضريبة القيمة المضافة";
 "A to Z"="تصاعدي";
 "Z to A"="تنازلي";
 "Lowest to Highest Price"="من الأقل إلى الأعلى سعراً";
@@ -514,7 +532,7 @@
 //Sign Up
 "Welcome, Let's Create An Account"="مرحبا، أنشئ حسابك الآن";
 "Business Owner"="صاحب عمل";
-"User Policy"="سياسة المستخدم";
+"User Policy"="سياسة الإستخدام";
 "Login"="دخول";
 
 //"I'v Agreed to the user policy"
@@ -526,22 +544,22 @@
 //Profile Page
 "VAT Number" = "الرقم الضريبي";
 "Agent Personal" = "وكيل - شخص";
-"Gender" = "لجنس";
+"Gender" = "الجنس";
 "Dob" = "تاريخ الميلاد";
 "Education" = "التعليم";
-"Major" = "لتخصص";
+"Major" = "التخصص";
 "Services" = "تحديد الخدمات";
 "Basic Information" = "المعلومات الاساسية";
-"Personal Information" = "بيانات الوكيل - شخص";
+"Personal Information" = "البيانات الشخصية";
 "Mobile Number" = "رقم الجوال";
 "Bank Detail" = "تفاصيل الحساب البنكي";
 "IBAN Number" = "رقم الآيبان";
 "Bank Name" = "اسم البنك";
 "Card Holder Name" = "الاسم كما يظهر في بطاقة الصراف";
 "Vat Information" = "بيانات ضريبة القيمة المضافة";
-"Password Information" = "Password Information";
+"Password Information" = "إعدادات كلمة المرور";
 "Language Information" = "لغات التحدث";
-"Vat Certificate" = "Vat Certificate";
+"Vat Certificate" = "شهادة ضريبة القيمة المضافة";
 
 
 "Profile"="الملف الشخصي";
@@ -552,7 +570,7 @@
 "Likes"="الإعجابات";
 "Edit Profile"="تحرير الملف الشخصي";
 "Current Password"="كلمة المرور الحالية";
-"New Password"="كلمة مرور جديدة";
+"New Password"="كلمة المرور الجديدة";
 "Confirm Password"="تأكيد كلمة المرور";
 
   
@@ -582,7 +600,7 @@
 "Settings" = "لإعدادات";
 "Wallet" = "لمحفظة";
 "Service Requests" = "طلبات الخدمات";
-"Available Amount" = "المبلغ المتاح";
+"Available Amount" = "الرصيد المتوفر";
 "Hello"="مرحباً";
 "ID"="رقم المعرف";
 "Home"="الرئيسية";
@@ -632,18 +650,19 @@
 "please select logo." = "please select logo." ;
 "please select a service." = "please select a service.";
 "please select minimum one service." = "please select minimum one service." ;
-"Select - Date of Birth" = "Select - Date of Birth";
-"Done" = "Done" ;
+"Select - Date of Birth" = "تحديد تاريخ الميلاد";
+"Done" = "تم" ;
 "Please select education first" = "Please select education first";
 "Please select country first" = "Please select country first" ;
 "Email Sent Success" = "Email Sent Success" ;
 "I've agreed to the" = "أوافق على";
 "SA" = "SA";
-"Male" = "Male";
-"Female" = "Female" ;
+"Male" = "ذكر";
+"Female" = "أنثى" ;
 "Warranty & Support" = "Warranty & Support";
 "Product Description" = "Product Description";
-
+"Select Education" = "إختر مستوى التعليم";
+"Enter Language" = "";
 
 // subscriptionPackage List
 "Welcome, Let's Select Your Plan" = "مرحبا، لنختار الباقة المناسبة لك";
@@ -961,8 +980,7 @@
 "100" = "100";
 "0" = "0";
 "Are you sure you want to activate the discount ?";
-"No" = "No";
-"Yes" = "Yes";
+
 "Are you sure you want to activate the discount ?" = "Are you sure you want to activate the discount ?";
 "No discount found." = "No discount found.";
 "You can not apply this discount." = "You can not apply this discount." ;

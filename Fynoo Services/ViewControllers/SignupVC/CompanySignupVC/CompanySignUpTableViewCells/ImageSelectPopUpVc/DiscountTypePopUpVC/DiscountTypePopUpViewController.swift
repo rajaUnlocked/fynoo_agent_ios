@@ -18,7 +18,7 @@ class DiscountTypePopUpViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var discountHeaderLbl: UILabel!
     
-    var Arr = ["Take Photo".localized,"Device Gallery".localized]
+    var Arr = ["Camera".localized,"Device Gallery".localized]
     var images : [UIImage] = [#imageLiteral(resourceName: "camera_picture"),#imageLiteral(resourceName: "galery_Picture")]
     
     override func viewDidLoad() {
