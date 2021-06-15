@@ -270,7 +270,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     
     func getProfileData(){
         let parameter = ["user_id":"\(Singleton.shared.getUserId())",
-        "lang_code":"EN"]
+                         "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
         ServerCalls.postRequest(Service.getProfile, withParameters: parameter) { [self] (response, success) in
             if let value = response as? NSDictionary{
                 let error = value.object(forKey: "error") as! Int
