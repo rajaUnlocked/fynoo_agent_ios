@@ -50,6 +50,7 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
         customHeader.backButton.isHidden = true
         self.customHeader.titleHeader.text = "Please Select Language".localized
         self.searchField.placeholder = "Search".localized
+        self.headerLbl.text = "Please select languages you can speak and write".localized
         languageListAPI()
         
         print(selectedArray,"dhf")
