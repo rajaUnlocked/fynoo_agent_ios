@@ -282,7 +282,24 @@
 
 
 /////////////////////////             TAP PAYMENT             /////////////////////////
-
+//new
+"Change Password" = "Change Password";
+"Password" = "Password";
+"Services " = "Services ";
+"Camera" = "Camera";
+"Select Major" = "Select Major";
+"Select Country" = "Select Country";
+"Enter Country Name" = "Enter Country Name";
+"Select City" = "Select City";
+"Enter City Name" = "Enter City Name";
+"This is Sample image" = "This is Sample image";
+"Please Select Language" = "Please Select Language";
+"Enter Language" = "Enter Language";
+"Please select languages you can speak and write" = "Please select languages you can speak and write";
+"Target End Date" = "Target End Date";
+"Enter Registered VAT Number" = "Enter Registered VAT Number";
+"Retake" = "Retake";
+"Use Photo" = "Use Photo";
 // Target
 
 "Target" = "Target";
@@ -466,6 +483,7 @@
 "SA" = "SA";
 "Male" = "Male";
 "Female" = "Female" ;
+"Select Education" = "Select Education";
 
 
 //Side menu

@@ -36,10 +36,10 @@ extension Bundle {
         if let name = tableName, name == "CameraUI"{
             let values = NSLocalizedString(key, comment: name)
             if values == "API_CANCEL_TITLE" {
-                return "Cancel"
+                return "Cancel".localized
             }
             if values == "USE_PHOTO" {
-                return "USE PHOTO"
+                return "USE PHOTO".localized
             }
        //     print("value \(values)")
             return values

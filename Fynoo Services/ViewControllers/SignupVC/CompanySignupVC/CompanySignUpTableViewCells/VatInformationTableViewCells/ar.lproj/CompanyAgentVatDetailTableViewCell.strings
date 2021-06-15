@@ -1,9 +1,9 @@
 
 /* Class = "UILabel"; text = "Uploaded VAT Certificate"; ObjectID = "2Jo-mD-abC"; */
-"2Jo-mD-abC.text" = "Uploaded VAT Certificate";
+"2Jo-mD-abC.text" = "إرفاق شهادة الضريبة";
 
 /* Class = "UITextField"; placeholder = "Enter Your VAT Number"; ObjectID = "6pv-DS-Dlk"; */
-"6pv-DS-Dlk.placeholder" = "أدخل رقم ضريبة القيمة المضافة";
+"6pv-DS-Dlk.placeholder" = "أدخل الرقم الضريبي";
 
 /* Class = "UILabel"; text = "Add"; ObjectID = "9aE-Hl-nHp"; */
 "9aE-Hl-nHp.text" = "إضافة";

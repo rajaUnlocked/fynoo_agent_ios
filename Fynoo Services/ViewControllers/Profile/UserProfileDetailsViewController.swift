@@ -62,7 +62,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     var personalDetail = ["Name","Gender","Dob","Education","Major"]
     var basicInfo = ["Business Name","Email","Country","City","Mobile Number","Phone Number","Maroof Link"]
     var bankDetail = ["IBAN Number","Bank Name","Card Holder Name"]
-    var sectionHeading = ["","Services","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
+    var sectionHeading = ["","Services ","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
     var pdfVat = ""
     var userType = ""
 
@@ -308,7 +308,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                         
                         if self.isPersonal{
                             self.basicInfo = ["Email","Country","City","Mobile Number","Maroof Link"]
-                            self.sectionHeading = ["","Services","Personal Information","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
+                            self.sectionHeading = ["","Services ","Personal Information","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
                              }
                         
                         self.agentInfo.name = self.profileInfo?.data?.user_data?.name ?? ""
@@ -774,7 +774,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                    {
                        cell.isUserInteractionEnabled = true
                    }
-        cell.entryLbl.attributedText = ModalController.setStricColor(str: "Password *", str1: "Password", str2:" *" )
+        cell.entryLbl.attributedText = ModalController.setStricColor(str: "\("Password".localized) *", str1: "\("Password".localized)", str2:" *" )
         cell.selectionStyle = .none
         cell.widthImg.constant = 0
         cell.codeBtn.isHidden = true
