@@ -355,6 +355,10 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     self.vehicleName_API(brandid: (self.servicelist?.data?.vehicle_brand_id)!)
                    
                 }
+                else
+                {
+                    ModalClass.stopLoadingAllLoaders(self.view)
+                }
                 self.tabvw.reloadData()
                
             }
@@ -836,12 +840,15 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             service.isType = sender.tag + 1
             service.sendforapproval = "0"
             if imglocalArr[sender.tag] == nil{
-                service.docfilereg = documentlocalArr[2]
-                service.docfile = documentlocalArr[4]
+                service.docfilereg.removeAll()
+                service.docfilereg.append(documentlocalArr[2]!)
+                service.docfilereg.append(documentlocalArr[4]!)
             }
             else{
-                service.imgfilereg = imglocalArr[2]
-                service.imgfile = imglocalArr[4]
+                service.imagefile.removeAll()
+                service.imagefile.append(imglocalArr[2]!)
+                service.imagefile.append(imglocalArr[4]!)
+   
             }
         }
         else
@@ -872,10 +879,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             service.isType = sender.tag + 1
             service.sendforapproval = "0"
             if imglocalArr[sender.tag] == nil{
-                service.docfile = documentlocalArr[sender.tag]
+                service.docfilereg.removeAll()
+                service.docfilereg.append(documentlocalArr[sender.tag]!)
             }
             else{
-                service.imgfile = imglocalArr[sender.tag]
+                service.imagefile.removeAll()
+                service.imagefile.append(imglocalArr[sender.tag]!)
             }
         }
         print(sender.tag)

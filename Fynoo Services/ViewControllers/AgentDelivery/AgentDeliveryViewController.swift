@@ -264,7 +264,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     @objc func clickedservicedoc(_ sender: UIButton)
     {
      let vc = DeliveryDocumentViewController(nibName: "DeliveryDocumentViewController", bundle: nil)
-     // vc.primaryid = self.deliverData?.data?.agent_information?.dsd_id ?? 0
+     vc.primaryid = self.deliverData?.data?.agent_information?.dsd_id ?? 0
      self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc func switchClicked(_ sender: UIButton){
