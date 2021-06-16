@@ -1,0 +1,6 @@
+
+/* Class = "UILabel"; text = "OTP"; ObjectID = "BHc-NZ-U09"; */
+"BHc-NZ-U09.text" = "OTP";
+
+/* Class = "UILabel"; text = "Verify your order confirmation by customer share the OTP"; ObjectID = "IEz-hG-DH5"; */
+"IEz-hG-DH5.text" = "Enter OTP given by the customer \nto verify your order confirmation.";

@@ -10,7 +10,10 @@ import UIKit
 import GoogleMaps
 import ObjectMapper
 import Cosmos
-class SearchedProductDeatailViewC: UIViewController {
+import MapKit
+import CoreLocation
+
+class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate {
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var mapVw: GMSMapView!
@@ -37,6 +40,8 @@ class SearchedProductDeatailViewC: UIViewController {
     var latitude = 0.0
     var longitude = 0.0
     let marker = GMSMarker()
+    var currentLocation : CLLocationCoordinate2D!
+    var markers = [GMSMarker]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,16 +80,98 @@ class SearchedProductDeatailViewC: UIViewController {
         
         
         
-        //OPEN MAP
-        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
-            UIApplication.shared.openURL(URL(string:"comgooglemaps://?saddr=&daddr=\(latitude),\(longitude)&directionsmode=driving")!)
-        }
-        else {
-            print("Can't use comgooglemaps://");
-            ModalController.showNegativeCustomAlertWith(title: "Please install Google Maps to start navigation", msg: "")
-        }
+        self.locationManager.requestWhenInUseAuthorization()
+              if CLLocationManager.locationServicesEnabled() {
+                  locationManager.delegate = self
+                  locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+
+                  locationManager.startUpdatingLocation()
+              }
+
+        mapVw.delegate = self
+
+
+          
+         
+    if HeaderHeightSingleton.shared.longitude == 0.0 {
+                ModalController.showNegativeCustomAlertWith(title: "Please turn on your location services for navigation", msg: "")
+            }else{
+             
+                //OPEN MAP
+                if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+                    UIApplication.shared.openURL(URL(string:"comgooglemaps://?saddr=&daddr=\(latitude),\(longitude)&directionsmode=driving")!)
+                }
+                else {
+                    print("Can't use comgooglemaps://");
+                    ModalController.showNegativeCustomAlertWith(title: "Please install Google Maps to start navigation", msg: "")
+                }
+            }
+            
+        
+//
+//
+//        //OPEN MAP
+//        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+//            UIApplication.shared.openURL(URL(string:"comgooglemaps://?saddr=&daddr=\(latitude),\(longitude)&directionsmode=driving")!)
+//        }
+//        else {
+//            print("Can't use comgooglemaps://");
+//            ModalController.showNegativeCustomAlertWith(title: "Please install Google Maps to start navigation", msg: "")
+//        }
     }
     
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+             self.loadMapView()
+
+    }
+    
+    
+    func loadMapView() {
+        
+        
+        let agentLat = Double.getDouble(tripDetail?.data?.trip_details?.agent_lat)
+                 let agentLng = Double.getDouble(tripDetail?.data?.trip_details?.agent_long)
+                 let branch_lat = Double.getDouble(tripDetail?.data?.trip_details?.bo_lat)
+                 let branch_long = Double.getDouble(tripDetail?.data?.trip_details?.bo_long)
+                 let custLat = Double.getDouble(tripDetail?.data?.trip_details?.cust_lat)
+                 let custLng = Double.getDouble(tripDetail?.data?.trip_details?.cust_long)
+        
+        let camera = GMSCameraPosition.camera(withLatitude: agentLat, longitude: agentLng, zoom: 18.0)
+        self.mapVw = GMSMapView.map(withFrame:  self.view.bounds, camera: camera)
+        self.mapVw?.animate(toViewingAngle: 18)
+        self.mapVw?.delegate = self
+        self.mapVw?.isTrafficEnabled = true
+//        self.containerMapView.addSubview(self.mapVw!)
+
+         let cust_marker: GMSMarker = GMSMarker() // Allocating Marker
+         cust_marker.icon = UIImage(named: "home") // Marker icon
+        let cust_location  = CLLocationCoordinate2D(latitude: custLat, longitude: custLng)
+         cust_marker.position = cust_location // CLLocationCoordinate2D
+         cust_marker.map = self.mapVw // Setting marker on Mapview
+        markers.append(cust_marker)
+        
+        let agent_marker: GMSMarker = GMSMarker() // Allocating Marker
+        agent_marker.icon = UIImage(named: "suv") // Marker icon
+        let agent_location  = CLLocationCoordinate2D(latitude: agentLat, longitude: agentLng)
+        agent_marker.position = agent_location // CLLocationCoordinate2D
+        agent_marker.map = self.mapVw // Setting marker on Mapview
+        markers.append(agent_marker)
+
+        let branch_marker: GMSMarker = GMSMarker() // Allocating Marker
+        branch_marker.icon = UIImage(named: "nearestBranchMapLocation") // Marker icon
+        branch_marker.appearAnimation = .pop // Appearing animation. default
+        let branch_location  = CLLocationCoordinate2D(latitude: branch_lat, longitude: branch_long)
+        branch_marker.position = branch_location // CLLocationCoordinate2D
+        branch_marker.map = self.mapVw // Setting marker on Mapview
+        markers.append(branch_marker)
+   
+//        self.setMarkerBoundsOnMap()
+        self.mapVw?.drawPolygon(from: agent_location, to: branch_location)
+        self.mapVw?.drawPolygon(from: branch_location, to: cust_location)
+               
+     }
     
     func getTripDetail(){
         

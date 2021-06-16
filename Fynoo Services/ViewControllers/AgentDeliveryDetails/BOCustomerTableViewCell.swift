@@ -22,7 +22,9 @@ class BOCustomerTableViewCell: UITableViewCell {
     @IBOutlet weak var order_price : UILabel!
     @IBOutlet weak var lblCurrencyCode : UILabel!
     @IBOutlet weak var imgPaymentIcon : UIImageView!
-
+    @IBOutlet weak var lblTotalAcceptedOrder: UILabel!
+    @IBOutlet weak var lblTotalOrder: UILabel!
+    
    
     override func awakeFromNib() {
         super.awakeFromNib()

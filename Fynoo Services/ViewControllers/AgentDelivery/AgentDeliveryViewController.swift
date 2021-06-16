@@ -303,10 +303,10 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     
     func navigationClicked(_ sender: Any) {
         
-//      let vc = AgentDeliveryDetailViewController()
+      let vc = AgentDeliveryDetailViewController()
         
-        let vc = SearchedProductDeatailViewC()
-        
+//        let vc = SearchedProductDeatailViewC()
+        vc.tripId = deliverData?.data?.agent_information?.id ?? 0
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -435,10 +435,33 @@ extension AgentDeliveryViewController : UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
-                let vc = ProductDetailsViewC()
-        //        vc.serviceID = ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any)
+        
+        if indexPath.section == 1 {
+            
+            if (tripListListArray?[indexPath.row].status) == 1  {
+                let vc = OtpForCodViewC()
+                vc.orderId = tripListListArray?[indexPath.row].order_id ?? ""
                 self.navigationController?.pushViewController(vc, animated: true)
+            }else
+            {
+            let vc = ProductDetailsViewC()
+            vc.orderId = tripListListArray?[indexPath.row].order_id ?? ""
+                
+//                ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any)
+            self.navigationController?.pushViewController(vc, animated: true)
+         }
+        }
+             
+        
+//        if isTypeFrom == "CustomerProDetail"{
+//            let vc = VariantPRoductsViewController(nibName: "VariantPRoductsViewController", bundle: nil)
+//                  vc.productId = "\(self.varientCustomerProductList?.data?.pro_id ?? 0)"
+//                parent.navigationController?.pushViewController(vc, animated: true)
+//        }else{
+//            let vc = VariantPRoductsViewController(nibName: "VariantPRoductsViewController", bundle: nil)
+//            vc.productId = "\(self.varientProductList?.data?.pro_id ?? 0)"
+//            parent.navigationController?.pushViewController(vc, animated: true)
+//        }
      
     }
     

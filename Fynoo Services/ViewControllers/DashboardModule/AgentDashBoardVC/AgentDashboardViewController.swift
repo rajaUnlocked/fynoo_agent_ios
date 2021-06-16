@@ -45,6 +45,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     var latitude = 0.0
     var longitude = 0.0
     var userAddressStr = ""
+    var isNewLogin : Bool = false
     var ResponseDict : NSDictionary = NSDictionary()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         addUIRefreshToTable()
         walletHeightConst.constant = 0
         walletvw.isHidden = true
+        saveFcmTokenToServer_API()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,6 +90,34 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
            }
        }
 
+    // MARK: - save fcm Token
+    
+    func saveFcmTokenToServer_API()
+    {
+        let device_id = UIDevice.current.identifierForVendor!.uuidString
+        let str = "\(Constant.BASE_URL)\(Constant.firebase_token)"
+        let parameters = [
+            "user_id":Singleton.shared.getUserId(),
+            "device_id":device_id,
+            "device_type":"ios",
+            "firebase_token":"\(ModalController.getTheContentForKey("fcmtoken")!)",
+            "lang_code":HeaderHeightSingleton.shared.LanguageSelected
+        ]
+        
+        print("request -",parameters)
+        ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
+            if let value = response as? NSDictionary{
+                let msg = value.object(forKey: "error_description") as! String
+                let error = value.object(forKey: "error_code") as! Int
+                if error == 100{
+                }else{
+                    self.isNewLogin = false
+                }
+            }
+        }
+    }
+    
+    
     // MARK: - get location
     func getUserLocation() {
         self.locationManager.requestWhenInUseAuthorization()
