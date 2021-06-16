@@ -598,10 +598,8 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
             if success == true {
                 
                 self.Reset_Password = try! JSONDecoder().decode(ResetPassword.self, from: resp as! Data)
-                
-           
-                    
-                    if self.Reset_Password?.error_description == "Success"
+                                    
+                    if self.Reset_Password?.error == false
                     {
                         ModalController.showSuccessCustomAlertWithoutImage(title: "", msg: (self.Reset_Password?.error_description)!)
                         for controller in self.navigationController!.viewControllers as Array {
