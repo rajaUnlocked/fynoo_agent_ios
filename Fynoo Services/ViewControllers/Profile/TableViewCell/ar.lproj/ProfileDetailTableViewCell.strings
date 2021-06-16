@@ -12,7 +12,7 @@
 "idc-k1-qz5.text" = "تحرير الملف الشخصي";
 
 /* Class = "UILabel"; text = "Likes"; ObjectID = "ivS-Ek-22v"; */
-"ivS-Ek-22v.text" = "لإعجابات";
+"ivS-Ek-22v.text" = "الإعجابات";
 
 /* Class = "UILabel"; text = "Agent Company"; ObjectID = "p4t-zh-GvE"; */
 "p4t-zh-GvE.text" = "وكيل - شركة";
