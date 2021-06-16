@@ -497,7 +497,7 @@ extension BankAllListViewController : UITableViewDataSource{
 //                    let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentProgressTableViewCell", for: indexPath) as! PaymentProgressTableViewCell
 //                    return cell
                     let cell = tableView.dequeueReusableCell(withIdentifier: "WalletTransferReqNewTableViewCell", for: indexPath) as! WalletTransferReqNewTableViewCell
-                    
+                    cell.statuslbl.text = "\("Status".localized):"
                     if bankTransferType == 2 {
                         
                         cell.titleLbl.text = "\((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_remarks") as! String)"
@@ -515,6 +515,7 @@ extension BankAllListViewController : UITableViewDataSource{
                         cell.rejectedLbl.textColor = UIColor(red: 43/256, green: 163/256, blue: 215/256, alpha: 1.0)
                         cell.reasonVw.isHidden = true
                         cell.infoWidth.constant = 0
+                        
                     }
                     
                     else{

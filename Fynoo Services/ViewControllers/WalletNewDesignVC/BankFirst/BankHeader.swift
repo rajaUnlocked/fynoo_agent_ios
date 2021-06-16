@@ -88,7 +88,7 @@ class BankHeader: UIView {
             else{
                 searchField.textAlignment = .left
             }
-            searchField.attributedPlaceholder = NSAttributedString(string: "Search Transactions".localized,
+            searchField.attributedPlaceholder = NSAttributedString(string: "Recent Transaction".localized,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
             let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
                   let fontNameLight = NSLocalizedString("LightFontName", comment: "")

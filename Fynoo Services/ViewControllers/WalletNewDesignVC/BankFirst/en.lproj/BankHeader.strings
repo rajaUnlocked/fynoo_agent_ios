@@ -20,14 +20,17 @@
 /* Class = "UIButton"; normalTitle = "Email"; ObjectID = "WdB-MC-dic"; */
 "WdB-MC-dic.normalTitle" = "Email";
 
+/* Class = "UILabel"; text = "2"; ObjectID = "hC0-My-UFK"; */
+"hC0-My-UFK.text" = "2";
+
 /* Class = "UILabel"; text = "Payment in Progress"; ObjectID = "m4E-gc-76m"; */
 "m4E-gc-76m.text" = "Payment in Progress";
 
 /* Class = "UIButton"; normalTitle = "Wallet Balance"; ObjectID = "oC8-2L-3yK"; */
 "oC8-2L-3yK.normalTitle" = "Wallet Balance";
 
-/* Class = "UITextField"; placeholder = "Search Transactions"; ObjectID = "tzT-qR-Hq4"; */
-"tzT-qR-Hq4.placeholder" = "Search Transactions";
+/* Class = "UITextField"; placeholder = "Recent Transactions"; ObjectID = "tzT-qR-Hq4"; */
+"tzT-qR-Hq4.placeholder" = "Recent Transactions";
 
 /* Class = "UILabel"; text = "14,500.00"; ObjectID = "x8v-CK-med"; */
 "x8v-CK-med.text" = "14,500.00";
