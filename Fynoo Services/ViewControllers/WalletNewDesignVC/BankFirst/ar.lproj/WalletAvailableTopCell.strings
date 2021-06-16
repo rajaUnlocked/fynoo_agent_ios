@@ -6,7 +6,7 @@
 "n00-SO-rFw.text" = "";
 
 /* Class = "UILabel"; text = "Total Amount"; ObjectID = "ohW-ki-UJZ"; */
-"ohW-ki-UJZ.text" = "لرصيد الإجمالي";
+"ohW-ki-UJZ.text" = "المبلغ الإجمالي";
 
 /* Class = "UILabel"; text = "Send Money To Your Bank Account"; ObjectID = "t4y-xR-x2p"; */
 "t4y-xR-x2p.text" = "تحويل المبلغ من المحفظة إلى حسابك البنكي";
