@@ -39,6 +39,10 @@ class DataEntryAgentRatingViewController: UIViewController {
         self.agentNameLbl.text = self.agentName
         self.agentLanguageLbl.text = self.agentLanguage
         
+        let staticText = "How was your experience with".localized
+        
+        self.staticTxtLbl.text = "\(staticText) \(agentName)"
+        
         self.SetFont()
         
         ratingView.didFinishTouchingCosmos = {

@@ -282,6 +282,30 @@
 /////////////////////////             TAP PAYMENT
 
 //new
+
+
+"Do you want to opt for" = "هل تريد إضافة خدمة ";
+"service?" = "ضمن الخدمات التي تعمل عليها؟";
+"Are you sure you want to activate this service?" = "هل تريد استقبال طلبات هذه الخدمة؟";
+"Are you sure you want to deactivate this service?" = "هل تريد إيقاف استقبال طلبات هذه الخدمة؟";
+"Rejection Reason:" = ":سبب الرفض";
+"Are you sure you want accept the order?" = "هل تريد قبول هذا الطلب؟";
+"Are you sure you want to start the work?" = "هل تريد البدء في العمل؟";
+"Data Entry Sevice" = "خدمة إدخال البيانات";
+"Welcome, Let's Select Your Location" = "مرجباً، قم بتحديد موقع المتجر";
+"Add Your Business Location" = "قم بإضافة موقع المتجر";
+"LocationB" = "تحديد الموقع";
+"Name Of Mall & Market" = "اسم السوق أو المجمع";
+"Device Gallery" = "استوديو الجهاز";
+"Add your business hours to" = "قم بتحديد أوقات عمل";
+"it's easy for people to plan a visit." = "ليتمكن عملاؤك من زيارتك في الأوقات المحددة";
+"Do you want to submit your work?" = "هل تريد تسليم العمل؟";
+"Online" = "أونلاين";
+"Paid" = "تم الدفع";
+"How was your experience with" = "كيف كانت تجربتك مع";
+"Have you completed this task item?" = "هل تم إنجاز العمل؟";
+
+
 "Manage Your Wallet" = "إدارة المحفظة";
 "Search Transactions" = "Search Transactions";
 "Change Password" = "تغيير كلمة المرور";
@@ -296,7 +320,7 @@
 "This is Sample image" = "هذه صورة رمزية";
 "Please Select Language" = "قم بتحديد اللغة";
 "Please select languages you can speak and write" = "الرجاء تحديد اللغات التي تجيدها تحدثاً وكتابة";
-"Target End Date" = "تاريخ الإنتهاء";
+"Target End Date" = "ينتهي في";
 "Enter Registered VAT Number" = "أدخل الرقم الضريبي";
 "No" = "لا";
 "Yes" = "نعم";
@@ -316,7 +340,7 @@
 "Waiting List" = "قائمة الإنتظار";
 "Inprocess" = "قيد التنفيذ";
 "Completed" = "مكتملة";
-"Rejected" = "مرفوض";
+"Rejected" = "مرفوضة";
 "Order Id" = "رقم الطلب";
 "Sorry! No Order Found" = "عذراً! لاتوجد طلبات";
 "Service Orders" = "طلبات الخدمات";
@@ -331,13 +355,13 @@
 
 "Start Work" = "بدء العمل";
 "Submit your work" = "تسليم العمل";
-"Already Submitted" = "Already Submitted";
+"Already Submitted" = "تم تسليم العمل";
 "Amount to be paid for this order." = "قيمة تنفيذ الطلب";
 "Number of days for order completion." = "كم عدد الأيام المطلوبة لإنهاء العمل";
 "Holding" = "مبالغ معلقة";
 "please active" = "please active";
 "services to receive new order request." = "services to receive new order request.";
-"Paid" = "تم الدفع";
+
 
 //////////////////////////////
 
@@ -350,9 +374,8 @@
 "Lowest to Highest Price"="من الأقل إلى الأعلى سعراً";
 "Highest to Lowest Price"="من الأعلى إلى الأقل سعراً";
 
-"Take Photo" = "التقاط صورة";
+"Camera" = "الكاميرا";
 "Fynoo Gallery" = "مكتبة فينو";
-"Device Gallery" = "مكتبة الصور";
 "Drop Shipping Sales :  "="مبيعات :   Drop Shipping";
 "Drop Shipping Earning :  "="أرباح :   Drop Shipping";
 "Add Commission"="إضافة عمولة";
@@ -526,14 +549,14 @@
 // Business location
 
 "Welcome, Let's Select Your Plan"= "مرحبا ، دعنا نختار خطتك";
-"Store in Road"="متجر في الطريق";
+"Store on Road" = "متجر على الطريق";
 "Store in Mall"="متجر في مول";
 "Store in Market"= "متجر في السوق";
 "Save"="حفظ";
 "Cancel"= "إلغاء";
 "Location"="موقعك";
 "Add Business Location" = "إضافة موقع العمل";
-"Add Your Business Location"="قم بإضافة موقع عملك";
+
 
 //Sign Up
 "Welcome, Let's Create An Account"="مرحبا، أنشئ حسابك الآن";
@@ -800,7 +823,6 @@
 "Select Branch" = "اختر الفرع";
 "Description" = "وصف المنتج/الخدمة";
 "Product Availiblity" = "تواجد المنتج";
-"Online" = "عبر الانترنت";
 "In Store" = "في المتجر";
 "Product/Service Pictures" = "صور المنتج/الخدمة";
 "Main" = "الرئيسية";
@@ -808,9 +830,7 @@
 "Save As Draft" = "حفظ كمسودة";
 "Next" = "التالي";
 "Select Image From" = "اختر صورة من";
-"Take Photo" = "التقاط صورة";
 "Fynoo Gallery" = "مكتبة فينو";
-"Device Gallery" = "مكتبة الصور";
 "View Photo" = "مشاهدة الصورة";
 "View Images" = "مشاهدة الصور";
 "Status" = "الحالة";
@@ -1161,8 +1181,6 @@
 "No Product Found"="No Product Found";
 "View Images"="عرض الصورة";
 "Upload Images"="رفع الصور";
-"Take Photo"="التقاط صورة";
-"Device Gallery"="مكتبة الصور";
 "Fynoo Gallery"="Fynoo Gallery";
 "Check Out This Image"="Check Out This Image";
 "Are you sure you want to delete this image"="Are you sure you want to delete this image";

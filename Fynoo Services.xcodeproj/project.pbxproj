@@ -27,7 +27,6 @@
 		18C69293265527D400B7347B /* AgentDeliveryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C69291265527D400B7347B /* AgentDeliveryDetailViewController.xib */; };
 		2F0230BE2514902B004F1B0B /* DictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0230BD2514902A004F1B0B /* DictionaryExt.swift */; };
 		2F0230C22514E477004F1B0B /* CommonPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0230C02514E477004F1B0B /* CommonPopupViewController.swift */; };
-		2F0230C32514E477004F1B0B /* CommonPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0230C12514E477004F1B0B /* CommonPopupViewController.xib */; };
 		2F07D1A82505F89100193658 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07D1A42505F89100193658 /* Constant.swift */; };
 		2F07D1A92505F89100193658 /* ModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07D1A52505F89100193658 /* ModalController.swift */; };
 		2F07D1AA2505F89100193658 /* ModalClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07D1A62505F89100193658 /* ModalClass.swift */; };
@@ -350,7 +349,6 @@
 		CECEFA0B257773D00090D459 /* GetLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEFA07257773D00090D459 /* GetLocationViewController.xib */; };
 		CECEFA0C257773D00090D459 /* GetLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEFA09257773D00090D459 /* GetLocationViewController.swift */; };
 		CECEFA0F257782F70090D459 /* MallMarketPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEFA0D257782F70090D459 /* MallMarketPopupViewController.swift */; };
-		CECEFA10257782F70090D459 /* MallMarketPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEFA0E257782F70090D459 /* MallMarketPopupViewController.xib */; };
 		CECEFA13257783D80090D459 /* purchasedHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEFA11257783D80090D459 /* purchasedHeaderTableViewCell.swift */; };
 		CECEFA14257783D80090D459 /* purchasedHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEFA12257783D80090D459 /* purchasedHeaderTableViewCell.xib */; };
 		CECEFA1725779A2E0090D459 /* nextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEFA1525779A2E0090D459 /* nextTableViewCell.swift */; };
@@ -417,9 +415,7 @@
 		CECEFABF2577AF5F0090D459 /* SelectBusinesstypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEFABD2577AF5E0090D459 /* SelectBusinesstypeTableViewCell.swift */; };
 		CECEFAC02577AF5F0090D459 /* SelectBusinesstypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEFABE2577AF5F0090D459 /* SelectBusinesstypeTableViewCell.xib */; };
 		CECEFAC22577B18C0090D459 /* MallMarket.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEFAC12577B18C0090D459 /* MallMarket.swift */; };
-		CECEFAC52577C3790090D459 /* otherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEFAC32577C3790090D459 /* otherTableViewCell.xib */; };
 		CECEFAC62577C3790090D459 /* otherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEFAC42577C3790090D459 /* otherTableViewCell.swift */; };
-		CECEFAC92577C76A0090D459 /* marketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEFAC72577C76A0090D459 /* marketTableViewCell.xib */; };
 		CECEFACA2577C76A0090D459 /* marketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEFAC82577C76A0090D459 /* marketTableViewCell.swift */; };
 		CECEFAD42577D3140090D459 /* AllfiterHeaderTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = CECEFACC2577D3140090D459 /* AllfiterHeaderTableViewCell.strings */; };
 		CECEFAD52577D3140090D459 /* AllFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEFACF2577D3140090D459 /* AllFilterTableViewCell.xib */; };
@@ -653,6 +649,9 @@
 		F62E4B142514983A0021CEE0 /* ImageUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4B12251498390021CEE0 /* ImageUpload.swift */; };
 		F62E4B152514983A0021CEE0 /* BankIdentifierListModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4B132514983A0021CEE0 /* BankIdentifierListModal.swift */; };
 		F62E4B2225149B370021CEE0 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4B2125149B360021CEE0 /* DatePickerDialog.swift */; };
+		F6347D22267A2DFC006CC052 /* marketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6347D24267A2DFC006CC052 /* marketTableViewCell.xib */; };
+		F6347D2C267A2E3F006CC052 /* otherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6347D2E267A2E3F006CC052 /* otherTableViewCell.xib */; };
+		F6347D36267A2E79006CC052 /* MallMarketPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6347D38267A2E79006CC052 /* MallMarketPopupViewController.xib */; };
 		F635979825C66DFD003BF9E2 /* TripAchivementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F635979625C66DFD003BF9E2 /* TripAchivementCollectionViewCell.swift */; };
 		F635979925C66DFD003BF9E2 /* TripAchivementCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F635979725C66DFD003BF9E2 /* TripAchivementCollectionViewCell.xib */; };
 		F635979C25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F635979A25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift */; };
@@ -791,6 +790,7 @@
 		F68B78E42653ADE800B1E69E /* UserPolicyWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68B78E22653ADE800B1E69E /* UserPolicyWebViewController.xib */; };
 		F6A5FB99259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A5FB98259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift */; };
 		F6B14CA8251B387300F9F03E /* VatInfoModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B14CA7251B387200F9F03E /* VatInfoModal.swift */; };
+		F6FC007C267A1573008AF6DD /* CommonPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6FC007E267A1573008AF6DD /* CommonPopupViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -832,7 +832,6 @@
 		18C69291265527D400B7347B /* AgentDeliveryDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentDeliveryDetailViewController.xib; sourceTree = "<group>"; };
 		2F0230BD2514902A004F1B0B /* DictionaryExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExt.swift; sourceTree = "<group>"; };
 		2F0230C02514E477004F1B0B /* CommonPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPopupViewController.swift; sourceTree = "<group>"; };
-		2F0230C12514E477004F1B0B /* CommonPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonPopupViewController.xib; sourceTree = "<group>"; };
 		2F07D1A42505F89100193658 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		2F07D1A52505F89100193658 /* ModalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalController.swift; sourceTree = "<group>"; };
 		2F07D1A62505F89100193658 /* ModalClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalClass.swift; sourceTree = "<group>"; };
@@ -1224,7 +1223,6 @@
 		CECEFA08257773D00090D459 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GetLocationViewController.xib; sourceTree = "<group>"; };
 		CECEFA09257773D00090D459 /* GetLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLocationViewController.swift; sourceTree = "<group>"; };
 		CECEFA0D257782F70090D459 /* MallMarketPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MallMarketPopupViewController.swift; sourceTree = "<group>"; };
-		CECEFA0E257782F70090D459 /* MallMarketPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MallMarketPopupViewController.xib; sourceTree = "<group>"; };
 		CECEFA11257783D80090D459 /* purchasedHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = purchasedHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		CECEFA12257783D80090D459 /* purchasedHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = purchasedHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		CECEFA1525779A2E0090D459 /* nextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nextTableViewCell.swift; sourceTree = "<group>"; };
@@ -1300,9 +1298,7 @@
 		CECEFABD2577AF5E0090D459 /* SelectBusinesstypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectBusinesstypeTableViewCell.swift; sourceTree = "<group>"; };
 		CECEFABE2577AF5F0090D459 /* SelectBusinesstypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectBusinesstypeTableViewCell.xib; sourceTree = "<group>"; };
 		CECEFAC12577B18C0090D459 /* MallMarket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MallMarket.swift; sourceTree = "<group>"; };
-		CECEFAC32577C3790090D459 /* otherTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = otherTableViewCell.xib; sourceTree = "<group>"; };
 		CECEFAC42577C3790090D459 /* otherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = otherTableViewCell.swift; sourceTree = "<group>"; };
-		CECEFAC72577C76A0090D459 /* marketTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = marketTableViewCell.xib; sourceTree = "<group>"; };
 		CECEFAC82577C76A0090D459 /* marketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = marketTableViewCell.swift; sourceTree = "<group>"; };
 		CECEFACD2577D3140090D459 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/AllfiterHeaderTableViewCell.strings; sourceTree = "<group>"; };
 		CECEFACE2577D3140090D459 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AllfiterHeaderTableViewCell.strings; sourceTree = "<group>"; };
@@ -1565,6 +1561,17 @@
 		F62E4B12251498390021CEE0 /* ImageUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUpload.swift; sourceTree = "<group>"; };
 		F62E4B132514983A0021CEE0 /* BankIdentifierListModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankIdentifierListModal.swift; sourceTree = "<group>"; };
 		F62E4B2125149B360021CEE0 /* DatePickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
+		F6347D23267A2DFC006CC052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/marketTableViewCell.xib; sourceTree = "<group>"; };
+		F6347D29267A2E07006CC052 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/marketTableViewCell.strings; sourceTree = "<group>"; };
+		F6347D2B267A2E0B006CC052 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/marketTableViewCell.strings; sourceTree = "<group>"; };
+		F6347D2D267A2E3F006CC052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/otherTableViewCell.xib; sourceTree = "<group>"; };
+		F6347D30267A2E46006CC052 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/otherTableViewCell.strings; sourceTree = "<group>"; };
+		F6347D32267A2E4A006CC052 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/otherTableViewCell.strings; sourceTree = "<group>"; };
+		F6347D37267A2E79006CC052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MallMarketPopupViewController.xib; sourceTree = "<group>"; };
+		F6347D3A267A2E81006CC052 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MallMarketPopupViewController.strings; sourceTree = "<group>"; };
+		F6347D3C267A2E85006CC052 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/MallMarketPopupViewController.strings; sourceTree = "<group>"; };
+		F6347D40267A3303006CC052 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BusinessTimesheet1PopupViewController.strings; sourceTree = "<group>"; };
+		F6347D41267A3307006CC052 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BusinessTimesheet1PopupViewController.strings; sourceTree = "<group>"; };
 		F635979625C66DFD003BF9E2 /* TripAchivementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripAchivementCollectionViewCell.swift; sourceTree = "<group>"; };
 		F635979725C66DFD003BF9E2 /* TripAchivementCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripAchivementCollectionViewCell.xib; sourceTree = "<group>"; };
 		F635979A25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDashboardHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1747,6 +1754,9 @@
 		F68B78E22653ADE800B1E69E /* UserPolicyWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserPolicyWebViewController.xib; sourceTree = "<group>"; };
 		F6A5FB98259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionBuyPaymentMethod.swift; sourceTree = "<group>"; };
 		F6B14CA7251B387200F9F03E /* VatInfoModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatInfoModal.swift; sourceTree = "<group>"; };
+		F6FC007D267A1573008AF6DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CommonPopupViewController.xib; sourceTree = "<group>"; };
+		F6FC0080267A1577008AF6DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CommonPopupViewController.strings; sourceTree = "<group>"; };
+		F6FC0082267A157A008AF6DD /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CommonPopupViewController.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1835,7 +1845,7 @@
 			isa = PBXGroup;
 			children = (
 				2F0230C02514E477004F1B0B /* CommonPopupViewController.swift */,
-				2F0230C12514E477004F1B0B /* CommonPopupViewController.xib */,
+				F6FC007E267A1573008AF6DD /* CommonPopupViewController.xib */,
 			);
 			path = CommonPopupVC;
 			sourceTree = "<group>";
@@ -2564,7 +2574,7 @@
 				CECEFAB32577AB240090D459 /* DeliveryPopupViewController.swift */,
 				CECEFAB42577AB240090D459 /* DeliveryPopupViewController.xib */,
 				CECEFA0D257782F70090D459 /* MallMarketPopupViewController.swift */,
-				CECEFA0E257782F70090D459 /* MallMarketPopupViewController.xib */,
+				F6347D38267A2E79006CC052 /* MallMarketPopupViewController.xib */,
 				CECEF8C12577575B0090D459 /* TimeSheetPOpUpViewController.swift */,
 				CECEF8C22577575B0090D459 /* deleterowTableViewCell.strings */,
 				CECEF8C42577575B0090D459 /* addrowTableViewCell.strings */,
@@ -2829,9 +2839,9 @@
 			children = (
 				CECEFAD92577D4CC0090D459 /* NewInventoryManageModel.swift */,
 				CECEFAC82577C76A0090D459 /* marketTableViewCell.swift */,
-				CECEFAC72577C76A0090D459 /* marketTableViewCell.xib */,
+				F6347D24267A2DFC006CC052 /* marketTableViewCell.xib */,
 				CECEFAC42577C3790090D459 /* otherTableViewCell.swift */,
-				CECEFAC32577C3790090D459 /* otherTableViewCell.xib */,
+				F6347D2E267A2E3F006CC052 /* otherTableViewCell.xib */,
 				CECEFAC12577B18C0090D459 /* MallMarket.swift */,
 				CECEFABD2577AF5E0090D459 /* SelectBusinesstypeTableViewCell.swift */,
 				CECEFABE2577AF5F0090D459 /* SelectBusinesstypeTableViewCell.xib */,
@@ -4023,7 +4033,7 @@
 				F680D644259B7C2C007EB12C /* DataEntryPricePayTableViewCell.strings in Resources */,
 				CEDD333625765BBA00023977 /* SelectMultipleBranchesNewDesignViewController.strings in Resources */,
 				F680D624259B7C2C007EB12C /* DataEntryTypelistingViewController.xib in Resources */,
-				CECEFA10257782F70090D459 /* MallMarketPopupViewController.xib in Resources */,
+				F6347D36267A2E79006CC052 /* MallMarketPopupViewController.xib in Resources */,
 				F44E35B6251CACBC002E41E2 /* DataBankHeader.xib in Resources */,
 				CEDD330825765A7400023977 /* QRCOdeViewController.xib in Resources */,
 				CEE35789250740800097069D /* Roboto-Medium.ttf in Resources */,
@@ -4076,7 +4086,7 @@
 				CECEFA982577A2C90090D459 /* ExteriorTableViewCell.xib in Resources */,
 				F680D672259B7C2C007EB12C /* DECancellationTableViewCell.strings in Resources */,
 				CEDD333425765BBA00023977 /* SelectSubCat.xib in Resources */,
-				CECEFAC52577C3790090D459 /* otherTableViewCell.xib in Resources */,
+				F6347D2C267A2E3F006CC052 /* otherTableViewCell.xib in Resources */,
 				2F8463DC250F6EBC0084EB32 /* LoginIntroSecond.strings in Resources */,
 				F6547ABB25DE594A00171862 /* DEClearFilterTableViewCell.xib in Resources */,
 				F6547ACE25DE5D9400171862 /* DiscountFilterRadioTableViewCell.xib in Resources */,
@@ -4262,7 +4272,7 @@
 				1840E804265695AB003FDFB9 /* BusinessOwnerTableViewCell.xib in Resources */,
 				2F9DA67225237FCA00C46952 /* SearchCategoryViewController.xib in Resources */,
 				2F8463DB250F6EBC0084EB32 /* LoginIntroFourth.strings in Resources */,
-				2F0230C32514E477004F1B0B /* CommonPopupViewController.xib in Resources */,
+				F6FC007C267A1573008AF6DD /* CommonPopupViewController.xib in Resources */,
 				CECEF9E32577575C0090D459 /* DescriptionTableViewCell.xib in Resources */,
 				CECEFA802577A0BE0090D459 /* UploadBottomTableViewCell.xib in Resources */,
 				CEE72CBD251B76AF00B02DAF /* BottomPopupTableViewCell.xib in Resources */,
@@ -4381,7 +4391,7 @@
 				F680D651259B7C2C007EB12C /* DataEntryPricePayTableViewCell.xib in Resources */,
 				CE9CCD58264BAA14005AE619 /* SecondVariantCollectionViewCell.xib in Resources */,
 				CEDD3381257663C800023977 /* SEPhotographyCollectionViewCell.xib in Resources */,
-				CECEFAC92577C76A0090D459 /* marketTableViewCell.xib in Resources */,
+				F6347D22267A2DFC006CC052 /* marketTableViewCell.xib in Resources */,
 				CE9CCD43264BAA14005AE619 /* ProductListHeader.xib in Resources */,
 				CECEFA4B25779E8F0090D459 /* ViewImagesViewController.xib in Resources */,
 				CEDD32E725763C8E00023977 /* ORTableViewCell.xib in Resources */,
@@ -5527,6 +5537,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				CECEF8D72577575B0090D459 /* Base */,
+				F6347D40267A3303006CC052 /* en */,
+				F6347D41267A3307006CC052 /* ar */,
 			);
 			name = BusinessTimesheet1PopupViewController.xib;
 			sourceTree = "<group>";
@@ -6370,6 +6382,36 @@
 			name = agentPersonalDetailsTableViewCell.xib;
 			sourceTree = "<group>";
 		};
+		F6347D24267A2DFC006CC052 /* marketTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6347D23267A2DFC006CC052 /* Base */,
+				F6347D29267A2E07006CC052 /* en */,
+				F6347D2B267A2E0B006CC052 /* ar */,
+			);
+			name = marketTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F6347D2E267A2E3F006CC052 /* otherTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6347D2D267A2E3F006CC052 /* Base */,
+				F6347D30267A2E46006CC052 /* en */,
+				F6347D32267A2E4A006CC052 /* ar */,
+			);
+			name = otherTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F6347D38267A2E79006CC052 /* MallMarketPopupViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6347D37267A2E79006CC052 /* Base */,
+				F6347D3A267A2E81006CC052 /* en */,
+				F6347D3C267A2E85006CC052 /* ar */,
+			);
+			name = MallMarketPopupViewController.xib;
+			sourceTree = "<group>";
+		};
 		F64D5FBE2524400E003DE670 /* CompanyRegViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -6972,6 +7014,16 @@
 				F680D60F259B7C2C007EB12C /* Base */,
 			);
 			name = DataEntryListingTopTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F6FC007E267A1573008AF6DD /* CommonPopupViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6FC007D267A1573008AF6DD /* Base */,
+				F6FC0080267A1577008AF6DD /* en */,
+				F6FC0082267A157A008AF6DD /* ar */,
+			);
+			name = CommonPopupViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

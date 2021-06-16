@@ -579,7 +579,7 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         
         return cell
     }
-    
+
     func dataEntryBasicDetailCell(index : IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteDataEntryListTableViewCell", for: index) as! CompleteDataEntryListTableViewCell

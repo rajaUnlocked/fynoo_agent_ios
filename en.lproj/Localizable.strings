@@ -283,6 +283,28 @@
 
 /////////////////////////             TAP PAYMENT             /////////////////////////
 //new
+
+
+"Do you want to opt for" = "Do you want to opt for";
+"service?" = "service?";
+"Are you sure you want to activate this service?" = "Are you sure you want to activate this service?";
+"Are you sure you want to deactivate this service?" = "Are you sure you want to deactivate this service?";
+"Rejection Reason:" = "Rejection Reason:";
+"Are you sure you want accept the order?" = "Are you sure you want accept the order?";
+"Are you sure you want to start the work?" = "Are you sure you want to start the work?";
+"Data Entry Sevice" = "Data Entry Sevice";
+"Welcome, Let's Select Your Location" = "Welcome, Let's Select Your Location";
+"Add your business hours to" = "Add your business hours to";
+"it's easy for people to plan a visit." = "it's easy for people to plan a visit.";
+"Do you want to submit your work?" = "Do you want to submit your work?";
+"How was your experience with" = "How was your experience with";
+"Have you completed this task item?" = "Have you completed this task item?";
+
+
+
+
+
+
 "Manage Your Wallet" = "Manage Your Wallet";
 "Search Transactions" = "Search Transactions";
 "Change Password" = "Change Password";
@@ -447,7 +469,7 @@
 "" = "";
 // Business location
 "Welcome, Let's Select Your Plan"= "Welcome, Let's Select Your Plan";
-"Store in Road"="Store in Road";
+"Store on Road"="Store on Road";
 "Store in Mall"="Store in Mall";
 "Store in Market"= "Store in Market";
 "Save"="Save";
@@ -455,6 +477,10 @@
 "Location"="Location";
 "Add Business Location" = "Add Business Location";
 "Add Your Business Location" = "Add Your Business Location";
+"LocationB" = "Location";
+"Name Of Mall & Market" = "Name Of Mall & Market";
+
+
 
 //SignUp Bo
 "Welcome, Let's Create An Account"="Welcome, Let's Create An Account";
@@ -705,7 +731,7 @@
 "Save As Draft" = "Save As Draft";
 "Next" = "Next";
 "Select Image From" = "Select Image From";
-"Take Photo" = "Take Photo";
+"Camera" = "Camera";
 "Fynoo Gallery" = "Fynoo Gallery";
 "Device Gallery" = "Device Gallery";
 "View Photo" = "View Photo";
@@ -1040,9 +1066,6 @@
 "No Product Found"="No Product Found";
 "View Images"="View Images";
 "Upload Images"="Upload Images";
-"Take Photo"="Take Photo";
-"Device Gallery"="Device Gallery";
-"Fynoo Gallery"="Fynoo Gallery";
 "Check Out This Image"="Check Out This Image";
 "Are you sure you want to delete this image"="Are you sure you want to delete this image";
 
@@ -1133,7 +1156,6 @@
 
 "Waiting List" = "Waiting List";
 "Completed" = "Completed";
-"Order Id" = "Order Id";
 
 "Order Summary" = "Order Summary";
 "Payment Method" = "Payment Method";
@@ -1150,7 +1172,6 @@
 "Already Submitted" = "Already Submitted";
 "Amount to be paid for this order." = "Amount to be paid for this order.";
 "Number of days for order completion." = "Number of days for order completion.";
-"Online" = "Online";
 "Holding" = "Holding";
 "please active" = "please active";
 "services to receive new order request." = "services to receive new order request.";

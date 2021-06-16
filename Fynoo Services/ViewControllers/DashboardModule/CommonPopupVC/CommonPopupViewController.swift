@@ -32,6 +32,9 @@ class CommonPopupViewController: UIViewController {
         super.viewDidLoad()
         self.yesOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)
         self.noOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)
+        
+        
+        
     }
     
     func setUI() {
@@ -53,7 +56,11 @@ class CommonPopupViewController: UIViewController {
         if showActive {
             self.titleLbl.text = name
         }else{
-            self.titleLbl.text = "Do you want to opt for \(name) service?"
+            
+            let opt = "Do you want to opt for".localized
+            let service = "service?".localized
+            
+            self.titleLbl.text = "\(opt) \(name) \(service)"
         }
         
         if showActive {

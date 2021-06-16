@@ -36,7 +36,7 @@ class BusinessLocation1ViewController: UIViewController,UITableViewDelegate,UITa
     var details  = ""
     var add = ""
     var charCount = 0
-    var nameAr = ["Store in Road","Store in Market","Store in Mall"]
+    var nameAr = ["Store on Road","Store in Market","Store in Mall"]
     override func viewDidLoad() {
         super.viewDidLoad()
          self.topHeightConstraints.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
@@ -114,7 +114,7 @@ class BusinessLocation1ViewController: UIViewController,UITableViewDelegate,UITa
                 }
                 
                
-                cell.lbl.text = "Location".localized
+                cell.lbl.text = "LocationB".localized
                 cell.cornerRadius = 6
                 cell.lbl.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
                 cell.lbl.font = UIFont(name: "Gilroy-Light", size: 12.0)

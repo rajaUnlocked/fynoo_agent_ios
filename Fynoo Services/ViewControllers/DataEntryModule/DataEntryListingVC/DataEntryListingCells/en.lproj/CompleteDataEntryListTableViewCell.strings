@@ -30,7 +30,7 @@
 "o5S-SU-rBS.text" = "Order Id: OD268231376364507";
 
 /* Class = "UILabel"; text = "Paid"; ObjectID = "ss2-o1-W4r"; */
-"ss2-o1-W4r.text" = "تم الدفع";
+"ss2-o1-W4r.text" = "Paid";
 
 /* Class = "UILabel"; text = "SAR 4000.00"; ObjectID = "twZ-Zp-mHH"; */
 "twZ-Zp-mHH.text" = "SAR 4000.00";

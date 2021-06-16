@@ -595,8 +595,8 @@ extension DataEntryListingViewController : UITableViewDataSource {
             cell.rejectReasonLbl.isHidden = true
             cell.rejectReasonHeightConstant.constant = 0
         }
-        let reason = "Reason".localized
-        cell.rejectReasonLbl.text = "\(reason): \(requestData?.reason ?? "")"
+        let reason = "Rejection Reason:".localized
+        cell.rejectReasonLbl.text = "\(reason) \(requestData?.reason ?? "")"
         
         
         cell.headerTxt.text = requestData?.instruction
@@ -642,7 +642,7 @@ extension DataEntryListingViewController : UITableViewDataSource {
         cell.addressLbl.text = "\(requestData?.address ?? "")"
         
         cell.dateLbl.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: "\(requestData?.order_date ?? 0)", format: "E, MMM dd, yyyy h:mm")
-        cell.paidTextLbl.text = "Paid"
+        cell.paidTextLbl.text = "Paid".localized
         cell.agentProfileImgView.sd_setImage(with: URL(string:(requestData?.bo_pic ?? "")), placeholderImage: UIImage(named: "agent_indivdual.png"))
         cell.agentNameLbl.text = requestData?.bo_name
         cell.ratingLbl.text = requestData?.rating_avg

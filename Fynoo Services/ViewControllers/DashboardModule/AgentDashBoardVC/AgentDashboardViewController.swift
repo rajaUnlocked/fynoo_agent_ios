@@ -853,10 +853,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         
         if Int(act) == 1 {
             vc.isForActivate = false
-            vc.name = "Are you sure you want to deactivate this service?"
+            vc.name = "Are you sure you want to deactivate this service?".localized
         }else{
             vc.isForActivate = true
-            vc.name = "Are you sure you want to activate this service?"
+            vc.name = "Are you sure you want to activate this service?".localized
         }
         
         vc.serviceID = id
