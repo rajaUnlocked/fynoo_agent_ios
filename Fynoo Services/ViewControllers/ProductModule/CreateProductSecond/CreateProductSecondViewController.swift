@@ -3455,8 +3455,8 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                         
                       
                         cell.lbl.text = "Sale In".localized
-                        cell.rgtlbl.text = "   Wholesale".localized
-                        cell.leftlbl.text = "     Retail".localized
+                        cell.rgtlbl.text = "Wholesale".localized
+                        cell.leftlbl.text = "Retail".localized
                         //cell.leftLblLeading.constant = 20
                         cell.leftbtn.tag = 1
                         cell.rgtbtn.tag = 2
