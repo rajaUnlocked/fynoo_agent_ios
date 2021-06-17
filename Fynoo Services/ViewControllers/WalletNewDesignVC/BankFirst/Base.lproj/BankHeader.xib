@@ -17,7 +17,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BankHeader" customModule="Fynoo" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BankHeader" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
                 <outlet property="availableLbl" destination="TJd-bI-Jph" id="DpS-iB-kzO"/>
                 <outlet property="bankVw" destination="Bng-KX-r9q" id="XaO-UF-gZO"/>
@@ -81,7 +81,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9M-bl-3U1">
                     <rect key="frame" x="20" y="170.5" width="341" height="34"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Transactions" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tzT-qR-Hq4">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Recent Transactions" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tzT-qR-Hq4">
                             <rect key="frame" x="10" y="0.0" width="301" height="34"/>
                             <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>

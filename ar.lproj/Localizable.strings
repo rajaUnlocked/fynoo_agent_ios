@@ -306,8 +306,11 @@
 "Have you completed this task item?" = "هل تم إنجاز العمل؟";
 
 
+"Available Balance" = "الرصيد المتاح";
+"Payment in Progress" = "عمليات دفع قيد التنفيذ";
+"Transferred" = "تم التحويل";
 "Manage Your Wallet" = "إدارة المحفظة";
-"Search Transactions" = "Search Transactions";
+"Recent Transaction" = "التحويلات الأخيرة";
 "Change Password" = "تغيير كلمة المرور";
 "Password" = "كلمة المرور";
 "Services " = "تحديد الخدمات";
@@ -358,7 +361,7 @@
 "Already Submitted" = "تم تسليم العمل";
 "Amount to be paid for this order." = "قيمة تنفيذ الطلب";
 "Number of days for order completion." = "كم عدد الأيام المطلوبة لإنهاء العمل";
-"Holding" = "مبالغ معلقة";
+"Holding" = "معلقة";
 "please active" = "please active";
 "services to receive new order request." = "services to receive new order request.";
 
@@ -905,7 +908,7 @@
 "Products Created" = "عدد المنتجات";
 "No of Purchases" = "عدد عمليات الشراء";
 "Status" = "الحالة";
-"Pending" = "معلق";
+"Pending" = "قيد الانتظار";
 "Expired" = "منتهي الصلاحية";
 "Product Description" = "وصف المنتج";
 //Price History

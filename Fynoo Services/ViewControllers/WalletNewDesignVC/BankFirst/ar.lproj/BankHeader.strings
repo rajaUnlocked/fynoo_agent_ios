@@ -1,33 +1,36 @@
 
 /* Class = "UILabel"; text = "SAR"; ObjectID = "5vk-Md-kwe"; */
-"5vk-Md-kwe.text" = "ر.س.";
+"5vk-Md-kwe.text" = "SAR";
 
 /* Class = "UIButton"; normalTitle = "Download"; ObjectID = "67f-GN-rGQ"; */
 "67f-GN-rGQ.normalTitle" = "تحميل";
 
 /* Class = "UILabel"; text = "Payment Successful"; ObjectID = "7hh-zb-vS8"; */
-"7hh-zb-vS8.text" = "عمليات تم تنفيذها";
+"7hh-zb-vS8.text" = "تمت عملية الدفع بنجاح";
 
 /* Class = "UIButton"; normalTitle = "Bank Transfer"; ObjectID = "NAc-yC-wTs"; */
-"NAc-yC-wTs.normalTitle" = "التحويلات البنكية ";
+"NAc-yC-wTs.normalTitle" = "التحويلات البنكية";
 
 /* Class = "UILabel"; text = "Available: SAR 400"; ObjectID = "TJd-bI-Jph"; */
-"TJd-bI-Jph.text" = "Available: SAR";
+"TJd-bI-Jph.text" = "Available: SAR 400";
 
 /* Class = "UIButton"; normalTitle = "Holding Amount"; ObjectID = "UrO-No-RIk"; */
-"UrO-No-RIk.normalTitle" = "المبالغ المعلقة ";
+"UrO-No-RIk.normalTitle" = "المبالغ المعلقة";
 
 /* Class = "UIButton"; normalTitle = "Email"; ObjectID = "WdB-MC-dic"; */
-"WdB-MC-dic.normalTitle" = "البريد الالكتروني";
+"WdB-MC-dic.normalTitle" = "البريد الإلكتروني";
+
+/* Class = "UILabel"; text = "2"; ObjectID = "hC0-My-UFK"; */
+"hC0-My-UFK.text" = "2";
 
 /* Class = "UILabel"; text = "Payment in Progress"; ObjectID = "m4E-gc-76m"; */
 "m4E-gc-76m.text" = "عمليات دفع قيد التنفيذ";
 
 /* Class = "UIButton"; normalTitle = "Wallet Balance"; ObjectID = "oC8-2L-3yK"; */
-"oC8-2L-3yK.normalTitle" = "رصيد المحفظة ";
+"oC8-2L-3yK.normalTitle" = "رصيد المحفظة";
 
-/* Class = "UITextField"; placeholder = "Search Transactions"; ObjectID = "tzT-qR-Hq4"; */
-"tzT-qR-Hq4.placeholder" = "التحويلات الأخيرة";
+/* Class = "UITextField"; placeholder = "Recent Transactions"; ObjectID = "tzT-qR-Hq4"; */
+"tzT-qR-Hq4.placeholder" = "Recent Transactions";
 
 /* Class = "UILabel"; text = "14,500.00"; ObjectID = "x8v-CK-med"; */
-"x8v-CK-med.text" = "";
+"x8v-CK-med.text" = "14,500.00";

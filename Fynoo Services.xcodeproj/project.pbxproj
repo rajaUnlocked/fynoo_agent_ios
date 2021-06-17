@@ -230,7 +230,6 @@
 		CEBCD72D2664A7FE001BF767 /* BankList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6EA2664A7FE001BF767 /* BankList.swift */; };
 		CEBCD72E2664A7FE001BF767 /* DeleteBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6EB2664A7FE001BF767 /* DeleteBank.swift */; };
 		CEBCD72F2664A7FE001BF767 /* BankTransferController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6EC2664A7FE001BF767 /* BankTransferController.xib */; };
-		CEBCD7302664A7FE001BF767 /* BankHeader.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6EF2664A7FE001BF767 /* BankHeader.strings */; };
 		CEBCD7312664A7FE001BF767 /* WalletAvailableTopCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6F12664A7FE001BF767 /* WalletAvailableTopCell.strings */; };
 		CEBCD7322664A7FE001BF767 /* PaymentProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6F52664A7FE001BF767 /* PaymentProgressTableViewCell.swift */; };
 		CEBCD7332664A7FE001BF767 /* BankAllListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6F62664A7FE001BF767 /* BankAllListViewController.xib */; };
@@ -1076,9 +1075,7 @@
 		CEBCD6EA2664A7FE001BF767 /* BankList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankList.swift; sourceTree = "<group>"; };
 		CEBCD6EB2664A7FE001BF767 /* DeleteBank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteBank.swift; sourceTree = "<group>"; };
 		CEBCD6ED2664A7FE001BF767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BankTransferController.xib; sourceTree = "<group>"; };
-		CEBCD6F02664A7FE001BF767 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BankHeader.strings; sourceTree = "<group>"; };
 		CEBCD6F22664A7FE001BF767 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WalletAvailableTopCell.strings; sourceTree = "<group>"; };
-		CEBCD6F32664A7FE001BF767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BankHeader.strings; sourceTree = "<group>"; };
 		CEBCD6F42664A7FE001BF767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WalletAvailableTopCell.strings; sourceTree = "<group>"; };
 		CEBCD6F52664A7FE001BF767 /* PaymentProgressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentProgressTableViewCell.swift; sourceTree = "<group>"; };
 		CEBCD6F62664A7FE001BF767 /* BankAllListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankAllListViewController.xib; sourceTree = "<group>"; };
@@ -1479,6 +1476,8 @@
 		CEE72CB9251B76AF00B02DAF /* BottomPopupTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomPopupTableViewCell.xib; sourceTree = "<group>"; };
 		CEE72CBA251B76AF00B02DAF /* BottomPopupEditProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupEditProductViewController.swift; sourceTree = "<group>"; };
 		CEE72CBF251B795100B02DAF /* OpenGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGallery.swift; sourceTree = "<group>"; };
+		CEEBC760267A2F8D00FBA626 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BankHeader.strings; sourceTree = "<group>"; };
+		CEEBC762267A2F9500FBA626 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BankHeader.strings; sourceTree = "<group>"; };
 		CEFC760A257F5E0C00088467 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1D4108D26191465A8E871F2 /* Pods-Fynoo Services-Fynoo ServicesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D34F4201751D8F2C6FB8501B /* Pods_Fynoo_Services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_Services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2483,7 +2482,6 @@
 		CEBCD6EE2664A7FE001BF767 /* BankFirst */ = {
 			isa = PBXGroup;
 			children = (
-				CEBCD6EF2664A7FE001BF767 /* BankHeader.strings */,
 				CEBCD6F12664A7FE001BF767 /* WalletAvailableTopCell.strings */,
 				CEBCD6F52664A7FE001BF767 /* PaymentProgressTableViewCell.swift */,
 				CEBCD6F62664A7FE001BF767 /* BankAllListViewController.xib */,
@@ -4054,7 +4052,6 @@
 				CEDD33B3257674BA00023977 /* WholesaleListViewCell.xib in Resources */,
 				F4828CA52508DFA9006B85D8 /* ProfileServiceViewCell.xib in Resources */,
 				CECEF9DF2577575C0090D459 /* BranchTimingTableViewCell.strings in Resources */,
-				CEBCD7302664A7FE001BF767 /* BankHeader.strings in Resources */,
 				CEDD332C25765BBA00023977 /* ViewAllImagesNewDesignCollectionViewCell.xib in Resources */,
 				CEE3578E250740800097069D /* RobotoSlab-Thin.ttf in Resources */,
 				CEA24F63265BD00D00B3227D /* BottomPopCellsNewTableViewCell.xib in Resources */,
@@ -5371,15 +5368,6 @@
 			name = BankTransferController.xib;
 			sourceTree = "<group>";
 		};
-		CEBCD6EF2664A7FE001BF767 /* BankHeader.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CEBCD6F02664A7FE001BF767 /* ar */,
-				CEBCD6F32664A7FE001BF767 /* en */,
-			);
-			name = BankHeader.strings;
-			sourceTree = "<group>";
-		};
 		CEBCD6F12664A7FE001BF767 /* WalletAvailableTopCell.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -5393,6 +5381,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				CEBCD6F82664A7FE001BF767 /* Base */,
+				CEEBC760267A2F8D00FBA626 /* en */,
+				CEEBC762267A2F9500FBA626 /* ar */,
 			);
 			name = BankHeader.xib;
 			sourceTree = "<group>";

@@ -305,8 +305,11 @@
 
 
 
+"Available Balance" = "Available Balance";
+"Payment in Progress" = "Payment in Progress";
+"Transferred" = "Transferred";
 "Manage Your Wallet" = "Manage Your Wallet";
-"Search Transactions" = "Search Transactions";
+"Recent Transaction" = "Recent Transaction";
 "Change Password" = "Change Password";
 "Password" = "Password";
 "Services " = "Services ";

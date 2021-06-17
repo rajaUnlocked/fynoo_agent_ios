@@ -51,7 +51,7 @@ class BankListViewController: UIViewController, UITableViewDelegate, UITableView
  
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        availlbl.text = "\("Available Balance".localized): SAR"
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         sendmoneylbl.font = UIFont(name:"\(fontNameLight)",size:15)
         walletbanklbl.font = UIFont(name:"\(fontNameLight)",size:15)
