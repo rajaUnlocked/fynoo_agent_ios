@@ -27,6 +27,7 @@ class WalletAvailableTopCell: UITableViewCell {
         totalLbl.font = UIFont(name:"\(fontNameBold)",size:15)
         availableLbl.font = UIFont(name:"\(fontNameLight)",size:12)
         sendMoney.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
+        sendmoneylbl.font = UIFont(name:"\(fontNameLight)",size:12)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
