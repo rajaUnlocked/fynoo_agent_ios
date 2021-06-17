@@ -61,7 +61,11 @@ addrowssDelegate,deleterowssDelegate {
 //        let n2 = "Add your business hours to"
 //        toplevel.text =  "\(n1) \(name) \(n2)".localized
         toplevel.text = "Add your business hours to \(AddBranch.shared.bName) it's easy for people to plan a visit."
-     
+        toplevel.textAlignment = .left
+        if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+        {
+            toplevel.textAlignment = .right
+        }
          self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
        
@@ -664,6 +668,8 @@ extension BusinessTimesheet1PopupViewController
         datePicker.locale = Locale(identifier: "en_GB")
           datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
           datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 400)
+        if #available(iOS 13.4, *) { datePicker.preferredDatePickerStyle = .wheels }
+        datePicker.backgroundColor = .white
           self.view.addSubview(datePicker)
           
           toolbar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
