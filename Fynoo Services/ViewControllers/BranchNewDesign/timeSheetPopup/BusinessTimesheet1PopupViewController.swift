@@ -531,6 +531,10 @@ extension BusinessTimesheet1PopupViewController: UITableViewDelegate,UITableView
        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0
         {
+            if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+            {
+                return 35
+            }
             return 28
         }
        else if indexPath.section == ((selectedCode == "OPEN_SELECTED_HOURS") ? (array1.count + 1) : 1)

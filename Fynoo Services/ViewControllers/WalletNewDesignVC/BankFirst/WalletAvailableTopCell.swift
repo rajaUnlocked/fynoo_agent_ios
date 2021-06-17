@@ -10,6 +10,7 @@ import UIKit
 
 class WalletAvailableTopCell: UITableViewCell {
 
+    @IBOutlet weak var sendmoneylbl: UILabel!
     @IBOutlet weak var totalLbl: UILabel!
     @IBOutlet weak var availableLbl: UILabel!
     @IBOutlet weak var sendMoney: UIButton!

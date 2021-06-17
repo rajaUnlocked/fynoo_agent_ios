@@ -306,6 +306,14 @@
 "Have you completed this task item?" = "هل تم إنجاز العمل؟";
 
 
+"Please enter iban number" = "الرجاء إدخال رقم الآيبان";
+"Please Re-enter iban number" = "إعادة إدخال رقم الآيبان";
+"IBAN and Re-IBAN number does not match" = "رقم الآيبان وتأكيد رقم الآيبان غير متطابقان";
+"Please enter name on account" = "الرجاء إدخال الإسم كما يظهر على البطاقة المصرفية";
+
+"Send Money from wallet to Bank" = "تحويل المبالغ من المحفظة إلى حسابك البنكي";
+"Please enter amount" = "الرجاء إدخال المبلغ";
+"You cannot transfer more than the available balance" = "لايمكنك تحويل مبلغ أكبر من الرصيد المتوفر";
 "Available Balance" = "الرصيد المتاح";
 "Payment in Progress" = "عمليات دفع قيد التنفيذ";
 "Transferred" = "تم التحويل";

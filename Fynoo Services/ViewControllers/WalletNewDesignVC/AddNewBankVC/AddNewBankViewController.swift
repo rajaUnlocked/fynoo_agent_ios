@@ -419,37 +419,30 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
 
     
     @IBAction func saveBtn(_ sender: Any) {
-        
-        
+        if ibanNo.text == ""{
+            ModalController.showNegativeCustomAlertWith(title: "Please enter iban number".localized, msg: "")
+             return
+         }
+        if reIban.text == ""{
+            ModalController.showNegativeCustomAlertWith(title: "Please Re-enter iban number".localized, msg: "")
+             return
+         }
+        if ibanNo.text != reIban.text {
+            ModalController.showNegativeCustomAlertWith(title: "IBAN and Re-IBAN number does not match".localized, msg:"")
+            return
+        }
         if bankName.text == ""{
-            ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.bankName)
+            ModalController.showNegativeCustomAlertWith(title: "Please select your bank name", msg: "")
             return
         }
         if accountName.text == ""{
-            ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.bankAccountHolderName)
+            ModalController.showNegativeCustomAlertWith(title: "Please enter name on account".localized, msg: "")
             return
         }
                
+  
         
-        if nickName.text == ""{
-             ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.NickName)
-             return
-         }
         
-        if ibanNo.text == ""{
-             ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.bankAccountNumber)
-             return
-         }
-
-//        if ibanNo.text!.count != 29{
-//            ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validIbanNumber)
-//            return
-//        }
-        
-        if ibanNo.text != reIban.text {
-            ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.mismatchIban)
-            return
-        }
         
         if isForEdit{
             updateBankNewAPI()
