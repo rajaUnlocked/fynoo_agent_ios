@@ -10,6 +10,7 @@ import UIKit
 
 class ORTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var orimg: UIImageView!
     @IBOutlet weak var techlbl: UILabel!
     @IBOutlet weak var count: UILabel!
     override func awakeFromNib() {

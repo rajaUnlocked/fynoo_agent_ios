@@ -65,8 +65,7 @@ addrowssDelegate,deleterowssDelegate {
         let people = "it's easy for people to plan a visit.".localized
         
         toplevel.text = "\(businessHours) \(AddBranch.shared.bName) \(people)"
-     
-        toplevel.text = "Add your business hours to \(AddBranch.shared.bName) it's easy for people to plan a visit."
+
         toplevel.textAlignment = .left
         if HeaderHeightSingleton.shared.LanguageSelected == "AR"
         {
@@ -450,6 +449,11 @@ extension BusinessTimesheet1PopupViewController: UITableViewDelegate,UITableView
                 cell.counlbl.textAlignment = .left
                 cell.counlbl.textColor = UIColor.init(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
                 cell.counlbl.numberOfLines = 2
+                cell.counlbl.textAlignment = .left
+                if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+                {
+                    cell.counlbl.textAlignment = .right
+                }
                 cell.counlbl.text = "   Update Your Business Hours So Search Results Show When Your Location Is Open.".localized
                         return cell
             }

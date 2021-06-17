@@ -2656,11 +2656,11 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 if isFilter
                 {
                     cell.downarrow.image = UIImage(named: "upArror_blue")
-                    cell.moredetail.setTitle("Hide Details", for: .normal)
+                    cell.moredetail.setTitle("Hide Details".localized, for: .normal)
                 }
                 else{
                     cell.downarrow.image = UIImage(named: "DownArror_blue")
-                    cell.moredetail.setTitle("More Details", for: .normal)
+                    cell.moredetail.setTitle("More Details".localized, for: .normal)
                 }
                 cell.moredetail.addTarget(self, action: #selector(clickfilterDetail), for: .touchUpInside)
                 cell.addfilter.addTarget(self, action: #selector(clickaddfilter), for: .touchUpInside)
@@ -2758,6 +2758,14 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
             case filterCount + 10:
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "ORTableViewCell", for: indexPath) as! ORTableViewCell
                 cell.count.textColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1)
+                if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+                {
+                    cell.orimg.image = UIImage(named: "OR_Arb")
+                }
+                else
+                {
+                   cell.orimg.image = UIImage(named: "OR")
+                }
                 cell.techlbl.text = "Technical Description Attachment".localized
                 if docId.count == pro.productDocVal
                 {
@@ -3113,6 +3121,8 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                     if isSelected == "retail"{
                         
                         let cell = tableView.dequeueReusableCell(withIdentifier: "RetailPriceListViewCell", for: indexPath) as! RetailPriceListViewCell
+                        cell.min.text = "Min".localized
+                        cell.max.text = "Max".localized
                         cell.isUserInteractionEnabled = false
                         if HeaderHeightSingleton.shared.LanguageSelected == "EN"
                                            {
@@ -3445,8 +3455,8 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                         
                       
                         cell.lbl.text = "Sale In".localized
-                        cell.rgtlbl.text = "   Wholesale".localized
-                        cell.leftlbl.text = "     Retail".localized
+                        cell.rgtlbl.text = "Wholesale".localized
+                        cell.leftlbl.text = "Retail".localized
                         //cell.leftLblLeading.constant = 20
                         cell.leftbtn.tag = 1
                         cell.rgtbtn.tag = 2
@@ -3486,6 +3496,8 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 else
                 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "RetailPriceListViewCell", for: indexPath) as! RetailPriceListViewCell
+                    cell.min.text = "Min".localized
+                    cell.max.text = "Max".localized
                     if HeaderHeightSingleton.shared.LanguageSelected == "EN"
                     {
                         cell.leadingCurrency.constant = 19.5

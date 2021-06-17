@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -73,7 +75,7 @@
                                 <state key="selected" image="closed"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="RSC-zj-XTF" firstAttribute="trailing" secondItem="51a-Kk-6vN" secondAttribute="trailing" constant="-1" id="CII-qh-qZL"/>
                             <constraint firstItem="KWg-yb-cWb" firstAttribute="centerX" secondItem="a5g-M5-WgW" secondAttribute="centerX" id="EwC-Hc-QrH"/>
@@ -97,6 +99,7 @@
                     </view>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="qz8-Ww-PPR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8Bq-B3-mSP"/>
@@ -104,10 +107,10 @@
                 <constraint firstItem="qz8-Ww-PPR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kc3-Qo-boY"/>
                 <constraint firstAttribute="bottom" secondItem="qz8-Ww-PPR" secondAttribute="bottom" id="ytZ-zh-DxF"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="107" height="123"/>
             <connections>
                 <outlet property="addbtn" destination="a5g-M5-WgW" id="Kv4-0H-nOp"/>
+                <outlet property="addlbl" destination="KWg-yb-cWb" id="2hj-Sw-sdb"/>
                 <outlet property="checkBtn" destination="4bU-tZ-5ha" id="i9q-A9-bZx"/>
                 <outlet property="imgName" destination="RSC-zj-XTF" id="pbH-dn-rkF"/>
                 <outlet property="imgView" destination="51a-Kk-6vN" id="AeZ-Tn-40o"/>
@@ -121,5 +124,8 @@
         <image name="addBtn_new" width="42" height="42"/>
         <image name="closed" width="25" height="25"/>
         <image name="closed_grey" width="14" height="14"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

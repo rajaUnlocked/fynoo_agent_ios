@@ -77,11 +77,11 @@ class SelectMultipleBranchesNewDesignViewController: UIViewController, UITableVi
         searchField.addTarget(self, action: #selector(SelectMultipleBranchesNewDesignViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
            self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-           headerView.titleHeader.text = "Branch List"
+        headerView.titleHeader.text = "Branch List".localized
         if isProduct
         {
-            headerView.titleHeader.text = "Product Created"
-            self.titlelabel.text = "Product Created"
+            headerView.titleHeader.text = "Product Created".localized
+            self.titlelabel.text = "Product Created".localized
         }
            self.headerView.viewControl = self
         self.searchField.attributedPlaceholder = NSAttributedString(string: "Search", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 56.0/255.0, green: 56.0/255.0, blue: 56.0/255.0, alpha: 1.0)])
@@ -183,11 +183,11 @@ class SelectMultipleBranchesNewDesignViewController: UIViewController, UITableVi
                 let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         views.titleLbl.font = UIFont(name:"\(fontNameLight)",size:12)
         if branch.count > 0 {
-        views.titleLbl.text = "Selected Branches"
+            views.titleLbl.text = "Selected Branches".localized
         }
         if isProduct
         {
-       views.titleLbl.text = "Select your Product"
+            views.titleLbl.text = "Select your Product".localized
         }
         return views
     }
