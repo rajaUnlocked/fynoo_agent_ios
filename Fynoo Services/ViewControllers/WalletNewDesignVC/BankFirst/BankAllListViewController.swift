@@ -415,7 +415,6 @@ extension BankAllListViewController : UITableViewDataSource{
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "WalletAvailableTopCell", for: indexPath) as! WalletAvailableTopCell
             cell.sendMoney.addTarget(self, action:#selector(sendMoneyClicked), for:.touchUpInside)
-            cell.sendmoneylbl.text = "Send Money from wallet to Bank".localized;
             
             if wholeDict.count > 0 {
                 cell.totalLbl.text = "\((self.wholeDict.object(forKey: "head_data") as! NSDictionary).object(forKey: "main_total_balance") as! String)"

@@ -221,13 +221,11 @@
 		CEAEA51525303A1500F866E7 /* CommisionTopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEA51325303A1500F866E7 /* CommisionTopTableViewCell.swift */; };
 		CEAEA51625303A1500F866E7 /* CommisionTopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAEA51425303A1500F866E7 /* CommisionTopTableViewCell.xib */; };
 		CEBCD7292664A7FE001BF767 /* BankTransferController.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6E02664A7FE001BF767 /* BankTransferController.strings */; };
-		CEBCD72A2664A7FE001BF767 /* WalletFilterNewViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6E42664A7FE001BF767 /* WalletFilterNewViewController.strings */; };
 		CEBCD72B2664A7FE001BF767 /* WalletFilterNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6E72664A7FE001BF767 /* WalletFilterNewViewController.swift */; };
 		CEBCD72C2664A7FE001BF767 /* WalletFilterNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6E82664A7FE001BF767 /* WalletFilterNewViewController.xib */; };
 		CEBCD72D2664A7FE001BF767 /* BankList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6EA2664A7FE001BF767 /* BankList.swift */; };
 		CEBCD72E2664A7FE001BF767 /* DeleteBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6EB2664A7FE001BF767 /* DeleteBank.swift */; };
 		CEBCD72F2664A7FE001BF767 /* BankTransferController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6EC2664A7FE001BF767 /* BankTransferController.xib */; };
-		CEBCD7312664A7FE001BF767 /* WalletAvailableTopCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6F12664A7FE001BF767 /* WalletAvailableTopCell.strings */; };
 		CEBCD7322664A7FE001BF767 /* PaymentProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6F52664A7FE001BF767 /* PaymentProgressTableViewCell.swift */; };
 		CEBCD7332664A7FE001BF767 /* BankAllListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6F62664A7FE001BF767 /* BankAllListViewController.xib */; };
 		CEBCD7342664A7FE001BF767 /* BankHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6F72664A7FE001BF767 /* BankHeader.xib */; };
@@ -1093,21 +1091,21 @@
 		CEAD29F425069F9C008B1F9C /* AgentListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentListTableViewCell.xib; sourceTree = "<group>"; };
 		CEAD29F72506A43D008B1F9C /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		CEAD29F82506A43D008B1F9C /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
+		CEAE0198267B492800E15588 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WalletFilterNewViewController.strings; sourceTree = "<group>"; };
+		CEAE019A267B499B00E15588 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WalletFilterNewViewController.strings; sourceTree = "<group>"; };
+		CEAE01AA267B50C700E15588 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WalletAvailableTopCell.strings; sourceTree = "<group>"; };
+		CEAE01AC267B50CE00E15588 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WalletAvailableTopCell.strings; sourceTree = "<group>"; };
 		CEAEA50F2530379300F866E7 /* CommisionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommisionDetailsViewController.swift; sourceTree = "<group>"; };
 		CEAEA5102530379300F866E7 /* CommisionDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommisionDetailsViewController.xib; sourceTree = "<group>"; };
 		CEAEA51325303A1500F866E7 /* CommisionTopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommisionTopTableViewCell.swift; sourceTree = "<group>"; };
 		CEAEA51425303A1500F866E7 /* CommisionTopTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommisionTopTableViewCell.xib; sourceTree = "<group>"; };
 		CEBCD6E12664A7FE001BF767 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BankTransferController.strings; sourceTree = "<group>"; };
 		CEBCD6E22664A7FE001BF767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BankTransferController.strings; sourceTree = "<group>"; };
-		CEBCD6E52664A7FE001BF767 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WalletFilterNewViewController.strings; sourceTree = "<group>"; };
-		CEBCD6E62664A7FE001BF767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WalletFilterNewViewController.strings; sourceTree = "<group>"; };
 		CEBCD6E72664A7FE001BF767 /* WalletFilterNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletFilterNewViewController.swift; sourceTree = "<group>"; };
 		CEBCD6E92664A7FE001BF767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WalletFilterNewViewController.xib; sourceTree = "<group>"; };
 		CEBCD6EA2664A7FE001BF767 /* BankList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankList.swift; sourceTree = "<group>"; };
 		CEBCD6EB2664A7FE001BF767 /* DeleteBank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteBank.swift; sourceTree = "<group>"; };
 		CEBCD6ED2664A7FE001BF767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BankTransferController.xib; sourceTree = "<group>"; };
-		CEBCD6F22664A7FE001BF767 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WalletAvailableTopCell.strings; sourceTree = "<group>"; };
-		CEBCD6F42664A7FE001BF767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WalletAvailableTopCell.strings; sourceTree = "<group>"; };
 		CEBCD6F52664A7FE001BF767 /* PaymentProgressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentProgressTableViewCell.swift; sourceTree = "<group>"; };
 		CEBCD6F62664A7FE001BF767 /* BankAllListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankAllListViewController.xib; sourceTree = "<group>"; };
 		CEBCD6F82664A7FE001BF767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BankHeader.xib; sourceTree = "<group>"; };
@@ -2546,7 +2544,6 @@
 		CEBCD6E32664A7FE001BF767 /* WalletFilter */ = {
 			isa = PBXGroup;
 			children = (
-				CEBCD6E42664A7FE001BF767 /* WalletFilterNewViewController.strings */,
 				CEBCD6E72664A7FE001BF767 /* WalletFilterNewViewController.swift */,
 				CEBCD6E82664A7FE001BF767 /* WalletFilterNewViewController.xib */,
 			);
@@ -2556,7 +2553,6 @@
 		CEBCD6EE2664A7FE001BF767 /* BankFirst */ = {
 			isa = PBXGroup;
 			children = (
-				CEBCD6F12664A7FE001BF767 /* WalletAvailableTopCell.strings */,
 				CEBCD6F52664A7FE001BF767 /* PaymentProgressTableViewCell.swift */,
 				CEBCD6F62664A7FE001BF767 /* BankAllListViewController.xib */,
 				CEBCD6F72664A7FE001BF767 /* BankHeader.xib */,
@@ -4351,7 +4347,6 @@
 				CE2EFB3F251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib in Resources */,
 				F680D67B259B7C2C007EB12C /* DataEntryListHeaderView.xib in Resources */,
 				CECEFA7D2577A0BE0090D459 /* UploadImgeViewController.strings in Resources */,
-				CEBCD7312664A7FE001BF767 /* WalletAvailableTopCell.strings in Resources */,
 				F680D664259B7C2C007EB12C /* DataEntryFormViewController.strings in Resources */,
 				CEDD338925766FB900023977 /* DatabankpopupViewController.xib in Resources */,
 				F62E4AFA25148EC60021CEE0 /* AgentCompanyServicesTableViewCell.xib in Resources */,
@@ -4420,7 +4415,6 @@
 				CE9CCD42264BAA14005AE619 /* TimingShowTableViewCell.xib in Resources */,
 				F680D638259B7C2C007EB12C /* DEInprogressDetailWorkPlaceTableViewCell.xib in Resources */,
 				CEDD31EF2576206500023977 /* CreateProductFirstViewController.strings in Resources */,
-				CEBCD72A2664A7FE001BF767 /* WalletFilterNewViewController.strings in Resources */,
 				CECEF9F32577575C0090D459 /* CollectionViewTableViewCell.strings in Resources */,
 				F62F810A267B2D7F003DE43B /* CommonPopViewC.xib in Resources */,
 				F680D63D259B7C2C007EB12C /* DataEntryAgentRatingViewController.strings in Resources */,
@@ -5537,19 +5531,12 @@
 			name = BankTransferController.strings;
 			sourceTree = "<group>";
 		};
-		CEBCD6E42664A7FE001BF767 /* WalletFilterNewViewController.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CEBCD6E52664A7FE001BF767 /* ar */,
-				CEBCD6E62664A7FE001BF767 /* en */,
-			);
-			name = WalletFilterNewViewController.strings;
-			sourceTree = "<group>";
-		};
 		CEBCD6E82664A7FE001BF767 /* WalletFilterNewViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CEBCD6E92664A7FE001BF767 /* Base */,
+				CEAE0198267B492800E15588 /* en */,
+				CEAE019A267B499B00E15588 /* ar */,
 			);
 			name = WalletFilterNewViewController.xib;
 			sourceTree = "<group>";
@@ -5560,15 +5547,6 @@
 				CEBCD6ED2664A7FE001BF767 /* Base */,
 			);
 			name = BankTransferController.xib;
-			sourceTree = "<group>";
-		};
-		CEBCD6F12664A7FE001BF767 /* WalletAvailableTopCell.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CEBCD6F22664A7FE001BF767 /* ar */,
-				CEBCD6F42664A7FE001BF767 /* en */,
-			);
-			name = WalletAvailableTopCell.strings;
 			sourceTree = "<group>";
 		};
 		CEBCD6F72664A7FE001BF767 /* BankHeader.xib */ = {
@@ -5585,6 +5563,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				CEBCD6FA2664A7FE001BF767 /* Base */,
+				CEAE01AA267B50C700E15588 /* en */,
+				CEAE01AC267B50CE00E15588 /* ar */,
 			);
 			name = WalletAvailableTopCell.xib;
 			sourceTree = "<group>";

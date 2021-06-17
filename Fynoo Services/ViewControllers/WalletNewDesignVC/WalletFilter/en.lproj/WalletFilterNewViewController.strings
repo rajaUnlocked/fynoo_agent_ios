@@ -14,8 +14,8 @@
 /* Class = "UIButton"; normalTitle = "Close"; ObjectID = "LY2-D6-fg6"; */
 "LY2-D6-fg6.normalTitle" = "Close";
 
-/* Class = "UILabel"; text = "Enter Transaction Amount Range"; ObjectID = "OIM-qv-M6j"; */
-"OIM-qv-M6j.text" = "Enter Transaction Amount Range";
+/* Class = "UILabel"; text = "Select Transaction Amount Range"; ObjectID = "OIM-qv-M6j"; */
+"OIM-qv-M6j.text" = "Select Transaction Amount Range";
 
 /* Class = "UILabel"; text = "Amount"; ObjectID = "WR1-Dg-2VJ"; */
 "WR1-Dg-2VJ.text" = "Amount";

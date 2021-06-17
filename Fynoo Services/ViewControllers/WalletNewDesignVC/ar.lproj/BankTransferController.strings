@@ -15,7 +15,7 @@
 "Rvg-cy-daG.text" = "Label";
 
 /* Class = "UILabel"; text = "SAR"; ObjectID = "ayK-yo-NxM"; */
-"ayK-yo-NxM.text" = "ر.س.";
+"ayK-yo-NxM.text" = "SAR";
 
 /* Class = "UILabel"; text = "Available Balance:"; ObjectID = "fGa-UB-5GG"; */
 "fGa-UB-5GG.text" = "الرصيد المتاح";
