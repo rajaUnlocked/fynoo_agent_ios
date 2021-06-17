@@ -283,6 +283,14 @@
 
 /////////////////////////             TAP PAYMENT             /////////////////////////
 //new
+"Please enter iban number" = "Please enter iban number";
+"Please Re-enter iban number" = "Please Re-enter iban number";
+"IBAN and Re-IBAN number does not match" = "IBAN and Re-IBAN number does not match";
+"Please enter name on account" = "Please enter name on account";
+
+"Send Money from wallet to Bank" = "Send Money from wallet to Bank";
+"Please enter amount" = "Please enter amount";
+"You cannot transfer more than the available balance" = "You cannot transfer more than the available balance";
 "Available Balance" = "Available Balance";
 "Payment in Progress" = "Payment in Progress";
 "Transferred" = "Transferred";

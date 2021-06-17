@@ -89,7 +89,7 @@ class BankTransferController: UIViewController, UITextFieldDelegate, Transaction
             
             if txt! > self.walletValue {
         
-               ModalController.showNegativeCustomAlertWith(title: "", msg: "The amount cannot be more than the available balance.")
+                ModalController.showNegativeCustomAlertWith(title: "", msg: "You cannot transfer more than the available balance".localized)
                     
                     var str = textField.text!
                     let choppedString = String(str.dropLast())
@@ -103,7 +103,7 @@ class BankTransferController: UIViewController, UITextFieldDelegate, Transaction
         
         
         if amount.text == "" {
-            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please Enter Amount")
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter amount".localized)
             return
         }
         
