@@ -1,0 +1,15 @@
+
+/* Class = "UIButton"; normalTitle = "Reduce Quantity"; ObjectID = "2UQ-wL-2Cb"; */
+"2UQ-wL-2Cb.normalTitle" = "Reduce Quantity";
+
+/* Class = "UIButton"; normalTitle = "Delete     "; ObjectID = "j5G-bR-TGv"; */
+"j5G-bR-TGv.normalTitle" = "Delete     ";
+
+/* Class = "UILabel"; text = "Address: Plot No. B-3, B Block Sector-6"; ObjectID = "jrn-Zp-r2X"; */
+"jrn-Zp-r2X.text" = "Address: Plot No. B-3, B Block Sector-6";
+
+/* Class = "UILabel"; text = "Item Qty : 4"; ObjectID = "vLP-if-2hw"; */
+"vLP-if-2hw.text" = "Item Qty : 4";
+
+/* Class = "UILabel"; text = "Item Price (Almost): 1800.0"; ObjectID = "vkY-HJ-0Gd"; */
+"vkY-HJ-0Gd.text" = "Item Price (Almost): 1800.0";

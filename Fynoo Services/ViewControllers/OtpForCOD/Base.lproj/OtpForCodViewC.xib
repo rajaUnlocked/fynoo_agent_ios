@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,8 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OtpForCodViewC" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
+                <outlet property="btnConfirmDelivery" destination="53U-nq-iar" id="Oga-jt-PlU"/>
                 <outlet property="headerHeightConstant" destination="oLY-XM-0a5" id="rXx-g2-Wo8"/>
                 <outlet property="headerView" destination="0Rg-Yd-Hxe" id="Ab4-u7-XRw"/>
+                <outlet property="tableView" destination="wVQ-dy-zx8" id="2tM-iy-riS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,6 +23,14 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wVQ-dy-zx8">
+                    <rect key="frame" x="0.0" y="50" width="320" height="401"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Ef2-95-Eyt"/>
+                        <outlet property="delegate" destination="-1" id="Y0z-fP-eab"/>
+                    </connections>
+                </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Rg-Yd-Hxe" customClass="NavigationView" customModule="Fynoo_Services" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -35,24 +45,47 @@
                         <constraint firstAttribute="height" constant="201" id="qra-dN-r0w"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53U-nq-iar">
+                    <rect key="frame" x="20" y="508" width="280" height="40"/>
+                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="v4t-WY-dEI"/>
+                    </constraints>
+                    <state key="normal" title="Confirm Delivery">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="tappedTobtnConfirmDelivery:" destination="-1" eventType="touchUpInside" id="H4F-x2-zES"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="wVQ-dy-zx8" firstAttribute="top" secondItem="0Rg-Yd-Hxe" secondAttribute="bottom" constant="-40" id="48U-fF-OcU"/>
                 <constraint firstItem="0Rg-Yd-Hxe" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="5ZY-o0-1DJ"/>
+                <constraint firstItem="wVQ-dy-zx8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8El-A4-ZHe"/>
                 <constraint firstItem="0Rg-Yd-Hxe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FA0-gw-w0O"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="53U-nq-iar" secondAttribute="bottom" constant="20" id="J2P-tA-ADB"/>
                 <constraint firstItem="0Rg-Yd-Hxe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KMy-hn-tSp"/>
                 <constraint firstItem="eZ3-Ct-26y" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Ufr-g0-uA2"/>
+                <constraint firstItem="wVQ-dy-zx8" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-117" id="YeE-8w-BQ0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wVQ-dy-zx8" secondAttribute="trailing" id="g9f-ER-9S8"/>
                 <constraint firstItem="eZ3-Ct-26y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hlA-Cj-a2S"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="53U-nq-iar" secondAttribute="trailing" constant="20" id="jl0-dh-bpK"/>
+                <constraint firstItem="53U-nq-iar" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="y38-TY-5Qp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="30" y="55"/>
+            <point key="canvasLocation" x="28.985507246376812" y="54.910714285714285"/>
         </view>
     </objects>
     <resources>
         <image name="backgroundImage" width="297" height="208"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

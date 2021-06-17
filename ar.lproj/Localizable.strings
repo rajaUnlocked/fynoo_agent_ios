@@ -434,6 +434,7 @@
 "Address" = "Address";
 "Delivery Services" = "خدمة التوصيل";
 "No Trips Found" = "لاتوجد رحلات";
+
 //Forget Password
 "Business Owner" = "صاحب العمل";
 "Agent Company" = "شركة الوكيل";
@@ -1205,3 +1206,14 @@
 "Manage Products"="إدارة المنتجات";
 "Product"="المنتج";
 
+
+
+// Product Detail
+
+//"Actual Total Amount" = "المبلغ الإجمالي الفعلي"
+//"Buyer Information" = "معلومات البائع"
+//"Order Information" = "معلومات الطلب"
+//"Invoice Copy" = "Invoice Copy"
+//"Confirm Delivery" = "تأكيد التسليم"
+"Please Enter Otp" =  "الرجاء إدخال رمز التحقق"
+"Please Check COD Amount For Customer" = "Please Check COD Amount For Customer"

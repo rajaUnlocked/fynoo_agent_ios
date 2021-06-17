@@ -143,6 +143,8 @@ class Constant: NSObject {
      static let MAllMarket_List : String = "businessapi/v1/mallmarketlist/";
     static let UpdateProfile_Image : String = "agentapis/v2/update_profile_photo/";
     
+    static let upload_invoice : String = "shared_economy/agent/upload_invoice/"
+    
     //      static var BASE_URL : String = "http://43.241.61.141:9003/"
     //  static var BASE_URL : String = "http://43.241.61.141:9005/"
 
@@ -180,6 +182,7 @@ class Constant: NSObject {
     static let ResetPswd: String = "customerapi/v2/reset_password/"
     static let get_user_type: String = "customerapi/v2/get_user_type/"
     static let agent_dashboard: String = "agentapis/v2/agent_dashboard/"
+    static let firebase_token : String = "customerapi/v2/firebase_token/"
     static let add_services: String = "agentapis/v2/add_services/"
     //  static let UpdateProfile_Image : String = "businessapi/v1/ChaneProfileImage/";
     static let activate_services: String = "agentapis/v2/activate_services/"
@@ -201,6 +204,12 @@ class Constant: NSObject {
     static let Black_TEXT_COLOR = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     static let Grey_TEXT_COLOR = UIColor(red: 56.0/255, green: 56.0/255, blue: 56.0/255, alpha: 1.0)
     static let Red_TEXT_COLOR = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
+    
+    
+    // Mark:- Google ApiKey
+    static let GET_NOTIFICATION = "GET_NOTIFICATION"
+    static let GOOGLE_API_KEY = "AIzaSyDGzVH50GxKpAAU69gcux1_VMd45G1gJxc"
+    static let GOOGLE_API_DISTANCE = "https://maps.googleapis.com/maps/api/directions/json?"
     
 }
 
@@ -242,6 +251,13 @@ enum Service {
     static let gettripDetail = Constant.BASE_URL + "shared_economy/agent/trip_details/"
     static let acceptedTripDetail = Constant.BASE_URL + "shared_economy/agent/accepted_trip_details/"
     static let orderDetail = Constant.BASE_URL + "shared_economy/agent/order_detail/"
+    
+    static let reasonforreturn = Constant.BASE_URL + "customerapi/v2/reason_for_return/"
+    static let deleteIndivisualItem = Constant.BASE_URL + "shared_economy/agent/delete_individual_item/"
+    static let reduceQuantity = Constant.BASE_URL + "shared_economy/agent/change_product_qty/"
+    static let acceptIndivisualItem = Constant.BASE_URL + "shared_economy/agent/accept_individual_item/"
+    static let onTheWayTripDetail = Constant.BASE_URL + "shared_economy/agent/on_the_way_trip_details/"
+    static let deliverOrder = Constant.BASE_URL + "shared_economy/agent/deliver_order/"
     
 }
 

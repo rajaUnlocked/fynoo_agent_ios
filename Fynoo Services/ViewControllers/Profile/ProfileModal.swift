@@ -51,6 +51,9 @@ class AgentProfile : NSObject{
     
     var serviceArr = NSMutableArray()
     var langArr = NSMutableArray()
+    
+    
+
 }
 
 
@@ -734,5 +737,171 @@ class Delivery_times : Mappable {
     }
 
 }
+
+// Mark--Reason for Return
+
+class reasonlistData : Mappable {
+    var error = ""
+    var error_code = ""
+    var error_description = ""
+    var data : ReasonListInfo?
+
+    required init?(map: Map) {
+
+    }
+
+    func mapping(map: Map) {
+
+        error <- map["error"]
+        error_code <- map["error_code"]
+        error_description <- map["error_description"]
+        data <- map["data"]
+    }
+
+}
+
+
+class Reason_list : Mappable {
+    var reason_id : Int?
+    var reason : String?
+    var reason_for : Int?
+    var reason_at : Int?
+    var reason_type : String?
+
+    required init?(map: Map) {
+
+    }
+
+    func mapping(map: Map) {
+
+        reason_id <- map["reason_id"]
+        reason <- map["reason"]
+        reason_for <- map["reason_for"]
+        reason_at <- map["reason_at"]
+        reason_type <- map["reason_type"]
+    }
+
+}
+
+class ReasonListInfo : Mappable {
+    var reason_list : [Reason_list]?
+
+    required init?(map: Map) {
+
+    }
+
+    func mapping(map: Map) {
+
+        reason_list <- map["reason_list"]
+    }
+
+}
+
+
+//Mark- On the way TripDetails
+
+class OnthewayTripDetailsData : Mappable {
+    var error : Bool?
+    var error_code : Int?
+    var error_description : String?
+    var data : OnTheWayDetailInfo?
+
+    required init?(map: Map) {
+
+    }
+
+    func mapping(map: Map) {
+
+        error <- map["error"]
+        error_code <- map["error_code"]
+        error_description <- map["error_description"]
+        data <- map["data"]
+    }
+
+}
+
+class Trip_details : Mappable {
+    var id : Int?
+    var bo_id : Int?
+    var bo_name : String?
+    var bo_image : String?
+    var cust_id : Int?
+    var cust_name : String?
+    var user_type : String?
+    var cust_mobile : String?
+    var cust_image : String?
+    var rating : String?
+    var total_rating : String?
+    var cust_lat : String?
+    var cust_long : String?
+    var agent_lat : String?
+    var agent_long : String?
+    var address : String?
+    var status : Int?
+    var status_des : String?
+    var invoice_image : String?
+    var order_id : String?
+    var order_qty : Int?
+    var order_price : Double?
+    var order_date : String?
+    var order_currency : String?
+    var payment_icon : String?
+    var payment_type : String?
+    var del_service_id : Int?
+    var service_status : Int?
+
+    required init?(map: Map) {
+
+    }
+
+    func mapping(map: Map) {
+
+        id <- map["id"]
+        bo_id <- map["bo_id"]
+        bo_name <- map["bo_name"]
+        bo_image <- map["bo_image"]
+        cust_id <- map["cust_id"]
+        cust_name <- map["cust_name"]
+        user_type <- map["user_type"]
+        cust_mobile <- map["cust_mobile"]
+        cust_image <- map["cust_image"]
+        rating <- map["rating"]
+        total_rating <- map["total_rating"]
+        cust_lat <- map["cust_lat"]
+        cust_long <- map["cust_long"]
+        agent_lat <- map["agent_lat"]
+        agent_long <- map["agent_long"]
+        address <- map["address"]
+        status <- map["status"]
+        status_des <- map["status_des"]
+        invoice_image <- map["invoice_image"]
+        order_id <- map["order_id"]
+        order_qty <- map["order_qty"]
+        order_price <- map["order_price"]
+        order_date <- map["order_date"]
+        order_currency <- map["order_currency"]
+        payment_icon <- map["payment_icon"]
+        payment_type <- map["payment_type"]
+        del_service_id <- map["del_service_id"]
+        service_status <- map["service_status"]
+    }
+
+}
+
+
+class OnTheWayDetailInfo : Mappable {
+    var trip_details : Trip_details?
+
+    required init?(map: Map) {
+
+    }
+
+    func mapping(map: Map) {
+
+        trip_details <- map["trip_details"]
+    }
+
+}
+
 
 
