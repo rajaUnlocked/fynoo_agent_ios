@@ -280,10 +280,18 @@
 "payment_status_alert_failed"        = "فشل عملية الدفع";
 
 /////////////////////////             TAP PAYMENT
-
+"Date Created"="تاريخ الإضافة";
+"Available Quantity"="الكمية المتوفرة";
+"Date Updated"="تاريخ التحديث";
+"Stock Update"="تحديث المخزون";
+"Manage Inventory"="إدارة المخزون";
+"Hide Details" = "إخفاء";
+"More Details" = "المزيد";
+"Retail" = "بالتجزئة";
+"Wholesale" = "بالجملة";
 //new
 
-
+"Varient" = "مماثل";
 "Do you want to opt for" = "هل تريد إضافة خدمة ";
 "service?" = "ضمن الخدمات التي تعمل عليها؟";
 "Are you sure you want to activate this service?" = "هل تريد استقبال طلبات هذه الخدمة؟";
@@ -850,8 +858,7 @@
 "No of Branches" = "عدد الفروع";
 "Specification" = "المواصفات";
 "Sale In" = "نوع البيع";
-"Retail" = "بالتجزئة";
-"Wholesale" = "بالجملة";
+
 "Payment Mode" = "طريقة الدفع";
 "COD" = "الدفع عند الاستلام";
 "Product Return Policy Retail (Days)" = "سياسية الاسترجاع لبيع التجزئة (الأيام)";
@@ -950,12 +957,6 @@
 
 
 
-// Stock Update (Inventory)
-"Date Created"="تاريخ الإضافة";
-"Available Quantity"="الكمية المتوفرة";
-"Date updated"="تاريخ التحديث";
-"Stock Update"="تحديث المخزون";
-"Manage Inventory"="إدارة المخزون";
 
 
 // newProductView
@@ -967,7 +968,7 @@
 "Product Delivery Days" = "أيام توصيل المنتج" ;
 "Payment Mode" = "طريقة الدفع";
 "Delivery Option" = "طريقة التوصيل";
-"More Details" = "المزيد";
+
 "Pieces" = "حبة";
 "Product Description" = "وصف المنتج";
 "review" = "تقييم";
@@ -991,7 +992,7 @@
 "% OFF" = "% OFF";
 "Instore Quantity" = "Instore Quantity";
 "Specifications" = "Specifications";
-"Hide Details" = "إخفاء";
+
 "rating and" = "rating and";
 "k" = "k";
 "Check Out This Product" = "Check Out This Product";

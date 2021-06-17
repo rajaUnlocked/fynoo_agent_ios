@@ -98,7 +98,7 @@ class CollectionViewTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
                    let cell = collectionVIEW.dequeueReusableCell(withReuseIdentifier: "SEPhotographyCollectionViewCell", for: indexPath) as! SEPhotographyCollectionViewCell
 
                 cell.imgView.layer.borderWidth = 0.5
-               
+            cell.addlbl.text = "Add".localized
                 
                  cell.checkBtn.isHidden = false
                 cell.imgName.isHidden = false

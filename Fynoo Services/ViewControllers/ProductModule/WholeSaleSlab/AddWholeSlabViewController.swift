@@ -434,14 +434,19 @@ extension AddWholeSlabViewController : UITableViewDataSource{
         else if indexPath.row == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "PriceTopTableViewCell", for: indexPath) as! PriceTopTableViewCell
             cell.titleLblLeading.constant = 15
-            cell.titleLabel.text = "Wholesale Price".localized
+            cell.titleLabel.text = "Wholesale Price"
+            if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+            {
+                cell.titleLabel.text = "سعر الجملة";
+            }
+           
             cell.bottomConstraint.constant = 0
             cell.titleLabel.font = UIFont(name: "Gilroy-Light", size: 12.0)
             cell.selectionStyle = .none
             return cell
         }else if indexPath.row == 8{
             let cell = tableView.dequeueReusableCell(withIdentifier: "SingleButtonViewCell", for: indexPath) as! SingleButtonViewCell
-            
+            cell.saveButton.setTitle("Save".localized, for: .normal)
             if minQty == 0 || maxQty == 0 || wholesalePrice == 0.0{
                 cell.saveButton.borderColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
                 cell.saveButton.setTitleColor(#colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1), for: .normal)

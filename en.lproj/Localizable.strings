@@ -284,7 +284,7 @@
 /////////////////////////             TAP PAYMENT             /////////////////////////
 //new
 
-
+"Varient" = "Varient";
 "Do you want to opt for" = "Do you want to opt for";
 "service?" = "service?";
 "Are you sure you want to activate this service?" = "Are you sure you want to activate this service?";
@@ -851,7 +851,7 @@
 // Stock Update (Inventory)
 "Date Created"="Date Created";
 "Available Quantity"="Available Quantity";
-"Date updated"="Date updated";
+"Date Updated"="Date Updated";
 "Stock Update"="Stock Update";
 "Manage Invenvtory"="Manage Inventory";
 
