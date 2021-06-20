@@ -60,7 +60,6 @@ addrowssDelegate,deleterowssDelegate {
 //        let n1 = "Add your business hours to"
 //        let n2 = "Add your business hours to"
 //        toplevel.text =  "\(n1) \(name) \(n2)".localized
-
         
         let businessHours = "Add your business hours to".localized
         let people = "it's easy for people to plan a visit.".localized

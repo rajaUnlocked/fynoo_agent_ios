@@ -33,6 +33,18 @@ class DataEntryAgentRatingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
+            if value[0]=="ar"{
+                self.agentNameLbl.textAlignment = .right
+                self.staticTxtLbl.textAlignment = .right
+                
+            }else if value[0]=="en"{
+                self.agentNameLbl.textAlignment = .left
+                self.staticTxtLbl.textAlignment = .left
+                
+            }
+        }
+        
         ratingView.settings.minTouchRating = 0.5
         
         self.agentProfileImageView.sd_setImage(with: URL(string:(agentProfilePic)), placeholderImage: UIImage(named: "agent_indivdual.png"))
@@ -49,9 +61,7 @@ class DataEntryAgentRatingViewController: UIViewController {
             rating in
             self.ratingAPI(rating: rating)
         }
-        
-        
-        
+       
     }
 
     func SetFont() {
