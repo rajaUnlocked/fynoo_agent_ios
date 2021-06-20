@@ -36,7 +36,7 @@ class GetLocationViewController: UIViewController, CLLocationManagerDelegate, GM
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.headerVw.titleHeader.text = "Location".localized;
+        self.headerVw.titleHeader.text = "LocationB".localized;
         self.headerVw.menuBtn.isHidden = false
              self.headerVw.viewControl = self
 //      self.headerView.layer.insertSublayer(ModalController.setGradientColorBGBlack(), at: 0)

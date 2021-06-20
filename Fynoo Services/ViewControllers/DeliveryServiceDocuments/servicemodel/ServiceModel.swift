@@ -17,7 +17,7 @@ class ServiceModel: NSObject {
     var imgname = ""
     var imgfilereg:UIImage?
     var imgfile:UIImage?
-    var docfilereg:URL?
+    var docfilereg = [URL?]()
     var docfile:URL?
     var primaryid = 0
     var username = ""
@@ -34,7 +34,8 @@ class ServiceModel: NSObject {
       var platnumber = ""
       var reasonchange = ""
      var sendforapproval = ""
-   
+    var imagefile = [UIImage]()
+    var imagename = [String]()
     func getvehicleName(completion:@escaping(Bool, VehicleName?) -> ()) {
          
                     let str = "\(Service.getvehiclename)"
@@ -129,27 +130,37 @@ class ServiceModel: NSObject {
 ] as [String : Any]
             if isType == 1
                            {
-                    imgname = "national_id"
+                imagename.removeAll()
+                imagename.append("national_id")
                            }
              else if isType == 2
                     {
-             imgname = "driving_license"
+                imagename.removeAll()
+                imagename.append("driving_license")
                     }
             else if isType == 3
                    {
-            imgname = "car_registration"
+          
+                imagename.removeAll()
+                imagename.append("car_registration")
                    }
             else if isType == 4
                    {
-            imgname = "car_insurance"
+                imagename.removeAll()
+                imagename.append("car_insurance")
+           
                    }
             else if isType == 5
                    {
-            imgname = "driving_authorization"
+                imagename.removeAll()
+                imagename.append("car_registration")
+                imagename.append("driving_authorization")
                    }
             else if isType == 6
                               {
-                       imgname = "front_side"
+                imagename.removeAll()
+                imagename.append("front_side")
+                      
                               }
                print(str,parameters,imgname
             )
@@ -177,79 +188,46 @@ class ServiceModel: NSObject {
                      }
                 
             }
-    else if docfile == nil
+            else if docfilereg.count == 0
     {
-       
-            ServerCalls.fileUploadAPINew(inputUrl: str, parameters: parameters, imageName: imgname, imageFile: imgfile!) { (response, success, resp) in
-    
-                   if let value = response as? NSDictionary{
-    
-                           if let body = response as? [String: Any] {
-                            if self.isType == 5
-                            {
-                            let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
-                               completion(true, val)
-                            
-                                ServerCalls.fileUploadAPINew(inputUrl: str, parameters: parameters, imageName: "car_registration", imageFile: self.imgfilereg!) { (response, success, resp) in
-                    
-                                   if let value = response as? NSDictionary{
-                    
-                                           if let body = response as? [String: Any] {
+        ServerCalls.fileUploadAPIDocumentMultipleImage(inputUrl: str, parameters: parameters, imageName: imagename, imageFile: imagefile) { (response, success, resp) in
+                               if let value = response as? NSDictionary{
+            
+                                       if let body = response as? [String: Any] {
+                                     
                                             let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
                                                completion(true, val)
-                                            
-                                               return
-                                           }
-                                           completion(false,nil)
-                    
-                                   }
-                                   }
+                                            return
+                                        
+            
+                                       }
+                                       completion(false,nil)
+            
+            
                                }
-                            else{
-                                let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
-                                   completion(true, val)
-                                return
-                            }
-                              
-                           }
-                           completion(false,nil)
-    
-    
-                   }
-               }
-            }
+        }
+    }
+
     else{
-          var pfurl : String? = docfile?.absoluteString
-        ServerCalls.PdfFileUpload(inputUrl: str, parameters: parameters, pdfname: imgname, pdfurl: pfurl ?? "") { (response, success, resp) in
+        var pfurl =  [String]()
+        for i in 0...docfilereg.count
+        {
+            pfurl.append(docfilereg[i]!.absoluteString)
+        
+        }
+          
+        ServerCalls.PdfFileMultipleUpload(inputUrl: str, parameters: parameters, pdfname: imagename, pdfurl: pfurl) { (response, success, resp) in
+          
                  
                  if let value = response as? NSDictionary{
     
                          if let body = response as? [String: Any] {
-                            if self.isType == 5
-                            {
-                                var pfurl : String? = self.docfilereg?.absoluteString
-                              ServerCalls.PdfFileUpload(inputUrl: str, parameters: parameters, pdfname: "car_registration", pdfurl: pfurl ?? "") { (response, success, resp) in
-                                       
-                                       if let value = response as? NSDictionary{
-                                          
-                                               if let body = response as? [String: Any] {
-                                                  let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
-                                                   completion(true, val)
-                                                   return
-                                               }
-                                               completion(false,nil)
-                                          
-                                           
-                                       }
-                                   }
-                            }
-                            else
-                            {
+                           
                             let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
                              completion(true, val)
                              return
                             }
-                         }
+                         
                          completion(false,nil)
                     
                      

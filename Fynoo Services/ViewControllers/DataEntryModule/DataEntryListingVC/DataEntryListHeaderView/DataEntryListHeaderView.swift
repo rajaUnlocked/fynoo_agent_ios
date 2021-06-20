@@ -185,6 +185,13 @@ class DataEntryListHeaderView: UIView, UICollectionViewDelegate, UICollectionVie
             cell.nameLbl.textColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
             
         }
+        if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
+            if value[0]=="ar"{
+                cell.nameLbl.textAlignment = .right
+            }else if value[0]=="en"{
+                cell.nameLbl.textAlignment = .left
+            }
+        }
         
         
         cell.tag = index.row

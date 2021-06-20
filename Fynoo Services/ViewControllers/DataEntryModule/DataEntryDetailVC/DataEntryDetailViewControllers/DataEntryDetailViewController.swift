@@ -150,10 +150,6 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
     }
     
     
-    
-    
-    
-    
     @objc func DataEntryWorkConfirmationClicked(_ sender : UIButton) {
         
         let workStatus = serviceDetailData?.data?.start_work
@@ -413,7 +409,7 @@ extension DataEntryDetailViewController : UITableViewDelegate {
             let fontNameLight = NSLocalizedString("LightFontName", comment: "")
             label.font = UIFont(name:"\(fontNameLight)",size:16)
             label.textAlignment = .left
-            label.text = "Order information"
+            label.text = "Order information".localized
             label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
                 if value[0]=="ar"{
@@ -579,7 +575,7 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         
         return cell
     }
-    
+
     func dataEntryBasicDetailCell(index : IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteDataEntryListTableViewCell", for: index) as! CompleteDataEntryListTableViewCell
@@ -608,11 +604,11 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         let requestData = serviceDetailData?.data
         
         cell.headerLbl.text = requestData?.instruction
-        let orderIdTxt = "Order Id:"
+        let orderIdTxt = "Order Id:".localized
         cell.orderIdLbl.text = "\(orderIdTxt) \(requestData?.order_id ?? "")"
         
         cell.dateLbl.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: "\(requestData?.order_date ?? 0)", format: "E, MMM dd, yyyy h:mm")
-        cell.paidTextLbl.text = "Holding"
+        cell.paidTextLbl.text = "Holding".localized
         cell.priceValueLbl.text = "\(Constant.currency) \(requestData?.service_price ?? 0.00)"
         cell.agentProfileImgView.sd_setImage(with: URL(string:(requestData?.bo_name ?? "")), placeholderImage: UIImage(named: "agent_indivdual.png"))
         cell.agentNameLbl.text = requestData?.bo_name
@@ -788,7 +784,7 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         let workPlace = serviceDetailData?.data?.work_place
         
         if workPlace == 1 {
-            cell.workPlaceTypeLbl.text = "Online"
+            cell.workPlaceTypeLbl.text = "Online".localized
         }else if workPlace == 2 {
             if serviceDetailData?.data?.country_code != "" {
                 cell.workPlaceTypeLbl.text = "\(serviceDetailData?.data?.city_name ?? ""), \(serviceDetailData?.data?.country_code ?? "")"

@@ -60,12 +60,16 @@ addrowssDelegate,deleterowssDelegate {
 //        let n1 = "Add your business hours to"
 //        let n2 = "Add your business hours to"
 //        toplevel.text =  "\(n1) \(name) \(n2)".localized
-        toplevel.text = "Add your business hours to \(AddBranch.shared.bName) it's easy for people to plan a visit."
+        
+        let businessHours = "Add your business hours to".localized
+        let people = "it's easy for people to plan a visit.".localized
+        
+        toplevel.text = "\(businessHours) \(AddBranch.shared.bName) \(people)"
      
          self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
        
-     self.headerVw.titleHeader.text = "Welcome, Let's Select Your Time";
+        self.headerVw.titleHeader.text = "Welcome, Let's Select Your Time".localized;
        self.headerVw.viewControl = self
        tabview.register(UINib(nibName: "TimeDisplayStyleTableViewCell", bundle: nil), forCellReuseIdentifier: "TimeDisplayStyleTableViewCell")
         self.tabview.register(UINib(nibName: "addrowTableViewCell", bundle: nil), forCellReuseIdentifier: "addrowTableViewCell")

@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "Holding Amount"; ObjectID = "0Kz-xc-eIm"; */
+"0Kz-xc-eIm.text" = "المبالغ المعلقة";
+
+/* Class = "UILabel"; text = "SAR"; ObjectID = "6d3-Xe-MYP"; */
+"6d3-Xe-MYP.text" = "SAR";
+
+/* Class = "UILabel"; text = "4,540.00"; ObjectID = "7Ne-8H-5l8"; */
+"7Ne-8H-5l8.text" = "4,540.00";
+
+/* Class = "UILabel"; text = "2,000.00"; ObjectID = "9U6-Td-RI2"; */
+"9U6-Td-RI2.text" = "2,000.00";
+
+/* Class = "UILabel"; text = "6,000.00"; ObjectID = "CZP-cw-o1T"; */
+"CZP-cw-o1T.text" = "6,000.00";
+
+/* Class = "UILabel"; text = "Wallet Balance"; ObjectID = "GK1-v0-D9x"; */
+"GK1-v0-D9x.text" = "رصيد المحفظة";
+
+/* Class = "UILabel"; text = "SAR"; ObjectID = "RRV-wT-GKh"; */
+"RRV-wT-GKh.text" = "SAR";
+
+/* Class = "UILabel"; text = "99k"; ObjectID = "bUf-rX-9hF"; */
+"bUf-rX-9hF.text" = "99k";
+
+/* Class = "UILabel"; text = "Payment in progress"; ObjectID = "bYm-sk-amg"; */
+"bYm-sk-amg.text" = "عمليات دفع قيد التنفيذ";
+
+/* Class = "UILabel"; text = "Hello\nID:245636737838"; ObjectID = "bsz-if-q90"; */
+"bsz-if-q90.text" = "Hello\nID:245636737838";
+
+/* Class = "UILabel"; text = "Wallet Balance"; ObjectID = "kYW-oS-EDF"; */
+"kYW-oS-EDF.text" = "رصيد المحفظة";
+
+/* Class = "UILabel"; text = "SAR"; ObjectID = "r49-Yo-Nxk"; */
+"r49-Yo-Nxk.text" = "SAR";
+
+/* Class = "UILabel"; text = "Available Amount"; ObjectID = "sWS-xh-Ag8"; */
+"sWS-xh-Ag8.text" = "Available Amount";
+
+/* Class = "UILabel"; text = "SAR"; ObjectID = "v0M-oW-WyL"; */
+"v0M-oW-WyL.text" = "SAR";

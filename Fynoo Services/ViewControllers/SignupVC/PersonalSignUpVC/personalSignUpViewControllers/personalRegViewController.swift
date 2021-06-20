@@ -387,7 +387,7 @@ func uploadProfileImagesAPI(){
         //        present(popup, animated: true, completion: nil)
     }
     func selectedDiscountOption(str: String) {
-        if str == "Take Photo".localized {
+        if str == "Camera".localized {
             self.cameraSelected()
         }else if str == "Device Gallery".localized {
             self.gallerySelected()
@@ -986,7 +986,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         }
         
         if indexPath.section == 0 {
-            return 205
+            return 220
         }else if indexPath.section == 1 {
             if indexPath.row == 0 {
                 return 50

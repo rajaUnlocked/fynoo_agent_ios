@@ -12,7 +12,7 @@
 "OEz-bv-4Co.text" = "Price: 12390";
 
 /* Class = "UILabel"; text = "Amount included VAT"; ObjectID = "W9K-IU-kNj"; */
-"W9K-IU-kNj.text" = "Amount included VAT";
+"W9K-IU-kNj.text" = "المبلغ شامل ضريبة القيمة المضافة";
 
 /* Class = "UILabel"; text = "Price: 12390"; ObjectID = "Wex-xl-e5m"; */
 "Wex-xl-e5m.text" = "Price: 12390";
@@ -30,7 +30,7 @@
 "o5S-SU-rBS.text" = "Order Id: OD268231376364507";
 
 /* Class = "UILabel"; text = "Paid"; ObjectID = "ss2-o1-W4r"; */
-"ss2-o1-W4r.text" = "Paid";
+"ss2-o1-W4r.text" = "تم الدفع";
 
 /* Class = "UILabel"; text = "SAR 4000.00"; ObjectID = "twZ-Zp-mHH"; */
 "twZ-Zp-mHH.text" = "SAR 4000.00";

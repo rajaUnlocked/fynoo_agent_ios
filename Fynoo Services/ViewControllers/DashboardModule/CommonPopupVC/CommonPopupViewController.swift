@@ -14,7 +14,7 @@ protocol  CommonPopupViewControllerDelegate {
 }
 
 class CommonPopupViewController: UIViewController {
-
+     var isRemove = false
     var  delegate : CommonPopupViewControllerDelegate?
     @IBOutlet weak var yesOutlet: UIButton!
     @IBOutlet weak var noOutlet: UIButton!
@@ -32,12 +32,23 @@ class CommonPopupViewController: UIViewController {
         super.viewDidLoad()
         self.yesOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)
         self.noOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)
+        
+        
+        
     }
     
     func setUI() {
+        if isRemove
+        {
+            self.titleLbl.text = "Do you want to delete this file? "
+            self.popupBG.image = UIImage(named: "blank_service_popup")
+            self.serviceImg.isHidden = false
+            self.serviceImg.image = UIImage(named: "delete_grey")
+            return
+        }
         if isDoc
         {
-          self.titleLbl.text = "Are you sure you want to submit for Approval? "
+          self.titleLbl.text = "Are you sure you want to submit for Approval?"
             self.popupBG.image = UIImage(named: "popop")
             self.serviceImg.isHidden = true
             return
@@ -45,7 +56,11 @@ class CommonPopupViewController: UIViewController {
         if showActive {
             self.titleLbl.text = name
         }else{
-            self.titleLbl.text = "Do you want to opt for \(name) service?"
+            
+            let opt = "Do you want to opt for".localized
+            let service = "service?".localized
+            
+            self.titleLbl.text = "\(opt) \(name) \(service)"
         }
         
         if showActive {
@@ -72,7 +87,11 @@ class CommonPopupViewController: UIViewController {
         
         @IBAction func yesClicked(_ sender: Any) {
             self.dismiss(animated: true, completion: nil)
-            
+            if isRemove
+            {
+                self.delegate?.yesBtnClicked(name: "-100", id: serviceID)
+                return
+            }
             if showActive {
                 if isForActivate {
                     self.delegate?.yesBtnForActivate(name: name, id: serviceID, forActivate: true)

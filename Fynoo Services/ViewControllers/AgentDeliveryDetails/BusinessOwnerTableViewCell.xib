@@ -152,6 +152,7 @@
             <connections>
                 <outlet property="bo_rating" destination="ueV-0f-1Pk" id="5j4-u7-Jbg"/>
                 <outlet property="bo_total_rating" destination="nDt-KS-vXE" id="zGp-xQ-ETY"/>
+                <outlet property="btnNavWidth" destination="104-fj-fbv" id="Lcu-Tk-fMf"/>
                 <outlet property="imgbo_pic" destination="EKE-2t-ELk" id="EUP-Wd-xRH"/>
                 <outlet property="lblBoAddress" destination="xaE-fz-b2h" id="1HK-SA-A4u"/>
                 <outlet property="lblBoName" destination="u6m-0Q-V4X" id="NER-er-eg7"/>

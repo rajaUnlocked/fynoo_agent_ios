@@ -52,6 +52,10 @@ class ChangePasswordViewController: UIViewController, ProfileDetailTableViewCell
             ModalController.showNegativeCustomAlertWith(title: "", msg: "Current Password is not valid")
             return
         }
+        if currentPass.headingLbl.text! == newPass.headingLbl.text! {
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "New password should not be the current password")
+            return
+        }
         if newPass.headingLbl.text!.count < 8 {
             ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.passwordCount)
             return
@@ -66,12 +70,12 @@ class ChangePasswordViewController: UIViewController, ProfileDetailTableViewCell
             return
         }
         
-        let val = newPass.headingLbl.text!.isValidPassword()
-        print(val,"dds")
-        if !val {
-            ModalController.showNegativeCustomAlertWith(title: "", msg: "Password is not valid")
-            return
-        }
+//        let val = newPass.headingLbl.text!.isValidPassword()
+//        print(val,"dds")
+//        if !val {
+//            ModalController.showNegativeCustomAlertWith(title: "", msg: "Password is not valid")
+//            return
+//        }
         
         
         

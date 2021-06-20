@@ -64,7 +64,7 @@ class SelectCategoryViewController: UIViewController {
         bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
         tableView.register(UINib(nibName: "SelectCategoryCell", bundle: nil), forCellReuseIdentifier: "SelectCategoryCell")
         navigationView.viewControl = self
-        navigationView.titleHeader.text = "Manage your Products".localized
+        navigationView.titleHeader.text = "Manage Your Products".localized
         collectionView.register(UINib(nibName: "SelectSubCat", bundle: nil), forCellWithReuseIdentifier: "SelectSubCat");
         
         collectionView.delegate = self

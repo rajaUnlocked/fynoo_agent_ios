@@ -6,10 +6,10 @@
 "n00-SO-rFw.text" = "";
 
 /* Class = "UILabel"; text = "Total Amount"; ObjectID = "ohW-ki-UJZ"; */
-"ohW-ki-UJZ.text" = "لرصيد الإجمالي";
+"ohW-ki-UJZ.text" = "المبلغ الإجمالي";
 
 /* Class = "UILabel"; text = "Send Money To Your Bank Account"; ObjectID = "t4y-xR-x2p"; */
-"t4y-xR-x2p.text" = "تحويل المبلغ من المحفظة إلى حسابك البنكي";
+"t4y-xR-x2p.text" = "تحويل المبالغ من المحفظة إلى حسابك البنكي";
 
 /* Class = "UILabel"; text = "Available: SAR 400"; ObjectID = "u9l-dS-nSX"; */
 "u9l-dS-nSX.text" = "";

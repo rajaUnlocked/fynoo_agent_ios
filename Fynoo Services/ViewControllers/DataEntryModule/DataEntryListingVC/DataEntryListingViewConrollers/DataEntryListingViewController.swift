@@ -107,6 +107,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     }
     
     @objc func filterClicked() {
+        print("filterClicked")
         appliedFilterCount = 0
         let vc = DataEntryFilterViewController(nibName: "DataEntryFilterViewController", bundle: nil)
         vc.hidesBottomBarWhenPushed = true
@@ -194,7 +195,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
                         self.noDataLbl.text = "\(active) \(self.serviceName) \(service)"
                     }
                     else{
-                      self.noDataLbl.text = "Oops! No Service Found".localized
+                      self.noDataLbl.text = "Sorry! No Order Found".localized
                     }
 
                 }else{
@@ -204,14 +205,13 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
                     self.isMoreDataAvailable = false
                     self.noDataView.isHidden = false
                 }
-                self.headerView1 = DataEntryListHeaderView()
                 let avgLbl = self.headerView1!.viewWithTag(1001) as! UILabel
                 //            let ratingView = sectionHeaderView.viewWithTag(1002) as! UIView
                 let totalRatingLbl = self.headerView1!.viewWithTag(1003) as! UILabel
                 avgLbl.text = self.boServicesList?.data?.rating_avg
                 totalRatingLbl.text = "(\(ModalController.toString(self.boServicesList?.data?.rating_count as Any)))"
                 self.headerView1!.ratingValueView.rating = ModalController.convertInToDouble(str: self.boServicesList?.data?.rating_avg as AnyObject)
-                
+
                 self.tableView.reloadData()
             }else{
                 ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.boServicesList?.error_description! ?? "")")
@@ -363,14 +363,21 @@ extension DataEntryListingViewController : UITableViewDelegate {
                 let searchTxtFld = headerView1!.viewWithTag(103) as! UITextField
                 let searchBtn = headerView1!.viewWithTag(104) as! UIButton
                 let filterBtn = headerView1!.viewWithTag(105) as! UIButton
-                let dataEntryLbl = headerView1!.viewWithTag(106) as! UILabel
                 let filterCount = headerView1!.viewWithTag(1010) as! UILabel
+                let avgLbl = headerView1!.viewWithTag(1001) as! UILabel
+                let totalRatingLbl = headerView1!.viewWithTag(1003) as! UILabel
+                let dataEntryLbl = headerView1!.viewWithTag(106) as! UILabel
                 let serviceIcon = headerView1!.viewWithTag(1011) as! UIImageView
                 
-                let avgLbl = headerView1!.viewWithTag(1001) as! UILabel
-                //            let ratingView = sectionHeaderView.viewWithTag(1002) as! UIView
-                let totalRatingLbl = headerView1!.viewWithTag(1003) as! UILabel
+                
+                let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+                dataEntryLbl.font = UIFont(name:"\(fontNameLight)",size:16)
+                searchTxtFld.font = UIFont(name:"\(fontNameLight)",size:12)
+                
                 filterCount.isHidden = true
+                
+                dataEntryLbl.text = self.serviceName
+                serviceIcon.setImageSDWebImage(imgURL: "\(self.serviceIcon)", placeholder: "")
                 
                 avgLbl.text = self.boServicesList?.data?.rating_avg
                 totalRatingLbl.text = "(\(ModalController.toString(self.boServicesList?.data?.rating_count as Any)))"
@@ -382,14 +389,8 @@ extension DataEntryListingViewController : UITableViewDelegate {
                 
                 filterBtn.addTarget(self, action: #selector(filterClicked), for: .touchUpInside)
                 
-                
-                let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-                
-                searchTxtFld.font = UIFont(name:"\(fontNameLight)",size:12)
-                dataEntryLbl.font = UIFont(name:"\(fontNameLight)",size:16)
-                
-                dataEntryLbl.text = self.serviceName
-                serviceIcon.setImageSDWebImage(imgURL: "\(self.serviceIcon)", placeholder: "")
+             
+               
                 
                 if appliedFilterCount > 0 {
                     filterCount.isHidden = false
@@ -404,10 +405,11 @@ extension DataEntryListingViewController : UITableViewDelegate {
                     self.createHeaderAgain = false
                 }
                 
-              
+                headerView1!.delegate = self
             }
+
             headerView1!.selectedIndex = Index
-            headerView1!.delegate = self
+         
             return headerView1
         }else{
             return UIView()
@@ -593,23 +595,24 @@ extension DataEntryListingViewController : UITableViewDataSource {
             cell.rejectReasonLbl.isHidden = true
             cell.rejectReasonHeightConstant.constant = 0
         }
-        let reason = "Reason:"
+        let reason = "Rejection Reason:".localized
         cell.rejectReasonLbl.text = "\(reason) \(requestData?.reason ?? "")"
         
         
         cell.headerTxt.text = requestData?.instruction
         
-        let orderIdTxt = "Order Id:"
-        cell.orderIdLbl.text = "\(orderIdTxt) \(requestData?.order_id ?? "")"
+        let orderIdTxt = "Order Id".localized
+        cell.orderIdLbl.text = "\(orderIdTxt): \(requestData?.order_id ?? "")"
         cell.priceLbl.text = "\(Constant.currency) \(requestData?.order_price ?? 0.00)"
         
         cell.dateLbl.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: "\(requestData?.order_date ?? 0)", format: "E, MMM dd, yyyy h:mm")
         
+        let online = "Online".localized
         if requestData?.location == "1" {
             if requestData?.country_code != "" {
-                cell.addressLbl.text = "Online, \(requestData?.country_code ?? "")"
+                cell.addressLbl.text = "\(online), \(requestData?.country_code ?? "")"
             }else{
-                cell.addressLbl.text = "Online"
+                cell.addressLbl.text = "\(online)"
             }
             
         }else if requestData?.location == "2" {
@@ -633,24 +636,25 @@ extension DataEntryListingViewController : UITableViewDataSource {
         cell.headerLbl.text = requestData?.instruction
         cell.giveRatingBtn.isHidden = true
         
-        let orderIdTxt = "Order Id:"
-        cell.orderIdLbl.text = "\(orderIdTxt) \(requestData?.order_id ?? "")"
+        let orderIdTxt = "Order Id".localized
+        cell.orderIdLbl.text = "\(orderIdTxt): \(requestData?.order_id ?? "")"
         cell.priceValueLbl.text = "\(Constant.currency) \(requestData?.order_price ?? 0.00)"
         cell.addressLbl.text = "\(requestData?.address ?? "")"
         
         cell.dateLbl.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: "\(requestData?.order_date ?? 0)", format: "E, MMM dd, yyyy h:mm")
-        cell.paidTextLbl.text = "Paid"
+        cell.paidTextLbl.text = "Paid".localized
         cell.agentProfileImgView.sd_setImage(with: URL(string:(requestData?.bo_pic ?? "")), placeholderImage: UIImage(named: "agent_indivdual.png"))
         cell.agentNameLbl.text = requestData?.bo_name
         cell.ratingLbl.text = requestData?.rating_avg
         cell.totalRatingLbl.text = "(\(requestData?.rating_count ?? 0))"
         cell.agentAddressLbl.text = "\(requestData?.branch_address ?? "")"
         
+        let online = "Online".localized
         if requestData?.location == "1" {
             if requestData?.country_code != "" {
-                cell.addressLbl.text = "Online, \(requestData?.country_code ?? "")"
+                cell.addressLbl.text = "\(online), \(requestData?.country_code ?? "")"
             }else{
-                cell.addressLbl.text = "Online"
+                cell.addressLbl.text = "\(online)"
             }
         }else if requestData?.location == "2" {
             if requestData?.country_code != "" {
@@ -733,7 +737,5 @@ extension DataEntryListingViewController : DataEntryFilterDelegate {
         print("appliedFilterCount:-", appliedFilterCount)
         self.refreshDataEntryCompleteServiceList()
     }
-    
-    
-    
+        
 }

@@ -380,9 +380,10 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
         counter -= 1
         let minutes = Int(counter) / 60 % 60
         let seconds = Int(counter) % 60
-       
+        let please = "Please wait".localized
+        let before  = "before requesting\nanother Email Code".localized
         let str = (String(format:"%02i:%02i", minutes, seconds))
-        counterrText.text="Please wait \(str) before requesting\nanother SMS/Email Code"
+        counterrText.text="\(please) \(str) \(before)"
          counterTime.text = "\(str)"
         if counter == 0{
             timer?.invalidate()
@@ -598,10 +599,8 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
             if success == true {
                 
                 self.Reset_Password = try! JSONDecoder().decode(ResetPassword.self, from: resp as! Data)
-                
-           
-                    
-                    if self.Reset_Password?.error_description == "Success"
+                                    
+                    if self.Reset_Password?.error == false
                     {
                         ModalController.showSuccessCustomAlertWithoutImage(title: "", msg: (self.Reset_Password?.error_description)!)
                         for controller in self.navigationController!.viewControllers as Array {

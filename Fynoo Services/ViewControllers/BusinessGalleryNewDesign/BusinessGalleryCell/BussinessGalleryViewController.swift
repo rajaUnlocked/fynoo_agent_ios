@@ -965,12 +965,12 @@ extension BussinessGalleryViewController : GallerySearchCollectionViewCelldelega
             OpenGallery.shared.viewControl = self
         
                 
-          //      ["Take Photo".localized,"Device Gallery".localized,"Fynoo Gallery".localized]
+          //      ["Camera".localized,"Device Gallery".localized,"Fynoo Gallery".localized]
                 
-                let tk = "Take Photo".localized
+                let tk = "Camera".localized
                 let dg = "Device Gallery".localized
                 
-            if string == "Take Photo" || string == tk {
+            if string == "Camera" || string == tk {
                 // self.imgaes()
                 
                 OpenGallery.shared.openCamera()

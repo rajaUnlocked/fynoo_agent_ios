@@ -1,18 +1,21 @@
 
 /* Class = "UILabel"; text = "Uploaded VAT Certificate"; ObjectID = "2Jo-mD-abC"; */
-"2Jo-mD-abC.text" = "Uploaded VAT Certificate";
+"2Jo-mD-abC.text" =  "إرفاق شهادة الضريبة";
 
 /* Class = "UITextField"; placeholder = "Enter Your VAT Number"; ObjectID = "6pv-DS-Dlk"; */
-"6pv-DS-Dlk.placeholder" = "أدخل رقم ضريبة القيمة المضافة";
+"6pv-DS-Dlk.placeholder" = "أدخل الرقم الضريبي";
 
 /* Class = "UILabel"; text = "Add"; ObjectID = "9aE-Hl-nHp"; */
 "9aE-Hl-nHp.text" = "إضافة";
+
+/* Class = "UILabel"; text = "This is sample image"; ObjectID = "dui-e8-n5R"; */
+"dui-e8-n5R.text" = "هذه صورة رمزية";
 
 /* Class = "UILabel"; text = "No"; ObjectID = "f8d-fZ-oEO"; */
 "f8d-fZ-oEO.text" = "لا";
 
 /* Class = "UILabel"; text = "Are you registered in VAT ?"; ObjectID = "vmg-lU-IQa"; */
-"vmg-lU-IQa.text"= "هل أنت مسجل في ضريبة القيمة المضافة؟";
+"vmg-lU-IQa.text" = "هل أنت مسجل في ضريبة القيمة المضافة؟";
 
 /* Class = "UILabel"; text = "Yes"; ObjectID = "zzj-EI-sOn"; */
 "zzj-EI-sOn.text" = "نعم";

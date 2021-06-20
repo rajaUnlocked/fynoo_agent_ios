@@ -13,7 +13,7 @@ protocol AddAmountDelegate {
 class AddAmountViewController: UIViewController {
     var delegate:AddAmountDelegate?
      var descrptxt = ""
-    
+    var isNotFill = false
     @IBOutlet weak var TopConst: NSLayoutConstraint!
     @IBOutlet weak var rejectedlbl: UILabel!
     @IBOutlet weak var rejecticon: UIImageView!
@@ -27,12 +27,19 @@ class AddAmountViewController: UIViewController {
         super.viewDidLoad()
 
         aamount.keyboardType = .numberPad
+     
         if isFrom {
             TopConst.constant = 10
             reasonView.isHidden = false
             containter.isHidden = true
            descriptiontxt.text = descrptxt
-            if taG == 1
+            if isNotFill
+            {
+                TopConst.constant = -30
+                rejecticon.image = UIImage(named: "info-gray")
+                rejectedlbl.text = ""
+            }
+            else if taG == 1
             {
             rejecticon.image = UIImage(named: "cross-1")
                 rejectedlbl.text = "Rejected"

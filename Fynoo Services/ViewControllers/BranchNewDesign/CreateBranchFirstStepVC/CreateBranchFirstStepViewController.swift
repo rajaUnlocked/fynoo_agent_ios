@@ -12,7 +12,19 @@
     import GoogleMaps
     import MTPopup
     import BSImagePicker
-    class CreateBranchFirstStepViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,LogoTableViewCellDelegate,OpenGalleryDelegate, businessTypeDelegate1{
+    class CreateBranchFirstStepViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,LogoTableViewCellDelegate,OpenGalleryDelegate, businessTypeDelegate1,SearchCategoryViewControllerDelegate{
+      func selectedCountryCodeMethod(mobileCodeDict: NSMutableDictionary) {
+         print("")
+      }
+      
+      func selectPhoneCodeMethod(phoneCodeDict: NSMutableDictionary) {
+         print("")
+      }
+      
+      func selectetBranchMethod(BranchDict: NSMutableDictionary) {
+         print("")
+      }
+      
        
         
         @IBOutlet weak var backNewOutlet: UIButton!
@@ -213,11 +225,7 @@
                                         
                                     }
                                 }
-                                
-                                
-                                
-                                
-                                
+                            
                             }
                             self.tableVw.reloadData()
                         }
@@ -629,7 +637,7 @@
                                                         {
                                              if br.video_url.isArabic
                                                                                  {
-                                                                                    ModalController.showNegativeCustomAlertWith(title: "Enter valid link".localized, msg: "" )
+                              ModalController.showNegativeCustomAlertWith(title: "Enter valid link".localized, msg: "" )
                                                                                                                                                             return
                                                                                                                       }
                                                             if !br.video_url.isValidURL()
@@ -779,7 +787,7 @@
         @objc func countryClicked(_ sender : UIButton){
             
             let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
-            //vc.delegate = self
+            vc.delegate = self
             
             vc.isForCountry = true
             vc.isForCity = false
@@ -1661,7 +1669,7 @@
                                          vc.iswarning = true
                                          vc.isproduct = true
                                          vc.index = 0
-                                           vc.nameAr =  ["Take Photo", "Device Gallery"]
+                                           vc.nameAr =  ["Camera", "Device Gallery"]
                                            vc.imgAr  = ["camera_picture", "galery_Picture"]
                                             let popupController = MTPopupController(rootViewController: vc)
                                                    popupController.autoAdjustKeyboardEvent = false
@@ -1686,7 +1694,7 @@
                                           vc.isproduct = true
                                          vc.iswarning = true
                                         self.imagetype = "Exterior"
-                                           vc.nameAr =  ["Take Photo", "Device Gallery"]
+                                           vc.nameAr =  ["Camera", "Device Gallery"]
                                            vc.imgAr  = ["camera_picture", "galery_Picture"]
                                             let popupController = MTPopupController(rootViewController: vc)
                                                    popupController.autoAdjustKeyboardEvent = false
@@ -1709,7 +1717,7 @@
                                               vc.isproduct = true
                                              vc.iswarning = true
                                              self.imagetype = "Interior"
-                                               vc.nameAr =  ["Take Photo", "Device Gallery"]
+                                               vc.nameAr =  ["Camera", "Device Gallery"]
                                                vc.imgAr  = ["camera_picture", "galery_Picture"]
                                                 let popupController = MTPopupController(rootViewController: vc)
                                                        popupController.autoAdjustKeyboardEvent = false

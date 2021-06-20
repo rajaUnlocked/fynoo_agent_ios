@@ -1,12 +1,12 @@
 
 /* Class = "UILabel"; text = "Branch"; ObjectID = "1BX-mY-BgY"; */
-"1BX-mY-BgY.text" = "Branch";
+"1BX-mY-BgY.text" = "في الفرع";
 
 /* Class = "UITextField"; placeholder = "Select your branch name"; ObjectID = "YVm-px-77z"; */
-"YVm-px-77z.placeholder" = "Select your branch name";
+"YVm-px-77z.placeholder" = "إختر الفرع";
 
 /* Class = "UILabel"; text = "Online"; ObjectID = "k7q-pt-YqA"; */
-"k7q-pt-YqA.text" = "Online";
+"k7q-pt-YqA.text" = "أونلاين";
 
 /* Class = "UILabel"; text = "Work Place"; ObjectID = "tog-Oz-mpC"; */
-"tog-Oz-mpC.text" = "Work Place";
+"tog-Oz-mpC.text" = "مكان تنفيذ العمل";

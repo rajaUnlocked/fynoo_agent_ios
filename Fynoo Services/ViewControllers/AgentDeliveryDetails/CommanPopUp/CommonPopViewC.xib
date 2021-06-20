@@ -11,6 +11,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommonPopViewC" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
+                <outlet property="containter" destination="aXV-JP-G0S" id="Xf2-WS-49G"/>
+                <outlet property="imgUser" destination="RIS-O1-NSE" id="3FL-kD-bCY"/>
+                <outlet property="lblAddress" destination="IZF-rD-afK" id="jpg-X6-xfE"/>
+                <outlet property="lblAlmostPrice" destination="gcP-xI-WOW" id="UUO-57-66Q"/>
+                <outlet property="lblDate" destination="7Ya-Az-SH3" id="xB8-AO-NT5"/>
+                <outlet property="lblName" destination="9ek-4G-Sop" id="iSi-oM-BhB"/>
+                <outlet property="lblNotes" destination="czD-u6-R2c" id="IgK-uP-d86"/>
+                <outlet property="lblOrderId" destination="RZh-yW-Wih" id="NgC-J0-pTf"/>
+                <outlet property="lblProductQty" destination="gwt-bR-68x" id="kMb-Y2-9LP"/>
+                <outlet property="lblTotalPrice" destination="Nl2-f8-rMt" id="FHT-xa-An9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -177,7 +187,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKr-RY-TMp">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKr-RY-TMp">
                             <rect key="frame" x="20" y="207" width="28" height="14.5"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                             <nil key="textColor"/>
@@ -206,6 +216,9 @@
                                                     <real key="value" value="1"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="acceptCancelationClicked:" destination="-1" eventType="touchUpInside" id="XtW-Pm-bQI"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -236,6 +249,9 @@
                                                     <real key="value" value="1"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onTheWayClicked:" destination="-1" eventType="touchUpInside" id="EQL-xn-rM8"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -251,7 +267,7 @@
                                 <constraint firstAttribute="height" constant="80" id="die-GN-S2E"/>
                             </constraints>
                         </stackView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czD-u6-R2c">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czD-u6-R2c">
                             <rect key="frame" x="64" y="207" width="226" height="39.5"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="39.5" id="ckf-vK-Sby"/>
@@ -276,6 +292,9 @@ otherwise order will be automatically cancelled.</string>
                                 <constraint firstAttribute="width" constant="30" id="gq2-tW-pJJ"/>
                             </constraints>
                             <state key="normal" image="cross_new"/>
+                            <connections>
+                                <action selector="closeClicked:" destination="-1" eventType="touchUpInside" id="Nva-SE-hGp"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

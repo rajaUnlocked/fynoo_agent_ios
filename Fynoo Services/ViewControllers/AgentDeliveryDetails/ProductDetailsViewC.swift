@@ -19,6 +19,9 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
 
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var btnChangeStatus: UIButton!
+    
     var orderDetailData : orderDetail?
     var reasonListData : reasonlistData?
     var itemListArray:[Item_detail]?
@@ -352,7 +355,30 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     
     @IBAction func tapToBtnUploadInvoice(_ sender: UIButton) {
         
+//        if orderDetailData?.data?.order_status == 0 {
+//            checkValidation()
+//        }
+        
+        switch orderDetailData?.data?.order_status {
+        case 0:
+            checkValidation()
+          
+        case 4:
+            let vc = CommonPopViewC(nibName: "CommonPopViewC", bundle: nil)
+//          vc.delegate = self
+            vc.modalPresentationStyle = .overFullScreen
+            vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+                self.present(vc, animated: true, completion: nil)
        
+        default:
+            return
+        }
+    
+    }
+    
+    
+    
+    func checkValidation(){
         
         let index = IndexPath(row: 0, section: 3)
            let cell: AddInvoiceInformationTableViewCell = self.tableView.cellForRow(at: index) as! AddInvoiceInformationTableViewCell
@@ -361,10 +387,25 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
            self.vatAmount = cell.txtVatAmt.text!
            self.amoutWithVat = cell.txtTotalAmountWithVat.text!
         
+        if isInvoiceEnable == false{
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please accept / reject all products in the order ".localized)
+            return
+        }
+        
+        if selectedImg == nil{
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please add invoice file".localized)
+            return
+        }
+        if self.amoutnWithoutVat == ""{
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter total amount without vat".localized)
+            return
+        }
+        if orderDetailData?.data?.is_vat_available == false{
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter vat amount".localized)
+            return
+        }
+        
         UploadInvoice_API()
-//
-//        print("amoutwithoutVat: \(self.amoutnWithoutVat), vatAmount: \(self.vatAmount), amoutWithVat: \(self.amoutWithVat)")
-
         
     }
     
@@ -468,7 +509,18 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             cell.txtVatAmt.isUserInteractionEnabled = false
         }
 
-        
+        switch orderDetailData?.data?.order_status {
+        case 3:
+            self.btnChangeStatus.setTitle("Cancelled".localized, for: .normal)
+            self.btnChangeStatus.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            self.btnChangeStatus.isUserInteractionEnabled = false
+        case 2:
+            self.btnChangeStatus.setTitle("Delivered".localized, for: .normal)
+        case 4:
+            self.btnChangeStatus.setTitle("Cancel Request Received".localized, for: .normal)
+        default:
+            self.btnChangeStatus.setTitle("Confirm and upload invoice".localized, for: .disabled)
+        }
         
         
         return cell
@@ -562,6 +614,9 @@ extension ProductDetailsViewC : UITableViewDataSource {
 
         if indexPath.section == 1{
             
+            if orderDetailData?.data?.order_status == 3 {
+                return 280
+            }
                 return 320
         }else if indexPath.section == 3{
             return 380
@@ -587,6 +642,12 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     cell.bo_rating.text = orderDetailData?.data?.bo_rating ?? "0"
                     
                     cell.imgbo_pic.sd_setImage(with: URL(string: orderDetailData?.data?.bo_pic ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+                    
+                    
+                    if orderDetailData?.data?.order_status == 3 {
+                        
+                        cell.btnNavWidth.constant = 0
+                    }
                     
 //                    cell.langugae.text = "\(deliverData?.data?.user_lang ?? "")"
             
@@ -617,8 +678,17 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     cell.order_price.text = "\(orderDetailData?.data?.order_price ?? 0.0)"
                     cell.imgCustpic.sd_setImage(with: URL(string: orderDetailData?.data?.cust_pic ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
                     cell.imgPaymentIcon.sd_setImage(with: URL(string: orderDetailData?.data?.payment_icon ?? ""), placeholderImage: UIImage(named: "cod_icon"))
-                    cell.lblTotalOrder.text = "\(orderDetailData?.data?.total_order ?? 0)"
-                    cell.lblTotalAcceptedOrder.text = "\(orderDetailData?.data?.total_accepted_order ?? 0)"
+                    cell.lblTotalOrder.text = "\(orderDetailData?.data?.total_accepted_order ?? 0)"
+                    cell.lblTotalAcceptedOrder.text = "\(orderDetailData?.data?.total_order ?? 0)"
+                    
+                    if (orderDetailData?.data?.total_accepted_order == orderDetailData?.data?.total_order) {
+                        cell.lblTotalOrder.textColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+                    }
+                    
+                    if orderDetailData?.data?.order_status == 3 {
+                        cell.viewForHideExpectedDelivery.constant = 50
+                        cell.btnNavWidth.constant = 0
+                    }
                     
                     calculateDistanceFromLatLong()
                     
@@ -688,9 +758,19 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     }
                     
                     
-                    if  orderDetailData?.data?.item_detail? [indexPath.row].qty ?? 0 < 2 {
+                    if  orderDetailData?.data?.item_detail? [indexPath.row].qty ?? 0 < 2 && orderDetailData?.data?.item_detail? [indexPath.row].item_status == 1{
                         cell.btnReduceQuantity.isHidden = true
                         cell.lblLineReduceQty.isHidden = true
+                    }
+                    
+                    if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 3{
+                        cell.btnReduceQuantity.setTitle(orderDetailData?.data?.item_detail? [indexPath.row].reason, for: .normal)
+                        cell.lblLineReduceQty.isHidden = true
+                        cell.btnReduceQuantity.isUserInteractionEnabled = false
+                        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+
+                        cell.btnReduceQuantity.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
+                        cell.btnReduceQuantity.titleLabel?.textColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
                     }
                     
                     cell.lblQty.text = "Item Qty: \(orderDetailData?.data?.item_detail? [indexPath.row].qty ?? 0)"

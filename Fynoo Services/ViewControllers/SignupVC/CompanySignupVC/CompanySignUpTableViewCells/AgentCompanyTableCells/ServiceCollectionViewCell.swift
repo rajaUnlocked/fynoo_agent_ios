@@ -31,5 +31,16 @@ class ServiceCollectionViewCell: UICollectionViewCell {
         self.serviceNameLbl.font = UIFont(name:"\(fontNameLight)",size:12)
         self.serviceNameLbl.textColor = Constant.Black_TEXT_COLOR
         
+        
+        if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
+            if value[0]=="ar"{
+                self.serviceNameLbl.textAlignment = .right
+            }else if value[0]=="en"{
+                self.serviceNameLbl.textAlignment = .left
+             
+            }
+        }
+
+        
     }
 }

@@ -224,7 +224,6 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idc-k1-qz5">
                         <rect key="frame" x="326.5" y="56.5" width="62.5" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="62.5" id="DZX-RW-Swr"/>
                             <constraint firstAttribute="height" constant="15" id="t4p-e2-dNg"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="13"/>

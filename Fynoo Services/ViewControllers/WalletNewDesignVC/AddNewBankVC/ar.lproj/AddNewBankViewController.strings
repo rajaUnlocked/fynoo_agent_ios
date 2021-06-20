@@ -6,7 +6,7 @@
 "2a3-Jc-nsm.text" = "رقم الآيبان";
 
 /* Class = "UILabel"; text = "Please make ensure that your IBAN number is confirmed."; ObjectID = "3Un-en-e2O"; */
-"3Un-en-e2O.text" = "الرجاء التأكد من مطابقة رقم الآيبان ";
+"3Un-en-e2O.text" = "الرجاء التأكد من مطابقة رقم الآيبان";
 
 /* Class = "UILabel"; text = "Re-enter IBAN Number"; ObjectID = "DbL-IS-mVz"; */
 "DbL-IS-mVz.text" = "إعادة إدخال رقم الآيبان";
