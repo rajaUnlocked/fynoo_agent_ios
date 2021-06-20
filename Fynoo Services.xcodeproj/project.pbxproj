@@ -171,6 +171,8 @@
 		4ECE3C3226777D3F009D0163 /* OtpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE3C3426777D3F009D0163 /* OtpTableViewCell.xib */; };
 		4EE49DD72673825400E5640C /* ReasonForDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE49DD52673825400E5640C /* ReasonForDeleteViewController.swift */; };
 		4EE49DD82673825400E5640C /* ReasonForDeleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EE49DD62673825400E5640C /* ReasonForDeleteViewController.xib */; };
+		4EE631A0267F758900D5ED01 /* CancelReasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE6319E267F758900D5ED01 /* CancelReasonViewController.swift */; };
+		4EE631A1267F758900D5ED01 /* CancelReasonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EE6319F267F758900D5ED01 /* CancelReasonViewController.xib */; };
 		788758D607ADF036566C3603 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B2018020C6F3800DB3F75B /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */; };
 		CE2EFB3E251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EFB3C251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift */; };
 		CE2EFB3F251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2EFB3D251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib */; };
@@ -1036,6 +1038,8 @@
 		4ECE3C3826777D51009D0163 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/OtpTableViewCell.strings; sourceTree = "<group>"; };
 		4EE49DD52673825400E5640C /* ReasonForDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForDeleteViewController.swift; sourceTree = "<group>"; };
 		4EE49DD62673825400E5640C /* ReasonForDeleteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReasonForDeleteViewController.xib; sourceTree = "<group>"; };
+		4EE6319E267F758900D5ED01 /* CancelReasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelReasonViewController.swift; sourceTree = "<group>"; };
+		4EE6319F267F758900D5ED01 /* CancelReasonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CancelReasonViewController.xib; sourceTree = "<group>"; };
 		7B89182A71D912BDFE54C5DC /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8520337E115BB44AB8DB671B /* Pods-Fynoo ServicesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo ServicesTests.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo ServicesTests/Pods-Fynoo ServicesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A061CAC65AB8618E1FE73AC2 /* Pods-Fynoo Services.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services.release.xcconfig"; sourceTree = "<group>"; };
@@ -1880,6 +1884,7 @@
 		18C6928F2655272E00B7347B /* AgentDeliveryDetails */ = {
 			isa = PBXGroup;
 			children = (
+				4EE6319D267F752800D5ED01 /* CancelReason */,
 				4E19EB8E267A341C003510BC /* CommanPopUp */,
 				4E9491812674BFC70061A774 /* PopUpAcceptProduct */,
 				4E9D1F2226745CCE0025ED48 /* PopUpReduceQty */,
@@ -2367,6 +2372,15 @@
 				4EE49DD62673825400E5640C /* ReasonForDeleteViewController.xib */,
 			);
 			path = PopupDeleteReason;
+			sourceTree = "<group>";
+		};
+		4EE6319D267F752800D5ED01 /* CancelReason */ = {
+			isa = PBXGroup;
+			children = (
+				4EE6319E267F758900D5ED01 /* CancelReasonViewController.swift */,
+				4EE6319F267F758900D5ED01 /* CancelReasonViewController.xib */,
+			);
+			path = CancelReason;
 			sourceTree = "<group>";
 		};
 		950B6576476817DE8FBCAE88 /* Frameworks */ = {
@@ -4297,6 +4311,7 @@
 				CEE72CB5251B5E2700B02DAF /* ServiceDetailTableViewCell.xib in Resources */,
 				CEDD332B25765BBA00023977 /* ViewAllImagesNewDesignViewController.xib in Resources */,
 				4E790214267B398E00CE9600 /* AgentDeliveryTableViewCell.xib in Resources */,
+				4EE631A1267F758900D5ED01 /* CancelReasonViewController.xib in Resources */,
 				2F846419250F7F1C0084EB32 /* ForgotPasswordViewController.strings in Resources */,
 				CECEFAA92577A50D0090D459 /* BusinessTypeListViewController.xib in Resources */,
 				2F846393250F6D270084EB32 /* BasedUrlViewController.xib in Resources */,
@@ -4750,6 +4765,7 @@
 				2F74CB58250A365F00DE21EF /* LogoAnimationView.swift in Sources */,
 				CE9CCE1C264BF0B6005AE619 /* FilterModel.swift in Sources */,
 				CEE72CAC251B405F00B02DAF /* ServiceHeaderTableViewCell.swift in Sources */,
+				4EE631A0267F758900D5ED01 /* CancelReasonViewController.swift in Sources */,
 				CEDD33D82576975400023977 /* BranchMapModel.swift in Sources */,
 				2F74CB5A250A365F00DE21EF /* SplashAnimatedViewController.swift in Sources */,
 				CE9CCD5A264BAA14005AE619 /* viewProductDetailEditNew.swift in Sources */,

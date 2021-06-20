@@ -683,6 +683,9 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     
                     if (orderDetailData?.data?.total_accepted_order == orderDetailData?.data?.total_order) {
                         cell.lblTotalOrder.textColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+                    }else
+                    {
+                        cell.lblTotalOrder.textColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
                     }
                     
                     if orderDetailData?.data?.order_status == 3 {
