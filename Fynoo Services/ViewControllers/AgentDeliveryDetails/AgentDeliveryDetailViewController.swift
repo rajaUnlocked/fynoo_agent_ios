@@ -14,6 +14,20 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var mapVw: GMSMapView!
+    
+    @IBOutlet weak var lblName: UILabel!
+    
+    @IBOutlet weak var lblAddress: UILabel!
+    
+    @IBOutlet weak var lblAvgRating: UILabel!
+    
+    @IBOutlet weak var lblTotalRating: UILabel!
+    
+    @IBOutlet weak var lblOpenClose: UILabel!
+    
+    @IBOutlet weak var lblDuration: UILabel!
+    
+    @IBOutlet weak var imgUser: UIImageView!
     var tripId = 0
     var nearestLat = 25.5518
     var nearestLong = 83.1834
@@ -81,9 +95,9 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
             userId = ""
             
         }
-        let param = ["trip_id": "534",
+        let param = ["trip_id": tripId,
                      "user_id":userId,
-                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
+                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected] as [String : Any]
         
         print("request:-", param)
         print("Url:-", Service.acceptedTripDetail)
@@ -96,11 +110,12 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
                 if let body = response as? [String: Any] {
                     self.acceptedtripDetail  = Mapper<deliveryTripDetail>().map(JSON: body)
                     print(self.acceptedtripDetail?.data)
-                    print(self.acceptedtripDetail?.data?.trip_details?.purchase_price)
-                    
-//                    self.lblSize.text = acceptedtripDetail?.data?.trip_details?.size
-//                  self.tableView.reloadData()
-                    
+                    lblName.text = acceptedtripDetail?.data?.trip_details?.cust_nam
+                    lblAvgRating.text = acceptedtripDetail?.data?.trip_details?.rating
+                    lblTotalRating.text = acceptedtripDetail?.data?.trip_details?.total_rating
+                    lblAddress.text = acceptedtripDetail?.data?.trip_details?.cust_address
+
+
                 }
             }
         }

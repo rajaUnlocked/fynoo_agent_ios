@@ -20,6 +20,9 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     @IBOutlet weak var deliveryDashboardHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var headerView: NavigationView!
     
+    var orderSuccessData:Dictionary<String,Any> = [:]
+    
+    
     var selectedTab:String = "1"
     var Index:Int = 0
     var deliverData : deliveryDashboard?
@@ -51,6 +54,10 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         self.headerView.menuBtn.isHidden = false
         self.headerView.viewControl = self
         
+        NotificationCenter.default.addObserver(self, selector: #selector(getOrderSuccessData(_:)), name: NSNotification.Name(Constant.NF_KEY_FOR_PASS_DATA_TO_DELIVERYDASHBOARD), object: nil)
+        
+        print(orderSuccessData)
+        
     }
     func reloadPage() {
         getTripData()
@@ -67,6 +74,13 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         
         self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
+        
+    }
+    
+    
+    @objc func getOrderSuccessData( _ userInfo:NSNotification)  {
+               
+           print("Received Data")
         
     }
     
@@ -316,10 +330,10 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     
     func navigationClicked(_ sender: Any) {
         
-      let vc = AgentDeliveryDetailViewController()
+       let vc = AgentDeliveryDetailViewController()
         
 //        let vc = SearchedProductDeatailViewC()
-        vc.tripId = deliverData?.data?.agent_information?.id ?? 0
+        vc.tripId = (tripListListArray?[(sender as AnyObject).tag].id ?? 0)
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

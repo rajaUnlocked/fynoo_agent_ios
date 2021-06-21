@@ -12,6 +12,8 @@ import MessageUI
 import MTPopup
 
 class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProductDelegate,AddInvoiceInformationDelegate, OpenGalleryDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate {
+    
+    
    
    
     
@@ -215,6 +217,20 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         self.present(vc, animated: true, completion: nil)
     }
     
+    func anyProblemClicked(_ sender: Any) {
+//        let vc = CancelReasonViewController(nibName: "CancelReasonViewController", bundle: nil)
+////      vc.delegate = self
+//        vc.modalPresentationStyle = .overFullScreen
+//        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+//        self.present(vc, animated: true, completion: nil)
+        
+        let vc = CancelReasonViewController()
+//        vc.orderId = tripListListArray?[indexPath.row].order_id ?? ""
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
+    }
+    
     
     
     func uploadClicked(_ sender: Any) {
@@ -366,6 +382,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         case 4:
             let vc = CommonPopViewC(nibName: "CommonPopViewC", bundle: nil)
 //          vc.delegate = self
+            vc.orderId = orderId
             vc.modalPresentationStyle = .overFullScreen
             vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
                 self.present(vc, animated: true, completion: nil)

@@ -11,6 +11,7 @@ import UIKit
 protocol  AddInvoiceInformationDelegate {
     
      func uploadClicked(_ sender: Any)
+    func anyProblemClicked(_ sender: Any)
 }
 
 class AddInvoiceInformationTableViewCell: UITableViewCell {
@@ -50,6 +51,9 @@ class AddInvoiceInformationTableViewCell: UITableViewCell {
     @IBOutlet weak var viewForShowHide: UIView!
     
     
+    @IBOutlet weak var btnAnyProblem: UIButton!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -63,6 +67,12 @@ class AddInvoiceInformationTableViewCell: UITableViewCell {
     
     @IBAction func uploadInvoiceClicked(_ sender: Any) {
         self.delegate?.uploadClicked(self)
+    }
+    
+    
+    @IBAction func anyProblemClicked(_ sender: Any) {
+        
+        delegate?.anyProblemClicked(self)
     }
     
 }

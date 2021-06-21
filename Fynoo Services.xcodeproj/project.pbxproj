@@ -142,6 +142,7 @@
 		4E790214267B398E00CE9600 /* AgentDeliveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E790212267B398D00CE9600 /* AgentDeliveryTableViewCell.xib */; };
 		4E790217267B3D7F00CE9600 /* MallMarketPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E790215267B3D7F00CE9600 /* MallMarketPopupViewController.xib */; };
 		4E79021A267B402E00CE9600 /* nextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E790218267B402D00CE9600 /* nextTableViewCell.xib */; };
+		4E7B73F226807454003405B7 /* SampleNotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B73F126807453003405B7 /* SampleNotificationDelegate.swift */; };
 		4E85ED502671FEBC00785110 /* MapPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED4E2671FEBB00785110 /* MapPath.swift */; };
 		4E85ED512671FEBC00785110 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED4F2671FEBB00785110 /* LocationManager.swift */; };
 		4E85ED6126720A4300785110 /* Legs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED5326720A4300785110 /* Legs.swift */; };
@@ -1001,6 +1002,7 @@
 		4E790213267B398D00CE9600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AgentDeliveryTableViewCell.xib; sourceTree = "<group>"; };
 		4E790216267B3D7F00CE9600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MallMarketPopupViewController.xib; sourceTree = "<group>"; };
 		4E790219267B402D00CE9600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/nextTableViewCell.xib; sourceTree = "<group>"; };
+		4E7B73F126807453003405B7 /* SampleNotificationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleNotificationDelegate.swift; sourceTree = "<group>"; };
 		4E85ED4E2671FEBB00785110 /* MapPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPath.swift; sourceTree = "<group>"; };
 		4E85ED4F2671FEBB00785110 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		4E85ED5326720A4300785110 /* Legs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Legs.swift; sourceTree = "<group>"; };
@@ -2188,6 +2190,7 @@
 				2F07D1A32505F89100193658 /* AddedClasses */,
 				2FFDE23C2501221B006C5EBD /* ViewControllers */,
 				2FFDE20C25012166006C5EBD /* AppDelegate.swift */,
+				4E7B73F126807453003405B7 /* SampleNotificationDelegate.swift */,
 				2FFDE20E25012166006C5EBD /* SceneDelegate.swift */,
 				2F74CB4D250A365300DE21EF /* logo-animeted.gif */,
 				2FFDE21525012171006C5EBD /* Assets.xcassets */,
@@ -4958,6 +4961,7 @@
 				CECEF9D72577575C0090D459 /* CommonSearchTableViewCell.swift in Sources */,
 				2F8463D7250F6EBC0084EB32 /* LoginNewDesignViewController.swift in Sources */,
 				F680D686259B7C2C007EB12C /* DataEntryListingTopTableViewCell.swift in Sources */,
+				4E7B73F226807454003405B7 /* SampleNotificationDelegate.swift in Sources */,
 				CE9CCD4C264BAA14005AE619 /* DataBankSellingList.swift in Sources */,
 				CECEFA992577A2C90090D459 /* BranchImageUploadController.swift in Sources */,
 				CE9CCE1D264BF0B6005AE619 /* ListingnewTableViewCell.swift in Sources */,

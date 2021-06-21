@@ -362,7 +362,19 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
                 }else{
                     ModalController.showSuccessCustomAlertWith(title:msg, msg: "")
                     let vc = OrderSuccessViewC()
-//                    vc.orderId = self.orderId
+                    
+                    var dictData = [String:Any]()
+                    dictData["cust_id"] = self.onTheWayTripDetailData?.data?.trip_details?.cust_id
+                    dictData["cust_image"] = self.onTheWayTripDetailData?.data?.trip_details?.cust_image
+                    dictData["cust_name"] = self.onTheWayTripDetailData?.data?.trip_details?.cust_name
+                    dictData["order_id"] = self.onTheWayTripDetailData?.data?.trip_details?.order_id
+                    dictData["bo_id"] = self.onTheWayTripDetailData?.data?.trip_details?.bo_id
+                    dictData["bo_name"] = self.onTheWayTripDetailData?.data?.trip_details?.bo_name
+                    dictData["bo_image"] = self.onTheWayTripDetailData?.data?.trip_details?.bo_image
+                    dictData["user_type"] = self.onTheWayTripDetailData?.data?.trip_details?.user_type
+                    
+                    vc.confirmDeliveryData = dictData
+                    
                     self.navigationController?.pushViewController(vc, animated: true)
                   
                 }

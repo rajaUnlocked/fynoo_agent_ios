@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import ObjectMapper
 class CommonPopViewC: UIViewController {
     
     @IBOutlet weak var containter: UIView!
@@ -25,14 +25,15 @@ class CommonPopViewC: UIViewController {
     @IBOutlet weak var lblTotalPrice: UILabel!
     
     var orderId = ""
-    var itemId = 0
-    var reasonId = 0
+    var cancelpDetail : agentCancelationDetailData?
     
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getagentCancelDetail()
 
     }
     
@@ -47,20 +48,70 @@ class CommonPopViewC: UIViewController {
     }
     
     @IBAction func onTheWayClicked(_ sender: Any) {
-    }
-    
-    @IBAction func acceptCancelationClicked(_ sender: Any){
         
-//        if aamount.text == ""{
-//            ModalController.showNegativeCustomAlertWith(title: "", msg: "Enter an amount")
-//            return
-//        }
-        let str = Service.deleteIndivisualItem
-        let param = ["user_id":Singleton.shared.getUserId(),"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"item_id":itemId,"order_id":orderId,"reason_id":reasonId] as [String : Any]
+        
+        let str = Service.agentRejectCancellation
+        let param = ["user_id":Singleton.shared.getUserId(),"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"order_id":orderId] as [String : Any]
         print(param)
         ServerCalls.postRequest(str, withParameters: param) { (response, success) in
 //            self.delegate?.reloadPage()
             self.dismiss(animated: true, completion: nil)
+            
+            if let value = response as? NSDictionary{
+                let msg = value.object(forKey: "error_description") as! String
+                let error = value.object(forKey: "error_code") as! Int
+                if error == 100{
+                    ModalController.showNegativeCustomAlertWith(title:msg, msg: "")
+                }else{
+//                        self.imageId = ""
+                    ModalController.showSuccessCustomAlertWith(title:msg, msg: "")
+                    print("msggggggggggg")
+                    
+                    let vc = OtpForCodViewC()
+                    vc.orderId = self.orderId
+                    self.navigationController?.pushViewController(vc, animated: true)
+
+                }
+            }
+            else{
+                ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+            }
+        }
+        
+    }
+    
+    @IBAction func acceptCancelationClicked(_ sender: Any){
+        
+
+        let str = Service.agentAcceptCancellation
+        let param = ["user_id":Singleton.shared.getUserId(),"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"order_id":orderId] as [String : Any]
+        print(param)
+        ServerCalls.postRequest(str, withParameters: param) { (response, success) in
+//            self.delegate?.reloadPage()
+            self.dismiss(animated: true, completion: nil)
+      
+            if let value = response as? NSDictionary{
+                let msg = value.object(forKey: "error_description") as! String
+                let error = value.object(forKey: "error_code") as! Int
+                if error == 100{
+                    ModalController.showNegativeCustomAlertWith(title:msg, msg: "")
+                }else{
+//                        self.imageId = ""
+                    ModalController.showSuccessCustomAlertWith(title:msg, msg: "")
+                    print("msggggggggggg")
+                    
+                    let vc = OtpForCodViewC()
+                    vc.orderId = self.orderId
+                    self.navigationController?.pushViewController(vc, animated: true)
+
+                }
+            }
+            else{
+                ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+            }
+            
+            
+           
         }
         
     }
@@ -71,5 +122,46 @@ class CommonPopViewC: UIViewController {
         self.dismiss(animated: true, completion: nil)
 
     }
-
+    func getagentCancelDetail(){
+        
+        var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
+        
+        if userId == "0"{
+            userId = ""
+            
+        }
+        let param = ["order_id": orderId,
+                     "user_id":userId,
+                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
+        
+        print("request:-", param)
+        print("Url:-", Service.agentCancellationDetail)
+        ServerCalls.postRequest(Service.agentCancellationDetail, withParameters: param) { [self] (response, success) in
+            if success{
+                
+//                self.addPullUpController(animated: true)
+               
+                if let body = response as? [String: Any] {
+                    self.cancelpDetail  = Mapper<agentCancelationDetailData>().map(JSON: body)
+                    
+                    print(self.cancelpDetail?.data?.cus_name ?? "")
+                    
+                    self.lblName.text = cancelpDetail?.data?.cus_name ?? ""
+                    
+                    let timeSTAMP = "\(cancelpDetail?.data?.order_date ?? 0)"
+                    lblDate.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: timeSTAMP, format: "dd-MMM-yyyy HH:mm a")
+                    
+                    
+                    self.lblProductQty.text = "\(cancelpDetail?.data?.order_qty ?? 0)"
+                    self.lblOrderId.text = cancelpDetail?.data?.order_id
+                    self.lblAddress.text = cancelpDetail?.data?.address
+                    self.lblNotes.text = cancelpDetail?.data?.note
+                    self.lblTotalPrice.text = "\(cancelpDetail?.data?.order_price ?? 0)"
+                    
+                    
+                }
+            }
+        }
+    }
+  
 }

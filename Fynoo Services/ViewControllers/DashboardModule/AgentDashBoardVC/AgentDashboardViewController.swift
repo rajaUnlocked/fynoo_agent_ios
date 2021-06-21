@@ -10,7 +10,7 @@ import UIKit
 import SideMenu
 import CoreLocation
 import MTPopup
-class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource, ServicesDashboardTableViewCellDelegate, CommonPopupViewControllerDelegate ,UIImagePickerControllerDelegate, UINavigationControllerDelegate, OpenGalleryDelegate, CLLocationManagerDelegate {
+class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource, ServicesDashboardTableViewCellDelegate, CommonPopupViewControllerDelegate ,UIImagePickerControllerDelegate, UINavigationControllerDelegate, OpenGalleryDelegate, CLLocationManagerDelegate, UITabBarControllerDelegate {
     var refreshControl = UIRefreshControl()
     @IBOutlet weak var walletHeightConst: NSLayoutConstraint!
     @IBOutlet weak var walletvw: UIView!
@@ -46,6 +46,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     var longitude = 0.0
     var userAddressStr = ""
     var isNewLogin : Bool = false
+    let application = UIApplication.shared
     var ResponseDict : NSDictionary = NSDictionary()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,9 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         walletHeightConst.constant = 0
         walletvw.isHidden = true
         saveFcmTokenToServer_API()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(getNotification(_:)), name: NSNotification.Name(Constant.GET_NOTIFICATION), object: nil)
+        tabBarController?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -1005,6 +1009,133 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
             }
         }
     }
+    
+    
+    @objc func getNotification( _ userInfo:NSNotification)  {
+               
+           print(userInfo)
+           var nf_type = ""
+           if let pushMessage = userInfo.object as? Dictionary<String,Any>{
+                           if let nftype = pushMessage["nf_type"] as? String{
+                              nf_type = nftype
+                           }
+                          switch (nf_type) {
+                                      case "1": //An agent accept new request {'nf_type': 2,'agent_id': 1205,'order_id': OD94031610329279}/
+//                                       NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                                        let vc = SearchedProductDeatailViewC()
+                                        let searchId = pushMessage["search_id"] as? String
+                                        vc.searchId = searchId ?? ""
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                        
+                                        
+                                         break;
+                                      case "4": //When No agent found for customer delivery request. when close the searching popup and open the no data found {'nf_type': 3}/
+                                        
+                                        if(application.applicationState == .active){
+                                            let vc = CommonPopViewC(nibName: "CommonPopViewC", bundle: nil)
+                                //          vc.delegate = self
+//                                            vc.orderId = orderId
+                                            vc.modalPresentationStyle = .overFullScreen
+                                            vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+                                                self.present(vc, animated: true, completion: nil)
+                                            
+                                        }
+                                        if(application.applicationState == .inactive)
+                                          {
+                                            let vc = ProductDetailsViewC()
+//                                            let searchId = pushMessage["search_id"] as? String
+//                                            vc.searchId = searchId ?? ""
+                                            self.navigationController?.pushViewController(vc, animated: true)
+                                          }
+                                          break;
+                                      case "8": //An agent accept your product item individual need to refresh the details page {'nf_type': 5,'agent_id': 1205,'order_id': OD94031610329279}/
+                                        
+                                        let vc = ProductDetailsViewC()
+//                                            let searchId = pushMessage["search_id"] as? String
+//                                            vc.searchId = searchId ?? ""
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                          break;
+                                      case "13": //An agent cancel your individual product  need to refresh the details page {'nf_type': 6,'agent_id': 1205,'order_id': OD94031610329279}
+                                        
+                                        let vc = ProductDetailsViewC()
+//                                            let searchId = pushMessage["search_id"] as? String
+//                                            vc.searchId = searchId ?? ""
+                                        self.navigationController?.pushViewController(vc, animated: true)
+//                                          
+                                          break;
+                                      case "15":
+                                        
+                                        let vc = ProductDetailsViewC()
+//                                            let searchId = pushMessage["search_id"] as? String
+//                                            vc.searchId = searchId ?? ""
+                                        self.navigationController?.pushViewController(vc, animated: true)
+
+                                          break;
+                                      case "16":
+                                        let vc = ProductDetailsViewC()
+//                                            let searchId = pushMessage["search_id"] as? String
+//                                            vc.searchId = searchId ?? ""
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                          break;
+                                        
+                                      case "17":
+                                        let vc = ProductDetailsViewC()
+//                                            let searchId = pushMessage["search_id"] as? String
+//                                            vc.searchId = searchId ?? ""
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                        break;
+
+                                      case "20":
+                                        let vc = ProductDetailsViewC()
+//                                            let searchId = pushMessage["search_id"] as? String
+//                                            vc.searchId = searchId ?? ""
+                                        self.navigationController?.pushViewController(vc, animated: true)
+
+                                          break;
+                                      case "26":
+                                        let vc = ProductDetailsViewC()
+//                                            let searchId = pushMessage["search_id"] as? String
+//                                            vc.searchId = searchId ?? ""
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                          break;
+                                      case "28":
+                                        let vc = ProductDetailsViewC()
+//                                            let searchId = pushMessage["search_id"] as? String
+//                                            vc.searchId = searchId ?? ""
+                                        self.navigationController?.pushViewController(vc, animated: true)
+
+                                         break;
+
+                                      case "29":
+                                        let vc = ProductDetailsViewC()
+//                                            let searchId = pushMessage["search_id"] as? String
+//                                            vc.searchId = searchId ?? ""
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                          break;
+                                      case "31":
+                                        let vc = ProductDetailsViewC()
+//                                            let searchId = pushMessage["search_id"] as? String
+//                                            vc.searchId = searchId ?? ""
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                        break;
+
+                                      case "39":
+                                        let vc = ProductDetailsViewC()
+//                                            let searchId = pushMessage["search_id"] as? String
+//                                            vc.searchId = searchId ?? ""
+                                        self.navigationController?.pushViewController(vc, animated: true)
+
+                                          break;
+                                      default:
+                                                print("")
+                                            }
+                                  
+                           }
+              
+           
+       }
+    
+    
 }
 
 extension UIImage {

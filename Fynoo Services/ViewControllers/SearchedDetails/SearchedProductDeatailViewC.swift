@@ -42,6 +42,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     let marker = GMSMarker()
     var currentLocation : CLLocationCoordinate2D!
     var markers = [GMSMarker]()
+    var searchId = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         self.headerView.titleHeader.text = "Product Details"
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
+        mapVw.delegate = self
         SetFont()
         getTripDetail()
     }
@@ -67,16 +69,16 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        lblWeight.text = tripDetail?.data?.trip_details?.weight ?? ""
-        
-//        lblQty.text = tripDetail?.data?.trip_details?.qty
-        
-//        lblSize.text = tripDetail?.data?.trip_details?.size
-        lblDeliveryPrice.text = tripDetail?.data?.trip_details?.delivery_price
-//        lblTime.text = tripDetail?.data?.trip_details?.otp_time
-        lblpickupTime.text = tripDetail?.data?.trip_details?.pick_up_time
-        lblCreatedBy.text = tripDetail?.data?.trip_details?.created_by
-        lblAlmostPurchasePrice.text = self.tripDetail?.data?.trip_details?.purchase_price
+//        lblWeight.text = tripDetail?.data?.trip_details?.weight ?? ""
+//
+////        lblQty.text = tripDetail?.data?.trip_details?.qty
+//
+////        lblSize.text = tripDetail?.data?.trip_details?.size
+//        lblDeliveryPrice.text = tripDetail?.data?.trip_details?.delivery_price
+////        lblTime.text = tripDetail?.data?.trip_details?.otp_time
+//        lblpickupTime.text = tripDetail?.data?.trip_details?.pick_up_time
+//        lblCreatedBy.text = tripDetail?.data?.trip_details?.created_by
+//        lblAlmostPurchasePrice.text = self.tripDetail?.data?.trip_details?.purchase_price
         
         
         
@@ -88,7 +90,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                   locationManager.startUpdatingLocation()
               }
 
-        mapVw.delegate = self
+//        mapVw.delegate = self
 
 
           
@@ -181,7 +183,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
             userId = ""
             
         }
-        let param = ["search_id": "437",
+        let param = ["search_id": searchId,
                      "user_id":userId,
                      "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
         
@@ -193,9 +195,9 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                 if let body = response as? [String: Any] {
                     self.tripDetail  = Mapper<deliveryTripDetail>().map(JSON: body)
                     print(self.tripDetail?.data)
-                    print(self.tripDetail?.data?.trip_details?.purchase_price)
-                    
-                    self.lblSize.text = tripDetail?.data?.trip_details?.size
+//                    print(self.tripDetail?.data?.trip_details?.purchase_price)
+//
+//                    self.lblSize.text = tripDetail?.data?.trip_details?.size
 //                  self.tableView.reloadData()
                     
                 }

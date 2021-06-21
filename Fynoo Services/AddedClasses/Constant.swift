@@ -210,6 +210,11 @@ class Constant: NSObject {
     static let GET_NOTIFICATION = "GET_NOTIFICATION"
     static let GOOGLE_API_KEY = "AIzaSyDGzVH50GxKpAAU69gcux1_VMd45G1gJxc"
     static let GOOGLE_API_DISTANCE = "https://maps.googleapis.com/maps/api/directions/json?"
+    static let SEARCH_AGENT_NOTIFICATION = "SEARCH_AGENT"
+    static let AGENT_NOTIFICATION = "AGENT_NOTIFICATION"
+    
+    static let NF_KEY_FOR_PASS_DATA_TO_DELIVERYDASHBOARD = "PASS_DATA_TO_DELIVERY_DASHBOARD"
+    
     
 }
 
@@ -259,6 +264,9 @@ enum Service {
     static let onTheWayTripDetail = Constant.BASE_URL + "shared_economy/agent/on_the_way_trip_details/"
     static let deliverOrder = Constant.BASE_URL + "shared_economy/agent/deliver_order/"
     
+    static let agentAcceptCancellation = Constant.BASE_URL + "shared_economy/agent/agent_accept_cancellation/"
+    static let agentRejectCancellation = Constant.BASE_URL + "shared_economy/agent/agent_reject_cancellation/"
+    static let agentCancellationDetail = Constant.BASE_URL + "shared_economy/agent/agent_cancellation_detail/"
 }
 
 enum Authentication {
