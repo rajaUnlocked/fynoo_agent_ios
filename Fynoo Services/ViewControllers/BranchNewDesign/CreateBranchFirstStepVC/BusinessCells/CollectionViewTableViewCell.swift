@@ -294,7 +294,7 @@ class CollectionViewTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
                          vc.iswarning = true
                          vc.isproduct = true
                           vc.index = tag1
-                           vc.nameAr =  ["Camera", "Device Gallery"]
+        vc.nameAr =  ["Camera".localized, "Device Gallery".localized]
                            vc.imgAr  = ["camera_picture", "galery_Picture"]
                             let popupController = MTPopupController(rootViewController: vc)
                                    popupController.autoAdjustKeyboardEvent = false

@@ -1694,7 +1694,7 @@
                                           vc.isproduct = true
                                          vc.iswarning = true
                                         self.imagetype = "Exterior"
-                                           vc.nameAr =  ["Camera", "Device Gallery"]
+         vc.nameAr =  ["Camera".localized, "Device Gallery".localized]
                                            vc.imgAr  = ["camera_picture", "galery_Picture"]
                                             let popupController = MTPopupController(rootViewController: vc)
                                                    popupController.autoAdjustKeyboardEvent = false
@@ -1717,7 +1717,7 @@
                                               vc.isproduct = true
                                              vc.iswarning = true
                                              self.imagetype = "Interior"
-                                               vc.nameAr =  ["Camera", "Device Gallery"]
+         vc.nameAr =  ["Camera".localized, "Device Gallery".localized]
                                                vc.imgAr  = ["camera_picture", "galery_Picture"]
                                                 let popupController = MTPopupController(rootViewController: vc)
                                                        popupController.autoAdjustKeyboardEvent = false

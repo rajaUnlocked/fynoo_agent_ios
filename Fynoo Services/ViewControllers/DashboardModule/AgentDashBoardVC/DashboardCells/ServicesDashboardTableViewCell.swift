@@ -20,7 +20,7 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
     @IBOutlet weak var collectionVw: UICollectionView!
     var serviceArr = NSMutableArray()
     var parent = UIViewController()
-    
+    var dsid = 0
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -65,6 +65,13 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
                 self.delegate?.addServiceClickedHome(id: idInt, name: nameStr,index: indexPath.item)
            // }
         }else if serviceCode == "DELIVERY" {
+            if dsid == 0
+            {
+                let vc = DeliveryDocumentViewController(nibName: "DeliveryDocumentViewController", bundle: nil)
+                vc.primaryid = 0
+                parent.navigationController?.pushViewController(vc, animated: true)
+                return
+            }
                 let vc = AgentDeliveryViewController()
                 vc.serviceID = ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any) 
                 parent.navigationController?.pushViewController(vc, animated: true)

@@ -290,7 +290,7 @@
 "Retail" = "بالتجزئة";
 "Wholesale" = "بالجملة";
 //new
-
+"Choose your option"= "إختر أحد الخيارات";
 "Varient" = "مماثل";
 "Do you want to opt for" = "هل تريد إضافة خدمة ";
 "service?" = "ضمن الخدمات التي تعمل عليها؟";

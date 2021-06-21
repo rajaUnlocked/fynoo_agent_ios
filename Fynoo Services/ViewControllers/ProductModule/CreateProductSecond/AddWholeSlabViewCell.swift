@@ -10,6 +10,7 @@ import UIKit
 
 class AddWholeSlabViewCell: UITableViewCell {
 
+    @IBOutlet weak var wholesalelbl: UILabel!
     @IBOutlet weak var proImg: UIImageView!
     @IBOutlet weak var proName: UILabel!
     override func awakeFromNib() {

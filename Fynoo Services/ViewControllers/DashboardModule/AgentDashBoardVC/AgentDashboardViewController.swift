@@ -545,6 +545,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     func ServicesDashboardCell(index : IndexPath) -> UITableViewCell {
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ServicesDashboardTableViewCell",for: index) as! ServicesDashboardTableViewCell
         cell.selectionStyle = .none
+        cell.dsid = (self.ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "dsd_id") as! Int
         cell.delegate = self
         cell.parent = self
         cell.serviceArr = self.servicesArray
@@ -1001,6 +1002,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     self.navigationController?.pushViewController(vc, animated: true)
                     return
                    }
+                    
                     self.dashboardAPI()
                 }
             }else{

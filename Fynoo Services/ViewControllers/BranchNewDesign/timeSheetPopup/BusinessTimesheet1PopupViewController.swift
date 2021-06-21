@@ -27,7 +27,7 @@ addrowssDelegate,deleterowssDelegate {
     var toolbar = UIToolbar()
     var formatter = DateFormatter()
     var setTime = String()
-    var datePicker = UIDatePicker()
+    var datePicker =  UIDatePicker()
     var bttn:UIButton?
     var tags:Int?
     var btntag:Int?
@@ -60,12 +60,13 @@ addrowssDelegate,deleterowssDelegate {
 //        let n1 = "Add your business hours to"
 //        let n2 = "Add your business hours to"
 //        toplevel.text =  "\(n1) \(name) \(n2)".localized
-        
+        let branchname = (AddBranch.shared.bName == "" ? "Branch Name" : AddBranch.shared.bName)
         let businessHours = "Add your business hours to".localized
         let people = "it's easy for people to plan a visit.".localized
+        let string = NSMutableAttributedString(string: "\(businessHours) (\(branchname)) \(people)")
+        string.setColor(color: .systemRed, forText: branchname)
+        toplevel.attributedText = string
         
-        toplevel.text = "\(businessHours) \(AddBranch.shared.bName) \(people)"
-
         toplevel.textAlignment = .left
         if HeaderHeightSingleton.shared.LanguageSelected == "AR"
         {
@@ -84,6 +85,7 @@ addrowssDelegate,deleterowssDelegate {
   
 
          }
+    
     override func viewWillAppear(_ animated: Bool) {
         for i in 0...6
                {
@@ -654,8 +656,6 @@ extension BusinessTimesheet1PopupViewController
           tabview.allowsSelection = false
           tabview.isUserInteractionEnabled = false
           datePicker = UIDatePicker.init()
-          datePicker.backgroundColor = UIColor.white
-
           let date1: NSDate = NSDate()
           let gregorian: NSCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
           
@@ -677,9 +677,13 @@ extension BusinessTimesheet1PopupViewController
           datePicker.datePickerMode = .time
         datePicker.locale = Locale(identifier: "en_GB")
           datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
-          datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 400)
-        if #available(iOS 13.4, *) { datePicker.preferredDatePickerStyle = .wheels }
-        datePicker.backgroundColor = .white
+        
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+            datePicker.frame = CGRect(x: 0, y: self.view.frame.height - 300, width: self.view.bounds.width, height: 300)
+                    
+        }
+        datePicker.backgroundColor = UIColor.white
           self.view.addSubview(datePicker)
           
           toolbar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))

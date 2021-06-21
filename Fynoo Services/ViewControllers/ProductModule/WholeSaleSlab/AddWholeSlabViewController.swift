@@ -425,7 +425,7 @@ extension AddWholeSlabViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddWholeSlabViewCell", for: indexPath) as! AddWholeSlabViewCell
-            
+            cell.wholesalelbl.text = "Wholesale".localized
             cell.proImg.sd_setImage(with: URL(string: proImage), placeholderImage: UIImage(named: "productplaceholder"))
             cell.proName.text = proName
             cell.selectionStyle = .none
