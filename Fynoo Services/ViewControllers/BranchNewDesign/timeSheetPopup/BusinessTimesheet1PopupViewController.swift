@@ -63,7 +63,7 @@ addrowssDelegate,deleterowssDelegate {
         let branchname = (AddBranch.shared.bName == "" ? "Branch Name" : AddBranch.shared.bName)
         let businessHours = "Add your business hours to".localized
         let people = "it's easy for people to plan a visit.".localized
-        let string = NSMutableAttributedString(string: "\(businessHours) (\(branchname)) \(people)")
+        let string = NSMutableAttributedString(string: "\(businessHours) \(branchname) \(people)")
         string.setColor(color: .systemRed, forText: branchname)
         toplevel.attributedText = string
         

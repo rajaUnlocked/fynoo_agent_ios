@@ -78,13 +78,14 @@ class SelectMultipleBranchesNewDesignViewController: UIViewController, UITableVi
         downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
            self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         headerView.titleHeader.text = "Branch List".localized
+        self.titlelabel.text = "Branch List".localized
         if isProduct
         {
             headerView.titleHeader.text = "Product Created".localized
             self.titlelabel.text = "Product Created".localized
         }
            self.headerView.viewControl = self
-        self.searchField.attributedPlaceholder = NSAttributedString(string: "Search", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 56.0/255.0, green: 56.0/255.0, blue: 56.0/255.0, alpha: 1.0)])
+        self.searchField.attributedPlaceholder = NSAttributedString(string: "Search".localized, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 56.0/255.0, green: 56.0/255.0, blue: 56.0/255.0, alpha: 1.0)])
         tableVw.register(UINib(nibName: "SelectMultipleBranchesNewDesignTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectMultipleBranchesNewDesignTableViewCell");
         
     //    let trackY = self.searchVw.frame.maxY
