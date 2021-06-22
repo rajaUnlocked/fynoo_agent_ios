@@ -54,7 +54,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qz7-yi-gQc">
                     <rect key="frame" x="0.0" y="90" width="320" height="231"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKt-Pl-1Qu">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKt-Pl-1Qu" userLabel="Decline">
                             <rect key="frame" x="10" y="10" width="115" height="30"/>
                             <color key="backgroundColor" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -68,6 +68,9 @@
                                     <real key="value" value="5"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="btnTappedToDecline:" destination="-1" eventType="touchUpInside" id="R0X-4l-kWZ"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
@@ -473,6 +476,9 @@
                             <state key="normal" title="Tap to Accept">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="BtnTappedToAccept:" destination="-1" eventType="touchUpInside" id="ouR-mV-Adq"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALD-SA-c9x">
                             <rect key="frame" x="20" y="199" width="280" height="30"/>

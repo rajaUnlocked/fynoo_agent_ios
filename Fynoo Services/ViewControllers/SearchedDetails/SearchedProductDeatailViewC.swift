@@ -256,6 +256,20 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
 //        mapVw?.animate(with: GMSCameraUpdate.fit(bounds, with: UIEdgeInsets(top: 100.0 , left: 50.0 ,bottom: 100.0 ,right: 50.0)))
 //      }
     
+    
+    @IBAction func BtnTappedToAccept(_ sender: UIButton) {
+        
+        let vc = PopUpAcceptProductViewController(nibName: "PopUpAcceptProductViewController", bundle: nil)
+//                    vc.delegate = self
+        vc.titleLabel = "Are you sure want to accept?"
+        vc.modalPresentationStyle = .overFullScreen
+        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func btnTappedToDecline(_ sender: Any) {
+    }
+    
     func getTripDetail(){
         
         var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"

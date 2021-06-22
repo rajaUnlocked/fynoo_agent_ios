@@ -135,14 +135,14 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
         self.containerMapView.addSubview(self.mapVw!)
 
          let cust_marker: GMSMarker = GMSMarker() // Allocating Marker
-         cust_marker.icon = UIImage(named: "home") // Marker icon
+         cust_marker.icon = UIImage(named: "Car") // Marker icon
          let cust_location  = CLLocationCoordinate2D(latitude: cust_lat, longitude: cust_long)
          cust_marker.position = cust_location // CLLocationCoordinate2D
         cust_marker.map = self.mapVw // Setting marker on Mapview
         markers.append(cust_marker)
 
         let branch_marker: GMSMarker = GMSMarker() // Allocating Marker
-        branch_marker.icon = UIImage(named: "nearestBranchMapLocation") // Marker icon
+        branch_marker.icon = UIImage(named: "home") // Marker icon
         branch_marker.appearAnimation = .pop // Appearing animation. default
         let branch_location  = CLLocationCoordinate2D(latitude: branch_lat, longitude: branch_long)
         branch_marker.position = branch_location // CLLocationCoordinate2D
@@ -195,6 +195,7 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
                     lblTotalRating.text = acceptedtripDetail?.data?.trip_details?.cust_total_rating
                     lblAddress.text = acceptedtripDetail?.data?.trip_details?.cust_address
                     lblDuration.text = (acceptedtripDetail?.data?.trip_details?.delivery_times?[0].time ?? "") + "(\(acceptedtripDetail?.data?.trip_details?.delivery_times?[0].distance ?? "" )km)"
+                    self.imgUser.sd_setImage(with: URL(string: acceptedtripDetail?.data?.trip_details?.cust_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
 
 
                 }

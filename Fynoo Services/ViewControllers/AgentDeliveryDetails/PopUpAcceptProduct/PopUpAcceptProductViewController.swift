@@ -21,7 +21,7 @@ class PopUpAcceptProductViewController: UIViewController {
     @IBOutlet weak var lblInstruction: UILabel!
     var orderId = ""
     var itemId = 0
-    
+    var titleLabel = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
