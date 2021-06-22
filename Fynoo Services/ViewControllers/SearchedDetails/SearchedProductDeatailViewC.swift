@@ -14,8 +14,7 @@ import MapKit
 import CoreLocation
 import Alamofire
 
-class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate,PopUpAcceptProductDelegate{
-    
+class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate,PopUpAcceptProductDelegate,PopDeclineProductDelegate{
     
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
@@ -134,7 +133,9 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         print("arvvvv")
         callRequestAccept()
     }
-    
+    func declineOrder() {
+        callRequestReject()
+    }
     
     
     
@@ -284,6 +285,14 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     }
     
     @IBAction func btnTappedToDecline(_ sender: Any) {
+        
+        let vc = PopUpAcceptProductViewController(nibName: "PopUpAcceptProductViewController", bundle: nil)
+        vc.delegateDecline = self
+        vc.titleLabel = "Are you sure want to decline?"
+        vc.modalPresentationStyle = .overFullScreen
+        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        self.present(vc, animated: true, completion: nil)
+        
     }
     
     func getTripDetail(){
@@ -418,4 +427,63 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
             }
         }
     }
+    
+    func callRequestReject(){
+        
+        var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
+        
+        if userId == "0"{
+            userId = ""
+            
+        }
+        let param = ["search_id": searchId,
+                     "user_id":userId,
+                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
+        
+        print("request:-", param)
+        print("Url:-", Service.agentDeclineRequest)
+        ServerCalls.postRequest(Service.agentDeclineRequest, withParameters: param) { [self] (response, success) in
+            if success{
+                
+                if let body = response as? [String: Any] {
+                    self.tripDetail  = Mapper<newOrderTripData>().map(JSON: body)
+                    if success == true {
+                        
+                        let ResponseDict : NSDictionary = (response as? NSDictionary)!
+                        print("ResponseDictionary %@",ResponseDict)
+                        let x = ResponseDict.object(forKey: "error") as! Bool
+                        if x {
+                        ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "error_description") as? String)!, msg: "")
+        //                    self.transactionListArray.removeAllObjects()
+        //                    self.tableView.reloadData()
+                            
+//                            self.delegate?.reloadPage()
+                        }
+                        else{
+                            
+                            ModalController.showSuccessCustomAlertWith(title: ((ResponseDict.object(forKey: "error_description") as? String)!), msg: "")
+                            let vc = AgentDeliveryViewController()
+                            vc.serviceID = "\(tripDetail?.data?.trip_details?.service_id ?? 0)"
+                            vc.serviceStatus = "\(tripDetail?.data?.trip_details?.service_status ?? 0)"
+                            self.navigationController?.pushViewController(vc, animated: true)
+                            
+                        }
+                    }else{
+            
+                        if response == nil {
+                            print ("connection error")
+                            ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                        }else{
+                            print ("data not in proper json")
+                        }
+                    }
+
+                    
+                }
+            }
+        }
+    }
+    
+    
+    
 }

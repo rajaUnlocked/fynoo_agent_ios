@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class CancelReasonViewController: UIViewController, CancelReasonViewCellDelegate {
     
@@ -18,9 +19,10 @@ class CancelReasonViewController: UIViewController, CancelReasonViewCellDelegate
     @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
 
     @IBOutlet weak var tableView: UITableView!
-        
-        var apiManagerModal = DataEntryApiManager()
-        var rejectReasonList  : ReasonRejectData?
+ 
+    
+    var reasonListData : reasonlistData?
+//    var itemListArray:[Item_detail]?
         
          var SelectedIndex:NSMutableArray = NSMutableArray()
         
@@ -33,15 +35,13 @@ class CancelReasonViewController: UIViewController, CancelReasonViewCellDelegate
             self.headerView.viewControl = self
             
             self.SetFont()
-            self.getRejectReasonAPI()
-            
+            callReasonForCancelApi()
             tableView.separatorStyle = .none
             view.isOpaque = false
 //            view.backgroundColor = .clear
             self.submitBtn.layer.cornerRadius = 5
             self.submitBtn.clipsToBounds = true
-    //        self.submitBtn.setAllSideShadow(shadowShowSize: 3.0)
-//            self.contentSizeInPopup = CGSize(width: UIScreen.main.bounds.width, height:300 )
+    
             tableView.delegate = self
             tableView.dataSource = self
             tableView.register(UINib(nibName: "CancelReasonViewCell", bundle: nil), forCellReuseIdentifier: "CancelReasonViewCell")
@@ -66,6 +66,7 @@ class CancelReasonViewController: UIViewController, CancelReasonViewCellDelegate
                  dismiss(animated: true, completion: nil)
                 let selectedID = self.SelectedIndex.object(at: 0)
                 self.delegate?.selectedCancelReason(reasonID: ModalController.toString(selectedID as Any))
+                self.navigationController?.popViewController(animated: true)
                 
             }else{
                 ModalController.showNegativeCustomAlertWith(title: "", msg: "Please select one Reason...")
@@ -74,26 +75,58 @@ class CancelReasonViewController: UIViewController, CancelReasonViewCellDelegate
             }
         }
         
-        func getRejectReasonAPI() {
-           
-            apiManagerModal.dataEntryCancelReason { (success, response) in
-                ModalClass.stopLoading()
-                if success{
-                    self.rejectReasonList = response
-                    
-                    let count = self.rejectReasonList?.data?.reason_list?.count ?? 0
-                    let height = CGFloat(count*35) + 100
-                      self.contentSizeInPopup = CGSize(width: UIScreen.main.bounds.width, height:height)
-                    
-                    self.tableView.reloadData()
-                }else{
-                    ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.rejectReasonList?.error_description ?? "")")
-                }
-            }
-        }
+//        func getRejectReasonAPI() {
+//
+//            apiManagerModal.dataEntryCancelReason { (success, response) in
+//                ModalClass.stopLoading()
+//                if success{
+//                    self.rejectReasonList = response
+//
+//                    let count = self.rejectReasonList?.data?.reason_list?.count ?? 0
+//                    let height = CGFloat(count*35) + 100
+//                      self.contentSizeInPopup = CGSize(width: UIScreen.main.bounds.width, height:height)
+//
+//                    self.tableView.reloadData()
+//                }else{
+//                    ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.rejectReasonList?.error_description ?? "")")
+//                }
+//            }
+//        }
         func selectedReason(_ sender: Any) {
             
         }
+    
+    
+    func callReasonForCancelApi(){
+        
+        var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
+        
+        if userId == "0"{
+            userId = ""
+            
+        }
+        let param = ["reason_for":"5",
+                     "reason_at":"3",
+                     "user_id":userId,
+                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
+        
+        print("request:-", param)
+        print("Url:-", Service.reasonforreturn)
+        ServerCalls.postRequest(Service.reasonforreturn, withParameters: param) { [self] (response, success) in
+            if success{
+                
+                if let body = response as? [String: Any] {
+                    self.reasonListData  = Mapper<reasonlistData>().map(JSON: body)
+                    
+                    print(self.reasonListData?.data?.reason_list ?? "")
+                    
+                  
+                    self.tableView.reloadData()
+
+                }
+            }
+        }
+    }
 
 
     }
@@ -109,12 +142,12 @@ class CancelReasonViewController: UIViewController, CancelReasonViewCellDelegate
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             
-            return rejectReasonList?.data?.reason_list?.count ?? 0
+            return reasonListData?.data?.reason_list?.count ?? 0
         }
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
           
-            let reasonID = ModalController.toString( rejectReasonList?.data?.reason_list?[indexPath.row].reason_id as Any)
+            let reasonID = ModalController.toString( reasonListData?.data?.reason_list?[indexPath.row].reason_id as Any)
             if SelectedIndex.count > 0 {
                 if SelectedIndex.contains(reasonID){
                     SelectedIndex.removeAllObjects()
@@ -141,9 +174,9 @@ class CancelReasonViewController: UIViewController, CancelReasonViewCellDelegate
                 cell.upperLabel.isHidden = true
             cell.selectBtn.isUserInteractionEnabled = false
             
-                cell.name.text = rejectReasonList?.data?.reason_list?[indexPath.row].reason_name ?? ""
+                cell.name.text = reasonListData?.data?.reason_list?[indexPath.row].reason ?? ""
             
-            let reasonID = ModalController.toString(rejectReasonList?.data?.reason_list?[indexPath.row].reason_id as Any)
+            let reasonID = ModalController.toString(reasonListData?.data?.reason_list?[indexPath.row].reason_id as Any)
             
             if SelectedIndex.contains(reasonID) {
                 cell.selectBtn.isSelected = true

@@ -11,10 +11,7 @@ import ObjectMapper
 import MessageUI
 import MTPopup
 
-class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProductDelegate,AddInvoiceInformationDelegate, OpenGalleryDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate {
-    
-    
-   
+class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProductDelegate,AddInvoiceInformationDelegate, OpenGalleryDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,DECancellationReasonViewControllerDelegate {
    
     
     @IBOutlet weak var headerView: NavigationView!
@@ -69,6 +66,11 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         getOrderDetail()
     }
     
+    func selectedCancelReason(reasonID: String) {
+        print(reasonID)
+        callAgentCancelOrder(reasonID: reasonID)
+    }
+    
         func getOrderDetail(){
             
             var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
@@ -101,6 +103,46 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         }
     
     
+    func callAgentCancelOrder(reasonID: String){
+        
+        var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
+        
+        if userId == "0"{
+            userId = ""
+            
+        }
+        let param = ["order_id": orderId,
+                     "user_id":userId,
+                     "reason_id":reasonID,
+                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
+        
+        print("request:-", param)
+        print("Url:-", Service.agentCancelOrder)
+        ServerCalls.postRequest(Service.agentCancelOrder, withParameters: param) { [self] (response, success) in
+            if success{
+                
+                    if let value = response as? NSDictionary{
+                        let msg = value.object(forKey: "error_description") as! String
+                        let error = value.object(forKey: "error_code") as! Int
+                        if error == 100{
+                            ModalController.showNegativeCustomAlertWith(title:msg, msg: "")
+                        }else{
+    //                        self.imageId = ""
+                            ModalController.showSuccessCustomAlertWith(title:msg, msg: "")
+                            print("msggggggggggg")
+                            self.getOrderDetail()
+     
+                        }
+                    }
+                    else{
+                        ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                    }
+     
+            }
+        }
+    }
+    
+    
     
     func callReasonForReturnApi(selectedTag : Int){
         
@@ -126,22 +168,21 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
                     print(self.reasonListData?.data?.reason_list ?? "")
                     
                     let vc = ReasonForDeleteViewController(nibName: "ReasonForDeleteViewController", bundle: nil)
-//                    vc.delegate = self
+                    vc.delegateDelegate = self
                     vc.modalPresentationStyle = .overFullScreen
                     vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+                    
+                    vc.reasonListData =  self.reasonListData
                     vc.lblProductQty.text = "Item Qty: \(orderDetailData?.data?.item_detail? [selectedTag].qty ?? 0)"
                     vc.lblProductName.text = "Item Qty: \(orderDetailData?.data?.item_detail? [selectedTag].pro_name ?? "")"
-                    
+
                     vc.imgProduct.sd_setImage(with: URL(string: orderDetailData?.data?.item_detail?[selectedTag].product_pic ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
-                    
+
                     vc.orderId = orderDetailData?.data?.order_id ?? ""
                     vc.itemId = orderDetailData?.data?.item_detail? [selectedTag].item_id ?? 0
-                    
-                    vc.reasonId = reasonListData?.data?.reason_list?[0].reason_id ?? 0
-                    
+
+                  
                     self.present(vc, animated: true, completion: nil)
-                    
-                    self.tableView.reloadData()
 
                 }
             }
@@ -157,7 +198,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             userId = ""
             
         }
-        let param = ["reason_for":"2",
+        let param = ["reason_for":"7",
                      "reason_at":"3",
                      "user_id":userId,
                      "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
@@ -173,19 +214,18 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
                     print(self.reasonListData?.data?.reason_list ?? "")
                     
                     let vc = PopUpReduceQuantityViewController(nibName: "PopUpReduceQuantityViewController", bundle: nil)
-//                    vc.delegate = self
+                    vc.delegateDelegate = self
                     vc.modalPresentationStyle = .overFullScreen
                     vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-//                    vc.lblProductQty.text = "Item Qty: \(orderDetailData?.data?.item_detail? [selectedTag].qty ?? 0)"
-//                    vc.lblProductName.text = "Item Qty: \(orderDetailData?.data?.item_detail? [selectedTag].pro_name ?? "")"
-//
-//                    vc.imgProduct.sd_setImage(with: URL(string: orderDetailData?.data?.item_detail?[selectedTag].product_pic ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
-//
-//                    vc.orderId = orderDetailData?.data?.order_id ?? ""
-//                    vc.itemId = orderDetailData?.data?.item_detail? [selectedTag].item_id ?? 0
-//
-//                    vc.reasonId = reasonListData?.data?.reason_list?[0].reason_id ?? 0
-                    
+                    vc.reasonListData =  self.reasonListData
+                    vc.lblProductQty.text = "Item Qty: \(orderDetailData?.data?.item_detail? [selectedTag].qty ?? 0)"
+                    vc.lblProductName.text = "Item Qty: \(orderDetailData?.data?.item_detail? [selectedTag].pro_name ?? "")"
+
+                    vc.imgProduct.sd_setImage(with: URL(string: orderDetailData?.data?.item_detail?[selectedTag].product_pic ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+
+                    vc.orderId = orderDetailData?.data?.order_id ?? ""
+                    vc.itemId = orderDetailData?.data?.item_detail? [selectedTag].item_id ?? 0
+
                     self.present(vc, animated: true, completion: nil)
                     
                     self.tableView.reloadData()
@@ -226,6 +266,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         
         let vc = CancelReasonViewController()
 //        vc.orderId = tripListListArray?[indexPath.row].order_id ?? ""
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
         
         
@@ -783,7 +824,12 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     }
                     
                     
-                    if  orderDetailData?.data?.item_detail? [indexPath.row].qty ?? 0 < 2 && orderDetailData?.data?.item_detail? [indexPath.row].item_status == 1{
+//                    if  orderDetailData?.data?.item_detail? [indexPath.row].qty ?? 0 < 2 && orderDetailData?.data?.item_detail? [indexPath.row].item_status == 1{
+//                        cell.btnReduceQuantity.isHidden = true
+//                        cell.lblLineReduceQty.isHidden = true
+//                    }
+                    
+                    if  orderDetailData?.data?.item_detail? [indexPath.row].qty ?? 0 < 2 {
                         cell.btnReduceQuantity.isHidden = true
                         cell.lblLineReduceQty.isHidden = true
                     }

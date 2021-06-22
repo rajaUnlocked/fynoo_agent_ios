@@ -270,6 +270,9 @@ enum Service {
     static let agentCancellationDetail = Constant.BASE_URL + "shared_economy/agent/agent_cancellation_detail/"
     
     static let agentAcceptRequest = Constant.BASE_URL + "shared_economy/agent/request_accept/"
+    static let agentDeclineRequest = Constant.BASE_URL + "shared_economy/agent/request_decline/"
+    
+    static let agentCancelOrder = Constant.BASE_URL + "shared_economy/agent/agent_cancel_order/"
     
     
 }
