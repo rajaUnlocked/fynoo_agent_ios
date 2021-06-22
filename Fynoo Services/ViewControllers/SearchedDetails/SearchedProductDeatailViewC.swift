@@ -12,11 +12,13 @@ import ObjectMapper
 import Cosmos
 import MapKit
 import CoreLocation
+import Alamofire
 
 class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate {
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
-    @IBOutlet weak var mapVw: GMSMapView!
+   
+    @IBOutlet weak var containerMapView: UIView!
     
     @IBOutlet weak var lblDistanceAgentToBo: UILabel!
     @IBOutlet weak var lblDistanceBoToCustomer: UILabel!
@@ -34,7 +36,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var imgCod: UIImageView!
 
-    var tripDetail : deliveryTripDetail?
+    var tripDetail : newOrderTripData?
     
     let locationManager = CLLocationManager()
     var latitude = 0.0
@@ -42,6 +44,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     let marker = GMSMarker()
     var currentLocation : CLLocationCoordinate2D!
     var markers = [GMSMarker]()
+    var mapVw:GMSMapView?
     var searchId = ""
 
     override func viewDidLoad() {
@@ -50,7 +53,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         self.headerView.titleHeader.text = "Product Details"
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
-        mapVw.delegate = self
+//        mapVw.delegate = self
         SetFont()
         getTripDetail()
     }
@@ -68,47 +71,30 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-//        lblWeight.text = tripDetail?.data?.trip_details?.weight ?? ""
+
 //
-////        lblQty.text = tripDetail?.data?.trip_details?.qty
+//        self.locationManager.requestWhenInUseAuthorization()
+//              if CLLocationManager.locationServicesEnabled() {
+//                  locationManager.delegate = self
+//                  locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
 //
-////        lblSize.text = tripDetail?.data?.trip_details?.size
-//        lblDeliveryPrice.text = tripDetail?.data?.trip_details?.delivery_price
-////        lblTime.text = tripDetail?.data?.trip_details?.otp_time
-//        lblpickupTime.text = tripDetail?.data?.trip_details?.pick_up_time
-//        lblCreatedBy.text = tripDetail?.data?.trip_details?.created_by
-//        lblAlmostPurchasePrice.text = self.tripDetail?.data?.trip_details?.purchase_price
-        
-        
-        
-        self.locationManager.requestWhenInUseAuthorization()
-              if CLLocationManager.locationServicesEnabled() {
-                  locationManager.delegate = self
-                  locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-
-                  locationManager.startUpdatingLocation()
-              }
-
-//        mapVw.delegate = self
-
-
-          
-         
-    if HeaderHeightSingleton.shared.longitude == 0.0 {
-                ModalController.showNegativeCustomAlertWith(title: "Please turn on your location services for navigation", msg: "")
-            }else{
-             
-                //OPEN MAP
-                if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
-                    UIApplication.shared.openURL(URL(string:"comgooglemaps://?saddr=&daddr=\(latitude),\(longitude)&directionsmode=driving")!)
-                }
-                else {
-                    print("Can't use comgooglemaps://");
-                    ModalController.showNegativeCustomAlertWith(title: "Please install Google Maps to start navigation", msg: "")
-                }
-            }
-            
+//                  locationManager.startUpdatingLocation()
+//              }
+//
+//    if HeaderHeightSingleton.shared.longitude == 0.0 {
+//                ModalController.showNegativeCustomAlertWith(title: "Please turn on your location services for navigation", msg: "")
+//            }else{
+//
+//                //OPEN MAP
+//                if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+//                    UIApplication.shared.openURL(URL(string:"comgooglemaps://?saddr=&daddr=\(latitude),\(longitude)&directionsmode=driving")!)
+//                }
+//                else {
+//                    print("Can't use comgooglemaps://");
+//                    ModalController.showNegativeCustomAlertWith(title: "Please install Google Maps to start navigation", msg: "")
+//                }
+//            }
+//
         
 //
 //
@@ -123,29 +109,115 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     }
     
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
+    override func viewWillDisappear(_ animated: Bool) {
+  
+    }
     override func viewDidAppear(_ animated: Bool) {
-             self.loadMapView()
+             self.loadMapViewa()
 
     }
     
     
+    func loadMapViewa() {
+        
+//        if let location = self.orderResponse["location_name"] as? String{
+//            lblAddress.text = location
+//        }
+//        var cust_lat = 0.0, cust_long = 0.0, branch_lat = 0.0, branch_long = 0.0
+//        if let location = self.orderResponse["cus_lat"] as? NSNumber{
+//            cust_lat = location.doubleValue
+//        }
+//        if let location = self.orderResponse["cus_long"] as? NSNumber{
+//           cust_long = location.doubleValue
+//         }
+//        if let location = self.orderResponse["branch_lat"] as? NSNumber{
+//                branch_lat = location.doubleValue
+//              }
+//        if let location = self.orderResponse["branch_long"] as? NSNumber{
+//                branch_long = location.doubleValue
+//        }
+//        let agentLat : Double = 25.5321195
+//        let agentLng : Double = 83.2748956
+//        var cust_lat:Double = 28.8309593
+//        var cust_long : Double = 78.7619664
+//        var branch_lat : Double = 28.570751
+//        var branch_long : Double = 77.326188
+        
+        let agentLat : Double = Double.getDouble(tripDetail?.data?.trip_details?.agent_lat)
+        let agentLng : Double = Double.getDouble(tripDetail?.data?.trip_details?.agent_long)
+        var cust_lat:Double = Double.getDouble(tripDetail?.data?.trip_details?.cust_lat)
+        var cust_long : Double = Double.getDouble(tripDetail?.data?.trip_details?.cust_long)
+        var branch_lat : Double = Double.getDouble(tripDetail?.data?.trip_details?.bo_lat)
+        var branch_long : Double = Double.getDouble(tripDetail?.data?.trip_details?.bo_long)
+        
+        
+        
+        let camera = GMSCameraPosition.camera(withLatitude: cust_lat, longitude: cust_long, zoom: 18.0)
+        self.mapVw = GMSMapView.map(withFrame:  self.view.bounds, camera: camera)
+        self.mapVw?.animate(toViewingAngle: 18)
+        self.mapVw?.delegate = self
+        self.mapVw?.isTrafficEnabled = true
+        self.containerMapView.addSubview(self.mapVw!)
+
+         let cust_marker: GMSMarker = GMSMarker() // Allocating Marker
+         cust_marker.icon = UIImage(named: "home") // Marker icon
+         let cust_location  = CLLocationCoordinate2D(latitude: cust_lat, longitude: cust_long)
+         cust_marker.position = cust_location // CLLocationCoordinate2D
+        cust_marker.map = self.mapVw // Setting marker on Mapview
+        markers.append(cust_marker)
+
+        let branch_marker: GMSMarker = GMSMarker() // Allocating Marker
+        branch_marker.icon = UIImage(named: "nearestBranchMapLocation") // Marker icon
+        branch_marker.appearAnimation = .pop // Appearing animation. default
+        let branch_location  = CLLocationCoordinate2D(latitude: branch_lat, longitude: branch_long)
+        branch_marker.position = branch_location // CLLocationCoordinate2D
+        branch_marker.map = self.mapVw // Setting marker on Mapview
+        markers.append(branch_marker)
+   
+        self.setMarkerBoundsOnMap()
+        self.mapVw?.drawPolygon(from: cust_location, to: branch_location)
+               
+     }
+  
+    func setMarkerBoundsOnMap()  {
+       
+          var bounds = GMSCoordinateBounds()
+          for marker in markers {
+              bounds = bounds.includingCoordinate(marker.position)
+          }
+        mapVw?.animate(with: GMSCameraUpdate.fit(bounds, with: UIEdgeInsets(top: 100.0 , left: 50.0 ,bottom: 100.0 ,right: 50.0)))
+      }
+    
+    
     func loadMapView() {
+
+
+//        let agentLat = Double.getDouble(tripDetail?.data?.trip_details?.agent_lat)
+//                 let agentLng = Double.getDouble(tripDetail?.data?.trip_details?.agent_long)
+//                 let branch_lat = Double.getDouble(tripDetail?.data?.trip_details?.bo_lat)
+//                 let branch_long = Double.getDouble(tripDetail?.data?.trip_details?.bo_long)
+//                 let custLat = Double.getDouble(tripDetail?.data?.trip_details?.cust_lat)
+//                 let custLng = Double.getDouble(tripDetail?.data?.trip_details?.cust_long)
+        let agentLat = 25.3176
+        let agentLng = 82.9739
+        var custLat = 25.5518
+        var custLng = 83.1834
+        var branch_lat = 28.5355
+        var branch_long = 77.3910
+       
         
-        
-        let agentLat = Double.getDouble(tripDetail?.data?.trip_details?.agent_lat)
-                 let agentLng = Double.getDouble(tripDetail?.data?.trip_details?.agent_long)
-                 let branch_lat = Double.getDouble(tripDetail?.data?.trip_details?.bo_lat)
-                 let branch_long = Double.getDouble(tripDetail?.data?.trip_details?.bo_long)
-                 let custLat = Double.getDouble(tripDetail?.data?.trip_details?.cust_lat)
-                 let custLng = Double.getDouble(tripDetail?.data?.trip_details?.cust_long)
-        
+        print("arvLat\(agentLat)")
+
         let camera = GMSCameraPosition.camera(withLatitude: agentLat, longitude: agentLng, zoom: 18.0)
         self.mapVw = GMSMapView.map(withFrame:  self.view.bounds, camera: camera)
         self.mapVw?.animate(toViewingAngle: 18)
         self.mapVw?.delegate = self
         self.mapVw?.isTrafficEnabled = true
-//        self.containerMapView.addSubview(self.mapVw!)
+//         self.mapVw.addSubview(mapVw)
 
          let cust_marker: GMSMarker = GMSMarker() // Allocating Marker
          cust_marker.icon = UIImage(named: "home") // Marker icon
@@ -153,7 +225,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
          cust_marker.position = cust_location // CLLocationCoordinate2D
          cust_marker.map = self.mapVw // Setting marker on Mapview
         markers.append(cust_marker)
-        
+
         let agent_marker: GMSMarker = GMSMarker() // Allocating Marker
         agent_marker.icon = UIImage(named: "suv") // Marker icon
         let agent_location  = CLLocationCoordinate2D(latitude: agentLat, longitude: agentLng)
@@ -168,12 +240,21 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         branch_marker.position = branch_location // CLLocationCoordinate2D
         branch_marker.map = self.mapVw // Setting marker on Mapview
         markers.append(branch_marker)
-   
-//        self.setMarkerBoundsOnMap()
+
+        self.setMarkerBoundsOnMap()
         self.mapVw?.drawPolygon(from: agent_location, to: branch_location)
         self.mapVw?.drawPolygon(from: branch_location, to: cust_location)
-               
+
      }
+    
+//    func setMarkerBoundsOnMap()  {
+//
+//          var bounds = GMSCoordinateBounds()
+//          for marker in markers {
+//              bounds = bounds.includingCoordinate(marker.position)
+//          }
+//        mapVw?.animate(with: GMSCameraUpdate.fit(bounds, with: UIEdgeInsets(top: 100.0 , left: 50.0 ,bottom: 100.0 ,right: 50.0)))
+//      }
     
     func getTripDetail(){
         
@@ -193,12 +274,23 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
             if success{
                 
                 if let body = response as? [String: Any] {
-                    self.tripDetail  = Mapper<deliveryTripDetail>().map(JSON: body)
+                    self.tripDetail  = Mapper<newOrderTripData>().map(JSON: body)
                     print(self.tripDetail?.data)
 //                    print(self.tripDetail?.data?.trip_details?.purchase_price)
 //
-//                    self.lblSize.text = tripDetail?.data?.trip_details?.size
-//                  self.tableView.reloadData()
+                    self.lblQty.text = "Qty:\(tripDetail?.data?.trip_details?.qty ?? 0)"
+                    self.lblSize.text = "Size:\(tripDetail?.data?.trip_details?.size ?? "")"
+                    self.lblCreatedBy.text = "\(tripDetail?.data?.trip_details?.created_by ?? "")"
+                    self.lblpickupTime.text = "\(tripDetail?.data?.trip_details?.pick_up_time ?? "")"
+                    self.lblWeight.text = "Weight:\(tripDetail?.data?.trip_details?.weight ?? "")"
+                    self.lblRating.text = "\(tripDetail?.data?.trip_details?.rating ?? "")"
+                    self.lblavgRating.text = "\(tripDetail?.data?.trip_details?.total_rating ?? "")"
+                    self.lblpickupTime.text = "\(tripDetail?.data?.trip_details?.pick_up_time ?? "")"
+                    self.lblAlmostPurchasePrice.text = "\(tripDetail?.data?.trip_details?.purchase_price ?? "")"
+                    self.lblDeliveryPrice.text = "\(tripDetail?.data?.trip_details?.delivery_price ?? ""))"
+                    self.lblAlmostTotalPrice.text = "\(tripDetail?.data?.trip_details?.total_price ?? "")"
+                    self.imgCod.sd_setImage(with: URL(string: tripDetail?.data?.trip_details?.payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+                    
                     
                 }
             }

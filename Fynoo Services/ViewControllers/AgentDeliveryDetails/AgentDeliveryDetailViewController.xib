@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AgentDeliveryDetailViewController" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
                 <outlet property="HeaderView" destination="Tgm-q7-3bW" id="OR2-Pg-t2L"/>
+                <outlet property="containerMapView" destination="vhE-Pj-iET" id="Ypu-l9-vfh"/>
                 <outlet property="headerHeightConstant" destination="WOQ-Fc-sqj" id="jGo-FE-Gdg"/>
                 <outlet property="imgUser" destination="oqA-xx-CkG" id="eDT-ce-GLy"/>
                 <outlet property="lblAddress" destination="tZ2-21-taV" id="VlD-am-w5H"/>
@@ -20,7 +21,6 @@
                 <outlet property="lblName" destination="Fh3-aN-yvX" id="740-Gh-kZx"/>
                 <outlet property="lblOpenClose" destination="O8j-2N-QRh" id="sB2-BU-tws"/>
                 <outlet property="lblTotalRating" destination="Iqu-2D-4tV" id="Beg-BB-SoA"/>
-                <outlet property="mapVw" destination="vhE-Pj-iET" id="Moe-qI-NVi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,7 +36,7 @@
                         <constraint firstAttribute="height" constant="201" id="Q7x-Jz-v5X"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhE-Pj-iET" customClass="GMSMapView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhE-Pj-iET">
                     <rect key="frame" x="0.0" y="90" width="320" height="338"/>
                     <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                 </view>

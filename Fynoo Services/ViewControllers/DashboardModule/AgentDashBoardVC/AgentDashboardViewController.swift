@@ -1021,7 +1021,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                            }
                           switch (nf_type) {
                                       case "1": //An agent accept new request {'nf_type': 2,'agent_id': 1205,'order_id': OD94031610329279}/
-//                                       NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                                       NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
                                         let vc = SearchedProductDeatailViewC()
                                         let searchId = pushMessage["search_id"] as? String
                                         vc.searchId = searchId ?? ""
@@ -1034,7 +1034,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                                         if(application.applicationState == .active){
                                             let vc = CommonPopViewC(nibName: "CommonPopViewC", bundle: nil)
                                 //          vc.delegate = self
-//                                            vc.orderId = orderId
+                                            let orderId = pushMessage["order_id"] as? String
+                                            vc.orderId = orderId ?? ""
                                             vc.modalPresentationStyle = .overFullScreen
                                             vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
                                                 self.present(vc, animated: true, completion: nil)
@@ -1043,86 +1044,86 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                                         if(application.applicationState == .inactive)
                                           {
                                             let vc = ProductDetailsViewC()
-//                                            let searchId = pushMessage["search_id"] as? String
-//                                            vc.searchId = searchId ?? ""
+                                            let orderId = pushMessage["order_id"] as? String
+                                            vc.orderId = orderId ?? ""
                                             self.navigationController?.pushViewController(vc, animated: true)
                                           }
                                           break;
                                       case "8": //An agent accept your product item individual need to refresh the details page {'nf_type': 5,'agent_id': 1205,'order_id': OD94031610329279}/
                                         
                                         let vc = ProductDetailsViewC()
-//                                            let searchId = pushMessage["search_id"] as? String
-//                                            vc.searchId = searchId ?? ""
+                                        let orderId = pushMessage["order_id"] as? String
+                                        vc.orderId = orderId ?? ""
                                         self.navigationController?.pushViewController(vc, animated: true)
                                           break;
                                       case "13": //An agent cancel your individual product  need to refresh the details page {'nf_type': 6,'agent_id': 1205,'order_id': OD94031610329279}
                                         
                                         let vc = ProductDetailsViewC()
-//                                            let searchId = pushMessage["search_id"] as? String
-//                                            vc.searchId = searchId ?? ""
+                                        let orderId = pushMessage["order_id"] as? String
+                                        vc.orderId = orderId ?? ""
                                         self.navigationController?.pushViewController(vc, animated: true)
 //                                          
                                           break;
                                       case "15":
                                         
                                         let vc = ProductDetailsViewC()
-//                                            let searchId = pushMessage["search_id"] as? String
-//                                            vc.searchId = searchId ?? ""
+                                        let orderId = pushMessage["order_id"] as? String
+                                        vc.orderId = orderId ?? ""
                                         self.navigationController?.pushViewController(vc, animated: true)
 
                                           break;
                                       case "16":
                                         let vc = ProductDetailsViewC()
-//                                            let searchId = pushMessage["search_id"] as? String
-//                                            vc.searchId = searchId ?? ""
+                                        let orderId = pushMessage["order_id"] as? String
+                                        vc.orderId = orderId ?? ""
                                         self.navigationController?.pushViewController(vc, animated: true)
                                           break;
                                         
                                       case "17":
                                         let vc = ProductDetailsViewC()
-//                                            let searchId = pushMessage["search_id"] as? String
-//                                            vc.searchId = searchId ?? ""
+                                        let orderId = pushMessage["order_id"] as? String
+                                        vc.orderId = orderId ?? ""
                                         self.navigationController?.pushViewController(vc, animated: true)
                                         break;
 
                                       case "20":
                                         let vc = ProductDetailsViewC()
-//                                            let searchId = pushMessage["search_id"] as? String
-//                                            vc.searchId = searchId ?? ""
+                                        let orderId = pushMessage["order_id"] as? String
+                                        vc.orderId = orderId ?? ""
                                         self.navigationController?.pushViewController(vc, animated: true)
 
                                           break;
                                       case "26":
                                         let vc = ProductDetailsViewC()
-//                                            let searchId = pushMessage["search_id"] as? String
-//                                            vc.searchId = searchId ?? ""
+                                        let orderId = pushMessage["order_id"] as? String
+                                        vc.orderId = orderId ?? ""
                                         self.navigationController?.pushViewController(vc, animated: true)
                                           break;
                                       case "28":
                                         let vc = ProductDetailsViewC()
-//                                            let searchId = pushMessage["search_id"] as? String
-//                                            vc.searchId = searchId ?? ""
+                                        let orderId = pushMessage["order_id"] as? String
+                                        vc.orderId = orderId ?? ""
                                         self.navigationController?.pushViewController(vc, animated: true)
 
                                          break;
 
                                       case "29":
                                         let vc = ProductDetailsViewC()
-//                                            let searchId = pushMessage["search_id"] as? String
-//                                            vc.searchId = searchId ?? ""
+                                        let orderId = pushMessage["order_id"] as? String
+                                        vc.orderId = orderId ?? ""
                                         self.navigationController?.pushViewController(vc, animated: true)
                                           break;
                                       case "31":
                                         let vc = ProductDetailsViewC()
-//                                            let searchId = pushMessage["search_id"] as? String
-//                                            vc.searchId = searchId ?? ""
+                                        let orderId = pushMessage["order_id"] as? String
+                                        vc.orderId = orderId ?? ""
                                         self.navigationController?.pushViewController(vc, animated: true)
                                         break;
 
                                       case "39":
                                         let vc = ProductDetailsViewC()
-//                                            let searchId = pushMessage["search_id"] as? String
-//                                            vc.searchId = searchId ?? ""
+                                        let orderId = pushMessage["order_id"] as? String
+                                        vc.orderId = orderId ?? ""
                                         self.navigationController?.pushViewController(vc, animated: true)
 
                                           break;

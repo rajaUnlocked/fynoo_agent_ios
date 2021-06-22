@@ -9,11 +9,15 @@
 import UIKit
 import GoogleMaps
 import ObjectMapper
+import Cosmos
+import MapKit
+import CoreLocation
+import Alamofire
 class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLLocationManagerDelegate {
     
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
-    @IBOutlet weak var mapVw: GMSMapView!
+   
     
     @IBOutlet weak var lblName: UILabel!
     
@@ -28,11 +32,16 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
     @IBOutlet weak var lblDuration: UILabel!
     
     @IBOutlet weak var imgUser: UIImageView!
+    
+    @IBOutlet weak var containerMapView: UIView!
+    
     var tripId = 0
     var nearestLat = 25.5518
     var nearestLong = 83.1834
     var nearestDistance = 10.0
     let locationManager = CLLocationManager()
+    var markers = [GMSMarker]()
+    var mapVw:GMSMapView?
     
     var acceptedtripDetail : deliveryTripDetail?
 
@@ -42,17 +51,17 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
         self.headerView.titleHeader.text = "Product Details"
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
-        mapVw.delegate = self
+       
         SetFont()
-        self.setCustomerLocation()
+//        self.setCustomerLocation()
         getAcceptedTripDetail()
         
-        self.locationManager.requestWhenInUseAuthorization()
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
+//        self.locationManager.requestWhenInUseAuthorization()
+//        if CLLocationManager.locationServicesEnabled() {
+//            locationManager.delegate = self
+//            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+//            locationManager.startUpdatingLocation()
+//        }
 //
 //        let obj = BranchOnMapDetailModel()
 //        obj.productId = productId
@@ -73,9 +82,15 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
 //            }
 //        }
         
-        self.setMarkerInMap()
+//        self.setMarkerInMap()
 
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+             self.loadMapViewa()
+
+    }
+    
 
     func SetFont() {
         
@@ -85,6 +100,71 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
         
         
         }
+    
+    func loadMapViewa() {
+        
+//        if let location = self.orderResponse["location_name"] as? String{
+//            lblAddress.text = location
+//        }
+//        var cust_lat = 0.0, cust_long = 0.0, branch_lat = 0.0, branch_long = 0.0
+//        if let location = self.orderResponse["cus_lat"] as? NSNumber{
+//            cust_lat = location.doubleValue
+//        }
+//        if let location = self.orderResponse["cus_long"] as? NSNumber{
+//           cust_long = location.doubleValue
+//         }
+//        if let location = self.orderResponse["branch_lat"] as? NSNumber{
+//                branch_lat = location.doubleValue
+//              }
+//        if let location = self.orderResponse["branch_long"] as? NSNumber{
+//                branch_long = location.doubleValue
+//        }
+        let agentLat : Double = Double.getDouble(acceptedtripDetail?.data?.trip_details?.agent_lat)
+        let agentLng : Double = Double.getDouble(acceptedtripDetail?.data?.trip_details?.agent_long)
+        var cust_lat:Double = Double.getDouble(acceptedtripDetail?.data?.trip_details?.cust_lat)
+        var cust_long : Double = Double.getDouble(acceptedtripDetail?.data?.trip_details?.cust_long)
+        var branch_lat : Double = Double.getDouble(acceptedtripDetail?.data?.trip_details?.bo_lat)
+        var branch_long : Double = Double.getDouble(acceptedtripDetail?.data?.trip_details?.bo_long)
+        
+        
+        let camera = GMSCameraPosition.camera(withLatitude: cust_lat, longitude: cust_long, zoom: 18.0)
+        self.mapVw = GMSMapView.map(withFrame:  self.view.bounds, camera: camera)
+        self.mapVw?.animate(toViewingAngle: 18)
+        self.mapVw?.delegate = self
+        self.mapVw?.isTrafficEnabled = true
+        self.containerMapView.addSubview(self.mapVw!)
+
+         let cust_marker: GMSMarker = GMSMarker() // Allocating Marker
+         cust_marker.icon = UIImage(named: "home") // Marker icon
+         let cust_location  = CLLocationCoordinate2D(latitude: cust_lat, longitude: cust_long)
+         cust_marker.position = cust_location // CLLocationCoordinate2D
+        cust_marker.map = self.mapVw // Setting marker on Mapview
+        markers.append(cust_marker)
+
+        let branch_marker: GMSMarker = GMSMarker() // Allocating Marker
+        branch_marker.icon = UIImage(named: "nearestBranchMapLocation") // Marker icon
+        branch_marker.appearAnimation = .pop // Appearing animation. default
+        let branch_location  = CLLocationCoordinate2D(latitude: branch_lat, longitude: branch_long)
+        branch_marker.position = branch_location // CLLocationCoordinate2D
+        branch_marker.map = self.mapVw // Setting marker on Mapview
+        markers.append(branch_marker)
+   
+        self.setMarkerBoundsOnMap()
+        self.mapVw?.drawPolygon(from: cust_location, to: branch_location)
+               
+     }
+    
+    
+      func setMarkerBoundsOnMap()  {
+         
+            var bounds = GMSCoordinateBounds()
+            for marker in markers {
+                bounds = bounds.includingCoordinate(marker.position)
+            }
+          mapVw?.animate(with: GMSCameraUpdate.fit(bounds, with: UIEdgeInsets(top: 100.0 , left: 50.0 ,bottom: 100.0 ,right: 50.0)))
+        }
+    
+    
     
     
     func getAcceptedTripDetail(){
@@ -111,9 +191,10 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
                     self.acceptedtripDetail  = Mapper<deliveryTripDetail>().map(JSON: body)
                     print(self.acceptedtripDetail?.data)
                     lblName.text = acceptedtripDetail?.data?.trip_details?.cust_nam
-                    lblAvgRating.text = acceptedtripDetail?.data?.trip_details?.rating
-                    lblTotalRating.text = acceptedtripDetail?.data?.trip_details?.total_rating
+                    lblAvgRating.text = acceptedtripDetail?.data?.trip_details?.cust_rating
+                    lblTotalRating.text = acceptedtripDetail?.data?.trip_details?.cust_total_rating
                     lblAddress.text = acceptedtripDetail?.data?.trip_details?.cust_address
+                    lblDuration.text = (acceptedtripDetail?.data?.trip_details?.delivery_times?[0].time ?? "") + "(\(acceptedtripDetail?.data?.trip_details?.delivery_times?[0].distance ?? "" )km)"
 
 
                 }
@@ -121,6 +202,8 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
         }
     }
     
+    
+    /*
     
     func setCustomerLocation() {
         
@@ -298,5 +381,8 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
 //            }
 //        }
     }
+    
+    */
+
     
 }

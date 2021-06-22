@@ -912,7 +912,7 @@ class OnTheWayDetailInfo : Mappable {
 
 }
 
-
+//Mark -- Agent cancellation
 
 class agentCancelationDetailData : Mappable {
     var error : Bool?
@@ -969,6 +969,111 @@ class agentCancelationDetail : Mappable {
     }
 
 }
+
+
+class newOrderTripData : Mappable {
+    var error : Bool?
+    var error_code : Int?
+    var error_description : String?
+    var data : NewTripDataInfo?
+
+    required init?(map: Map) {
+
+    }
+
+    func mapping(map: Map) {
+
+        error <- map["error"]
+        error_code <- map["error_code"]
+        error_description <- map["error_description"]
+        data <- map["data"]
+    }
+
+}
+
+
+struct NewOrder_Trip_details : Mappable {
+    var search_id : Int?
+    var service_id : Int?
+    var qty : Int?
+    var purchase_price : String?
+    var delivery_price : String?
+    var total_price : String?
+    var otp_time : Int?
+    var payment_mode : String?
+    var payment_icon : String?
+    var currency : String?
+    var order_id : String?
+    var weight : String?
+    var size : String?
+    var pick_up_time : String?
+    var created_by : String?
+    var rating : String?
+    var total_rating : String?
+    var cust_lat : String?
+    var cust_long : String?
+    var bo_lat : String?
+    var bo_long : String?
+    var agent_lat : String?
+    var agent_long : String?
+    var del_service_id : Int?
+    var service_status : Int?
+    var delivery_times : [Delivery_times]?
+
+    init?(map: Map) {
+
+    }
+
+    mutating func mapping(map: Map) {
+
+        search_id <- map["search_id"]
+        service_id <- map["service_id"]
+        qty <- map["qty"]
+        purchase_price <- map["purchase_price"]
+        delivery_price <- map["delivery_price"]
+        total_price <- map["total_price"]
+        otp_time <- map["otp_time"]
+        payment_mode <- map["payment_mode"]
+        payment_icon <- map["payment_icon"]
+        currency <- map["currency"]
+        order_id <- map["order_id"]
+        weight <- map["weight"]
+        size <- map["size"]
+        pick_up_time <- map["pick_up_time"]
+        created_by <- map["created_by"]
+        rating <- map["rating"]
+        total_rating <- map["total_rating"]
+        cust_lat <- map["cust_lat"]
+        cust_long <- map["cust_long"]
+        bo_lat <- map["bo_lat"]
+        bo_long <- map["bo_long"]
+        agent_lat <- map["agent_lat"]
+        agent_long <- map["agent_long"]
+        del_service_id <- map["del_service_id"]
+        service_status <- map["service_status"]
+        delivery_times <- map["delivery_times"]
+    }
+
+}
+
+struct NewTripDataInfo : Mappable {
+    var trip_details : NewOrder_Trip_details?
+
+    init?(map: Map) {
+
+    }
+
+    mutating func mapping(map: Map) {
+
+        trip_details <- map["trip_details"]
+    }
+
+}
+
+
+
+
+
 
 
 

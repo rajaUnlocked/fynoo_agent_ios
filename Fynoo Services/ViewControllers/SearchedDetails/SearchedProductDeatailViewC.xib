@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchedProductDeatailViewC" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
+                <outlet property="containerMapView" destination="Qz7-yi-gQc" id="akp-yh-FLw"/>
                 <outlet property="headerHeightConstant" destination="Yte-TM-AEt" id="NnR-h0-NXG"/>
                 <outlet property="headerView" destination="NmM-km-qaO" id="7c3-Fi-zD0"/>
                 <outlet property="imgCod" destination="WUh-ET-v6k" id="k0R-ZL-fJZ"/>
@@ -27,7 +28,6 @@
                 <outlet property="lblWeight" destination="uvu-oQ-mQC" id="SPe-a9-K1w"/>
                 <outlet property="lblavgRating" destination="JXv-AI-3rP" id="kyR-vL-3aI"/>
                 <outlet property="lblpickupTime" destination="iDq-kS-n3L" id="H2q-hw-hPf"/>
-                <outlet property="mapVw" destination="Qz7-yi-gQc" id="kAa-pk-X6i"/>
                 <outlet property="rating" destination="JrE-32-qfu" id="GwA-xk-8U6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -51,7 +51,7 @@
                         <constraint firstAttribute="height" constant="90" id="Yte-TM-AEt"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qz7-yi-gQc" customClass="GMSMapView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qz7-yi-gQc">
                     <rect key="frame" x="0.0" y="90" width="320" height="231"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKt-Pl-1Qu">
@@ -557,6 +557,11 @@
             <point key="canvasLocation" x="18.840579710144929" y="45.535714285714285"/>
         </view>
     </objects>
+    <designables>
+        <designable name="JrE-32-qfu">
+            <size key="intrinsicContentSize" width="18" height="18"/>
+        </designable>
+    </designables>
     <resources>
         <image name="backgroundImage" width="297" height="208"/>
         <image name="box" width="18" height="18"/>
