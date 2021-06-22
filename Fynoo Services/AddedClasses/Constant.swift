@@ -106,7 +106,8 @@ class Constant: NSObject {
     static let bankIdentifier_List : String = "businessapi/v2/search_iban_number/";
     
     //service
-    
+    static let custratingapi : String = "shared_economy/agent/customer_rating/"
+    static let boratingapi : String = "bo_agent_delivery/agent_rating_to_bo/"
      static let productVariantList: String = "/customerapi/v1/variantProduct/"
      static let getproductlistfilter : String = "customerapi/v1/product_list_filter/";
       static let removedatasellproduct : String = "product_api/customerDataBankDeleteProduct/";

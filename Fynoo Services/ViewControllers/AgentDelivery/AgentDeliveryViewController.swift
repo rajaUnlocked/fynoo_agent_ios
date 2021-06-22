@@ -12,7 +12,7 @@ import MessageUI
 
 class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDelegate, MFMessageComposeViewControllerDelegate, AgentServiceListDelegate,AddAmountDelegate {
    
-    
+    var isRating = false
     @IBOutlet weak var tableView: UITableView!
     var selectedVl = 1000
     var headerView1 : DataBankHeader? = nil
@@ -57,7 +57,10 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         NotificationCenter.default.addObserver(self, selector: #selector(getOrderSuccessData(_:)), name: NSNotification.Name(Constant.NF_KEY_FOR_PASS_DATA_TO_DELIVERYDASHBOARD), object: nil)
         
         print(orderSuccessData)
-        
+        if isRating
+        {
+        selectedTab = "3"
+        }
     }
     func reloadPage() {
         getTripData()
@@ -66,11 +69,18 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     func ratingClicked(_ sender: Any) {
         
         let vc = DataEntryAgentRatingViewController(nibName: "DataEntryAgentRatingViewController", bundle: nil)
+        vc.isFromService = true
        // vc.delegate =  self
-//        vc.serviceID = ModalController.toString(self.totalRequestListArray?[(sender as AnyObject).tag].id as Any)
-//        vc.agentID = ModalController.toString(self.totalRequestListArray?[(sender as AnyObject).tag].bo_id as Any)
-//        vc.agentName = ModalController.toString(self.totalRequestListArray?[(sender as AnyObject).tag].bo_name as Any)
-//        vc.agentProfilePic = ModalController.toString(self.totalRequestListArray?[(sender as AnyObject).tag].bo_name as Any)
+        vc.serviceID = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "del_service_id") as Any)
+ vc.custID = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "cust_id") as Any)
+    vc.boID = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "bo_id") as Any)
+        vc.custName = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "cust_name") as Any)
+           vc.boName = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "bo_name") as Any)
+        vc.Orderid = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "order_id") as Any)
+        vc.CustProfilePic = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "cust_image") as Any)
+        vc.BoProfilePic = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "bo_image") as Any)
+        vc.usertype = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "user_type") as Any)
+        
         vc.modalPresentationStyle = .overFullScreen
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
@@ -78,10 +88,12 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         
     }
     override func viewWillAppear(_ animated: Bool) {
-//        let vc:NSDictionary = orderSuccessData as NSDictionary
-//        
-//        vc.value(forKey: <#T##String#>)
+
+        if isRating
+        {
+        selectedTab = "3"
         ratingClicked((Any).self)
+        }
         getAgentData()
         getTripData()
     }
@@ -317,6 +329,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         tableView.reloadData()
     }
     func selecteIndex(_ sender: Any, selectedIndexID:String){
+        
         self.selectedTab = selectedIndexID
         self.Index = Int(self.selectedTab)! - Int(1)
         isMoreDataAvailable = false
@@ -493,7 +506,9 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             if self.selectedTab == "2"
             {
                 let vc = SearchedProductDeatailViewC()
+                vc.searchId = "\(self.tripList?.data?.trip_list?[indexPath.row].search_id ?? 0)"
                 self.navigationController?.pushViewController(vc, animated: true)
+                
                 return
             }
             if (tripListListArray?[indexPath.row].status) == 1  {
