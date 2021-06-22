@@ -14,7 +14,9 @@ import MapKit
 import CoreLocation
 import Alamofire
 
-class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate {
+class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate,PopUpAcceptProductDelegate{
+    
+    
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
    
@@ -46,6 +48,9 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     var markers = [GMSMarker]()
     var mapVw:GMSMapView?
     var searchId = ""
+    var serviceId = ""
+    var customerType = ""
+    var seconds = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +58,11 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         self.headerView.titleHeader.text = "Product Details"
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
+//        var timer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(UIMenuController.update), userInfo: nil, repeats: true)
 //        mapVw.delegate = self
+       
+
+
         SetFont()
         getTripDetail()
     }
@@ -120,6 +129,13 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
              self.loadMapViewa()
 
     }
+    
+    func reloadPage() {
+        print("arvvvv")
+        callRequestAccept()
+    }
+    
+    
     
     
     func loadMapViewa() {
@@ -260,7 +276,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     @IBAction func BtnTappedToAccept(_ sender: UIButton) {
         
         let vc = PopUpAcceptProductViewController(nibName: "PopUpAcceptProductViewController", bundle: nil)
-//                    vc.delegate = self
+        vc.delegate = self
         vc.titleLabel = "Are you sure want to accept?"
         vc.modalPresentationStyle = .overFullScreen
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
@@ -301,10 +317,84 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                     self.lblavgRating.text = "\(tripDetail?.data?.trip_details?.total_rating ?? "")"
                     self.lblpickupTime.text = "\(tripDetail?.data?.trip_details?.pick_up_time ?? "")"
                     self.lblAlmostPurchasePrice.text = "\(tripDetail?.data?.trip_details?.purchase_price ?? "")"
-                    self.lblDeliveryPrice.text = "\(tripDetail?.data?.trip_details?.delivery_price ?? ""))"
+                    self.lblDeliveryPrice.text = "\(tripDetail?.data?.trip_details?.delivery_price ?? "")"
                     self.lblAlmostTotalPrice.text = "\(tripDetail?.data?.trip_details?.total_price ?? "")"
                     self.imgCod.sd_setImage(with: URL(string: tripDetail?.data?.trip_details?.payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
                     
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+                        self.seconds -= 1
+                        if self.seconds <= 0 {
+                            print("Go!")
+                            timer.invalidate()
+                        } else {
+                            print(self.seconds)
+                            self.lblTime.text = "\(tripDetail?.data?.trip_details?.otp_time ?? 0)min"
+                        }
+                    }
+                    
+                    
+                }
+            }
+        }
+    }
+    
+    
+    func callRequestAccept(){
+        
+        var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
+        
+        if userId == "0"{
+            userId = ""
+            
+        }
+        let param = ["search_id": searchId,
+                     "user_id":userId,
+                     "service_id":String.getString(tripDetail?.data?.trip_details?.service_id),
+                     "user_type":String.getString(tripDetail?.data?.trip_details?.created_by),
+                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
+        
+//        let param = ["search_id": "45",
+//                     "user_id":userId,
+//                     "service_id":"399",
+//                     "user_type":"CUSTOMER",
+//                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
+        
+        print("request:-", param)
+        print("Url:-", Service.agentAcceptRequest)
+        ServerCalls.postRequest(Service.agentAcceptRequest, withParameters: param) { [self] (response, success) in
+            if success{
+                
+                if let body = response as? [String: Any] {
+                    self.tripDetail  = Mapper<newOrderTripData>().map(JSON: body)
+                    if success == true {
+                        
+                        let ResponseDict : NSDictionary = (response as? NSDictionary)!
+                        print("ResponseDictionary %@",ResponseDict)
+                        let x = ResponseDict.object(forKey: "error") as! Bool
+                        if x {
+                        ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "error_description") as? String)!, msg: "")
+        //                    self.transactionListArray.removeAllObjects()
+        //                    self.tableView.reloadData()
+                            
+//                            self.delegate?.reloadPage()
+                        }
+                        else{
+                            
+                            ModalController.showSuccessCustomAlertWith(title: ((ResponseDict.object(forKey: "error_description") as? String)!), msg: "")
+                            let vc = AgentDeliveryViewController()
+                            self.navigationController?.pushViewController(vc, animated: true)
+                            
+                        }
+                    }else{
+            
+                        if response == nil {
+                            print ("connection error")
+                            ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                        }else{
+                            print ("data not in proper json")
+                        }
+                    }
+
                     
                 }
             }
