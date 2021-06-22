@@ -84,12 +84,15 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         
     }
     override func viewWillAppear(_ animated: Bool) {
-
-        if isRating
+        if ((orderSuccessData as NSDictionary).value(forKey: "isRating") != nil)
         {
-        selectedTab = "3"
-        ratingClicked((Any).self)
+            if (orderSuccessData as NSDictionary).value(forKey: "isRating") as! Bool
+            {
+            selectedTab = "3"
+            ratingClicked((Any).self)
+            }
         }
+       
         getAgentData()
         getTripData()
     }
