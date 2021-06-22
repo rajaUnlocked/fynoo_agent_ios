@@ -94,7 +94,6 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
             ratingClicked((Any).self)
             }
         }
-       
         getAgentData()
         getTripData()
     }
