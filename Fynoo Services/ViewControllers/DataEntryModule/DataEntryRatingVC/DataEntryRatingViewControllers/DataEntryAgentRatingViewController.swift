@@ -13,7 +13,8 @@ protocol DataEntryAgentRatingViewControllerDelegate: class {
     func refreshDataEntryCompleteServiceList()
 }
 class DataEntryAgentRatingViewController: UIViewController {
-    
+    var isFromService = false
+    @IBOutlet weak var submit: UIButton!
     weak var delegate: DataEntryAgentRatingViewControllerDelegate?
     @IBOutlet weak var agentProfileImageView: UIImageView!
     @IBOutlet weak var agentNameLbl: UILabel!
@@ -22,17 +23,35 @@ class DataEntryAgentRatingViewController: UIViewController {
     
     @IBOutlet weak var ratingView: CosmosView!
     var dataEntryApiMnagagerModal = DataEntryApiManager()
-    
+    var ratingval = 0.0
+    var Orderid:String = ""
     var serviceID:String = ""
     var agentID:String = ""
+    var custID:String = ""
+    var boID:String = ""
+    var custName:String = ""
+    var boName:String = ""
     var agentName:String = ""
     var agentLanguage:String = ""
     var agentProfilePic:String = "" 
-    
-    
+    var CustProfilePic:String = ""
+    var BoProfilePic:String = ""
+    var usertype:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        submit.isHidden = true
+        if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
+            if value[0]=="ar"{
+                self.agentNameLbl.textAlignment = .right
+                self.staticTxtLbl.textAlignment = .right
+                
+            }else if value[0]=="en"{
+                self.agentNameLbl.textAlignment = .left
+                self.staticTxtLbl.textAlignment = .left
+                
+            }
+        }
+       
         ratingView.settings.minTouchRating = 0.5
         
         self.agentProfileImageView.sd_setImage(with: URL(string:(agentProfilePic)), placeholderImage: UIImage(named: "agent_indivdual.png"))
@@ -47,11 +66,33 @@ class DataEntryAgentRatingViewController: UIViewController {
         
         ratingView.didFinishTouchingCosmos = {
             rating in
-            self.ratingAPI(rating: rating)
+            self.ratingval = rating
         }
-        
-        
-        
+        if isFromService
+        {
+            
+            submit.isHidden = false
+            let staticText = "How was your experience with".localized
+            self.staticTxtLbl.text = "\(staticText) \(usertype)"
+            if usertype == "CUSTOMER"
+            {
+                self.agentNameLbl.text = custName
+                self.agentLanguageLbl.text = ""
+                self.agentProfileImageView.sd_setImage(with: URL(string: CustProfilePic), placeholderImage: UIImage(named: "agent_indivdual"))
+            }
+            else{
+                self.agentNameLbl.text = boName
+                self.agentLanguageLbl.text = ""
+                self.agentProfileImageView.sd_setImage(with: URL(string: BoProfilePic), placeholderImage: UIImage(named: "agent_indivdual"))
+            }
+           
+        }
+        else{
+            ratingView.didFinishTouchingCosmos = {
+                rating in
+                self.ratingAPI(rating: rating)
+            }
+        }
     }
 
     func SetFont() {
@@ -70,6 +111,47 @@ class DataEntryAgentRatingViewController: UIViewController {
            }
        }
 
+    @IBAction func submitClicked(_ sender: Any) {
+        self.ratingserviceAPI(rating: self.ratingval)
+    }
+    func ratingserviceAPI(rating:Double)
+    {
+        
+        ModalClass.startLoading(self.view)
+        var str = ""
+        var parameters = [String:Any]()
+        parameters = [
+            "agent_id":Singleton.shared.getUserId(),
+            "order_id": Orderid,
+            "rating":rating,
+            "lang_code":HeaderHeightSingleton.shared.LanguageSelected
+        ]
+        if usertype == "CUSTOMER"
+        {
+            parameters["customer_id"] = custID
+            str = "\(Constant.BASE_URL)\(Constant.custratingapi)"
+        }
+        else{
+            parameters["bo_id"] = custID
+            str = "\(Constant.BASE_URL)\(Constant.boratingapi)"
+        }
+       
+        print("request -",parameters)
+        ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
+            ModalClass.stopLoading()
+            if let value = response as? NSDictionary{
+                let msg = value.object(forKey: "error_description") as! String
+                let error = value.object(forKey: "error_code") as! Int
+                if error == 100{
+                    ModalController.showNegativeCustomAlertWith(title: "", msg: msg)
+                    self.dismiss(animated: true, completion: nil)
+                }else{
+                    ModalController.showSuccessCustomAlertWith(title: "", msg: msg)
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+    }
     func ratingAPI(rating:Double) {
         
         dataEntryApiMnagagerModal.giveRatingToAgent(serviceID: self.serviceID,AgentID: self.agentID, rating: ModalController.toString(rating as Any)  ) { (success, response) in

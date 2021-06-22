@@ -283,8 +283,10 @@
 
 /////////////////////////             TAP PAYMENT             /////////////////////////
 //new
-
-
+"Tap to accept" = "Tap to accept";
+"Branch List" = "Branch List";
+"Choose your option"= "Choose your option";
+"Varient" = "Varient";
 "Do you want to opt for" = "Do you want to opt for";
 "service?" = "service?";
 "Are you sure you want to activate this service?" = "Are you sure you want to activate this service?";
@@ -305,6 +307,14 @@
 
 
 
+"Please enter iban number" = "Please enter iban number";
+"Please Re-enter iban number" = "Please Re-enter iban number";
+"IBAN and Re-IBAN number does not match" = "IBAN and Re-IBAN number does not match";
+"Please enter name on account" = "Please enter name on account";
+
+"Send Money from wallet to Bank" = "Send Money from wallet to Bank";
+"Please enter amount" = "Please enter amount";
+"You cannot transfer more than the available balance" = "You cannot transfer more than the available balance";
 "Available Balance" = "Available Balance";
 "Payment in Progress" = "Payment in Progress";
 "Transferred" = "Transferred";
@@ -843,7 +853,7 @@
 // Stock Update (Inventory)
 "Date Created"="Date Created";
 "Available Quantity"="Available Quantity";
-"Date updated"="Date updated";
+"Date Updated"="Date Updated";
 "Stock Update"="Stock Update";
 "Manage Invenvtory"="Manage Inventory";
 

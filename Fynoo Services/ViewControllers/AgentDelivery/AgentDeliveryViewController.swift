@@ -12,7 +12,7 @@ import MessageUI
 
 class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDelegate, MFMessageComposeViewControllerDelegate, AgentServiceListDelegate,AddAmountDelegate {
    
-    
+    var isRating = false
     @IBOutlet weak var tableView: UITableView!
     var selectedVl = 1000
     var headerView1 : DataBankHeader? = nil
@@ -57,15 +57,42 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         NotificationCenter.default.addObserver(self, selector: #selector(getOrderSuccessData(_:)), name: NSNotification.Name(Constant.NF_KEY_FOR_PASS_DATA_TO_DELIVERYDASHBOARD), object: nil)
         
         print(orderSuccessData)
-        
     }
     func reloadPage() {
         getTripData()
         getAgentData()
     }
-    
+    func ratingClicked(_ sender: Any) {
+        
+        let vc = DataEntryAgentRatingViewController(nibName: "DataEntryAgentRatingViewController", bundle: nil)
+        vc.isFromService = true
+       // vc.delegate =  self
+        vc.serviceID = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "del_service_id") as Any)
+ vc.custID = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "cust_id") as Any)
+    vc.boID = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "bo_id") as Any)
+        vc.custName = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "cust_name") as Any)
+           vc.boName = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "bo_name") as Any)
+        vc.Orderid = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "order_id") as Any)
+        vc.CustProfilePic = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "cust_image") as Any)
+        vc.BoProfilePic = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "bo_image") as Any)
+        vc.usertype = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "user_type") as Any)
+        
+        vc.modalPresentationStyle = .overFullScreen
+        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        
+        self.present(vc, animated: true, completion: nil)
+        
+    }
     override func viewWillAppear(_ animated: Bool) {
-      
+        if ((orderSuccessData as NSDictionary).value(forKey: "isRating") != nil)
+        {
+            if (orderSuccessData as NSDictionary).value(forKey: "isRating") as! Bool
+            {
+            selectedTab = "3"
+            ratingClicked((Any).self)
+            }
+        }
+       
         getAgentData()
         getTripData()
     }
@@ -301,6 +328,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         tableView.reloadData()
     }
     func selecteIndex(_ sender: Any, selectedIndexID:String){
+        
         self.selectedTab = selectedIndexID
         self.Index = Int(self.selectedTab)! - Int(1)
         isMoreDataAvailable = false
@@ -472,7 +500,14 @@ extension AgentDeliveryViewController : UITableViewDataSource {
 //                self.navigationController?.pushViewController(vc, animated: true)
         
         if indexPath.section == 1 {
-            
+            if self.selectedTab == "2"
+            {
+                let vc = SearchedProductDeatailViewC()
+                vc.searchId = "\(self.tripList?.data?.trip_list?[indexPath.row].search_id ?? 0)"
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+                return
+            }
             if (tripListListArray?[indexPath.row].status) == 1  {
                 let vc = OtpForCodViewC()
                 vc.orderId = tripListListArray?[indexPath.row].order_id ?? ""
@@ -521,14 +556,18 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         cell.price.text = "\(tripListListArray?[index.row].currency ?? "") \(ModalController.toString(tripListListArray?[index.row].almost_total_price ?? 0.0 as Any))"
         cell.walletIcon.sd_setImage(with: URL(string: tripListListArray?[index.row].payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
         cell.statusLbl.text = tripListListArray?[index.row].status_desc
-        
+       
+        cell.callBtn.isHidden = false
+        cell.messageBtn.isHidden = false
         if selectedTab == "2" {
+            cell.callBtn.isHidden = true
+            cell.messageBtn.isHidden = true
+            cell.statusLbl.text = "Tap to accept".localized
             cell.statusView.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
         }else{
            cell.statusView.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.8588235294, blue: 0.8588235294, alpha: 1)
         }
 
-        
         cell.delegate = self
         cell.tag = index.row
         return cell

@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WalletFilterNewViewController" customModule="Fynoo" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WalletFilterNewViewController" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
                 <outlet property="amounlbl" destination="WR1-Dg-2VJ" id="Kft-Vq-J1D"/>
                 <outlet property="applybnout" destination="IEc-mu-cS1" id="Dsk-dk-xdj"/>
@@ -47,7 +47,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="550"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obK-4T-P1K" customClass="NavigationView" customModule="Fynoo" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obK-4T-P1K" customClass="NavigationView" customModule="Fynoo_Services" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -72,7 +72,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQ3-ZA-1eS">
-                            <rect key="frame" x="51" y="14" width="35.5" height="22"/>
+                            <rect key="frame" x="51" y="14" width="33" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="22" id="zma-Kr-qEk"/>
                             </constraints>
@@ -100,7 +100,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHB-Kj-LSH">
-                    <rect key="frame" x="259" y="160" width="46" height="30"/>
+                    <rect key="frame" x="260" y="160" width="45" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="18V-eM-fQJ"/>
                     </constraints>
@@ -136,7 +136,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WR1-Dg-2VJ">
-                            <rect key="frame" x="17" y="10" width="43.5" height="20"/>
+                            <rect key="frame" x="17" y="10" width="42.5" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="3kG-IN-cto"/>
                             </constraints>
@@ -192,7 +192,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOK-th-cpi">
-                            <rect key="frame" x="17" y="10" width="28" height="20"/>
+                            <rect key="frame" x="17" y="10" width="25.5" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="OVa-nS-k7z"/>
                             </constraints>
@@ -306,8 +306,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O09-ca-MuD">
                     <rect key="frame" x="120" y="201" width="200" height="250"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Transaction Amount Range" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIM-qv-M6j">
-                            <rect key="frame" x="15" y="10" width="182" height="20"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Transaction Amount Range" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIM-qv-M6j">
+                            <rect key="frame" x="15" y="10" width="182.5" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="Uz7-mX-nDY"/>
                             </constraints>
@@ -360,7 +360,7 @@
                     <rect key="frame" x="120" y="201" width="200" height="250"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ep2-kk-qG3">
-                            <rect key="frame" x="15" y="10" width="59.5" height="20"/>
+                            <rect key="frame" x="15" y="10" width="57" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="kS6-Wj-rqo"/>
                             </constraints>
@@ -509,6 +509,11 @@
             <point key="canvasLocation" x="139" y="123"/>
         </view>
     </objects>
+    <designables>
+        <designable name="oi5-e9-RgM">
+            <size key="intrinsicContentSize" width="-1" height="65"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Rectangle164" width="384" height="120"/>
         <image name="backgroundImage" width="297" height="208"/>

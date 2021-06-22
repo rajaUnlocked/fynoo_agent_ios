@@ -56,6 +56,7 @@ class SelectCategoryViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
+        searchField.placeholder = "Search".localized
         searchField.addTarget(self, action: #selector(SelectCategoryViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
      
         self.tabBarController?.tabBar.isHidden = true
@@ -69,6 +70,7 @@ class SelectCategoryViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        catalbl.text = "Categories".localized
           let fontNameLight = NSLocalizedString("LightFontName", comment: "")
          let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
        productName.font = UIFont(name:"\(fontNameLight)",size:12)

@@ -319,6 +319,15 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             if success
             {
                 self.servicelist = response
+                if self.servicelist?.data?.front_side ?? "" != ""{
+                    self.vehicleKind_API(brandid: (self.servicelist?.data?.registration_type_id)!)
+                    self.vehicleName_API(brandid: (self.servicelist?.data?.vehicle_brand_id)!)
+                   
+                }
+                else
+                {
+                    ModalClass.stopLoadingAllLoaders(self.view)
+                }
                 self.imgArr = [self.servicelist?.data?.national_id ?? "",self.servicelist?.data?.driving_license ?? "",self.servicelist?.data?.registration ?? "",self.servicelist?.data?.insurance ?? "",self.servicelist?.data?.authorization ?? "",self.servicelist?.data?.front_side ?? ""]
                 for i in 0...self.imgArr.count - 1
                 {
@@ -350,15 +359,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     self.submit.setTitle("Pending for approval".localized, for: .normal)
                 }
                
-                if self.servicelist?.data?.front_side ?? "" != ""{
-                    self.vehicleKind_API(brandid: (self.servicelist?.data?.registration_type_id)!)
-                    self.vehicleName_API(brandid: (self.servicelist?.data?.vehicle_brand_id)!)
-                   
-                }
-                else
-                {
-                    ModalClass.stopLoadingAllLoaders(self.view)
-                }
+               
                 self.tabvw.reloadData()
                
             }

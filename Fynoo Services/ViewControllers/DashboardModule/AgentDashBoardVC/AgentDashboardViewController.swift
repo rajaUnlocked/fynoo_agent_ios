@@ -549,6 +549,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     func ServicesDashboardCell(index : IndexPath) -> UITableViewCell {
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ServicesDashboardTableViewCell",for: index) as! ServicesDashboardTableViewCell
         cell.selectionStyle = .none
+        cell.dsid = (self.ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "dsd_id") as! Int
         cell.delegate = self
         cell.parent = self
         cell.serviceArr = self.servicesArray
@@ -899,7 +900,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
     
     func yesBtnClicked(name : String , id : Int) {
-        addServiceAPI(serviceID: id)
+        addServiceAPI(serviceID: id,name : name)
     }
     
     func yesBtnForActivate(name : String , id : Int , forActivate : Bool) {
@@ -974,7 +975,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     
     
     // MARK: - ADD SERVICE API
-    func addServiceAPI(serviceID : Int){
+    func addServiceAPI(serviceID : Int,name : String){
         
         let user_id:UserData = AuthorisedUser.shared.getAuthorisedUser()
         var userID = "\(user_id.data!.id)"
@@ -997,6 +998,15 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                 }
                 else{
                     ModalController.showSuccessCustomAlertWith(title: "", msg: (ResponseDict.object(forKey: "error_description") as? String)!)
+                    
+                   if name == "DELIVERY"
+                   {
+                    let vc = DeliveryDocumentViewController(nibName: "DeliveryDocumentViewController", bundle: nil)
+                    vc.primaryid = 0
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    return
+                   }
+                    
                     self.dashboardAPI()
                 }
             }else{
