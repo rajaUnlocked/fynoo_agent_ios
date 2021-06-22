@@ -41,10 +41,11 @@ class PopUpAcceptProductViewController: UIViewController {
     
     @IBAction func yesClicked(_ sender: Any){
         
-//        if txtQty.text == ""{
-//            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please Enter Qty")
-//            return
-//        }
+        if titleLabel == "Are you sure want to accept?"{
+            self.delegate?.reloadPage()
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
         let str = Service.acceptIndivisualItem
         let param = ["user_id":Singleton.shared.getUserId(),"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"item_id":itemId] as [String : Any]
         print(param)

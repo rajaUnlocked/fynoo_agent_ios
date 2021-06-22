@@ -374,9 +374,9 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
                     dictData["user_type"] = self.onTheWayTripDetailData?.data?.trip_details?.user_type
                     dictData["del_service_id"] = self.onTheWayTripDetailData?.data?.trip_details?.del_service_id
                     dictData["service_status"] = self.onTheWayTripDetailData?.data?.trip_details?.service_status
+                    dictData["isRating"] = true
                     
-                   
-                    
+                
                     vc.confirmDeliveryData = dictData
                     
                     self.navigationController?.pushViewController(vc, animated: true)

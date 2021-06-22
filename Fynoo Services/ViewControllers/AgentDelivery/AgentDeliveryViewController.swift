@@ -358,9 +358,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     }
     
     func navigationClicked(_ sender: Any) {
-        
        let vc = AgentDeliveryDetailViewController()
-        
 //        let vc = SearchedProductDeatailViewC()
         vc.tripId = (tripListListArray?[(sender as AnyObject).tag].id ?? 0)
         self.navigationController?.pushViewController(vc, animated: true)
