@@ -86,6 +86,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     override func viewWillAppear(_ animated: Bool) {
         if ((orderSuccessData as NSDictionary).value(forKey: "isRating") != nil)
         {
+            self.serviceID = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "del_service_id") as Any)
             if (orderSuccessData as NSDictionary).value(forKey: "isRating") as! Bool
             {
             selectedTab = "3"
