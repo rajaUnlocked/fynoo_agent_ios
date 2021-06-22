@@ -400,7 +400,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "215"
             endingLineNumber = "215"
-            landmarkName = "setMarkerBoundsOnMap()"
+            landmarkName = "loadMapView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -416,7 +416,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
             endingLineNumber = "134"
-            landmarkName = "viewWillDisappear(_:)"
+            landmarkName = "reloadPage()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
