@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductDetailsViewC" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
+                <outlet property="btnChangeStatus" destination="oWO-nU-V4a" id="ICY-iX-jja"/>
                 <outlet property="headerHeightConstant" destination="Nf2-N9-jnQ" id="IUV-6I-l9P"/>
                 <outlet property="headerView" destination="fpc-zJ-wRb" id="S6j-Pf-HMM"/>
                 <outlet property="tableView" destination="EG1-n1-rNY" id="cDx-Mf-zgq"/>

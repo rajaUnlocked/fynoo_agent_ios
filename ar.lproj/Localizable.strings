@@ -290,6 +290,7 @@
 "Retail" = "بالتجزئة";
 "Wholesale" = "بالجملة";
 //new
+"Tap to accept" = "قبول";
 "Branch List" = "قائمة الفروع";
 "Choose your option"= "إختر أحد الخيارات";
 "Varient" = "مماثل";
@@ -1225,3 +1226,4 @@
 //"Confirm Delivery" = "تأكيد التسليم"
 "Please Enter Otp" =  "الرجاء إدخال رمز التحقق"
 "Please Check COD Amount For Customer" = "Please Check COD Amount For Customer"
+"Please add invoice file" = "Please add invoice file"

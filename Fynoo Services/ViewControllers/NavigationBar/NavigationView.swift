@@ -38,7 +38,8 @@ class NavigationView: UIView {
     }
     
     @IBAction func backButton(_ sender: Any) {
-        viewControl.navigationController?.popViewController(animated: true)
+        self.viewControl.navigationController?.popViewController(animated: true)
+        
     }
     
     required init?(coder aDecoder: NSCoder)

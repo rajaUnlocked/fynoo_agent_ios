@@ -124,7 +124,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let userInfo = userInfo as? Dictionary<String,Any> else {return}
                // Print message ID.
                print(userInfo)
-               NotificationCenter.default.post(name: Notification.Name(Constant.GET_NOTIFICATION), object: userInfo)
+//               NotificationCenter.default.post(name: Notification.Name(Constant.GET_NOTIFICATION), object: userInfo)
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
@@ -143,7 +143,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let userInfo = userInfo as? Dictionary<String,Any> else {return}
         // Print message ID.
         print(userInfo)
-        NotificationCenter.default.post(name: Notification.Name(Constant.GET_NOTIFICATION), object: userInfo)
+//        NotificationCenter.default.post(name: Notification.Name(Constant.GET_NOTIFICATION), object: userInfo)
         // Print full message.
         
         completionHandler(UIBackgroundFetchResult.newData)
@@ -180,7 +180,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
-        NotificationCenter.default.post(name: Notification.Name(Constant.GET_NOTIFICATION), object: userInfo)
+//        NotificationCenter.default.post(name: Notification.Name(Constant.GET_NOTIFICATION), object: userInfo)
         // Print full message.
         print(userInfo)
         // Change this to your preferred presentation option

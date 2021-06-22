@@ -20,6 +20,7 @@
 		18BBD7B3265A00A800C19D8F /* ProductListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBD7B1265A00A800C19D8F /* ProductListTableViewCell.swift */; };
 		18BBD7BA265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBD7B8265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.swift */; };
 		18BBD7BB265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBD7B9265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.xib */; };
+		18C0673A2664DAE1000F3CA3 /* OtpForCodViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C067382664DAE1000F3CA3 /* OtpForCodViewC.swift */; };
 		18C69292265527D400B7347B /* AgentDeliveryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C69290265527D400B7347B /* AgentDeliveryDetailViewController.swift */; };
 		18C69293265527D400B7347B /* AgentDeliveryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C69291265527D400B7347B /* AgentDeliveryDetailViewController.xib */; };
 		2F0230BE2514902B004F1B0B /* DictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0230BD2514902A004F1B0B /* DictionaryExt.swift */; };
@@ -127,17 +128,58 @@
 		2FFDE22F25012173006C5EBD /* Fynoo_ServicesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDE22E25012173006C5EBD /* Fynoo_ServicesUITests.swift */; };
 		2FFDE2412501225A006C5EBD /* AgentDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDE23F2501225A006C5EBD /* AgentDashboardViewController.swift */; };
 		3EBBEF9433213B23D9C4BC1A /* Pods_Fynoo_Services.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34F4201751D8F2C6FB8501B /* Pods_Fynoo_Services.framework */; };
+		4E19EB85267A15EF003510BC /* OrderSuccessViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E19EB83267A15EF003510BC /* OrderSuccessViewC.swift */; };
+		4E19EB87267A1909003510BC /* OrderSuccessViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E19EB89267A1909003510BC /* OrderSuccessViewC.xib */; };
+		4E19EB91267A34A7003510BC /* CommonPopViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E19EB8F267A34A7003510BC /* CommonPopViewC.swift */; };
+		4E19EB92267A34A7003510BC /* CommonPopViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E19EB90267A34A7003510BC /* CommonPopViewC.xib */; };
+		4E6D37C6267B41B100BFA77B /* marketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6D37C2267B41B000BFA77B /* marketTableViewCell.xib */; };
+		4E6D37C7267B41B100BFA77B /* otherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6D37C4267B41B000BFA77B /* otherTableViewCell.xib */; };
+		4E790205267B359A00CE9600 /* TwoButtonsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E790203267B359900CE9600 /* TwoButtonsTableViewCell.xib */; };
+		4E79020A267B365500CE9600 /* ProfileDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E790206267B365400CE9600 /* ProfileDetailTableViewCell.xib */; };
+		4E79020B267B365500CE9600 /* ProfileVatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E790208267B365500CE9600 /* ProfileVatTableViewCell.xib */; };
+		4E79020E267B373B00CE9600 /* CommonPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E79020C267B373B00CE9600 /* CommonPopupViewController.xib */; };
+		4E790211267B37F800CE9600 /* AgentDashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E79020F267B37F800CE9600 /* AgentDashboardViewController.xib */; };
+		4E790214267B398E00CE9600 /* AgentDeliveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E790212267B398D00CE9600 /* AgentDeliveryTableViewCell.xib */; };
+		4E790217267B3D7F00CE9600 /* MallMarketPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E790215267B3D7F00CE9600 /* MallMarketPopupViewController.xib */; };
+		4E79021A267B402E00CE9600 /* nextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E790218267B402D00CE9600 /* nextTableViewCell.xib */; };
+		4E7B73F226807454003405B7 /* SampleNotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B73F126807453003405B7 /* SampleNotificationDelegate.swift */; };
+		4E85ED502671FEBC00785110 /* MapPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED4E2671FEBB00785110 /* MapPath.swift */; };
+		4E85ED512671FEBC00785110 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED4F2671FEBB00785110 /* LocationManager.swift */; };
+		4E85ED6126720A4300785110 /* Legs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED5326720A4300785110 /* Legs.swift */; };
+		4E85ED6226720A4300785110 /* Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED5426720A4300785110 /* Distance.swift */; };
+		4E85ED6326720A4300785110 /* Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED5526720A4300785110 /* Bounds.swift */; };
+		4E85ED6426720A4300785110 /* Northeast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED5626720A4300785110 /* Northeast.swift */; };
+		4E85ED6526720A4300785110 /* Start_location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED5726720A4300785110 /* Start_location.swift */; };
+		4E85ED6626720A4300785110 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED5826720A4300785110 /* Steps.swift */; };
+		4E85ED6726720A4300785110 /* Geocoded_waypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED5926720A4300785110 /* Geocoded_waypoints.swift */; };
+		4E85ED6826720A4300785110 /* Overview_polyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED5A26720A4300785110 /* Overview_polyline.swift */; };
+		4E85ED6926720A4300785110 /* End_location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED5B26720A4300785110 /* End_location.swift */; };
+		4E85ED6A26720A4300785110 /* DistanceModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED5C26720A4300785110 /* DistanceModelResponse.swift */; };
+		4E85ED6B26720A4300785110 /* Polyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED5D26720A4300785110 /* Polyline.swift */; };
+		4E85ED6C26720A4300785110 /* Southwest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED5E26720A4300785110 /* Southwest.swift */; };
+		4E85ED6D26720A4300785110 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED5F26720A4300785110 /* Routes.swift */; };
+		4E85ED6E26720A4300785110 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED6026720A4300785110 /* Duration.swift */; };
+		4E9491842674C0020061A774 /* PopUpAcceptProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9491822674C0020061A774 /* PopUpAcceptProductViewController.swift */; };
+		4E9491852674C0020061A774 /* PopUpAcceptProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E9491832674C0020061A774 /* PopUpAcceptProductViewController.xib */; };
+		4E9D1F2526745D180025ED48 /* PopUpReduceQuantityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D1F2326745D180025ED48 /* PopUpReduceQuantityViewController.swift */; };
+		4E9D1F2626745D180025ED48 /* PopUpReduceQuantityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D1F2426745D180025ED48 /* PopUpReduceQuantityViewController.xib */; };
+		4E9D1F2926746A2E0025ED48 /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D1F2726746A2E0025ED48 /* InformationTableViewCell.swift */; };
+		4E9D1F2D26746ABC0025ED48 /* OtpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D1F2B26746ABC0025ED48 /* OtpTableViewCell.swift */; };
+		4ECE3C1B26771026009D0163 /* ProductListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE3C1D26771026009D0163 /* ProductListTableViewCell.xib */; };
+		4ECE3C232677361A009D0163 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE3C2226773619009D0163 /* GoogleService-Info.plist */; };
+		4ECE3C2426776771009D0163 /* InformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE3C2626776771009D0163 /* InformationTableViewCell.xib */; };
+		4ECE3C2B267778E3009D0163 /* OtpForCodViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE3C2D267778E3009D0163 /* OtpForCodViewC.xib */; };
+		4ECE3C3226777D3F009D0163 /* OtpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE3C3426777D3F009D0163 /* OtpTableViewCell.xib */; };
+		4EE49DD72673825400E5640C /* ReasonForDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE49DD52673825400E5640C /* ReasonForDeleteViewController.swift */; };
+		4EE49DD82673825400E5640C /* ReasonForDeleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EE49DD62673825400E5640C /* ReasonForDeleteViewController.xib */; };
+		4EE631A0267F758900D5ED01 /* CancelReasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE6319E267F758900D5ED01 /* CancelReasonViewController.swift */; };
+		4EE631A1267F758900D5ED01 /* CancelReasonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EE6319F267F758900D5ED01 /* CancelReasonViewController.xib */; };
 		788758D607ADF036566C3603 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B2018020C6F3800DB3F75B /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */; };
-		CE0B0EC42675D5AD00B046D5 /* nextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0B0EC62675D5AD00B046D5 /* nextTableViewCell.xib */; };
 		CE2EFB3E251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EFB3C251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift */; };
 		CE2EFB3F251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2EFB3D251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib */; };
 		CE2EFB42251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */; };
 		CE2EFB43251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2EFB41251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib */; };
 		CE3E9A59251E0B0300B60038 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E9A58251E0B0300B60038 /* ServiceModel.swift */; };
-		CE40A25126708B3500A8C944 /* AgentDashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE40A25326708B3500A8C944 /* AgentDashboardViewController.xib */; };
-		CE40A2612670E15000A8C944 /* ProfileDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE40A2632670E15000A8C944 /* ProfileDetailTableViewCell.xib */; };
-		CE4F8729267783D300B2CDE7 /* TwoButtonsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4F872B267783D300B2CDE7 /* TwoButtonsTableViewCell.xib */; };
-		CE5842C926747DA30007EF91 /* AgentDeliveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5842CB26747DA30007EF91 /* AgentDeliveryTableViewCell.xib */; };
 		CE8E8595250F4C3800B74A9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE8E8597250F4C3800B74A9E /* Localizable.strings */; };
 		CE9CCD3F264BAA14005AE619 /* TimingShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CCC89264BAA13005AE619 /* TimingShowTableViewCell.swift */; };
 		CE9CCD42264BAA14005AE619 /* TimingShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9CCC8C264BAA13005AE619 /* TimingShowTableViewCell.xib */; };
@@ -226,6 +268,8 @@
 		CEBCD72D2664A7FE001BF767 /* BankList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6EA2664A7FE001BF767 /* BankList.swift */; };
 		CEBCD72E2664A7FE001BF767 /* DeleteBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6EB2664A7FE001BF767 /* DeleteBank.swift */; };
 		CEBCD72F2664A7FE001BF767 /* BankTransferController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6EC2664A7FE001BF767 /* BankTransferController.xib */; };
+		CEBCD7302664A7FE001BF767 /* BankHeader.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6EF2664A7FE001BF767 /* BankHeader.strings */; };
+		CEBCD7312664A7FE001BF767 /* WalletAvailableTopCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6F12664A7FE001BF767 /* WalletAvailableTopCell.strings */; };
 		CEBCD7322664A7FE001BF767 /* PaymentProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD6F52664A7FE001BF767 /* PaymentProgressTableViewCell.swift */; };
 		CEBCD7332664A7FE001BF767 /* BankAllListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6F62664A7FE001BF767 /* BankAllListViewController.xib */; };
 		CEBCD7342664A7FE001BF767 /* BankHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD6F72664A7FE001BF767 /* BankHeader.xib */; };
@@ -606,7 +650,6 @@
 		F4CEC2FF2511D9FF003C35E8 /* UploadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CEC2FE2511D9FE003C35E8 /* UploadImage.swift */; };
 		F4E772AA252D9F930045BD86 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E772A9252D9F920045BD86 /* ChangePasswordViewController.swift */; };
 		F4E772AC252D9F990045BD86 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4E772AB252D9F990045BD86 /* ChangePasswordViewController.xib */; };
-		F61CF76326787F0100EAEB0C /* ProfileVatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61CF76526787F0100EAEB0C /* ProfileVatTableViewCell.xib */; };
 		F62E4AE925148EC60021CEE0 /* popupViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AA025148EC60021CEE0 /* popupViewController.strings */; };
 		F62E4AEA25148EC60021CEE0 /* popupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AA325148EC60021CEE0 /* popupViewController.xib */; };
 		F62E4AEB25148EC60021CEE0 /* popupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4AA525148EC60021CEE0 /* popupViewController.swift */; };
@@ -643,46 +686,6 @@
 		F62E4B142514983A0021CEE0 /* ImageUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4B12251498390021CEE0 /* ImageUpload.swift */; };
 		F62E4B152514983A0021CEE0 /* BankIdentifierListModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4B132514983A0021CEE0 /* BankIdentifierListModal.swift */; };
 		F62E4B2225149B370021CEE0 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4B2125149B360021CEE0 /* DatePickerDialog.swift */; };
-		F62F80E8267B2BA3003DE43B /* OrderSuccessViewC.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62F80D1267B2BA3003DE43B /* OrderSuccessViewC.strings */; };
-		F62F80E9267B2BA3003DE43B /* OtpTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62F80D3267B2BA3003DE43B /* OtpTableViewCell.strings */; };
-		F62F80EA267B2BA4003DE43B /* InformationTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62F80D5267B2BA3003DE43B /* InformationTableViewCell.strings */; };
-		F62F80EB267B2BA4003DE43B /* OtpForCodViewC.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62F80D7267B2BA3003DE43B /* OtpForCodViewC.strings */; };
-		F62F80EC267B2BA4003DE43B /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F80DD267B2BA3003DE43B /* InformationTableViewCell.swift */; };
-		F62F80ED267B2BA4003DE43B /* OtpForCodViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62F80DE267B2BA3003DE43B /* OtpForCodViewC.xib */; };
-		F62F80EE267B2BA4003DE43B /* OtpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62F80E0267B2BA3003DE43B /* OtpTableViewCell.xib */; };
-		F62F80EF267B2BA4003DE43B /* OrderSuccessViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62F80E2267B2BA3003DE43B /* OrderSuccessViewC.xib */; };
-		F62F80F0267B2BA4003DE43B /* InformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62F80E4267B2BA3003DE43B /* InformationTableViewCell.xib */; };
-		F62F80F1267B2BA4003DE43B /* OrderSuccessViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F80E6267B2BA3003DE43B /* OrderSuccessViewC.swift */; };
-		F62F80F2267B2BA4003DE43B /* OtpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F80E7267B2BA3003DE43B /* OtpTableViewCell.swift */; };
-		F62F80F7267B2C0D003DE43B /* OtpForCodViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F80F6267B2C0D003DE43B /* OtpForCodViewC.swift */; };
-		F62F8107267B2D7F003DE43B /* ReasonForDeleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62F80FC267B2D7E003DE43B /* ReasonForDeleteViewController.xib */; };
-		F62F8108267B2D7F003DE43B /* ReasonForDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F80FD267B2D7E003DE43B /* ReasonForDeleteViewController.swift */; };
-		F62F8109267B2D7F003DE43B /* CommonPopViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F80FF267B2D7F003DE43B /* CommonPopViewC.swift */; };
-		F62F810A267B2D7F003DE43B /* CommonPopViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62F8100267B2D7F003DE43B /* CommonPopViewC.xib */; };
-		F62F810B267B2D7F003DE43B /* PopUpReduceQuantityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F8102267B2D7F003DE43B /* PopUpReduceQuantityViewController.swift */; };
-		F62F810C267B2D7F003DE43B /* PopUpReduceQuantityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62F8103267B2D7F003DE43B /* PopUpReduceQuantityViewController.xib */; };
-		F62F810D267B2D7F003DE43B /* PopUpAcceptProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F8105267B2D7F003DE43B /* PopUpAcceptProductViewController.swift */; };
-		F62F810E267B2D7F003DE43B /* PopUpAcceptProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62F8106267B2D7F003DE43B /* PopUpAcceptProductViewController.xib */; };
-		F62F8114267B2DA9003DE43B /* ProductListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62F8112267B2DA8003DE43B /* ProductListTableViewCell.xib */; };
-		F62F812D267B2EE4003DE43B /* Legs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F811D267B2EE4003DE43B /* Legs.swift */; };
-		F62F812E267B2EE4003DE43B /* Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F811E267B2EE4003DE43B /* Distance.swift */; };
-		F62F812F267B2EE4003DE43B /* Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F811F267B2EE4003DE43B /* Bounds.swift */; };
-		F62F8130267B2EE4003DE43B /* Northeast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F8120267B2EE4003DE43B /* Northeast.swift */; };
-		F62F8131267B2EE4003DE43B /* Start_location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F8121267B2EE4003DE43B /* Start_location.swift */; };
-		F62F8132267B2EE4003DE43B /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F8122267B2EE4003DE43B /* Steps.swift */; };
-		F62F8133267B2EE4003DE43B /* Geocoded_waypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F8123267B2EE4003DE43B /* Geocoded_waypoints.swift */; };
-		F62F8134267B2EE4003DE43B /* Overview_polyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F8124267B2EE4003DE43B /* Overview_polyline.swift */; };
-		F62F8135267B2EE4003DE43B /* End_location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F8125267B2EE4003DE43B /* End_location.swift */; };
-		F62F8136267B2EE4003DE43B /* DistanceModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F8126267B2EE4003DE43B /* DistanceModelResponse.swift */; };
-		F62F8137267B2EE4003DE43B /* Polyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F8127267B2EE4003DE43B /* Polyline.swift */; };
-		F62F8138267B2EE4003DE43B /* Southwest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F8128267B2EE4003DE43B /* Southwest.swift */; };
-		F62F8139267B2EE4003DE43B /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F8129267B2EE4003DE43B /* Routes.swift */; };
-		F62F813A267B2EE4003DE43B /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F812A267B2EE4003DE43B /* Duration.swift */; };
-		F62F813B267B2EE4003DE43B /* MapPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F812B267B2EE4003DE43B /* MapPath.swift */; };
-		F62F813C267B2EE4003DE43B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F812C267B2EE4003DE43B /* LocationManager.swift */; };
-		F6347D22267A2DFC006CC052 /* marketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6347D24267A2DFC006CC052 /* marketTableViewCell.xib */; };
-		F6347D2C267A2E3F006CC052 /* otherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6347D2E267A2E3F006CC052 /* otherTableViewCell.xib */; };
-		F6347D36267A2E79006CC052 /* MallMarketPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6347D38267A2E79006CC052 /* MallMarketPopupViewController.xib */; };
 		F635979825C66DFD003BF9E2 /* TripAchivementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F635979625C66DFD003BF9E2 /* TripAchivementCollectionViewCell.swift */; };
 		F635979925C66DFD003BF9E2 /* TripAchivementCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F635979725C66DFD003BF9E2 /* TripAchivementCollectionViewCell.xib */; };
 		F635979C25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F635979A25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift */; };
@@ -821,7 +824,6 @@
 		F68B78E42653ADE800B1E69E /* UserPolicyWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68B78E22653ADE800B1E69E /* UserPolicyWebViewController.xib */; };
 		F6A5FB99259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A5FB98259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift */; };
 		F6B14CA8251B387300F9F03E /* VatInfoModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B14CA7251B387200F9F03E /* VatInfoModal.swift */; };
-		F6FC007C267A1573008AF6DD /* CommonPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6FC007E267A1573008AF6DD /* CommonPopupViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -856,6 +858,7 @@
 		18BBD7B1265A00A800C19D8F /* ProductListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListTableViewCell.swift; sourceTree = "<group>"; };
 		18BBD7B8265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInvoiceInformationTableViewCell.swift; sourceTree = "<group>"; };
 		18BBD7B9265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddInvoiceInformationTableViewCell.xib; sourceTree = "<group>"; };
+		18C067382664DAE1000F3CA3 /* OtpForCodViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpForCodViewC.swift; sourceTree = "<group>"; };
 		18C69290265527D400B7347B /* AgentDeliveryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDeliveryDetailViewController.swift; sourceTree = "<group>"; };
 		18C69291265527D400B7347B /* AgentDeliveryDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentDeliveryDetailViewController.xib; sourceTree = "<group>"; };
 		2F0230BD2514902A004F1B0B /* DictionaryExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExt.swift; sourceTree = "<group>"; };
@@ -982,31 +985,73 @@
 		2FFDE23025012173006C5EBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FFDE23F2501225A006C5EBD /* AgentDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDashboardViewController.swift; sourceTree = "<group>"; };
 		37BC6070EBDE8A55FC4A7E83 /* Pods_Fynoo_ServicesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_ServicesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E17237026789AA1005B79D6 /* Fynoo Services.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Fynoo Services.entitlements"; sourceTree = "<group>"; };
+		4E19EB83267A15EF003510BC /* OrderSuccessViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSuccessViewC.swift; sourceTree = "<group>"; };
+		4E19EB88267A1909003510BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OrderSuccessViewC.xib; sourceTree = "<group>"; };
+		4E19EB8B267A190D003510BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrderSuccessViewC.strings; sourceTree = "<group>"; };
+		4E19EB8D267A1910003510BC /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/OrderSuccessViewC.strings; sourceTree = "<group>"; };
+		4E19EB8F267A34A7003510BC /* CommonPopViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPopViewC.swift; sourceTree = "<group>"; };
+		4E19EB90267A34A7003510BC /* CommonPopViewC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonPopViewC.xib; sourceTree = "<group>"; };
+		4E6D37C3267B41B000BFA77B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/marketTableViewCell.xib; sourceTree = "<group>"; };
+		4E6D37C5267B41B100BFA77B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/otherTableViewCell.xib; sourceTree = "<group>"; };
+		4E790204267B359900CE9600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TwoButtonsTableViewCell.xib; sourceTree = "<group>"; };
+		4E790207267B365400CE9600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileDetailTableViewCell.xib; sourceTree = "<group>"; };
+		4E790209267B365500CE9600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileVatTableViewCell.xib; sourceTree = "<group>"; };
+		4E79020D267B373B00CE9600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CommonPopupViewController.xib; sourceTree = "<group>"; };
+		4E790210267B37F800CE9600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AgentDashboardViewController.xib; sourceTree = "<group>"; };
+		4E790213267B398D00CE9600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AgentDeliveryTableViewCell.xib; sourceTree = "<group>"; };
+		4E790216267B3D7F00CE9600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MallMarketPopupViewController.xib; sourceTree = "<group>"; };
+		4E790219267B402D00CE9600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/nextTableViewCell.xib; sourceTree = "<group>"; };
+		4E7B73F126807453003405B7 /* SampleNotificationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleNotificationDelegate.swift; sourceTree = "<group>"; };
+		4E85ED4E2671FEBB00785110 /* MapPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPath.swift; sourceTree = "<group>"; };
+		4E85ED4F2671FEBB00785110 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		4E85ED5326720A4300785110 /* Legs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Legs.swift; sourceTree = "<group>"; };
+		4E85ED5426720A4300785110 /* Distance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distance.swift; sourceTree = "<group>"; };
+		4E85ED5526720A4300785110 /* Bounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bounds.swift; sourceTree = "<group>"; };
+		4E85ED5626720A4300785110 /* Northeast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Northeast.swift; sourceTree = "<group>"; };
+		4E85ED5726720A4300785110 /* Start_location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Start_location.swift; sourceTree = "<group>"; };
+		4E85ED5826720A4300785110 /* Steps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
+		4E85ED5926720A4300785110 /* Geocoded_waypoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geocoded_waypoints.swift; sourceTree = "<group>"; };
+		4E85ED5A26720A4300785110 /* Overview_polyline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overview_polyline.swift; sourceTree = "<group>"; };
+		4E85ED5B26720A4300785110 /* End_location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = End_location.swift; sourceTree = "<group>"; };
+		4E85ED5C26720A4300785110 /* DistanceModelResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceModelResponse.swift; sourceTree = "<group>"; };
+		4E85ED5D26720A4300785110 /* Polyline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polyline.swift; sourceTree = "<group>"; };
+		4E85ED5E26720A4300785110 /* Southwest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Southwest.swift; sourceTree = "<group>"; };
+		4E85ED5F26720A4300785110 /* Routes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		4E85ED6026720A4300785110 /* Duration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
+		4E9491822674C0020061A774 /* PopUpAcceptProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAcceptProductViewController.swift; sourceTree = "<group>"; };
+		4E9491832674C0020061A774 /* PopUpAcceptProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpAcceptProductViewController.xib; sourceTree = "<group>"; };
+		4E9D1F2326745D180025ED48 /* PopUpReduceQuantityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpReduceQuantityViewController.swift; sourceTree = "<group>"; };
+		4E9D1F2426745D180025ED48 /* PopUpReduceQuantityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpReduceQuantityViewController.xib; sourceTree = "<group>"; };
+		4E9D1F2726746A2E0025ED48 /* InformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
+		4E9D1F2B26746ABC0025ED48 /* OtpTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpTableViewCell.swift; sourceTree = "<group>"; };
+		4ECE3C1C26771026009D0163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProductListTableViewCell.xib; sourceTree = "<group>"; };
+		4ECE3C1F26771037009D0163 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProductListTableViewCell.strings; sourceTree = "<group>"; };
+		4ECE3C212677104C009D0163 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ProductListTableViewCell.strings; sourceTree = "<group>"; };
+		4ECE3C2226773619009D0163 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4ECE3C2526776771009D0163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/InformationTableViewCell.xib; sourceTree = "<group>"; };
+		4ECE3C2826776776009D0163 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InformationTableViewCell.strings; sourceTree = "<group>"; };
+		4ECE3C2A2677677F009D0163 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InformationTableViewCell.strings; sourceTree = "<group>"; };
+		4ECE3C2C267778E3009D0163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OtpForCodViewC.xib; sourceTree = "<group>"; };
+		4ECE3C2F267778F0009D0163 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OtpForCodViewC.strings; sourceTree = "<group>"; };
+		4ECE3C31267778FB009D0163 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/OtpForCodViewC.strings; sourceTree = "<group>"; };
+		4ECE3C3326777D3F009D0163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OtpTableViewCell.xib; sourceTree = "<group>"; };
+		4ECE3C3626777D47009D0163 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OtpTableViewCell.strings; sourceTree = "<group>"; };
+		4ECE3C3826777D51009D0163 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/OtpTableViewCell.strings; sourceTree = "<group>"; };
+		4EE49DD52673825400E5640C /* ReasonForDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForDeleteViewController.swift; sourceTree = "<group>"; };
+		4EE49DD62673825400E5640C /* ReasonForDeleteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReasonForDeleteViewController.xib; sourceTree = "<group>"; };
+		4EE6319E267F758900D5ED01 /* CancelReasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelReasonViewController.swift; sourceTree = "<group>"; };
+		4EE6319F267F758900D5ED01 /* CancelReasonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CancelReasonViewController.xib; sourceTree = "<group>"; };
 		7B89182A71D912BDFE54C5DC /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8520337E115BB44AB8DB671B /* Pods-Fynoo ServicesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo ServicesTests.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo ServicesTests/Pods-Fynoo ServicesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A061CAC65AB8618E1FE73AC2 /* Pods-Fynoo Services.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services.release.xcconfig"; sourceTree = "<group>"; };
 		A773F7CBEC25C835A16F8530 /* Pods-Fynoo ServicesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo ServicesTests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo ServicesTests/Pods-Fynoo ServicesTests.release.xcconfig"; sourceTree = "<group>"; };
 		AC14F5AD44CA06DED48DD025 /* Pods-Fynoo Services.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo Services/Pods-Fynoo Services.debug.xcconfig"; sourceTree = "<group>"; };
-		CE0B0EC52675D5AD00B046D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/nextTableViewCell.xib; sourceTree = "<group>"; };
-		CE0B0EC82675D5B300B046D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/nextTableViewCell.strings; sourceTree = "<group>"; };
-		CE0B0ECA2675D5B700B046D5 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/nextTableViewCell.strings; sourceTree = "<group>"; };
 		CE2EFB3C251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		CE2EFB3D251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleDescriptionTableViewCell.xib; sourceTree = "<group>"; };
 		CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVehicleImageTableViewCell.swift; sourceTree = "<group>"; };
 		CE2EFB41251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadVehicleImageTableViewCell.xib; sourceTree = "<group>"; };
 		CE3E9A58251E0B0300B60038 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
-		CE40A25226708B3500A8C944 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AgentDashboardViewController.xib; sourceTree = "<group>"; };
-		CE40A25826708B3B00A8C944 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AgentDashboardViewController.strings; sourceTree = "<group>"; };
-		CE40A25A26708B4300A8C944 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/AgentDashboardViewController.strings; sourceTree = "<group>"; };
-		CE40A2622670E15000A8C944 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileDetailTableViewCell.xib; sourceTree = "<group>"; };
-		CE40A2652670E15B00A8C944 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProfileDetailTableViewCell.strings; sourceTree = "<group>"; };
-		CE40A2672670E15F00A8C944 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ProfileDetailTableViewCell.strings; sourceTree = "<group>"; };
-		CE4F872A267783D300B2CDE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TwoButtonsTableViewCell.xib; sourceTree = "<group>"; };
-		CE4F872D267783DE00B2CDE7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TwoButtonsTableViewCell.strings; sourceTree = "<group>"; };
-		CE4F872F267783E100B2CDE7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TwoButtonsTableViewCell.strings; sourceTree = "<group>"; };
-		CE5842CA26747DA30007EF91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AgentDeliveryTableViewCell.xib; sourceTree = "<group>"; };
-		CE5842D026747DAA0007EF91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AgentDeliveryTableViewCell.strings; sourceTree = "<group>"; };
-		CE5842D226747DAF0007EF91 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/AgentDeliveryTableViewCell.strings; sourceTree = "<group>"; };
 		CE8E8594250F4C1B00B74A9E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		CE8E8596250F4C3800B74A9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE8E8598250F4C4200B74A9E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1106,6 +1151,10 @@
 		CEBCD6EA2664A7FE001BF767 /* BankList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankList.swift; sourceTree = "<group>"; };
 		CEBCD6EB2664A7FE001BF767 /* DeleteBank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteBank.swift; sourceTree = "<group>"; };
 		CEBCD6ED2664A7FE001BF767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BankTransferController.xib; sourceTree = "<group>"; };
+		CEBCD6F02664A7FE001BF767 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BankHeader.strings; sourceTree = "<group>"; };
+		CEBCD6F22664A7FE001BF767 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WalletAvailableTopCell.strings; sourceTree = "<group>"; };
+		CEBCD6F32664A7FE001BF767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BankHeader.strings; sourceTree = "<group>"; };
+		CEBCD6F42664A7FE001BF767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WalletAvailableTopCell.strings; sourceTree = "<group>"; };
 		CEBCD6F52664A7FE001BF767 /* PaymentProgressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentProgressTableViewCell.swift; sourceTree = "<group>"; };
 		CEBCD6F62664A7FE001BF767 /* BankAllListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankAllListViewController.xib; sourceTree = "<group>"; };
 		CEBCD6F82664A7FE001BF767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BankHeader.xib; sourceTree = "<group>"; };
@@ -1543,11 +1592,6 @@
 		F4CEC2FE2511D9FE003C35E8 /* UploadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImage.swift; sourceTree = "<group>"; };
 		F4E772A9252D9F920045BD86 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		F4E772AB252D9F990045BD86 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
-		F61CF76426787F0100EAEB0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileVatTableViewCell.xib; sourceTree = "<group>"; };
-		F61CF76A26787F1200EAEB0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProfileVatTableViewCell.strings; sourceTree = "<group>"; };
-		F61CF76C26787F1400EAEB0C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ProfileVatTableViewCell.strings; sourceTree = "<group>"; };
-		F61CF7712678816400EAEB0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
-		F61CF7732678816A00EAEB0C /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
 		F62E4AA125148EC60021CEE0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/popupViewController.strings; sourceTree = "<group>"; };
 		F62E4AA225148EC60021CEE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/popupViewController.strings; sourceTree = "<group>"; };
 		F62E4AA425148EC60021CEE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/popupViewController.xib; sourceTree = "<group>"; };
@@ -1591,68 +1635,12 @@
 		F62E4B12251498390021CEE0 /* ImageUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUpload.swift; sourceTree = "<group>"; };
 		F62E4B132514983A0021CEE0 /* BankIdentifierListModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankIdentifierListModal.swift; sourceTree = "<group>"; };
 		F62E4B2125149B360021CEE0 /* DatePickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
-		F62F80D2267B2BA3003DE43B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/OrderSuccessViewC.strings; sourceTree = "<group>"; };
-		F62F80D4267B2BA3003DE43B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/OtpTableViewCell.strings; sourceTree = "<group>"; };
-		F62F80D6267B2BA3003DE43B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InformationTableViewCell.strings; sourceTree = "<group>"; };
-		F62F80D8267B2BA3003DE43B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/OtpForCodViewC.strings; sourceTree = "<group>"; };
-		F62F80D9267B2BA3003DE43B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrderSuccessViewC.strings; sourceTree = "<group>"; };
-		F62F80DA267B2BA3003DE43B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OtpTableViewCell.strings; sourceTree = "<group>"; };
-		F62F80DB267B2BA3003DE43B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InformationTableViewCell.strings; sourceTree = "<group>"; };
-		F62F80DC267B2BA3003DE43B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OtpForCodViewC.strings; sourceTree = "<group>"; };
-		F62F80DD267B2BA3003DE43B /* InformationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
-		F62F80DF267B2BA3003DE43B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OtpForCodViewC.xib; sourceTree = "<group>"; };
-		F62F80E1267B2BA3003DE43B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OtpTableViewCell.xib; sourceTree = "<group>"; };
-		F62F80E3267B2BA3003DE43B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OrderSuccessViewC.xib; sourceTree = "<group>"; };
-		F62F80E5267B2BA3003DE43B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/InformationTableViewCell.xib; sourceTree = "<group>"; };
-		F62F80E6267B2BA3003DE43B /* OrderSuccessViewC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSuccessViewC.swift; sourceTree = "<group>"; };
-		F62F80E7267B2BA3003DE43B /* OtpTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtpTableViewCell.swift; sourceTree = "<group>"; };
-		F62F80F6267B2C0D003DE43B /* OtpForCodViewC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtpForCodViewC.swift; sourceTree = "<group>"; };
-		F62F80FC267B2D7E003DE43B /* ReasonForDeleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReasonForDeleteViewController.xib; sourceTree = "<group>"; };
-		F62F80FD267B2D7E003DE43B /* ReasonForDeleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReasonForDeleteViewController.swift; sourceTree = "<group>"; };
-		F62F80FF267B2D7F003DE43B /* CommonPopViewC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonPopViewC.swift; sourceTree = "<group>"; };
-		F62F8100267B2D7F003DE43B /* CommonPopViewC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonPopViewC.xib; sourceTree = "<group>"; };
-		F62F8102267B2D7F003DE43B /* PopUpReduceQuantityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpReduceQuantityViewController.swift; sourceTree = "<group>"; };
-		F62F8103267B2D7F003DE43B /* PopUpReduceQuantityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpReduceQuantityViewController.xib; sourceTree = "<group>"; };
-		F62F8105267B2D7F003DE43B /* PopUpAcceptProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpAcceptProductViewController.swift; sourceTree = "<group>"; };
-		F62F8106267B2D7F003DE43B /* PopUpAcceptProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpAcceptProductViewController.xib; sourceTree = "<group>"; };
-		F62F8113267B2DA8003DE43B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProductListTableViewCell.xib; sourceTree = "<group>"; };
-		F62F811D267B2EE4003DE43B /* Legs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Legs.swift; sourceTree = "<group>"; };
-		F62F811E267B2EE4003DE43B /* Distance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distance.swift; sourceTree = "<group>"; };
-		F62F811F267B2EE4003DE43B /* Bounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bounds.swift; sourceTree = "<group>"; };
-		F62F8120267B2EE4003DE43B /* Northeast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Northeast.swift; sourceTree = "<group>"; };
-		F62F8121267B2EE4003DE43B /* Start_location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Start_location.swift; sourceTree = "<group>"; };
-		F62F8122267B2EE4003DE43B /* Steps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
-		F62F8123267B2EE4003DE43B /* Geocoded_waypoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geocoded_waypoints.swift; sourceTree = "<group>"; };
-		F62F8124267B2EE4003DE43B /* Overview_polyline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overview_polyline.swift; sourceTree = "<group>"; };
-		F62F8125267B2EE4003DE43B /* End_location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = End_location.swift; sourceTree = "<group>"; };
-		F62F8126267B2EE4003DE43B /* DistanceModelResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceModelResponse.swift; sourceTree = "<group>"; };
-		F62F8127267B2EE4003DE43B /* Polyline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polyline.swift; sourceTree = "<group>"; };
-		F62F8128267B2EE4003DE43B /* Southwest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Southwest.swift; sourceTree = "<group>"; };
-		F62F8129267B2EE4003DE43B /* Routes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
-		F62F812A267B2EE4003DE43B /* Duration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
-		F62F812B267B2EE4003DE43B /* MapPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPath.swift; sourceTree = "<group>"; };
-		F62F812C267B2EE4003DE43B /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		F62F8142267B3056003DE43B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrderSuccessViewC.strings; sourceTree = "<group>"; };
-		F62F8143267B3059003DE43B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/OrderSuccessViewC.strings; sourceTree = "<group>"; };
-		F62F8147267B3087003DE43B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InformationTableViewCell.strings; sourceTree = "<group>"; };
-		F62F8148267B308A003DE43B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InformationTableViewCell.strings; sourceTree = "<group>"; };
-		F62F814D267B30C4003DE43B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OtpTableViewCell.strings; sourceTree = "<group>"; };
-		F62F814F267B30CA003DE43B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/OtpTableViewCell.strings; sourceTree = "<group>"; };
-		F6347D23267A2DFC006CC052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/marketTableViewCell.xib; sourceTree = "<group>"; };
-		F6347D29267A2E07006CC052 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/marketTableViewCell.strings; sourceTree = "<group>"; };
-		F6347D2B267A2E0B006CC052 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/marketTableViewCell.strings; sourceTree = "<group>"; };
-		F6347D2D267A2E3F006CC052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/otherTableViewCell.xib; sourceTree = "<group>"; };
-		F6347D30267A2E46006CC052 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/otherTableViewCell.strings; sourceTree = "<group>"; };
-		F6347D32267A2E4A006CC052 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/otherTableViewCell.strings; sourceTree = "<group>"; };
-		F6347D37267A2E79006CC052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MallMarketPopupViewController.xib; sourceTree = "<group>"; };
-		F6347D3A267A2E81006CC052 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MallMarketPopupViewController.strings; sourceTree = "<group>"; };
-		F6347D3C267A2E85006CC052 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/MallMarketPopupViewController.strings; sourceTree = "<group>"; };
-		F6347D40267A3303006CC052 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BusinessTimesheet1PopupViewController.strings; sourceTree = "<group>"; };
-		F6347D41267A3307006CC052 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BusinessTimesheet1PopupViewController.strings; sourceTree = "<group>"; };
 		F635979625C66DFD003BF9E2 /* TripAchivementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripAchivementCollectionViewCell.swift; sourceTree = "<group>"; };
 		F635979725C66DFD003BF9E2 /* TripAchivementCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripAchivementCollectionViewCell.xib; sourceTree = "<group>"; };
 		F635979A25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDashboardHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		F635979B25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryDashboardHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		F647705325187CFB00ED2BD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
+		F647705525187CFF00ED2BD0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
 		F64B439325220A5700B9C8CB /* IbanLengthModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanLengthModal.swift; sourceTree = "<group>"; };
 		F64D5FBD2524400E003DE670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CompanyRegViewController.xib; sourceTree = "<group>"; };
 		F64D5FC025244011003DE670 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyRegViewController.strings; sourceTree = "<group>"; };
@@ -1831,9 +1819,6 @@
 		F68B78E22653ADE800B1E69E /* UserPolicyWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserPolicyWebViewController.xib; sourceTree = "<group>"; };
 		F6A5FB98259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionBuyPaymentMethod.swift; sourceTree = "<group>"; };
 		F6B14CA7251B387200F9F03E /* VatInfoModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatInfoModal.swift; sourceTree = "<group>"; };
-		F6FC007D267A1573008AF6DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CommonPopupViewController.xib; sourceTree = "<group>"; };
-		F6FC0080267A1577008AF6DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CommonPopupViewController.strings; sourceTree = "<group>"; };
-		F6FC0082267A157A008AF6DD /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CommonPopupViewController.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1890,13 +1875,29 @@
 			path = SearchedDetails;
 			sourceTree = "<group>";
 		};
+		18C0673F2664DC10000F3CA3 /* OtpForCOD */ = {
+			isa = PBXGroup;
+			children = (
+				18C067382664DAE1000F3CA3 /* OtpForCodViewC.swift */,
+				4ECE3C2D267778E3009D0163 /* OtpForCodViewC.xib */,
+				4E9D1F2726746A2E0025ED48 /* InformationTableViewCell.swift */,
+				4ECE3C2626776771009D0163 /* InformationTableViewCell.xib */,
+				4E9D1F2B26746ABC0025ED48 /* OtpTableViewCell.swift */,
+				4ECE3C3426777D3F009D0163 /* OtpTableViewCell.xib */,
+				4E19EB83267A15EF003510BC /* OrderSuccessViewC.swift */,
+				4E19EB89267A1909003510BC /* OrderSuccessViewC.xib */,
+			);
+			path = OtpForCOD;
+			sourceTree = "<group>";
+		};
 		18C6928F2655272E00B7347B /* AgentDeliveryDetails */ = {
 			isa = PBXGroup;
 			children = (
-				F62F80FE267B2D7F003DE43B /* CommanPopUp */,
-				F62F8104267B2D7F003DE43B /* PopUpAcceptProduct */,
-				F62F80FB267B2D7E003DE43B /* PopupDeleteReason */,
-				F62F8101267B2D7F003DE43B /* PopUpReduceQty */,
+				4EE6319D267F752800D5ED01 /* CancelReason */,
+				4E19EB8E267A341C003510BC /* CommanPopUp */,
+				4E9491812674BFC70061A774 /* PopUpAcceptProduct */,
+				4E9D1F2226745CCE0025ED48 /* PopUpReduceQty */,
+				4EE49DD4267381DD00E5640C /* PopupDeleteReason */,
 				18C69290265527D400B7347B /* AgentDeliveryDetailViewController.swift */,
 				18C69291265527D400B7347B /* AgentDeliveryDetailViewController.xib */,
 				1840E7F3265675F4003FDFB9 /* ProductDetailsViewC.swift */,
@@ -1906,7 +1907,7 @@
 				1840E801265695AB003FDFB9 /* BusinessOwnerTableViewCell.swift */,
 				1840E802265695AB003FDFB9 /* BusinessOwnerTableViewCell.xib */,
 				18BBD7B1265A00A800C19D8F /* ProductListTableViewCell.swift */,
-				F62F8112267B2DA8003DE43B /* ProductListTableViewCell.xib */,
+				4ECE3C1D26771026009D0163 /* ProductListTableViewCell.xib */,
 				18BBD7B8265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.swift */,
 				18BBD7B9265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.xib */,
 			);
@@ -1916,8 +1917,8 @@
 		2F0230BF2514E459004F1B0B /* CommonPopupVC */ = {
 			isa = PBXGroup;
 			children = (
+				4E79020C267B373B00CE9600 /* CommonPopupViewController.xib */,
 				2F0230C02514E477004F1B0B /* CommonPopupViewController.swift */,
-				F6FC007E267A1573008AF6DD /* CommonPopupViewController.xib */,
 			);
 			path = CommonPopupVC;
 			sourceTree = "<group>";
@@ -1925,8 +1926,8 @@
 		2F07D1A32505F89100193658 /* AddedClasses */ = {
 			isa = PBXGroup;
 			children = (
-				F62F811B267B2EE4003DE43B /* Helper */,
 				185373D7266644D0001E0C2A /* Extensions */,
+				4E85ED4D2671FEBB00785110 /* Helper */,
 				2F0230BD2514902A004F1B0B /* DictionaryExt.swift */,
 				F62E4B2125149B360021CEE0 /* DatePickerDialog.swift */,
 				2F84638B250F67900084EB32 /* selecting_local.swift */,
@@ -2169,7 +2170,6 @@
 			isa = PBXGroup;
 			children = (
 				CE8E8597250F4C3800B74A9E /* Localizable.strings */,
-				CEFC760A257F5E0C00088467 /* GoogleService-Info.plist */,
 				2FFDE20B25012166006C5EBD /* Fynoo Services */,
 				2FFDE22225012172006C5EBD /* Fynoo ServicesTests */,
 				2FFDE22D25012173006C5EBD /* Fynoo ServicesUITests */,
@@ -2192,14 +2192,17 @@
 		2FFDE20B25012166006C5EBD /* Fynoo Services */ = {
 			isa = PBXGroup;
 			children = (
+				4E17237026789AA1005B79D6 /* Fynoo Services.entitlements */,
 				CEE35774250740800097069D /* Fonts */,
 				2F07D1A32505F89100193658 /* AddedClasses */,
 				2FFDE23C2501221B006C5EBD /* ViewControllers */,
 				2FFDE20C25012166006C5EBD /* AppDelegate.swift */,
+				4E7B73F126807453003405B7 /* SampleNotificationDelegate.swift */,
 				2FFDE20E25012166006C5EBD /* SceneDelegate.swift */,
 				2F74CB4D250A365300DE21EF /* logo-animeted.gif */,
 				2FFDE21525012171006C5EBD /* Assets.xcassets */,
 				2FFDE21725012171006C5EBD /* LaunchScreen.storyboard */,
+				4ECE3C2226773619009D0163 /* GoogleService-Info.plist */,
 				2FFDE21A25012171006C5EBD /* Info.plist */,
 			);
 			path = "Fynoo Services";
@@ -2226,7 +2229,6 @@
 		2FFDE23C2501221B006C5EBD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F62F80D0267B2BA3003DE43B /* OtpForCOD */,
 				CEBCD6DF2664A7FE001BF767 /* WalletNewDesignVC */,
 				F68B78E02653ADE800B1E69E /* UserPolicyVC */,
 				CE9CCC77264BAA13005AE619 /* DataSellingNewVC */,
@@ -2249,6 +2251,7 @@
 				2F74CB4F250A365F00DE21EF /* Splash */,
 				F472BA192519DED60094C13E /* AgentDelivery */,
 				18580832265B9282002A891C /* SearchedDetails */,
+				18C0673F2664DC10000F3CA3 /* OtpForCOD */,
 				18C6928F2655272E00B7347B /* AgentDeliveryDetails */,
 				F4EC04A12514D2A0005AF7B0 /* PopUp */,
 				F4CEC2F92511D340003C35E8 /* VatInfo */,
@@ -2289,7 +2292,7 @@
 				CEA24F5A265BCC9C00B3227D /* GalleryPopUpViewController.xib */,
 				2FEB122025120DF80012FE98 /* DashboardCells */,
 				2FFDE23F2501225A006C5EBD /* AgentDashboardViewController.swift */,
-				CE40A25326708B3500A8C944 /* AgentDashboardViewController.xib */,
+				4E79020F267B37F800CE9600 /* AgentDashboardViewController.xib */,
 			);
 			path = AgentDashBoardVC;
 			sourceTree = "<group>";
@@ -2305,6 +2308,89 @@
 				A773F7CBEC25C835A16F8530 /* Pods-Fynoo ServicesTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		4E19EB8E267A341C003510BC /* CommanPopUp */ = {
+			isa = PBXGroup;
+			children = (
+				4E19EB8F267A34A7003510BC /* CommonPopViewC.swift */,
+				4E19EB90267A34A7003510BC /* CommonPopViewC.xib */,
+			);
+			path = CommanPopUp;
+			sourceTree = "<group>";
+		};
+		4E790202267B2B6000CE9600 /* arv */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = arv;
+			sourceTree = "<group>";
+		};
+		4E85ED4D2671FEBB00785110 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4E85ED4E2671FEBB00785110 /* MapPath.swift */,
+				4E85ED4F2671FEBB00785110 /* LocationManager.swift */,
+				4E85ED5226720A4300785110 /* Distance */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		4E85ED5226720A4300785110 /* Distance */ = {
+			isa = PBXGroup;
+			children = (
+				4E85ED5326720A4300785110 /* Legs.swift */,
+				4E85ED5426720A4300785110 /* Distance.swift */,
+				4E85ED5526720A4300785110 /* Bounds.swift */,
+				4E85ED5626720A4300785110 /* Northeast.swift */,
+				4E85ED5726720A4300785110 /* Start_location.swift */,
+				4E85ED5826720A4300785110 /* Steps.swift */,
+				4E85ED5926720A4300785110 /* Geocoded_waypoints.swift */,
+				4E85ED5A26720A4300785110 /* Overview_polyline.swift */,
+				4E85ED5B26720A4300785110 /* End_location.swift */,
+				4E85ED5C26720A4300785110 /* DistanceModelResponse.swift */,
+				4E85ED5D26720A4300785110 /* Polyline.swift */,
+				4E85ED5E26720A4300785110 /* Southwest.swift */,
+				4E85ED5F26720A4300785110 /* Routes.swift */,
+				4E85ED6026720A4300785110 /* Duration.swift */,
+			);
+			path = Distance;
+			sourceTree = "<group>";
+		};
+		4E9491812674BFC70061A774 /* PopUpAcceptProduct */ = {
+			isa = PBXGroup;
+			children = (
+				4E9491822674C0020061A774 /* PopUpAcceptProductViewController.swift */,
+				4E9491832674C0020061A774 /* PopUpAcceptProductViewController.xib */,
+			);
+			path = PopUpAcceptProduct;
+			sourceTree = "<group>";
+		};
+		4E9D1F2226745CCE0025ED48 /* PopUpReduceQty */ = {
+			isa = PBXGroup;
+			children = (
+				4E9D1F2326745D180025ED48 /* PopUpReduceQuantityViewController.swift */,
+				4E9D1F2426745D180025ED48 /* PopUpReduceQuantityViewController.xib */,
+			);
+			path = PopUpReduceQty;
+			sourceTree = "<group>";
+		};
+		4EE49DD4267381DD00E5640C /* PopupDeleteReason */ = {
+			isa = PBXGroup;
+			children = (
+				4EE49DD52673825400E5640C /* ReasonForDeleteViewController.swift */,
+				4EE49DD62673825400E5640C /* ReasonForDeleteViewController.xib */,
+			);
+			path = PopupDeleteReason;
+			sourceTree = "<group>";
+		};
+		4EE6319D267F752800D5ED01 /* CancelReason */ = {
+			isa = PBXGroup;
+			children = (
+				4EE6319E267F758900D5ED01 /* CancelReasonViewController.swift */,
+				4EE6319F267F758900D5ED01 /* CancelReasonViewController.xib */,
+			);
+			path = CancelReason;
 			sourceTree = "<group>";
 		};
 		950B6576476817DE8FBCAE88 /* Frameworks */ = {
@@ -2555,6 +2641,8 @@
 		CEBCD6EE2664A7FE001BF767 /* BankFirst */ = {
 			isa = PBXGroup;
 			children = (
+				CEBCD6EF2664A7FE001BF767 /* BankHeader.strings */,
+				CEBCD6F12664A7FE001BF767 /* WalletAvailableTopCell.strings */,
 				CEBCD6F52664A7FE001BF767 /* PaymentProgressTableViewCell.swift */,
 				CEBCD6F62664A7FE001BF767 /* BankAllListViewController.xib */,
 				CEBCD6F72664A7FE001BF767 /* BankHeader.xib */,
@@ -2641,10 +2729,10 @@
 		CECEF8C02577575B0090D459 /* timeSheetPopup */ = {
 			isa = PBXGroup;
 			children = (
+				4E790215267B3D7F00CE9600 /* MallMarketPopupViewController.xib */,
 				CECEFAB32577AB240090D459 /* DeliveryPopupViewController.swift */,
 				CECEFAB42577AB240090D459 /* DeliveryPopupViewController.xib */,
 				CECEFA0D257782F70090D459 /* MallMarketPopupViewController.swift */,
-				F6347D38267A2E79006CC052 /* MallMarketPopupViewController.xib */,
 				CECEF8C12577575B0090D459 /* TimeSheetPOpUpViewController.swift */,
 				CECEF8C22577575B0090D459 /* deleterowTableViewCell.strings */,
 				CECEF8C42577575B0090D459 /* addrowTableViewCell.strings */,
@@ -2767,8 +2855,8 @@
 		CECEF96E2577575B0090D459 /* BusinessCells */ = {
 			isa = PBXGroup;
 			children = (
+				4E790218267B402D00CE9600 /* nextTableViewCell.xib */,
 				CECEFA1525779A2E0090D459 /* nextTableViewCell.swift */,
-				CE0B0EC62675D5AD00B046D5 /* nextTableViewCell.xib */,
 				CECEF96F2577575B0090D459 /* BusinessTableViewCell.strings */,
 				CECEF9712577575B0090D459 /* CollectionViewTableViewCell.strings */,
 				CECEF9752577575B0090D459 /* BusinessTableViewCell.swift */,
@@ -2907,11 +2995,11 @@
 		CECEFA9C2577A50D0090D459 /* BusinessTypeList */ = {
 			isa = PBXGroup;
 			children = (
+				4E6D37C2267B41B000BFA77B /* marketTableViewCell.xib */,
+				4E6D37C4267B41B000BFA77B /* otherTableViewCell.xib */,
 				CECEFAD92577D4CC0090D459 /* NewInventoryManageModel.swift */,
 				CECEFAC82577C76A0090D459 /* marketTableViewCell.swift */,
-				F6347D24267A2DFC006CC052 /* marketTableViewCell.xib */,
 				CECEFAC42577C3790090D459 /* otherTableViewCell.swift */,
-				F6347D2E267A2E3F006CC052 /* otherTableViewCell.xib */,
 				CECEFAC12577B18C0090D459 /* MallMarket.swift */,
 				CECEFABD2577AF5E0090D459 /* SelectBusinesstypeTableViewCell.swift */,
 				CECEFABE2577AF5F0090D459 /* SelectBusinesstypeTableViewCell.xib */,
@@ -3281,11 +3369,12 @@
 		F472BA192519DED60094C13E /* AgentDelivery */ = {
 			isa = PBXGroup;
 			children = (
+				4E790202267B2B6000CE9600 /* arv */,
 				F438605025230BB800DE0BED /* PopupAmount */,
 				F472BA1A2519DF120094C13E /* AgentDeliveryViewController.swift */,
 				F472BA1B2519DF120094C13E /* AgentDeliveryViewController.xib */,
 				F4A7E549251A047D00ED8008 /* AgentDeliveryTableViewCell.swift */,
-				CE5842CB26747DA30007EF91 /* AgentDeliveryTableViewCell.xib */,
+				4E790212267B398D00CE9600 /* AgentDeliveryTableViewCell.xib */,
 				F46DB926251B23970061A232 /* TripAchievementViewCell.swift */,
 				F46DB927251B23970061A232 /* TripAchievementViewCell.xib */,
 				F44E35AF251C72C6002E41E2 /* AgentServiceList.swift */,
@@ -3318,16 +3407,16 @@
 		F4C4DC5A250794960075F520 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				CE4F872B267783D300B2CDE7 /* TwoButtonsTableViewCell.xib */,
+				4E790206267B365400CE9600 /* ProfileDetailTableViewCell.xib */,
+				4E790208267B365500CE9600 /* ProfileVatTableViewCell.xib */,
+				4E790203267B359900CE9600 /* TwoButtonsTableViewCell.xib */,
 				F4828CB12508FFCD006B85D8 /* TwoButtonsTableViewCell.swift */,
 				F4828C9A2508C574006B85D8 /* ProfileVatTableViewCell.swift */,
-				F61CF76526787F0100EAEB0C /* ProfileVatTableViewCell.xib */,
 				F4828C932508B27D006B85D8 /* ProfileEnteriesTableViewCell.swift */,
 				F4828C912508B26D006B85D8 /* ProfileEnteriesTableViewCell.xib */,
 				F4C4DC612507952C0075F520 /* ProfileNameTableViewCell.swift */,
 				F4C4DC5F2507951A0075F520 /* ProfileNameTableViewCell.xib */,
 				F4C4DC5D250794B20075F520 /* ProfileDetailTableViewCell.swift */,
-				CE40A2632670E15000A8C944 /* ProfileDetailTableViewCell.xib */,
 				F4828C9E2508DF3E006B85D8 /* ProfileServiceTableViewCell.swift */,
 				F4828C9F2508DF3E006B85D8 /* ProfileServiceTableViewCell.xib */,
 				F4828CA22508DFA9006B85D8 /* ProfileServiceViewCell.swift */,
@@ -3541,92 +3630,6 @@
 				2F9DA66E25237FCA00C46952 /* SearchCategoryViewController.xib */,
 			);
 			path = SearchCategoryVC;
-			sourceTree = "<group>";
-		};
-		F62F80D0267B2BA3003DE43B /* OtpForCOD */ = {
-			isa = PBXGroup;
-			children = (
-				F62F80F6267B2C0D003DE43B /* OtpForCodViewC.swift */,
-				F62F80D1267B2BA3003DE43B /* OrderSuccessViewC.strings */,
-				F62F80D5267B2BA3003DE43B /* InformationTableViewCell.strings */,
-				F62F80D7267B2BA3003DE43B /* OtpForCodViewC.strings */,
-				F62F80DD267B2BA3003DE43B /* InformationTableViewCell.swift */,
-				F62F80DE267B2BA3003DE43B /* OtpForCodViewC.xib */,
-				F62F80E7267B2BA3003DE43B /* OtpTableViewCell.swift */,
-				F62F80E0267B2BA3003DE43B /* OtpTableViewCell.xib */,
-				F62F80D3267B2BA3003DE43B /* OtpTableViewCell.strings */,
-				F62F80E2267B2BA3003DE43B /* OrderSuccessViewC.xib */,
-				F62F80E4267B2BA3003DE43B /* InformationTableViewCell.xib */,
-				F62F80E6267B2BA3003DE43B /* OrderSuccessViewC.swift */,
-			);
-			path = OtpForCOD;
-			sourceTree = "<group>";
-		};
-		F62F80FB267B2D7E003DE43B /* PopupDeleteReason */ = {
-			isa = PBXGroup;
-			children = (
-				F62F80FC267B2D7E003DE43B /* ReasonForDeleteViewController.xib */,
-				F62F80FD267B2D7E003DE43B /* ReasonForDeleteViewController.swift */,
-			);
-			path = PopupDeleteReason;
-			sourceTree = "<group>";
-		};
-		F62F80FE267B2D7F003DE43B /* CommanPopUp */ = {
-			isa = PBXGroup;
-			children = (
-				F62F80FF267B2D7F003DE43B /* CommonPopViewC.swift */,
-				F62F8100267B2D7F003DE43B /* CommonPopViewC.xib */,
-			);
-			path = CommanPopUp;
-			sourceTree = "<group>";
-		};
-		F62F8101267B2D7F003DE43B /* PopUpReduceQty */ = {
-			isa = PBXGroup;
-			children = (
-				F62F8102267B2D7F003DE43B /* PopUpReduceQuantityViewController.swift */,
-				F62F8103267B2D7F003DE43B /* PopUpReduceQuantityViewController.xib */,
-			);
-			path = PopUpReduceQty;
-			sourceTree = "<group>";
-		};
-		F62F8104267B2D7F003DE43B /* PopUpAcceptProduct */ = {
-			isa = PBXGroup;
-			children = (
-				F62F8105267B2D7F003DE43B /* PopUpAcceptProductViewController.swift */,
-				F62F8106267B2D7F003DE43B /* PopUpAcceptProductViewController.xib */,
-			);
-			path = PopUpAcceptProduct;
-			sourceTree = "<group>";
-		};
-		F62F811B267B2EE4003DE43B /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				F62F811C267B2EE4003DE43B /* Distance */,
-				F62F812B267B2EE4003DE43B /* MapPath.swift */,
-				F62F812C267B2EE4003DE43B /* LocationManager.swift */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
-		F62F811C267B2EE4003DE43B /* Distance */ = {
-			isa = PBXGroup;
-			children = (
-				F62F811D267B2EE4003DE43B /* Legs.swift */,
-				F62F811E267B2EE4003DE43B /* Distance.swift */,
-				F62F811F267B2EE4003DE43B /* Bounds.swift */,
-				F62F8120267B2EE4003DE43B /* Northeast.swift */,
-				F62F8121267B2EE4003DE43B /* Start_location.swift */,
-				F62F8122267B2EE4003DE43B /* Steps.swift */,
-				F62F8123267B2EE4003DE43B /* Geocoded_waypoints.swift */,
-				F62F8124267B2EE4003DE43B /* Overview_polyline.swift */,
-				F62F8125267B2EE4003DE43B /* End_location.swift */,
-				F62F8126267B2EE4003DE43B /* DistanceModelResponse.swift */,
-				F62F8127267B2EE4003DE43B /* Polyline.swift */,
-				F62F8128267B2EE4003DE43B /* Southwest.swift */,
-				F62F8129267B2EE4003DE43B /* Routes.swift */,
-				F62F812A267B2EE4003DE43B /* Duration.swift */,
-			);
-			path = Distance;
 			sourceTree = "<group>";
 		};
 		F6547AAF25DE594A00171862 /* DataEntryFilterVC */ = {
@@ -4189,12 +4192,11 @@
 				F680D644259B7C2C007EB12C /* DataEntryPricePayTableViewCell.strings in Resources */,
 				CEDD333625765BBA00023977 /* SelectMultipleBranchesNewDesignViewController.strings in Resources */,
 				F680D624259B7C2C007EB12C /* DataEntryTypelistingViewController.xib in Resources */,
-				F6347D36267A2E79006CC052 /* MallMarketPopupViewController.xib in Resources */,
+				4ECE3C232677361A009D0163 /* GoogleService-Info.plist in Resources */,
 				F44E35B6251CACBC002E41E2 /* DataBankHeader.xib in Resources */,
 				CEDD330825765A7400023977 /* QRCOdeViewController.xib in Resources */,
 				CEE35789250740800097069D /* Roboto-Medium.ttf in Resources */,
 				CEE72CBB251B76AF00B02DAF /* BottomPopupEditProductViewController.xib in Resources */,
-				F62F8107267B2D7F003DE43B /* ReasonForDeleteViewController.xib in Resources */,
 				F66AA1B02525B53300C1E058 /* DiscountTypePopUpViewController.xib in Resources */,
 				F62E4B0025148EC60021CEE0 /* CompanyAgentBasicInformationTableViewCell.strings in Resources */,
 				CECEF9DB2577575C0090D459 /* CreateBranchFirstStepViewController.strings in Resources */,
@@ -4211,6 +4213,7 @@
 				CEDD33B3257674BA00023977 /* WholesaleListViewCell.xib in Resources */,
 				F4828CA52508DFA9006B85D8 /* ProfileServiceViewCell.xib in Resources */,
 				CECEF9DF2577575C0090D459 /* BranchTimingTableViewCell.strings in Resources */,
+				CEBCD7302664A7FE001BF767 /* BankHeader.strings in Resources */,
 				CEDD332C25765BBA00023977 /* ViewAllImagesNewDesignCollectionViewCell.xib in Resources */,
 				CEE3578E250740800097069D /* RobotoSlab-Thin.ttf in Resources */,
 				CEA24F63265BD00D00B3227D /* BottomPopCellsNewTableViewCell.xib in Resources */,
@@ -4227,7 +4230,6 @@
 				CEDD31F52576206500023977 /* CreateProductFirstViewController.xib in Resources */,
 				CECEF9E82577575C0090D459 /* topBranchTableViewCell.strings in Resources */,
 				CEBCD7412664A7FE001BF767 /* AddNewBankViewController.xib in Resources */,
-				F62F80ED267B2BA4003DE43B /* OtpForCodViewC.xib in Resources */,
 				CEDD32EB25763C8E00023977 /* DeleteSlabPopupViewController.xib in Resources */,
 				F4CEC2FD2511D351003C35E8 /* VatpopnewchangeViewController.xib in Resources */,
 				CEBCD73C2664A7FE001BF767 /* PaymentProgressTableViewCell.xib in Resources */,
@@ -4243,7 +4245,6 @@
 				CECEFA982577A2C90090D459 /* ExteriorTableViewCell.xib in Resources */,
 				F680D672259B7C2C007EB12C /* DECancellationTableViewCell.strings in Resources */,
 				CEDD333425765BBA00023977 /* SelectSubCat.xib in Resources */,
-				F6347D2C267A2E3F006CC052 /* otherTableViewCell.xib in Resources */,
 				2F8463DC250F6EBC0084EB32 /* LoginIntroSecond.strings in Resources */,
 				F6547ABB25DE594A00171862 /* DEClearFilterTableViewCell.xib in Resources */,
 				F6547ACE25DE5D9400171862 /* DiscountFilterRadioTableViewCell.xib in Resources */,
@@ -4262,10 +4263,8 @@
 				CECEFAD52577D3140090D459 /* AllFilterTableViewCell.xib in Resources */,
 				CECEFAC02577AF5F0090D459 /* SelectBusinesstypeTableViewCell.xib in Resources */,
 				CEBCD7292664A7FE001BF767 /* BankTransferController.strings in Resources */,
-				CE4F8729267783D300B2CDE7 /* TwoButtonsTableViewCell.xib in Resources */,
 				CECEF9992577575B0090D459 /* BusinessTimesheet1PopupViewController.xib in Resources */,
 				CECEF9D52577575C0090D459 /* CommonSearchViewController.strings in Resources */,
-				F61CF76326787F0100EAEB0C /* ProfileVatTableViewCell.xib in Resources */,
 				CECEF8BE257754B90090D459 /* SingleButtonViewCell.xib in Resources */,
 				F62E4AEA25148EC60021CEE0 /* popupViewController.xib in Resources */,
 				CEDD31F02576206500023977 /* SelectProductTypeTableViewCell.xib in Resources */,
@@ -4281,7 +4280,6 @@
 				F680D648259B7C2C007EB12C /* DataEntryFormAddItemTableViewCell.strings in Resources */,
 				CEE72CAD251B405F00B02DAF /* ServiceHeaderTableViewCell.xib in Resources */,
 				2F74CB5B250A365F00DE21EF /* VersionPopupViewController.xib in Resources */,
-				CE0B0EC42675D5AD00B046D5 /* nextTableViewCell.xib in Resources */,
 				F62E4AFF25148EC60021CEE0 /* CompanyAgentBankDetailsTableViewCell.xib in Resources */,
 				CECEFA4825779E8F0090D459 /* UploadImageViewController.strings in Resources */,
 				CE9CCDC8264BE5BE005AE619 /* NoDataFoundTableViewCell.xib in Resources */,
@@ -4293,31 +4291,36 @@
 				CEE3578A250740800097069D /* Roboto-Light.ttf in Resources */,
 				CEDD333225765BBA00023977 /* SelectCategoryViewController.xib in Resources */,
 				F680D653259B7C2C007EB12C /* DataEntryItemEntryTableViewCell.xib in Resources */,
+				4ECE3C2426776771009D0163 /* InformationTableViewCell.xib in Resources */,
 				F680D677259B7C2C007EB12C /* DataEntryListingViewController.xib in Resources */,
 				F680D633259B7C2C007EB12C /* DEInprogressDetailWorkPlaceTableViewCell.strings in Resources */,
-				F62F80E8267B2BA3003DE43B /* OrderSuccessViewC.strings in Resources */,
 				CE9CCDFB264BEDBD005AE619 /* ProductDetailSelectTabTableViewCell.xib in Resources */,
 				F680D62B259B7C2C007EB12C /* DataEntryWorkConfirmationPopUpViewController.strings in Resources */,
 				CEDD33A82576705A00023977 /* AddFilterTopTableViewCell.xib in Resources */,
 				CEBCD7342664A7FE001BF767 /* BankHeader.xib in Resources */,
 				2F9DA67425237FCA00C46952 /* SearchCategoryTableViewCell.xib in Resources */,
+				4E79020E267B373B00CE9600 /* CommonPopupViewController.xib in Resources */,
 				CEBCD7452664A7FE001BF767 /* TransactionNewPopupViewController.xib in Resources */,
 				CECEF9B22577575B0090D459 /* LocationDetailsTableViewCell.xib in Resources */,
 				CECEFA4725779E8F0090D459 /* SelectImageTypePopupViewController.strings in Resources */,
 				F680D670259B7C2C007EB12C /* DECancellationReasonViewController.xib in Resources */,
 				F68B78E42653ADE800B1E69E /* UserPolicyWebViewController.xib in Resources */,
 				CECEFA4F25779E8F0090D459 /* NewGalleryHeader.strings in Resources */,
+				4E79021A267B402E00CE9600 /* nextTableViewCell.xib in Resources */,
 				2FEB1230251229AF0012FE98 /* ServiceSingleCollectionViewCell.xib in Resources */,
 				CE8E8595250F4C3800B74A9E /* Localizable.strings in Resources */,
 				CE9CCE16264BF0B6005AE619 /* ListingnewTableViewCell.xib in Resources */,
 				CECEF9912577575B0090D459 /* addrowTableViewCell.strings in Resources */,
 				F680D630259B7C2C007EB12C /* DEInprogressOrderInformationFirstTableViewCell.strings in Resources */,
 				CEDD32F425763C8E00023977 /* CreateProductSecondViewController.xib in Resources */,
+				4E790205267B359A00CE9600 /* TwoButtonsTableViewCell.xib in Resources */,
 				CEA24F5C265BCC9C00B3227D /* GalleryPopUpViewController.xib in Resources */,
 				F62E4AEF25148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.xib in Resources */,
 				CEE3578F250740800097069D /* Segoe UI Italic.ttf in Resources */,
 				CEE72CB5251B5E2700B02DAF /* ServiceDetailTableViewCell.xib in Resources */,
 				CEDD332B25765BBA00023977 /* ViewAllImagesNewDesignViewController.xib in Resources */,
+				4E790214267B398E00CE9600 /* AgentDeliveryTableViewCell.xib in Resources */,
+				4EE631A1267F758900D5ED01 /* CancelReasonViewController.xib in Resources */,
 				2F846419250F7F1C0084EB32 /* ForgotPasswordViewController.strings in Resources */,
 				CECEFAA92577A50D0090D459 /* BusinessTypeListViewController.xib in Resources */,
 				2F846393250F6D270084EB32 /* BasedUrlViewController.xib in Resources */,
@@ -4327,6 +4330,8 @@
 				F62E4AF125148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.strings in Resources */,
 				CEAD29EE25063FA2008B1F9C /* TargetprogressTableViewCell.xib in Resources */,
 				CEDD334625765C4C00023977 /* BarCodePopupNewViewController.xib in Resources */,
+				4E790211267B37F800CE9600 /* AgentDashboardViewController.xib in Resources */,
+				4E6D37C7267B41B100BFA77B /* otherTableViewCell.xib in Resources */,
 				CECEF8B125774EE20090D459 /* RetailPriceListViewCell.xib in Resources */,
 				CE9CCD49264BAA14005AE619 /* ProductListDataBankSellingTableViewCell.xib in Resources */,
 				F64D5FBC2524400E003DE670 /* CompanyRegViewController.xib in Resources */,
@@ -4346,6 +4351,7 @@
 				2F8463DF250F6EBC0084EB32 /* LoginIntroThird.strings in Resources */,
 				CEAEA5122530379300F866E7 /* CommisionDetailsViewController.xib in Resources */,
 				2F8463DD250F6EBC0084EB32 /* LoginIntroFifth.strings in Resources */,
+				4E79020B267B365500CE9600 /* ProfileVatTableViewCell.xib in Resources */,
 				CE2EFB3F251C6620006F1B36 /* VehicleDescriptionTableViewCell.xib in Resources */,
 				F680D67B259B7C2C007EB12C /* DataEntryListHeaderView.xib in Resources */,
 				CECEFA7D2577A0BE0090D459 /* UploadImgeViewController.strings in Resources */,
@@ -4360,18 +4366,16 @@
 				F680D67F259B7C2C007EB12C /* DataEntryListingTableViewCell.strings in Resources */,
 				F680D647259B7C2C007EB12C /* DataEntryItemEntryTableViewCell.strings in Resources */,
 				F4828CA12508DF3E006B85D8 /* ProfileServiceTableViewCell.xib in Resources */,
-				F62F80E9267B2BA3003DE43B /* OtpTableViewCell.strings in Resources */,
+				4EE49DD82673825400E5640C /* ReasonForDeleteViewController.xib in Resources */,
 				CEDD32F525763C8E00023977 /* ProductTopTableViewCell.xib in Resources */,
-				F62F810C267B2D7F003DE43B /* PopUpReduceQuantityViewController.xib in Resources */,
-				F62F8114267B2DA9003DE43B /* ProductListTableViewCell.xib in Resources */,
 				F62E4AF225148EC60021CEE0 /* AgentProfileImageTableViewCell.strings in Resources */,
 				F658B3FE2522ECD000B37F63 /* LanguageSelectionTableViewCell.xib in Resources */,
-				CEFC760B257F5E0C00088467 /* GoogleService-Info.plist in Resources */,
 				F680D636259B7C2C007EB12C /* DEInprogressShowInstructionTableViewCell.xib in Resources */,
 				CEDD31F72576206500023977 /* ProductImgCollectionViewCell.xib in Resources */,
 				F680D64C259B7C2C007EB12C /* DataEntryFromTopTableViewCell.xib in Resources */,
 				CEE3578B250740800097069D /* sst-arabic-bold.ttf in Resources */,
 				CECEF9F52577575C0090D459 /* CollectionViewTableViewCell.xib in Resources */,
+				4E9D1F2626745D180025ED48 /* PopUpReduceQuantityViewController.xib in Resources */,
 				CECEF9AD2577575B0090D459 /* BusinessLocationTableViewCell.strings in Resources */,
 				F680D679259B7C2C007EB12C /* DataEntryListHeaderView.strings in Resources */,
 				CEDD333B25765BBA00023977 /* SelectMultipleBranchesNewDesignViewController.xib in Resources */,
@@ -4384,6 +4388,7 @@
 				CEE35797250740800097069D /* Roboto-Italic.ttf in Resources */,
 				18C69293265527D400B7347B /* AgentDeliveryDetailViewController.xib in Resources */,
 				CEDD334E25765DD000023977 /* spacingTableViewCell.xib in Resources */,
+				4E9491852674C0020061A774 /* PopUpAcceptProductViewController.xib in Resources */,
 				2FEB12112511F0010012FE98 /* UnderDevelopmentViewController.xib in Resources */,
 				CEDD330A25765A7400023977 /* ScannerNewViewController.xib in Resources */,
 				CEBCD7502664A7FE001BF767 /* BankListTableViewCell.xib in Resources */,
@@ -4399,6 +4404,7 @@
 				F680D64F259B7C2C007EB12C /* DataEntryFromOrderInstractionTableViewCell.xib in Resources */,
 				CECEF9EA2577575C0090D459 /* LogoTableViewCell.xib in Resources */,
 				CECEFAB62577AB250090D459 /* DeliveryPopupViewController.xib in Resources */,
+				4E79020A267B365500CE9600 /* ProfileDetailTableViewCell.xib in Resources */,
 				CECEF9EF2577575C0090D459 /* ViewLocationTableViewCell.strings in Resources */,
 				CE9CCDFE264BEDBD005AE619 /* ProductWarrentySupportTableViewCell.xib in Resources */,
 				F680D68C259B7F27007EB12C /* CancelReasonViewCell.xib in Resources */,
@@ -4407,7 +4413,6 @@
 				CECEFA5B25779E8F0090D459 /* UploadImageViewController.xib in Resources */,
 				CE9CCD4E264BAA14005AE619 /* AddProductHeaderTableViewCell.xib in Resources */,
 				CE9CCD4A264BAA14005AE619 /* ProductSpecificationsTableViewCell.xib in Resources */,
-				CE40A2612670E15000A8C944 /* ProfileDetailTableViewCell.xib in Resources */,
 				CECEFA0A257773D00090D459 /* GetLocationViewController.strings in Resources */,
 				2F8463D1250F6EBC0084EB32 /* LoginNewSecondTableViewCell.xib in Resources */,
 				F680D61F259B7C2C007EB12C /* DataEntryTypeListingTableViewCell.strings in Resources */,
@@ -4418,12 +4423,12 @@
 				F680D638259B7C2C007EB12C /* DEInprogressDetailWorkPlaceTableViewCell.xib in Resources */,
 				CEDD31EF2576206500023977 /* CreateProductFirstViewController.strings in Resources */,
 				CECEF9F32577575C0090D459 /* CollectionViewTableViewCell.strings in Resources */,
-				F62F810A267B2D7F003DE43B /* CommonPopViewC.xib in Resources */,
 				F680D63D259B7C2C007EB12C /* DataEntryAgentRatingViewController.strings in Resources */,
 				F680D681259B7C2C007EB12C /* CompleteDataEntryListTableViewCell.xib in Resources */,
 				CECEF9E92577575C0090D459 /* LogoTableViewCell.strings in Resources */,
 				F62E4B0125148EC60021CEE0 /* CompanyAgentBasicInformationTableViewCell.xib in Resources */,
 				CECEF9EE2577575C0090D459 /* CreateBranchFirstStepViewController.xib in Resources */,
+				4E19EB92267A34A7003510BC /* CommonPopViewC.xib in Resources */,
 				CECEF9E42577575C0090D459 /* BranchTimingTableViewCell.xib in Resources */,
 				F680D63F259B7C2C007EB12C /* DataEntryAgentRatingViewController.xib in Resources */,
 				F62E4B0925148EC60021CEE0 /* agentPersonalDetailsTableViewCell.xib in Resources */,
@@ -4432,24 +4437,22 @@
 				1840E804265695AB003FDFB9 /* BusinessOwnerTableViewCell.xib in Resources */,
 				2F9DA67225237FCA00C46952 /* SearchCategoryViewController.xib in Resources */,
 				2F8463DB250F6EBC0084EB32 /* LoginIntroFourth.strings in Resources */,
-				F6FC007C267A1573008AF6DD /* CommonPopupViewController.xib in Resources */,
 				CECEF9E32577575C0090D459 /* DescriptionTableViewCell.xib in Resources */,
 				CECEFA802577A0BE0090D459 /* UploadBottomTableViewCell.xib in Resources */,
+				4E790217267B3D7F00CE9600 /* MallMarketPopupViewController.xib in Resources */,
 				CEE72CBD251B76AF00B02DAF /* BottomPopupTableViewCell.xib in Resources */,
 				CECEF9972577575B0090D459 /* TimeDisplayStyleTableViewCell.xib in Resources */,
 				F4C4DC572507943A0075F520 /* UserProfileDetailsViewController.xib in Resources */,
 				F680D620259B7C2C007EB12C /* DataEntryTypeListingTableViewCell.xib in Resources */,
 				CECEFA5725779E8F0090D459 /* GalleryHeaderCollectionViewCell.xib in Resources */,
 				CE9CCDC3264BE2D7005AE619 /* DeleteBranchPopupViewController.xib in Resources */,
+				4ECE3C3226777D3F009D0163 /* OtpTableViewCell.xib in Resources */,
 				CECEFA5C25779E8F0090D459 /* GalleryFilterViewController.xib in Resources */,
-				F62F80EE267B2BA4003DE43B /* OtpTableViewCell.xib in Resources */,
 				F635979925C66DFD003BF9E2 /* TripAchivementCollectionViewCell.xib in Resources */,
 				F62E4B0825148EC60021CEE0 /* agentPersonalDetailsTableViewCell.strings in Resources */,
 				F4E772AC252D9F990045BD86 /* ChangePasswordViewController.xib in Resources */,
 				F66AA1AF2525B53300C1E058 /* DiscountTypePopUpViewController.strings in Resources */,
-				F62F80F0267B2BA4003DE43B /* InformationTableViewCell.xib in Resources */,
 				CECEFA872577A22F0090D459 /* NodatafoundCollectionViewCell.xib in Resources */,
-				CE40A25126708B3500A8C944 /* AgentDashboardViewController.xib in Resources */,
 				CECEF9FC2577575C0090D459 /* HeaderBranchTableViewCell.xib in Resources */,
 				F62E4B0B25148EC60021CEE0 /* PersonalRegViewController.xib in Resources */,
 				F680D666259B7C2C007EB12C /* DataEntryFormViewController.xib in Resources */,
@@ -4465,6 +4468,7 @@
 				CEE35798250740800097069D /* Roboto-Bold.ttf in Resources */,
 				CEDD334425765C4C00023977 /* BarCodePopupNewViewController.strings in Resources */,
 				F67B5E20252574F40083DA66 /* ServiceCollectionViewCell.xib in Resources */,
+				4ECE3C1B26771026009D0163 /* ProductListTableViewCell.xib in Resources */,
 				2F84643A250F83910084EB32 /* PopUpViewCell.xib in Resources */,
 				CEE35791250740800097069D /* RobotoSlab-Bold.ttf in Resources */,
 				F62E4AF725148EC60021CEE0 /* AgentProfileImageTableViewCell.xib in Resources */,
@@ -4473,7 +4477,6 @@
 				CECEF9B72577575B0090D459 /* MapViewTableViewCell.xib in Resources */,
 				2F74CB57250A365F00DE21EF /* SplashAnimatedViewController.xib in Resources */,
 				CEE72CA9251B36C400B02DAF /* DeliveryDocumentViewController.xib in Resources */,
-				F62F80EB267B2BA4003DE43B /* OtpForCodViewC.strings in Resources */,
 				CEDAF67525283DF900B846E5 /* ReasonForChangeTableViewCell.xib in Resources */,
 				F635979D25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.xib in Resources */,
 				CEBCD74A2664A7FE001BF767 /* SearchBankTableViewCell.xib in Resources */,
@@ -4485,14 +4488,12 @@
 				2F8463CE250F6EBC0084EB32 /* LoginNewSecondTableViewCell.strings in Resources */,
 				CEBCD7332664A7FE001BF767 /* BankAllListViewController.xib in Resources */,
 				2F846412250F7F1C0084EB32 /* ResetPasswordViewController.strings in Resources */,
-				CE5842C926747DA30007EF91 /* AgentDeliveryTableViewCell.xib in Resources */,
 				F680D64E259B7C2C007EB12C /* DataEntryFormWorkPlaceTableViewCell.xib in Resources */,
 				CEF3F71E268198AB00BA0C49 /* MultipleBranchHeader.xib in Resources */,
 				CE9CCE03264BEDBD005AE619 /* ProductVarientNewCollectionViewCell.xib in Resources */,
 				F4828C8E2508AA2C006B85D8 /* SectionHeader.xib in Resources */,
 				F680D622259B7C2C007EB12C /* DataEntryTypelistingViewController.strings in Resources */,
 				CEE35793250740800097069D /* RobotoSlab-Light.ttf in Resources */,
-				F62F810E267B2D7F003DE43B /* PopUpAcceptProductViewController.xib in Resources */,
 				CECEFA5625779E8F0090D459 /* NewGalleryHeader.xib in Resources */,
 				CECEFA5E25779E8F0090D459 /* DateFilterTableViewCell.xib in Resources */,
 				F680D643259B7C2C007EB12C /* DataEntryFromOrderInstractionTableViewCell.strings in Resources */,
@@ -4511,7 +4512,6 @@
 				F62E4AFD25148EC60021CEE0 /* CompanyAgentBankDetailsTableViewCell.strings in Resources */,
 				F680D634259B7C2C007EB12C /* DEInprogressDetailTableViewCell.xib in Resources */,
 				2F8463D8250F6EBC0084EB32 /* LoginNewDesignViewController.xib in Resources */,
-				F62F80EF267B2BA4003DE43B /* OrderSuccessViewC.xib in Resources */,
 				CEBCD7B326669A28001BF767 /* NoTripFoundTableViewCell.xib in Resources */,
 				CEBCD7442664A7FE001BF767 /* TransactionNewPopupViewController.strings in Resources */,
 				CECEF9E02577575C0090D459 /* CheckedTableViewCell.xib in Resources */,
@@ -4524,12 +4524,12 @@
 				F658B3FA2522ECAD00B37F63 /* LanguageSelectionViewController.xib in Resources */,
 				CECEF9E52577575C0090D459 /* CountingTableViewCell.xib in Resources */,
 				2F8463CD250F6EBC0084EB32 /* LoginNewDesignViewController.strings in Resources */,
-				F62F80EA267B2BA4003DE43B /* InformationTableViewCell.strings in Resources */,
 				CEE35794250740800097069D /* Segoe UI Bold Italic.ttf in Resources */,
 				F6527E122609D06C009622DF /* OtherServicesOrderInformationTableViewCell.xib in Resources */,
 				2F8463D0250F6EBC0084EB32 /* LoginNewFirstTableViewCell.xib in Resources */,
 				CECEF9902577575B0090D459 /* deleterowTableViewCell.strings in Resources */,
 				F680D646259B7C2C007EB12C /* DataEntryFormFirstTopTableViewCell.strings in Resources */,
+				4E19EB87267A1909003510BC /* OrderSuccessViewC.xib in Resources */,
 				CE9CCD55264BAA14005AE619 /* VariantPRoductsViewController.xib in Resources */,
 				CECEFA9A2577A2C90090D459 /* BranchImageUploadController.xib in Resources */,
 				2F8463E7250F6EBC0084EB32 /* LoginIntroThird.xib in Resources */,
@@ -4549,13 +4549,13 @@
 				CEDBFDB6266DF71E00A8D318 /* DashboardWalletTableViewCell.xib in Resources */,
 				CECEF9EB2577575C0090D459 /* topBranchTableViewCell.xib in Resources */,
 				CECEFAD62577D3140090D459 /* AllfiterHeaderTableViewCell.xib in Resources */,
+				4ECE3C2B267778E3009D0163 /* OtpForCodViewC.xib in Resources */,
 				F680D67A259B7C2C007EB12C /* DataEntryHeaderCollectionViewCell.xib in Resources */,
 				CEDD32E425763C8E00023977 /* ProductSpecCatagoryTableViewCell.xib in Resources */,
 				CE9CCE05264BEDBD005AE619 /* ProductVarientNewTableViewCell.xib in Resources */,
 				F680D651259B7C2C007EB12C /* DataEntryPricePayTableViewCell.xib in Resources */,
 				CE9CCD58264BAA14005AE619 /* SecondVariantCollectionViewCell.xib in Resources */,
 				CEDD3381257663C800023977 /* SEPhotographyCollectionViewCell.xib in Resources */,
-				F6347D22267A2DFC006CC052 /* marketTableViewCell.xib in Resources */,
 				CE9CCD43264BAA14005AE619 /* ProductListHeader.xib in Resources */,
 				CECEFA4B25779E8F0090D459 /* ViewImagesViewController.xib in Resources */,
 				CEDD32E725763C8E00023977 /* ORTableViewCell.xib in Resources */,
@@ -4585,6 +4585,7 @@
 				CECEF9B12577575B0090D459 /* BusinessLocationSearch2TableViewCell.xib in Resources */,
 				CEDD33AA2576705A00023977 /* AddFilterRowsViewCell.xib in Resources */,
 				CEDD33CD257676F100023977 /* InventoryViewController.xib in Resources */,
+				4E6D37C6267B41B100BFA77B /* marketTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4746,19 +4747,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F62F8138267B2EE4003DE43B /* Southwest.swift in Sources */,
 				CEDD31F42576206500023977 /* SelectProductTypeTableViewCell.swift in Sources */,
 				CEDD32F325763C8E00023977 /* ProductDimentionTableViewCell.swift in Sources */,
 				CEAD29F125069D58008B1F9C /* DescriptionTableViewCells.swift in Sources */,
-				F62F8131267B2EE4003DE43B /* Start_location.swift in Sources */,
 				F680D62C259B7C2C007EB12C /* DataEntryWorkConfirmationPopUpViewController.swift in Sources */,
-				F62F8132267B2EE4003DE43B /* Steps.swift in Sources */,
 				F4828CA42508DFA9006B85D8 /* ProfileServiceViewCell.swift in Sources */,
+				4E9D1F2D26746ABC0025ED48 /* OtpTableViewCell.swift in Sources */,
 				CECEFA6725779F930090D459 /* galleryFilterList.swift in Sources */,
 				F472BA1C2519DF120094C13E /* AgentDeliveryViewController.swift in Sources */,
 				CEA24F62265BD00D00B3227D /* BottomPopCellsNewTableViewCell.swift in Sources */,
 				CEDD32DA25763C8E00023977 /* ORTableViewCell.swift in Sources */,
 				CEE357A32507585F0097069D /* ServiceListTableViewCell.swift in Sources */,
+				4E9D1F2926746A2E0025ED48 /* InformationTableViewCell.swift in Sources */,
 				CEDD32E925763C8E00023977 /* DeleteSlabPopupViewController.swift in Sources */,
 				CECEF9FA2577575C0090D459 /* HeaderBranchTableViewCell.swift in Sources */,
 				CE9CCD4D264BAA14005AE619 /* DataBankSellingListModel.swift in Sources */,
@@ -4772,13 +4772,13 @@
 				2F74CB58250A365F00DE21EF /* LogoAnimationView.swift in Sources */,
 				CE9CCE1C264BF0B6005AE619 /* FilterModel.swift in Sources */,
 				CEE72CAC251B405F00B02DAF /* ServiceHeaderTableViewCell.swift in Sources */,
+				4EE631A0267F758900D5ED01 /* CancelReasonViewController.swift in Sources */,
 				CEDD33D82576975400023977 /* BranchMapModel.swift in Sources */,
 				2F74CB5A250A365F00DE21EF /* SplashAnimatedViewController.swift in Sources */,
 				CE9CCD5A264BAA14005AE619 /* viewProductDetailEditNew.swift in Sources */,
 				CECEFA5325779E8F0090D459 /* NewGalleryHeader.swift in Sources */,
 				2F0230BE2514902B004F1B0B /* DictionaryExt.swift in Sources */,
 				F680D663259B7C2C007EB12C /* DataEntryFormItemPopUpViewController.swift in Sources */,
-				F62F80F1267B2BA4003DE43B /* OrderSuccessViewC.swift in Sources */,
 				CE9CCDC5264BE4B0005AE619 /* ProductApiModel.swift in Sources */,
 				CE2EFB42251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift in Sources */,
 				CECEF9B62577575B0090D459 /* MapViewTableViewCell.swift in Sources */,
@@ -4786,6 +4786,7 @@
 				CECEFABB2577AC3E0090D459 /* BusinessTYPEList.swift in Sources */,
 				CEDD32812576307500023977 /* AddProductModel.swift in Sources */,
 				CEDD32B52576341700023977 /* ProductModels.swift in Sources */,
+				4E85ED6126720A4300785110 /* Legs.swift in Sources */,
 				2F74CB59250A365F00DE21EF /* UIView+Constraints.swift in Sources */,
 				2F84638C250F67900084EB32 /* selecting_local.swift in Sources */,
 				CECEFAB52577AB250090D459 /* DeliveryPopupViewController.swift in Sources */,
@@ -4798,13 +4799,14 @@
 				18BBD7BA265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.swift in Sources */,
 				F635979C25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift in Sources */,
 				F680D668259B7C2C007EB12C /* DataEntryServiceDetailModal.swift in Sources */,
+				4E9D1F2526745D180025ED48 /* PopUpReduceQuantityViewController.swift in Sources */,
 				CEAD29EA250632BB008B1F9C /* NavigationView.swift in Sources */,
 				CEDD33A52576705A00023977 /* AddFilterViewController.swift in Sources */,
 				2F9DA67325237FCA00C46952 /* SearchCategoryViewController.swift in Sources */,
-				F62F8130267B2EE4003DE43B /* Northeast.swift in Sources */,
 				F62E4AF425148EC60021CEE0 /* AgentCompanyUserPolicyTableViewCell.swift in Sources */,
 				CE9CCD4F264BAA14005AE619 /* VariantPRoductsViewController.swift in Sources */,
 				2FEB122F251229AF0012FE98 /* ServiceSingleCollectionViewCell.swift in Sources */,
+				4E85ED6E26720A4300785110 /* Duration.swift in Sources */,
 				CECEFA7E2577A0BE0090D459 /* UploadImgeViewController.swift in Sources */,
 				CEDD333825765BBA00023977 /* MultipleBranchHeader.swift in Sources */,
 				CEDD334B25765DD000023977 /* spacingTableViewCell.swift in Sources */,
@@ -4832,7 +4834,10 @@
 				F46DB928251B23980061A232 /* TripAchievementViewCell.swift in Sources */,
 				CEDD32DD25763C8E00023977 /* ProductSpecCatagoryTableViewCell.swift in Sources */,
 				CEDD33D62576784600023977 /* AddBranch.swift in Sources */,
+				4E85ED6326720A4300785110 /* Bounds.swift in Sources */,
 				CE9CCD6C264BAA14005AE619 /* SimilarDataSell.swift in Sources */,
+				4E85ED6A26720A4300785110 /* DistanceModelResponse.swift in Sources */,
+				4E85ED6D26720A4300785110 /* Routes.swift in Sources */,
 				CE9CCDC9264BE5BE005AE619 /* NoDataFoundTableViewCell.swift in Sources */,
 				CE9CCD6F264BAA14005AE619 /* DataBankSellingProductDetail.swift in Sources */,
 				CEE357A6250769AD0097069D /* TargetModel.swift in Sources */,
@@ -4847,6 +4852,7 @@
 				F680D627259B7C2C007EB12C /* AddedServicesInDataEntryViewController.swift in Sources */,
 				CEDD333525765BBA00023977 /* SelectSubCat.swift in Sources */,
 				CEE72CC0251B795100B02DAF /* OpenGallery.swift in Sources */,
+				4E85ED6726720A4300785110 /* Geocoded_waypoints.swift in Sources */,
 				CEDD333C25765BBA00023977 /* SelectMultipleBranchesNewDesignViewController.swift in Sources */,
 				CE3E9A59251E0B0300B60038 /* ServiceModel.swift in Sources */,
 				CEDD33D52576784600023977 /* AddBranchModel.swift in Sources */,
@@ -4860,8 +4866,10 @@
 				CEDD31F12576206500023977 /* ProductImgCollectionViewCell.swift in Sources */,
 				CECEFABF2577AF5F0090D459 /* SelectBusinesstypeTableViewCell.swift in Sources */,
 				CEDAF67425283DF900B846E5 /* ReasonForChangeTableViewCell.swift in Sources */,
+				4E85ED6226720A4300785110 /* Distance.swift in Sources */,
 				CEDD333125765BBA00023977 /* SelectCategoryViewController.swift in Sources */,
 				CEDAF67825285ACC00B846E5 /* BottomLblTableViewCell.swift in Sources */,
+				4E85ED502671FEBC00785110 /* MapPath.swift in Sources */,
 				CEE72CB0251B586400B02DAF /* DocHeaderTableViewCell.swift in Sources */,
 				CEDD32DF25763C8E00023977 /* ProductHeader2TableViewCell.swift in Sources */,
 				185373DF266646E3001E0C2A /* String+Utilities.swift in Sources */,
@@ -4872,13 +4880,11 @@
 				CECEFA5425779E8F0090D459 /* BussinessGalleryViewController.swift in Sources */,
 				CECEF9FD2577575C0090D459 /* PhoneNumberTableViewCell.swift in Sources */,
 				F62E4B11251493A40021CEE0 /* AgentSignUPModal.swift in Sources */,
-				F62F813C267B2EE4003DE43B /* LocationManager.swift in Sources */,
 				F680D621259B7C2C007EB12C /* DataEntryTypeListingTableViewCell.swift in Sources */,
 				F658B3F92522ECAD00B37F63 /* LanguageSelectionViewController.swift in Sources */,
 				F68B78E32653ADE800B1E69E /* UserPolicyWebViewController.swift in Sources */,
 				CECEFAD72577D3140090D459 /* AllFilterTableViewCell.swift in Sources */,
 				2F84643F250F83910084EB32 /* PopUpViewCell.swift in Sources */,
-				F62F8108267B2D7F003DE43B /* ReasonForDeleteViewController.swift in Sources */,
 				CEBCD72E2664A7FE001BF767 /* DeleteBank.swift in Sources */,
 				CE9CCE02264BEDBD005AE619 /* TitleHeaderTableViewCell.swift in Sources */,
 				CE2EFB3E251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift in Sources */,
@@ -4900,7 +4906,6 @@
 				F44E35B1251C72C6002E41E2 /* AgentServiceList.swift in Sources */,
 				F62E4AF525148EC60021CEE0 /* AgentProfileImageTableViewCell.swift in Sources */,
 				CEDD330B25765A7400023977 /* QRCOdeViewController.swift in Sources */,
-				F62F810D267B2D7F003DE43B /* PopUpAcceptProductViewController.swift in Sources */,
 				F4C4DC59250794490075F520 /* UserProfileDetailsViewController.swift in Sources */,
 				CEDD338A25766FB900023977 /* DatabankpopupViewController.swift in Sources */,
 				F6A5FB99259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift in Sources */,
@@ -4908,6 +4913,7 @@
 				2F84642A250F82850084EB32 /* SuccesssViewController.swift in Sources */,
 				F66AA1B42525B5B400C1E058 /* DiscountTypePopUpViewController.swift in Sources */,
 				2F07D1A92505F89100193658 /* ModalController.swift in Sources */,
+				4E9491842674C0020061A774 /* PopUpAcceptProductViewController.swift in Sources */,
 				F680D68B259B7F27007EB12C /* CancelReasonViewCell.swift in Sources */,
 				CE9CCE00264BEDBD005AE619 /* ProductVarientNewCollectionViewCell.swift in Sources */,
 				F4A7E54B251A047D00ED8008 /* AgentDeliveryTableViewCell.swift in Sources */,
@@ -4917,29 +4923,28 @@
 				CECEFA13257783D80090D459 /* purchasedHeaderTableViewCell.swift in Sources */,
 				CECEFACA2577C76A0090D459 /* marketTableViewCell.swift in Sources */,
 				CE9CCE23264BFF67005AE619 /* CustomerProductViewModel.swift in Sources */,
-				F62F8109267B2D7F003DE43B /* CommonPopViewC.swift in Sources */,
 				CEDD33B2257674BA00023977 /* AddWholeSlabViewController.swift in Sources */,
 				F680D684259B7C2C007EB12C /* CompleteDataEntryListTableViewCell.swift in Sources */,
 				F6547AD325DE5D9400171862 /* RangeFilterTableViewCell.swift in Sources */,
 				F680D67D259B7C2C007EB12C /* DataEntryListHeaderView.swift in Sources */,
 				F62E4B10251493A40021CEE0 /* AgentService.swift in Sources */,
+				4E85ED6C26720A4300785110 /* Southwest.swift in Sources */,
 				CEDD33A02576705A00023977 /* AddFilterTopTableViewCell.swift in Sources */,
+				4E85ED6526720A4300785110 /* Start_location.swift in Sources */,
 				F62E4B0225148EC60021CEE0 /* CompanyAgentBasicInformationTableViewCell.swift in Sources */,
 				CE9CCD56264BAA14005AE619 /* ProductVariantModel.swift in Sources */,
 				CE9CCD46264BAA14005AE619 /* ProductListDataBankSellingTableViewCell.swift in Sources */,
 				F680D665259B7C2C007EB12C /* DataEntryFormViewController.swift in Sources */,
 				CE9CCD50264BAA14005AE619 /* ProductVariantDetailTableViewCell.swift in Sources */,
-				F62F812D267B2EE4003DE43B /* Legs.swift in Sources */,
 				CEBCD74B2664A7FE001BF767 /* SearchBankTableViewCell.swift in Sources */,
 				F64B439425220A5700B9C8CB /* IbanLengthModal.swift in Sources */,
 				CEDD333025765BBA00023977 /* SelectCategoryCell.swift in Sources */,
-				F62F8139267B2EE4003DE43B /* Routes.swift in Sources */,
-				F62F80EC267B2BA4003DE43B /* InformationTableViewCell.swift in Sources */,
 				CECEF9B92577575B0090D459 /* BusinessLocationSearch2TableViewCell.swift in Sources */,
 				F4C4DC5E250794B20075F520 /* ProfileDetailTableViewCell.swift in Sources */,
 				2FFDE20F25012166006C5EBD /* SceneDelegate.swift in Sources */,
 				CEBCD73E2664A7FE001BF767 /* ShowMoreViewCell.swift in Sources */,
 				CECEFA812577A0BE0090D459 /* UploadBottomTableViewCell.swift in Sources */,
+				18C0673A2664DAE1000F3CA3 /* OtpForCodViewC.swift in Sources */,
 				CECEFA5125779E8F0090D459 /* GallerySearchCollectionViewCell.swift in Sources */,
 				2F8463CF250F6EBC0084EB32 /* LoginNewFirstTableViewCell.swift in Sources */,
 				F680D655259B7C2C007EB12C /* DataEntryPricePayTableViewCell.swift in Sources */,
@@ -4948,6 +4953,7 @@
 				CECEF98F2577575B0090D459 /* TimeSheetPOpUpViewController.swift in Sources */,
 				CEBCD7462664A7FE001BF767 /* TransactionNewPopupViewController.swift in Sources */,
 				2F74CB5C250A365F00DE21EF /* VersionPopupViewController.swift in Sources */,
+				4E85ED512671FEBC00785110 /* LocationManager.swift in Sources */,
 				CE9CCD48264BAA14005AE619 /* ProductListHeader.swift in Sources */,
 				F62E4B2225149B370021CEE0 /* DatePickerDialog.swift in Sources */,
 				2F9DA67125237FCA00C46952 /* SearchCategoryTableViewCell.swift in Sources */,
@@ -4956,25 +4962,25 @@
 				2F964B752513751B005FFEDC /* MultiBannerVw.swift in Sources */,
 				2F07D1AA2505F89100193658 /* ModalClass.swift in Sources */,
 				CEBCD73A2664A7FE001BF767 /* BankAllListViewController.swift in Sources */,
-				F62F812F267B2EE4003DE43B /* Bounds.swift in Sources */,
 				CECEF9D72577575C0090D459 /* CommonSearchTableViewCell.swift in Sources */,
 				2F8463D7250F6EBC0084EB32 /* LoginNewDesignViewController.swift in Sources */,
 				F680D686259B7C2C007EB12C /* DataEntryListingTopTableViewCell.swift in Sources */,
+				4E7B73F226807454003405B7 /* SampleNotificationDelegate.swift in Sources */,
 				CE9CCD4C264BAA14005AE619 /* DataBankSellingList.swift in Sources */,
 				CECEFA992577A2C90090D459 /* BranchImageUploadController.swift in Sources */,
 				CE9CCE1D264BF0B6005AE619 /* ListingnewTableViewCell.swift in Sources */,
-				F62F813B267B2EE4003DE43B /* MapPath.swift in Sources */,
 				2FEB12132511F0010012FE98 /* UnderDevelopmentViewController.swift in Sources */,
 				2F8463E0250F6EBC0084EB32 /* LoginIntroFifth.swift in Sources */,
 				F62E4AFE25148EC60021CEE0 /* CompanyAgentBankDetailsTableViewCell.swift in Sources */,
 				1858082D265B921B002A891C /* SearchedProductDeatailViewC.swift in Sources */,
+				4E85ED6426720A4300785110 /* Northeast.swift in Sources */,
 				F6547ACF25DE5D9400171862 /* DiscountFilterRadioTableViewCell.swift in Sources */,
 				CECEFA6825779F930090D459 /* GalleryImage.swift in Sources */,
 				CE9CCD54264BAA14005AE619 /* VariantSpecificationTableViewCell.swift in Sources */,
-				F62F80F7267B2C0D003DE43B /* OtpForCodViewC.swift in Sources */,
 				CECEF9942577575B0090D459 /* addrowTableViewCell.swift in Sources */,
 				2F8463E8250F6EBC0084EB32 /* LoginIntroSecond.swift in Sources */,
 				CECEF9952577575B0090D459 /* deleterowTableViewCell.swift in Sources */,
+				4E85ED6826720A4300785110 /* Overview_polyline.swift in Sources */,
 				2F846392250F6D270084EB32 /* BasedUrlViewController.swift in Sources */,
 				CEE5945025221FEC00CB1E5A /* VehicleKindTableViewCell.swift in Sources */,
 				F680D63C259B7C2C007EB12C /* DEInprogressDetailWorkPlaceTableViewCell.swift in Sources */,
@@ -4990,9 +4996,9 @@
 				CECEFA972577A2C90090D459 /* ExteriorTableViewCell.swift in Sources */,
 				18C69292265527D400B7347B /* AgentDeliveryDetailViewController.swift in Sources */,
 				F62E4AF025148EC60021CEE0 /* CompanyAgentVatDetailTableViewCell.swift in Sources */,
-				F62F8134267B2EE4003DE43B /* Overview_polyline.swift in Sources */,
 				CECEFA5F25779E8F0090D459 /* GalleryFilterViewController.swift in Sources */,
 				F4828C942508B27E006B85D8 /* ProfileEnteriesTableViewCell.swift in Sources */,
+				4E85ED6626720A4300785110 /* Steps.swift in Sources */,
 				2F8463E2250F6EBC0084EB32 /* LoginIntroThird.swift in Sources */,
 				F6547ABD25DE594A00171862 /* DataEntryFilterViewController.swift in Sources */,
 				CE9CCE01264BEDBD005AE619 /* ProductDetailBannerTableViewCell.swift in Sources */,
@@ -5004,7 +5010,6 @@
 				CECEF9E72577575C0090D459 /* CountingTableViewCell.swift in Sources */,
 				2F8463D3250F6EBC0084EB32 /* UploadTopView.swift in Sources */,
 				F6527E092609CF4D009622DF /* OtherServicesOrderInformationTableViewCell.swift in Sources */,
-				F62F810B267B2D7F003DE43B /* PopUpReduceQuantityViewController.swift in Sources */,
 				CEBCD7B226669A28001BF767 /* NoTripFoundTableViewCell.swift in Sources */,
 				2F846416250F7F1C0084EB32 /* ResetPasswordViewController.swift in Sources */,
 				CEBCD73F2664A7FE001BF767 /* BankTransferController.swift in Sources */,
@@ -5014,17 +5019,16 @@
 				CECEFA822577A0BE0090D459 /* UploadimgTableViewCell.swift in Sources */,
 				CECEF8BD257754B90090D459 /* SingleButtonViewCell.swift in Sources */,
 				F680D657259B7C2C007EB12C /* DataEntryFormDayTableViewCell.swift in Sources */,
-				F62F8137267B2EE4003DE43B /* Polyline.swift in Sources */,
 				F680D685259B7C2C007EB12C /* DataEntryListingTableViewCell.swift in Sources */,
 				CEDD32E325763C8E00023977 /* SpecificationTableViewCell.swift in Sources */,
 				F62E4B152514983A0021CEE0 /* BankIdentifierListModal.swift in Sources */,
 				CECEF9ED2577575C0090D459 /* LogoTableViewCell.swift in Sources */,
+				4E19EB85267A15EF003510BC /* OrderSuccessViewC.swift in Sources */,
 				F62E4B0A25148EC60021CEE0 /* agentPersonalDetailsTableViewCell.swift in Sources */,
 				1840E7F5265675F4003FDFB9 /* ProductDetailsViewC.swift in Sources */,
 				CECEFA952577A2C90090D459 /* BranchUpload.swift in Sources */,
 				F680D688259B7E79007EB12C /* CancelViewModal.swift in Sources */,
 				CEDD333725765BBA00023977 /* SelectMultipleBranchesNewDesignTableViewCell.swift in Sources */,
-				F62F80F2267B2BA4003DE43B /* OtpTableViewCell.swift in Sources */,
 				CECEFA6A25779F930090D459 /* BusinessGalleryList.swift in Sources */,
 				CEAEA51525303A1500F866E7 /* CommisionTopTableViewCell.swift in Sources */,
 				2F846441250F83910084EB32 /* PopUpBelowViewController.swift in Sources */,
@@ -5036,9 +5040,12 @@
 				F680D639259B7C2C007EB12C /* DEInprogressShowInstructionTableViewCell.swift in Sources */,
 				2FEB12052511EC930012FE98 /* SideMenuTableViewCell.swift in Sources */,
 				F44E35B4251CACB3002E41E2 /* DataBankHeader.swift in Sources */,
+				4E85ED6926720A4300785110 /* End_location.swift in Sources */,
 				CEDD33CA257676F100023977 /* InventoryTableViewCell.swift in Sources */,
+				4E85ED6B26720A4300785110 /* Polyline.swift in Sources */,
 				2F07D1B52505FE9E00193658 /* UIView+IBDesignables.swift in Sources */,
 				CEDD32EA25763C8E00023977 /* SendForAPProvalTableViewCell.swift in Sources */,
+				4EE49DD72673825400E5640C /* ReasonForDeleteViewController.swift in Sources */,
 				CEE72CB4251B5E2700B02DAF /* ServiceDetailTableViewCell.swift in Sources */,
 				F62E4B0C25148EC60021CEE0 /* personalRegViewController.swift in Sources */,
 				CEBCD7422664A7FE001BF767 /* AddNewBankViewController.swift in Sources */,
@@ -5051,7 +5058,6 @@
 				F62E4B0325148EC60021CEE0 /* ImageSelectPopUpDialogViewController.swift in Sources */,
 				CEBCD7322664A7FE001BF767 /* PaymentProgressTableViewCell.swift in Sources */,
 				F680D673259B7C2C007EB12C /* DECancellationTableViewCell.swift in Sources */,
-				F62F813A267B2EE4003DE43B /* Duration.swift in Sources */,
 				2F07D1B32505FE1C00193658 /* Singleton.swift in Sources */,
 				2F846421250F81F10084EB32 /* ForgotPassword.swift in Sources */,
 				F635979825C66DFD003BF9E2 /* TripAchivementCollectionViewCell.swift in Sources */,
@@ -5061,7 +5067,6 @@
 				2FEB122B251225A30012FE98 /* ServicesDashboardTableViewCell.swift in Sources */,
 				F62E4AF825148EC60021CEE0 /* ServiceCollectionViewCell.swift in Sources */,
 				CECEF8B9257752CD0090D459 /* PriceTopTableViewCell.swift in Sources */,
-				F62F8136267B2EE4003DE43B /* DistanceModelResponse.swift in Sources */,
 				CECEFAA62577A50D0090D459 /* SubcriptiontopcellTableViewCell.swift in Sources */,
 				CECEFAA72577A50D0090D459 /* BusinessTypeListViewController.swift in Sources */,
 				F680D62E259B7C2C007EB12C /* DEInprogressOrderInformationFirstTableViewCell.swift in Sources */,
@@ -5073,7 +5078,6 @@
 				2F8463E1250F6EBC0084EB32 /* LoginIntroFourth.swift in Sources */,
 				CECEFAC62577C3790090D459 /* otherTableViewCell.swift in Sources */,
 				CEBCD7482664A7FE001BF767 /* BankModal.swift in Sources */,
-				F62F8133267B2EE4003DE43B /* Geocoded_waypoints.swift in Sources */,
 				F6547AE025DE5E1C00171862 /* ListingTableViewCell.swift in Sources */,
 				CECEF9B52577575B0090D459 /* BusinessLocationTableViewCell.swift in Sources */,
 				CECEFADA2577D4CC0090D459 /* NewInventoryManageModel.swift in Sources */,
@@ -5083,11 +5087,9 @@
 				CEDD33A42576705A00023977 /* AddFilterInfoTableViewCell.swift in Sources */,
 				CEBCD7522664A7FE001BF767 /* BankListViewController.swift in Sources */,
 				F680D62A259B7C2C007EB12C /* DataEntryDetailViewController.swift in Sources */,
-				F62F812E267B2EE4003DE43B /* Distance.swift in Sources */,
 				2F07D1A82505F89100193658 /* Constant.swift in Sources */,
 				F680D66D259B7C2C007EB12C /* DataEntryTypeListingModal.swift in Sources */,
 				2F964B6E25136B05005FFEDC /* DropShipDashboardTableViewCell.swift in Sources */,
-				F62F8135267B2EE4003DE43B /* End_location.swift in Sources */,
 				CEDD334525765C4C00023977 /* BarCodePopupNewViewController.swift in Sources */,
 				CEDD32F225763C8E00023977 /* InstorePaymentTableViewCell.swift in Sources */,
 				2F07D1AF2505FD7700193658 /* HeaderHeightSingleton.swift in Sources */,
@@ -5128,6 +5130,7 @@
 				2F964B772513751B005FFEDC /* MultiBannerTableViewCell.swift in Sources */,
 				CEE72CA8251B36C400B02DAF /* DeliveryDocumentViewController.swift in Sources */,
 				CEDD32FE25763DAB00023977 /* UIUtilities.swift in Sources */,
+				4E19EB91267A34A7003510BC /* CommonPopViewC.swift in Sources */,
 				CECEF99A2577575B0090D459 /* BusinessTimesheet1PopupViewController.swift in Sources */,
 				185373D9266645B4001E0C2A /* DoubleExtended.swift in Sources */,
 				CECEFA4925779E8F0090D459 /* ViewImageitemCell.swift in Sources */,
@@ -5397,54 +5400,134 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		CE0B0EC62675D5AD00B046D5 /* nextTableViewCell.xib */ = {
+		4E19EB89267A1909003510BC /* OrderSuccessViewC.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CE0B0EC52675D5AD00B046D5 /* Base */,
-				CE0B0EC82675D5B300B046D5 /* en */,
-				CE0B0ECA2675D5B700B046D5 /* ar */,
+				4E19EB88267A1909003510BC /* Base */,
+				4E19EB8B267A190D003510BC /* en */,
+				4E19EB8D267A1910003510BC /* ar */,
 			);
-			name = nextTableViewCell.xib;
+			name = OrderSuccessViewC.xib;
 			sourceTree = "<group>";
 		};
-		CE40A25326708B3500A8C944 /* AgentDashboardViewController.xib */ = {
+		4E6D37C2267B41B000BFA77B /* marketTableViewCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CE40A25226708B3500A8C944 /* Base */,
-				CE40A25826708B3B00A8C944 /* en */,
-				CE40A25A26708B4300A8C944 /* ar */,
+				4E6D37C3267B41B000BFA77B /* Base */,
 			);
-			name = AgentDashboardViewController.xib;
+			name = marketTableViewCell.xib;
 			sourceTree = "<group>";
 		};
-		CE40A2632670E15000A8C944 /* ProfileDetailTableViewCell.xib */ = {
+		4E6D37C4267B41B000BFA77B /* otherTableViewCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CE40A2622670E15000A8C944 /* Base */,
-				CE40A2652670E15B00A8C944 /* en */,
-				CE40A2672670E15F00A8C944 /* ar */,
+				4E6D37C5267B41B100BFA77B /* Base */,
 			);
-			name = ProfileDetailTableViewCell.xib;
+			name = otherTableViewCell.xib;
 			sourceTree = "<group>";
 		};
-		CE4F872B267783D300B2CDE7 /* TwoButtonsTableViewCell.xib */ = {
+		4E790203267B359900CE9600 /* TwoButtonsTableViewCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CE4F872A267783D300B2CDE7 /* Base */,
-				CE4F872D267783DE00B2CDE7 /* en */,
-				CE4F872F267783E100B2CDE7 /* ar */,
+				4E790204267B359900CE9600 /* Base */,
 			);
 			name = TwoButtonsTableViewCell.xib;
 			sourceTree = "<group>";
 		};
-		CE5842CB26747DA30007EF91 /* AgentDeliveryTableViewCell.xib */ = {
+		4E790206267B365400CE9600 /* ProfileDetailTableViewCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CE5842CA26747DA30007EF91 /* Base */,
-				CE5842D026747DAA0007EF91 /* en */,
-				CE5842D226747DAF0007EF91 /* ar */,
+				4E790207267B365400CE9600 /* Base */,
+			);
+			name = ProfileDetailTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		4E790208267B365500CE9600 /* ProfileVatTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E790209267B365500CE9600 /* Base */,
+			);
+			name = ProfileVatTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		4E79020C267B373B00CE9600 /* CommonPopupViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E79020D267B373B00CE9600 /* Base */,
+			);
+			name = CommonPopupViewController.xib;
+			sourceTree = "<group>";
+		};
+		4E79020F267B37F800CE9600 /* AgentDashboardViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E790210267B37F800CE9600 /* Base */,
+			);
+			name = AgentDashboardViewController.xib;
+			sourceTree = "<group>";
+		};
+		4E790212267B398D00CE9600 /* AgentDeliveryTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E790213267B398D00CE9600 /* Base */,
 			);
 			name = AgentDeliveryTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		4E790215267B3D7F00CE9600 /* MallMarketPopupViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E790216267B3D7F00CE9600 /* Base */,
+			);
+			name = MallMarketPopupViewController.xib;
+			sourceTree = "<group>";
+		};
+		4E790218267B402D00CE9600 /* nextTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E790219267B402D00CE9600 /* Base */,
+			);
+			name = nextTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		4ECE3C1D26771026009D0163 /* ProductListTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4ECE3C1C26771026009D0163 /* Base */,
+				4ECE3C1F26771037009D0163 /* en */,
+				4ECE3C212677104C009D0163 /* ar */,
+			);
+			name = ProductListTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		4ECE3C2626776771009D0163 /* InformationTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4ECE3C2526776771009D0163 /* Base */,
+				4ECE3C2826776776009D0163 /* en */,
+				4ECE3C2A2677677F009D0163 /* ar */,
+			);
+			name = InformationTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		4ECE3C2D267778E3009D0163 /* OtpForCodViewC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4ECE3C2C267778E3009D0163 /* Base */,
+				4ECE3C2F267778F0009D0163 /* en */,
+				4ECE3C31267778FB009D0163 /* ar */,
+			);
+			name = OtpForCodViewC.xib;
+			sourceTree = "<group>";
+		};
+		4ECE3C3426777D3F009D0163 /* OtpTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4ECE3C3326777D3F009D0163 /* Base */,
+				4ECE3C3626777D47009D0163 /* en */,
+				4ECE3C3826777D51009D0163 /* ar */,
+			);
+			name = OtpTableViewCell.xib;
 			sourceTree = "<group>";
 		};
 		CE8E8597250F4C3800B74A9E /* Localizable.strings */ = {
@@ -5551,12 +5634,28 @@
 			name = BankTransferController.xib;
 			sourceTree = "<group>";
 		};
+		CEBCD6EF2664A7FE001BF767 /* BankHeader.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD6F02664A7FE001BF767 /* ar */,
+				CEBCD6F32664A7FE001BF767 /* en */,
+			);
+			name = BankHeader.strings;
+			sourceTree = "<group>";
+		};
+		CEBCD6F12664A7FE001BF767 /* WalletAvailableTopCell.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBCD6F22664A7FE001BF767 /* ar */,
+				CEBCD6F42664A7FE001BF767 /* en */,
+			);
+			name = WalletAvailableTopCell.strings;
+			sourceTree = "<group>";
+		};
 		CEBCD6F72664A7FE001BF767 /* BankHeader.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CEBCD6F82664A7FE001BF767 /* Base */,
-				CEEBC760267A2F8D00FBA626 /* en */,
-				CEEBC762267A2F9500FBA626 /* ar */,
 			);
 			name = BankHeader.xib;
 			sourceTree = "<group>";
@@ -5703,8 +5802,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				CECEF8D72577575B0090D459 /* Base */,
-				F6347D40267A3303006CC052 /* en */,
-				F6347D41267A3307006CC052 /* ar */,
 			);
 			name = BusinessTimesheet1PopupViewController.xib;
 			sourceTree = "<group>";
@@ -6450,8 +6547,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				F62E4AB025148EC60021CEE0 /* Base */,
-				F61CF7712678816400EAEB0C /* en */,
-				F61CF7732678816A00EAEB0C /* ar */,
+				F647705325187CFB00ED2BD0 /* en */,
+				F647705525187CFF00ED2BD0 /* ar */,
 			);
 			name = CompanyAgentVatDetailTableViewCell.xib;
 			sourceTree = "<group>";
@@ -6556,118 +6653,6 @@
 				F62E4AE425148EC60021CEE0 /* Base */,
 			);
 			name = agentPersonalDetailsTableViewCell.xib;
-			sourceTree = "<group>";
-		};
-		F62F80D1267B2BA3003DE43B /* OrderSuccessViewC.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F62F80D2267B2BA3003DE43B /* ar */,
-				F62F80D9267B2BA3003DE43B /* en */,
-			);
-			name = OrderSuccessViewC.strings;
-			sourceTree = "<group>";
-		};
-		F62F80D3267B2BA3003DE43B /* OtpTableViewCell.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F62F80D4267B2BA3003DE43B /* ar */,
-				F62F80DA267B2BA3003DE43B /* en */,
-			);
-			name = OtpTableViewCell.strings;
-			sourceTree = "<group>";
-		};
-		F62F80D5267B2BA3003DE43B /* InformationTableViewCell.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F62F80D6267B2BA3003DE43B /* ar */,
-				F62F80DB267B2BA3003DE43B /* en */,
-			);
-			name = InformationTableViewCell.strings;
-			sourceTree = "<group>";
-		};
-		F62F80D7267B2BA3003DE43B /* OtpForCodViewC.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F62F80D8267B2BA3003DE43B /* ar */,
-				F62F80DC267B2BA3003DE43B /* en */,
-			);
-			name = OtpForCodViewC.strings;
-			sourceTree = "<group>";
-		};
-		F62F80DE267B2BA3003DE43B /* OtpForCodViewC.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F62F80DF267B2BA3003DE43B /* Base */,
-			);
-			name = OtpForCodViewC.xib;
-			sourceTree = "<group>";
-		};
-		F62F80E0267B2BA3003DE43B /* OtpTableViewCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F62F80E1267B2BA3003DE43B /* Base */,
-				F62F814D267B30C4003DE43B /* en */,
-				F62F814F267B30CA003DE43B /* ar */,
-			);
-			name = OtpTableViewCell.xib;
-			sourceTree = "<group>";
-		};
-		F62F80E2267B2BA3003DE43B /* OrderSuccessViewC.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F62F80E3267B2BA3003DE43B /* Base */,
-				F62F8142267B3056003DE43B /* en */,
-				F62F8143267B3059003DE43B /* ar */,
-			);
-			name = OrderSuccessViewC.xib;
-			sourceTree = "<group>";
-		};
-		F62F80E4267B2BA3003DE43B /* InformationTableViewCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F62F80E5267B2BA3003DE43B /* Base */,
-				F62F8147267B3087003DE43B /* en */,
-				F62F8148267B308A003DE43B /* ar */,
-			);
-			name = InformationTableViewCell.xib;
-			sourceTree = "<group>";
-		};
-		F62F8112267B2DA8003DE43B /* ProductListTableViewCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F62F8113267B2DA8003DE43B /* Base */,
-			);
-			name = ProductListTableViewCell.xib;
-			sourceTree = "<group>";
-		};
-		F6347D24267A2DFC006CC052 /* marketTableViewCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F6347D23267A2DFC006CC052 /* Base */,
-				F6347D29267A2E07006CC052 /* en */,
-				F6347D2B267A2E0B006CC052 /* ar */,
-			);
-			name = marketTableViewCell.xib;
-			sourceTree = "<group>";
-		};
-		F6347D2E267A2E3F006CC052 /* otherTableViewCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F6347D2D267A2E3F006CC052 /* Base */,
-				F6347D30267A2E46006CC052 /* en */,
-				F6347D32267A2E4A006CC052 /* ar */,
-			);
-			name = otherTableViewCell.xib;
-			sourceTree = "<group>";
-		};
-		F6347D38267A2E79006CC052 /* MallMarketPopupViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F6347D37267A2E79006CC052 /* Base */,
-				F6347D3A267A2E81006CC052 /* en */,
-				F6347D3C267A2E85006CC052 /* ar */,
-			);
-			name = MallMarketPopupViewController.xib;
 			sourceTree = "<group>";
 		};
 		F64D5FBE2524400E003DE670 /* CompanyRegViewController.xib */ = {
@@ -7274,16 +7259,6 @@
 			name = DataEntryListingTopTableViewCell.xib;
 			sourceTree = "<group>";
 		};
-		F6FC007E267A1573008AF6DD /* CommonPopupViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F6FC007D267A1573008AF6DD /* Base */,
-				F6FC0080267A1577008AF6DD /* en */,
-				F6FC0082267A157A008AF6DD /* ar */,
-			);
-			name = CommonPopupViewController.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -7408,6 +7383,7 @@
 			baseConfigurationReference = AC14F5AD44CA06DED48DD025 /* Pods-Fynoo Services.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_ENTITLEMENTS = "Fynoo Services/Fynoo Services.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.2;
@@ -7430,6 +7406,7 @@
 			baseConfigurationReference = A061CAC65AB8618E1FE73AC2 /* Pods-Fynoo Services.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_ENTITLEMENTS = "Fynoo Services/Fynoo Services.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.2;

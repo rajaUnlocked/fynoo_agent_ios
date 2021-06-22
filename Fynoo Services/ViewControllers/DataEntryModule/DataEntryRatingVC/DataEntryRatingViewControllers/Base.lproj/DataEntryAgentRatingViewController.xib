@@ -26,11 +26,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="378" height="329"/>
+            <rect key="frame" x="0.0" y="0.0" width="394" height="371"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJd-ol-bLU">
-                    <rect key="frame" x="4.5" y="22" width="369" height="329"/>
+                    <rect key="frame" x="12.5" y="43" width="369" height="329"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ratingViewBg" translatesAutoresizingMaskIntoConstraints="NO" id="AjF-ho-aNV">
                             <rect key="frame" x="0.0" y="34.5" width="369" height="260"/>
@@ -120,7 +120,7 @@
                 <constraint firstItem="FJd-ol-bLU" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="GVr-nd-sDi"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="137.68115942028987" y="122.87946428571428"/>
+            <point key="canvasLocation" x="149.27536231884059" y="136.94196428571428"/>
         </view>
     </objects>
     <designables>

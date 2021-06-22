@@ -17,7 +17,8 @@ class BusinessOwnerTableViewCell: UITableViewCell {
     @IBOutlet weak var imgbo_pic : UIImageView!
     @IBOutlet weak var ratingCosmosView: CosmosView!
 
-
+    @IBOutlet weak var btnNavWidth: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

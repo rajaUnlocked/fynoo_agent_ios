@@ -20,6 +20,7 @@ class AgentServiceList: UITableViewCell,UITableViewDelegate {
     
  var  delegate : AgentServiceListDelegate?
     
+    @IBOutlet weak var nexttabbtn: UIButton!
     
     @IBOutlet weak var cardView: CardView!
     

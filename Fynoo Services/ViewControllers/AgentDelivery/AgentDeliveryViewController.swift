@@ -20,6 +20,9 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     @IBOutlet weak var deliveryDashboardHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var headerView: NavigationView!
     
+    var orderSuccessData:Dictionary<String,Any> = [:]
+    
+    
     var selectedTab:String = "1"
     var Index:Int = 0
     var deliverData : deliveryDashboard?
@@ -51,14 +54,34 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         self.headerView.menuBtn.isHidden = false
         self.headerView.viewControl = self
         
+        NotificationCenter.default.addObserver(self, selector: #selector(getOrderSuccessData(_:)), name: NSNotification.Name(Constant.NF_KEY_FOR_PASS_DATA_TO_DELIVERYDASHBOARD), object: nil)
+        
+        print(orderSuccessData)
+        
     }
     func reloadPage() {
         getTripData()
         getAgentData()
     }
-    
+    func ratingClicked(_ sender: Any) {
+        
+        let vc = DataEntryAgentRatingViewController(nibName: "DataEntryAgentRatingViewController", bundle: nil)
+       // vc.delegate =  self
+//        vc.serviceID = ModalController.toString(self.totalRequestListArray?[(sender as AnyObject).tag].id as Any)
+//        vc.agentID = ModalController.toString(self.totalRequestListArray?[(sender as AnyObject).tag].bo_id as Any)
+//        vc.agentName = ModalController.toString(self.totalRequestListArray?[(sender as AnyObject).tag].bo_name as Any)
+//        vc.agentProfilePic = ModalController.toString(self.totalRequestListArray?[(sender as AnyObject).tag].bo_name as Any)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        
+        self.present(vc, animated: true, completion: nil)
+        
+    }
     override func viewWillAppear(_ animated: Bool) {
-      
+//        let vc:NSDictionary = orderSuccessData as NSDictionary
+//        
+//        vc.value(forKey: <#T##String#>)
+        ratingClicked((Any).self)
         getAgentData()
         getTripData()
     }
@@ -67,6 +90,13 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         
         self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
+        
+    }
+    
+    
+    @objc func getOrderSuccessData( _ userInfo:NSNotification)  {
+               
+           print("Received Data")
         
     }
     
@@ -316,10 +346,10 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     
     func navigationClicked(_ sender: Any) {
         
-      let vc = AgentDeliveryDetailViewController()
+       let vc = AgentDeliveryDetailViewController()
         
 //        let vc = SearchedProductDeatailViewC()
-        vc.tripId = deliverData?.data?.agent_information?.id ?? 0
+        vc.tripId = (tripListListArray?[(sender as AnyObject).tag].id ?? 0)
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -460,7 +490,12 @@ extension AgentDeliveryViewController : UITableViewDataSource {
 //                self.navigationController?.pushViewController(vc, animated: true)
         
         if indexPath.section == 1 {
-            
+            if self.selectedTab == "2"
+            {
+                let vc = SearchedProductDeatailViewC()
+                self.navigationController?.pushViewController(vc, animated: true)
+                return
+            }
             if (tripListListArray?[indexPath.row].status) == 1  {
                 let vc = OtpForCodViewC()
                 vc.orderId = tripListListArray?[indexPath.row].order_id ?? ""
@@ -509,14 +544,18 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         cell.price.text = "\(tripListListArray?[index.row].currency ?? "") \(ModalController.toString(tripListListArray?[index.row].almost_total_price ?? 0.0 as Any))"
         cell.walletIcon.sd_setImage(with: URL(string: tripListListArray?[index.row].payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
         cell.statusLbl.text = tripListListArray?[index.row].status_desc
-        
+       
+        cell.callBtn.isHidden = false
+        cell.messageBtn.isHidden = false
         if selectedTab == "2" {
+            cell.callBtn.isHidden = true
+            cell.messageBtn.isHidden = true
+            cell.statusLbl.text = "Tap to accept".localized
             cell.statusView.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
         }else{
            cell.statusView.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.8588235294, blue: 0.8588235294, alpha: 1)
         }
 
-        
         cell.delegate = self
         cell.tag = index.row
         return cell

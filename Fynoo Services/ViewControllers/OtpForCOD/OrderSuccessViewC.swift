@@ -12,6 +12,9 @@ class OrderSuccessViewC: UIViewController {
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var lblMsg: UILabel!
+    
+    var confirmDeliveryData : Dictionary<String,Any> = ["":""]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,10 +25,17 @@ class OrderSuccessViewC: UIViewController {
         self.headerView.viewControl = self
         SetFont()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            let vc = OrderSuccessViewC()
-//                    vc.orderId = self.orderId
+        print(confirmDeliveryData)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            let vc = AgentDeliveryViewController()
+            vc.orderSuccessData = self.confirmDeliveryData
             self.navigationController?.pushViewController(vc, animated: true)
+            
+            var dictPass = [String:Any]()
+            
+            NotificationCenter.default.post(name: Notification.Name(rawValue: Constant.NF_KEY_FOR_PASS_DATA_TO_DELIVERYDASHBOARD), object: nil, userInfo: dictPass)
+            
         }
     }
     
