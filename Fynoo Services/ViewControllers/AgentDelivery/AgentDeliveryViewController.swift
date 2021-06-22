@@ -57,10 +57,6 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         NotificationCenter.default.addObserver(self, selector: #selector(getOrderSuccessData(_:)), name: NSNotification.Name(Constant.NF_KEY_FOR_PASS_DATA_TO_DELIVERYDASHBOARD), object: nil)
         
         print(orderSuccessData)
-        if isRating
-        {
-        selectedTab = "3"
-        }
     }
     func reloadPage() {
         getTripData()
