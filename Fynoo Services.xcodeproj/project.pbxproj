@@ -491,7 +491,6 @@
 		CEDD333725765BBA00023977 /* SelectMultipleBranchesNewDesignTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD332325765BBA00023977 /* SelectMultipleBranchesNewDesignTableViewCell.swift */; };
 		CEDD333825765BBA00023977 /* MultipleBranchHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD332425765BBA00023977 /* MultipleBranchHeader.swift */; };
 		CEDD333925765BBA00023977 /* SelectMultipleBranchesNewDesignTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDD332525765BBA00023977 /* SelectMultipleBranchesNewDesignTableViewCell.xib */; };
-		CEDD333A25765BBA00023977 /* MultipleBranchHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDD332625765BBA00023977 /* MultipleBranchHeader.xib */; };
 		CEDD333B25765BBA00023977 /* SelectMultipleBranchesNewDesignViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDD332725765BBA00023977 /* SelectMultipleBranchesNewDesignViewController.xib */; };
 		CEDD333C25765BBA00023977 /* SelectMultipleBranchesNewDesignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD332925765BBA00023977 /* SelectMultipleBranchesNewDesignViewController.swift */; };
 		CEDD334425765C4C00023977 /* BarCodePopupNewViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEDD333E25765C4C00023977 /* BarCodePopupNewViewController.strings */; };
@@ -573,6 +572,7 @@
 		CEE72CBD251B76AF00B02DAF /* BottomPopupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE72CB9251B76AF00B02DAF /* BottomPopupTableViewCell.xib */; };
 		CEE72CBE251B76AF00B02DAF /* BottomPopupEditProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE72CBA251B76AF00B02DAF /* BottomPopupEditProductViewController.swift */; };
 		CEE72CC0251B795100B02DAF /* OpenGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE72CBF251B795100B02DAF /* OpenGallery.swift */; };
+		CEF3F71E268198AB00BA0C49 /* MultipleBranchHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF3F720268198AB00BA0C49 /* MultipleBranchHeader.xib */; };
 		CEFC760B257F5E0C00088467 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEFC760A257F5E0C00088467 /* GoogleService-Info.plist */; };
 		EE3CE51536AFB35441D433CC /* Pods_Fynoo_ServicesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37BC6070EBDE8A55FC4A7E83 /* Pods_Fynoo_ServicesTests.framework */; };
 		F415E772250A221900DEF755 /* ProfileModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F415E771250A221900DEF755 /* ProfileModal.swift */; };
@@ -1416,7 +1416,6 @@
 		CEDD332325765BBA00023977 /* SelectMultipleBranchesNewDesignTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectMultipleBranchesNewDesignTableViewCell.swift; sourceTree = "<group>"; };
 		CEDD332425765BBA00023977 /* MultipleBranchHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleBranchHeader.swift; sourceTree = "<group>"; };
 		CEDD332525765BBA00023977 /* SelectMultipleBranchesNewDesignTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectMultipleBranchesNewDesignTableViewCell.xib; sourceTree = "<group>"; };
-		CEDD332625765BBA00023977 /* MultipleBranchHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleBranchHeader.xib; sourceTree = "<group>"; };
 		CEDD332825765BBA00023977 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SelectMultipleBranchesNewDesignViewController.xib; sourceTree = "<group>"; };
 		CEDD332925765BBA00023977 /* SelectMultipleBranchesNewDesignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectMultipleBranchesNewDesignViewController.swift; sourceTree = "<group>"; };
 		CEDD333F25765C4C00023977 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BarCodePopupNewViewController.strings; sourceTree = "<group>"; };
@@ -1507,6 +1506,9 @@
 		CEE72CBF251B795100B02DAF /* OpenGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGallery.swift; sourceTree = "<group>"; };
 		CEEBC760267A2F8D00FBA626 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BankHeader.strings; sourceTree = "<group>"; };
 		CEEBC762267A2F9500FBA626 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BankHeader.strings; sourceTree = "<group>"; };
+		CEF3F71F268198AB00BA0C49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MultipleBranchHeader.xib; sourceTree = "<group>"; };
+		CEF3F722268198B600BA0C49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MultipleBranchHeader.strings; sourceTree = "<group>"; };
+		CEF3F724268198BB00BA0C49 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/MultipleBranchHeader.strings; sourceTree = "<group>"; };
 		CEFC760A257F5E0C00088467 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1D4108D26191465A8E871F2 /* Pods-Fynoo Services-Fynoo ServicesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D34F4201751D8F2C6FB8501B /* Pods_Fynoo_Services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_Services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3102,7 +3104,7 @@
 				CEDD332325765BBA00023977 /* SelectMultipleBranchesNewDesignTableViewCell.swift */,
 				CEDD332425765BBA00023977 /* MultipleBranchHeader.swift */,
 				CEDD332525765BBA00023977 /* SelectMultipleBranchesNewDesignTableViewCell.xib */,
-				CEDD332625765BBA00023977 /* MultipleBranchHeader.xib */,
+				CEF3F720268198AB00BA0C49 /* MultipleBranchHeader.xib */,
 			);
 			path = SelectMultipleBranchesNewDesignCells;
 			sourceTree = "<group>";
@@ -4485,7 +4487,7 @@
 				2F846412250F7F1C0084EB32 /* ResetPasswordViewController.strings in Resources */,
 				CE5842C926747DA30007EF91 /* AgentDeliveryTableViewCell.xib in Resources */,
 				F680D64E259B7C2C007EB12C /* DataEntryFormWorkPlaceTableViewCell.xib in Resources */,
-				CEDD333A25765BBA00023977 /* MultipleBranchHeader.xib in Resources */,
+				CEF3F71E268198AB00BA0C49 /* MultipleBranchHeader.xib in Resources */,
 				CE9CCE03264BEDBD005AE619 /* ProductVarientNewCollectionViewCell.xib in Resources */,
 				F4828C8E2508AA2C006B85D8 /* SectionHeader.xib in Resources */,
 				F680D622259B7C2C007EB12C /* DataEntryTypelistingViewController.strings in Resources */,
@@ -6405,6 +6407,16 @@
 				CEDD33C4257676F000023977 /* Base */,
 			);
 			name = InventoryViewController.xib;
+			sourceTree = "<group>";
+		};
+		CEF3F720268198AB00BA0C49 /* MultipleBranchHeader.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEF3F71F268198AB00BA0C49 /* Base */,
+				CEF3F722268198B600BA0C49 /* en */,
+				CEF3F724268198BB00BA0C49 /* ar */,
+			);
+			name = MultipleBranchHeader.xib;
 			sourceTree = "<group>";
 		};
 		F61CF76526787F0100EAEB0C /* ProfileVatTableViewCell.xib */ = {
