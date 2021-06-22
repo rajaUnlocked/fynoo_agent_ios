@@ -28,6 +28,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     var deliverData : deliveryDashboard?
     var tripList : TripListInfo?
     var serviceID:String = ""
+    var serviceStatus:String = ""
     
     var tripListListArray:[triplist]?
     var isMoreDataAvailable: Bool = false

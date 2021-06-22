@@ -305,6 +305,22 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                 
                 if let body = response as? [String: Any] {
                     self.tripDetail  = Mapper<newOrderTripData>().map(JSON: body)
+                    if let value = response as? NSDictionary{
+                        let msg = value.object(forKey: "error_description") as! String
+                        let error = value.object(forKey: "error_code") as! Int
+                        if error == 700{
+                            ModalController.showNegativeCustomAlertWith(title: "", msg: msg)
+                            
+                            let errorData = value.object(forKey: "data") as! Dictionary<String, Any>
+                            
+                            
+                            let vc = AgentDeliveryViewController()
+                            vc.serviceID = "\(errorData["del_service_id"] as! Int)"
+                            vc.selectedTab = "\(errorData["service_status"] as! Int)"
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
+                    }
+                    
                     print(self.tripDetail?.data)
 //                    print(self.tripDetail?.data?.trip_details?.purchase_price)
 //
@@ -382,6 +398,8 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             
                             ModalController.showSuccessCustomAlertWith(title: ((ResponseDict.object(forKey: "error_description") as? String)!), msg: "")
                             let vc = AgentDeliveryViewController()
+                            vc.serviceID = "\(tripDetail?.data?.trip_details?.service_id ?? 0)"
+                            vc.serviceStatus = "\(tripDetail?.data?.trip_details?.service_status ?? 0)"
                             self.navigationController?.pushViewController(vc, animated: true)
                             
                         }
