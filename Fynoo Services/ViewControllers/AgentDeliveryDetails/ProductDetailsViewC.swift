@@ -397,12 +397,12 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     
     func checkValidation(){
         
-        let index = IndexPath(row: 0, section: 3)
-           let cell: AddInvoiceInformationTableViewCell = self.tableView.cellForRow(at: index) as! AddInvoiceInformationTableViewCell
-
-           self.amoutnWithoutVat = cell.txtTotalAmtWithoughtVat.text!
-           self.vatAmount = cell.txtVatAmt.text!
-           self.amoutWithVat = cell.txtTotalAmountWithVat.text!
+//        let index = IndexPath(row: 0, section: 3)
+//           let cell: AddInvoiceInformationTableViewCell = self.tableView.cellForRow(at: index) as! AddInvoiceInformationTableViewCell
+//
+//           self.amoutnWithoutVat = cell.txtTotalAmtWithoughtVat.text!
+//           self.vatAmount = cell.txtVatAmt.text!
+//           self.amoutWithVat = cell.txtTotalAmountWithVat.text!
         
         if isInvoiceEnable == false{
             ModalController.showNegativeCustomAlertWith(title: "", msg: "Please accept / reject all products in the order ".localized)
@@ -447,6 +447,11 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         let total = Double(totalWtVat) + Double(Vat)
         
         cell.txtTotalAmountWithVat.text = "\(total)"
+        
+
+           self.amoutnWithoutVat = cell.txtTotalAmtWithoughtVat.text!
+           self.vatAmount = cell.txtVatAmt.text!
+           self.amoutWithVat = cell.txtTotalAmountWithVat.text!
         
 //        let typeStr = cell1.userTypeField.text!
 //        if typeStr == "" {

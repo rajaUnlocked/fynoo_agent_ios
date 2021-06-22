@@ -372,6 +372,10 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
                     dictData["bo_name"] = self.onTheWayTripDetailData?.data?.trip_details?.bo_name
                     dictData["bo_image"] = self.onTheWayTripDetailData?.data?.trip_details?.bo_image
                     dictData["user_type"] = self.onTheWayTripDetailData?.data?.trip_details?.user_type
+                    dictData["del_service_id"] = self.onTheWayTripDetailData?.data?.trip_details?.del_service_id
+                    dictData["service_status"] = self.onTheWayTripDetailData?.data?.trip_details?.service_status
+                    
+                   
                     
                     vc.confirmDeliveryData = dictData
                     
