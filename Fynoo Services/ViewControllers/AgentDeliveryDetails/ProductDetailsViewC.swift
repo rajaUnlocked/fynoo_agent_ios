@@ -830,6 +830,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
 //                    }
                     
                     if  orderDetailData?.data?.item_detail? [indexPath.row].qty ?? 0 < 2 {
+                        
                         cell.btnReduceQuantity.isHidden = true
                         cell.lblLineReduceQty.isHidden = true
                     }
