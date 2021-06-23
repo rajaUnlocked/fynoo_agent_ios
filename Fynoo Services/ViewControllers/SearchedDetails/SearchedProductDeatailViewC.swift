@@ -105,8 +105,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         self.lblQty.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblWeight.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblSize.font = UIFont(name:"\(fontNameLight)",size:12)
-        
-        self.lblCreatedBy.font = UIFont(name:"\(fontNameLight)",size:12)
+       
         self.lblRating.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblQty.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblWeight.font = UIFont(name:"\(fontNameLight)",size:12)

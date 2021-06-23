@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommonPopViewC" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
+                <outlet property="btnStAccept" destination="FXq-Kg-Yuu" id="4IZ-3Y-fFZ"/>
+                <outlet property="btnStOnMyWay" destination="ZFx-Ud-TPt" id="ptv-us-7lu"/>
                 <outlet property="containter" destination="aXV-JP-G0S" id="Xf2-WS-49G"/>
                 <outlet property="imgUser" destination="RIS-O1-NSE" id="3FL-kD-bCY"/>
                 <outlet property="lblAddress" destination="IZF-rD-afK" id="jpg-X6-xfE"/>
@@ -20,6 +22,8 @@
                 <outlet property="lblNotes" destination="czD-u6-R2c" id="IgK-uP-d86"/>
                 <outlet property="lblOrderId" destination="RZh-yW-Wih" id="NgC-J0-pTf"/>
                 <outlet property="lblProductQty" destination="gwt-bR-68x" id="kMb-Y2-9LP"/>
+                <outlet property="lblStNote" destination="gKr-RY-TMp" id="ZaA-7z-07a"/>
+                <outlet property="lblStcancelationRequest" destination="Sy1-3I-4ZL" id="9DH-dt-IfR"/>
                 <outlet property="lblTotalPrice" destination="Nl2-f8-rMt" id="FHT-xa-An9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -194,7 +198,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XGR-vZ-fFy">
-                            <rect key="frame" x="30" y="268.5" width="250" height="80"/>
+                            <rect key="frame" x="30" y="308" width="250" height="80"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFU-45-nOW">
                                     <rect key="frame" x="0.0" y="0.0" width="250" height="37"/>
@@ -267,10 +271,10 @@
                                 <constraint firstAttribute="height" constant="80" id="die-GN-S2E"/>
                             </constraints>
                         </stackView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czD-u6-R2c">
-                            <rect key="frame" x="64" y="207" width="226" height="39.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czD-u6-R2c">
+                            <rect key="frame" x="64" y="207" width="226" height="79"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="39.5" id="ckf-vK-Sby"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="39.5" id="ckf-vK-Sby"/>
                             </constraints>
                             <string key="text">Customer has requested cancellation. Please
 confirm or reject the request within 15 mins,

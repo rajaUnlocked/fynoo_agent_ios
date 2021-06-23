@@ -237,6 +237,9 @@
                                     <constraint firstAttribute="width" constant="40" id="UZK-vb-dus"/>
                                 </constraints>
                                 <state key="normal" image="nav"/>
+                                <connections>
+                                    <action selector="navigationTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="09C-xP-LAx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXr-df-cDQ">
                                 <rect key="frame" x="295" y="128" width="40" height="40"/>
@@ -245,6 +248,9 @@
                                     <constraint firstAttribute="width" constant="40" id="IjT-Vb-Ya6"/>
                                 </constraints>
                                 <state key="normal" image="call"/>
+                                <connections>
+                                    <action selector="callTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cqc-nC-rd5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yh7-8f-c9U">
                                 <rect key="frame" x="257" y="128" width="40" height="40"/>
@@ -253,6 +259,9 @@
                                     <constraint firstAttribute="height" constant="40" id="RrO-aN-nU2"/>
                                 </constraints>
                                 <state key="normal" image="messae"/>
+                                <connections>
+                                    <action selector="messageTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bBb-gi-zkW"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="66666" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJJ-jp-bvA">
                                 <rect key="frame" x="218.5" y="100" width="38.5" height="14.5"/>
@@ -362,6 +371,10 @@
                 <outlet property="lblOrderDate" destination="cE6-Wd-QaT" id="iwJ-K4-PAU"/>
                 <outlet property="lblOrderId" destination="Kz6-Sf-WyJ" id="uPY-1Y-Wap"/>
                 <outlet property="lblQty" destination="ZaE-4z-Pbo" id="AuX-1I-6Mj"/>
+                <outlet property="lblStAlmosttoalPrice" destination="ECH-2c-Uyq" id="Tgv-Dk-534"/>
+                <outlet property="lblStExpectedelivery" destination="LIX-XB-qv1" id="CDm-DC-XZi"/>
+                <outlet property="lblStItem" destination="kOm-iz-bn1" id="vpf-3i-Rks"/>
+                <outlet property="lblTime" destination="MmL-xt-yOU" id="1yq-1o-RPq"/>
                 <outlet property="lblTotalAcceptedOrder" destination="Cyy-kI-aTF" id="ITu-hq-LRs"/>
                 <outlet property="lblTotalOrder" destination="OJy-hh-bio" id="4Ev-XQ-yNS"/>
                 <outlet property="order_price" destination="UJJ-jp-bvA" id="XkS-TI-YNA"/>

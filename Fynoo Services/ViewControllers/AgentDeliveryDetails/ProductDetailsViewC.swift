@@ -10,8 +10,10 @@ import UIKit
 import ObjectMapper
 import MessageUI
 import MTPopup
+import MessageUI
 
-class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProductDelegate,AddInvoiceInformationDelegate, OpenGalleryDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,DECancellationReasonViewControllerDelegate {
+class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProductDelegate,AddInvoiceInformationDelegate, OpenGalleryDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,DECancellationReasonViewControllerDelegate,AgentServiceListDelegate,MFMessageComposeViewControllerDelegate {
+    
    
     
     @IBOutlet weak var headerView: NavigationView!
@@ -25,6 +27,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     var reasonListData : reasonlistData?
     var itemListArray:[Item_detail]?
     var orderId = ""
+    var tripId = 0
     var isInvoiceEnable = true
     var checkInvoiceUploaded : Bool = false
     
@@ -52,10 +55,23 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         self.headerView.titleHeader.text = "Product Details"
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
-        
+        SetFont()
         getOrderDetail()
         
     }
+    
+        func SetFont() {
+    
+                let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
+    
+                let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+    
+            self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
+    
+            self.btnChangeStatus.titleLabel?.font =  UIFont(name:"\(fontNameLight)",size:16)
+    
+    
+            }
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +83,47 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     func reloadPage() {
         getOrderDetail()
     }
+    
+    
+    
+    func callClicked(_ sender: Any) {
+        guard let phoneNumber = self.orderDetailData?.data?.cust_mob_no else { return}
+        guard let number = URL(string: "tel://" + phoneNumber) else { return }
+        UIApplication.shared.open(number)
+    }
+    
+    func messageClicked(_ sender: Any) {
+        if (MFMessageComposeViewController.canSendText()) {
+         guard let phoneNumber = self.orderDetailData?.data?.cust_mob_no else { return}
+            let controller = MFMessageComposeViewController()
+            controller.body = ""
+            controller.recipients = [phoneNumber]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+        }
+     }
+   func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+       switch (result.rawValue) {
+           case MessageComposeResult.cancelled.rawValue:
+           print("Message was cancelled")
+           self.dismiss(animated: true, completion: nil)
+       case MessageComposeResult.failed.rawValue:
+           print("Message failed")
+           self.dismiss(animated: true, completion: nil)
+       case MessageComposeResult.sent.rawValue:
+           print("Message was sent")
+           self.dismiss(animated: true, completion: nil)
+       default:
+           break;
+       }
+   }
+    
+    func navigationClicked(_ sender: Any) {
+        let vc = AgentDeliveryDetailViewController()
+        vc.tripId = tripId
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     func selectedCancelReason(reasonID: String) {
         print(reasonID)
@@ -722,7 +779,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
         
             let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessOwnerTableViewCell",for: indexPath) as! BusinessOwnerTableViewCell
             cell.selectionStyle = .none
-          
+            cell.delegate = self
                     cell.lblBoName.text = orderDetailData?.data?.bo_name ?? ""
                     cell.lblBoAddress.text = orderDetailData?.data?.bo_address ?? ""
                     cell.bo_total_rating.text = orderDetailData?.data?.bo_total_rating ?? "0"
@@ -746,7 +803,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     
                     let cell = tableView.dequeueReusableCell(withIdentifier: "BOCustomerTableViewCell",for: indexPath) as! BOCustomerTableViewCell
                     cell.selectionStyle = .none
-                    
+                    cell.delegate = self
                     
                     cell.lblCustName.text = orderDetailData?.data?.cust_name ?? ""
                     cell.lblCustAddress.text = orderDetailData?.data?.cust_address ?? ""

@@ -517,7 +517,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             {
             let vc = ProductDetailsViewC()
             vc.orderId = tripListListArray?[indexPath.row].order_id ?? ""
-                
+                vc.tripId = tripListListArray?[indexPath.row].id ?? 0
 //                ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any)
             self.navigationController?.pushViewController(vc, animated: true)
          }
