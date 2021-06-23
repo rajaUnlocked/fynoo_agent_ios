@@ -45,7 +45,7 @@
                     <rect key="frame" x="0.0" y="504" width="320" height="44"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWO-nU-V4a">
-                            <rect key="frame" x="20" y="5" width="280" height="34"/>
+                            <rect key="frame" x="20" y="6" width="280" height="34"/>
                             <color key="backgroundColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Confirm and upload Invoice">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,10 +57,10 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="oWO-nU-V4a" firstAttribute="top" secondItem="Esc-LZ-IrR" secondAttribute="top" constant="5" id="80M-Lk-Y50"/>
+                        <constraint firstItem="oWO-nU-V4a" firstAttribute="top" secondItem="Esc-LZ-IrR" secondAttribute="top" constant="6" id="80M-Lk-Y50"/>
                         <constraint firstAttribute="height" constant="44" id="Bhm-ae-xrt"/>
                         <constraint firstItem="oWO-nU-V4a" firstAttribute="leading" secondItem="Esc-LZ-IrR" secondAttribute="leading" constant="20" id="QEw-Xx-JVS"/>
-                        <constraint firstAttribute="bottom" secondItem="oWO-nU-V4a" secondAttribute="bottom" constant="5" id="enN-My-frj"/>
+                        <constraint firstAttribute="bottom" secondItem="oWO-nU-V4a" secondAttribute="bottom" constant="4" id="enN-My-frj"/>
                         <constraint firstAttribute="trailing" secondItem="oWO-nU-V4a" secondAttribute="trailing" constant="20" id="tOX-Ib-PUD"/>
                     </constraints>
                 </view>
