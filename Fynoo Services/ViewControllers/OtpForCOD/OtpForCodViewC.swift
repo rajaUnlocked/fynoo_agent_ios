@@ -8,9 +8,8 @@
 
 import UIKit
 import ObjectMapper
-class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,OtpTableViewCellDelegate {
+class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,OtpTableViewCellDelegate, InformationTableViewCellDelegate {
    
-    
     
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
@@ -50,16 +49,44 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
         
     }
     
-    
-
     func SetFont() {
+
+            let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
+
+            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         
-        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         
         self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
         self.btnConfirmDelivery.titleLabel!.font = UIFont(name:"\(fontNameLight)",size:16)!
         
     }
+
+    
+    
+    func buyerInformationClicked(_ sender: Any) {
+        print("Buy")
+        let vc = ProductDetailsViewC()
+        vc.checkInvoiceUploaded = true
+        vc.orderId = onTheWayTripDetailData?.data?.trip_details?.order_id ?? ""
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    func orderInformationClicked(_ sender: Any) {
+        let vc = ProductDetailsViewC()
+        vc.checkInvoiceUploaded = true
+        vc.orderId = onTheWayTripDetailData?.data?.trip_details?.order_id ?? ""
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func invoiceClicked(_ sender: Any) {
+        let vc = ViewInvoiceViewController()
+        
+    vc.imgurl = onTheWayTripDetailData?.data?.trip_details?.invoice_image ?? ""
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
     
     
     @IBAction func tappedTobtnConfirmDelivery(_ sender: UIButton) {
@@ -437,7 +464,7 @@ extension OtpForCodViewC : UITableViewDataSource {
                     
                     let cell = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell",for: indexPath) as! InformationTableViewCell
                     cell.selectionStyle = .none
-                    
+                    cell.delegate = self
                     cell.lblQty.text = "\(onTheWayTripDetailData?.data?.trip_details?.order_qty ?? 0)"
                     
                   

@@ -26,6 +26,8 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     var itemListArray:[Item_detail]?
     var orderId = ""
     var isInvoiceEnable = true
+    var checkInvoiceUploaded : Bool = false
+    
     var selectedImg : UIImage!
     var amoutnWithoutVat = ""
     var vatAmount = ""
@@ -585,6 +587,21 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             self.btnChangeStatus.setTitle("Confirm and upload invoice".localized, for: .disabled)
         }
         
+        if checkInvoiceUploaded == true {
+            self.btnChangeStatus.setTitle("Invoice Uploaded".localized, for: .normal)
+            self.btnChangeStatus.isUserInteractionEnabled = false
+            
+            cell.imgInvoiceUploaded.isHidden = false
+            cell.btnAnyProblem.isHidden = true
+            cell.contentView.isUserInteractionEnabled = false
+            
+            cell.tapToBtnUploadInvoice.sd_setImage(with: URL(string: orderDetailData?.data?.invoice_image ?? ""), for: .normal, placeholderImage: UIImage(named: "profile_white.png"))
+            
+            cell.txtTotalAmtWithoughtVat.text = "\(orderDetailData?.data?.total_amount_without_vat ?? 0)"
+            cell.txtVatAmt.text = "\(orderDetailData?.data?.vat_amount ?? 0)"
+            cell.txtTotalAmountWithVat.text = "\(orderDetailData?.data?.total_amount_with_vat ?? 0)"
+        }
+        
         
         return cell
     }
@@ -638,6 +655,12 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == 2 {
+            
+            
+            if checkInvoiceUploaded == true {
+                
+            }else
+            {
       
         let vc = PopUpAcceptProductViewController(nibName: "PopUpAcceptProductViewController", bundle: nil)
         vc.itemId = orderDetailData?.data?.item_detail?[indexPath.row].item_id ?? 0
@@ -645,6 +668,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         vc.modalPresentationStyle = .overFullScreen
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
             self.present(vc, animated: true, completion: nil)
+        }
             
         }
 }
@@ -859,6 +883,12 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         isInvoiceEnable = true
                         
                     }
+                    
+                    if checkInvoiceUploaded == true {
+                        cell.contentView.isUserInteractionEnabled = false
+                        
+                    }
+                    
                     
                     cell.delegate = self
                     cell.tag = indexPath.row

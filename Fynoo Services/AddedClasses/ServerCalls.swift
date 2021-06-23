@@ -475,6 +475,22 @@ class ServerCalls: NSObject {
         
     }
     
+//    static func getRequest(_ urlString: String, completion: ((AnyObject?,Bool,AnyObject?) -> Void)?){
+//        Alamofire.request("\(urlString)", method:.get, parameters: nil, encoding: URLEncoding.default).validate().responseJSON {
+//            response in
+//            
+//            switch response.result {
+//            case .failure(let error):
+//                
+//                print(error)
+//                completion!(nil,false,nil)
+//            case .success(let responseObject):
+//               print("response is success:  \(responseObject)")
+//            completion!(response.result.value as AnyObject,true,response.data as AnyObject)
+//            }
+//        }
+//    }
+    
     static func getRequest(_ urlString: String, completion: ((AnyObject?,Bool,AnyObject?) -> Void)?){
         Alamofire.request("\(urlString)", method:.get, parameters: nil, encoding: URLEncoding.default).validate().responseJSON {
             response in

@@ -24,21 +24,33 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     @IBOutlet weak var lblDistanceAgentToBo: UILabel!
     @IBOutlet weak var lblDistanceBoToCustomer: UILabel!
     @IBOutlet weak var lblpickupTime: UILabel!
+    @IBOutlet weak var lblStpickupTime: UILabel!
+    
     @IBOutlet weak var lblCreatedBy: UILabel!
+    @IBOutlet weak var lblStCreatedBy: UILabel!
     @IBOutlet weak var lblRating: UILabel!
     @IBOutlet weak var lblQty: UILabel!
     @IBOutlet weak var lblWeight: UILabel!
     @IBOutlet weak var lblSize: UILabel!
     @IBOutlet weak var lblAlmostPurchasePrice: UILabel!
+    @IBOutlet weak var lblStAlmostPurchasePrice: UILabel!
     @IBOutlet weak var lblDeliveryPrice: UILabel!
+    @IBOutlet weak var lblStDeliveryPrice: UILabel!
     @IBOutlet weak var rating: CosmosView!
     @IBOutlet weak var lblavgRating: UILabel!
     @IBOutlet weak var lblAlmostTotalPrice: UILabel!
+    
+    @IBOutlet weak var lblStAlmostTotalPrice: UILabel!
+    
+    @IBOutlet weak var btnAcceptTxt: UIButton!
+    
+    @IBOutlet weak var btnDeclineTxt: UIButton!
+    
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var imgCod: UIImageView!
 
     var tripDetail : newOrderTripData?
-    
+    var agentViewModel = AgentModel()
     let locationManager = CLLocationManager()
     var latitude = 0.0
     var longitude = 0.0
@@ -54,7 +66,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     override func viewDidLoad() {
         super.viewDidLoad()
         self.headerHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-        self.headerView.titleHeader.text = "Product Details"
+        self.headerView.titleHeader.text = "Product Details".localized
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
 //        var timer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(UIMenuController.update), userInfo: nil, repeats: true)
@@ -66,13 +78,49 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         getTripDetail()
     }
 
+    
+    
     func SetFont() {
-        
-        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-        
+
+            let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
+
+            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+
         self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
+
+            self.lblDistanceAgentToBo.font = UIFont(name:"\(fontNameLight)",size:10)
+
+            self.lblDistanceBoToCustomer.font = UIFont(name:"\(fontNameLight)",size:10)
         
+        self.lblStAlmostTotalPrice.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblAlmostPurchasePrice.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblStpickupTime.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblStCreatedBy.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblStDeliveryPrice.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblStDeliveryPrice.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblpickupTime.font = UIFont(name:"\(fontNameLight)",size:10)
         
+        self.lblCreatedBy.font = UIFont(name:"\(fontNameLight)",size:10)
+        self.lblRating.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblQty.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblWeight.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblSize.font = UIFont(name:"\(fontNameLight)",size:12)
+        
+        self.lblCreatedBy.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblRating.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblQty.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblWeight.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblSize.font = UIFont(name:"\(fontNameLight)",size:12)
+        
+        self.lblStAlmostPurchasePrice.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblDeliveryPrice.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblavgRating.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblAlmostTotalPrice.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblTime.font = UIFont(name:"\(fontNameLight)",size:25)
+        self.btnAcceptTxt.titleLabel?.font =  UIFont(name:"\(fontNameLight)",size:16)
+        self.btnDeclineTxt.titleLabel?.font =  UIFont(name:"\(fontNameLight)",size:16)
+       
+       
         }
         
     
@@ -130,7 +178,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     }
     
     func reloadPage() {
-        print("arvvvv")
+      
         callRequestAccept()
     }
     func declineOrder() {
@@ -210,75 +258,39 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
       }
     
     
-    func loadMapView() {
-
-
-//        let agentLat = Double.getDouble(tripDetail?.data?.trip_details?.agent_lat)
-//                 let agentLng = Double.getDouble(tripDetail?.data?.trip_details?.agent_long)
-//                 let branch_lat = Double.getDouble(tripDetail?.data?.trip_details?.bo_lat)
-//                 let branch_long = Double.getDouble(tripDetail?.data?.trip_details?.bo_long)
-//                 let custLat = Double.getDouble(tripDetail?.data?.trip_details?.cust_lat)
-//                 let custLng = Double.getDouble(tripDetail?.data?.trip_details?.cust_long)
-        let agentLat = 25.3176
-        let agentLng = 82.9739
-        var custLat = 25.5518
-        var custLng = 83.1834
-        var branch_lat = 28.5355
-        var branch_long = 77.3910
-       
-        
-        print("arvLat\(agentLat)")
-
-        let camera = GMSCameraPosition.camera(withLatitude: agentLat, longitude: agentLng, zoom: 18.0)
-        self.mapVw = GMSMapView.map(withFrame:  self.view.bounds, camera: camera)
-        self.mapVw?.animate(toViewingAngle: 18)
-        self.mapVw?.delegate = self
-        self.mapVw?.isTrafficEnabled = true
-//         self.mapVw.addSubview(mapVw)
-
-         let cust_marker: GMSMarker = GMSMarker() // Allocating Marker
-         cust_marker.icon = UIImage(named: "home") // Marker icon
-        let cust_location  = CLLocationCoordinate2D(latitude: custLat, longitude: custLng)
-         cust_marker.position = cust_location // CLLocationCoordinate2D
-         cust_marker.map = self.mapVw // Setting marker on Mapview
-        markers.append(cust_marker)
-
-        let agent_marker: GMSMarker = GMSMarker() // Allocating Marker
-        agent_marker.icon = UIImage(named: "suv") // Marker icon
-        let agent_location  = CLLocationCoordinate2D(latitude: agentLat, longitude: agentLng)
-        agent_marker.position = agent_location // CLLocationCoordinate2D
-        agent_marker.map = self.mapVw // Setting marker on Mapview
-        markers.append(agent_marker)
-
-        let branch_marker: GMSMarker = GMSMarker() // Allocating Marker
-        branch_marker.icon = UIImage(named: "nearestBranchMapLocation") // Marker icon
-        branch_marker.appearAnimation = .pop // Appearing animation. default
-        let branch_location  = CLLocationCoordinate2D(latitude: branch_lat, longitude: branch_long)
-        branch_marker.position = branch_location // CLLocationCoordinate2D
-        branch_marker.map = self.mapVw // Setting marker on Mapview
-        markers.append(branch_marker)
-
-        self.setMarkerBoundsOnMap()
-        self.mapVw?.drawPolygon(from: agent_location, to: branch_location)
-        self.mapVw?.drawPolygon(from: branch_location, to: cust_location)
-
-     }
     
-//    func setMarkerBoundsOnMap()  {
-//
-//          var bounds = GMSCoordinateBounds()
-//          for marker in markers {
-//              bounds = bounds.includingCoordinate(marker.position)
-//          }
-//        mapVw?.animate(with: GMSCameraUpdate.fit(bounds, with: UIEdgeInsets(top: 100.0 , left: 50.0 ,bottom: 100.0 ,right: 50.0)))
-//      }
+    func loadHeaderData(){
+
+          let agentLat = Double.getDouble(tripDetail?.data?.trip_details?.agent_lat)
+          let agentLng = Double.getDouble(tripDetail?.data?.trip_details?.agent_long)
+          let boLat = Double.getDouble(tripDetail?.data?.trip_details?.bo_lat)
+          let boLng = Double.getDouble(tripDetail?.data?.trip_details?.bo_long)
+          let custLat = Double.getDouble(tripDetail?.data?.trip_details?.cust_lat)
+          let custLng = Double.getDouble(tripDetail?.data?.trip_details?.cust_long)
+          
+        let distanceUrlFromAgentToBO = "\(Constant.GOOGLE_API_DISTANCE)origin=\(agentLat),\(agentLng)&destination=\(boLat),\(boLng)&key=\(Constant.GOOGLE_API_KEY)"
+          agentViewModel.getDistance(distanceUrlFromAgentToBO) { (succes, response) in
+              if succes{
+                self.lblDistanceAgentToBo.text = "\(response.routes?.first?.legs?.first?.distance?.text ?? "")".uppercased()
+              }
+          }
+        let distanceUrlFromBOToCustomer = "\(Constant.GOOGLE_API_DISTANCE)origin=\(boLat),\(boLng)&destination=\(custLat),\(custLng)&key=\(Constant.GOOGLE_API_KEY)"
+          agentViewModel.getDistance(distanceUrlFromBOToCustomer) { (succes, response) in
+                     if succes{
+                        self.lblDistanceBoToCustomer.text = "\(response.routes?.first?.legs?.first?.distance?.text ?? "")".uppercased()
+                     }
+                 }
+      }
+    
+    
+    
     
     
     @IBAction func BtnTappedToAccept(_ sender: UIButton) {
         
         let vc = PopUpAcceptProductViewController(nibName: "PopUpAcceptProductViewController", bundle: nil)
         vc.delegate = self
-        vc.titleLabel = "Are you sure want to accept?"
+        vc.titleLabel = "Are you sure want to accept?".localized
         vc.modalPresentationStyle = .overFullScreen
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         self.present(vc, animated: true, completion: nil)
@@ -356,7 +368,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             self.lblTime.text = "\(tripDetail?.data?.trip_details?.otp_time ?? 0)min"
                         }
                     }
-                    
+                    self.loadHeaderData()
                     
                 }
             }

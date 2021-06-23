@@ -1,0 +1,84 @@
+
+/* Class = "UILabel"; text = "Almost Total Price "; ObjectID = "1Bo-TV-Wa0"; */
+"1Bo-TV-Wa0.text" = "المبلغ الإجمالي (تقريبي)";
+
+/* Class = "UILabel"; text = "....................................................................................................."; ObjectID = "69V-Vz-6Rh"; */
+"69V-Vz-6Rh.text" = ".....................................................................................................";
+
+/* Class = "UILabel"; text = "-----------------------------------------------------------------------------------------"; ObjectID = "IHq-5T-YTB"; */
+"IHq-5T-YTB.text" = "-----------------------------------------------------------------------------------------";
+
+/* Class = "UILabel"; text = "(17.2k)"; ObjectID = "JXv-AI-3rP"; */
+"JXv-AI-3rP.text" = "(17.2k)";
+
+/* Class = "UILabel"; text = "-----------------------------------------------------------------------------------------"; ObjectID = "K2L-lE-4fE"; */
+"K2L-lE-4fE.text" = "-----------------------------------------------------------------------------------------";
+
+/* Class = "UIButton"; normalTitle = "Tap to Accept"; ObjectID = "KR4-Ac-dg5"; */
+"KR4-Ac-dg5.normalTitle" = "قبول;
+
+/* Class = "UILabel"; text = "Almost Purchase Price "; ObjectID = "Kqs-XP-bnE"; */
+"Kqs-XP-bnE.text" = "قيمة الطلب (تقريبي) ";
+
+/* Class = "UILabel"; text = "Create By :"; ObjectID = "NiE-IM-aUR"; */
+"NiE-IM-aUR.text" = "أُنشئ بواسطة:";
+
+/* Class = "UILabel"; text = "Delivery Price "; ObjectID = "RdF-70-QLF"; */
+"RdF-70-QLF.text" = "قيمة التوصيل ";
+
+/* Class = "UILabel"; text = "-----------------------------------------------------------------------------------------"; ObjectID = "Rr0-bO-J15"; */
+"Rr0-bO-J15.text" = "-----------------------------------------------------------------------------------------";
+
+/* Class = "UILabel"; text = "-----------------------------------------------------------------------------------------"; ObjectID = "UqB-VT-61a"; */
+"UqB-VT-61a.text" = "-----------------------------------------------------------------------------------------";
+
+/* Class = "UILabel"; text = "100.00 km"; ObjectID = "Y4C-V9-mwj"; */
+"Y4C-V9-mwj.text" = "100.00 km";
+
+/* Class = "UILabel"; text = "-----------------------------------------------------------------------------------------"; ObjectID = "YTl-gL-8el"; */
+"YTl-gL-8el.text" = "-----------------------------------------------------------------------------------------";
+
+/* Class = "UILabel"; text = "....................................................................................................."; ObjectID = "ZXo-Ul-Mf9"; */
+"ZXo-Ul-Mf9.text" = ".....................................................................................................";
+
+/* Class = "UILabel"; text = "100.00 km"; ObjectID = "Zys-8b-H31"; */
+"Zys-8b-H31.text" = "100.00 km";
+
+/* Class = "UILabel"; text = "3.5"; ObjectID = "c26-7u-cx9"; */
+"c26-7u-cx9.text" = "3.5";
+
+/* Class = "UILabel"; text = "Time of Pickup :"; ObjectID = "cj3-xi-8Jf"; */
+"cj3-xi-8Jf.text" = "وقت الإستلام :";
+
+/* Class = "UILabel"; text = "SAR 10000.00"; ObjectID = "cvv-0z-llO"; */
+"cvv-0z-llO.text" = "SAR 10000.00";
+
+/* Class = "UILabel"; text = "2:00 min"; ObjectID = "drz-gn-txF"; */
+"drz-gn-txF.text" = "2:00 min";
+
+/* Class = "UILabel"; text = "Customer"; ObjectID = "fB7-cs-oy3"; */
+"fB7-cs-oy3.text" = "Customer";
+
+/* Class = "UILabel"; text = "5 Min later"; ObjectID = "iDq-kS-n3L"; */
+"iDq-kS-n3L.text" = "5 Min later";
+
+/* Class = "UILabel"; text = "Qty : 3"; ObjectID = "m6M-6d-vI5"; */
+"m6M-6d-vI5.text" = "Qty : 3";
+
+/* Class = "UILabel"; text = "SAR 10000.00"; ObjectID = "nPV-2h-WSE"; */
+"nPV-2h-WSE.text" = "SAR 10000.00";
+
+/* Class = "UILabel"; text = "Size : 177 cm"; ObjectID = "nwl-g9-rnN"; */
+"nwl-g9-rnN.text" = "Size : 177 cm";
+
+/* Class = "UILabel"; text = "SAR 10000.00"; ObjectID = "u52-Tw-Wqj"; */
+"u52-Tw-Wqj.text" = "SAR 10000.00";
+
+/* Class = "UILabel"; text = "Weight : 178 kg"; ObjectID = "uvu-oQ-mQC"; */
+"uvu-oQ-mQC.text" = "Weight : 178 kg";
+
+/* Class = "UIButton"; normalTitle = "Decline   "; ObjectID = "wKt-Pl-1Qu"; */
+"wKt-Pl-1Qu.normalTitle" = "رفض   ";
+
+/* Class = "UILabel"; text = "-----------------------------------------------------------------------------------------"; ObjectID = "xw6-3V-F7J"; */
+"xw6-3V-F7J.text" = "-----------------------------------------------------------------------------------------";
