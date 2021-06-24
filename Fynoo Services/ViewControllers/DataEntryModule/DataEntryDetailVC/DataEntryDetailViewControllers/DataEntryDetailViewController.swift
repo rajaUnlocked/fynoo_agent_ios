@@ -150,10 +150,6 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
     }
     
     
-    
-    
-    
-    
     @objc func DataEntryWorkConfirmationClicked(_ sender : UIButton) {
         
         let workStatus = serviceDetailData?.data?.start_work
@@ -579,7 +575,7 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         
         return cell
     }
-    
+
     func dataEntryBasicDetailCell(index : IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteDataEntryListTableViewCell", for: index) as! CompleteDataEntryListTableViewCell

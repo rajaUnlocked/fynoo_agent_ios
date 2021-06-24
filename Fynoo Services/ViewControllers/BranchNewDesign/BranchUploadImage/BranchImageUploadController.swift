@@ -177,7 +177,7 @@ class BranchImageUploadController: UIViewController,OpenGalleryDelegate {
         vc.choosenOption = { (string) in
             OpenGallery.shared.delegate = self
             OpenGallery.shared.viewControl = self
-            if string == "Take Photo"{
+            if string == "Camera"{
                // self.imgaes()
                 
                OpenGallery.shared.openCamera()

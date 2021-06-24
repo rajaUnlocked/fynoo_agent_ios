@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "-----------------------------------------------------------------------------------------"; ObjectID = "59e-Vr-Ow2"; */
+"59e-Vr-Ow2.text" = "-----------------------------------------------------------------------------------------";
+
+/* Class = "UILabel"; text = "03"; ObjectID = "PRz-wU-1MC"; */
+"PRz-wU-1MC.text" = "03";
+
+/* Class = "UILabel"; text = "5790.0"; ObjectID = "Taq-Cs-8Vq"; */
+"Taq-Cs-8Vq.text" = "5790.0";
+
+/* Class = "UILabel"; text = "-----------------------------------------------------------------------------------------"; ObjectID = "ZFm-kX-pe0"; */
+"ZFm-kX-pe0.text" = "-----------------------------------------------------------------------------------------";
+
+/* Class = "UILabel"; text = "wed 32,4020"; ObjectID = "gdY-4Z-obR"; */
+"gdY-4Z-obR.text" = "wed 32,4020";
+
+/* Class = "UILabel"; text = "Invoice Copy"; ObjectID = "ge5-ev-j1Y"; */
+"ge5-ev-j1Y.text" = "Invoice Copy";
+
+/* Class = "UILabel"; text = "buyer information"; ObjectID = "jVM-Dg-IjX"; */
+"jVM-Dg-IjX.text" = "buyer information";
+
+/* Class = "UILabel"; text = "SAR"; ObjectID = "kb6-UF-zsB"; */
+"kb6-UF-zsB.text" = "SAR";
+
+/* Class = "UILabel"; text = "Order Information"; ObjectID = "lGr-T4-mrK"; */
+"lGr-T4-mrK.text" = "Order Information";
+
+/* Class = "UILabel"; text = "Actual total amount"; ObjectID = "tUg-1a-o4F"; */
+"tUg-1a-o4F.text" = "Actual total amount";
+
+/* Class = "UILabel"; text = "Order Id: 9876543214"; ObjectID = "uQg-Zp-clv"; */
+"uQg-Zp-clv.text" = "Order Id: 9876543214";

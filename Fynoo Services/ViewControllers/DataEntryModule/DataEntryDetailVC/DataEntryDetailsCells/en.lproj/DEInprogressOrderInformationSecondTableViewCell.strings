@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "Order Instructions"; ObjectID = "RXa-lM-d5B"; */
-"RXa-lM-d5B.text" = "تعليمات الطلب";
+"RXa-lM-d5B.text" = "Order Instructions";
 
 /* Class = "UILabel"; text = "Order information"; ObjectID = "TiZ-lr-2Fm"; */
-"TiZ-lr-2Fm.text" = "Order information";
+"TiZ-lr-2Fm.text" = "Order Completion Time";

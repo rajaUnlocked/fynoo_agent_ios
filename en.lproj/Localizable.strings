@@ -283,6 +283,43 @@
 
 /////////////////////////             TAP PAYMENT             /////////////////////////
 //new
+"Tap to accept" = "Tap to accept";
+"Branch List" = "Branch List";
+"Choose your option"= "Choose your option";
+"Varient" = "Varient";
+"Do you want to opt for" = "Do you want to opt for";
+"service?" = "service?";
+"Are you sure you want to activate this service?" = "Are you sure you want to activate this service?";
+"Are you sure you want to deactivate this service?" = "Are you sure you want to deactivate this service?";
+"Rejection Reason:" = "Rejection Reason:";
+"Are you sure you want accept the order?" = "Are you sure you want accept the order?";
+"Are you sure you want to start the work?" = "Are you sure you want to start the work?";
+"Data Entry Sevice" = "Data Entry Sevice";
+"Welcome, Let's Select Your Location" = "Welcome, Let's Select Your Location";
+"Add your business hours to" = "Add your business hours to";
+"it's easy for people to plan a visit." = "it's easy for people to plan a visit.";
+"Do you want to submit your work?" = "Do you want to submit your work?";
+"How was your experience with" = "How was your experience with";
+"Have you completed this task item?" = "Have you completed this task item?";
+
+
+
+
+
+
+"Please enter iban number" = "Please enter iban number";
+"Please Re-enter iban number" = "Please Re-enter iban number";
+"IBAN and Re-IBAN number does not match" = "IBAN and Re-IBAN number does not match";
+"Please enter name on account" = "Please enter name on account";
+
+"Send Money from wallet to Bank" = "Send Money from wallet to Bank";
+"Please enter amount" = "Please enter amount";
+"You cannot transfer more than the available balance" = "You cannot transfer more than the available balance";
+"Available Balance" = "Available Balance";
+"Payment in Progress" = "Payment in Progress";
+"Transferred" = "Transferred";
+"Manage Your Wallet" = "Manage Your Wallet";
+"Recent Transaction" = "Recent Transaction";
 "Change Password" = "Change Password";
 "Password" = "Password";
 "Services " = "Services ";
@@ -445,7 +482,7 @@
 "" = "";
 // Business location
 "Welcome, Let's Select Your Plan"= "Welcome, Let's Select Your Plan";
-"Store in Road"="Store in Road";
+"Store on Road"="Store on Road";
 "Store in Mall"="Store in Mall";
 "Store in Market"= "Store in Market";
 "Save"="Save";
@@ -453,6 +490,10 @@
 "Location"="Location";
 "Add Business Location" = "Add Business Location";
 "Add Your Business Location" = "Add Your Business Location";
+"LocationB" = "Location";
+"Name Of Mall & Market" = "Name Of Mall & Market";
+
+
 
 //SignUp Bo
 "Welcome, Let's Create An Account"="Welcome, Let's Create An Account";
@@ -703,7 +744,7 @@
 "Save As Draft" = "Save As Draft";
 "Next" = "Next";
 "Select Image From" = "Select Image From";
-"Take Photo" = "Take Photo";
+"Camera" = "Camera";
 "Fynoo Gallery" = "Fynoo Gallery";
 "Device Gallery" = "Device Gallery";
 "View Photo" = "View Photo";
@@ -812,7 +853,7 @@
 // Stock Update (Inventory)
 "Date Created"="Date Created";
 "Available Quantity"="Available Quantity";
-"Date updated"="Date updated";
+"Date Updated"="Date Updated";
 "Stock Update"="Stock Update";
 "Manage Invenvtory"="Manage Inventory";
 
@@ -1038,9 +1079,6 @@
 "No Product Found"="No Product Found";
 "View Images"="View Images";
 "Upload Images"="Upload Images";
-"Take Photo"="Take Photo";
-"Device Gallery"="Device Gallery";
-"Fynoo Gallery"="Fynoo Gallery";
 "Check Out This Image"="Check Out This Image";
 "Are you sure you want to delete this image"="Are you sure you want to delete this image";
 
@@ -1131,7 +1169,6 @@
 
 "Waiting List" = "Waiting List";
 "Completed" = "Completed";
-"Order Id" = "Order Id";
 
 "Order Summary" = "Order Summary";
 "Payment Method" = "Payment Method";
@@ -1148,8 +1185,20 @@
 "Already Submitted" = "Already Submitted";
 "Amount to be paid for this order." = "Amount to be paid for this order.";
 "Number of days for order completion." = "Number of days for order completion.";
-"Online" = "Online";
 "Holding" = "Holding";
 "please active" = "please active";
 "services to receive new order request." = "services to receive new order request.";
 "Paid" = "Paid";
+
+
+// Product Detail
+
+//"Actual Total Amount" = "Actual Total Amount"
+//"Buyer Information" = "Buyer Information"
+//"Order Information" = "Order Information"
+//"Invoices Copy" = "Invoices Copy"
+//"Confirm Delivery" = "Confirm Delivery"
+"Please Enter Otp" = "Please Enter Otp"
+"Please Check COD Amount For Customer" = "Please Check COD Amount For Customer"
+"Please add invoice file" = "Please add invoice file"
+"View Images" = "View Images"

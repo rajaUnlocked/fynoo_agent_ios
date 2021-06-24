@@ -11,6 +11,7 @@ import UIKit
 class SEPhotographyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var addbtn: UIButton!
     
+    @IBOutlet weak var addlbl: UILabel!
     @IBOutlet weak var imgName: UILabel!
     @IBOutlet weak var outervw: UIView!
     

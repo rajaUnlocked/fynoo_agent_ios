@@ -32,12 +32,15 @@ class CommonPopupViewController: UIViewController {
         super.viewDidLoad()
         self.yesOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)
         self.noOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)
+        
+        
+        
     }
     
     func setUI() {
         if isRemove
         {
-            self.titleLbl.text = "Do you want to delete this file? "
+            self.titleLbl.text = "Do you want to delete this file? ".localized
             self.popupBG.image = UIImage(named: "blank_service_popup")
             self.serviceImg.isHidden = false
             self.serviceImg.image = UIImage(named: "delete_grey")
@@ -53,7 +56,11 @@ class CommonPopupViewController: UIViewController {
         if showActive {
             self.titleLbl.text = name
         }else{
-            self.titleLbl.text = "Do you want to opt for \(name) service?"
+            
+            let opt = "Do you want to opt for".localized
+            let service = "service?".localized
+            
+            self.titleLbl.text = "\(opt) \(name) \(service)"
         }
         
         if showActive {

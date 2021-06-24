@@ -1524,7 +1524,7 @@ extension UserProfileDetailsViewController : ProfileNameTableViewCellDelegate,Op
     func selectedDiscountOption(str: String) {
         OpenGallery.shared.delegate = self
         OpenGallery.shared.viewControl = self
-        if str == "Take Photo".localized {
+        if str == "Camera".localized {
             OpenGallery.shared.openCamera()
             
         }else if str == "Device Gallery".localized {

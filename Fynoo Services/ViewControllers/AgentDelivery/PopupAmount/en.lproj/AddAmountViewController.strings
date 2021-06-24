@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "COD Amount"; ObjectID = "5gV-Ck-X3o"; */
+"5gV-Ck-X3o.text" = "COD Amount";
+
+/* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "F8q-Gc-W4n"; */
+"F8q-Gc-W4n.normalTitle" = "SUBMIT";
+
+/* Class = "UILabel"; text = "Te gvvh yjhbj hjjhhj hjbhdb  khdkh hkdb hkkdh  hd hkkdk hkd "; ObjectID = "Khp-4d-xcb"; */
+"Khp-4d-xcb.text" = "Te gvvh yjhbj hjjhhj hjbhdb  khdkh hkdb hkkdh  hd hkkdk hkd ";
+
+/* Class = "UILabel"; text = "Today's COD Amount"; ObjectID = "ZvD-MQ-11K"; */
+"ZvD-MQ-11K.text" = "Today's COD Amount";
+
+/* Class = "UILabel"; text = "You can enter the Today's COD amount and\nyou can change it any time."; ObjectID = "coK-lS-9Bq"; */
+"coK-lS-9Bq.text" = "You can enter the Today's COD amount and\nyou can change it any time.";
+
+/* Class = "UILabel"; text = "SAR"; ObjectID = "fNt-ZA-koD"; */
+"fNt-ZA-koD.text" = "SAR";
+
+/* Class = "UILabel"; text = "Rejected"; ObjectID = "kxL-td-Kbh"; */
+"kxL-td-Kbh.text" = "Rejected";

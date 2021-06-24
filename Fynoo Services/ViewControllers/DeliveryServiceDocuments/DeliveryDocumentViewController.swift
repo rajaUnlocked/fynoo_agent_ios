@@ -101,7 +101,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         var minDate = Date()
         
         minDate = Calendar.current.date(from: DateComponents(year: 1900 , month: 1, day: 1))!
-        var title = "Select - Date of Birth"
+        var title = "Select - Date of Birth".localized
         if tag == 3
         {
             if self.toptxtArr[1] == ""
@@ -109,7 +109,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 ModalController.showNegativeCustomAlertWith(title: "Please Select DOB First ", msg: "")
                 return
             }
-            title = "Select - Date of Expiry"
+            title = "Select - Date of Expiry".localized
             minDate =  self.fdate
             maxDate = nil
         }
@@ -319,6 +319,15 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             if success
             {
                 self.servicelist = response
+                if self.servicelist?.data?.front_side ?? "" != ""{
+                    self.vehicleKind_API(brandid: (self.servicelist?.data?.registration_type_id)!)
+                    self.vehicleName_API(brandid: (self.servicelist?.data?.vehicle_brand_id)!)
+                   
+                }
+                else
+                {
+                    ModalClass.stopLoadingAllLoaders(self.view)
+                }
                 self.imgArr = [self.servicelist?.data?.national_id ?? "",self.servicelist?.data?.driving_license ?? "",self.servicelist?.data?.registration ?? "",self.servicelist?.data?.insurance ?? "",self.servicelist?.data?.authorization ?? "",self.servicelist?.data?.front_side ?? ""]
                 for i in 0...self.imgArr.count - 1
                 {
@@ -326,9 +335,15 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     {
                         let imageUrl = URL(string: self.imgArr[i])!
 
-                        let imageData = try! Data(contentsOf: imageUrl)
+                        do {
+                            let imageData = try Data(contentsOf: imageUrl)
+                            self.imglocalArr[i] = UIImage(data: imageData)
+                        }
+                        catch{
+                            self.imglocalArr[i] = nil
+                        }
 
-                        self.imglocalArr[i] = UIImage(data: imageData)
+                       
                     }
                     else
                     {
@@ -350,11 +365,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     self.submit.setTitle("Pending for approval".localized, for: .normal)
                 }
                
-                if self.servicelist?.data?.front_side ?? "" != ""{
-                    self.vehicleKind_API(brandid: (self.servicelist?.data?.registration_type_id)!)
-                    self.vehicleName_API(brandid: (self.servicelist?.data?.vehicle_brand_id)!)
-                   
-                }
+               
                 self.tabvw.reloadData()
                
             }
@@ -836,12 +847,15 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             service.isType = sender.tag + 1
             service.sendforapproval = "0"
             if imglocalArr[sender.tag] == nil{
-                service.docfilereg = documentlocalArr[2]
-                service.docfile = documentlocalArr[4]
+                service.docfilereg.removeAll()
+                service.docfilereg.append(documentlocalArr[2]!)
+                service.docfilereg.append(documentlocalArr[4]!)
             }
             else{
-                service.imgfilereg = imglocalArr[2]
-                service.imgfile = imglocalArr[4]
+                service.imagefile.removeAll()
+                service.imagefile.append(imglocalArr[2]!)
+                service.imagefile.append(imglocalArr[4]!)
+   
             }
         }
         else
@@ -872,10 +886,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             service.isType = sender.tag + 1
             service.sendforapproval = "0"
             if imglocalArr[sender.tag] == nil{
-                service.docfile = documentlocalArr[sender.tag]
+                service.docfilereg.removeAll()
+                service.docfilereg.append(documentlocalArr[sender.tag]!)
             }
             else{
-                service.imgfile = imglocalArr[sender.tag]
+                service.imagefile.removeAll()
+                service.imagefile.append(imglocalArr[sender.tag]!)
             }
         }
         print(sender.tag)
@@ -896,9 +912,13 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     {
                         let imageUrl = URL(string: self.imgArr[i])!
 
-                        let imageData = try! Data(contentsOf: imageUrl)
-
-                        self.imglocalArr[i] = UIImage(data: imageData)
+                        do {
+                            let imageData = try Data(contentsOf: imageUrl)
+                            self.imglocalArr[i] = UIImage(data: imageData)
+                        }
+                        catch{
+                            self.imglocalArr[i] = nil
+                        }
                     }
                     else
                     {
@@ -956,7 +976,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         vc.isproduct = true
         vc.iswarning = true
         vc.index = sender.tag
-        vc.nameAr =  ["Device Gallery","Document"]
+        vc.nameAr =  ["Device Gallery".localized,"Document".localized]
         vc.imgAr  = ["galery_Picture","dataEntryService"]
         let popupController = MTPopupController(rootViewController: vc)
         popupController.autoAdjustKeyboardEvent = false
@@ -980,7 +1000,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
     func doc_headerCell(index:IndexPath) ->UITableViewCell
     {
         let cell = tabvw.dequeueReusableCell(withIdentifier: "DocHeaderTableViewCell", for: index) as! DocHeaderTableViewCell
-        cell.arrow.image = UIImage(named: "rightArrow_dash")
+        cell.arrow.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"rightArrow_dash")!)
         cell.headerlbl.text = headerarr[index.section - 1].localized
         if SelectedIndex.contains(index.section)
         {
@@ -1013,6 +1033,8 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             cell.downarrow.isHidden = true
             cell.txt.keyboardType = .asciiCapableNumberPad
         }
+        
+        
         if index.row == 8
         {
          cell.txt.isUserInteractionEnabled = true

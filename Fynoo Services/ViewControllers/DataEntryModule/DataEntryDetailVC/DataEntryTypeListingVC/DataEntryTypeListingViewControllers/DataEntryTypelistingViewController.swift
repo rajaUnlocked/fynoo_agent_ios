@@ -59,11 +59,11 @@ class DataEntryTypelistingViewController: UIViewController {
       searchVw.layer.borderWidth = 1.0
       searchVw.layer.cornerRadius = 5.0
       
-      self.searchField.attributedPlaceholder = NSAttributedString(string: "Enter Data Entry Item", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 126.0/255.0, green: 139.0/255.0, blue: 152.0/255.0, alpha: 1.0)])
+    self.searchField.attributedPlaceholder = NSAttributedString(string: "Search".localized, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 126.0/255.0, green: 139.0/255.0, blue: 152.0/255.0, alpha: 1.0)])
       
       self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
 //      self.navigationController?.isNavigationBarHidden = true
-    self.customHeader.titleHeader.text = "Data Entry Sevice"
+    self.customHeader.titleHeader.text = "Data Entry Sevice".localized
     self.customHeader.viewControl = self
     }
 //    func setupUiMethod() {

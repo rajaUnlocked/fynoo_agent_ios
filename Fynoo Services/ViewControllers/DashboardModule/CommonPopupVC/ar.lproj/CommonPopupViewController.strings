@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Are you sure you want to activate\nthis service?"; ObjectID = "0Vq-1D-okQ"; */
+"0Vq-1D-okQ.text" = "Are you sure you want to activate\nthis service?";
+
+/* Class = "UIButton"; normalTitle = "Yes"; ObjectID = "7zH-VW-hIC"; */
+"7zH-VW-hIC.normalTitle" = "نعم";
+
+/* Class = "UIButton"; normalTitle = "No"; ObjectID = "Qas-ye-hTM"; */
+"Qas-ye-hTM.normalTitle" = "لا";

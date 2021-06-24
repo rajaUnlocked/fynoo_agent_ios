@@ -27,7 +27,7 @@ addrowssDelegate,deleterowssDelegate {
     var toolbar = UIToolbar()
     var formatter = DateFormatter()
     var setTime = String()
-    var datePicker = UIDatePicker()
+    var datePicker =  UIDatePicker()
     var bttn:UIButton?
     var tags:Int?
     var btntag:Int?
@@ -60,8 +60,18 @@ addrowssDelegate,deleterowssDelegate {
 //        let n1 = "Add your business hours to"
 //        let n2 = "Add your business hours to"
 //        toplevel.text =  "\(n1) \(name) \(n2)".localized
-        toplevel.text = "Add your business hours to \(AddBranch.shared.bName) it's easy for people to plan a visit."
-     
+        let branchname = (AddBranch.shared.bName == "" ? "Branch Name" : AddBranch.shared.bName)
+        let businessHours = "Add your business hours to".localized
+        let people = "it's easy for people to plan a visit.".localized
+        let string = NSMutableAttributedString(string: "\(businessHours) \(branchname) \(people)")
+        string.setColor(color: .systemRed, forText: branchname)
+        toplevel.attributedText = string
+        
+        toplevel.textAlignment = .left
+        if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+        {
+            toplevel.textAlignment = .right
+        }
          self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
        
@@ -75,6 +85,7 @@ addrowssDelegate,deleterowssDelegate {
   
 
          }
+    
     override func viewWillAppear(_ animated: Bool) {
         for i in 0...6
                {
@@ -440,6 +451,11 @@ extension BusinessTimesheet1PopupViewController: UITableViewDelegate,UITableView
                 cell.counlbl.textAlignment = .left
                 cell.counlbl.textColor = UIColor.init(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
                 cell.counlbl.numberOfLines = 2
+                cell.counlbl.textAlignment = .left
+                if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+                {
+                    cell.counlbl.textAlignment = .right
+                }
                 cell.counlbl.text = "   Update Your Business Hours So Search Results Show When Your Location Is Open.".localized
                         return cell
             }
@@ -527,6 +543,10 @@ extension BusinessTimesheet1PopupViewController: UITableViewDelegate,UITableView
        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0
         {
+            if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+            {
+                return 35
+            }
             return 28
         }
        else if indexPath.section == ((selectedCode == "OPEN_SELECTED_HOURS") ? (array1.count + 1) : 1)
@@ -636,8 +656,6 @@ extension BusinessTimesheet1PopupViewController
           tabview.allowsSelection = false
           tabview.isUserInteractionEnabled = false
           datePicker = UIDatePicker.init()
-          datePicker.backgroundColor = UIColor.white
-
           let date1: NSDate = NSDate()
           let gregorian: NSCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
           
@@ -659,7 +677,13 @@ extension BusinessTimesheet1PopupViewController
           datePicker.datePickerMode = .time
         datePicker.locale = Locale(identifier: "en_GB")
           datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
-          datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 400)
+        
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+            datePicker.frame = CGRect(x: 0, y: self.view.frame.height - 300, width: self.view.bounds.width, height: 300)
+                    
+        }
+        datePicker.backgroundColor = UIColor.white
           self.view.addSubview(datePicker)
           
           toolbar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))

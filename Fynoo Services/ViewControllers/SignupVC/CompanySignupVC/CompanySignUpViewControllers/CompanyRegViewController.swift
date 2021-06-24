@@ -368,7 +368,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
         
     }
     func selectedDiscountOption(str: String) {
-        if str == "Take Photo".localized {
+        if str == "Camera".localized {
             self.cameraSelected()
         }else if str == "Device Gallery".localized {
             self.gallerySelected()

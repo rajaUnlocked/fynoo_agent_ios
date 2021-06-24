@@ -11,7 +11,7 @@ import UIKit
 class BranchBottomPopUpController: UIViewController {
   @IBOutlet weak var cardVieww: UIView!
     
-    var textArray = ["Take Photo".localized,"Device Gallery".localized,"Fynoo Gallery".localized]
+    var textArray = ["Camera".localized,"Device Gallery".localized,"Fynoo Gallery".localized]
     var isType = ""
     var choosenOption : ((String) -> Void)?
     var img : [UIImage] = [#imageLiteral(resourceName: "camera_icon"),#imageLiteral(resourceName: "pro_img_outline"),#imageLiteral(resourceName: "fynooGallery")]

@@ -37,6 +37,7 @@ class BottomPopupEditProductViewController: UIViewController ,UITableViewDelegat
     var imgAr  = ["edit_grey", "add_variant","similar_pro","add_pro_grey"]
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.chooselbl.text = "Choose your option".localized
         if isVarient
         {
             nameAr  = ["Edit Product".localized, "Add Variant Product".localized,"Add Similar Product".localized,"Add Product".localized]

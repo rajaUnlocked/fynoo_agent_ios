@@ -8,8 +8,8 @@
 /* Class = "UILabel"; text = "Total Amount"; ObjectID = "ohW-ki-UJZ"; */
 "ohW-ki-UJZ.text" = "Total Amount";
 
-/* Class = "UILabel"; text = "Send Money To Your Bank Account"; ObjectID = "t4y-xR-x2p"; */
-"t4y-xR-x2p.text" = "Send Money To Your Bank Account";
+/* Class = "UILabel"; text = "Send Money from wallet to Bank"; ObjectID = "t4y-xR-x2p"; */
+"t4y-xR-x2p.text" = "Send Money from wallet to Bank";
 
 /* Class = "UILabel"; text = "Available: SAR 400"; ObjectID = "u9l-dS-nSX"; */
 "u9l-dS-nSX.text" = "Available: SAR 400";
