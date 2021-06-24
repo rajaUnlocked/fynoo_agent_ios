@@ -38,6 +38,7 @@ class DataEntryAgentRatingViewController: UIViewController {
     var BoProfilePic:String = ""
     var usertype:String = ""
   
+
     override func viewDidLoad() {
         super.viewDidLoad()
         submit.isHidden = true
