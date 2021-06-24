@@ -39,9 +39,7 @@ class CompleteDataEntryListTableViewCell: UITableViewCell {
     @IBOutlet weak var textMessageBtn: UIButton!
     @IBOutlet weak var callBtn: UIButton!
     @IBOutlet weak var giveRatingBtn: UIButton!
-    
     @IBOutlet weak var boLocationBtn: UIButton!
-    
     @IBOutlet weak var locationBtnWidthConstant: NSLayoutConstraint!
     
     

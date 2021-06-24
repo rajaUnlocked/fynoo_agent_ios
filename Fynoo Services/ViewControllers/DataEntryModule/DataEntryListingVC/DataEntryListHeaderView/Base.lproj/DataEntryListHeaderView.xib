@@ -32,7 +32,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="380" height="68.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" tag="106" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Entry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="If9-Ih-Iuz">
-                            <rect key="frame" x="79" y="24" width="79.5" height="19"/>
+                            <rect key="frame" x="79" y="24" width="75" height="19"/>
                             <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -74,7 +74,7 @@
                                     <color key="textColor" red="0.96470588239999999" green="0.70980392160000005" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view tag="1002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EAt-Mi-9Bm" customClass="CosmosView" customModule="Cosmos">
+                                <view tag="1002" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EAt-Mi-9Bm" customClass="CosmosView" customModule="Cosmos">
                                     <rect key="frame" x="45" y="9" width="78" height="12"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -250,11 +250,6 @@
             <point key="canvasLocation" x="137.68115942028987" y="122.54464285714285"/>
         </view>
     </objects>
-    <designables>
-        <designable name="EAt-Mi-9Bm">
-            <size key="intrinsicContentSize" width="80" height="12"/>
-        </designable>
-    </designables>
     <resources>
         <image name="dataEntry_symbol" width="300" height="300"/>
         <image name="discount_search" width="60" height="60"/>
