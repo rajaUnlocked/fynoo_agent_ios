@@ -106,7 +106,8 @@ class Constant: NSObject {
     static let bankIdentifier_List : String = "businessapi/v2/search_iban_number/";
     
     //service
-    
+    static let custratingapi : String = "shared_economy/agent/customer_rating/"
+    static let boratingapi : String = "bo_agent_delivery/agent_rating_to_bo/"
      static let productVariantList: String = "/customerapi/v1/variantProduct/"
      static let getproductlistfilter : String = "customerapi/v1/product_list_filter/";
       static let removedatasellproduct : String = "product_api/customerDataBankDeleteProduct/";
@@ -210,6 +211,11 @@ class Constant: NSObject {
     static let GET_NOTIFICATION = "GET_NOTIFICATION"
     static let GOOGLE_API_KEY = "AIzaSyDGzVH50GxKpAAU69gcux1_VMd45G1gJxc"
     static let GOOGLE_API_DISTANCE = "https://maps.googleapis.com/maps/api/directions/json?"
+    static let SEARCH_AGENT_NOTIFICATION = "SEARCH_AGENT"
+    static let AGENT_NOTIFICATION = "AGENT_NOTIFICATION"
+    
+    static let NF_KEY_FOR_PASS_DATA_TO_DELIVERYDASHBOARD = "PASS_DATA_TO_DELIVERY_DASHBOARD"
+    
     
 }
 
@@ -258,6 +264,16 @@ enum Service {
     static let acceptIndivisualItem = Constant.BASE_URL + "shared_economy/agent/accept_individual_item/"
     static let onTheWayTripDetail = Constant.BASE_URL + "shared_economy/agent/on_the_way_trip_details/"
     static let deliverOrder = Constant.BASE_URL + "shared_economy/agent/deliver_order/"
+    
+    static let agentAcceptCancellation = Constant.BASE_URL + "shared_economy/agent/agent_accept_cancellation/"
+    static let agentRejectCancellation = Constant.BASE_URL + "shared_economy/agent/agent_reject_cancellation/"
+    static let agentCancellationDetail = Constant.BASE_URL + "shared_economy/agent/agent_cancellation_detail/"
+    
+    static let agentAcceptRequest = Constant.BASE_URL + "shared_economy/agent/request_accept/"
+    static let agentDeclineRequest = Constant.BASE_URL + "shared_economy/agent/request_decline/"
+    
+    static let agentCancelOrder = Constant.BASE_URL + "shared_economy/agent/agent_cancel_order/"
+    
     
 }
 

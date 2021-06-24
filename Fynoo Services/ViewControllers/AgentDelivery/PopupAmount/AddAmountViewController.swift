@@ -50,8 +50,8 @@ class AddAmountViewController: UIViewController {
                 rejectedlbl.text = ""
             }
         }else{
-            containter.isHidden = true
-             reasonView.isHidden = false
+            containter.isHidden = false
+             reasonView.isHidden = true
         }
         // Do any additional setup after loading the view.
     }

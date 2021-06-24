@@ -33,15 +33,34 @@ class OtpTableViewCell: UITableViewCell {
     @IBOutlet weak var lblReceivedCodAmt: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
-//        txt1.textAlignment = .center
-//        txt2.textAlignment = .center
-//        txt3.textAlignment = .center
-//        txt4.textAlignment = .center
-//        txt1.contentVerticalAlignment = .center
-//        txt1.contentHorizontalAlignment = .center
+  SetFont()
     }
+    
+    
+    func SetFont() {
+
+            let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
+
+            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+
+            
+
+        self.btnReceivedCodAmt.titleLabel!.font = UIFont(name:"\(fontNameLight)",size:12)
+
+            self.lblReceivedCodAmt.font = UIFont(name:"\(fontNameLight)",size:12)
+
+            self.lblStatictextOtp.font = UIFont(name:"\(fontNameLight)",size:12)
+            self.lblStatictextVeryfy.font = UIFont(name:"\(fontNameLight)",size:16)
+        
+        self.txt1.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.txt2.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.txt3.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.txt4.font = UIFont(name:"\(fontNameLight)",size:12)
+        
+     
+       
+
+        }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

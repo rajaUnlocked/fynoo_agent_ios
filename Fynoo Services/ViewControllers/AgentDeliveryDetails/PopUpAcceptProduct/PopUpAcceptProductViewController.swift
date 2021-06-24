@@ -11,21 +11,31 @@ import UIKit
 
 protocol PopUpAcceptProductDelegate {
     func reloadPage()
+    
+}
+
+protocol PopDeclineProductDelegate {
+    func declineOrder()
+    
 }
 
 class PopUpAcceptProductViewController: UIViewController {
     var delegate:PopUpAcceptProductDelegate?
+    var delegateDecline:PopDeclineProductDelegate?
     
     @IBOutlet weak var containter: UIView!
     @IBOutlet weak var imgIcon: UIImageView!
     @IBOutlet weak var lblInstruction: UILabel!
     var orderId = ""
     var itemId = 0
-    
+    var titleLabel = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if titleLabel == "Are you sure want to decline?" {
+            lblInstruction.text = titleLabel
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -41,10 +51,16 @@ class PopUpAcceptProductViewController: UIViewController {
     
     @IBAction func yesClicked(_ sender: Any){
         
-//        if txtQty.text == ""{
-//            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please Enter Qty")
-//            return
-//        }
+        if titleLabel == "Are you sure want to accept?"{
+            self.delegate?.reloadPage()
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        if titleLabel == "Are you sure want to decline?"{
+            self.delegateDecline?.declineOrder()
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
         let str = Service.acceptIndivisualItem
         let param = ["user_id":Singleton.shared.getUserId(),"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"item_id":itemId] as [String : Any]
         print(param)

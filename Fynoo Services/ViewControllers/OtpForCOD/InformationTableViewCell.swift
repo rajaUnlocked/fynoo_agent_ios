@@ -8,7 +8,17 @@
 
 import UIKit
 
+protocol  InformationTableViewCellDelegate {
+    
+    func buyerInformationClicked(_ sender: Any)
+    func orderInformationClicked(_ sender: Any)
+    func invoiceClicked(_ sender: Any)
+}
+
+
 class InformationTableViewCell: UITableViewCell {
+    
+    var delegate : InformationTableViewCellDelegate?
     
     @IBOutlet weak var lblOrderId : UILabel!
     @IBOutlet weak var lblQty : UILabel!
@@ -54,6 +64,34 @@ class InformationTableViewCell: UITableViewCell {
 
             self.lblInvoiceCopy.font = UIFont(name:"\(fontNameLight)",size:12)
             self.lblStaticActualtotal.font = UIFont(name:"\(fontNameLight)",size:12)
+        
+        
+        self.lblOrderId.font = UIFont(name:"\(fontNameLight)",size:10)
+
+        self.lblQty.font = UIFont(name:"\(fontNameLight)",size:10)
+        self.lblOrderDate.font = UIFont(name:"\(fontNameLight)",size:8)
+        
+        self.order_price.font = UIFont(name:"\(fontNameLight)",size:12)
+
+        self.lblCurrencyCode.font = UIFont(name:"\(fontNameLight)",size:8)
+        self.lblStaticActualtotal.font = UIFont(name:"\(fontNameLight)",size:12)
+        
+       
 
         }
+    
+    
+    @IBAction func btnTappedBuyerInformation(_ sender: Any) {
+        self.delegate?.buyerInformationClicked(self)
+    }
+    
+    @IBAction func btnTappedOrderInformation(_ sender: Any) {
+        self.delegate?.orderInformationClicked(self)
+    }
+    
+    
+    @IBAction func btnInvoiceTapped(_ sender: UIButton) {
+        self.delegate?.invoiceClicked(self)
+    }
+    
 }

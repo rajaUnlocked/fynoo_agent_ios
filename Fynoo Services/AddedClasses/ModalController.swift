@@ -528,6 +528,9 @@ static func isStringValid(_ str: String?) -> Bool {
               alpha: CGFloat(1.0)
           )
       }
+    
+
+    
 }
 extension UIApplication {
    

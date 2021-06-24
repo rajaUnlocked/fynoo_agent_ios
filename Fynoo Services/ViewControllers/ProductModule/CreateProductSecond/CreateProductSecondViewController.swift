@@ -3783,7 +3783,7 @@ extension CreateProductSecondViewController: UIDocumentPickerDelegate, UINavigat
         vc.isproduct = true
         vc.iswarning = true
         
-        vc.nameAr =  ["Device Gallery","Document"]
+        vc.nameAr =  ["Device Gallery".localized,"Document".localized]
         vc.imgAr  = ["galery_Picture","dataEntryService"]
         let popupController = MTPopupController(rootViewController: vc)
         popupController.autoAdjustKeyboardEvent = false

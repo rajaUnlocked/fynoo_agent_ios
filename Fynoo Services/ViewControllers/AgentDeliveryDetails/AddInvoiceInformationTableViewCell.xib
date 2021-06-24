@@ -215,6 +215,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="anyProblemClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9BP-jR-Rfx"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAd-Cb-DQc">
                                 <rect key="frame" x="0.0" y="3" width="320" height="2"/>
@@ -264,6 +267,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnAnyProblem" destination="nDS-7A-bEb" id="bi7-Em-9fk"/>
                 <outlet property="imgInvoiceUploaded" destination="5xg-V4-FIF" id="Wo9-yt-snR"/>
                 <outlet property="lblAddInvoice" destination="vVf-YU-GQo" id="LXC-MY-HEc"/>
                 <outlet property="lblAlmostAmount" destination="NQW-6M-FmF" id="oZl-4t-m5o"/>

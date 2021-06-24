@@ -292,7 +292,9 @@
 
 
 //new
-
+"Tap to accept" = "قبول";
+"Branch List" = "قائمة الفروع";
+"Choose your option"= "إختر أحد الخيارات";
 "Varient" = "مماثل";
 "Do you want to opt for" = "هل تريد إضافة خدمة ";
 "service?" = "ضمن الخدمات التي تعمل عليها؟";
@@ -1226,3 +1228,6 @@
 //"Confirm Delivery" = "تأكيد التسليم"
 "Please Enter Otp" =  "الرجاء إدخال رمز التحقق"
 "Please Check COD Amount For Customer" = "Please Check COD Amount For Customer"
+"Please add invoice file" = "Please add invoice file"
+"Are you sure want to accept?" = ""
+"View Images" = "استعراض الصورة"

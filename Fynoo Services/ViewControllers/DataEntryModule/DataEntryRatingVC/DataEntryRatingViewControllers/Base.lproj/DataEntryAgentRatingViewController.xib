@@ -21,16 +21,17 @@
                 <outlet property="agentProfileImageView" destination="Epp-vS-i6o" id="3LE-Pb-Or0"/>
                 <outlet property="ratingView" destination="4ZH-Id-CMQ" id="UTJ-7g-o7n"/>
                 <outlet property="staticTxtLbl" destination="wuK-eY-xzp" id="C3p-8w-OK9"/>
+                <outlet property="submit" destination="T18-xF-AEd" id="aNV-j8-mc4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="378" height="329"/>
+            <rect key="frame" x="0.0" y="0.0" width="394" height="371"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJd-ol-bLU">
-                    <rect key="frame" x="4.5" y="22" width="369" height="329"/>
+                    <rect key="frame" x="12.5" y="43" width="369" height="329"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ratingViewBg" translatesAutoresizingMaskIntoConstraints="NO" id="AjF-ho-aNV">
                             <rect key="frame" x="0.0" y="34.5" width="369" height="260"/>
@@ -65,7 +66,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How was your experience with BO ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuK-eY-xzp">
-                            <rect key="frame" x="20" y="150" width="329" height="21"/>
+                            <rect key="frame" x="20" y="140" width="329" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="HDp-2t-6ch"/>
                             </constraints>
@@ -74,7 +75,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ZH-Id-CMQ" customClass="CosmosView" customModule="Cosmos">
-                            <rect key="frame" x="72" y="191" width="225" height="50"/>
+                            <rect key="frame" x="72" y="181" width="225" height="50"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="225" id="DMM-t3-Uvb"/>
@@ -89,6 +90,19 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T18-xF-AEd">
+                            <rect key="frame" x="20" y="233" width="329" height="30"/>
+                            <color key="backgroundColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="ge7-1V-eOQ"/>
+                            </constraints>
+                            <state key="normal" title="Submit">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="submitClicked:" destination="-1" eventType="touchUpInside" id="ljN-kR-7fD"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -101,8 +115,11 @@
                         <constraint firstItem="Epp-vS-i6o" firstAttribute="leading" secondItem="FJd-ol-bLU" secondAttribute="leading" constant="20" id="Mb3-u0-to6"/>
                         <constraint firstItem="4ZH-Id-CMQ" firstAttribute="top" secondItem="wuK-eY-xzp" secondAttribute="bottom" constant="20" id="PUN-wD-gqd"/>
                         <constraint firstAttribute="width" constant="369" id="SDX-qx-PqK"/>
-                        <constraint firstItem="wuK-eY-xzp" firstAttribute="top" secondItem="Epp-vS-i6o" secondAttribute="bottom" constant="30" id="T9M-mI-xVc"/>
+                        <constraint firstItem="wuK-eY-xzp" firstAttribute="top" secondItem="Epp-vS-i6o" secondAttribute="bottom" constant="20" id="T9M-mI-xVc"/>
                         <constraint firstItem="AjF-ho-aNV" firstAttribute="centerX" secondItem="FJd-ol-bLU" secondAttribute="centerX" id="V2y-KP-gdo"/>
+                        <constraint firstAttribute="trailing" secondItem="T18-xF-AEd" secondAttribute="trailing" constant="20" id="WgS-Sp-mAd"/>
+                        <constraint firstItem="T18-xF-AEd" firstAttribute="top" secondItem="4ZH-Id-CMQ" secondAttribute="bottom" constant="2" id="Y8D-PC-oxA"/>
+                        <constraint firstItem="T18-xF-AEd" firstAttribute="leading" secondItem="FJd-ol-bLU" secondAttribute="leading" constant="20" id="eau-TD-ykf"/>
                         <constraint firstItem="4ZH-Id-CMQ" firstAttribute="centerX" secondItem="FJd-ol-bLU" secondAttribute="centerX" id="hMt-jB-cSj"/>
                         <constraint firstItem="wuK-eY-xzp" firstAttribute="leading" secondItem="FJd-ol-bLU" secondAttribute="leading" constant="20" id="k7Y-5E-Xoa"/>
                         <constraint firstItem="wuK-eY-xzp" firstAttribute="centerX" secondItem="FJd-ol-bLU" secondAttribute="centerX" id="kDB-pl-N3m"/>
@@ -120,7 +137,7 @@
                 <constraint firstItem="FJd-ol-bLU" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="GVr-nd-sDi"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="137.68115942028987" y="122.87946428571428"/>
+            <point key="canvasLocation" x="149.27536231884059" y="136.94196428571428"/>
         </view>
     </objects>
     <designables>
