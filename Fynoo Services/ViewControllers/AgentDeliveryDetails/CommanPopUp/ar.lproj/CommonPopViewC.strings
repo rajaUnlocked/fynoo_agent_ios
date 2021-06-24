@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "-----------------------------------------------------------------------------------------"; ObjectID = "1K8-9L-kpE"; */
+"1K8-9L-kpE.text" = "-----------------------------------------------------------------------------------------";
+
+/* Class = "UILabel"; text = "wed 32,4020"; ObjectID = "7Ya-Az-SH3"; */
+"7Ya-Az-SH3.text" = "wed 32,4020";
+
+/* Class = "UILabel"; text = "Abdullah Al Haddad"; ObjectID = "9ek-4G-Sop"; */
+"9ek-4G-Sop.text" = "Abdullah Al Haddad";
+
+/* Class = "UIButton"; normalTitle = "Accept Cancellation"; ObjectID = "FXq-Kg-Yuu"; */
+"FXq-Kg-Yuu.normalTitle" = "Accept Cancellation";
+
+/* Class = "UILabel"; text = "Address: Plot No. B-3, B Block Sector-6, Noida,Utter Pradesh, India 201301"; ObjectID = "IZF-rD-afK"; */
+"IZF-rD-afK.text" = "Address: Plot No. B-3, B Block Sector-6, Noida,Utter Pradesh, India 201301";
+
+/* Class = "UILabel"; text = "SAR 66666"; ObjectID = "Nl2-f8-rMt"; */
+"Nl2-f8-rMt.text" = "SAR 66666";
+
+/* Class = "UILabel"; text = "-----------------------------------------------------------------------------------------"; ObjectID = "PYn-xo-sZD"; */
+"PYn-xo-sZD.text" = "-----------------------------------------------------------------------------------------";
+
+/* Class = "UILabel"; text = "Order Id: 98765432140"; ObjectID = "RZh-yW-Wih"; */
+"RZh-yW-Wih.text" = "Order Id: 98765432140";
+
+/* Class = "UILabel"; text = "Cancellation Request"; ObjectID = "Sy1-3I-4ZL"; */
+"Sy1-3I-4ZL.text" = "Cancellation Request";
+
+/* Class = "UIButton"; normalTitle = "I'm on my way"; ObjectID = "ZFx-Ud-TPt"; */
+"ZFx-Ud-TPt.normalTitle" = "I'm on my way";
+
+/* Class = "UILabel"; text = "Customer has requested cancellation. Please\nconfirm or reject the request within 15 mins,\notherwise order will be automatically cancelled."; ObjectID = "czD-u6-R2c"; */
+"czD-u6-R2c.text" = "Customer has requested cancellation. Please\nconfirm or reject the request within 15 mins,\notherwise order will be automatically cancelled.";
+
+/* Class = "UILabel"; text = "Note"; ObjectID = "gKr-RY-TMp"; */
+"gKr-RY-TMp.text" = "Note";
+
+/* Class = "UILabel"; text = "Almost Total Price"; ObjectID = "gcP-xI-WOW"; */
+"gcP-xI-WOW.text" = "Almost Total Price";
+
+/* Class = "UILabel"; text = "030"; ObjectID = "gwt-bR-68x"; */
+"gwt-bR-68x.text" = "030";

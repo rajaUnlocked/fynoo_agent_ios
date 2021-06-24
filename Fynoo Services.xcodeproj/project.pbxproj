@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1840E7F5265675F4003FDFB9 /* ProductDetailsViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840E7F3265675F4003FDFB9 /* ProductDetailsViewC.swift */; };
-		1840E7F6265675F4003FDFB9 /* ProductDetailsViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1840E7F4265675F4003FDFB9 /* ProductDetailsViewC.xib */; };
 		1840E7FC26568D81003FDFB9 /* BOCustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840E7FA26568D81003FDFB9 /* BOCustomerTableViewCell.swift */; };
-		1840E7FD26568D81003FDFB9 /* BOCustomerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1840E7FB26568D81003FDFB9 /* BOCustomerTableViewCell.xib */; };
 		1840E803265695AB003FDFB9 /* BusinessOwnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840E801265695AB003FDFB9 /* BusinessOwnerTableViewCell.swift */; };
 		1840E804265695AB003FDFB9 /* BusinessOwnerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1840E802265695AB003FDFB9 /* BusinessOwnerTableViewCell.xib */; };
 		185373D9266645B4001E0C2A /* DoubleExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185373D8266645B4001E0C2A /* DoubleExtended.swift */; };
@@ -18,7 +16,6 @@
 		1858082D265B921B002A891C /* SearchedProductDeatailViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858082B265B921B002A891C /* SearchedProductDeatailViewC.swift */; };
 		18BBD7B3265A00A800C19D8F /* ProductListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBD7B1265A00A800C19D8F /* ProductListTableViewCell.swift */; };
 		18BBD7BA265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBD7B8265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.swift */; };
-		18BBD7BB265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BBD7B9265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.xib */; };
 		18C0673A2664DAE1000F3CA3 /* OtpForCodViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C067382664DAE1000F3CA3 /* OtpForCodViewC.swift */; };
 		18C69292265527D400B7347B /* AgentDeliveryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C69290265527D400B7347B /* AgentDeliveryDetailViewController.swift */; };
 		18C69293265527D400B7347B /* AgentDeliveryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C69291265527D400B7347B /* AgentDeliveryDetailViewController.xib */; };
@@ -130,7 +127,6 @@
 		4E19EB85267A15EF003510BC /* OrderSuccessViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E19EB83267A15EF003510BC /* OrderSuccessViewC.swift */; };
 		4E19EB87267A1909003510BC /* OrderSuccessViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E19EB89267A1909003510BC /* OrderSuccessViewC.xib */; };
 		4E19EB91267A34A7003510BC /* CommonPopViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E19EB8F267A34A7003510BC /* CommonPopViewC.swift */; };
-		4E19EB92267A34A7003510BC /* CommonPopViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E19EB90267A34A7003510BC /* CommonPopViewC.xib */; };
 		4E1DA080268338760055D201 /* AgentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1DA07F268338760055D201 /* AgentModel.swift */; };
 		4E1DA083268342520055D201 /* ViewInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1DA081268342520055D201 /* ViewInvoiceViewController.swift */; };
 		4E1DA084268342520055D201 /* ViewInvoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E1DA082268342520055D201 /* ViewInvoiceViewController.xib */; };
@@ -142,6 +138,10 @@
 		4E1DA09B26839FB00055D201 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1DA09726839FAF0055D201 /* UIColor+Extension.swift */; };
 		4E6D37C6267B41B100BFA77B /* marketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6D37C2267B41B000BFA77B /* marketTableViewCell.xib */; };
 		4E6D37C7267B41B100BFA77B /* otherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6D37C4267B41B000BFA77B /* otherTableViewCell.xib */; };
+		4E758345268442BC002EFB30 /* CommonPopViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E758347268442BC002EFB30 /* CommonPopViewC.xib */; };
+		4E75834C2684444A002EFB30 /* ProductDetailsViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E75834E2684444A002EFB30 /* ProductDetailsViewC.xib */; };
+		4E75835326844F13002EFB30 /* BOCustomerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E75835526844F13002EFB30 /* BOCustomerTableViewCell.xib */; };
+		4E75835A26845F03002EFB30 /* AddInvoiceInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E75835C26845F03002EFB30 /* AddInvoiceInformationTableViewCell.xib */; };
 		4E790205267B359A00CE9600 /* TwoButtonsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E790203267B359900CE9600 /* TwoButtonsTableViewCell.xib */; };
 		4E79020A267B365500CE9600 /* ProfileDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E790206267B365400CE9600 /* ProfileDetailTableViewCell.xib */; };
 		4E79020B267B365500CE9600 /* ProfileVatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E790208267B365500CE9600 /* ProfileVatTableViewCell.xib */; };
@@ -851,9 +851,7 @@
 /* Begin PBXFileReference section */
 		09B2018020C6F3800DB3F75B /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_Services_Fynoo_ServicesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1840E7F3265675F4003FDFB9 /* ProductDetailsViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewC.swift; sourceTree = "<group>"; };
-		1840E7F4265675F4003FDFB9 /* ProductDetailsViewC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailsViewC.xib; sourceTree = "<group>"; };
 		1840E7FA26568D81003FDFB9 /* BOCustomerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BOCustomerTableViewCell.swift; sourceTree = "<group>"; };
-		1840E7FB26568D81003FDFB9 /* BOCustomerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BOCustomerTableViewCell.xib; sourceTree = "<group>"; };
 		1840E801265695AB003FDFB9 /* BusinessOwnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessOwnerTableViewCell.swift; sourceTree = "<group>"; };
 		1840E802265695AB003FDFB9 /* BusinessOwnerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessOwnerTableViewCell.xib; sourceTree = "<group>"; };
 		185373D8266645B4001E0C2A /* DoubleExtended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleExtended.swift; path = Double/DoubleExtended.swift; sourceTree = "<group>"; };
@@ -861,7 +859,6 @@
 		1858082B265B921B002A891C /* SearchedProductDeatailViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedProductDeatailViewC.swift; sourceTree = "<group>"; };
 		18BBD7B1265A00A800C19D8F /* ProductListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListTableViewCell.swift; sourceTree = "<group>"; };
 		18BBD7B8265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInvoiceInformationTableViewCell.swift; sourceTree = "<group>"; };
-		18BBD7B9265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddInvoiceInformationTableViewCell.xib; sourceTree = "<group>"; };
 		18C067382664DAE1000F3CA3 /* OtpForCodViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpForCodViewC.swift; sourceTree = "<group>"; };
 		18C69290265527D400B7347B /* AgentDeliveryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDeliveryDetailViewController.swift; sourceTree = "<group>"; };
 		18C69291265527D400B7347B /* AgentDeliveryDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentDeliveryDetailViewController.xib; sourceTree = "<group>"; };
@@ -995,7 +992,6 @@
 		4E19EB8B267A190D003510BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrderSuccessViewC.strings; sourceTree = "<group>"; };
 		4E19EB8D267A1910003510BC /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/OrderSuccessViewC.strings; sourceTree = "<group>"; };
 		4E19EB8F267A34A7003510BC /* CommonPopViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPopViewC.swift; sourceTree = "<group>"; };
-		4E19EB90267A34A7003510BC /* CommonPopViewC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonPopViewC.xib; sourceTree = "<group>"; };
 		4E1DA07F268338760055D201 /* AgentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentModel.swift; sourceTree = "<group>"; };
 		4E1DA081268342520055D201 /* ViewInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInvoiceViewController.swift; sourceTree = "<group>"; };
 		4E1DA082268342520055D201 /* ViewInvoiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewInvoiceViewController.xib; sourceTree = "<group>"; };
@@ -1011,6 +1007,18 @@
 		4E1DA09726839FAF0055D201 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		4E6D37C3267B41B000BFA77B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/marketTableViewCell.xib; sourceTree = "<group>"; };
 		4E6D37C5267B41B100BFA77B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/otherTableViewCell.xib; sourceTree = "<group>"; };
+		4E758346268442BC002EFB30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CommonPopViewC.xib; sourceTree = "<group>"; };
+		4E758349268442CA002EFB30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CommonPopViewC.strings; sourceTree = "<group>"; };
+		4E75834B268442D6002EFB30 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CommonPopViewC.strings; sourceTree = "<group>"; };
+		4E75834D2684444A002EFB30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProductDetailsViewC.xib; sourceTree = "<group>"; };
+		4E75835026844456002EFB30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProductDetailsViewC.strings; sourceTree = "<group>"; };
+		4E7583522684445A002EFB30 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ProductDetailsViewC.strings; sourceTree = "<group>"; };
+		4E75835426844F13002EFB30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BOCustomerTableViewCell.xib; sourceTree = "<group>"; };
+		4E75835726844F1F002EFB30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BOCustomerTableViewCell.strings; sourceTree = "<group>"; };
+		4E75835926844F29002EFB30 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/BOCustomerTableViewCell.strings; sourceTree = "<group>"; };
+		4E75835B26845F03002EFB30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AddInvoiceInformationTableViewCell.xib; sourceTree = "<group>"; };
+		4E75835E26845F11002EFB30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AddInvoiceInformationTableViewCell.strings; sourceTree = "<group>"; };
+		4E75836026845F1D002EFB30 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/AddInvoiceInformationTableViewCell.strings; sourceTree = "<group>"; };
 		4E790204267B359900CE9600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TwoButtonsTableViewCell.xib; sourceTree = "<group>"; };
 		4E790207267B365400CE9600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileDetailTableViewCell.xib; sourceTree = "<group>"; };
 		4E790209267B365500CE9600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileVatTableViewCell.xib; sourceTree = "<group>"; };
@@ -1918,15 +1926,15 @@
 				18C69290265527D400B7347B /* AgentDeliveryDetailViewController.swift */,
 				18C69291265527D400B7347B /* AgentDeliveryDetailViewController.xib */,
 				1840E7F3265675F4003FDFB9 /* ProductDetailsViewC.swift */,
-				1840E7F4265675F4003FDFB9 /* ProductDetailsViewC.xib */,
+				4E75834E2684444A002EFB30 /* ProductDetailsViewC.xib */,
 				1840E7FA26568D81003FDFB9 /* BOCustomerTableViewCell.swift */,
-				1840E7FB26568D81003FDFB9 /* BOCustomerTableViewCell.xib */,
+				4E75835526844F13002EFB30 /* BOCustomerTableViewCell.xib */,
 				1840E801265695AB003FDFB9 /* BusinessOwnerTableViewCell.swift */,
 				1840E802265695AB003FDFB9 /* BusinessOwnerTableViewCell.xib */,
 				18BBD7B1265A00A800C19D8F /* ProductListTableViewCell.swift */,
 				4ECE3C1D26771026009D0163 /* ProductListTableViewCell.xib */,
 				18BBD7B8265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.swift */,
-				18BBD7B9265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.xib */,
+				4E75835C26845F03002EFB30 /* AddInvoiceInformationTableViewCell.xib */,
 			);
 			path = AgentDeliveryDetails;
 			sourceTree = "<group>";
@@ -2331,7 +2339,7 @@
 			isa = PBXGroup;
 			children = (
 				4E19EB8F267A34A7003510BC /* CommonPopViewC.swift */,
-				4E19EB90267A34A7003510BC /* CommonPopViewC.xib */,
+				4E758347268442BC002EFB30 /* CommonPopViewC.xib */,
 			);
 			path = CommanPopUp;
 			sourceTree = "<group>";
@@ -4305,7 +4313,7 @@
 				F62E4AEA25148EC60021CEE0 /* popupViewController.xib in Resources */,
 				CEDD31F02576206500023977 /* SelectProductTypeTableViewCell.xib in Resources */,
 				F680D650259B7C2C007EB12C /* DataEntryFormFirstTopTableViewCell.xib in Resources */,
-				1840E7FD26568D81003FDFB9 /* BOCustomerTableViewCell.xib in Resources */,
+				4E75835326844F13002EFB30 /* BOCustomerTableViewCell.xib in Resources */,
 				F6547ABE25DE594A00171862 /* DataEntryFilterViewController.xib in Resources */,
 				2F8463E5250F6EBC0084EB32 /* LoginIntroFirst.xib in Resources */,
 				CECEF9DE2577575C0090D459 /* DescriptionTableViewCell.strings in Resources */,
@@ -4464,7 +4472,7 @@
 				CECEF9E92577575C0090D459 /* LogoTableViewCell.strings in Resources */,
 				F62E4B0125148EC60021CEE0 /* CompanyAgentBasicInformationTableViewCell.xib in Resources */,
 				CECEF9EE2577575C0090D459 /* CreateBranchFirstStepViewController.xib in Resources */,
-				4E19EB92267A34A7003510BC /* CommonPopViewC.xib in Resources */,
+				4E758345268442BC002EFB30 /* CommonPopViewC.xib in Resources */,
 				CECEF9E42577575C0090D459 /* BranchTimingTableViewCell.xib in Resources */,
 				F680D63F259B7C2C007EB12C /* DataEntryAgentRatingViewController.xib in Resources */,
 				F62E4B0925148EC60021CEE0 /* agentPersonalDetailsTableViewCell.xib in Resources */,
@@ -4493,7 +4501,7 @@
 				F62E4B0B25148EC60021CEE0 /* PersonalRegViewController.xib in Resources */,
 				F680D666259B7C2C007EB12C /* DataEntryFormViewController.xib in Resources */,
 				CECEFA4E25779E8F0090D459 /* GallerySearchCollectionViewCell.strings in Resources */,
-				1840E7F6265675F4003FDFB9 /* ProductDetailsViewC.xib in Resources */,
+				4E75834C2684444A002EFB30 /* ProductDetailsViewC.xib in Resources */,
 				CEDD31F62576206500023977 /* SelectProductTypeNewTableViewCell.xib in Resources */,
 				CECEF9F82577575C0090D459 /* HeaderBranchTableViewCell.strings in Resources */,
 				CE9CCDF7264BEDBD005AE619 /* TitleHeaderTableViewCell.xib in Resources */,
@@ -4519,7 +4527,7 @@
 				CEDD32EC25763C8E00023977 /* ProductHeader2TableViewCell.xib in Resources */,
 				2FEB12092511EC930012FE98 /* SideMenuViewController.xib in Resources */,
 				CEDD32E525763C8E00023977 /* ProductHeaderTableViewCell.xib in Resources */,
-				18BBD7BB265A0D2A00C19D8F /* AddInvoiceInformationTableViewCell.xib in Resources */,
+				4E75835A26845F03002EFB30 /* AddInvoiceInformationTableViewCell.xib in Resources */,
 				F680D67E259B7C2C007EB12C /* DataEntryListingTopTableViewCell.strings in Resources */,
 				2F8463CE250F6EBC0084EB32 /* LoginNewSecondTableViewCell.strings in Resources */,
 				CEBCD7332664A7FE001BF767 /* BankAllListViewController.xib in Resources */,
@@ -5487,6 +5495,46 @@
 				4E6D37C5267B41B100BFA77B /* Base */,
 			);
 			name = otherTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		4E758347268442BC002EFB30 /* CommonPopViewC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E758346268442BC002EFB30 /* Base */,
+				4E758349268442CA002EFB30 /* en */,
+				4E75834B268442D6002EFB30 /* ar */,
+			);
+			name = CommonPopViewC.xib;
+			sourceTree = "<group>";
+		};
+		4E75834E2684444A002EFB30 /* ProductDetailsViewC.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E75834D2684444A002EFB30 /* Base */,
+				4E75835026844456002EFB30 /* en */,
+				4E7583522684445A002EFB30 /* ar */,
+			);
+			name = ProductDetailsViewC.xib;
+			sourceTree = "<group>";
+		};
+		4E75835526844F13002EFB30 /* BOCustomerTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E75835426844F13002EFB30 /* Base */,
+				4E75835726844F1F002EFB30 /* en */,
+				4E75835926844F29002EFB30 /* ar */,
+			);
+			name = BOCustomerTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		4E75835C26845F03002EFB30 /* AddInvoiceInformationTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E75835B26845F03002EFB30 /* Base */,
+				4E75835E26845F11002EFB30 /* en */,
+				4E75836026845F1D002EFB30 /* ar */,
+			);
+			name = AddInvoiceInformationTableViewCell.xib;
 			sourceTree = "<group>";
 		};
 		4E790203267B359900CE9600 /* TwoButtonsTableViewCell.xib */ = {

@@ -20,7 +20,6 @@ class DataEntryAgentRatingViewController: UIViewController {
     @IBOutlet weak var agentNameLbl: UILabel!
     @IBOutlet weak var agentLanguageLbl: UILabel!
     @IBOutlet weak var staticTxtLbl: UILabel!
-    
     @IBOutlet weak var ratingView: CosmosView!
     var dataEntryApiMnagagerModal = DataEntryApiManager()
     var ratingval = 0.0
@@ -34,9 +33,13 @@ class DataEntryAgentRatingViewController: UIViewController {
     var agentName:String = ""
     var agentLanguage:String = ""
     var agentProfilePic:String = "" 
+
+    
     var CustProfilePic:String = ""
     var BoProfilePic:String = ""
     var usertype:String = ""
+  
+
     override func viewDidLoad() {
         super.viewDidLoad()
         submit.isHidden = true
@@ -57,7 +60,6 @@ class DataEntryAgentRatingViewController: UIViewController {
         self.agentProfileImageView.sd_setImage(with: URL(string:(agentProfilePic)), placeholderImage: UIImage(named: "agent_indivdual.png"))
         self.agentNameLbl.text = self.agentName
         self.agentLanguageLbl.text = self.agentLanguage
-        
         let staticText = "How was your experience with".localized
         
         self.staticTxtLbl.text = "\(staticText) \(agentName)"
@@ -96,20 +98,21 @@ class DataEntryAgentRatingViewController: UIViewController {
     }
 
     func SetFont() {
-            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-            
-            self.agentNameLbl.font = UIFont(name:"\(fontNameLight)",size:16)
+        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        
+        self.agentNameLbl.font = UIFont(name:"\(fontNameLight)",size:16)
         self.agentLanguageLbl.font = UIFont(name:"\(fontNameLight)",size:12)
         self.staticTxtLbl.font = UIFont(name:"\(fontNameLight)",size:16)
-           
-        }
+        
+    }
 
-   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-           let touch = touches.first
-           if touch?.view == self.view {
-               dismiss(animated: true, completion: nil)
-           }
-       }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first
+        if touch?.view == self.view {
+            dismiss(animated: true, completion: nil)
+        }
+    }
 
     @IBAction func submitClicked(_ sender: Any) {
         self.ratingserviceAPI(rating: self.ratingval)
@@ -156,6 +159,7 @@ class DataEntryAgentRatingViewController: UIViewController {
         
         dataEntryApiMnagagerModal.giveRatingToAgent(serviceID: self.serviceID,AgentID: self.agentID, rating: ModalController.toString(rating as Any)  ) { (success, response) in
             ModalClass.stopLoading()
+            
             if success{
                 if let value = (response?.object(forKey: "error_description") as? String) {
                     ModalController.showSuccessCustomAlertWith(title: "", msg: value)
@@ -170,6 +174,4 @@ class DataEntryAgentRatingViewController: UIViewController {
             }
         }
     }
-    
-    
 }

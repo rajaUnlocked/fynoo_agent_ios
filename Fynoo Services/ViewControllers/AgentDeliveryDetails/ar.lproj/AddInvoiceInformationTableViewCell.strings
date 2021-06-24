@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "Total Amount With VAT"; ObjectID = "98J-kQ-jJd"; */
+"98J-kQ-jJd.text" = "المبلغ الإجمالي شامل ضريبة القيمة المضافة";
+
+/* Class = "UILabel"; text = "Upload Invoice"; ObjectID = "Ksh-xP-sq5"; */
+"Ksh-xP-sq5.text" = "أرفق الفاتورة";
+
+/* Class = "UILabel"; text = "SAR"; ObjectID = "LB0-pa-pjM"; */
+"LB0-pa-pjM.text" = "SAR";
+
+/* Class = "UILabel"; text = "Almost Total Amount"; ObjectID = "NQW-6M-FmF"; */
+"NQW-6M-FmF.text" = "المبلغ الإجمالي التقريبي";
+
+/* Class = "UILabel"; text = "SAR"; ObjectID = "PNj-tB-aD4"; */
+"PNj-tB-aD4.text" = "SAR";
+
+/* Class = "UILabel"; text = "SAR 2812.0"; ObjectID = "XGB-44-bln"; */
+"XGB-44-bln.text" = "SAR 2812.0";
+
+/* Class = "UILabel"; text = "SAR"; ObjectID = "XMN-zd-2sG"; */
+"XMN-zd-2sG.text" = "SAR";
+
+/* Class = "UILabel"; text = "VAT Amount"; ObjectID = "eN8-Im-ZNE"; */
+"eN8-Im-ZNE.text" = "ضريبة القيمة المضافة";
+
+/* Class = "UILabel"; text = "Total Amount Without VAT"; ObjectID = "ndP-Db-lKM"; */
+"ndP-Db-lKM.text" = "المبلغ الإجمالي بدون الضريبة";
+
+/* Class = "UILabel"; text = "Add invoice information"; ObjectID = "vVf-YU-GQo"; */
+"vVf-YU-GQo.text" = "أضف تفاصيل الفاتورة";

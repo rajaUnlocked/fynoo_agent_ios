@@ -402,7 +402,6 @@ extension DataEntryFormViewController : UITableViewDataSource {
         return cell
     }
     
-    
     func dataEntryPriceCell(index : IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DataEntryPricePayTableViewCell", for: index) as! DataEntryPricePayTableViewCell
         cell.selectionStyle = .none

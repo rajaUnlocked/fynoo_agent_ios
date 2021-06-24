@@ -40,7 +40,7 @@ class CommonPopupViewController: UIViewController {
     func setUI() {
         if isRemove
         {
-            self.titleLbl.text = "Do you want to delete this file? "
+            self.titleLbl.text = "Do you want to delete this file? ".localized
             self.popupBG.image = UIImage(named: "blank_service_popup")
             self.serviceImg.isHidden = false
             self.serviceImg.image = UIImage(named: "delete_grey")
