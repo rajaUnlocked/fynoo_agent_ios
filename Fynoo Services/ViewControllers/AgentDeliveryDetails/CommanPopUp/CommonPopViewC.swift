@@ -13,7 +13,7 @@ class CommonPopViewC: UIViewController {
     @IBOutlet weak var containter: UIView!
     @IBOutlet weak var lblNotes: UILabel!{
         didSet {
-            lblNotes.font =  UIFont.getFont(style: .regular, size: .size10)
+            lblNotes.font = UIFont.getFont(style: .regular, size: .size10)
             lblNotes.textColor = UIColor.AppThemeBlackTextColor()
         }
     }

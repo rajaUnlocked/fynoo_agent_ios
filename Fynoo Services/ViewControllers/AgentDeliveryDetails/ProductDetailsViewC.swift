@@ -14,7 +14,7 @@ import MessageUI
 
 class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProductDelegate,AddInvoiceInformationDelegate, OpenGalleryDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,DECancellationReasonViewControllerDelegate,AgentServiceListDelegate,MFMessageComposeViewControllerDelegate {
     
-
+   
     
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
@@ -83,7 +83,8 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     func reloadPage() {
         getOrderDetail()
     }
-        
+    
+    
     
     func callClicked(_ sender: Any) {
         guard let phoneNumber = self.orderDetailData?.data?.cust_mob_no else { return}
@@ -122,6 +123,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         vc.tripId = tripId
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
     
     func selectedCancelReason(reasonID: String) {
         print(reasonID)
@@ -655,7 +657,8 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             cell.txtTotalAmtWithoughtVat.text = "\(orderDetailData?.data?.total_amount_without_vat ?? 0)"
             cell.txtVatAmt.text = "\(orderDetailData?.data?.vat_amount ?? 0)"
             cell.txtTotalAmountWithVat.text = "\(orderDetailData?.data?.total_amount_with_vat ?? 0)"
-        }        
+        }
+        
         
         return cell
     }

@@ -8,7 +8,8 @@
 
 import UIKit
 import ObjectMapper
-class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,OtpTableViewCellDelegate, InformationTableViewCellDelegate {
+import MessageUI
+class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,OtpTableViewCellDelegate, InformationTableViewCellDelegate, AgentServiceListDelegate,MFMessageComposeViewControllerDelegate {
    
     
     @IBOutlet weak var headerView: NavigationView!
@@ -22,6 +23,7 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
 //    var reasonListData : reasonlistData?
 //    var itemListArray:[Item_detail]?
     var orderId : String = ""
+    var tripId = 0
     var txt1 = ""
     var txt2 = ""
     var txt3 = ""
@@ -83,6 +85,46 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
         let vc = ViewInvoiceViewController()
         
     vc.imgurl = onTheWayTripDetailData?.data?.trip_details?.invoice_image ?? ""
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    
+    func callClicked(_ sender: Any) {
+        guard let phoneNumber = self.onTheWayTripDetailData?.data?.trip_details?.cust_mobile else { return}
+        guard let number = URL(string: "tel://" + phoneNumber) else { return }
+        UIApplication.shared.open(number)
+    }
+    
+    func messageClicked(_ sender: Any) {
+        if (MFMessageComposeViewController.canSendText()) {
+         guard let phoneNumber = self.onTheWayTripDetailData?.data?.trip_details?.cust_mobile else { return}
+            let controller = MFMessageComposeViewController()
+            controller.body = ""
+            controller.recipients = [phoneNumber]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+        }
+     }
+   func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+       switch (result.rawValue) {
+           case MessageComposeResult.cancelled.rawValue:
+           print("Message was cancelled")
+           self.dismiss(animated: true, completion: nil)
+       case MessageComposeResult.failed.rawValue:
+           print("Message failed")
+           self.dismiss(animated: true, completion: nil)
+       case MessageComposeResult.sent.rawValue:
+           print("Message was sent")
+           self.dismiss(animated: true, completion: nil)
+       default:
+           break;
+       }
+   }
+    
+    func navigationClicked(_ sender: Any) {
+        let vc = AgentDeliveryDetailViewController()
+        vc.tripId = tripId
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -452,6 +494,7 @@ extension OtpForCodViewC : UITableViewDataSource {
         
             let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessOwnerTableViewCell",for: indexPath) as! BusinessOwnerTableViewCell
             cell.selectionStyle = .none
+                    cell.delegate = self
           
                     cell.lblBoName.text = onTheWayTripDetailData?.data?.trip_details?.cust_name ?? ""
                     cell.lblBoAddress.text = onTheWayTripDetailData?.data?.trip_details?.address ?? ""
