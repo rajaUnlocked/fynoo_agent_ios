@@ -512,6 +512,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             if (tripListListArray?[indexPath.row].status) == 1  {
                 let vc = OtpForCodViewC()
                 vc.orderId = tripListListArray?[indexPath.row].order_id ?? ""
+                vc.tripId = tripListListArray?[indexPath.row].id ?? 0
                 self.navigationController?.pushViewController(vc, animated: true)
             }else
             {
