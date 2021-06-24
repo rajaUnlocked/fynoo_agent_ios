@@ -130,7 +130,6 @@
 		4E19EB85267A15EF003510BC /* OrderSuccessViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E19EB83267A15EF003510BC /* OrderSuccessViewC.swift */; };
 		4E19EB87267A1909003510BC /* OrderSuccessViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E19EB89267A1909003510BC /* OrderSuccessViewC.xib */; };
 		4E19EB91267A34A7003510BC /* CommonPopViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E19EB8F267A34A7003510BC /* CommonPopViewC.swift */; };
-		4E19EB92267A34A7003510BC /* CommonPopViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E19EB90267A34A7003510BC /* CommonPopViewC.xib */; };
 		4E1DA080268338760055D201 /* AgentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1DA07F268338760055D201 /* AgentModel.swift */; };
 		4E1DA083268342520055D201 /* ViewInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1DA081268342520055D201 /* ViewInvoiceViewController.swift */; };
 		4E1DA084268342520055D201 /* ViewInvoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E1DA082268342520055D201 /* ViewInvoiceViewController.xib */; };
@@ -626,7 +625,6 @@
 		EE3CE51536AFB35441D433CC /* Pods_Fynoo_ServicesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37BC6070EBDE8A55FC4A7E83 /* Pods_Fynoo_ServicesTests.framework */; };
 		F415E772250A221900DEF755 /* ProfileModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F415E771250A221900DEF755 /* ProfileModal.swift */; };
 		F438605325230BF200DE0BED /* AddAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438605125230BF200DE0BED /* AddAmountViewController.swift */; };
-		F438605425230BF200DE0BED /* AddAmountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438605225230BF200DE0BED /* AddAmountViewController.xib */; };
 		F44E35B1251C72C6002E41E2 /* AgentServiceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44E35AF251C72C6002E41E2 /* AgentServiceList.swift */; };
 		F44E35B2251C72C6002E41E2 /* AgentServiceList.xib in Resources */ = {isa = PBXBuildFile; fileRef = F44E35B0251C72C6002E41E2 /* AgentServiceList.xib */; };
 		F44E35B4251CACB3002E41E2 /* DataBankHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44E35B3251CACB3002E41E2 /* DataBankHeader.swift */; };
@@ -695,6 +693,8 @@
 		F635979925C66DFD003BF9E2 /* TripAchivementCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F635979725C66DFD003BF9E2 /* TripAchivementCollectionViewCell.xib */; };
 		F635979C25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F635979A25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.swift */; };
 		F635979D25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F635979B25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.xib */; };
+		F6480511268429E700AE49AE /* AddAmountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F648050F268429E600AE49AE /* AddAmountViewController.xib */; };
+		F648051926842B7700AE49AE /* CommonPopViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F648051826842B7700AE49AE /* CommonPopViewC.xib */; };
 		F64B439425220A5700B9C8CB /* IbanLengthModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64B439325220A5700B9C8CB /* IbanLengthModal.swift */; };
 		F64D5FBC2524400E003DE670 /* CompanyRegViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F64D5FBE2524400E003DE670 /* CompanyRegViewController.xib */; };
 		F64D5FC325244491003DE670 /* CompanyRegTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F64D5FC525244491003DE670 /* CompanyRegTableViewCell.xib */; };
@@ -995,7 +995,6 @@
 		4E19EB8B267A190D003510BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrderSuccessViewC.strings; sourceTree = "<group>"; };
 		4E19EB8D267A1910003510BC /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/OrderSuccessViewC.strings; sourceTree = "<group>"; };
 		4E19EB8F267A34A7003510BC /* CommonPopViewC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPopViewC.swift; sourceTree = "<group>"; };
-		4E19EB90267A34A7003510BC /* CommonPopViewC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonPopViewC.xib; sourceTree = "<group>"; };
 		4E1DA07F268338760055D201 /* AgentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentModel.swift; sourceTree = "<group>"; };
 		4E1DA081268342520055D201 /* ViewInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInvoiceViewController.swift; sourceTree = "<group>"; };
 		4E1DA082268342520055D201 /* ViewInvoiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewInvoiceViewController.xib; sourceTree = "<group>"; };
@@ -1576,7 +1575,6 @@
 		D34F4201751D8F2C6FB8501B /* Pods_Fynoo_Services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_Services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F415E771250A221900DEF755 /* ProfileModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModal.swift; sourceTree = "<group>"; };
 		F438605125230BF200DE0BED /* AddAmountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAmountViewController.swift; sourceTree = "<group>"; };
-		F438605225230BF200DE0BED /* AddAmountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAmountViewController.xib; sourceTree = "<group>"; };
 		F44E35AF251C72C6002E41E2 /* AgentServiceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentServiceList.swift; sourceTree = "<group>"; };
 		F44E35B0251C72C6002E41E2 /* AgentServiceList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentServiceList.xib; sourceTree = "<group>"; };
 		F44E35B3251CACB3002E41E2 /* DataBankHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBankHeader.swift; sourceTree = "<group>"; };
@@ -1654,6 +1652,8 @@
 		F635979B25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryDashboardHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		F647705325187CFB00ED2BD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
 		F647705525187CFF00ED2BD0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CompanyAgentVatDetailTableViewCell.strings; sourceTree = "<group>"; };
+		F6480510268429E600AE49AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AddAmountViewController.xib; sourceTree = "<group>"; };
+		F648051826842B7700AE49AE /* CommonPopViewC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonPopViewC.xib; sourceTree = "<group>"; };
 		F64B439325220A5700B9C8CB /* IbanLengthModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanLengthModal.swift; sourceTree = "<group>"; };
 		F64D5FBD2524400E003DE670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CompanyRegViewController.xib; sourceTree = "<group>"; };
 		F64D5FC025244011003DE670 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CompanyRegViewController.strings; sourceTree = "<group>"; };
@@ -2330,8 +2330,8 @@
 		4E19EB8E267A341C003510BC /* CommanPopUp */ = {
 			isa = PBXGroup;
 			children = (
+				F648051826842B7700AE49AE /* CommonPopViewC.xib */,
 				4E19EB8F267A34A7003510BC /* CommonPopViewC.swift */,
-				4E19EB90267A34A7003510BC /* CommonPopViewC.xib */,
 			);
 			path = CommanPopUp;
 			sourceTree = "<group>";
@@ -3396,8 +3396,8 @@
 		F438605025230BB800DE0BED /* PopupAmount */ = {
 			isa = PBXGroup;
 			children = (
+				F648050F268429E600AE49AE /* AddAmountViewController.xib */,
 				F438605125230BF200DE0BED /* AddAmountViewController.swift */,
-				F438605225230BF200DE0BED /* AddAmountViewController.xib */,
 			);
 			path = PopupAmount;
 			sourceTree = "<group>";
@@ -4238,7 +4238,6 @@
 				CECEF9DB2577575C0090D459 /* CreateBranchFirstStepViewController.strings in Resources */,
 				2F846429250F82850084EB32 /* SuccesssViewController.strings in Resources */,
 				F680D637259B7C2C007EB12C /* DEInprogressOrderInformationSecondTableViewCell.xib in Resources */,
-				F438605425230BF200DE0BED /* AddAmountViewController.xib in Resources */,
 				F680D62D259B7C2C007EB12C /* DataEntryWorkConfirmationPopUpViewController.xib in Resources */,
 				F680D629259B7C2C007EB12C /* DataEntryDetailViewController.xib in Resources */,
 				CE9CCD59264BAA14005AE619 /* ProductVariantDetailTableViewCell.xib in Resources */,
@@ -4424,6 +4423,7 @@
 				CEE35797250740800097069D /* Roboto-Italic.ttf in Resources */,
 				18C69293265527D400B7347B /* AgentDeliveryDetailViewController.xib in Resources */,
 				CEDD334E25765DD000023977 /* spacingTableViewCell.xib in Resources */,
+				F6480511268429E700AE49AE /* AddAmountViewController.xib in Resources */,
 				4E9491852674C0020061A774 /* PopUpAcceptProductViewController.xib in Resources */,
 				2FEB12112511F0010012FE98 /* UnderDevelopmentViewController.xib in Resources */,
 				CEDD330A25765A7400023977 /* ScannerNewViewController.xib in Resources */,
@@ -4463,8 +4463,8 @@
 				F680D681259B7C2C007EB12C /* CompleteDataEntryListTableViewCell.xib in Resources */,
 				CECEF9E92577575C0090D459 /* LogoTableViewCell.strings in Resources */,
 				F62E4B0125148EC60021CEE0 /* CompanyAgentBasicInformationTableViewCell.xib in Resources */,
+				F648051926842B7700AE49AE /* CommonPopViewC.xib in Resources */,
 				CECEF9EE2577575C0090D459 /* CreateBranchFirstStepViewController.xib in Resources */,
-				4E19EB92267A34A7003510BC /* CommonPopViewC.xib in Resources */,
 				CECEF9E42577575C0090D459 /* BranchTimingTableViewCell.xib in Resources */,
 				F680D63F259B7C2C007EB12C /* DataEntryAgentRatingViewController.xib in Resources */,
 				F62E4B0925148EC60021CEE0 /* agentPersonalDetailsTableViewCell.xib in Resources */,
@@ -6706,6 +6706,14 @@
 				F62E4AE425148EC60021CEE0 /* Base */,
 			);
 			name = agentPersonalDetailsTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F648050F268429E600AE49AE /* AddAmountViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6480510268429E600AE49AE /* Base */,
+			);
+			name = AddAmountViewController.xib;
 			sourceTree = "<group>";
 		};
 		F64D5FBE2524400E003DE670 /* CompanyRegViewController.xib */ = {

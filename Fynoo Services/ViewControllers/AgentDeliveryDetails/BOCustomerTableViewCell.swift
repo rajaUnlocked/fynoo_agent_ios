@@ -35,9 +35,8 @@ class BOCustomerTableViewCell: UITableViewCell {
     @IBOutlet weak var lblStAlmosttoalPrice: UILabel!
     
     @IBOutlet weak var viewForHideExpectedDelivery: NSLayoutConstraint!
-    
     @IBOutlet weak var btnNavWidth: NSLayoutConstraint!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

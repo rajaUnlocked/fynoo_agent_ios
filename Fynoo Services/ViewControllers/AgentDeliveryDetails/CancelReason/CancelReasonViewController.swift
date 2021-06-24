@@ -54,8 +54,7 @@ class CancelReasonViewController: UIViewController, CancelReasonViewCellDelegate
                
         self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
         self.submitBtn.titleLabel!.font = UIFont(name:"\(fontNameLight)",size:16)
-              
-           }
+}
            @objc func closePopUp(_ sender : UIButton){
                  dismiss(animated: true, completion: nil)
              }
@@ -70,13 +69,31 @@ class CancelReasonViewController: UIViewController, CancelReasonViewCellDelegate
                 self.navigationController?.popViewController(animated: true)
                 
             }else{
-                ModalController.showNegativeCustomAlertWith(title: "", msg: "Please select one Reason...".localized)
+
+                ModalController.showNegativeCustomAlertWith(title: "", msg: "Please select one Reason...")
                 return
                 
             }
         }
         
 
+//        func getRejectReasonAPI() {
+//
+//            apiManagerModal.dataEntryCancelReason { (success, response) in
+//                ModalClass.stopLoading()
+//                if success{
+//                    self.rejectReasonList = response
+//
+//                    let count = self.rejectReasonList?.data?.reason_list?.count ?? 0
+//                    let height = CGFloat(count*35) + 100
+//                      self.contentSizeInPopup = CGSize(width: UIScreen.main.bounds.width, height:height)
+//
+//                    self.tableView.reloadData()
+//                }else{
+//                    ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.rejectReasonList?.error_description ?? "")")
+//                }
+//            }
+//        }
         func selectedReason(_ sender: Any) {
             
         }

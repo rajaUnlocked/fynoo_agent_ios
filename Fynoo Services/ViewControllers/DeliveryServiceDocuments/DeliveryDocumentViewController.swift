@@ -335,9 +335,15 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     {
                         let imageUrl = URL(string: self.imgArr[i])!
 
-                        let imageData = try! Data(contentsOf: imageUrl)
+                        do {
+                            let imageData = try Data(contentsOf: imageUrl)
+                            self.imglocalArr[i] = UIImage(data: imageData)
+                        }
+                        catch{
+                            self.imglocalArr[i] = nil
+                        }
 
-                        self.imglocalArr[i] = UIImage(data: imageData)
+                       
                     }
                     else
                     {
@@ -906,9 +912,13 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     {
                         let imageUrl = URL(string: self.imgArr[i])!
 
-                        let imageData = try! Data(contentsOf: imageUrl)
-
-                        self.imglocalArr[i] = UIImage(data: imageData)
+                        do {
+                            let imageData = try Data(contentsOf: imageUrl)
+                            self.imglocalArr[i] = UIImage(data: imageData)
+                        }
+                        catch{
+                            self.imglocalArr[i] = nil
+                        }
                     }
                     else
                     {
@@ -966,7 +976,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         vc.isproduct = true
         vc.iswarning = true
         vc.index = sender.tag
-        vc.nameAr =  ["Device Gallery","Document"]
+        vc.nameAr =  ["Device Gallery".localized,"Document".localized]
         vc.imgAr  = ["galery_Picture","dataEntryService"]
         let popupController = MTPopupController(rootViewController: vc)
         popupController.autoAdjustKeyboardEvent = false
@@ -990,7 +1000,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
     func doc_headerCell(index:IndexPath) ->UITableViewCell
     {
         let cell = tabvw.dequeueReusableCell(withIdentifier: "DocHeaderTableViewCell", for: index) as! DocHeaderTableViewCell
-        cell.arrow.image = UIImage(named: "rightArrow_dash")
+        cell.arrow.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"rightArrow_dash")!)
         cell.headerlbl.text = headerarr[index.section - 1].localized
         if SelectedIndex.contains(index.section)
         {
@@ -1023,6 +1033,8 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             cell.downarrow.isHidden = true
             cell.txt.keyboardType = .asciiCapableNumberPad
         }
+        
+        
         if index.row == 8
         {
          cell.txt.isUserInteractionEnabled = true

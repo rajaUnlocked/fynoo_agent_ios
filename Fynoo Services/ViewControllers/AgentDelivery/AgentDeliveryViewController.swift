@@ -197,10 +197,14 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         
         print("request:-", param)
         print("Url:-", Service.tripList)
-        
+        if currentPageNumber == 0
+        {
+        ModalClass.startLoading(self.view)
+        }
         ServerCalls.postRequest(Service.tripList, withParameters: param) { (response, success) in
             if success{
                 //   print(response)
+                ModalClass.stopLoading()
                 if let body = response as? [String: Any] {
                     self.tripList  = Mapper<TripListInfo>().map(JSON: body)
                     if self.currentPageNumber == 0 {
