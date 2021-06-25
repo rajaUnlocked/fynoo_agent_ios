@@ -273,6 +273,7 @@ enum Service {
     static let agentDeclineRequest = Constant.BASE_URL + "shared_economy/agent/request_decline/"
     
     static let agentCancelOrder = Constant.BASE_URL + "shared_economy/agent/agent_cancel_order/"
+    static let agentSetLatLong = Constant.BASE_URL + "shared_economy/agent/set_lat_long/"
     
     
 }

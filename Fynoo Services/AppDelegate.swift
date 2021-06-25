@@ -16,6 +16,11 @@ import FirebaseInstanceID
 import FirebaseMessaging
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
+    var latitudeStr = Double()
+    var longitudeStr = Double()
+    var locationManager: CLLocationManager!
 //    var agentSignUPModal = AgentSignUPModal()
 //     var personalAgentSignUPModal = PersonalAgentSignUPModal()
      var selectServiceStr:String = ""
@@ -55,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         Messaging.messaging().isAutoInitEnabled = true
         application.registerForRemoteNotifications()
-
+        determineMyCurrentLocation()
         return true
     }
     
@@ -220,4 +225,50 @@ extension AppDelegate : MessagingDelegate {
     // [END ios_10_data_message]
 }
 
+
+extension AppDelegate: CLLocationManagerDelegate {
+    
+    func determineMyCurrentLocation() {
+        if CLLocationManager.locationServicesEnabled() {
+            switch(CLLocationManager.authorizationStatus()) {
+            case .notDetermined, .restricted, .denied:
+                print("No access")
+             //   Utility.alertContoller(title: "Alert!", message: "Please Turn On Gps and Refresh the Application.", actionTitleFirst: "Ok", actionTitleSecond: "", actionTitleThird: "", firstActoin: nil, secondActoin: nil, thirdActoin: nil, controller: self)
+                
+            case .authorizedAlways, .authorizedWhenInUse:
+                print("Access")
+                locationManager = CLLocationManager()
+                locationManager.delegate = self
+                locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                locationManager.requestWhenInUseAuthorization()
+                locationManager.requestAlwaysAuthorization()
+                locationManager.allowsBackgroundLocationUpdates = true
+                locationManager.pausesLocationUpdatesAutomatically = false
+                locationManager.showsBackgroundLocationIndicator = true
+                locationManager.startUpdatingLocation()
+                
+            }
+        } else {
+            print("Location services are not enabled")
+        }
+        
+        
+    }
+
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+       
+            guard let location: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+            // set the value of lat and long
+            let latitude = location.latitude
+            let longitude = location.longitude
+            latitudeStr = Double(latitude)
+            longitudeStr = Double(longitude)
+            print(latitudeStr)
+            print(longitudeStr)
+            
+        
+    }
+   
+}
 

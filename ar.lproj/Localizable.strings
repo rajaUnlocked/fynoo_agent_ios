@@ -295,10 +295,6 @@
 "Retail" = "بالتجزئة";
 "Wholesale" = "بالجملة";
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 04d9fd5b17fd3b4dd97cff4329b953d2658fe39a
 //new
 "Tap to accept" = "قبول";
 "Branch List" = "قائمة الفروع";
@@ -1234,13 +1230,13 @@
 //"Order Information" = "معلومات الطلب"
 //"Invoice Copy" = "Invoice Copy"
 //"Confirm Delivery" = "تأكيد التسليم"
-<<<<<<< HEAD
+
 "Please Enter Otp" =  "الرجاء إدخال رمز التحقق"
 "Please Check COD Amount For Customer" = "Please Check COD Amount For Customer"
 "Please add invoice file" = "Please add invoice file"
 "Are you sure want to accept?" = ""
 "View Images" = "استعراض الصورة"
-=======
+
 "Please Enter Otp" =  "الرجاء إدخال رمز التحقق";
 "Please Check COD Amount For Customer" = "Please Check COD Amount For Customer";
 "Please add invoice file" = "Please add invoice file";
@@ -1253,5 +1249,3 @@
 "Weight:" = "الوزن:";
 "Size:" = "الحجم:";
 
-
->>>>>>> 04d9fd5b17fd3b4dd97cff4329b953d2658fe39a

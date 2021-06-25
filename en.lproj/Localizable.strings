@@ -1198,12 +1198,12 @@
 //"Order Information" = "Order Information"
 //"Invoices Copy" = "Invoices Copy"
 //"Confirm Delivery" = "Confirm Delivery"
-<<<<<<< HEAD
+
 "Please Enter Otp" = "Please Enter Otp"
 "Please Check COD Amount For Customer" = "Please Check COD Amount For Customer"
 "Please add invoice file" = "Please add invoice file"
 "View Images" = "View Images"
-=======
+
 "Please Enter Otp" = "Please Enter Otp";
 "Please Check COD Amount For Customer" = "Please Check COD Amount For Customer";
 "Please add invoice file" = "Please add invoice file";
@@ -1218,4 +1218,3 @@
 "Items price (Almost)" = "Items price (Almost)";
 "Delivered" = "Delivered";
 "Cancel Request Received" = "Cancel Request Received";
->>>>>>> 04d9fd5b17fd3b4dd97cff4329b953d2658fe39a
