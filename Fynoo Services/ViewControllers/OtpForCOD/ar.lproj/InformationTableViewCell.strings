@@ -15,7 +15,7 @@
 "gdY-4Z-obR.text" = "wed 32,4020";
 
 /* Class = "UILabel"; text = "Invoice Copy"; ObjectID = "ge5-ev-j1Y"; */
-"ge5-ev-j1Y.text" = "Invoice Copy";
+"ge5-ev-j1Y.text" = "الإيصال";
 
 /* Class = "UILabel"; text = "buyer information"; ObjectID = "jVM-Dg-IjX"; */
 "jVM-Dg-IjX.text" = "معلومات البائع";

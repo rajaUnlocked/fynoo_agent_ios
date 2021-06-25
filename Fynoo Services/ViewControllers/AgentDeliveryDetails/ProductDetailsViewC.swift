@@ -52,7 +52,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         tableView.dataSource=self
         
         self.headerHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-        self.headerView.titleHeader.text = "Product Details"
+        self.headerView.titleHeader.text = "Product Details".localized
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
         SetFont()
@@ -232,6 +232,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
                     vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
                     
                     vc.reasonListData =  self.reasonListData
+                    
                     vc.lblProductQty.text = "Item Qty: \(orderDetailData?.data?.item_detail? [selectedTag].qty ?? 0)"
                     vc.lblProductName.text = "Item Qty: \(orderDetailData?.data?.item_detail? [selectedTag].pro_name ?? "")"
 
@@ -926,9 +927,13 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.btnReduceQuantity.titleLabel?.textColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
                     }
                     
-                    cell.lblQty.text = "Item Qty: \(orderDetailData?.data?.item_detail? [indexPath.row].qty ?? 0)"
+                    
+                    let ItemQty = "Item Qty".localized
+                    
+                    cell.lblQty.text = "\(ItemQty): \(orderDetailData?.data?.item_detail? [indexPath.row].qty ?? 0)"
                     cell.lblAddress.text = orderDetailData?.data?.item_detail? [indexPath.row].pro_name ?? ""
-                    cell.lblPriceAlmost.text = "Item Price (Almost):  \(orderDetailData?.data?.item_detail? [indexPath.row].price ?? 0)"
+                    let Items_price_Almost = "Items price (Almost)".localized
+                    cell.lblPriceAlmost.text = "\(Items_price_Almost):  \(orderDetailData?.data?.item_detail? [indexPath.row].price ?? 0)"
                     
                     cell.imgProduct.sd_setImage(with: URL(string: orderDetailData?.data?.item_detail?[indexPath.row].product_pic ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
                     
