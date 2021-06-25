@@ -33,6 +33,7 @@ class DataEntryAgentRatingViewController: UIViewController {
     var agentName:String = ""
     var agentLanguage:String = ""
     var agentProfilePic:String = "" 
+
     
     var CustProfilePic:String = ""
     var BoProfilePic:String = ""

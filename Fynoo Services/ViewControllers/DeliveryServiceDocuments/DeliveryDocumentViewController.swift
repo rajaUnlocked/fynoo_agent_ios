@@ -1498,7 +1498,6 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         }
         
     }
-    
 }
 
 

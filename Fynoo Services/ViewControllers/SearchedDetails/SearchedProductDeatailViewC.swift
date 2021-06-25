@@ -299,7 +299,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         
         let vc = PopUpAcceptProductViewController(nibName: "PopUpAcceptProductViewController", bundle: nil)
         vc.delegateDecline = self
-        vc.titleLabel = "Are you sure want to decline?"
+        vc.titleLabel = "Are you sure want to decline?".localized
         vc.modalPresentationStyle = .overFullScreen
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         self.present(vc, animated: true, completion: nil)

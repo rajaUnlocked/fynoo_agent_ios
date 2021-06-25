@@ -1,0 +1,54 @@
+
+/* Class = "UILabel"; text = "Address: Plot No. B-3, B Block Sector-6, Noida,Utter Pradesh, India 201301"; ObjectID = "6DI-hb-gXj"; */
+"6DI-hb-gXj.text" = "Address: Plot No. B-3, B Block Sector-6, Noida,Utter Pradesh, India 201301";
+
+/* Class = "UILabel"; text = "2"; ObjectID = "Cyy-kI-aTF"; */
+"Cyy-kI-aTF.text" = "2";
+
+/* Class = "UILabel"; text = "Almost Total Price"; ObjectID = "ECH-2c-Uyq"; */
+"ECH-2c-Uyq.text" = "المبلغ الإجمالي (تقريبي)";
+
+/* Class = "UILabel"; text = "Order Id: 9876543214"; ObjectID = "Kz6-Sf-WyJ"; */
+"Kz6-Sf-WyJ.text" = "Order Id: 9876543214";
+
+/* Class = "UILabel"; text = "Expected Delivery Time : "; ObjectID = "LIX-XB-qv1"; */
+"LIX-XB-qv1.text" = "الوقت المتوقع للتوصيل:";
+
+/* Class = "UILabel"; text = "20 Hours"; ObjectID = "MmL-xt-yOU"; */
+"MmL-xt-yOU.text" = "20 Hours";
+
+/* Class = "UILabel"; text = "2"; ObjectID = "OJy-hh-bio"; */
+"OJy-hh-bio.text" = "2";
+
+/* Class = "UILabel"; text = "/"; ObjectID = "PXT-se-5So"; */
+"PXT-se-5So.text" = "/";
+
+/* Class = "UILabel"; text = "66666"; ObjectID = "UJJ-jp-bvA"; */
+"UJJ-jp-bvA.text" = "66666";
+
+/* Class = "UILabel"; text = "(17.2k)"; ObjectID = "XlN-xp-sFg"; */
+"XlN-xp-sFg.text" = "(17.2k)";
+
+/* Class = "UILabel"; text = "03"; ObjectID = "ZaE-4z-Pbo"; */
+"ZaE-4z-Pbo.text" = "03";
+
+/* Class = "UILabel"; text = "-----------------------------------------------------------------------------------------"; ObjectID = "agV-12-JJB"; */
+"agV-12-JJB.text" = "-----------------------------------------------------------------------------------------";
+
+/* Class = "UILabel"; text = "-----------------------------------------------------------------------------------------"; ObjectID = "c7p-hj-qic"; */
+"c7p-hj-qic.text" = "-----------------------------------------------------------------------------------------";
+
+/* Class = "UILabel"; text = "wed 32,4020"; ObjectID = "cE6-Wd-QaT"; */
+"cE6-Wd-QaT.text" = "wed 32,4020";
+
+/* Class = "UILabel"; text = "Item Details"; ObjectID = "kOm-iz-bn1"; */
+"kOm-iz-bn1.text" = "تفاصيل المنتج";
+
+/* Class = "UILabel"; text = "3.5"; ObjectID = "mRy-YM-7Hl"; */
+"mRy-YM-7Hl.text" = "3.5";
+
+/* Class = "UILabel"; text = "Abdullah Al Haddad"; ObjectID = "oQo-Bz-P4U"; */
+"oQo-Bz-P4U.text" = "Abdullah Al Haddad";
+
+/* Class = "UILabel"; text = "SAR"; ObjectID = "yzz-t8-TOu"; */
+"yzz-t8-TOu.text" = "SAR";

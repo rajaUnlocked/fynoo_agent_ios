@@ -280,6 +280,11 @@
 "payment_status_alert_failed"        = "فشل عملية الدفع";
 
 /////////////////////////             TAP PAYMENT
+"Product Details" = "تفاصيل المنتج";
+"Item Qty" = "كمية المنتج";
+"Items price (Almost)" = "سعر المنتجات (تقريبي)";
+"Delivered" = "تم التوصيل";
+"Cancel Request Received" = "Cancel Request Received";
 "Date Created"="تاريخ الإضافة";
 "Available Quantity"="الكمية المتوفرة";
 "Date Updated"="تاريخ التحديث";
@@ -289,7 +294,6 @@
 "More Details" = "المزيد";
 "Retail" = "بالتجزئة";
 "Wholesale" = "بالجملة";
-
 
 //new
 "Tap to accept" = "قبول";
@@ -962,7 +966,7 @@
 
 
 // newProductView
-"Product Details" = "تفاصيل المنتج";
+
 "Ratings & Reviews" = "التعليقات والتقييم";
 "Warranty & Support" = "الضمان والدعم";
 "Save " = "حفظ ";
@@ -1226,8 +1230,22 @@
 //"Order Information" = "معلومات الطلب"
 //"Invoice Copy" = "Invoice Copy"
 //"Confirm Delivery" = "تأكيد التسليم"
+
 "Please Enter Otp" =  "الرجاء إدخال رمز التحقق"
 "Please Check COD Amount For Customer" = "Please Check COD Amount For Customer"
 "Please add invoice file" = "Please add invoice file"
 "Are you sure want to accept?" = ""
 "View Images" = "استعراض الصورة"
+
+"Please Enter Otp" =  "الرجاء إدخال رمز التحقق";
+"Please Check COD Amount For Customer" = "Please Check COD Amount For Customer";
+"Please add invoice file" = "Please add invoice file";
+"Are you sure want to accept?" = "هل تريد قبول هذا المنتج؟";
+"View Images" = "استعراض الصورة";
+"Confirm and upload invoice" = "تأكيد ورفع الفاتورة";
+"Invoice Uploaded" = "تم رفع الفاتورة";
+"km" = "كم";
+"Qty :" = "الكمية:";
+"Weight:" = "الوزن:";
+"Size:" = "الحجم:";
+

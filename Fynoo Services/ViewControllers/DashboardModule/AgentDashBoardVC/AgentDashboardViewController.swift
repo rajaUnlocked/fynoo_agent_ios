@@ -48,6 +48,11 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     var isNewLogin : Bool = false
     let application = UIApplication.shared
     var ResponseDict : NSDictionary = NSDictionary()
+    
+    let delegate = UIApplication.shared.delegate as! AppDelegate
+//    var lati : Double?
+//    var longi : Double?
+    var apiTimer: Timer?
     override func viewDidLoad() {
         super.viewDidLoad()
         getUserLocation()
@@ -95,6 +100,45 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
              dashboardAPI()
            }
        }
+    
+    
+    // Mark : - update location
+    
+    func doBackgroundTask() {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+            self.apiTimer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(self.callUpdateLocation), userInfo: nil, repeats: true)
+            
+            RunLoop.current.add(self.apiTimer!, forMode: .common)
+            RunLoop.current.run()
+        }
+    }
+    
+    
+    
+    @objc func callUpdateLocation(){
+    
+            
+        let parameters = [
+            "user_id":Singleton.shared.getUserId(),
+            "lat":Double.getDouble(delegate.latitudeStr),
+            "long":Double.getDouble(delegate.longitudeStr),
+            "lang_code":HeaderHeightSingleton.shared.LanguageSelected
+        ] as [String : Any]
+            
+            print("request -",parameters)
+        ServerCalls.postRequest(Service.agentSetLatLong, withParameters: parameters) { (response, success, resp) in
+                if let value = response as? NSDictionary{
+                    let msg = value.object(forKey: "error_description") as! String
+                    let error = value.object(forKey: "error_code") as! Int
+                    if error == 100{
+                        print(msg)
+                    }else{
+                       print(msg)
+                    }
+                }
+            }
+        
+    }
 
     // MARK: - save fcm Token
     
