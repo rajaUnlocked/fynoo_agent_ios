@@ -377,6 +377,11 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     
     func callRequestAccept(){
         
+        let serviceID = String.getString(tripDetail?.data?.trip_details?.del_service_id)
+        let serviceStatus = String.getString(tripDetail?.data?.trip_details?.service_status)
+        print(serviceID)
+        print(serviceStatus)
+        
         var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
         
         if userId == "0"{
@@ -418,8 +423,10 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             
                             ModalController.showSuccessCustomAlertWith(title: ((ResponseDict.object(forKey: "error_description") as? String)!), msg: "")
                             let vc = AgentDeliveryViewController()
-                            vc.serviceID = "\(tripDetail?.data?.trip_details?.service_id ?? 0)"
-                            vc.serviceStatus = "\(tripDetail?.data?.trip_details?.service_status ?? 0)"
+//                            vc.serviceID = "\(tripDetail?.data?.trip_details?.service_id ?? 0)"
+                            vc.serviceID = serviceID
+                            vc.serviceStatus = serviceStatus
+//                            vc.serviceStatus = "\(tripDetail?.data?.trip_details?.service_status ?? 0)"
                             self.navigationController?.pushViewController(vc, animated: true)
                             
                         }
