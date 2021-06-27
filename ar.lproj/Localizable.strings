@@ -1221,8 +1221,6 @@
 "Manage Products"="إدارة المنتجات";
 "Product"="المنتج";
 
-
-
 // Product Detail
 
 //"Actual Total Amount" = "المبلغ الإجمالي الفعلي"
@@ -1236,7 +1234,6 @@
 "Please add invoice file" = "Please add invoice file"
 "Are you sure want to accept?" = ""
 "View Images" = "استعراض الصورة"
-
 
 "Please Enter Otp" =  "الرجاء إدخال رمز التحقق";
 "Please Check COD Amount For Customer" = "Please Check COD Amount For Customer";

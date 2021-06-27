@@ -1,0 +1,9 @@
+
+/* Class = "UIButton"; normalTitle = "No"; ObjectID = "B0N-1b-xXq"; */
+"B0N-1b-xXq.normalTitle" = "No";
+
+/* Class = "UILabel"; text = "Are you sure you want to accept?"; ObjectID = "Gwo-YO-hFU"; */
+"Gwo-YO-hFU.text" = "هل تريد قبول هذا المنتج؟";
+
+/* Class = "UIButton"; normalTitle = "Yes"; ObjectID = "RGw-So-jmA"; */
+"RGw-So-jmA.normalTitle" = "Yes";
