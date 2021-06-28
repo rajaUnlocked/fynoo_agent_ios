@@ -53,6 +53,9 @@ class AddInvoiceInformationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var btnAnyProblem: UIButton!
     
+    @IBOutlet weak var viewForBoToAgent: UIView!
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

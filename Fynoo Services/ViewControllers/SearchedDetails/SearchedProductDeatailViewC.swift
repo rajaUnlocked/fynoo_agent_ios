@@ -62,6 +62,8 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     var serviceId = ""
     var customerType = ""
     var seconds = 0
+    var countdownTimer: Timer!
+    var totalTime = 30
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +78,11 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
 
         SetFont()
         getTripDetail()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        endTimer()
     }
 
     
@@ -306,6 +313,34 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         
     }
     
+    func startTimer() {
+        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+    }
+
+    @objc func updateTime() {
+        lblTime.text = "\(timeFormatted(totalTime))min"
+
+        if totalTime != 0 {
+            totalTime -= 1
+        } else {
+            endTimer()
+        }
+    }
+
+    func endTimer() {
+        countdownTimer.invalidate()
+    }
+
+    func timeFormatted(_ totalSeconds: Int) -> String {
+        let seconds: Int = totalSeconds % 60
+        let minutes: Int = (totalSeconds / 60) % 60
+        //     let hours: Int = totalSeconds / 3600
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+    
+    
+    
+    
     func getTripDetail(){
         
         var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
@@ -357,22 +392,28 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                     self.lblAlmostTotalPrice.text = "\(tripDetail?.data?.trip_details?.total_price ?? "")"
                     self.imgCod.sd_setImage(with: URL(string: tripDetail?.data?.trip_details?.payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
                     
-                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-                        self.seconds -= 1
-                        if self.seconds <= 0 {
-                            print("Go!")
-                            timer.invalidate()
-                        } else {
-                            print(self.seconds)
-                            self.lblTime.text = "\(tripDetail?.data?.trip_details?.otp_time ?? 0)min"
-                        }
-                    }
+//                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+//                        self.seconds -= 1
+//                        if self.seconds <= 0 {
+//                            print("Go!")
+//                            timer.invalidate()
+//                        } else {
+//                            print(self.seconds)
+//                            self.lblTime.text = "\(tripDetail?.data?.trip_details?.otp_time ?? 0)min"
+//                        }
+//                    }
+                    self.totalTime = (tripDetail?.data?.trip_details?.otp_time ?? 0)
+                    startTimer()
+                    
                     self.loadHeaderData()
                     
                 }
             }
         }
     }
+    
+    
+    
     
     
     func callRequestAccept(){

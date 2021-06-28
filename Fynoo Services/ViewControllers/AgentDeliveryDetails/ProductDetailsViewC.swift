@@ -592,6 +592,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "AddInvoiceInformationTableViewCell",for: index) as! AddInvoiceInformationTableViewCell
         cell.selectionStyle = .none
         cell.delegate = self
+        
 //        cell.emailField.isUserInteractionEnabled = false
         cell.txtTotalAmtWithoughtVat.keyboardType = .numberPad
         cell.txtVatAmt.keyboardType = .numberPad
@@ -631,12 +632,13 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
 
             cell.txtVatAmt.isUserInteractionEnabled = false
         }
-
+        
         switch orderDetailData?.data?.order_status {
         case 3:
             self.btnChangeStatus.setTitle("Cancelled".localized, for: .normal)
             self.btnChangeStatus.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             self.btnChangeStatus.isUserInteractionEnabled = false
+           
         case 2:
             self.btnChangeStatus.setTitle("Delivered".localized, for: .normal)
         case 4:
@@ -644,6 +646,9 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         default:
             self.btnChangeStatus.setTitle("Confirm and upload invoice".localized, for: .disabled)
         }
+        
+        
+        
         
         if checkInvoiceUploaded == true {
             self.btnChangeStatus.setTitle("Invoice Uploaded".localized, for: .normal)
@@ -663,6 +668,107 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         
         return cell
     }
+    
+    
+    
+    func entryCellForBo(index : IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "AddInvoiceInformationTableViewCell",for: index) as! AddInvoiceInformationTableViewCell
+        cell.selectionStyle = .none
+        cell.delegate = self
+        cell.viewForBoToAgent.isHidden = false
+
+        
+        cell.lblAlmostAmountPrice.text = "\(orderDetailData?.data?.currency_code ?? "") " + "\(orderDetailData?.data?.order_price ?? 0)"
+        
+      
+        if selectedImg != nil {
+            cell.tapToBtnUploadInvoice.setImage(selectedImg, for: .normal)
+            cell.imgInvoiceUploaded.isHidden = false
+        }
+
+        if isInvoiceEnable == false {
+            cell.viewForShowHide.isUserInteractionEnabled = false
+            cell.viewForShowHide.alpha = 0.5
+        }else
+        {
+            cell.viewForShowHide.isUserInteractionEnabled = true
+            cell.viewForShowHide.alpha = 1
+            
+        }
+
+       
+        
+        switch orderDetailData?.data?.is_agent_reached {
+        case 1:
+            self.btnChangeStatus.setTitle("I have reached BO's store".localized, for: .normal)
+           
+           
+        case 2:
+            self.btnChangeStatus.setTitle("Confirm & Upload Invoice".localized, for: .normal)
+        case 3:
+            self.btnChangeStatus.setTitle("Cancelled".localized, for: .normal)
+            self.btnChangeStatus.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            self.btnChangeStatus.isUserInteractionEnabled = false
+        default:
+           print("")
+        }
+        
+        
+        
+        
+        if checkInvoiceUploaded == true {
+            self.btnChangeStatus.setTitle("Invoice Uploaded".localized, for: .normal)
+            self.btnChangeStatus.isUserInteractionEnabled = false
+            
+            cell.imgInvoiceUploaded.isHidden = false
+            cell.btnAnyProblem.isHidden = true
+            cell.contentView.isUserInteractionEnabled = false
+            
+            cell.tapToBtnUploadInvoice.sd_setImage(with: URL(string: orderDetailData?.data?.invoice_image ?? ""), for: .normal, placeholderImage: UIImage(named: "profile_white.png"))
+            
+            cell.txtTotalAmtWithoughtVat.text = "\(orderDetailData?.data?.total_amount_without_vat ?? 0)"
+            cell.txtVatAmt.text = "\(orderDetailData?.data?.vat_amount ?? 0)"
+            cell.txtTotalAmountWithVat.text = "\(orderDetailData?.data?.total_amount_with_vat ?? 0)"
+        }
+        
+        
+        return cell
+    }
+    
+    
+    
+    func productListCellForBo(index : IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "ProductListTableViewCell",for: index) as! ProductListTableViewCell
+        
+           
+                cell.selectionStyle = .none
+                cell.btnDelete.isHidden = true
+                cell.btnReduceQuantity.isHidden = true
+                cell.lblLineReduceQty.isHidden = true
+        let ItemQty = "Item Qty".localized
+        
+        cell.lblQty.text = "\(ItemQty): \(orderDetailData?.data?.item_detail? [index.row].qty ?? 0)"
+        cell.lblAddress.text = orderDetailData?.data?.item_detail? [index.row].pro_name ?? ""
+        let Items_price_Almost = "Items price (Almost)".localized
+        cell.lblPriceAlmost.text = "\(Items_price_Almost):  \(orderDetailData?.data?.item_detail? [index.row].price ?? 0)"
+        
+        cell.imgProduct.sd_setImage(with: URL(string: orderDetailData?.data?.item_detail?[index.row].product_pic ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+                if orderDetailData?.data?.order_status == 3 {
+                    cell.imgCart.image = #imageLiteral(resourceName: "shopping-cartgrayCross")
+                }else
+                {
+                    cell.imgCart.image = #imageLiteral(resourceName: "shopping-cartGreen")
+                }
+        
+            if checkInvoiceUploaded == true {
+                cell.contentView.isUserInteractionEnabled = false
+                
+            }
+       
+            cell.delegate = self
+            
+            return cell
+        }
     
  //arv
     
@@ -712,10 +818,15 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
+        if orderDetailData?.data?.user_type == "BO"  {
+            print("bo")
+        }else
+        {
+        
         if indexPath.section == 2 {
             
-            
-            if checkInvoiceUploaded == true {
+            if checkInvoiceUploaded == true || orderDetailData?.data?.order_status == 3 || orderDetailData?.data?.order_status == 2  {
                 
             }else
             {
@@ -729,9 +840,9 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         }
             
         }
-}
+        }
     
-    
+    }
   
  
 }
@@ -840,46 +951,30 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     
                     calculateDistanceFromLatLong()
                     
-//                    let dist = calculateDistance(mobileLocationX:Double.getDouble(orderDetailData?.data?.bo_lat ?? ""), mobileLocationY:Double.getDouble(orderDetailData?.data?.bo_long ?? ""), DestinationX:Double.getDouble(orderDetailData?.data?.cust_lat ?? ""), DestinationY:Double.getDouble(orderDetailData?.data?.cust_long ?? ""))
-//
-//                    print("abc\(dist)")
-                    
                     
                     return cell
                 }else if indexPath.section == 3{
                     
-                    
+                    if orderDetailData?.data?.user_type == "BO" {
+                        return entryCellForBo(index: indexPath)
+                    }else
+                    {
                     return entryCell(index: indexPath)
+                    }
                     
-//                    let cell = tableView.dequeueReusableCell(withIdentifier: "AddInvoiceInformationTableViewCell",for: indexPath) as! AddInvoiceInformationTableViewCell
-//                    cell.selectionStyle = .none
-//                    cell.delegate = self
-//                    cell.lblAlmostAmountPrice.text = "\(orderDetailData?.data?.currency_code ?? "") " + "\(orderDetailData?.data?.order_price ?? 0)"
-//
-//                    if selectedImg != nil {
-//                        cell.tapToBtnUploadInvoice.setImage(selectedImg, for: .normal)
-//                        cell.imgInvoiceUploaded.isHidden = false
-//                    }
-//
-//                    if isInvoiceEnable == false {
-//                        cell.viewForShowHide.isUserInteractionEnabled = false
-//                        cell.viewForShowHide.alpha = 0.5
-//                    }
-//
-//                    if ((orderDetailData?.data?.is_vat_available) != true){
-//
-//                        cell.txtVatAmt.isUserInteractionEnabled = false
-//                    }
-//
-//
-//
-//
-//                    return cell
+
                 }else
                 {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "ProductListTableViewCell",for: indexPath) as! ProductListTableViewCell
-                    cell.selectionStyle = .none
+                   
                     
+                    if orderDetailData?.data?.user_type == "BO"  {
+                        
+                        return productListCellForBo(index: indexPath)
+                       
+                    }else
+                    {
+                        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductListTableViewCell",for: indexPath) as! ProductListTableViewCell
+                        cell.selectionStyle = .none
                     
                     if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 0 {
                         cell.imgCart.image = #imageLiteral(resourceName: "Accepted")
@@ -950,12 +1045,16 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.contentView.isUserInteractionEnabled = false
                         
                     }
+                        
+                        cell.delegate = self
+                        cell.tag = indexPath.row
+     
+                        return cell
+                    
+                }
                     
                     
-                    cell.delegate = self
-                    cell.tag = indexPath.row
- 
-                    return cell
+                  
                 }
        }
     }
