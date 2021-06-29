@@ -38,6 +38,9 @@ class BOCustomerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var btnNavWidth: NSLayoutConstraint!
     
+    
+    @IBOutlet weak var viewFortotalOutoff: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

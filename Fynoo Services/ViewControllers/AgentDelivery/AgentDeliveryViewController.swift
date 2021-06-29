@@ -507,10 +507,13 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         if indexPath.section == 1 {
             if self.selectedTab == "2"
             {
-                let vc = SearchedProductDeatailViewC()
-                vc.searchId = "\(self.tripList?.data?.trip_list?[indexPath.row].search_id ?? 0)"
-                self.navigationController?.pushViewController(vc, animated: true)
                 
+                if self.tripList?.data?.trip_list?.count ?? 0 > 0  {
+                    let vc = SearchedProductDeatailViewC()
+                    vc.searchId = "\(self.tripList?.data?.trip_list?[indexPath.row].search_id ?? 0)"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+               
                 return
             }
             if (tripListListArray?[indexPath.row].status) == 1  {

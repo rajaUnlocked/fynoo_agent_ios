@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "I have received the items from BO."; ObjectID = "1sT-KY-X55"; */
+"1sT-KY-X55.text" = "I have received the items from BO.";
+
+/* Class = "UILabel"; text = "wed 32,4020"; ObjectID = "2Uu-ge-YZc"; */
+"2Uu-ge-YZc.text" = "wed 32,4020";
+
+/* Class = "UILabel"; text = "Order Id: 9876543214"; ObjectID = "Aqu-wE-2rp"; */
+"Aqu-wE-2rp.text" = "Order Id: 9876543214";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "HA7-uM-Y2o"; */
+"HA7-uM-Y2o.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "-----------------------------------------------------------------------------------------"; ObjectID = "LYg-Jv-Xiz"; */
+"LYg-Jv-Xiz.text" = "-----------------------------------------------------------------------------------------";
+
+/* Class = "UILabel"; text = "5  9  0  4"; ObjectID = "XdR-cs-f6m"; */
+"XdR-cs-f6m.text" = "5  9  0  4";
+
+/* Class = "UILabel"; text = "If you receive the items. Please\nshare the OTP to Business Owner."; ObjectID = "dPJ-cV-fAn"; */
+"dPJ-cV-fAn.text" = "If you receive the items. Please\nshare the OTP to Business Owner.";
+
+/* Class = "UILabel"; text = "-----------------------------------------------------------------------------------------"; ObjectID = "fKM-M3-pfo"; */
+"fKM-M3-pfo.text" = "-----------------------------------------------------------------------------------------";
+
+/* Class = "UILabel"; text = "03"; ObjectID = "iSr-pi-nBm"; */
+"iSr-pi-nBm.text" = "03";

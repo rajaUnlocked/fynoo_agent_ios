@@ -8,9 +8,16 @@
 
 import UIKit
 import Cosmos
+
+protocol  BusinessOwnerTableViewCellDelegate {
+    
+     func callClickedBo(_ sender: Any)
+     func messageClickedBo(_ sender: Any)
+     func navigationClickedBo(_ sender: Any)
+}
 class BusinessOwnerTableViewCell: UITableViewCell {
     
-    var delegate : AgentServiceListDelegate?
+    var delegate : BusinessOwnerTableViewCellDelegate?
     
     @IBOutlet weak var lblBoName : UILabel!
     @IBOutlet weak var lblBoAddress : UILabel!
@@ -50,13 +57,13 @@ class BusinessOwnerTableViewCell: UITableViewCell {
     
     
     @IBAction func navigationTapped(_ sender: Any) {
-        self.delegate?.navigationClicked(self)
+        self.delegate?.navigationClickedBo(self)
     }
     @IBAction func callTapped(_ sender: Any) {
-        self.delegate?.callClicked(self)
+        self.delegate?.callClickedBo(self)
     }
     @IBAction func messageTapped(_ sender: Any) {
-        self.delegate?.messageClicked(self)
+        self.delegate?.messageClickedBo(self)
         
     }
     

@@ -145,6 +145,7 @@ class Constant: NSObject {
     static let UpdateProfile_Image : String = "agentapis/v2/update_profile_photo/";
     
     static let upload_invoice : String = "shared_economy/agent/upload_invoice/"
+    static let upload_invoiceForBo : String = "bo_agent_delivery/agent_upload_and_confirm_invoice/"
     
     //      static var BASE_URL : String = "http://43.241.61.141:9003/"
     //  static var BASE_URL : String = "http://43.241.61.141:9005/"
@@ -274,6 +275,10 @@ enum Service {
     
     static let agentCancelOrder = Constant.BASE_URL + "shared_economy/agent/agent_cancel_order/"
     static let agentSetLatLong = Constant.BASE_URL + "shared_economy/agent/set_lat_long/"
+    
+    static let agentReachedToBoStore = Constant.BASE_URL + "bo_agent_delivery/agent_reached_to_bo_store/"
+    
+    
     
     
 }
