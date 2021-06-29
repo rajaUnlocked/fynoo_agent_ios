@@ -69,6 +69,8 @@ class CompleteDataEntryListTableViewCell: UITableViewCell {
         
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         
+        self.ratingLbl.font = UIFont(name:"\(fontNameLight)",size:14)
+        self.totalRatingLbl.font = UIFont(name:"\(fontNameLight)",size:14)
         self.headerLbl.font = UIFont(name:"\(fontNameLight)",size:16)
         self.orderIdLbl.font = UIFont(name:"\(fontNameLight)",size:14)
         self.dateLbl.font = UIFont(name:"\(fontNameLight)",size:14)
@@ -77,8 +79,6 @@ class CompleteDataEntryListTableViewCell: UITableViewCell {
         self.priceValueLbl.font = UIFont(name:"\(fontNameLight)",size:14)
          self.amountVatLbl.font = UIFont(name:"\(fontNameLight)",size:14)
         self.agentNameLbl.font = UIFont(name:"\(fontNameLight)",size:16)
-         self.ratingLbl.font = UIFont(name:"\(fontNameLight)",size:14)
-         self.totalRatingLbl.font = UIFont(name:"\(fontNameLight)",size:14)
          self.agentAddressLbl.font = UIFont(name:"\(fontNameLight)",size:14)
 //        self.completeTxtLbl.font = UIFont(name:"\(fontNameLight)",size:14)
         self.giveRatingBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:14)

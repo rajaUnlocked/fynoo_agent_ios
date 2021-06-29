@@ -40,15 +40,17 @@ class DataEntryListingTableViewCell: UITableViewCell {
     }
     
     func SetFont() {
-           
-           let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-           
+        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        
         self.headerTxt.font = UIFont(name:"\(fontNameLight)",size:16)
-         self.orderIdLbl.font = UIFont(name:"\(fontNameLight)",size:14)
-         self.dateLbl.font = UIFont(name:"\(fontNameLight)",size:14)
-         self.addressLbl.font = UIFont(name:"\(fontNameLight)",size:14)
-         self.priceLbl.font = UIFont(name:"\(fontNameLight)",size:14)
-       }
+        self.orderIdLbl.font = UIFont(name:"\(fontNameLight)",size:14)
+        self.dateLbl.font = UIFont(name:"\(fontNameLight)",size:14)
+        self.addressLbl.font = UIFont(name:"\(fontNameLight)",size:14)
+        self.priceLbl.font = UIFont(name:"\(fontNameLight)",size:14)
+        self.rejectReasonLbl.font = UIFont(name:"\(fontNameLight)",size:16)
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -58,6 +58,12 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         NotificationCenter.default.addObserver(self, selector: #selector(getOrderSuccessData(_:)), name: NSNotification.Name(Constant.NF_KEY_FOR_PASS_DATA_TO_DELIVERYDASHBOARD), object: nil)
         
         print(orderSuccessData)
+        
+        if isRating == true {
+            self.headerView.backButton.isHidden = true
+        }else{
+            self.headerView.backButton.isHidden = false
+        }
     }
     func reloadPage() {
         getTripData()
@@ -507,10 +513,6 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         if indexPath.section == 1 {
             if self.selectedTab == "2"
             {
-                let vc = SearchedProductDeatailViewC()
-                vc.searchId = "\(self.tripList?.data?.trip_list?[indexPath.row].search_id ?? 0)"
-                self.navigationController?.pushViewController(vc, animated: true)
-                
                 
                 if self.tripList?.data?.trip_list?.count ?? 0 > 0  {
                     let vc = SearchedProductDeatailViewC()

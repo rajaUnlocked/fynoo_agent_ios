@@ -12,7 +12,9 @@ import MessageUI
 import MTPopup
 import MessageUI
 
-class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProductDelegate,AddInvoiceInformationDelegate, OpenGalleryDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,DECancellationReasonViewControllerDelegate,AgentServiceListDelegate,MFMessageComposeViewControllerDelegate, BusinessOwnerTableViewCellDelegate {
+class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProductDelegate,AddInvoiceInformationDelegate, OpenGalleryDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,DECancellationReasonViewControllerDelegate,AgentServiceListDelegate,MFMessageComposeViewControllerDelegate, BusinessOwnerTableViewCellDelegate,ConfirmToreceiveItemTableViewCellDelegate {
+   
+    
     
     
     @IBOutlet weak var headerView: NavigationView!
@@ -34,6 +36,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     var amoutnWithoutVat = ""
     var vatAmount = ""
     var amoutWithVat = ""
+    var checkReceivedItem : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -359,6 +362,48 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     }
     
     
+    func callAgentConfirmToReceivItems(){
+        
+        var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
+        
+        if userId == "0"{
+            userId = ""
+            
+        }
+        let param = ["order_id": orderId,
+                     "user_id":userId,
+                     "user_type":"\(orderDetailData?.data?.user_type ?? "")",
+                     "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
+        
+        print("request:-", param)
+        print("Url:-", Service.agentConfirmToReceiveItems)
+        ServerCalls.postRequest(Service.agentConfirmToReceiveItems, withParameters: param) { [self] (response, success) in
+            if success{
+                
+                    if let value = response as? NSDictionary{
+                        let msg = value.object(forKey: "error_description") as! String
+                        let error = value.object(forKey: "error_code") as! Int
+                        if error == 100{
+                            ModalController.showNegativeCustomAlertWith(title:msg, msg: "")
+                        }else{
+    //                        self.imageId = ""
+                            ModalController.showSuccessCustomAlertWith(title:msg, msg: "")
+                            let vc = OtpForCodViewC()
+                            vc.orderId = self.orderId
+                            self.navigationController?.pushViewController(vc, animated: true)
+                           
+     
+                        }
+                    }
+                    else{
+                        ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                    }
+     
+            }
+        }
+    }
+    
+    
     func deleteClicked(_ sender: Any) {
         print("delete")
         callReasonForReturnApi(selectedTag: (sender as AnyObject).tag)
@@ -393,6 +438,33 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         self.navigationController?.pushViewController(vc, animated: true)
         
         
+    }
+    
+    func ClickedAnyProblem(_ sender: Any) {
+        let vc = CancelReasonViewController()
+//        vc.orderId = tripListListArray?[indexPath.row].order_id ?? ""
+        vc.delegate = self
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func ClickedReceivedItem(_ sender: Any) {
+        let index = IndexPath(row: 0, section: 2)
+           let cell: ConfirmToreceiveItemTableViewCell = self.tableView.cellForRow(at: index) as! ConfirmToreceiveItemTableViewCell
+        
+        if cell.btnReceiveItemOutlet.isSelected == true {
+            cell.imgCheck.image = #imageLiteral(resourceName: "uncheck")
+            cell.btnReceiveItemOutlet.isSelected = false
+            checkReceivedItem = false
+        }else
+        {
+
+        cell.imgCheck.image = #imageLiteral(resourceName: "check")
+        cell.btnReceiveItemOutlet.isSelected = true
+            checkReceivedItem = true
+//        self.tableView.reloadSections([2], with: .automatic)
+        }
+//        self.tableView.reloadSections([2], with: .automatic)
+        self.tableView.reloadData()
     }
     
     
@@ -587,11 +659,13 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
                 }
                 UploadInvoice_APIForBo()
             case 2:
-                let vc = CommonPopViewC(nibName: "CommonPopViewC", bundle: nil)
-                vc.orderId = orderId
-                vc.modalPresentationStyle = .overFullScreen
-                vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-                    self.present(vc, animated: true, completion: nil)
+                if checkReceivedItem == false {
+                    ModalController.showNegativeCustomAlertWith(title: "", msg: "Please Check i received the items from BO".localized)
+                    return
+                   }
+                
+                callAgentConfirmToReceivItems()
+               
            
             default:
                 return
@@ -807,6 +881,20 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
            
         case 2:
             self.btnChangeStatus.setTitle("Delivered".localized, for: .normal)
+            
+            self.btnChangeStatus.isUserInteractionEnabled = false
+            
+            cell.imgInvoiceUploaded.isHidden = false
+            cell.btnAnyProblem.isHidden = true
+            cell.contentView.isUserInteractionEnabled = false
+            
+            cell.tapToBtnUploadInvoice.sd_setImage(with: URL(string: orderDetailData?.data?.invoice_image ?? ""), for: .normal, placeholderImage: UIImage(named: "profile_white.png"))
+            
+            cell.txtTotalAmtWithoughtVat.text = "\(orderDetailData?.data?.total_amount_without_vat ?? 0)"
+            cell.txtVatAmt.text = "\(orderDetailData?.data?.vat_amount ?? 0)"
+            cell.txtTotalAmountWithVat.text = "\(orderDetailData?.data?.total_amount_with_vat ?? 0)"
+            cell.btnAnyProblem.isHidden = false
+            
         case 4:
             self.btnChangeStatus.setTitle("Cancel Request Received".localized, for: .normal)
         default:
@@ -907,28 +995,30 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     func entryCellForBoConfirmForReceiveItem(index : IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "ConfirmToreceiveItemTableViewCell",for: index) as! ConfirmToreceiveItemTableViewCell
         cell.selectionStyle = .none
-//        cell.delegate = self
-//        cell.viewForBoToAgent.isHidden = false
-//
-//
-//        cell.lblAlmostAmountPrice.text = "\(orderDetailData?.data?.currency_code ?? "") " + "\(orderDetailData?.data?.order_price ?? 0)"
-//
-//        cell.lblAlmostAmount.text = "Actual Total Amount".localized
-//        if selectedImg != nil {
-//            cell.tapToBtnUploadInvoice.setImage(selectedImg, for: .normal)
-//            cell.imgInvoiceUploaded.isHidden = false
-//        }
-//
-//        if isInvoiceEnable == false {
-//            cell.viewForShowHide.isUserInteractionEnabled = false
-//            cell.viewForShowHide.alpha = 0.5
-//        }else
-//        {
-//            cell.viewForShowHide.isUserInteractionEnabled = true
-//            cell.viewForShowHide.alpha = 1
-//
-//        }
+        cell.delegate = self
+       
+        let ItemQty = "Item Qty".localized
+        
+        cell.lblQty.text = "\(ItemQty): \(orderDetailData?.data?.item_detail? [index.row].qty ?? 0)"
 
+        cell.lblOrderId.text = "Total Weight :  \(orderDetailData?.data?.total_weight ?? 0.0)kg"
+        
+        cell.lblDate.text = "Total Size :  \(orderDetailData?.data?.total_size ?? 0.0)"
+        
+        
+
+//        let timeSTAMP = "\(orderDetailData?.data?.order_date ?? 0)"
+//        cell.lblDate.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: timeSTAMP, format: "dd-MMM-yyyy HH:mm a")
+        let testString = "\(orderDetailData?.data?.otp ?? "")"
+        
+
+        let ansTest = testString.enumerated().compactMap({ ($0 > 0) && ($0 % 1 == 0) ? "  \($1)" : "\($1)" }).joined()
+        
+        print(ansTest) // 12:34:56:78:9
+
+//        let test1 = testString.insertSeparator(":", atEvery: 2)
+//        print(test1) // 11:23:12:45
+        cell.lblOtp.text =  ansTest
        
         
 //        switch orderDetailData?.data?.is_agent_reached {
@@ -1133,7 +1223,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
         {
             if orderDetailData?.data?.user_type == "BO" {
                 if orderDetailData?.data?.is_agent_reached == 2 {
-                    return 180
+                    return 350
                 }
             }
             return 160
