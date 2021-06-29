@@ -150,6 +150,7 @@
 		4E790214267B398E00CE9600 /* AgentDeliveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E790212267B398D00CE9600 /* AgentDeliveryTableViewCell.xib */; };
 		4E790217267B3D7F00CE9600 /* MallMarketPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E790215267B3D7F00CE9600 /* MallMarketPopupViewController.xib */; };
 		4E79021A267B402E00CE9600 /* nextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E790218267B402D00CE9600 /* nextTableViewCell.xib */; };
+		4E79ABF126883E6400EA6169 /* PopUpAcceptProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E79ABF326883E6400EA6169 /* PopUpAcceptProductViewController.xib */; };
 		4E7B73F226807454003405B7 /* SampleNotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B73F126807453003405B7 /* SampleNotificationDelegate.swift */; };
 		4E85ED502671FEBC00785110 /* MapPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED4E2671FEBB00785110 /* MapPath.swift */; };
 		4E85ED512671FEBC00785110 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED4F2671FEBB00785110 /* LocationManager.swift */; };
@@ -168,7 +169,6 @@
 		4E85ED6D26720A4300785110 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED5F26720A4300785110 /* Routes.swift */; };
 		4E85ED6E26720A4300785110 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED6026720A4300785110 /* Duration.swift */; };
 		4E9491842674C0020061A774 /* PopUpAcceptProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9491822674C0020061A774 /* PopUpAcceptProductViewController.swift */; };
-		4E9491852674C0020061A774 /* PopUpAcceptProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E9491832674C0020061A774 /* PopUpAcceptProductViewController.xib */; };
 		4E9D1F2526745D180025ED48 /* PopUpReduceQuantityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D1F2326745D180025ED48 /* PopUpReduceQuantityViewController.swift */; };
 		4E9D1F2626745D180025ED48 /* PopUpReduceQuantityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D1F2426745D180025ED48 /* PopUpReduceQuantityViewController.xib */; };
 		4E9D1F2926746A2E0025ED48 /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D1F2726746A2E0025ED48 /* InformationTableViewCell.swift */; };
@@ -829,6 +829,9 @@
 		F68B78E42653ADE800B1E69E /* UserPolicyWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68B78E22653ADE800B1E69E /* UserPolicyWebViewController.xib */; };
 		F6A5FB99259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A5FB98259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift */; };
 		F6B14CA8251B387300F9F03E /* VatInfoModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B14CA7251B387200F9F03E /* VatInfoModal.swift */; };
+		F6D92724268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6D9271E268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.strings */; };
+		F6D92725268AC1ED0067C486 /* ConfirmToreceiveItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D92721268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.swift */; };
+		F6D92726268AC1ED0067C486 /* ConfirmToreceiveItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6D92722268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1027,6 +1030,9 @@
 		4E790213267B398D00CE9600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AgentDeliveryTableViewCell.xib; sourceTree = "<group>"; };
 		4E790216267B3D7F00CE9600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MallMarketPopupViewController.xib; sourceTree = "<group>"; };
 		4E790219267B402D00CE9600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/nextTableViewCell.xib; sourceTree = "<group>"; };
+		4E79ABF226883E6400EA6169 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PopUpAcceptProductViewController.xib; sourceTree = "<group>"; };
+		4E79ABF526883E6E00EA6169 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PopUpAcceptProductViewController.strings; sourceTree = "<group>"; };
+		4E79ABF726883E7500EA6169 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/PopUpAcceptProductViewController.strings; sourceTree = "<group>"; };
 		4E7B73F126807453003405B7 /* SampleNotificationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleNotificationDelegate.swift; sourceTree = "<group>"; };
 		4E85ED4E2671FEBB00785110 /* MapPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPath.swift; sourceTree = "<group>"; };
 		4E85ED4F2671FEBB00785110 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -1045,7 +1051,6 @@
 		4E85ED5F26720A4300785110 /* Routes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		4E85ED6026720A4300785110 /* Duration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 		4E9491822674C0020061A774 /* PopUpAcceptProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAcceptProductViewController.swift; sourceTree = "<group>"; };
-		4E9491832674C0020061A774 /* PopUpAcceptProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpAcceptProductViewController.xib; sourceTree = "<group>"; };
 		4E9D1F2326745D180025ED48 /* PopUpReduceQuantityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpReduceQuantityViewController.swift; sourceTree = "<group>"; };
 		4E9D1F2426745D180025ED48 /* PopUpReduceQuantityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpReduceQuantityViewController.xib; sourceTree = "<group>"; };
 		4E9D1F2726746A2E0025ED48 /* InformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
@@ -1703,6 +1708,14 @@
 		F66AA1AC2525B53300C1E058 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DiscountTypePopUpViewController.strings; sourceTree = "<group>"; };
 		F66AA1AE2525B53300C1E058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DiscountTypePopUpViewController.xib; sourceTree = "<group>"; };
 		F66AA1B32525B5B300C1E058 /* DiscountTypePopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountTypePopUpViewController.swift; sourceTree = "<group>"; };
+		F679A11C268B306F008339F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CommonPopupViewController.strings; sourceTree = "<group>"; };
+		F679A11D268B3075008339F7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CommonPopupViewController.strings; sourceTree = "<group>"; };
+		F679A121268B3D7C008339F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProfileDetailTableViewCell.strings; sourceTree = "<group>"; };
+		F679A122268B3D80008339F7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ProfileDetailTableViewCell.strings; sourceTree = "<group>"; };
+		F679A123268B3DEC008339F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TwoButtonsTableViewCell.strings; sourceTree = "<group>"; };
+		F679A124268B3DF2008339F7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TwoButtonsTableViewCell.strings; sourceTree = "<group>"; };
+		F679A125268B3EE3008339F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProfileVatTableViewCell.strings; sourceTree = "<group>"; };
+		F679A126268B3EE8008339F7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ProfileVatTableViewCell.strings; sourceTree = "<group>"; };
 		F67B5E21252574F40083DA66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
 		F67B5E24252574F80083DA66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ServiceCollectionViewCell.strings; sourceTree = "<group>"; };
 		F67B5E26252574FA0083DA66 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ServiceCollectionViewCell.strings; sourceTree = "<group>"; };
@@ -1840,6 +1853,10 @@
 		F68B78E22653ADE800B1E69E /* UserPolicyWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserPolicyWebViewController.xib; sourceTree = "<group>"; };
 		F6A5FB98259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionBuyPaymentMethod.swift; sourceTree = "<group>"; };
 		F6B14CA7251B387200F9F03E /* VatInfoModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatInfoModal.swift; sourceTree = "<group>"; };
+		F6D9271F268AC1EC0067C486 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ConfirmToreceiveItemTableViewCell.strings; sourceTree = "<group>"; };
+		F6D92720268AC1EC0067C486 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ConfirmToreceiveItemTableViewCell.strings; sourceTree = "<group>"; };
+		F6D92721268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmToreceiveItemTableViewCell.swift; sourceTree = "<group>"; };
+		F6D92723268AC1EC0067C486 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConfirmToreceiveItemTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1917,6 +1934,7 @@
 		18C6928F2655272E00B7347B /* AgentDeliveryDetails */ = {
 			isa = PBXGroup;
 			children = (
+				F6D9271D268AC1EC0067C486 /* ConfirmToReceiveItemForBo */,
 				4E1DA07C2683343E0055D201 /* AgentModel */,
 				4EE6319D267F752800D5ED01 /* CancelReason */,
 				4E19EB8E267A341C003510BC /* CommanPopUp */,
@@ -2405,7 +2423,7 @@
 			isa = PBXGroup;
 			children = (
 				4E9491822674C0020061A774 /* PopUpAcceptProductViewController.swift */,
-				4E9491832674C0020061A774 /* PopUpAcceptProductViewController.xib */,
+				4E79ABF326883E6400EA6169 /* PopUpAcceptProductViewController.xib */,
 			);
 			path = PopUpAcceptProduct;
 			sourceTree = "<group>";
@@ -4096,6 +4114,16 @@
 			path = UserPolicyVC;
 			sourceTree = "<group>";
 		};
+		F6D9271D268AC1EC0067C486 /* ConfirmToReceiveItemForBo */ = {
+			isa = PBXGroup;
+			children = (
+				F6D9271E268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.strings */,
+				F6D92721268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.swift */,
+				F6D92722268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.xib */,
+			);
+			path = ConfirmToReceiveItemForBo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -4303,6 +4331,7 @@
 				F680D632259B7C2C007EB12C /* DEInprogressOrderInformationSecondTableViewCell.strings in Resources */,
 				CEDD31EE2576206500023977 /* SelectProductTypeNewTableViewCell.strings in Resources */,
 				2F74CB4E250A365300DE21EF /* logo-animeted.gif in Resources */,
+				F6D92724268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.strings in Resources */,
 				CEBCD72F2664A7FE001BF767 /* BankTransferController.xib in Resources */,
 				CECEFAD52577D3140090D459 /* AllFilterTableViewCell.xib in Resources */,
 				CECEFAC02577AF5F0090D459 /* SelectBusinesstypeTableViewCell.xib in Resources */,
@@ -4432,7 +4461,7 @@
 				CEE35797250740800097069D /* Roboto-Italic.ttf in Resources */,
 				18C69293265527D400B7347B /* AgentDeliveryDetailViewController.xib in Resources */,
 				CEDD334E25765DD000023977 /* spacingTableViewCell.xib in Resources */,
-				4E9491852674C0020061A774 /* PopUpAcceptProductViewController.xib in Resources */,
+				4E79ABF126883E6400EA6169 /* PopUpAcceptProductViewController.xib in Resources */,
 				2FEB12112511F0010012FE98 /* UnderDevelopmentViewController.xib in Resources */,
 				CEDD330A25765A7400023977 /* ScannerNewViewController.xib in Resources */,
 				CEBCD7502664A7FE001BF767 /* BankListTableViewCell.xib in Resources */,
@@ -4560,6 +4589,7 @@
 				CEBCD7B326669A28001BF767 /* NoTripFoundTableViewCell.xib in Resources */,
 				CEBCD7442664A7FE001BF767 /* TransactionNewPopupViewController.strings in Resources */,
 				CECEF9E02577575C0090D459 /* CheckedTableViewCell.xib in Resources */,
+				F6D92726268AC1ED0067C486 /* ConfirmToreceiveItemTableViewCell.xib in Resources */,
 				CEDD33A92576705A00023977 /* AddFilterViewController.xib in Resources */,
 				CE9CCDFF264BEDBD005AE619 /* ProductTechnicalSpecificationsTableViewCell.xib in Resources */,
 				F6547ABC25DE594A00171862 /* DataEntryFilterViewController.strings in Resources */,
@@ -5124,6 +5154,7 @@
 				CECEFA5825779E8F0090D459 /* GalleryItemCollectionViewCell.swift in Sources */,
 				F680D67C259B7C2C007EB12C /* DataEntryHeaderCollectionViewCell.swift in Sources */,
 				CEBCD74D2664A7FE001BF767 /* BankListTableViewCell.swift in Sources */,
+				F6D92725268AC1ED0067C486 /* ConfirmToreceiveItemTableViewCell.swift in Sources */,
 				F4E772AA252D9F930045BD86 /* ChangePasswordViewController.swift in Sources */,
 				2F8463E1250F6EBC0084EB32 /* LoginIntroFourth.swift in Sources */,
 				CECEFAC62577C3790090D459 /* otherTableViewCell.swift in Sources */,
@@ -5541,6 +5572,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E790204267B359900CE9600 /* Base */,
+				F679A123268B3DEC008339F7 /* en */,
+				F679A124268B3DF2008339F7 /* ar */,
 			);
 			name = TwoButtonsTableViewCell.xib;
 			sourceTree = "<group>";
@@ -5549,6 +5582,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E790207267B365400CE9600 /* Base */,
+				F679A121268B3D7C008339F7 /* en */,
+				F679A122268B3D80008339F7 /* ar */,
 			);
 			name = ProfileDetailTableViewCell.xib;
 			sourceTree = "<group>";
@@ -5557,6 +5592,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E790209267B365500CE9600 /* Base */,
+				F679A125268B3EE3008339F7 /* en */,
+				F679A126268B3EE8008339F7 /* ar */,
 			);
 			name = ProfileVatTableViewCell.xib;
 			sourceTree = "<group>";
@@ -5565,6 +5602,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E79020D267B373B00CE9600 /* Base */,
+				F679A11C268B306F008339F7 /* en */,
+				F679A11D268B3075008339F7 /* ar */,
 			);
 			name = CommonPopupViewController.xib;
 			sourceTree = "<group>";
@@ -5599,6 +5638,16 @@
 				4E790219267B402D00CE9600 /* Base */,
 			);
 			name = nextTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		4E79ABF326883E6400EA6169 /* PopUpAcceptProductViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E79ABF226883E6400EA6169 /* Base */,
+				4E79ABF526883E6E00EA6169 /* en */,
+				4E79ABF726883E7500EA6169 /* ar */,
+			);
+			name = PopUpAcceptProductViewController.xib;
 			sourceTree = "<group>";
 		};
 		4ECE3C1D26771026009D0163 /* ProductListTableViewCell.xib */ = {
@@ -7358,6 +7407,23 @@
 				F680D60F259B7C2C007EB12C /* Base */,
 			);
 			name = DataEntryListingTopTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F6D9271E268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6D9271F268AC1EC0067C486 /* ar */,
+				F6D92720268AC1EC0067C486 /* en */,
+			);
+			name = ConfirmToreceiveItemTableViewCell.strings;
+			sourceTree = "<group>";
+		};
+		F6D92722268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6D92723268AC1EC0067C486 /* Base */,
+			);
+			name = ConfirmToreceiveItemTableViewCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -26,12 +26,17 @@ class PopUpAcceptProductViewController: UIViewController {
     @IBOutlet weak var containter: UIView!
     @IBOutlet weak var imgIcon: UIImageView!
     @IBOutlet weak var lblInstruction: UILabel!
+    @IBOutlet weak var yesOutlet: UIButton!
+    @IBOutlet weak var noOutlet: UIButton!
     var orderId = ""
     var itemId = 0
     var titleLabel = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.yesOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: self.yesOutlet.frame.size.width)
+        self.noOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: self.yesOutlet.frame.size.width)
 
         if titleLabel == "Are you sure want to decline?" {
             lblInstruction.text = titleLabel

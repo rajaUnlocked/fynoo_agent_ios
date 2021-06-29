@@ -9,7 +9,9 @@
 import UIKit
 import ObjectMapper
 import MessageUI
-class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,OtpTableViewCellDelegate, InformationTableViewCellDelegate, AgentServiceListDelegate,MFMessageComposeViewControllerDelegate {
+class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,OtpTableViewCellDelegate, InformationTableViewCellDelegate, AgentServiceListDelegate,MFMessageComposeViewControllerDelegate, BusinessOwnerTableViewCellDelegate {
+    
+    
    
     
     @IBOutlet weak var headerView: NavigationView!
@@ -88,6 +90,29 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    func callClickedBo(_ sender: Any) {
+        guard let phoneNumber = self.onTheWayTripDetailData?.data?.trip_details?.cust_mobile else { return}
+        guard let number = URL(string: "tel://" + phoneNumber) else { return }
+        UIApplication.shared.open(number)
+    }
+    
+    func messageClickedBo(_ sender: Any) {
+        if (MFMessageComposeViewController.canSendText()) {
+         guard let phoneNumber = self.onTheWayTripDetailData?.data?.trip_details?.cust_mobile else { return}
+            let controller = MFMessageComposeViewController()
+            controller.body = ""
+            controller.recipients = [phoneNumber]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+        }
+     }
+    
+    func navigationClickedBo(_ sender: Any) {
+        let vc = AgentDeliveryDetailViewController()
+        vc.tripId = tripId
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     
     func callClicked(_ sender: Any) {

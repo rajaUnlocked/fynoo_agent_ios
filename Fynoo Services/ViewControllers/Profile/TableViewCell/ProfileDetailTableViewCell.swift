@@ -34,6 +34,7 @@ class ProfileDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var editProfileTitle: UILabel!
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var editBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
@@ -46,7 +47,7 @@ class ProfileDetailTableViewCell: UITableViewCell {
 //
 //        likes.font = UIFont(name:"\(fontNameLight)",size:16)
 //        branches.font = UIFont(name:"\(fontNameLight)",size:16)
-//        editProfileTitle.font = UIFont(name:"\(fontNameLight)",size:13)
+       editProfileTitle.font = UIFont(name:"\(fontNameLight)",size:13)
 
 
 

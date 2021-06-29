@@ -598,7 +598,7 @@ class OrderDetailsInfo : Mappable {
     var is_agent_reached : Int?
     var bo_lat : String?
     var bo_long : String?
-    var otp : Int?
+    var otp : String?
     var bo_id : Int?
     var bo_name : String?
     var bo_mob_no : String?
