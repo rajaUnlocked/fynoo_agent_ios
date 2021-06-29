@@ -829,6 +829,9 @@
 		F68B78E42653ADE800B1E69E /* UserPolicyWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68B78E22653ADE800B1E69E /* UserPolicyWebViewController.xib */; };
 		F6A5FB99259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A5FB98259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift */; };
 		F6B14CA8251B387300F9F03E /* VatInfoModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B14CA7251B387200F9F03E /* VatInfoModal.swift */; };
+		F6D92724268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6D9271E268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.strings */; };
+		F6D92725268AC1ED0067C486 /* ConfirmToreceiveItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D92721268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.swift */; };
+		F6D92726268AC1ED0067C486 /* ConfirmToreceiveItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6D92722268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1842,6 +1845,10 @@
 		F68B78E22653ADE800B1E69E /* UserPolicyWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserPolicyWebViewController.xib; sourceTree = "<group>"; };
 		F6A5FB98259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionBuyPaymentMethod.swift; sourceTree = "<group>"; };
 		F6B14CA7251B387200F9F03E /* VatInfoModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatInfoModal.swift; sourceTree = "<group>"; };
+		F6D9271F268AC1EC0067C486 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ConfirmToreceiveItemTableViewCell.strings; sourceTree = "<group>"; };
+		F6D92720268AC1EC0067C486 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ConfirmToreceiveItemTableViewCell.strings; sourceTree = "<group>"; };
+		F6D92721268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmToreceiveItemTableViewCell.swift; sourceTree = "<group>"; };
+		F6D92723268AC1EC0067C486 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConfirmToreceiveItemTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1919,6 +1926,7 @@
 		18C6928F2655272E00B7347B /* AgentDeliveryDetails */ = {
 			isa = PBXGroup;
 			children = (
+				F6D9271D268AC1EC0067C486 /* ConfirmToReceiveItemForBo */,
 				4E1DA07C2683343E0055D201 /* AgentModel */,
 				4EE6319D267F752800D5ED01 /* CancelReason */,
 				4E19EB8E267A341C003510BC /* CommanPopUp */,
@@ -4098,6 +4106,16 @@
 			path = UserPolicyVC;
 			sourceTree = "<group>";
 		};
+		F6D9271D268AC1EC0067C486 /* ConfirmToReceiveItemForBo */ = {
+			isa = PBXGroup;
+			children = (
+				F6D9271E268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.strings */,
+				F6D92721268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.swift */,
+				F6D92722268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.xib */,
+			);
+			path = ConfirmToReceiveItemForBo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -4305,6 +4323,7 @@
 				F680D632259B7C2C007EB12C /* DEInprogressOrderInformationSecondTableViewCell.strings in Resources */,
 				CEDD31EE2576206500023977 /* SelectProductTypeNewTableViewCell.strings in Resources */,
 				2F74CB4E250A365300DE21EF /* logo-animeted.gif in Resources */,
+				F6D92724268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.strings in Resources */,
 				CEBCD72F2664A7FE001BF767 /* BankTransferController.xib in Resources */,
 				CECEFAD52577D3140090D459 /* AllFilterTableViewCell.xib in Resources */,
 				CECEFAC02577AF5F0090D459 /* SelectBusinesstypeTableViewCell.xib in Resources */,
@@ -4562,6 +4581,7 @@
 				CEBCD7B326669A28001BF767 /* NoTripFoundTableViewCell.xib in Resources */,
 				CEBCD7442664A7FE001BF767 /* TransactionNewPopupViewController.strings in Resources */,
 				CECEF9E02577575C0090D459 /* CheckedTableViewCell.xib in Resources */,
+				F6D92726268AC1ED0067C486 /* ConfirmToreceiveItemTableViewCell.xib in Resources */,
 				CEDD33A92576705A00023977 /* AddFilterViewController.xib in Resources */,
 				CE9CCDFF264BEDBD005AE619 /* ProductTechnicalSpecificationsTableViewCell.xib in Resources */,
 				F6547ABC25DE594A00171862 /* DataEntryFilterViewController.strings in Resources */,
@@ -5126,6 +5146,7 @@
 				CECEFA5825779E8F0090D459 /* GalleryItemCollectionViewCell.swift in Sources */,
 				F680D67C259B7C2C007EB12C /* DataEntryHeaderCollectionViewCell.swift in Sources */,
 				CEBCD74D2664A7FE001BF767 /* BankListTableViewCell.swift in Sources */,
+				F6D92725268AC1ED0067C486 /* ConfirmToreceiveItemTableViewCell.swift in Sources */,
 				F4E772AA252D9F930045BD86 /* ChangePasswordViewController.swift in Sources */,
 				2F8463E1250F6EBC0084EB32 /* LoginIntroFourth.swift in Sources */,
 				CECEFAC62577C3790090D459 /* otherTableViewCell.swift in Sources */,
@@ -7370,6 +7391,23 @@
 				F680D60F259B7C2C007EB12C /* Base */,
 			);
 			name = DataEntryListingTopTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F6D9271E268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6D9271F268AC1EC0067C486 /* ar */,
+				F6D92720268AC1EC0067C486 /* en */,
+			);
+			name = ConfirmToreceiveItemTableViewCell.strings;
+			sourceTree = "<group>";
+		};
+		F6D92722268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6D92723268AC1EC0067C486 /* Base */,
+			);
+			name = ConfirmToreceiveItemTableViewCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

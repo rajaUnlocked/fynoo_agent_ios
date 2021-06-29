@@ -8,6 +8,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchedProductDeatailViewC" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
@@ -51,6 +56,10 @@
                         <constraint firstAttribute="height" constant="90" id="Yte-TM-AEt"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qz7-yi-gQc">
+                    <rect key="frame" x="0.0" y="90" width="320" height="231"/>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="6PJ-Ox-YXa">
                     <rect key="frame" x="0.0" y="367" width="285" height="201"/>
                     <constraints>
@@ -58,17 +67,16 @@
                         <constraint firstAttribute="width" constant="285" id="8TL-zT-8aV"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qz7-yi-gQc">
-                    <rect key="frame" x="0.0" y="90" width="320" height="231"/>
-                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKt-Pl-1Qu" userLabel="Decline">
-                    <rect key="frame" x="10" y="99" width="115" height="30"/>
+                    <rect key="frame" x="10" y="99" width="99" height="30"/>
                     <color key="backgroundColor" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="CHz-me-RfO"/>
+                        <constraint firstAttribute="width" constant="99" id="UA8-Nd-28t"/>
                     </constraints>
-                    <state key="normal" title="Decline   " image="ic_add_24px">
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Decline   ">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -80,6 +88,13 @@
                         <action selector="btnTappedToDecline:" destination="-1" eventType="touchUpInside" id="R0X-4l-kWZ"/>
                     </connections>
                 </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_add_24px" translatesAutoresizingMaskIntoConstraints="NO" id="GEN-Ie-caJ">
+                    <rect key="frame" x="15" y="104" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="4wu-j3-NaL"/>
+                        <constraint firstAttribute="width" constant="20" id="BOM-I0-ZZB"/>
+                    </constraints>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hmF-pF-0Ha">
                     <rect key="frame" x="0.0" y="295" width="320" height="272"/>
                     <subviews>
@@ -550,6 +565,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hmF-pF-0Ha" secondAttribute="bottom" constant="1" id="6Qw-WM-Rs9"/>
                 <constraint firstItem="hmF-pF-0Ha" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="CeA-KY-HDd"/>
                 <constraint firstItem="wKt-Pl-1Qu" firstAttribute="leading" secondItem="Qz7-yi-gQc" secondAttribute="leading" constant="10" id="GUm-rI-f4J"/>
+                <constraint firstItem="GEN-Ie-caJ" firstAttribute="centerY" secondItem="wKt-Pl-1Qu" secondAttribute="centerY" id="GkB-PF-i8s"/>
                 <constraint firstItem="wKt-Pl-1Qu" firstAttribute="top" secondItem="Qz7-yi-gQc" secondAttribute="top" constant="9" id="JNC-MM-uHo"/>
                 <constraint firstItem="NmM-km-qaO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="M4o-XV-SFn"/>
                 <constraint firstItem="6PJ-Ox-YXa" firstAttribute="top" secondItem="Qz7-yi-gQc" secondAttribute="bottom" constant="46" id="Qvs-D4-oDM"/>
@@ -557,6 +573,7 @@
                 <constraint firstItem="Qz7-yi-gQc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WzL-iP-TsP"/>
                 <constraint firstItem="6PJ-Ox-YXa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="YdZ-gG-8c8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hmF-pF-0Ha" secondAttribute="trailing" id="h2c-j2-u4g"/>
+                <constraint firstItem="GEN-Ie-caJ" firstAttribute="leading" secondItem="wKt-Pl-1Qu" secondAttribute="leading" constant="5" id="hqB-pj-wSW"/>
                 <constraint firstItem="NmM-km-qaO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mWh-Il-9SI"/>
                 <constraint firstItem="hmF-pF-0Ha" firstAttribute="top" secondItem="Qz7-yi-gQc" secondAttribute="bottom" constant="-26" id="pKW-f0-9QG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="NmM-km-qaO" secondAttribute="trailing" id="uUq-yh-Mmb"/>
@@ -566,6 +583,11 @@
             <point key="canvasLocation" x="18.840579710144929" y="45.535714285714285"/>
         </view>
     </objects>
+    <designables>
+        <designable name="JrE-32-qfu">
+            <size key="intrinsicContentSize" width="18" height="18"/>
+        </designable>
+    </designables>
     <resources>
         <image name="backgroundImage" width="297" height="208"/>
         <image name="box" width="18" height="18"/>
