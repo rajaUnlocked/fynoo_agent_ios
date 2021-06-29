@@ -824,6 +824,18 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         default:
            print("")
         }
+        
+        
+        if orderDetailData?.data?.is_agent_reached == 2 && orderDetailData?.data?.order_status == 1 {
+            self.btnChangeStatus.setTitle("Invoice Uploaded".localized, for: .normal)
+        }else if  orderDetailData?.data?.is_agent_reached == 2 && orderDetailData?.data?.order_status == 2 {
+            self.btnChangeStatus.setTitle("Delivered".localized, for: .normal)
+        }
+        
+        if orderDetailData?.data?.order_status == 3 {
+            self.btnChangeStatus.setTitle("Cancelled".localized, for: .normal)
+
+        }
     }
     
     
@@ -934,7 +946,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         
         cell.lblAlmostAmountPrice.text = "\(orderDetailData?.data?.currency_code ?? "") " + "\(orderDetailData?.data?.order_price ?? 0)"
         
-        cell.lblAlmostAmount.text = "Actual Total Amount".localized
+        cell.lblAlmostAmount.text = "Total Amount".localized
         if selectedImg != nil {
             cell.tapToBtnUploadInvoice.setImage(selectedImg, for: .normal)
             cell.imgInvoiceUploaded.isHidden = false
@@ -1014,10 +1026,6 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
 
         let ansTest = testString.enumerated().compactMap({ ($0 > 0) && ($0 % 1 == 0) ? "  \($1)" : "\($1)" }).joined()
         
-        print(ansTest) // 12:34:56:78:9
-
-//        let test1 = testString.insertSeparator(":", atEvery: 2)
-//        print(test1) // 11:23:12:45
         cell.lblOtp.text =  ansTest
        
         
@@ -1177,7 +1185,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        if orderDetailData?.data?.user_type == "BO" && orderDetailData?.data?.is_agent_reached == 2  {
+        if orderDetailData?.data?.user_type == "BO" && orderDetailData?.data?.is_agent_reached == 2 && orderDetailData?.data?.order_status == 0  {
             return 3
         }else
         {
