@@ -8,6 +8,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -203,6 +208,24 @@
                                     <constraint firstItem="bNI-Im-cxh" firstAttribute="leading" secondItem="LB0-pa-pjM" secondAttribute="trailing" constant="5" id="WwE-e9-NFv"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayd-hD-WVV">
+                                <rect key="frame" x="0.0" y="105" width="320" height="155"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBY-Ba-bHV">
+                                        <rect key="frame" x="10" y="15" width="300" height="35"/>
+                                        <string key="text">Please share the otp with business onwer which you will receive after confirm and upload invoice to confirm that you have received all products from business owner.</string>
+                                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="dBY-Ba-bHV" firstAttribute="top" secondItem="ayd-hD-WVV" secondAttribute="top" constant="15" id="igh-Mp-xKF"/>
+                                    <constraint firstAttribute="trailing" secondItem="dBY-Ba-bHV" secondAttribute="trailing" constant="10" id="quD-AH-MsK"/>
+                                    <constraint firstItem="dBY-Ba-bHV" firstAttribute="leading" secondItem="ayd-hD-WVV" secondAttribute="leading" constant="10" id="w9Z-jF-mbb"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nDS-7A-bEb">
                                 <rect key="frame" x="112.5" y="275" width="95" height="30"/>
                                 <state key="normal">
@@ -236,6 +259,8 @@
                             <constraint firstItem="PNs-yN-rB1" firstAttribute="top" secondItem="nYh-mm-NRR" secondAttribute="bottom" constant="5" id="3nX-Pl-ydL"/>
                             <constraint firstItem="nYh-mm-NRR" firstAttribute="leading" secondItem="vjl-4p-rYu" secondAttribute="leading" id="3nm-yC-fRB"/>
                             <constraint firstAttribute="trailing" secondItem="nYh-mm-NRR" secondAttribute="trailing" id="5JT-8m-A6L"/>
+                            <constraint firstItem="ayd-hD-WVV" firstAttribute="top" secondItem="PNs-yN-rB1" secondAttribute="bottom" constant="5" id="Ixu-IS-dNc"/>
+                            <constraint firstAttribute="trailing" secondItem="ayd-hD-WVV" secondAttribute="trailing" id="KHS-h9-hHu"/>
                             <constraint firstAttribute="trailing" secondItem="TAd-Cb-DQc" secondAttribute="trailing" id="OHg-vj-PNW"/>
                             <constraint firstItem="TAd-Cb-DQc" firstAttribute="top" secondItem="vjl-4p-rYu" secondAttribute="top" constant="3" id="Oz3-En-aNY"/>
                             <constraint firstItem="I73-Qo-R1J" firstAttribute="top" secondItem="PNs-yN-rB1" secondAttribute="bottom" constant="5" id="Qo9-DC-cK1"/>
@@ -249,9 +274,11 @@
                             <constraint firstItem="kJm-eS-Ca8" firstAttribute="leading" secondItem="vjl-4p-rYu" secondAttribute="leading" id="n62-Dl-k7w"/>
                             <constraint firstItem="I73-Qo-R1J" firstAttribute="leading" secondItem="vjl-4p-rYu" secondAttribute="leading" id="pxe-Q1-pOG"/>
                             <constraint firstAttribute="trailing" secondItem="I73-Qo-R1J" secondAttribute="trailing" id="r7K-qu-iZz"/>
+                            <constraint firstItem="nDS-7A-bEb" firstAttribute="top" secondItem="ayd-hD-WVV" secondAttribute="bottom" constant="15" id="vSX-sR-xuv"/>
                             <constraint firstItem="nYh-mm-NRR" firstAttribute="top" secondItem="TAd-Cb-DQc" secondAttribute="bottom" constant="10" id="veY-p4-A59"/>
                             <constraint firstItem="TAd-Cb-DQc" firstAttribute="leading" secondItem="vjl-4p-rYu" secondAttribute="leading" id="w7C-HI-GhX"/>
                             <constraint firstAttribute="trailing" secondItem="tHZ-zq-r56" secondAttribute="trailing" id="wvX-4z-zV1"/>
+                            <constraint firstItem="ayd-hD-WVV" firstAttribute="leading" secondItem="vjl-4p-rYu" secondAttribute="leading" id="zj3-4J-x55"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -283,6 +310,7 @@
                 <outlet property="txtTotalAmountWithVat" destination="bNI-Im-cxh" id="yHz-yU-38E"/>
                 <outlet property="txtTotalAmtWithoughtVat" destination="zJn-IF-DQu" id="p8D-ep-eEd"/>
                 <outlet property="txtVatAmt" destination="MNl-a4-0dx" id="Qjr-8U-7Rc"/>
+                <outlet property="viewForBoToAgent" destination="ayd-hD-WVV" id="YkT-WG-8qY"/>
                 <outlet property="viewForShowHide" destination="vjl-4p-rYu" id="b5J-8Y-LJR"/>
             </connections>
             <point key="canvasLocation" x="18.840579710144929" y="50.892857142857139"/>
