@@ -52,13 +52,20 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         super.viewDidLoad()
         self.getUserLocation()
         self.setUpUI()
-        
+        self.SetFont()
         ModalClass.startLoading(self.view)
         isMoreDataAvailable = false
         currentPageNumber = 0
        
         self.getBoServicesRequestListAPI()
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationRefreshList(_:)), name: NSNotification.Name(rawValue: "refreshDataEntryList"), object: nil)
+        
+    }
+    func SetFont() {
+        
+        let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
+        
+        self.noDataLbl.font = UIFont(name:"\(fontNameBold)",size:20)
         
     }
     

@@ -38,9 +38,6 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         super.viewDidLoad()
         self.tableView.separatorStyle = .none
         
-        
-      
-        
         tableView.register(UINib(nibName: "AgentDeliveryTableViewCell", bundle: nil), forCellReuseIdentifier: "AgentDeliveryTableViewCell");
         tableView.register(UINib(nibName: "TripAchievementViewCell", bundle: nil), forCellReuseIdentifier: "TripAchievementViewCell");
         tableView.register(UINib(nibName: "AgentServiceList", bundle: nil), forCellReuseIdentifier: "AgentServiceList");

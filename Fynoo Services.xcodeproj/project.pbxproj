@@ -1708,6 +1708,14 @@
 		F66AA1AC2525B53300C1E058 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DiscountTypePopUpViewController.strings; sourceTree = "<group>"; };
 		F66AA1AE2525B53300C1E058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DiscountTypePopUpViewController.xib; sourceTree = "<group>"; };
 		F66AA1B32525B5B300C1E058 /* DiscountTypePopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountTypePopUpViewController.swift; sourceTree = "<group>"; };
+		F679A11C268B306F008339F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CommonPopupViewController.strings; sourceTree = "<group>"; };
+		F679A11D268B3075008339F7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CommonPopupViewController.strings; sourceTree = "<group>"; };
+		F679A121268B3D7C008339F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProfileDetailTableViewCell.strings; sourceTree = "<group>"; };
+		F679A122268B3D80008339F7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ProfileDetailTableViewCell.strings; sourceTree = "<group>"; };
+		F679A123268B3DEC008339F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TwoButtonsTableViewCell.strings; sourceTree = "<group>"; };
+		F679A124268B3DF2008339F7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TwoButtonsTableViewCell.strings; sourceTree = "<group>"; };
+		F679A125268B3EE3008339F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProfileVatTableViewCell.strings; sourceTree = "<group>"; };
+		F679A126268B3EE8008339F7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ProfileVatTableViewCell.strings; sourceTree = "<group>"; };
 		F67B5E21252574F40083DA66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ServiceCollectionViewCell.xib; sourceTree = "<group>"; };
 		F67B5E24252574F80083DA66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ServiceCollectionViewCell.strings; sourceTree = "<group>"; };
 		F67B5E26252574FA0083DA66 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ServiceCollectionViewCell.strings; sourceTree = "<group>"; };
@@ -5564,6 +5572,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E790204267B359900CE9600 /* Base */,
+				F679A123268B3DEC008339F7 /* en */,
+				F679A124268B3DF2008339F7 /* ar */,
 			);
 			name = TwoButtonsTableViewCell.xib;
 			sourceTree = "<group>";
@@ -5572,6 +5582,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E790207267B365400CE9600 /* Base */,
+				F679A121268B3D7C008339F7 /* en */,
+				F679A122268B3D80008339F7 /* ar */,
 			);
 			name = ProfileDetailTableViewCell.xib;
 			sourceTree = "<group>";
@@ -5580,6 +5592,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E790209267B365500CE9600 /* Base */,
+				F679A125268B3EE3008339F7 /* en */,
+				F679A126268B3EE8008339F7 /* ar */,
 			);
 			name = ProfileVatTableViewCell.xib;
 			sourceTree = "<group>";
@@ -5588,6 +5602,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E79020D267B373B00CE9600 /* Base */,
+				F679A11C268B306F008339F7 /* en */,
+				F679A11D268B3075008339F7 /* ar */,
 			);
 			name = CommonPopupViewController.xib;
 			sourceTree = "<group>";

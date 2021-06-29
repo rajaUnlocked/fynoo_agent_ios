@@ -280,6 +280,18 @@
 "payment_status_alert_failed"        = "فشل عملية الدفع";
 
 /////////////////////////             TAP PAYMENT
+
+
+// dashbaord
+
+"Do you want to opt for" = "هل تريد إضافة خدمة";
+"service?" = "ضمن الخدمات التي تعمل عليها؟";
+
+
+
+
+
+
 "Product Details" = "تفاصيل المنتج";
 "Item Qty" = "كمية المنتج";
 "Items price (Almost)" = "سعر المنتجات (تقريبي)";
@@ -300,8 +312,6 @@
 "Branch List" = "قائمة الفروع";
 "Choose your option"= "إختر أحد الخيارات";
 "Varient" = "مماثل";
-"Do you want to opt for" = "هل تريد إضافة خدمة ";
-"service?" = "ضمن الخدمات التي تعمل عليها؟";
 "Are you sure you want to activate this service?" = "هل تريد استقبال طلبات هذه الخدمة؟";
 "Are you sure you want to deactivate this service?" = "هل تريد إيقاف استقبال طلبات هذه الخدمة؟";
 "Rejection Reason:" = ":سبب الرفض";

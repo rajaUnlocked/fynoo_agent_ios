@@ -56,9 +56,16 @@ class DataEntryFormViewController: UIViewController, DataEntryFormItemPopUpViewC
         super.viewDidLoad()
         self.setUpUI()
          self.getServiceDetailAPI()
-        
+        self.SetFont()
 
     }
+    func SetFont() {
+        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+      
+        self.placeOrderBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:16)
+    }
+    
     func setUpUI() {
         
         self.headerHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
