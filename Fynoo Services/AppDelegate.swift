@@ -264,10 +264,7 @@ extension AppDelegate: CLLocationManagerDelegate {
             let longitude = location.longitude
             latitudeStr = Double(latitude)
             longitudeStr = Double(longitude)
-            print(latitudeStr)
-            print(longitudeStr)
-            
-        
+         
     }
    
 }

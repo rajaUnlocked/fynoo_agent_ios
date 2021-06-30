@@ -523,7 +523,7 @@ extension OtpForCodViewC : UITableViewDataSource {
           
                     cell.lblBoName.text = onTheWayTripDetailData?.data?.trip_details?.cust_name ?? ""
                     cell.lblBoAddress.text = onTheWayTripDetailData?.data?.trip_details?.address ?? ""
-                    cell.bo_total_rating.text = onTheWayTripDetailData?.data?.trip_details?.total_rating ?? "0"
+                    cell.bo_total_rating.text = "(\(onTheWayTripDetailData?.data?.trip_details?.total_rating ?? "0"))"
                     cell.bo_rating.text = onTheWayTripDetailData?.data?.trip_details?.rating ?? "0"
                     cell.imgbo_pic.sd_setImage(with: URL(string: onTheWayTripDetailData?.data?.trip_details?.cust_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
 

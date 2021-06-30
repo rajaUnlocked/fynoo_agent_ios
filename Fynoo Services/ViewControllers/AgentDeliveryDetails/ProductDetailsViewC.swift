@@ -180,6 +180,8 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
                             callMainButtonstatusForBO()
                         }
                         self.tableView.reloadData()
+                        
+                        print(orderDetailData?.data?.is_vat_available)
 //                        self.tableView.reloadSections([3], with: .automatic)
                         
 
@@ -699,7 +701,6 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     
     func checkValidation(){
         
-
         
         if isInvoiceEnable == false{
             ModalController.showNegativeCustomAlertWith(title: "", msg: "Please accept / reject all products in the order ".localized)
@@ -714,9 +715,12 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter total amount without vat".localized)
             return
         }
-        if orderDetailData?.data?.is_vat_available == false{
-            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter vat amount".localized)
-            return
+        if orderDetailData?.data?.is_vat_available == true  {
+            if self.vatAmount == "" {
+                ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter vat amount".localized)
+                return
+            }
+           
         }
         
         UploadInvoice_API()
@@ -739,7 +743,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter total amount without vat".localized)
             return
         }
-        if orderDetailData?.data?.is_vat_available == false{
+        if orderDetailData?.data?.is_vat_available == true{
             ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter vat amount".localized)
             return
         }
@@ -901,7 +905,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             cell.txtTotalAmtWithoughtVat.text = "\(orderDetailData?.data?.total_amount_without_vat ?? 0)"
             cell.txtVatAmt.text = "\(orderDetailData?.data?.vat_amount ?? 0)"
             cell.txtTotalAmountWithVat.text = "\(orderDetailData?.data?.total_amount_with_vat ?? 0)"
-            cell.btnAnyProblem.isHidden = false
+//            cell.btnAnyProblem.isHidden = false
             
         case 4:
             self.btnChangeStatus.setTitle("Cancel Request Received".localized, for: .normal)
@@ -1251,14 +1255,18 @@ extension ProductDetailsViewC : UITableViewDataSource {
             cell.delegate = self
                     cell.lblBoName.text = orderDetailData?.data?.bo_name ?? ""
                     cell.lblBoAddress.text = orderDetailData?.data?.bo_address ?? ""
-                    cell.bo_total_rating.text = orderDetailData?.data?.bo_total_rating ?? "0"
+                    cell.bo_total_rating.text = "(\(orderDetailData?.data?.bo_total_rating ?? "0"))"
                     cell.bo_rating.text = orderDetailData?.data?.bo_rating ?? "0"
                     
                     cell.imgbo_pic.sd_setImage(with: URL(string: orderDetailData?.data?.bo_pic ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
                     
                     
-                    if orderDetailData?.data?.order_status == 3 {
+                    if orderDetailData?.data?.order_status == 3 || orderDetailData?.data?.order_status == 2{
                         
+                        cell.btnNavWidth.constant = 0
+                    }
+                    
+                    if checkInvoiceUploaded == true {
                         cell.btnNavWidth.constant = 0
                     }
                     
@@ -1285,14 +1293,14 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     cell.lblOrderDate.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: timeSTAMP, format: "dd-MMM-yyyy HH:mm a")
                     
                     cell.lblCustrating.text = orderDetailData?.data?.cust_rating ?? "0"
-                    cell.lblCusttotalrating.text = orderDetailData?.data?.cust_total_rating ?? "0"
+                    cell.lblCusttotalrating.text = "(\(orderDetailData?.data?.cust_total_rating ?? "0"))"
                     cell.lblCurrencyCode.text = orderDetailData?.data?.currency_code ?? "0"
                     
                     cell.order_price.text = "\(orderDetailData?.data?.order_price ?? 0.0)"
                     cell.imgCustpic.sd_setImage(with: URL(string: orderDetailData?.data?.cust_pic ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
                     cell.imgPaymentIcon.sd_setImage(with: URL(string: orderDetailData?.data?.payment_icon ?? ""), placeholderImage: UIImage(named: "cod_icon"))
-                    cell.lblTotalOrder.text = "\(orderDetailData?.data?.total_accepted_order ?? 0)"
-                    cell.lblTotalAcceptedOrder.text = "\(orderDetailData?.data?.total_order ?? 0)"
+                    cell.lblTotalOrder.text = "0\(orderDetailData?.data?.total_accepted_order ?? 0)"
+                    cell.lblTotalAcceptedOrder.text = "0\(orderDetailData?.data?.total_order ?? 0)"
                     
                     if (orderDetailData?.data?.total_accepted_order == orderDetailData?.data?.total_order) {
                         cell.lblTotalOrder.textColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
@@ -1301,7 +1309,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.lblTotalOrder.textColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
                     }
                     
-                    if orderDetailData?.data?.order_status == 3 {
+                    if orderDetailData?.data?.order_status == 3 || orderDetailData?.data?.order_status == 2{
                         cell.viewForHideExpectedDelivery.constant = 50
                         cell.btnNavWidth.constant = 0
                     }
@@ -1313,6 +1321,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         }
                         
                     }
+                  
                     
 //                    calculateDistanceFromLatLong()
                     
