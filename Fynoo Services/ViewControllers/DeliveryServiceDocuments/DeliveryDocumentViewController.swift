@@ -719,10 +719,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             service.edob = toptxtArr[3]
             service.isType = sender.tag + 1
             if imglocalArr[sender.tag] == nil{
-                service.docfile = documentlocalArr[sender.tag]
+                service.docfilereg.removeAll()
+                service.docfilereg.append(documentlocalArr[sender.tag]!)
             }
             else{
-                service.imgfile = imglocalArr[sender.tag]
+                service.imagefile.removeAll()
+                service.imagefile.append(imglocalArr[sender.tag]!)
             }
               service.sendforapproval = "0"
         }
