@@ -176,7 +176,9 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
                         self.orderDetailData  = Mapper<orderDetail>().map(JSON: body)
                         
                         print(self.orderDetailData?.data?.bo_name ?? "")
-                        
+                        if orderDetailData?.data?.user_type == "BO" {
+                            callMainButtonstatusForBO()
+                        }
                         self.tableView.reloadData()
 //                        self.tableView.reloadSections([3], with: .automatic)
                         
@@ -964,21 +966,21 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
 
        
         
-        switch orderDetailData?.data?.is_agent_reached {
-        case 0:
-            self.btnChangeStatus.setTitle("I have reached BO's store".localized, for: .normal)
-            cell.tapToBtnUploadInvoice.isUserInteractionEnabled = false
-           
-           
-        case 1:
-            self.btnChangeStatus.setTitle("Confirm & Upload Invoice".localized, for: .normal)
-            cell.tapToBtnUploadInvoice.isUserInteractionEnabled = true
-        case 2:
-            self.btnChangeStatus.setTitle("Confirm to received Items".localized, for: .normal)
-           
-        default:
-           print("")
-        }
+//        switch orderDetailData?.data?.is_agent_reached {
+//        case 0:
+//            self.btnChangeStatus.setTitle("I have reached BO's store".localized, for: .normal)
+//            cell.tapToBtnUploadInvoice.isUserInteractionEnabled = false
+//
+//
+//        case 1:
+//            self.btnChangeStatus.setTitle("Confirm & Upload Invoice".localized, for: .normal)
+//            cell.tapToBtnUploadInvoice.isUserInteractionEnabled = true
+//        case 2:
+//            self.btnChangeStatus.setTitle("Confirm to received Items".localized, for: .normal)
+//
+//        default:
+//           print("")
+//        }
         
         
         
@@ -1185,21 +1187,27 @@ extension ProductDetailsViewC : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        if orderDetailData?.data?.user_type == "BO" && orderDetailData?.data?.is_agent_reached == 2 && orderDetailData?.data?.order_status == 0  {
+        if ((orderDetailData?.data?.user_type == "BO") && (orderDetailData?.data?.is_agent_reached == 2) && (orderDetailData?.data?.order_status == 0)){
             return 3
         }else
         {
-        return 4
+            return 4
+        }
       }
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 2 {
+            
+            if ((orderDetailData?.data?.user_type == "BO") && (orderDetailData?.data?.is_agent_reached == 2) && (orderDetailData?.data?.order_status == 0))
+            {
+             return 1
+            }else
+            {
             return orderDetailData?.data?.item_detail?.count ?? 0
+            }
         }else
         {
-        
           return 1
         }
     }
@@ -1230,7 +1238,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
         }else if indexPath.section == 2
         {
             if orderDetailData?.data?.user_type == "BO" {
-                if orderDetailData?.data?.is_agent_reached == 2 {
+                if (orderDetailData?.data?.is_agent_reached) == 2 && (orderDetailData?.data?.order_status) == 0{
                     return 350
                 }
             }
@@ -1242,10 +1250,6 @@ extension ProductDetailsViewC : UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        if orderDetailData?.data?.user_type == "BO" {
-            callMainButtonstatusForBO()
-        }
-        
                 if indexPath.section == 0{
         
             let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessOwnerTableViewCell",for: indexPath) as! BusinessOwnerTableViewCell
@@ -1330,14 +1334,10 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     return entryCell(index: indexPath)
                     }
                     
-
                 }else
                 {
-                   
-                    
                     if orderDetailData?.data?.user_type == "BO"  {
-                        
-                        if orderDetailData?.data?.is_agent_reached == 2 {
+                        if ((orderDetailData?.data?.is_agent_reached == 2) &&  (orderDetailData?.data?.order_status == 0))  {
                             return entryCellForBoConfirmForReceiveItem(index: indexPath)
                         }else
                         {
@@ -1423,12 +1423,9 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.tag = indexPath.row
      
                         return cell
-                    
                 }
-                    
-                    
-                  
-                }
+           
+            }
        }
     }
     
