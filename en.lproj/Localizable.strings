@@ -1063,10 +1063,10 @@
 "You cannot apply this commission"="You cannot apply this commission";
 "Commission cannot be applied"="Commission cannot be applied";
 
-"Are you sure you want to activate your Commission?"="Are you sure you want to activate your Commission?";"
+"Are you sure you want to activate your Commission?"="Are you sure you want to activate your Commission?";
 "Are you sure you want to deactivate your commission?" = "Are you sure you want to deactivate your commission?";
 "Are you sure you want to deactivate this commission?"="Are you sure you want to deactivate this commission?";
-"Are you sure you want to activate this commission?"="Are you sure you want to activate this commission?";"
+"Are you sure you want to activate this commission?"="Are you sure you want to activate this commission?";
 "Verification"="Verification";
 "Verify Your Account"="Verify Your Account"
 
@@ -1198,15 +1198,14 @@
 //"Order Information" = "Order Information"
 //"Invoices Copy" = "Invoices Copy"
 //"Confirm Delivery" = "Confirm Delivery"
-<<<<<<< HEAD
-=======
+
 
 "Please Enter Otp" = "Please Enter Otp"
 "Please Check COD Amount For Customer" = "Please Check COD Amount For Customer"
 "Please add invoice file" = "Please add invoice file"
 "View Images" = "View Images"
 
->>>>>>> 7938e6752070ae70ecdae097608b6b3ec0ae53d1
+
 "Please Enter Otp" = "Please Enter Otp";
 "Please Check COD Amount For Customer" = "Please Check COD Amount For Customer";
 "Please add invoice file" = "Please add invoice file";

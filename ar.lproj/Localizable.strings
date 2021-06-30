@@ -280,6 +280,14 @@
 "payment_status_alert_failed"        = "فشل عملية الدفع";
 
 /////////////////////////             TAP PAYMENT
+
+
+// dashbaord
+
+"Do you want to opt for" = "هل تريد إضافة خدمة";
+"service?" = "ضمن الخدمات التي تعمل عليها؟";
+
+
 "Product Details" = "تفاصيل المنتج";
 "Item Qty" = "كمية المنتج";
 "Items price (Almost)" = "سعر المنتجات (تقريبي)";
@@ -300,8 +308,6 @@
 "Branch List" = "قائمة الفروع";
 "Choose your option"= "إختر أحد الخيارات";
 "Varient" = "مماثل";
-"Do you want to opt for" = "هل تريد إضافة خدمة ";
-"service?" = "ضمن الخدمات التي تعمل عليها؟";
 "Are you sure you want to activate this service?" = "هل تريد استقبال طلبات هذه الخدمة؟";
 "Are you sure you want to deactivate this service?" = "هل تريد إيقاف استقبال طلبات هذه الخدمة؟";
 "Rejection Reason:" = ":سبب الرفض";
@@ -1221,8 +1227,6 @@
 "Manage Products"="إدارة المنتجات";
 "Product"="المنتج";
 
-
-
 // Product Detail
 
 //"Actual Total Amount" = "المبلغ الإجمالي الفعلي"
@@ -1230,8 +1234,7 @@
 //"Order Information" = "معلومات الطلب"
 //"Invoice Copy" = "Invoice Copy"
 //"Confirm Delivery" = "تأكيد التسليم"
-<<<<<<< HEAD
-=======
+
 
 "Please Enter Otp" =  "الرجاء إدخال رمز التحقق"
 "Please Check COD Amount For Customer" = "Please Check COD Amount For Customer"
@@ -1239,7 +1242,7 @@
 "Are you sure want to accept?" = ""
 "View Images" = "استعراض الصورة"
 
->>>>>>> 7938e6752070ae70ecdae097608b6b3ec0ae53d1
+
 "Please Enter Otp" =  "الرجاء إدخال رمز التحقق";
 "Please Check COD Amount For Customer" = "Please Check COD Amount For Customer";
 "Please add invoice file" = "Please add invoice file";
@@ -1251,8 +1254,3 @@
 "Qty :" = "الكمية:";
 "Weight:" = "الوزن:";
 "Size:" = "الحجم:";
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 7938e6752070ae70ecdae097608b6b3ec0ae53d1

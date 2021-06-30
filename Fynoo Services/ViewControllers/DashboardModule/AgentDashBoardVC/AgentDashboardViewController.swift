@@ -560,9 +560,9 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     func DashboardWalletCell(index : IndexPath) -> UITableViewCell {
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "DashboardWalletTableViewCell",for: index) as! DashboardWalletTableViewCell
         cell.selectionStyle = .none
-        cell.walletLbl.text = "\(dataDict.object(forKey: "wallet_balance") as! Float)"
-        cell.holdingLBl.text = "\(dataDict.object(forKey: "holding_amount") as! Float)"
-        cell.inprocessLbl.text = "\(dataDict.object(forKey: "payment_in_progress") as! Float)"
+        self.walletLbl.text = ModalController.convertInString(str: self.dataDict.object(forKey: "wallet_balance") as AnyObject)
+        self.holdingLBl.text = ModalController.convertInString(str: self.dataDict.object(forKey: "holding_amount") as AnyObject)
+        self.inprocessLbl.text = ModalController.convertInString(str: self.dataDict.object(forKey: "payment_in_progress") as AnyObject)
         return cell
     }
     
@@ -572,19 +572,23 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         var transform : CGAffineTransform = CGAffineTransform(scaleX: 1.0, y: 4.0)
         cell.progressVW.transform = transform
         
+        let startStr = ModalController.convertInString(str: self.dataDict.object(forKey: "target_achived") as AnyObject)
+        let endStr = ModalController.convertInString(str: self.dataDict.object(forKey: "target_to_be_achive") as AnyObject)
         
-        let start = dataDict.object(forKey: "target_achived") as! Float
-        let end = dataDict.object(forKey: "target_to_be_achive") as! Float
-        let per = (start*100)/end
+        let start =  Float(startStr)
+        let end = Float(endStr)
+        
+        
+        let per = (start!*100)/end!
         let perToSet = per/100
         
         cell.progressVW.setProgress(perToSet, animated: true)
-        cell.targetStartLbl.text = "\(dataDict.object(forKey: "target_achived") as! Float)/"
+        cell.targetStartLbl.text = "\(ModalController.convertInString(str: self.dataDict.object(forKey: "target_achived") as AnyObject))/"
         if HeaderHeightSingleton.shared.LanguageSelected == "AR"
         {
-            cell.targetStartLbl.text = "/\(dataDict.object(forKey: "target_achived") as! Float)"
+            cell.targetStartLbl.text = "/\(ModalController.convertInString(str: self.dataDict.object(forKey: "target_to_be_achive") as AnyObject))"
         }
-        cell.targetEndLbl.text = "\(dataDict.object(forKey: "target_to_be_achive") as! Float)"
+        cell.targetEndLbl.text = "\(ModalController.convertInString(str: self.dataDict.object(forKey: "target_to_be_achive") as AnyObject))"
         cell.endDate.text = "\("Target End Date".localized): \(dataDict.object(forKey: "target_end_date") as! String)"
         
         return cell
@@ -865,7 +869,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     let dict : NSDictionary = NSDictionary(dictionary: results4).RemoveNullValueFromDic()
                     self.dataDict = dict
                     
-                    self.availableBalanceLbl.text = "\(self.dataDict.object(forKey: "available_amount") as! Float)"
+                    self.availableBalanceLbl.text =  ModalController.convertInString(str: self.dataDict.object(forKey: "available_amount") as AnyObject)
                     
                     let image =  ((self.dataDict.object(forKey: "agent_information") as! NSArray).object(at: 0) as! NSDictionary).object(forKey: "user_img") as! NSString
                     
@@ -878,9 +882,9 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     let val1 = "Hello".localized
                     let val2 = "ID".localized
                     self.userDetails.text = "\(val1) \(nameStr)\n \(val2): \(idStr)"
-                    self.walletLbl.text = "\(self.dataDict.object(forKey: "wallet_balance") as! Float)"
-                    self.holdingLBl.text = "\(self.dataDict.object(forKey: "holding_amount") as! Float)"
-                    self.inprocessLbl.text = "\(self.dataDict.object(forKey: "payment_in_progress") as! Float)"
+                    self.walletLbl.text = ModalController.convertInString(str: self.dataDict.object(forKey: "wallet_balance") as AnyObject)
+                    self.holdingLBl.text = ModalController.convertInString(str: self.dataDict.object(forKey: "holding_amount") as AnyObject)
+                    self.inprocessLbl.text = ModalController.convertInString(str: self.dataDict.object(forKey: "payment_in_progress") as AnyObject)
                     self.tableVw.reloadData()
                 }
             }else{

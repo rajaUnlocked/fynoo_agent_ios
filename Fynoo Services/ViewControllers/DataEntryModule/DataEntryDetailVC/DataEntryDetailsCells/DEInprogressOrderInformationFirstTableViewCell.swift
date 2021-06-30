@@ -38,6 +38,9 @@ class DEInprogressOrderInformationFirstTableViewCell: UITableViewCell {
         self.headerLbl.font = UIFont(name:"\(fontNameLight)",size:16)
         self.productDataEntryCountLbl.font = UIFont(name:"\(fontNameLight)",size:12)
         self.branchDataEntryCount.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.productDataEntryBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.branchDataEntryBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
+       
        
         productDataEntryBtn.setTitle("Product Data Entry".localized, for: .normal)
         
