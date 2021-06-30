@@ -40,7 +40,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     var registrationtypeidArr = [Int]()
     var vehiclebrandidArr = [Int]()
     var vehicleColoridArr = [Int]()
-    var vehicledescriparr = ["Registration Type","Vehicle Brand","Vehicle Name","Production Year","Vehicle Color","Vehicle kind","Maximum Load","Plat Number"]
+    var vehicledescriparr = ["Registration Type","Vehicle Brand","Vehicle Name","Production Year","Vehicle Color","Vehicle kind","Maximum Load","Plate Number"]
     var service = ServiceModel()
     var headerarr = ["National Id / Iqama","Driving License Front","Vehicle Registration","Vehicle Insurance","Driving Authorization","Vehicle Description","Reason For Vehicle Change"]
     var vehiclenamelist:VehicleName?
@@ -132,6 +132,8 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             }
         }
     }
+    
+    
     func vehicleKind_API(brandid:Int)
     {
         
@@ -390,28 +392,16 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         let cell = tabvw.cellForRow(at: IndexPath(row: row, section: section)) as! VehicleDescriptionTableViewCell
         if section == 1
         {
-            if ModalController.hasSpecialCharacters(str: string)
-            {
-                return false
-            }
-            
-           
-            
-           
+          
             
            if row == 1
            {
             if textstr.count > 0
                        {
-                           if !textstr.containArabicNumber
-                           {
-                               cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
-                           }
-                           else
-                           {
+                          
                              
                                cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
-                           }
+                           
                            
                        }
                            
@@ -580,6 +570,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     func gallery(img: UIImage, imgtype: String) {
         
         imglocalArr[tag1] = img
+        
         tabvw.reloadData()
     }
     func information(Value: String) {
@@ -636,6 +627,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             return
         }
         documentlocalArr[tag1] = urls.first
+        imglocalArr[tag1] = nil
         tabvw.reloadData()
     }
     
@@ -727,10 +719,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             service.edob = toptxtArr[3]
             service.isType = sender.tag + 1
             if imglocalArr[sender.tag] == nil{
-                service.docfile = documentlocalArr[sender.tag]
+                service.docfilereg.removeAll()
+                service.docfilereg.append(documentlocalArr[sender.tag]!)
             }
             else{
-                service.imgfile = imglocalArr[sender.tag]
+                service.imagefile.removeAll()
+                service.imagefile.append(imglocalArr[sender.tag]!)
             }
               service.sendforapproval = "0"
         }
@@ -809,10 +803,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             
             service.isType = 6
             if imglocalArr[sender.tag] == nil{
-                service.docfile = documentlocalArr[sender.tag]
+                service.docfilereg.removeAll()
+                service.docfilereg.append(documentlocalArr[sender.tag]!)
             }
             else{
-                service.imgfile = imglocalArr[sender.tag]
+                service.imagefile.removeAll()
+                service.imagefile.append(imglocalArr[sender.tag]!)
             }
               service.sendforapproval = "0"
         }
@@ -905,6 +901,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                
                 self.servicelist = response
                 ModalController.showSuccessCustomAlertWith(title: self.servicelist?.error_description ?? "", msg: "")
+                self.primaryid = self.servicelist?.data?.id ?? 0
               self.imgArr = [self.servicelist?.data?.national_id ?? "",self.servicelist?.data?.driving_license ?? "",self.servicelist?.data?.registration ?? "",self.servicelist?.data?.insurance ?? "",self.servicelist?.data?.authorization ?? "",self.servicelist?.data?.front_side ?? ""]
                 for i in 0...self.imgArr.count - 1
                 {
@@ -930,6 +927,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 self.descriparr = [self.servicelist?.data?.national_id_content ?? "", "",self.servicelist?.data?.registration_content ?? "", "",self.servicelist?.data?.authorization_content ?? ""]
                 self.toptxtArr = [self.servicelist?.data?.full_name ?? "",self.servicelist?.data?.dob ?? "",self.servicelist?.data?.iqama_no ?? "",self.servicelist?.data?.doe ?? ""]
                 self.txtArr = [self.servicelist?.data?.registration_type ?? "",self.servicelist?.data?.vehicle_brand ?? "",self.servicelist?.data?.vehicle_name ?? "",self.servicelist?.data?.production_year ?? "",self.servicelist?.data?.vehicle_color ?? "",self.servicelist?.data?.vehicle_kind ?? "",self.servicelist?.data?.maximum_load ?? "",self.servicelist?.data?.plate_no ?? ""]
+                
                 self.servicedocList_API()
                 self.tabvw.reloadData()
             }
@@ -1121,17 +1119,19 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         cell.pswdimg.image = UIImage(named: "passport")
             if imglocalArr[section - 1] != nil {
                 cell.pswdimg.image = imglocalArr[section - 1]
-            cell.crossclicked.isHidden =  false
-                     cell.uploadimg.isUserInteractionEnabled = false
+//            cell.crossclicked.isHidden =  false
+//                     cell.uploadimg.isUserInteractionEnabled = false
             }
-            
-      
+
+
         else if documentlocalArr[section - 1] != nil
         {
             cell.pswdimg.image = pdfThumbnail(url: documentlocalArr[section - 1]!)
-            cell.crossclicked.isHidden =  false
-            cell.uploadimg.isUserInteractionEnabled = false
+//            cell.crossclicked.isHidden =  false
+//            cell.uploadimg.isUserInteractionEnabled = false
         }
+        cell.crossclicked.isHidden =  true
+      cell.uploadimg.isUserInteractionEnabled = true
         if imgIdArr[section - 1]
         {
           cell.crossclicked.isHidden =  false
@@ -1247,6 +1247,10 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 cell.txt.keyboardType = .default
                 cell.topconst.constant = -6
                 cell.txt.isUserInteractionEnabled = true
+                if indexPath.row == 1
+                {
+                    cell.txt.keyboardType = .default
+                }
                 if indexPath.row == 2 || indexPath.row == 4
                 {
                     cell.txt.isUserInteractionEnabled = false

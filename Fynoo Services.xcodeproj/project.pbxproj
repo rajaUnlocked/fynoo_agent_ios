@@ -1153,6 +1153,8 @@
 		CEA24F5A265BCC9C00B3227D /* GalleryPopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryPopUpViewController.xib; sourceTree = "<group>"; };
 		CEA24F60265BD00D00B3227D /* BottomPopCellsNewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopCellsNewTableViewCell.swift; sourceTree = "<group>"; };
 		CEA24F61265BD00D00B3227D /* BottomPopCellsNewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomPopCellsNewTableViewCell.xib; sourceTree = "<group>"; };
+		CEA84C15268B9E6700057845 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DashboardWalletTableViewCell.strings; sourceTree = "<group>"; };
+		CEA84C17268B9E6D00057845 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/DashboardWalletTableViewCell.strings; sourceTree = "<group>"; };
 		CEAD29E22506324F008B1F9C /* TargetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetViewController.swift; sourceTree = "<group>"; };
 		CEAD29E32506324F008B1F9C /* TargetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TargetViewController.xib; sourceTree = "<group>"; };
 		CEAD29E7250632BB008B1F9C /* NavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
@@ -1418,8 +1420,6 @@
 		CEDAF67625285ACC00B846E5 /* BottomLblTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomLblTableViewCell.swift; sourceTree = "<group>"; };
 		CEDAF67725285ACC00B846E5 /* BottomLblTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomLblTableViewCell.xib; sourceTree = "<group>"; };
 		CEDBFDB7266DF71E00A8D318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DashboardWalletTableViewCell.xib; sourceTree = "<group>"; };
-		CEDBFDBA266DF72500A8D318 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DashboardWalletTableViewCell.strings; sourceTree = "<group>"; };
-		CEDBFDBC266DF72900A8D318 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/DashboardWalletTableViewCell.strings; sourceTree = "<group>"; };
 		CEDBFDC1266DFBDD00A8D318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SideMenuEarningTableViewCell.xib; sourceTree = "<group>"; };
 		CEDBFDC4266DFBE900A8D318 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SideMenuEarningTableViewCell.strings; sourceTree = "<group>"; };
 		CEDBFDC6266DFBEB00A8D318 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/SideMenuEarningTableViewCell.strings; sourceTree = "<group>"; };
@@ -6446,8 +6446,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				CEDBFDB7266DF71E00A8D318 /* Base */,
-				CEDBFDBA266DF72500A8D318 /* en */,
-				CEDBFDBC266DF72900A8D318 /* ar */,
+				CEA84C15268B9E6700057845 /* en */,
+				CEA84C17268B9E6D00057845 /* ar */,
 			);
 			name = DashboardWalletTableViewCell.xib;
 			sourceTree = "<group>";
