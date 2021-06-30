@@ -210,7 +210,7 @@ class ServiceModel: NSObject {
 
     else{
         var pfurl =  [String]()
-        for i in 0...docfilereg.count
+        for i in 0...(docfilereg.count - 1)
         {
             pfurl.append(docfilereg[i]!.absoluteString)
         

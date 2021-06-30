@@ -640,6 +640,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         }
     }
     
+    
+    
     @IBAction func qrcodeBtn(_ sender: Any) {
                 let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)
