@@ -364,8 +364,13 @@ static func isStringValid(_ str: String?) -> Bool {
         if let personNumber = str as? Double {
             stringType = "\(personNumber)"
         }
+        
+        if let personNumber = str as? NSNumber {
+            return personNumber.stringValue
+        }
         return stringType
     }
+    
   static  func toString(_ anything: Any?) -> String {
         if let any = anything {
             if let num = any as? NSNumber {

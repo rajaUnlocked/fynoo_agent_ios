@@ -288,10 +288,6 @@
 "service?" = "ضمن الخدمات التي تعمل عليها؟";
 
 
-
-
-
-
 "Product Details" = "تفاصيل المنتج";
 "Item Qty" = "كمية المنتج";
 "Items price (Almost)" = "سعر المنتجات (تقريبي)";
@@ -1238,6 +1234,7 @@
 //"Order Information" = "معلومات الطلب"
 //"Invoice Copy" = "Invoice Copy"
 //"Confirm Delivery" = "تأكيد التسليم"
+
 
 "Please Enter Otp" =  "الرجاء إدخال رمز التحقق"
 "Please Check COD Amount For Customer" = "Please Check COD Amount For Customer"

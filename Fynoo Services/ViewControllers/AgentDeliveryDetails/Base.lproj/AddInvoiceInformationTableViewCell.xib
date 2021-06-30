@@ -213,7 +213,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBY-Ba-bHV">
                                         <rect key="frame" x="10" y="15" width="300" height="35"/>
-                                        <string key="text">Please share the otp with business onwer which you will receive after confirm and upload invoice to confirm that you have received all products from business owner.</string>
+                                        <string key="text">Note: Please share the otp with business onwer which you will receive after confirm and upload invoice to confirm that you have received all products from business owner.</string>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
