@@ -575,11 +575,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         let startStr = ModalController.convertInString(str: self.dataDict.object(forKey: "target_achived") as AnyObject)
         let endStr = ModalController.convertInString(str: self.dataDict.object(forKey: "target_to_be_achive") as AnyObject)
         
-        let start =  Float(startStr)
-        let end = Float(endStr)
-        
-        
-        let per = (start!*100)/end!
+        let start =  (startStr as NSString).floatValue
+        let end = (endStr as NSString).floatValue
+                
+        let per = (start*100)/end
         let perToSet = per/100
         
         cell.progressVW.setProgress(perToSet, animated: true)
