@@ -90,10 +90,8 @@
                             <constraint firstItem="2Uu-ge-YZc" firstAttribute="centerY" secondItem="Aqu-wE-2rp" secondAttribute="centerY" id="vaR-G6-fqz"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPJ-cV-fAn">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify receiving your order by providing this OTP to BO." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPJ-cV-fAn">
                         <rect key="frame" x="10" y="50" width="300" height="39.5"/>
-                        <string key="text">If you receive the items. Please
-share the OTP to Business Owner.</string>
                         <fontDescription key="fontDescription" name="Gilroy-ExtraBold" family="Gilroy" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>

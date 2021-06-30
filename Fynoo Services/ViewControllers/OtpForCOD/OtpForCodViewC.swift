@@ -111,6 +111,7 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
     func navigationClickedBo(_ sender: Any) {
         let vc = AgentDeliveryDetailViewController()
         vc.tripId = tripId
+        vc.checkUsertype = onTheWayTripDetailData?.data?.trip_details?.user_type ?? ""
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -150,10 +151,11 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
     func navigationClicked(_ sender: Any) {
         let vc = AgentDeliveryDetailViewController()
         vc.tripId = tripId
+        vc.checkUsertype = onTheWayTripDetailData?.data?.trip_details?.user_type ?? ""
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    
+
     
     
     @IBAction func tappedTobtnConfirmDelivery(_ sender: UIButton) {
@@ -426,6 +428,7 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
             userId = ""
             
         }
+        ModalClass.startLoading(self.view)
         let param = ["order_id": String(orderId),
                      "user_id":String(userId),
                      "otp" :"\(txt1+txt2+txt3+txt4)",
@@ -435,18 +438,8 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
         print("request:-", param)
         print("Url:-", Service.deliverOrder)
         ServerCalls.postRequest(Service.deliverOrder, withParameters: param) { [self] (response, success) in
-//            if success{
-//
-//                if let body = response as? [String: Any] {
-//                    self.onTheWayTripDetailData  = Mapper<OnthewayTripDetailsData>().map(JSON: body)
-//
-//                    print(self.onTheWayTripDetailData?.data?.trip_details?.bo_id ?? "")
-//
-//                    self.tableView.reloadData()
-//
-//                }
-//            }
-            
+
+            ModalClass.stopLoadingAllLoaders(self.view)
             
             if let value = response as? NSDictionary{
                 let msg = value.object(forKey: "error_description") as! String
@@ -470,7 +463,6 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
                     dictData["service_status"] = self.onTheWayTripDetailData?.data?.trip_details?.service_status
                     dictData["isRating"] = true
                     
-                
                     vc.confirmDeliveryData = dictData
                     
                     self.navigationController?.pushViewController(vc, animated: true)
@@ -533,16 +525,13 @@ extension OtpForCodViewC : UITableViewDataSource {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell",for: indexPath) as! InformationTableViewCell
                     cell.selectionStyle = .none
                     cell.delegate = self
-                    cell.lblQty.text = "\(onTheWayTripDetailData?.data?.trip_details?.order_qty ?? 0)"
+                    cell.lblQty.text = "0\(onTheWayTripDetailData?.data?.trip_details?.order_qty ?? 0)"
                     
                   
                     let OrderId = "Order Id:".localized
 
-                            cell.lblOrderId.text = "\(OrderId): \(onTheWayTripDetailData?.data?.trip_details?.order_id ?? "0")"
+                            cell.lblOrderId.text = "\(OrderId) \(onTheWayTripDetailData?.data?.trip_details?.order_id ?? "0")"
 
-
-
-//                    cell.lblOrderId.text = "  \(onTheWayTripDetailData?.data?.trip_details?.order_id ?? "0")"
 
                     let timeSTAMP = "\(onTheWayTripDetailData?.data?.trip_details?.order_date ?? "")"
                     

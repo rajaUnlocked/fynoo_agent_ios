@@ -34,8 +34,34 @@ class ConfirmToreceiveItemTableViewCell: UITableViewCell {
     @IBOutlet weak var btnAnyProblemOutlet: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        SetFont()
     }
+    
+    
+    func SetFont() {
+
+            let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
+
+            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+
+            
+
+            self.lblQty.font = UIFont(name:"\(fontNameLight)",size:10)
+
+            self.lblOrderId.font = UIFont(name:"\(fontNameLight)",size:10)
+
+            self.lblDate.font = UIFont(name:"\(fontNameLight)",size:10)
+            self.lblTextshareOtp.font = UIFont(name:"\(fontNameBold)",size:16)
+        
+        
+        self.lblOtp.font = UIFont(name:"\(fontNameBold)",size:32)
+
+        self.lblIHaveReceivedItem.font = UIFont(name:"\(fontNameLight)",size:12)
+        
+        self.btnAnyProblemOutlet.titleLabel!.font = UIFont(name:"\(fontNameBold)",size:14)
+
+
+        }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

@@ -1177,11 +1177,6 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                                         self.navigationController?.pushViewController(vc, animated: true)
                                         break;
 
-                                      case "39":
-                                        let vc = ProductDetailsViewC()
-                                        let orderId = pushMessage["order_id"] as? String
-                                        vc.orderId = orderId ?? ""
-                                        self.navigationController?.pushViewController(vc, animated: true)
 
                                           break;
                                       default:

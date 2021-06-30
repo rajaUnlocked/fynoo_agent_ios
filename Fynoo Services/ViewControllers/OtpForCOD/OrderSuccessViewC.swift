@@ -30,6 +30,7 @@ class OrderSuccessViewC: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             let vc = AgentDeliveryViewController()
             vc.orderSuccessData = self.confirmDeliveryData
+            vc.isRating = true
             self.navigationController?.pushViewController(vc, animated: true)
             
             var dictPass = [String:Any]()

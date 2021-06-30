@@ -107,6 +107,8 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     func navigationClickedBo(_ sender: Any) {
         let vc = AgentDeliveryDetailViewController()
         vc.tripId = tripId
+        vc.checkUsertype = orderDetailData?.data?.user_type ?? ""
+        vc.checkUsertype = "BO"
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -146,6 +148,9 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     func navigationClicked(_ sender: Any) {
         let vc = AgentDeliveryDetailViewController()
         vc.tripId = tripId
+        vc.checkUsertype = orderDetailData?.data?.user_type ?? ""
+        vc.checkUsertype = "CUSTOMER"
+
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -893,6 +898,8 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             self.btnChangeStatus.setTitle("Cancelled".localized, for: .normal)
             self.btnChangeStatus.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             self.btnChangeStatus.isUserInteractionEnabled = false
+            cell.contentView.isUserInteractionEnabled = false
+            cell.btnAnyProblem.isHidden = true
         case 2:
             self.btnChangeStatus.setTitle("Delivered".localized, for: .normal)
             self.btnChangeStatus.isUserInteractionEnabled = false
@@ -1011,7 +1018,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
        
         let ItemQty = "Item Qty".localized
         
-        cell.lblQty.text = "\(ItemQty): \(orderDetailData?.data?.item_detail? [index.row].qty ?? 0)"
+        cell.lblQty.text = "0\(ItemQty): \(orderDetailData?.data?.item_detail? [index.row].qty ?? 0)"
 
         cell.lblOrderId.text = "Total Weight :  \(orderDetailData?.data?.total_weight ?? 0.0)kg"
         
@@ -1079,10 +1086,10 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
                 cell.lblLineReduceQty.isHidden = true
         let ItemQty = "Item Qty".localized
         
-        cell.lblQty.text = "\(ItemQty): \(orderDetailData?.data?.item_detail? [index.row].qty ?? 0)"
+        cell.lblQty.text = "0\(ItemQty): \(orderDetailData?.data?.item_detail? [index.row].qty ?? 0)"
         cell.lblAddress.text = orderDetailData?.data?.item_detail? [index.row].pro_name ?? ""
-        let Items_price_Almost = "Items price (Almost)".localized
-        cell.lblPriceAlmost.text = "\(Items_price_Almost):  \(orderDetailData?.data?.item_detail? [index.row].price ?? 0)"
+        let Items_price_Almost = "Items price :".localized
+        cell.lblPriceAlmost.text = "\(Items_price_Almost):  \(orderDetailData?.data?.item_detail? [index.row].currency_code ?? "")\(orderDetailData?.data?.item_detail? [index.row].price ?? 0)"
         
         cell.imgProduct.sd_setImage(with: URL(string: orderDetailData?.data?.item_detail?[index.row].product_pic ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
                 if orderDetailData?.data?.order_status == 3 {
@@ -1216,18 +1223,18 @@ extension ProductDetailsViewC : UITableViewDataSource {
 
         if indexPath.section == 1{
             
-            if orderDetailData?.data?.user_type == "BO" {
-                if orderDetailData?.data?.is_agent_reached == 2 {
-                    return 180
-                }
-                return 320
+            if (orderDetailData?.data?.user_type == "BO") && (orderDetailData?.data?.is_agent_reached == 2)  {
+               return 180
+                
             }else
             {
             
-            if orderDetailData?.data?.order_status == 3 {
+            if (orderDetailData?.data?.order_status == 3) || (orderDetailData?.data?.order_status == 2){
                 return 280
-            }
+            }else
+            {
                 return 320
+            }
             }
         }else if indexPath.section == 3{
             return 380
@@ -1285,7 +1292,8 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     cell.lblCustName.text = orderDetailData?.data?.cust_name ?? ""
                     cell.lblCustAddress.text = orderDetailData?.data?.cust_address ?? ""
                     
-                    cell.lblQty.text = "\(orderDetailData?.data?.order_qty ?? 0)"
+                    cell.lblQty.text = "0\(orderDetailData?.data?.order_qty ?? 0)"
+                    cell.lblStAlmosttoalPrice.text = "Total Amount".localized
                     
                     cell.lblOrderId.text = " Order Id :  \(orderDetailData?.data?.order_id ?? "0")"
                     
@@ -1294,7 +1302,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     
                     cell.lblCustrating.text = orderDetailData?.data?.cust_rating ?? "0"
                     cell.lblCusttotalrating.text = "(\(orderDetailData?.data?.cust_total_rating ?? "0"))"
-                    cell.lblCurrencyCode.text = orderDetailData?.data?.currency_code ?? "0"
+                    cell.lblCurrencyCode.text = orderDetailData?.data?.currency_code ?? ""
                     
                     cell.order_price.text = "\(orderDetailData?.data?.order_price ?? 0.0)"
                     cell.imgCustpic.sd_setImage(with: URL(string: orderDetailData?.data?.cust_pic ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
@@ -1401,7 +1409,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     
                     let ItemQty = "Item Qty".localized
                     
-                    cell.lblQty.text = "\(ItemQty): \(orderDetailData?.data?.item_detail? [indexPath.row].qty ?? 0)"
+                    cell.lblQty.text = "0\(ItemQty): \(orderDetailData?.data?.item_detail? [indexPath.row].qty ?? 0)"
                     cell.lblAddress.text = orderDetailData?.data?.item_detail? [indexPath.row].pro_name ?? ""
                     let Items_price_Almost = "Items price (Almost)".localized
                     cell.lblPriceAlmost.text = "\(Items_price_Almost):  \(orderDetailData?.data?.item_detail? [indexPath.row].price ?? 0)"
