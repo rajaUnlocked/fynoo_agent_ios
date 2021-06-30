@@ -865,7 +865,6 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         cell.txtTotalAmountWithVat.delegate = self
         
         cell.lblAlmostAmountPrice.text = "\(orderDetailData?.data?.currency_code ?? "") " + "\(orderDetailData?.data?.order_price ?? 0)"
-        
       
         if selectedImg != nil {
             cell.tapToBtnUploadInvoice.setImage(selectedImg, for: .normal)
@@ -879,9 +878,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         {
             cell.viewForShowHide.isUserInteractionEnabled = true
             cell.viewForShowHide.alpha = 1
-            
         }
-
         if ((orderDetailData?.data?.is_vat_available) == false){
 
             cell.txtVatAmt.isUserInteractionEnabled = false
@@ -892,12 +889,9 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             self.btnChangeStatus.setTitle("Cancelled".localized, for: .normal)
             self.btnChangeStatus.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             self.btnChangeStatus.isUserInteractionEnabled = false
-           
         case 2:
             self.btnChangeStatus.setTitle("Delivered".localized, for: .normal)
-            
             self.btnChangeStatus.isUserInteractionEnabled = false
-            
             cell.imgInvoiceUploaded.isHidden = false
             cell.btnAnyProblem.isHidden = true
             cell.contentView.isUserInteractionEnabled = false
@@ -908,7 +902,6 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             cell.txtVatAmt.text = "\(orderDetailData?.data?.vat_amount ?? 0)"
             cell.txtTotalAmountWithVat.text = "\(orderDetailData?.data?.total_amount_with_vat ?? 0)"
             cell.btnAnyProblem.isHidden = false
-            
             
         case 4:
             self.btnChangeStatus.setTitle("Cancel Request Received".localized, for: .normal)
