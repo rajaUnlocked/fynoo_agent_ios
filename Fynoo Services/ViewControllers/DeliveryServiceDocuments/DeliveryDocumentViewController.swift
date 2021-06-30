@@ -40,7 +40,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     var registrationtypeidArr = [Int]()
     var vehiclebrandidArr = [Int]()
     var vehicleColoridArr = [Int]()
-    var vehicledescriparr = ["Registration Type","Vehicle Brand","Vehicle Name","Production Year","Vehicle Color","Vehicle kind","Maximum Load","Plat Number"]
+    var vehicledescriparr = ["Registration Type","Vehicle Brand","Vehicle Name","Production Year","Vehicle Color","Vehicle kind","Maximum Load","Plate Number"]
     var service = ServiceModel()
     var headerarr = ["National Id / Iqama","Driving License Front","Vehicle Registration","Vehicle Insurance","Driving Authorization","Vehicle Description","Reason For Vehicle Change"]
     var vehiclenamelist:VehicleName?
@@ -392,28 +392,16 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         let cell = tabvw.cellForRow(at: IndexPath(row: row, section: section)) as! VehicleDescriptionTableViewCell
         if section == 1
         {
-            if ModalController.hasSpecialCharacters(str: string)
-            {
-                return false
-            }
-            
-           
-            
-           
+          
             
            if row == 1
            {
             if textstr.count > 0
                        {
-                           if !textstr.containArabicNumber
-                           {
-                               cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
-                           }
-                           else
-                           {
+                          
                              
                                cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
-                           }
+                           
                            
                        }
                            
@@ -639,6 +627,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             return
         }
         documentlocalArr[tag1] = urls.first
+        imglocalArr[tag1] = nil
         tabvw.reloadData()
     }
     

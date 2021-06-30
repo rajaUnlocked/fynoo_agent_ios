@@ -1,6 +1,7 @@
 
 /* Class = "UILabel"; text = "Payment in progress"; ObjectID = "2Np-Wc-mKa"; */
 "2Np-Wc-mKa.text" = "عمليات دفع قيد التنفيذ";
+
 /* Class = "UILabel"; text = "2,000.00"; ObjectID = "7WD-jg-gtG"; */
 "7WD-jg-gtG.text" = "2,000.00";
 
@@ -10,7 +11,7 @@
 /* Class = "UILabel"; text = "6,000.00"; ObjectID = "FS8-Kv-Qoq"; */
 "FS8-Kv-Qoq.text" = "6,000.00";
 
-/* Class = "UILabel"; text = "Holding Amount"; ObjectID = "V9R-34-8If"; */
+/* Class = "UILabel"; text = "Holding Amoun   nt"; ObjectID = "V9R-34-8If"; */
 "V9R-34-8If.text" = "المبالغ المعلقة";
 
 /* Class = "UILabel"; text = "Wallet Balance"; ObjectID = "dh0-QV-hab"; */
