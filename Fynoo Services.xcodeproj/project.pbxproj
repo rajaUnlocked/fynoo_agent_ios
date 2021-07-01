@@ -170,7 +170,6 @@
 		4E85ED6E26720A4300785110 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85ED6026720A4300785110 /* Duration.swift */; };
 		4E9491842674C0020061A774 /* PopUpAcceptProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9491822674C0020061A774 /* PopUpAcceptProductViewController.swift */; };
 		4E9D1F2526745D180025ED48 /* PopUpReduceQuantityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D1F2326745D180025ED48 /* PopUpReduceQuantityViewController.swift */; };
-		4E9D1F2626745D180025ED48 /* PopUpReduceQuantityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E9D1F2426745D180025ED48 /* PopUpReduceQuantityViewController.xib */; };
 		4E9D1F2926746A2E0025ED48 /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D1F2726746A2E0025ED48 /* InformationTableViewCell.swift */; };
 		4E9D1F2D26746ABC0025ED48 /* OtpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D1F2B26746ABC0025ED48 /* OtpTableViewCell.swift */; };
 		4ECE3C1B26771026009D0163 /* ProductListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE3C1D26771026009D0163 /* ProductListTableViewCell.xib */; };
@@ -178,8 +177,9 @@
 		4ECE3C2426776771009D0163 /* InformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE3C2626776771009D0163 /* InformationTableViewCell.xib */; };
 		4ECE3C2B267778E3009D0163 /* OtpForCodViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE3C2D267778E3009D0163 /* OtpForCodViewC.xib */; };
 		4ECE3C3226777D3F009D0163 /* OtpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE3C3426777D3F009D0163 /* OtpTableViewCell.xib */; };
+		4EDB8D92268CC8F400A034CF /* PopUpReduceQuantityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB8D94268CC8F400A034CF /* PopUpReduceQuantityViewController.xib */; };
+		4EDB8D99268CC96600A034CF /* ReasonForDeleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB8D9B268CC96600A034CF /* ReasonForDeleteViewController.xib */; };
 		4EE49DD72673825400E5640C /* ReasonForDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE49DD52673825400E5640C /* ReasonForDeleteViewController.swift */; };
-		4EE49DD82673825400E5640C /* ReasonForDeleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EE49DD62673825400E5640C /* ReasonForDeleteViewController.xib */; };
 		4EE631A0267F758900D5ED01 /* CancelReasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE6319E267F758900D5ED01 /* CancelReasonViewController.swift */; };
 		788758D607ADF036566C3603 /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B2018020C6F3800DB3F75B /* Pods_Fynoo_Services_Fynoo_ServicesUITests.framework */; };
 		CE2EFB3E251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EFB3C251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift */; };
@@ -1052,7 +1052,6 @@
 		4E85ED6026720A4300785110 /* Duration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 		4E9491822674C0020061A774 /* PopUpAcceptProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAcceptProductViewController.swift; sourceTree = "<group>"; };
 		4E9D1F2326745D180025ED48 /* PopUpReduceQuantityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpReduceQuantityViewController.swift; sourceTree = "<group>"; };
-		4E9D1F2426745D180025ED48 /* PopUpReduceQuantityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpReduceQuantityViewController.xib; sourceTree = "<group>"; };
 		4E9D1F2726746A2E0025ED48 /* InformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
 		4E9D1F2B26746ABC0025ED48 /* OtpTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpTableViewCell.swift; sourceTree = "<group>"; };
 		4ECE3C1C26771026009D0163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProductListTableViewCell.xib; sourceTree = "<group>"; };
@@ -1068,8 +1067,13 @@
 		4ECE3C3326777D3F009D0163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OtpTableViewCell.xib; sourceTree = "<group>"; };
 		4ECE3C3626777D47009D0163 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OtpTableViewCell.strings; sourceTree = "<group>"; };
 		4ECE3C3826777D51009D0163 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/OtpTableViewCell.strings; sourceTree = "<group>"; };
+		4EDB8D93268CC8F400A034CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PopUpReduceQuantityViewController.xib; sourceTree = "<group>"; };
+		4EDB8D96268CC8FE00A034CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PopUpReduceQuantityViewController.strings; sourceTree = "<group>"; };
+		4EDB8D98268CC91A00A034CF /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/PopUpReduceQuantityViewController.strings; sourceTree = "<group>"; };
+		4EDB8D9A268CC96600A034CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ReasonForDeleteViewController.xib; sourceTree = "<group>"; };
+		4EDB8D9D268CC96C00A034CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ReasonForDeleteViewController.strings; sourceTree = "<group>"; };
+		4EDB8D9F268CC97100A034CF /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ReasonForDeleteViewController.strings; sourceTree = "<group>"; };
 		4EE49DD52673825400E5640C /* ReasonForDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForDeleteViewController.swift; sourceTree = "<group>"; };
-		4EE49DD62673825400E5640C /* ReasonForDeleteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReasonForDeleteViewController.xib; sourceTree = "<group>"; };
 		4EE6319E267F758900D5ED01 /* CancelReasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelReasonViewController.swift; sourceTree = "<group>"; };
 		7B89182A71D912BDFE54C5DC /* Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Services-Fynoo ServicesUITests/Pods-Fynoo Services-Fynoo ServicesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8520337E115BB44AB8DB671B /* Pods-Fynoo ServicesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo ServicesTests.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo ServicesTests/Pods-Fynoo ServicesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2432,7 +2436,7 @@
 			isa = PBXGroup;
 			children = (
 				4E9D1F2326745D180025ED48 /* PopUpReduceQuantityViewController.swift */,
-				4E9D1F2426745D180025ED48 /* PopUpReduceQuantityViewController.xib */,
+				4EDB8D94268CC8F400A034CF /* PopUpReduceQuantityViewController.xib */,
 			);
 			path = PopUpReduceQty;
 			sourceTree = "<group>";
@@ -2441,7 +2445,7 @@
 			isa = PBXGroup;
 			children = (
 				4EE49DD52673825400E5640C /* ReasonForDeleteViewController.swift */,
-				4EE49DD62673825400E5640C /* ReasonForDeleteViewController.xib */,
+				4EDB8D9B268CC96600A034CF /* ReasonForDeleteViewController.xib */,
 			);
 			path = PopupDeleteReason;
 			sourceTree = "<group>";
@@ -4439,7 +4443,7 @@
 				F680D67F259B7C2C007EB12C /* DataEntryListingTableViewCell.strings in Resources */,
 				F680D647259B7C2C007EB12C /* DataEntryItemEntryTableViewCell.strings in Resources */,
 				F4828CA12508DF3E006B85D8 /* ProfileServiceTableViewCell.xib in Resources */,
-				4EE49DD82673825400E5640C /* ReasonForDeleteViewController.xib in Resources */,
+				4EDB8D99268CC96600A034CF /* ReasonForDeleteViewController.xib in Resources */,
 				CEDD32F525763C8E00023977 /* ProductTopTableViewCell.xib in Resources */,
 				F62E4AF225148EC60021CEE0 /* AgentProfileImageTableViewCell.strings in Resources */,
 				F658B3FE2522ECD000B37F63 /* LanguageSelectionTableViewCell.xib in Resources */,
@@ -4448,7 +4452,7 @@
 				F680D64C259B7C2C007EB12C /* DataEntryFromTopTableViewCell.xib in Resources */,
 				CEE3578B250740800097069D /* sst-arabic-bold.ttf in Resources */,
 				CECEF9F52577575C0090D459 /* CollectionViewTableViewCell.xib in Resources */,
-				4E9D1F2626745D180025ED48 /* PopUpReduceQuantityViewController.xib in Resources */,
+				4EDB8D92268CC8F400A034CF /* PopUpReduceQuantityViewController.xib in Resources */,
 				CECEF9AD2577575B0090D459 /* BusinessLocationTableViewCell.strings in Resources */,
 				F680D679259B7C2C007EB12C /* DataEntryListHeaderView.strings in Resources */,
 				CEDD333B25765BBA00023977 /* SelectMultipleBranchesNewDesignViewController.xib in Resources */,
@@ -5688,6 +5692,26 @@
 				4ECE3C3826777D51009D0163 /* ar */,
 			);
 			name = OtpTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		4EDB8D94268CC8F400A034CF /* PopUpReduceQuantityViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EDB8D93268CC8F400A034CF /* Base */,
+				4EDB8D96268CC8FE00A034CF /* en */,
+				4EDB8D98268CC91A00A034CF /* ar */,
+			);
+			name = PopUpReduceQuantityViewController.xib;
+			sourceTree = "<group>";
+		};
+		4EDB8D9B268CC96600A034CF /* ReasonForDeleteViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EDB8D9A268CC96600A034CF /* Base */,
+				4EDB8D9D268CC96C00A034CF /* en */,
+				4EDB8D9F268CC97100A034CF /* ar */,
+			);
+			name = ReasonForDeleteViewController.xib;
 			sourceTree = "<group>";
 		};
 		CE8E8597250F4C3800B74A9E /* Localizable.strings */ = {

@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "I have received the items from BO."; ObjectID = "1sT-KY-X55"; */
-"1sT-KY-X55.text" = "I have received the items from BO.";
+"1sT-KY-X55.text" = "استلمت المنتجات من صاحب النشاط";
 
 /* Class = "UILabel"; text = "wed 32,4020"; ObjectID = "2Uu-ge-YZc"; */
 "2Uu-ge-YZc.text" = "wed 32,4020";
@@ -18,7 +18,7 @@
 "XdR-cs-f6m.text" = "5  9  0  4";
 
 /* Class = "UILabel"; text = "If you receive the items. Please\nshare the OTP to Business Owner."; ObjectID = "dPJ-cV-fAn"; */
-"dPJ-cV-fAn.text" = "If you receive the items. Please\nshare the OTP to Business Owner.";
+"dPJ-cV-fAn.text" = "قم بتزويد صاحب النشاط برمز التأكيد لإتمام استلام الطلب منه";
 
 /* Class = "UILabel"; text = "-----------------------------------------------------------------------------------------"; ObjectID = "fKM-M3-pfo"; */
 "fKM-M3-pfo.text" = "-----------------------------------------------------------------------------------------";

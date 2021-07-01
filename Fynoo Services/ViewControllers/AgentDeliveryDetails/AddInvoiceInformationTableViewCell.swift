@@ -84,6 +84,8 @@ class AddInvoiceInformationTableViewCell: UITableViewCell {
         self.lblCurrencyWithVat.font = UIFont(name:"\(fontNameLight)",size:12)
         self.btnAnyProblem.titleLabel!.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblAddInvoice.font = UIFont(name:"\(fontNameLight)",size:14)
+        
+        self.btnAnyProblem.titleLabel?.text = "Any Problem?".localized
       
         }
 

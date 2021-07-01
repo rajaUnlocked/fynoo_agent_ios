@@ -85,7 +85,7 @@
                             </connections>
                         </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="varientProduct" translatesAutoresizingMaskIntoConstraints="NO" id="usr-GC-P0Y">
-                            <rect key="frame" x="0.0" y="58" width="50" height="70"/>
+                            <rect key="frame" x="7" y="58" width="50" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="dqG-CM-4lV"/>
                                 <constraint firstAttribute="height" constant="70" id="fTz-E7-uOj"/>
@@ -128,10 +128,10 @@
                         <constraint firstAttribute="trailing" secondItem="lMn-Eu-XKs" secondAttribute="trailing" constant="0.10000000000000001" id="AXs-zf-ZqQ"/>
                         <constraint firstAttribute="trailing" secondItem="Pa3-Og-KGD" secondAttribute="trailing" constant="15" id="B7d-oC-IoE"/>
                         <constraint firstAttribute="trailing" secondItem="1rw-FZ-AVQ" secondAttribute="trailing" constant="8" id="DuD-dO-meW"/>
-                        <constraint firstItem="I20-ah-AZ7" firstAttribute="leading" secondItem="usr-GC-P0Y" secondAttribute="trailing" constant="20" id="E0b-pn-Vvs"/>
+                        <constraint firstItem="I20-ah-AZ7" firstAttribute="leading" secondItem="usr-GC-P0Y" secondAttribute="trailing" constant="13" id="E0b-pn-Vvs"/>
                         <constraint firstItem="OrR-Zb-Scf" firstAttribute="top" secondItem="lMn-Eu-XKs" secondAttribute="bottom" constant="8" id="Ei1-9d-Jjp"/>
                         <constraint firstItem="Npe-un-6da" firstAttribute="top" secondItem="NwL-bM-0iK" secondAttribute="bottom" constant="8" id="HGr-Kj-tfw"/>
-                        <constraint firstItem="usr-GC-P0Y" firstAttribute="leading" secondItem="Jt3-pU-g8J" secondAttribute="leading" id="Jvl-Tf-SSF"/>
+                        <constraint firstItem="usr-GC-P0Y" firstAttribute="leading" secondItem="Jt3-pU-g8J" secondAttribute="leading" constant="7" id="Jvl-Tf-SSF"/>
                         <constraint firstItem="1rw-FZ-AVQ" firstAttribute="centerY" secondItem="I20-ah-AZ7" secondAttribute="centerY" id="Pev-PF-ViO"/>
                         <constraint firstItem="I20-ah-AZ7" firstAttribute="top" secondItem="7nN-Xq-Ua1" secondAttribute="bottom" constant="10" id="Qo8-Wp-YzK"/>
                         <constraint firstItem="lMn-Eu-XKs" firstAttribute="leading" secondItem="Jt3-pU-g8J" secondAttribute="leading" constant="0.10000000000000001" id="R2O-CI-Vmp"/>
@@ -142,11 +142,11 @@
                         <constraint firstAttribute="bottom" secondItem="Pa3-Og-KGD" secondAttribute="bottom" constant="12" id="lEb-Om-p0H"/>
                         <constraint firstItem="Pa3-Og-KGD" firstAttribute="leading" secondItem="Jt3-pU-g8J" secondAttribute="leading" constant="15" id="mbg-sK-XFp"/>
                         <constraint firstItem="Npe-un-6da" firstAttribute="leading" secondItem="Jt3-pU-g8J" secondAttribute="leading" constant="15" id="pWk-F3-I6c"/>
-                        <constraint firstItem="7nN-Xq-Ua1" firstAttribute="leading" secondItem="usr-GC-P0Y" secondAttribute="trailing" constant="20" id="rD6-Ge-gwx"/>
+                        <constraint firstItem="7nN-Xq-Ua1" firstAttribute="leading" secondItem="usr-GC-P0Y" secondAttribute="trailing" constant="13" id="rD6-Ge-gwx"/>
                         <constraint firstAttribute="trailing" secondItem="7nN-Xq-Ua1" secondAttribute="trailing" constant="20" id="uVb-lu-afK"/>
                         <constraint firstItem="usr-GC-P0Y" firstAttribute="top" secondItem="lMn-Eu-XKs" secondAttribute="bottom" constant="8" id="vvR-jb-WbQ"/>
                         <constraint firstAttribute="trailing" secondItem="Npe-un-6da" secondAttribute="trailing" constant="15" id="wzZ-9Y-kB3"/>
-                        <constraint firstItem="OrR-Zb-Scf" firstAttribute="leading" secondItem="usr-GC-P0Y" secondAttribute="trailing" constant="20" id="x0O-xO-p62"/>
+                        <constraint firstItem="OrR-Zb-Scf" firstAttribute="leading" secondItem="usr-GC-P0Y" secondAttribute="trailing" constant="13" id="x0O-xO-p62"/>
                         <constraint firstAttribute="height" constant="320" id="xxQ-1e-riz"/>
                     </constraints>
                 </view>

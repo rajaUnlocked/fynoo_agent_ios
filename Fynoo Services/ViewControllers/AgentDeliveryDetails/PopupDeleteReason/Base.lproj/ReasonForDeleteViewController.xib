@@ -84,20 +84,20 @@
                             </connections>
                         </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="varientProduct" translatesAutoresizingMaskIntoConstraints="NO" id="CdF-Td-rYx">
-                            <rect key="frame" x="0.0" y="58" width="50" height="70"/>
+                            <rect key="frame" x="15" y="58" width="50" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="cJP-EO-sED"/>
                                 <constraint firstAttribute="height" constant="70" id="fm2-Dg-O9f"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Objective physics neet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2J-5r-732">
-                            <rect key="frame" x="70" y="58" width="284" height="18"/>
+                            <rect key="frame" x="85" y="58" width="261" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Qty: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqN-JA-9TB">
-                            <rect key="frame" x="70" y="86" width="284" height="18"/>
+                            <rect key="frame" x="85" y="86" width="274" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -112,7 +112,7 @@
                         <constraint firstAttribute="bottom" secondItem="PAq-4n-oV8" secondAttribute="bottom" constant="12" id="1DT-eT-6pY"/>
                         <constraint firstItem="CdF-Td-rYx" firstAttribute="top" secondItem="xxM-v5-Rv5" secondAttribute="bottom" constant="8" id="6zX-7L-Aq0"/>
                         <constraint firstItem="PAq-4n-oV8" firstAttribute="top" secondItem="FFY-gf-789" secondAttribute="bottom" constant="8" id="7pd-TY-dgF"/>
-                        <constraint firstAttribute="trailing" secondItem="C2J-5r-732" secondAttribute="trailing" constant="20" id="BnS-Mn-ZIs"/>
+                        <constraint firstAttribute="trailing" secondItem="C2J-5r-732" secondAttribute="trailing" constant="28" id="BnS-Mn-ZIs"/>
                         <constraint firstItem="FFY-gf-789" firstAttribute="leading" secondItem="Nu3-CC-R4O" secondAttribute="leading" constant="15" id="Ggv-Nc-oJj"/>
                         <constraint firstAttribute="trailing" secondItem="x5X-PR-Bfj" secondAttribute="trailing" constant="2" id="I7J-6j-OCh"/>
                         <constraint firstItem="gqN-JA-9TB" firstAttribute="leading" secondItem="CdF-Td-rYx" secondAttribute="trailing" constant="20" id="I89-ZM-wbK"/>
@@ -129,8 +129,8 @@
                         <constraint firstAttribute="trailing" secondItem="xxM-v5-Rv5" secondAttribute="trailing" constant="0.10000000000000001" id="eXK-6N-HIH"/>
                         <constraint firstItem="FFY-gf-789" firstAttribute="top" secondItem="x5X-PR-Bfj" secondAttribute="bottom" constant="8" id="lFx-2G-WWj"/>
                         <constraint firstItem="C2J-5r-732" firstAttribute="leading" secondItem="CdF-Td-rYx" secondAttribute="trailing" constant="20" id="pHL-XY-8gR"/>
-                        <constraint firstItem="CdF-Td-rYx" firstAttribute="leading" secondItem="Nu3-CC-R4O" secondAttribute="leading" id="uTo-Ck-2PG"/>
-                        <constraint firstAttribute="trailing" secondItem="gqN-JA-9TB" secondAttribute="trailing" constant="20" id="yLf-QE-3Xe"/>
+                        <constraint firstItem="CdF-Td-rYx" firstAttribute="leading" secondItem="Nu3-CC-R4O" secondAttribute="leading" constant="15" id="uTo-Ck-2PG"/>
+                        <constraint firstAttribute="trailing" secondItem="gqN-JA-9TB" secondAttribute="trailing" constant="15" id="yLf-QE-3Xe"/>
                     </constraints>
                 </view>
             </subviews>

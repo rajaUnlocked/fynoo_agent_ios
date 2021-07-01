@@ -184,7 +184,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+//        print("locations = \(locValue.latitude) \(locValue.longitude)")
         latitude = locValue.latitude
         longitude = locValue.longitude
         
@@ -1181,11 +1181,6 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                                         self.navigationController?.pushViewController(vc, animated: true)
                                         break;
 
-                                      case "39":
-                                        let vc = ProductDetailsViewC()
-                                        let orderId = pushMessage["order_id"] as? String
-                                        vc.orderId = orderId ?? ""
-                                        self.navigationController?.pushViewController(vc, animated: true)
 
                                           break;
                                       default:
