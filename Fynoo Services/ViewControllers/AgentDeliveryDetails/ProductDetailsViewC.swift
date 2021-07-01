@@ -1167,7 +1167,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         
         if indexPath.section == 2 {
             
-            if checkInvoiceUploaded == true || orderDetailData?.data?.order_status == 3 || orderDetailData?.data?.order_status == 2  {
+            if checkInvoiceUploaded == true || orderDetailData?.data?.order_status == 3 || orderDetailData?.data?.order_status == 2 || orderDetailData?.data?.item_detail?[indexPath.row].item_status == 3  {
                 
             }else
             {
@@ -1368,7 +1368,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
 
                     }
                     
-                    if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 2 || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 0 && orderDetailData?.data?.order_status == 3) || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 1 && orderDetailData?.data?.order_status == 3)   {
+                    if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 2 || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 0 && orderDetailData?.data?.order_status == 3) || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 1 && orderDetailData?.data?.order_status == 3){
                         cell.imgCart.image = #imageLiteral(resourceName: "shopping-cartgrayCross")
                         cell.btnReduceQuantity.isHidden = true
                         cell.lblLineReduceQty.isHidden = true
@@ -1429,6 +1429,11 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.contentView.isUserInteractionEnabled = false
                         
                     }
+                        
+                        
+                        if checkInvoiceUploaded == true || orderDetailData?.data?.order_status == 3 || orderDetailData?.data?.order_status == 2 || orderDetailData?.data?.item_detail?[indexPath.row].item_status == 3  {
+                            cell.btnDelete.isUserInteractionEnabled = false
+                        }
                         
                         cell.delegate = self
                         cell.tag = indexPath.row

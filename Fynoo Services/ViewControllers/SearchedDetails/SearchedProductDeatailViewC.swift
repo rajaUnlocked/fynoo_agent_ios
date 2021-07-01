@@ -21,7 +21,6 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
    
     @IBOutlet weak var containerMapView: UIView!
     
-    
     @IBOutlet weak var lblDistanceAgentToBo: UILabel!
     @IBOutlet weak var lblDistanceBoToCustomer: UILabel!
     @IBOutlet weak var lblpickupTime: UILabel!

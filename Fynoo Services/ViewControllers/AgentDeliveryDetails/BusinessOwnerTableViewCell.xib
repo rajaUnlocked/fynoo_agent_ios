@@ -39,13 +39,13 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueV-0f-1Pk">
-                                <rect key="frame" x="298" y="41.5" width="18" height="14.5"/>
+                                <rect key="frame" x="304" y="41.5" width="18" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(17.2k)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDt-KS-vXE">
-                                <rect key="frame" x="338" y="38" width="42" height="21"/>
+                                <rect key="frame" x="344" y="38" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Owa-yg-P9K"/>
                                     <constraint firstAttribute="width" constant="42" id="Ubt-ZD-Y4F"/>
@@ -55,7 +55,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="owG-9h-O9r" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="318" y="38.5" width="20" height="20"/>
+                                <rect key="frame" x="324" y="38.5" width="20" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="2g5-3r-Ry9"/>
@@ -127,7 +127,7 @@
                             <constraint firstItem="oMb-Wd-BTH" firstAttribute="centerY" secondItem="24D-rV-3c1" secondAttribute="centerY" id="OmG-xG-Dar"/>
                             <constraint firstItem="nDt-KS-vXE" firstAttribute="top" secondItem="oHC-Aj-9by" secondAttribute="top" constant="38" id="S1E-4t-xnf"/>
                             <constraint firstItem="u6m-0Q-V4X" firstAttribute="leading" secondItem="EKE-2t-ELk" secondAttribute="trailing" constant="15" id="Vy0-pD-DCL"/>
-                            <constraint firstAttribute="trailing" secondItem="nDt-KS-vXE" secondAttribute="trailing" constant="8" id="ZAl-z4-87r"/>
+                            <constraint firstAttribute="trailing" secondItem="nDt-KS-vXE" secondAttribute="trailing" constant="2" id="ZAl-z4-87r"/>
                             <constraint firstAttribute="bottom" secondItem="1qd-V5-J97" secondAttribute="bottom" constant="-3" id="aQf-9I-OMx"/>
                             <constraint firstItem="24D-rV-3c1" firstAttribute="leading" secondItem="oMb-Wd-BTH" secondAttribute="trailing" constant="-2" id="cq9-61-Mts"/>
                             <constraint firstItem="1qd-V5-J97" firstAttribute="leading" secondItem="24D-rV-3c1" secondAttribute="trailing" constant="-1" id="cya-vh-NED"/>
