@@ -96,8 +96,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
             self.serviceID = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "del_service_id") as Any)
             if (orderSuccessData as NSDictionary).value(forKey: "isRating") as! Bool
             {
-            selectedTab = "3"
-            ratingClicked((Any).self)
+               ratingClicked((Any).self)
             }
         }
         getAgentData()
@@ -210,6 +209,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         ServerCalls.postRequest(Service.tripList, withParameters: param) { (response, success) in
             if success{
                 //   print(response)
+                
                 ModalClass.stopLoading()
                 if let body = response as? [String: Any] {
                     self.tripList  = Mapper<TripListInfo>().map(JSON: body)
@@ -649,7 +649,10 @@ extension AgentDeliveryViewController : UITableViewDataSource {
                 headerView1!.delegate = self
             }
             headerView1!.selectedIndex = Index
-
+            if isRating
+            {
+                headerView1!.selectedIndex = 2
+            }
             return headerView1
             
             
