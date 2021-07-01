@@ -71,7 +71,7 @@ class BOCustomerTableViewCell: UITableViewCell {
             self.lblCustrating.font = UIFont(name:"\(fontNameLight)",size:12)
             self.lblCusttotalrating.font = UIFont(name:"\(fontNameLight)",size:12)
             self.lblTotalOrder.font = UIFont(name:"\(fontNameLight)",size:12)
-            self.lblTotalAcceptedOrder.font = UIFont(name:"\(fontNameLight)",size:10)
+            self.lblTotalAcceptedOrder.font = UIFont(name:"\(fontNameLight)",size:12)
     
             self.lblStAlmosttoalPrice.font = UIFont(name:"\(fontNameLight)",size:10)
             self.lblCurrencyCode.font = UIFont(name:"\(fontNameLight)",size:8)

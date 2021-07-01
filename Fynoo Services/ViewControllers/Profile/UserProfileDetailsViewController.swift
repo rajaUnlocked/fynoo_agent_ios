@@ -520,9 +520,9 @@ extension UserProfileDetailsViewController : UITableViewDelegate{
                 return 210
             }else{
                 if isEdit{
-                    return 100
+                    return 60
                 }else{
-                    return 127
+                    return 90
                 }
             }
         case 1:
@@ -643,10 +643,14 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                 
             }else{
                 let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileDetailTableViewCell",for: indexPath) as! ProfileDetailTableViewCell
+                cell.likesvw.isHidden = true
+                cell.followervw.isHidden = true
+                cell.branchesvw.isHidden = true
+                cell.productsvw.isHidden = true
                 cell.agentimg.image = UIImage(named: "agent_indivdual")
                 cell.delegate = self
                 cell.selectionStyle = .none
-
+              
                 if isPersonal{
                     cell.titleLbl.text = "Agent Personal".localized
                 }else{
@@ -654,11 +658,13 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
 
                 }
                 if isEdit{
+                    cell.topconstraints.constant = -64
                     cell.editHeight.constant = 0
                     cell.editBtn.isHidden = true
                     cell.editProfileTitle.isHidden = true
                     cell.imageButton.isHidden = true
                 }else{
+                    cell.topconstraints.constant = -30
                     cell.editHeight.constant = 34
                     cell.editBtn.isHidden = false
                     cell.editProfileTitle.isHidden = false
@@ -827,7 +833,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.headingLbl.text = agentInfo.name
             
         }else if indexPath.row == 1{
-            cell.genderWidth.constant = 150
+            cell.genderWidth.constant = (self.tableVw.frame.width)/2 + 10
             cell.genderHorizantal.constant = 0
             if isEdit{
                 cell.genderView.isUserInteractionEnabled = true
@@ -835,11 +841,12 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                 cell.genderView.isUserInteractionEnabled = false
 
             }
+            cell.genderView.isSearchEnable = false
             cell.headingLbl.isHidden = true
             cell.genderView.isHidden = false
             cell.headingLbl.isUserInteractionEnabled = false
             cell.genderView.text = agentInfo.gender
-            cell.genderView.optionArray = ["Male","Female"]
+            cell.genderView.optionArray = ["Male".localized,"Female".localized]
             cell.genderView.rowHeight = 30
             cell.genderView.arrowSize = 0.0
             cell.genderView.arrowColor = UIColor.white

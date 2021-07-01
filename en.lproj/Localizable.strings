@@ -1200,12 +1200,10 @@
 //"Confirm Delivery" = "Confirm Delivery"
 
 
-"Please Enter Otp" = "Please Enter Otp"
-"Please Check COD Amount For Customer" = "Please Check COD Amount For Customer"
-"Please add invoice file" = "Please add invoice file"
-"View Images" = "View Images"
-
-
+"Please Enter Otp" = "Please Enter Otp";
+"Please Check COD Amount For Customer" = "Please Check COD Amount For Customer";
+"Please add invoice file" = "Please add invoice file";
+"View Images" = "View Images";
 "Please Enter Otp" = "Please Enter Otp";
 "Please Check COD Amount For Customer" = "Please Check COD Amount For Customer";
 "Please add invoice file" = "Please add invoice file";
@@ -1220,3 +1218,6 @@
 "Items price (Almost)" = "Items price (Almost)";
 "Delivered" = "Delivered";
 "Cancel Request Received" = "Cancel Request Received";
+"Confirm to received items" = "Confirm to received items";
+"Total Amount" = "Total Amount";
+"Any Problem?" = "Any Problem?";

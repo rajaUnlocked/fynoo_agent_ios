@@ -64,7 +64,6 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     func SetFont() {
         
         let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
-        
         self.noDataLbl.font = UIFont(name:"\(fontNameBold)",size:20)
         
     }

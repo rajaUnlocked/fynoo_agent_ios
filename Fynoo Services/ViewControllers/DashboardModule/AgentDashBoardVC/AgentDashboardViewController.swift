@@ -10,6 +10,8 @@ import UIKit
 import SideMenu
 import CoreLocation
 import MTPopup
+
+
 class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource, ServicesDashboardTableViewCellDelegate, CommonPopupViewControllerDelegate ,UIImagePickerControllerDelegate, UINavigationControllerDelegate, OpenGalleryDelegate, CLLocationManagerDelegate, UITabBarControllerDelegate {
     var refreshControl = UIRefreshControl()
     @IBOutlet weak var walletHeightConst: NSLayoutConstraint!
@@ -182,7 +184,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+//        print("locations = \(locValue.latitude) \(locValue.longitude)")
         latitude = locValue.latitude
         longitude = locValue.longitude
         
@@ -643,20 +645,20 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     
     
     @IBAction func qrcodeBtn(_ sender: Any) {
-                let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
+        let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)
-//        let vc = BranchQrCodePopupViewController(nibName: "BranchQrCodePopupViewController", bundle: nil)
-//        vc.isType = true
-//        vc.url = homeGraph?.data?.bo_qr_code ?? ""
-//        vc.urlPass =  homeGraph?.data?.main_branch_url ?? ""
-//        vc.businessName = homeGraph?.data?.main_branch_name ?? ""
-//        let popup = PopupDialog(viewController: vc,
-//                                buttonAlignment: .horizontal,
-//                                transitionStyle: .bounceDown,
-//                                tapGestureDismissal: true,
-//                                panGestureDismissal: false)
-//
-//        self.present(popup, animated: true, completion: nil)
+        //        let vc = BranchQrCodePopupViewController(nibName: "BranchQrCodePopupViewController", bundle: nil)
+        //        vc.isType = true
+        //        vc.url = homeGraph?.data?.bo_qr_code ?? ""
+        //        vc.urlPass =  homeGraph?.data?.main_branch_url ?? ""
+        //        vc.businessName = homeGraph?.data?.main_branch_name ?? ""
+        //        let popup = PopupDialog(viewController: vc,
+        //                                buttonAlignment: .horizontal,
+        //                                transitionStyle: .bounceDown,
+        //                                tapGestureDismissal: true,
+        //                                panGestureDismissal: false)
+        //
+        //        self.present(popup, animated: true, completion: nil)
     }
     
     @IBAction func notificationBtnClicked(_ sender: Any) {
@@ -1179,11 +1181,6 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                                         self.navigationController?.pushViewController(vc, animated: true)
                                         break;
 
-                                      case "39":
-                                        let vc = ProductDetailsViewC()
-                                        let orderId = pushMessage["order_id"] as? String
-                                        vc.orderId = orderId ?? ""
-                                        self.navigationController?.pushViewController(vc, animated: true)
 
                                           break;
                                       default:
