@@ -248,10 +248,21 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         branch_marker.position = branch_location // CLLocationCoordinate2D
         branch_marker.map = self.mapVw // Setting marker on Mapview
         markers.append(branch_marker)
+        
+        
+        let agent_marker: GMSMarker = GMSMarker() // Allocating Marker
+//        branch_marker.icon = UIImage(named: "home") // Marker icon
+        agent_marker.icon = #imageLiteral(resourceName: "Car")
+        agent_marker.appearAnimation = .pop // Appearing animation. default
+        let agent_location  = CLLocationCoordinate2D(latitude: agentLat, longitude: agentLng)
+        agent_marker.position = agent_location // CLLocationCoordinate2D
+        agent_marker.map = self.mapVw // Setting marker on Mapview
+        markers.append(agent_marker)
    
         self.setMarkerBoundsOnMap()
         self.mapVw?.drawPolygon(from: cust_location, to: branch_location)
-               
+        self.mapVw?.drawPolygon(from: branch_location, to: agent_location)
+
      }
   
     func setMarkerBoundsOnMap()  {

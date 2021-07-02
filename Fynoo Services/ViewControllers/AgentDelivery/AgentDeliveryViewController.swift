@@ -386,6 +386,15 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
        let vc = AgentDeliveryDetailViewController()
 //        let vc = SearchedProductDeatailViewC()
         vc.tripId = (tripListListArray?[(sender as AnyObject).tag].id ?? 0)
+        let status = (tripListListArray?[(sender as AnyObject).tag].status ?? 0)
+        
+        if status == 1 {
+            vc.checkUsertype = "CUSTOMER"
+        }else
+        {
+            vc.checkUsertype = "BO"
+        }
+        
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -574,13 +583,18 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         cell.cardView.cornerRadius = 8
         cell.statusView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         cell.cardView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        cell.almostPriceLbl.text = "Almost Total Price".localized
+        if tripListListArray?[index.row].status == 0 || tripListListArray?[index.row].status == 3 {
+            cell.almostPriceLbl.text = "Almost Total Amount".localized
+        }else
+        {
+            cell.almostPriceLbl.text = "Actual Total Amount".localized
+        }
         cell.name.text = tripListListArray?[index.row].cust_name ?? ""
         cell.profileImageView.sd_setImage(with: URL(string: tripListListArray?[index.row].cust_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
         cell.avgRating.text = "\(tripListListArray?[index.row].avg_rating ?? "")"
         cell.totalRate.text = "(\(tripListListArray?[index.row].total_rating ?? ""))"
         cell.totalCount.text = "\(tripListListArray?[index.row].qty ?? 0)"
-        cell.orderId.text = "\("Order Id".localized):\(tripListListArray?[index.row].order_id ?? "")"
+        cell.orderId.text = "\("Order Id ".localized):\(tripListListArray?[index.row].order_id ?? "")"
         cell.date.text  = tripListListArray?[index.row].order_date ?? ""
         cell.address.text = "\("Address".localized):\(tripListListArray?[index.row].address ?? "")"
         cell.price.text = "\(tripListListArray?[index.row].currency ?? "") \(ModalController.toString(tripListListArray?[index.row].almost_total_price ?? 0.0 as Any))"

@@ -35,6 +35,15 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
     
     @IBOutlet weak var containerMapView: UIView!
     
+    @IBOutlet weak var imgCustWidth: NSLayoutConstraint!
+    
+    @IBOutlet weak var lblClose: UILabel!
+    
+    @IBOutlet weak var imgAddressIcon: UIImageView!
+    var checkStatus = 0
+    var checkUsertype = ""
+    
+    
     var tripId = 0
     var nearestLat = 25.5518
     var nearestLong = 83.1834
@@ -48,7 +57,7 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
     override func viewDidLoad() {
         super.viewDidLoad()
         self.headerHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-        self.headerView.titleHeader.text = "Product Details"
+        self.headerView.titleHeader.text = "Product Details".localized
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
        
@@ -135,22 +144,35 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
         self.containerMapView.addSubview(self.mapVw!)
 
          let cust_marker: GMSMarker = GMSMarker() // Allocating Marker
-         cust_marker.icon = UIImage(named: "Car") // Marker icon
+//         cust_marker.icon = UIImage(named: "Car") // Marker icon
+        cust_marker.icon = #imageLiteral(resourceName: "placeholder (2)")
          let cust_location  = CLLocationCoordinate2D(latitude: cust_lat, longitude: cust_long)
          cust_marker.position = cust_location // CLLocationCoordinate2D
         cust_marker.map = self.mapVw // Setting marker on Mapview
         markers.append(cust_marker)
 
         let branch_marker: GMSMarker = GMSMarker() // Allocating Marker
-        branch_marker.icon = UIImage(named: "home") // Marker icon
+//        branch_marker.icon = UIImage(named: "home") // Marker icon
+        branch_marker.icon = #imageLiteral(resourceName: "placeholder")
         branch_marker.appearAnimation = .pop // Appearing animation. default
         let branch_location  = CLLocationCoordinate2D(latitude: branch_lat, longitude: branch_long)
         branch_marker.position = branch_location // CLLocationCoordinate2D
         branch_marker.map = self.mapVw // Setting marker on Mapview
         markers.append(branch_marker)
+        
+        
+        let agent_marker: GMSMarker = GMSMarker() // Allocating Marker
+//        branch_marker.icon = UIImage(named: "home") // Marker icon
+        agent_marker.icon = #imageLiteral(resourceName: "Car")
+        agent_marker.appearAnimation = .pop // Appearing animation. default
+        let agent_location  = CLLocationCoordinate2D(latitude: agentLat, longitude: agentLng)
+        agent_marker.position = agent_location // CLLocationCoordinate2D
+        agent_marker.map = self.mapVw // Setting marker on Mapview
+        markers.append(agent_marker)
    
         self.setMarkerBoundsOnMap()
         self.mapVw?.drawPolygon(from: cust_location, to: branch_location)
+        self.mapVw?.drawPolygon(from: branch_location, to: agent_location)
                
      }
     
@@ -190,12 +212,42 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
                 if let body = response as? [String: Any] {
                     self.acceptedtripDetail  = Mapper<deliveryTripDetail>().map(JSON: body)
                     print(self.acceptedtripDetail?.data)
-                    lblName.text = acceptedtripDetail?.data?.trip_details?.cust_nam
-                    lblAvgRating.text = acceptedtripDetail?.data?.trip_details?.cust_rating
-                    lblTotalRating.text = acceptedtripDetail?.data?.trip_details?.cust_total_rating
-                    lblAddress.text = acceptedtripDetail?.data?.trip_details?.cust_address
-                    lblDuration.text = (acceptedtripDetail?.data?.trip_details?.delivery_times?[0].time ?? "") + "(\(acceptedtripDetail?.data?.trip_details?.delivery_times?[0].distance ?? "" )km)"
-                    self.imgUser.sd_setImage(with: URL(string: acceptedtripDetail?.data?.trip_details?.cust_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+//                    lblName.text = acceptedtripDetail?.data?.trip_details?.cust_nam
+//                    lblAvgRating.text = acceptedtripDetail?.data?.trip_details?.cust_rating
+//                    lblTotalRating.text = acceptedtripDetail?.data?.trip_details?.cust_total_rating
+//                    lblAddress.text = acceptedtripDetail?.data?.trip_details?.cust_address
+//                    lblDuration.text = (acceptedtripDetail?.data?.trip_details?.delivery_times?[0].time ?? "") + "(\(acceptedtripDetail?.data?.trip_details?.delivery_times?[0].distance ?? "" )km)"
+//                    self.imgUser.sd_setImage(with: URL(string: acceptedtripDetail?.data?.trip_details?.cust_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+                    
+                    if checkUsertype == "BO" {
+                        lblName.text = acceptedtripDetail?.data?.trip_details?.branch_name
+                        lblAvgRating.text = "(\(acceptedtripDetail?.data?.trip_details?.rating ?? ""))"
+                        lblTotalRating.text = "(\(acceptedtripDetail?.data?.trip_details?.total_rating ?? ""))"
+                        lblAddress.text = acceptedtripDetail?.data?.trip_details?.address
+                        lblDuration.text = (acceptedtripDetail?.data?.trip_details?.delivery_times?[0].time ?? "") + "(\(acceptedtripDetail?.data?.trip_details?.delivery_times?[0].distance ?? "" )km)"
+                        
+                        self.imgUser.sd_setImage(with: URL(string: acceptedtripDetail?.data?.trip_details?.branch_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+                    }else
+                    {
+                        lblName.text = acceptedtripDetail?.data?.trip_details?.cust_nam
+                        lblAvgRating.text = acceptedtripDetail?.data?.trip_details?.cust_rating
+                        lblTotalRating.text = acceptedtripDetail?.data?.trip_details?.cust_total_rating
+                        let addressStr = "Address :".localized
+                        lblAddress.text =  "\(addressStr)\(acceptedtripDetail?.data?.trip_details?.cust_address ?? "")"
+                        lblDuration.text = (acceptedtripDetail?.data?.trip_details?.delivery_times?[0].time ?? "") + "(\(acceptedtripDetail?.data?.trip_details?.delivery_times?[0].distance ?? "" )km)"
+                        self.imgUser.sd_setImage(with: URL(string: acceptedtripDetail?.data?.trip_details?.cust_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+                    }
+                    
+                    callOpenCloseStatus()
+                    if checkUsertype ==  "CUSTOMER" {
+                        imgCustWidth.constant = 0
+                        lblOpenClose.isHidden = true
+                        lblClose.isHidden = true
+                        imgAddressIcon.image = #imageLiteral(resourceName: "businessOwner_locationIcon")
+                    }
+                    
+                    
+                    
 
 
                 }
@@ -203,6 +255,72 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
         }
     }
     
+    
+    func callOpenCloseStatus()  {
+        switch acceptedtripDetail?.data?.trip_details?.time_display_code {
+        
+        case "NO_HOURS_AVAILABLE":
+            
+            
+            lblOpenClose.text = acceptedtripDetail?.data?.trip_details?.store_time_display
+            
+            lblOpenClose.textColor = UIColor.AppThemeRedTextColor()
+            
+            lblClose.isHidden = true
+            
+            
+            
+            break
+            
+        case "PERMANENTLY_CLOSED":
+            
+            lblOpenClose.text = acceptedtripDetail?.data?.trip_details?.store_time_display
+            
+            lblOpenClose.textColor = UIColor.AppThemeRedTextColor()
+            
+            lblClose.isHidden = true
+            
+            break
+            
+        case "OPEN_SELECTED_HOURS":
+            
+            
+            lblClose.isHidden = false
+            lblClose.text = acceptedtripDetail?.data?.trip_details?.available_time
+            
+            
+            if  acceptedtripDetail?.data?.trip_details?.is_store_open == true
+            
+            {
+                
+                lblOpenClose.text = "Open".localized
+                
+                lblOpenClose.textColor = UIColor.AppThemeGreenTextColor()
+                lblClose.textColor = UIColor.AppThemeRedTextColor()
+            }
+            
+            else
+            
+            {
+                lblOpenClose.text = "Closed"
+                lblOpenClose.textColor = UIColor.AppThemeRedTextColor()
+                lblClose.textColor = UIColor.AppThemeGreenTextColor()
+            }
+            
+            break
+        case "ALWAYS_OPEN":
+            
+            lblOpenClose.text = acceptedtripDetail?.data?.trip_details?.store_time_display
+            lblOpenClose.textColor = UIColor.AppThemeGreenTextColor()
+            lblClose.isHidden = true
+            
+            break
+            
+        default:
+            break
+            
+        }
+    }
     
     /*
     

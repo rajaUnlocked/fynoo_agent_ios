@@ -18,6 +18,9 @@ class PopUpReduceQuantityViewController: UIViewController,CancelReasonViewCellDe
     @IBOutlet weak var txtQty:UITextField!
     @IBOutlet weak var viewHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var lblQtyAvailForPickup: UILabel!
+    @IBOutlet weak var btnREduceQtyOutlet: UIButton!
     var orderId = ""
     var itemId = 0
     var reasonListData : reasonlistData?
@@ -32,8 +35,22 @@ class PopUpReduceQuantityViewController: UIViewController,CancelReasonViewCellDe
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CancelReasonViewCell", bundle: nil), forCellReuseIdentifier: "CancelReasonViewCell")
         getPopupHeight()
-
+        SetFont()
     }
+    
+    func SetFont() {
+        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        
+        self.rejectedlbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblProductName.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblProductQty.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.txtQty.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblQtyAvailForPickup.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.btnREduceQtyOutlet.titleLabel!.font = UIFont(name:"\(fontNameLight)",size:16)
+        
+        
+        }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first

@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Order Qty: 1"; ObjectID = "7nN-Xq-Ua1"; */
+"7nN-Xq-Ua1.text" = "Order Qty: 1";
+
+/* Class = "UILabel"; text = "Qty available for pickup"; ObjectID = "I20-ah-AZ7"; */
+"I20-ah-AZ7.text" = "Qty available for pickup";
+
+/* Class = "UILabel"; text = "Objective physics neet"; ObjectID = "OrR-Zb-Scf"; */
+"OrR-Zb-Scf.text" = "Objective physics neet";
+
+/* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "Pa3-Og-KGD"; */
+"Pa3-Og-KGD.normalTitle" = "إرسال";
+
+/* Class = "UILabel"; text = "Reason for changing the quantity"; ObjectID = "eVu-8c-69G"; */
+"eVu-8c-69G.text" = "Reason for changing the quantity";

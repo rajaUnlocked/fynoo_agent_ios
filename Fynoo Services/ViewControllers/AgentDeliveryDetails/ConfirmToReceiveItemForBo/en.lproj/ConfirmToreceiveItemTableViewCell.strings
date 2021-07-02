@@ -18,7 +18,7 @@
 "XdR-cs-f6m.text" = "5  9  0  4";
 
 /* Class = "UILabel"; text = "If you receive the items. Please\nshare the OTP to Business Owner."; ObjectID = "dPJ-cV-fAn"; */
-"dPJ-cV-fAn.text" = "If you receive the items. Please\nshare the OTP to Business Owner.";
+"dPJ-cV-fAn.text" = "Verify receiving your order by providing this OTP to BO.";
 
 /* Class = "UILabel"; text = "-----------------------------------------------------------------------------------------"; ObjectID = "fKM-M3-pfo"; */
 "fKM-M3-pfo.text" = "-----------------------------------------------------------------------------------------";

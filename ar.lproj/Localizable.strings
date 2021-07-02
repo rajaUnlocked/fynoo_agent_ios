@@ -549,7 +549,9 @@
 "so it's easy for people to plan a visit." = " ليتمكن عملائك من زيارة فرعك";
 "   Update Your Business Hours So Search Results Show When Your Location Is Open." = "   قم بتحديث أوقات العمل ليتم إدارج متجرك في قائمة البحث عندما يكون مفتوح";
 "UNLIMITED" = "لامحدود" ;
- 
+"Order Id:" = "رقم الطلب:";
+"Total Amount" = "المبلغ الإجمالي";
+"Any Problem?" = "هل توجد مشكلة؟";
  
  
 "Please upload branch logo" = "الرجاء رفع صورة الشعار";
@@ -1105,7 +1107,6 @@
 "Please perform accept/reject on all products." = "Please perform accept/reject on all products.";
 "Customer has chosen Self Pick-Up, Do you want to accept?" = "Customer has chosen Self Pick-Up, Do you want to accept?";
 "Order Detail" = "Order Detail";
-"Order Id:" = "Order Id:";
 "Address :" = "Address :";
 "Qty:" = "Qty:";
 "Have you packed your product?" = "Have you packed your product?";
@@ -1236,13 +1237,11 @@
 //"Confirm Delivery" = "تأكيد التسليم"
 
 
-"Please Enter Otp" =  "الرجاء إدخال رمز التحقق"
-"Please Check COD Amount For Customer" = "Please Check COD Amount For Customer"
-"Please add invoice file" = "Please add invoice file"
-"Are you sure want to accept?" = ""
-"View Images" = "استعراض الصورة"
-
-
+"Please Enter Otp" =  "الرجاء إدخال رمز التحقق";
+"Please Check COD Amount For Customer" = "Please Check COD Amount For Customer";
+"Please add invoice file" = "Please add invoice file";
+"Are you sure want to accept?" = "";
+"View Images" = "استعراض الصورة",
 "Please Enter Otp" =  "الرجاء إدخال رمز التحقق";
 "Please Check COD Amount For Customer" = "Please Check COD Amount For Customer";
 "Please add invoice file" = "Please add invoice file";
@@ -1254,3 +1253,5 @@
 "Qty :" = "الكمية:";
 "Weight:" = "الوزن:";
 "Size:" = "الحجم:";
+"Confirm to received items" = "تأكيد استلام الطلب";
+
