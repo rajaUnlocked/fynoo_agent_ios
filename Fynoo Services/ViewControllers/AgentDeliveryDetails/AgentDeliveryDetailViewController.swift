@@ -57,7 +57,7 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
     override func viewDidLoad() {
         super.viewDidLoad()
         self.headerHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-        self.headerView.titleHeader.text = "Product Details"
+        self.headerView.titleHeader.text = "Product Details".localized
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
        
@@ -144,7 +144,8 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
         self.containerMapView.addSubview(self.mapVw!)
 
          let cust_marker: GMSMarker = GMSMarker() // Allocating Marker
-         cust_marker.icon = UIImage(named: "Car") // Marker icon
+//         cust_marker.icon = UIImage(named: "Car") // Marker icon
+        cust_marker.icon = #imageLiteral(resourceName: "placeholder (2)")
          let cust_location  = CLLocationCoordinate2D(latitude: cust_lat, longitude: cust_long)
          cust_marker.position = cust_location // CLLocationCoordinate2D
         cust_marker.map = self.mapVw // Setting marker on Mapview
@@ -162,7 +163,7 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
         
         let agent_marker: GMSMarker = GMSMarker() // Allocating Marker
 //        branch_marker.icon = UIImage(named: "home") // Marker icon
-        agent_marker.icon = #imageLiteral(resourceName: "placeholderMapHome")
+        agent_marker.icon = #imageLiteral(resourceName: "Car")
         agent_marker.appearAnimation = .pop // Appearing animation. default
         let agent_location  = CLLocationCoordinate2D(latitude: agentLat, longitude: agentLng)
         agent_marker.position = agent_location // CLLocationCoordinate2D

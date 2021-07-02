@@ -252,7 +252,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         
         let agent_marker: GMSMarker = GMSMarker() // Allocating Marker
 //        branch_marker.icon = UIImage(named: "home") // Marker icon
-        agent_marker.icon = #imageLiteral(resourceName: "placeholderMapHome")
+        agent_marker.icon = #imageLiteral(resourceName: "Car")
         agent_marker.appearAnimation = .pop // Appearing animation. default
         let agent_location  = CLLocationCoordinate2D(latitude: agentLat, longitude: agentLng)
         agent_marker.position = agent_location // CLLocationCoordinate2D
