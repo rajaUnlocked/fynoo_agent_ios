@@ -12,6 +12,7 @@ import ObjectMapper
 
 
 class ServiceModel: NSObject {
+    var istypeimage = false
      var vehicleId = 1
     var isType = 1
     var imgname = ""
@@ -36,6 +37,7 @@ class ServiceModel: NSObject {
      var sendforapproval = ""
     var imagefile = [UIImage]()
     var imagename = [String]()
+    var imagepdf = [String]()
     func getvehicleName(completion:@escaping(Bool, VehicleName?) -> ()) {
          
                     let str = "\(Service.getvehiclename)"
@@ -155,6 +157,18 @@ class ServiceModel: NSObject {
                 imagename.removeAll()
                 imagename.append("car_registration")
                 imagename.append("driving_authorization")
+                if imagefile.count > 0 && docfilereg.count > 0
+                {
+                    imagename.removeAll()
+                    imagepdf.removeAll()
+                    imagename.append("driving_authorization")
+                    imagepdf.append("car_registration")
+                    if istypeimage
+                    {
+                        imagename.append("car_registration")
+                        imagepdf.append("driving_authorization")
+                    }
+                }
                    }
             else if isType == 6
                               {
@@ -164,6 +178,7 @@ class ServiceModel: NSObject {
                               }
                print(str,parameters,imgname
             )
+            
             if isType > 6
             {
              ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
@@ -188,53 +203,83 @@ class ServiceModel: NSObject {
                      }
                 
             }
-            else if docfilereg.count == 0
-    {
-        ServerCalls.fileUploadAPIDocumentMultipleImage(inputUrl: str, parameters: parameters, imageName: imagename, imageFile: imagefile) { (response, success, resp) in
-                               if let value = response as? NSDictionary{
-            
-                                       if let body = response as? [String: Any] {
-                                     
-                                            let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
-                                               completion(true, val)
-                                            return
-                                        
-            
-                                       }
-                                       completion(false,nil)
-            
-            
-                               }
-        }
-    }
-
-    else{
-        var pfurl =  [String]()
-        for i in 0...(docfilereg.count - 1)
-        {
-            pfurl.append(docfilereg[i]!.absoluteString)
-        
-        }
-          
-        ServerCalls.PdfFileMultipleUpload(inputUrl: str, parameters: parameters, pdfname: imagename, pdfurl: pfurl) { (response, success, resp) in
-          
-                 
-                 if let value = response as? NSDictionary{
-    
-                         if let body = response as? [String: Any] {
-                           
-                            let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
-                             completion(true, val)
-                             return
-                            }
-                         
-                         completion(false,nil)
+            else
+            {
+                var pfurl =  [String]()
+                if docfilereg.count > 0
+                {
+                for i in 0...(docfilereg.count - 1)
+                {
+                    pfurl.append(docfilereg[i]!.absoluteString)
+                
+                }
+                }
+                ServerCalls.PdfFileAndImageUploadNew(inputUrl: str, parameters: parameters, pdfname: imagepdf.count > 0 ? imagepdf : imagename, pdfurl: pfurl, imageName: imagename, imageFile: imagefile) { (response, success, resp) in
                     
-                     
-                 }
-             }
+                    ModalClass.stopLoading()
+                    if let value = response as? NSDictionary{
+                    
+                        if let body = response as? [String: Any] {
+                    
+                        let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
+                        completion(true, val)
+                            return
+                }
+                                                           completion(false,nil)
+                    
+                    
+                                                   }
+                }
+              
+                }
             }
-           }
+//            else if docfilereg.count == 0
+//    {
+//        ServerCalls.fileUploadAPIDocumentMultipleImage(inputUrl: str, parameters: parameters, imageName: imagename, imageFile: imagefile) { (response, success, resp) in
+//                               if let value = response as? NSDictionary{
+//
+//                                       if let body = response as? [String: Any] {
+//
+//                                            let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
+//                                               completion(true, val)
+//                                            return
+//
+//
+//                                       }
+//                                       completion(false,nil)
+//
+//
+//                               }
+//        }
+//    }
+
+//    else{
+//        var pfurl =  [String]()
+//        for i in 0...(docfilereg.count - 1)
+//        {
+//            pfurl.append(docfilereg[i]!.absoluteString)
+//
+//        }
+//
+//        ServerCalls.PdfFileMultipleUpload(inputUrl: str, parameters: parameters, pdfname: imagename, pdfurl: pfurl) { (response, success, resp) in
+//
+//
+//                 if let value = response as? NSDictionary{
+//
+//                         if let body = response as? [String: Any] {
+//
+//                            let val = Mapper<SeviceDocument>().map(JSON: response as! [String : Any])
+//                             completion(true, val)
+//                             return
+//                            }
+//
+//                         completion(false,nil)
+//
+//
+//                 }
+//             }
+//            }
+     //      }
     
     func getservicetypecolor(completion:@escaping(Bool, TypeBrandColor?) -> ()) {
 

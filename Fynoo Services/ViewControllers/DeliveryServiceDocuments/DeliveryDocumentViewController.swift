@@ -61,7 +61,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         imglocalArr = [nil,nil,nil,nil,nil,nil,nil]
         documentlocalArr = [nil,nil,nil,nil,nil,nil]
         imgIdArr = [false,false,false,false,false,false,false]
-        servicedocList_API()
+        
         servicetypeColor_API()
         
     }
@@ -196,7 +196,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     self.vehicleColorArr.append(self.typecolorlist?.data?.vehicle_color?[i].name ?? "")
                     self.vehicleColoridArr.append(self.typecolorlist?.data?.vehicle_color?[i].id ?? 0)
                 }
-                self.tabvw.reloadData()
+                self.servicedocList_API()
             }
         }
     }
@@ -321,15 +321,16 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             if success
             {
                 self.servicelist = response
-                if self.servicelist?.data?.front_side ?? "" != ""{
-                    self.vehicleKind_API(brandid: (self.servicelist?.data?.registration_type_id)!)
-                    self.vehicleName_API(brandid: (self.servicelist?.data?.vehicle_brand_id)!)
-                   
-                }
-                else
-                {
-                    ModalClass.stopLoadingAllLoaders(self.view)
-                }
+               
+//                if self.servicelist?.data?.front_side ?? "" != ""{
+//                    self.vehicleKind_API(brandid: (self.servicelist?.data?.registration_type_id)!)
+//                    self.vehicleName_API(brandid: (self.servicelist?.data?.vehicle_brand_id)!)
+//
+//                }
+//                else
+//                {
+//                    ModalClass.stopLoadingAllLoaders(self.view)
+//                }
                 self.imgArr = [self.servicelist?.data?.national_id ?? "",self.servicelist?.data?.driving_license ?? "",self.servicelist?.data?.registration ?? "",self.servicelist?.data?.insurance ?? "",self.servicelist?.data?.authorization ?? "",self.servicelist?.data?.front_side ?? ""]
                 for i in 0...self.imgArr.count - 1
                 {
@@ -366,8 +367,8 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     self.submit.backgroundColor = .lightGray
                     self.submit.setTitle("Pending for approval".localized, for: .normal)
                 }
-               
-               
+              
+                ModalClass.stopLoadingAllLoaders(self.view)
                 self.tabvw.reloadData()
                
             }
@@ -674,6 +675,8 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     }
     @objc func clickuploadclicked(_ sender:UIButton)
     {
+        service.docfilereg.removeAll()
+        service.imagefile.removeAll()
         if servicelist?.data?.status ?? 0 == 1
         {
             ModalController.showNegativeCustomAlertWith(title: " You cannot edit the form when it is pending for approval", msg: "")
@@ -719,11 +722,11 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             service.edob = toptxtArr[3]
             service.isType = sender.tag + 1
             if imglocalArr[sender.tag] == nil{
-                service.docfilereg.removeAll()
+              
                 service.docfilereg.append(documentlocalArr[sender.tag]!)
             }
             else{
-                service.imagefile.removeAll()
+                
                 service.imagefile.append(imglocalArr[sender.tag]!)
             }
               service.sendforapproval = "0"
@@ -803,11 +806,11 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             
             service.isType = 6
             if imglocalArr[sender.tag] == nil{
-                service.docfilereg.removeAll()
+               
                 service.docfilereg.append(documentlocalArr[sender.tag]!)
             }
             else{
-                service.imagefile.removeAll()
+               
                 service.imagefile.append(imglocalArr[sender.tag]!)
             }
               service.sendforapproval = "0"
@@ -842,17 +845,8 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             }
             service.isType = sender.tag + 1
             service.sendforapproval = "0"
-            if imglocalArr[sender.tag] == nil{
-                service.docfilereg.removeAll()
-                service.docfilereg.append(documentlocalArr[2]!)
-                service.docfilereg.append(documentlocalArr[4]!)
-            }
-            else{
-                service.imagefile.removeAll()
-                service.imagefile.append(imglocalArr[2]!)
-                service.imagefile.append(imglocalArr[4]!)
-   
-            }
+            imglocalArr[2] == nil ? service.docfilereg.append(documentlocalArr[2]!) :  service.imagefile.append(imglocalArr[2]!)
+            imglocalArr[4] == nil ? service.docfilereg.append(documentlocalArr[4]!) :  service.imagefile.append(imglocalArr[4]!)
         }
         else
         {
@@ -882,11 +876,10 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             service.isType = sender.tag + 1
             service.sendforapproval = "0"
             if imglocalArr[sender.tag] == nil{
-                service.docfilereg.removeAll()
+                
                 service.docfilereg.append(documentlocalArr[sender.tag]!)
             }
             else{
-                service.imagefile.removeAll()
                 service.imagefile.append(imglocalArr[sender.tag]!)
             }
         }
@@ -894,6 +887,10 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         ModalClass.startLoading(self.view)
         
         service.primaryid = primaryid
+        if service.docfilereg.count > 0 && service.imagefile.count > 0
+        {
+        service.istypeimage = (imglocalArr[2] == nil ? false : true)
+        }
         service.uploadImage { (success, response) in
             ModalClass.stopLoadingAllLoaders(self.view)
             if success
@@ -928,7 +925,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 self.toptxtArr = [self.servicelist?.data?.full_name ?? "",self.servicelist?.data?.dob ?? "",self.servicelist?.data?.iqama_no ?? "",self.servicelist?.data?.doe ?? ""]
                 self.txtArr = [self.servicelist?.data?.registration_type ?? "",self.servicelist?.data?.vehicle_brand ?? "",self.servicelist?.data?.vehicle_name ?? "",self.servicelist?.data?.production_year ?? "",self.servicelist?.data?.vehicle_color ?? "",self.servicelist?.data?.vehicle_kind ?? "",self.servicelist?.data?.maximum_load ?? "",self.servicelist?.data?.plate_no ?? ""]
                 
-                self.servicedocList_API()
+               // self.servicedocList_API()
                 self.tabvw.reloadData()
             }
         }

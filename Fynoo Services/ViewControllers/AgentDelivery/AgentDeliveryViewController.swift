@@ -11,7 +11,7 @@ import ObjectMapper
 import MessageUI
 
 class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDelegate, MFMessageComposeViewControllerDelegate, AgentServiceListDelegate,AddAmountDelegate {
-   
+   var isfrom = ""
     var isRating = false
     @IBOutlet weak var tableView: UITableView!
     var selectedVl = 1000
@@ -22,7 +22,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     
     var orderSuccessData:Dictionary<String,Any> = [:]
     
-    
+    var selectedTrip = 0
     var selectedTab:String = "1"
     var Index:Int = 0
     var deliverData : deliveryDashboard?
@@ -59,11 +59,24 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         
         print(orderSuccessData)
         
-        if isRating == true {
-            self.headerView.backButton.isHidden = true
-        }else{
-            self.headerView.backButton.isHidden = false
+//        if isRating == true {
+//            self.headerView.backButton.isHidden = true
+//        }else{
+//            self.headerView.backButton.isHidden = false
+//        }
+        if isfrom == "100"
+        {
+            self.navigationController?.removeViewController(AgentDeliveryViewController.self)
+            self.navigationController?.removeViewController(ProductDetailsViewC.self)
+            self.navigationController?.removeViewController(OtpForCodViewC.self)
+            self.navigationController?.removeViewController(OrderSuccessViewC.self)
+            
         }
+        if isfrom == "700"
+        {
+            self.navigationController?.removeViewController(SearchedProductDeatailViewC.self)
+        }
+       
     }
     func reloadPage() {
         getTripData()
@@ -99,8 +112,9 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
                ratingClicked((Any).self)
             }
         }
-        getAgentData()
         getTripData()
+        getAgentData()
+      
     }
     func SetFont() {
         
@@ -210,7 +224,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
             if success{
                 //   print(response)
                 
-                ModalClass.stopLoading()
+                ModalClass.stopLoadingAllLoaders(self.view)
                 if let body = response as? [String: Any] {
                     self.tripList  = Mapper<TripListInfo>().map(JSON: body)
                     if self.currentPageNumber == 0 {
@@ -338,6 +352,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         
         tableView.reloadData()
     }
+    
     func selecteIndex(_ sender: Any, selectedIndexID:String){
         
         self.selectedTab = selectedIndexID
@@ -637,7 +652,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             headerView1!.selectedIndex = Index
             if isRating
             {
-                headerView1!.selectedIndex = 2
+                headerView1!.selectedIndex = selectedTrip
             }
             return headerView1
             
