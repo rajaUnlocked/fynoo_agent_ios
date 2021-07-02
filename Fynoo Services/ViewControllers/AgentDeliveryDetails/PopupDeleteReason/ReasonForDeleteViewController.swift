@@ -94,7 +94,7 @@ class ReasonForDeleteViewController: UIViewController, CancelReasonViewCellDeleg
             }
             
         }else{
-            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please select one Reason...")
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please select one Reason...".localized)
             return
             
         }

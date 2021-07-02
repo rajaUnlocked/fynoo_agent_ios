@@ -40,23 +40,23 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRy-YM-7Hl">
-                                <rect key="frame" x="306.5" y="12.5" width="15.5" height="12"/>
+                                <rect key="frame" x="311" y="12.5" width="15.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(17.2k)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XlN-xp-sFg">
-                                <rect key="frame" x="344" y="8" width="42" height="21"/>
+                                <rect key="frame" x="348.5" y="8" width="37.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Vuu-os-3NW"/>
-                                    <constraint firstAttribute="width" constant="42" id="vTj-pn-t7s"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="vTj-pn-t7s"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5zH-TW-HaO" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="324" y="8.5" width="20" height="20"/>
+                                <rect key="frame" x="328.5" y="8.5" width="20" height="20"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="ELa-VS-xO9"/>
@@ -397,6 +397,11 @@
             <point key="canvasLocation" x="31.884057971014496" y="44.866071428571423"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="5zH-TW-HaO">
+            <size key="intrinsicContentSize" width="18" height="18"/>
+        </designable>
+    </designables>
     <resources>
         <image name="banknote" width="14" height="14"/>
         <image name="call" width="48" height="48"/>

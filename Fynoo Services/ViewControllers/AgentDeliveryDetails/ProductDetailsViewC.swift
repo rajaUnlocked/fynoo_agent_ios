@@ -266,9 +266,9 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
                     vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
                     
                     vc.reasonListData =  self.reasonListData
-                    
-                    vc.lblProductQty.text = "Item Qty: \(orderDetailData?.data?.item_detail? [selectedTag].qty ?? 0)"
-                    vc.lblProductName.text = "Item Qty: \(orderDetailData?.data?.item_detail? [selectedTag].pro_name ?? "")"
+                    let itemQty = "Item Qty".localized
+                    vc.lblProductQty.text = "\(itemQty): \(orderDetailData?.data?.item_detail? [selectedTag].qty ?? 0)"
+                    vc.lblProductName.text = "\(orderDetailData?.data?.item_detail? [selectedTag].pro_name ?? "")"
 
                     vc.imgProduct.sd_setImage(with: URL(string: orderDetailData?.data?.item_detail?[selectedTag].product_pic ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
 
@@ -312,8 +312,10 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
                     vc.modalPresentationStyle = .overFullScreen
                     vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
                     vc.reasonListData =  self.reasonListData
-                    vc.lblProductQty.text = "Item Qty: \(orderDetailData?.data?.item_detail? [selectedTag].qty ?? 0)"
-                    vc.lblProductName.text = "Item Qty: \(orderDetailData?.data?.item_detail? [selectedTag].pro_name ?? "")"
+                    
+                    let itemQty = "Item Qty".localized
+                    vc.lblProductQty.text = "\(itemQty): \(orderDetailData?.data?.item_detail? [selectedTag].qty ?? 0)"
+                    vc.lblProductName.text = "\(orderDetailData?.data?.item_detail? [selectedTag].pro_name ?? "")"
 
                     vc.imgProduct.sd_setImage(with: URL(string: orderDetailData?.data?.item_detail?[selectedTag].product_pic ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
 
@@ -509,6 +511,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         let blurEffect = UIBlurEffect(style: .dark)
         popupController.backgroundView = UIVisualEffectView(effect: blurEffect)
         popupController.backgroundView?.alpha = 0.6
+        popupController.containerView?.backgroundColor = UIColor.clear
         popupController.backgroundView?.onClick {
             popupController.dismiss()
         }
@@ -1503,6 +1506,8 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         
                         if checkInvoiceUploaded == true || orderDetailData?.data?.order_status == 3 || orderDetailData?.data?.order_status == 2 || orderDetailData?.data?.item_detail?[indexPath.row].item_status == 3  {
                             cell.btnDelete.isUserInteractionEnabled = false
+                            cell.btnReduceQuantity.isUserInteractionEnabled = false
+                            cell.btnCart.isEnabled = false
                         }
                         
                         cell.delegate = self
