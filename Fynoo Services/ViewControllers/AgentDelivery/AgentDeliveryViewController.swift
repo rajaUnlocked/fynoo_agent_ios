@@ -615,7 +615,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             cell.statusLbl.textColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
         }
         cell.navigationBtn.isHidden = false
-        if selectedTab == "4"
+        if selectedTab == "4" || selectedTab == "3"
         {
             cell.navigationBtn.isHidden = true
         }

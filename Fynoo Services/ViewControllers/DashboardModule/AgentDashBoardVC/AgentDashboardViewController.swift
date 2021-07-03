@@ -11,7 +11,9 @@ import SideMenu
 import CoreLocation
 import MTPopup
 class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource, ServicesDashboardTableViewCellDelegate, CommonPopupViewControllerDelegate ,UIImagePickerControllerDelegate, UINavigationControllerDelegate, OpenGalleryDelegate, CLLocationManagerDelegate, UITabBarControllerDelegate {
+    @IBOutlet weak var sar: UILabel!
     var refreshControl = UIRefreshControl()
+    
     @IBOutlet weak var walletHeightConst: NSLayoutConstraint!
     @IBOutlet weak var walletvw: UIView!
     @IBOutlet weak var walletLbl: UILabel!
@@ -53,6 +55,9 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
 //    var lati : Double?
 //    var longi : Double?
     var apiTimer: Timer?
+    let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         getUserLocation()
@@ -322,6 +327,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
     
     func registerCellNibs(){
+        availamount.font = UIFont(name:"\(fontNameLight)",size:14)
         availamount.text = "Available Amount".localized
         arrow1.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"rightArrow_dash")!)
         arrow2.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"rightArrow_dash")!)
@@ -871,7 +877,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     self.dataDict = dict
                     
                     self.availableBalanceLbl.text =  ModalController.convertInString(str: self.dataDict.object(forKey: "available_amount") as AnyObject)
-                    
+                    self.availableBalanceLbl.font = UIFont(name:"\(self.fontNameLight)",size:16)
+                    self.sar.font = UIFont(name:"\(self.fontNameLight)",size:12)
                     let image =  ((self.dataDict.object(forKey: "agent_information") as! NSArray).object(at: 0) as! NSDictionary).object(forKey: "user_img") as! NSString
                     
                     self.profileImg.sd_setImage(with: URL(string: "\(image)"), placeholderImage: UIImage(named: "profile_white"))
@@ -883,6 +890,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     let val1 = "Hello".localized
                     let val2 = "ID".localized
                     self.userDetails.text = "\(val1) \(nameStr)\n \(val2): \(idStr)"
+                    self.userDetails.font = UIFont(name:"\(self.fontNameLight)",size:13)
+                   
                     self.walletLbl.text = ModalController.convertInString(str: self.dataDict.object(forKey: "wallet_balance") as AnyObject)
                     self.holdingLBl.text = ModalController.convertInString(str: self.dataDict.object(forKey: "holding_amount") as AnyObject)
                     self.inprocessLbl.text = ModalController.convertInString(str: self.dataDict.object(forKey: "payment_in_progress") as AnyObject)

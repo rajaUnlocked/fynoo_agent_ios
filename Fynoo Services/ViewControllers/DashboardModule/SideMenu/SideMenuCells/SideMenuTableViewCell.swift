@@ -16,6 +16,9 @@ class SideMenuTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
   //      arrowImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"right_arrow_new")!)
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        cellTextLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
