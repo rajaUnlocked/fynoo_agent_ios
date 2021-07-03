@@ -124,7 +124,7 @@ class DataBankHeader: UIView, UICollectionViewDelegate, UICollectionViewDataSour
         cell.textLbl.text = headerTextArray[index.row]
         
         cell.upperLbl.isHidden = true
-        cell.mainView.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.968627451, blue: 0.968627451, alpha: 1)
+        cell.mainView.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
          cell.textLbl.textColor = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
         cell.mainView.borders(for: [.left, .bottom, .right], width: 0.2, color:  #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1))
         

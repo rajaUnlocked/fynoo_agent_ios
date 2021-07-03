@@ -383,7 +383,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             let vc = AgentDeliveryViewController()
                             vc.isRating = true
                             vc.isfrom = "700"
-                            vc.selectedTrip = 0
+                            vc.selectedTrip = 1
                             vc.serviceID = "\(errorData["del_service_id"] as! Int)"
                             vc.selectedTab = "\(errorData["service_status"] as! Int)"
                             self.navigationController?.pushViewController(vc, animated: true)
@@ -480,7 +480,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             let vc = AgentDeliveryViewController()
 //                            vc.serviceID = "\(tripDetail?.data?.trip_details?.service_id ?? 0)"
                             vc.isfrom = "700"
-                            vc.selectedTrip = 2
+                            vc.selectedTrip = 3
                             vc.serviceID = serviceID
                             vc.serviceStatus = serviceStatus
                             vc.isRating = true
@@ -539,7 +539,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             ModalController.showSuccessCustomAlertWith(title: ((ResponseDict.object(forKey: "error_description") as? String)!), msg: "")
                             let vc = AgentDeliveryViewController()
                             vc.isfrom = "700"
-                            vc.selectedTrip = 3
+                            vc.selectedTrip = 4
                             vc.isRating = true
                             vc.serviceID = "\(tripDetail?.data?.trip_details?.service_id ?? 0)"
                             vc.serviceStatus = "\(tripDetail?.data?.trip_details?.service_status ?? 0)"
