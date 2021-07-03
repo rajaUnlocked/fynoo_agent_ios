@@ -48,7 +48,9 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var imgCod: UIImageView!
-
+    
+    @IBOutlet weak var lblDecline: UILabel!
+    
     var tripDetail : newOrderTripData?
     var agentViewModel = AgentModel()
     let locationManager = CLLocationManager()
@@ -125,8 +127,9 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         self.lblTime.font = UIFont(name:"\(fontNameLight)",size:25)
         self.btnAcceptTxt.titleLabel?.font =  UIFont(name:"\(fontNameLight)",size:16)
         self.btnDeclineTxt.titleLabel?.font =  UIFont(name:"\(fontNameLight)",size:16)
+        self.lblDecline.font =  UIFont(name:"\(fontNameLight)",size:16)
        
-       
+        self.lblDecline.text = "Decline".localized
         }
         
     
@@ -235,14 +238,16 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         self.containerMapView.addSubview(self.mapVw!)
 
          let cust_marker: GMSMarker = GMSMarker() // Allocating Marker
-         cust_marker.icon = UIImage(named: "home") // Marker icon
+//         cust_marker.icon = UIImage(named: "home") // Marker icon
+        cust_marker.icon = #imageLiteral(resourceName: "placeholderBox")
          let cust_location  = CLLocationCoordinate2D(latitude: cust_lat, longitude: cust_long)
          cust_marker.position = cust_location // CLLocationCoordinate2D
         cust_marker.map = self.mapVw // Setting marker on Mapview
         markers.append(cust_marker)
 
         let branch_marker: GMSMarker = GMSMarker() // Allocating Marker
-        branch_marker.icon = UIImage(named: "nearestBranchMapLocation") // Marker icon
+//        branch_marker.icon = UIImage(named: "nearestBranchMapLocation") // Marker icon
+        branch_marker.icon = #imageLiteral(resourceName: "Group 821")
         branch_marker.appearAnimation = .pop // Appearing animation. default
         let branch_location  = CLLocationCoordinate2D(latitude: branch_lat, longitude: branch_long)
         branch_marker.position = branch_location // CLLocationCoordinate2D
@@ -252,7 +257,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         
         let agent_marker: GMSMarker = GMSMarker() // Allocating Marker
 //        branch_marker.icon = UIImage(named: "home") // Marker icon
-        agent_marker.icon = #imageLiteral(resourceName: "Car")
+        agent_marker.icon = #imageLiteral(resourceName: "Group 822")
         agent_marker.appearAnimation = .pop // Appearing animation. default
         let agent_location  = CLLocationCoordinate2D(latitude: agentLat, longitude: agentLng)
         agent_marker.position = agent_location // CLLocationCoordinate2D
@@ -366,9 +371,10 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         
         print("request:-", param)
         print("Url:-", Service.gettripDetail)
+        ModalClass.startLoading(self.view)
         ServerCalls.postRequest(Service.gettripDetail, withParameters: param) { [self] (response, success) in
             if success{
-                
+                ModalClass.stopLoadingAllLoaders(self.view)
                 if let body = response as? [String: Any] {
                     self.tripDetail  = Mapper<newOrderTripData>().map(JSON: body)
                     if let value = response as? NSDictionary{
@@ -393,7 +399,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                     print(self.tripDetail?.data)
 //                    print(self.tripDetail?.data?.trip_details?.purchase_price)
 //
-                    self.lblQty.text = "Qty:\(tripDetail?.data?.trip_details?.qty ?? 0)"
+                    self.lblQty.text = "Qty:0\(tripDetail?.data?.trip_details?.qty ?? 0)"
                     self.lblSize.text = "Size:\(tripDetail?.data?.trip_details?.size ?? "")"
                     self.lblCreatedBy.text = "\(tripDetail?.data?.trip_details?.created_by ?? "")"
                     self.lblpickupTime.text = "\(tripDetail?.data?.trip_details?.pick_up_time ?? "")"
@@ -423,6 +429,8 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                     
                 }
             }
+            
+           
         }
     }
     
@@ -457,9 +465,10 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         
         print("request:-", param)
         print("Url:-", Service.agentAcceptRequest)
+        ModalClass.startLoading(self.view)
         ServerCalls.postRequest(Service.agentAcceptRequest, withParameters: param) { [self] (response, success) in
             if success{
-                
+                ModalClass.stopLoadingAllLoaders(self.view)
                 if let body = response as? [String: Any] {
                     self.tripDetail  = Mapper<newOrderTripData>().map(JSON: body)
                     if success == true {
@@ -500,6 +509,8 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                     
                 }
             }
+            
+            
         }
     }
     
@@ -514,12 +525,12 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         let param = ["search_id": searchId,
                      "user_id":userId,
                      "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
-        
+        ModalClass.startLoading(self.view)
         print("request:-", param)
         print("Url:-", Service.agentDeclineRequest)
         ServerCalls.postRequest(Service.agentDeclineRequest, withParameters: param) { [self] (response, success) in
             if success{
-                
+                ModalClass.stopLoadingAllLoaders(self.view)
                 if let body = response as? [String: Any] {
                     self.tripDetail  = Mapper<newOrderTripData>().map(JSON: body)
                     if success == true {
