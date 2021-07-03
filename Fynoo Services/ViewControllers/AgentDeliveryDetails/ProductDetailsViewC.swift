@@ -1091,7 +1091,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
        
         let ItemQty = "Item Qty".localized
         
-        cell.lblQty.text = "0\(ItemQty): \(orderDetailData?.data?.item_detail? [index.row].qty ?? 0)"
+        cell.lblQty.text = "\(ItemQty): 0\(orderDetailData?.data?.item_detail? [index.row].qty ?? 0)"
 
         cell.lblOrderId.text = "Total Weight :  \(orderDetailData?.data?.total_weight ?? 0.0)kg"
         
@@ -1159,7 +1159,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
                 cell.lblLineReduceQty.isHidden = true
         let ItemQty = "Item Qty".localized
         
-        cell.lblQty.text = "0\(ItemQty): \(orderDetailData?.data?.item_detail? [index.row].qty ?? 0)"
+        cell.lblQty.text = "\(ItemQty): 0\(orderDetailData?.data?.item_detail? [index.row].qty ?? 0)"
         cell.lblAddress.text = orderDetailData?.data?.item_detail? [index.row].pro_name ?? ""
         let Items_price_Almost = "Items price :".localized
         cell.lblPriceAlmost.text = "\(Items_price_Almost):  \(orderDetailData?.data?.item_detail? [index.row].currency_code ?? "")\(orderDetailData?.data?.item_detail? [index.row].price ?? 0)"
@@ -1482,7 +1482,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     
                     let ItemQty = "Item Qty".localized
                     
-                    cell.lblQty.text = "0\(ItemQty): \(orderDetailData?.data?.item_detail? [indexPath.row].qty ?? 0)"
+                    cell.lblQty.text = "\(ItemQty):0\(orderDetailData?.data?.item_detail? [indexPath.row].qty ?? 0)"
                     cell.lblAddress.text = orderDetailData?.data?.item_detail? [indexPath.row].pro_name ?? ""
                     let Items_price_Almost = "Items price (Almost)".localized
                     cell.lblPriceAlmost.text = "\(Items_price_Almost):  \(orderDetailData?.data?.item_detail? [indexPath.row].price ?? 0)"

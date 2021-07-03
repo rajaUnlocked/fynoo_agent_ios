@@ -30,7 +30,7 @@ class OrderSuccessViewC: UIViewController {
             let vc = AgentDeliveryViewController()
             vc.orderSuccessData = self.confirmDeliveryData
             vc.isfrom = "100"
-            vc.selectedTrip = 2
+            vc.selectedTrip = 3
             vc.isRating = true
             self.navigationController?.pushViewController(vc, animated: true)
             

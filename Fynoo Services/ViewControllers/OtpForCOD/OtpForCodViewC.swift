@@ -401,12 +401,12 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
         let param = ["order_id": orderId,
                      "user_id":userId,
                      "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
-        
+        ModalClass.startLoading(self.view)
         print("request:-", param)
         print("Url:-", Service.onTheWayTripDetail)
         ServerCalls.postRequest(Service.onTheWayTripDetail, withParameters: param) { [self] (response, success) in
             if success{
-                
+                ModalClass.stopLoadingAllLoaders(self.view)
                 if let body = response as? [String: Any] {
                     self.onTheWayTripDetailData  = Mapper<OnthewayTripDetailsData>().map(JSON: body)
                     
