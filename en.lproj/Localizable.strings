@@ -283,6 +283,9 @@
 
 /////////////////////////             TAP PAYMENT             /////////////////////////
 //new
+"Payment in progress" = "Payment in progress";
+"Holding Amount" = "Holding Amount";
+"Wallet Balance" = "Wallet Balance";
 "Tap to accept" = "Tap to accept";
 "Branch List" = "Branch List";
 "Choose your option"= "Choose your option";

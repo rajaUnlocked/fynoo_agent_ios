@@ -13,7 +13,17 @@ import MTPopup
 
 
 class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource, ServicesDashboardTableViewCellDelegate, CommonPopupViewControllerDelegate ,UIImagePickerControllerDelegate, UINavigationControllerDelegate, OpenGalleryDelegate, CLLocationManagerDelegate, UITabBarControllerDelegate {
+    
+    @IBOutlet weak var progresslbl: UILabel!
+    @IBOutlet weak var holdingamtlbl: UILabel!
+    
+    @IBOutlet weak var walletballbl: UILabel!
+    @IBOutlet weak var walletbaltop: UILabel!
     @IBOutlet weak var sar: UILabel!
+    @IBOutlet weak var sar1: UILabel!
+    
+    @IBOutlet weak var sar2: UILabel!
+    @IBOutlet weak var sar3: UILabel!
     var refreshControl = UIRefreshControl()
     
     @IBOutlet weak var walletHeightConst: NSLayoutConstraint!
@@ -62,6 +72,19 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        sar1.font = UIFont(name:"\(fontNameLight)",size:8)
+        sar2.font = UIFont(name:"\(fontNameLight)",size:8)
+        sar3.font = UIFont(name:"\(fontNameLight)",size:8)
+        sar.font = UIFont(name:"\(fontNameLight)",size:12)
+        walletbaltop.font = UIFont(name:"\(fontNameLight)",size:16)
+        walletballbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        holdingamtlbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        progresslbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        walletbaltop.text = "Wallet Balance".localized
+        holdingamtlbl.text = "Holding Amount".localized
+        walletballbl.text = "Wallet Balance".localized
+        progresslbl.text = "Payment in progress".localized
+      
         getUserLocation()
         registerNotifications()
         sideMenuCode()
