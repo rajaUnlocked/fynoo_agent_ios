@@ -585,8 +585,6 @@ extension DataEntryListingViewController : UITableViewDataSource {
         return cell
     }
     
-    
-    
     func dataEntryDashboardCell(index : IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DataEntryListingTableViewCell", for: index) as! DataEntryListingTableViewCell
