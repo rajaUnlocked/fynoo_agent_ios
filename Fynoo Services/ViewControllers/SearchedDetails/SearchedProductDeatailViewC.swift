@@ -137,40 +137,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-//
-//        self.locationManager.requestWhenInUseAuthorization()
-//              if CLLocationManager.locationServicesEnabled() {
-//                  locationManager.delegate = self
-//                  locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-//
-//                  locationManager.startUpdatingLocation()
-//              }
-//
-//    if HeaderHeightSingleton.shared.longitude == 0.0 {
-//                ModalController.showNegativeCustomAlertWith(title: "Please turn on your location services for navigation", msg: "")
-//            }else{
-//
-//                //OPEN MAP
-//                if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
-//                    UIApplication.shared.openURL(URL(string:"comgooglemaps://?saddr=&daddr=\(latitude),\(longitude)&directionsmode=driving")!)
-//                }
-//                else {
-//                    print("Can't use comgooglemaps://");
-//                    ModalController.showNegativeCustomAlertWith(title: "Please install Google Maps to start navigation", msg: "")
-//                }
-//            }
-//
-        
-//
-//
-//        //OPEN MAP
-//        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
-//            UIApplication.shared.openURL(URL(string:"comgooglemaps://?saddr=&daddr=\(latitude),\(longitude)&directionsmode=driving")!)
-//        }
-//        else {
-//            print("Can't use comgooglemaps://");
-//            ModalController.showNegativeCustomAlertWith(title: "Please install Google Maps to start navigation", msg: "")
-//        }
+
     }
     
     
@@ -182,7 +149,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
   
     }
     override func viewDidAppear(_ animated: Bool) {
-             self.loadMapViewa()
+//             self.loadMapViewa()
 
     }
     
@@ -198,28 +165,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     
     func loadMapViewa() {
         
-//        if let location = self.orderResponse["location_name"] as? String{
-//            lblAddress.text = location
-//        }
-//        var cust_lat = 0.0, cust_long = 0.0, branch_lat = 0.0, branch_long = 0.0
-//        if let location = self.orderResponse["cus_lat"] as? NSNumber{
-//            cust_lat = location.doubleValue
-//        }
-//        if let location = self.orderResponse["cus_long"] as? NSNumber{
-//           cust_long = location.doubleValue
-//         }
-//        if let location = self.orderResponse["branch_lat"] as? NSNumber{
-//                branch_lat = location.doubleValue
-//              }
-//        if let location = self.orderResponse["branch_long"] as? NSNumber{
-//                branch_long = location.doubleValue
-//        }
-//        let agentLat : Double = 25.5321195
-//        let agentLng : Double = 83.2748956
-//        var cust_lat:Double = 28.8309593
-//        var cust_long : Double = 78.7619664
-//        var branch_lat : Double = 28.570751
-//        var branch_long : Double = 77.326188
+
         
         let agentLat : Double = Double.getDouble(tripDetail?.data?.trip_details?.agent_lat)
         let agentLng : Double = Double.getDouble(tripDetail?.data?.trip_details?.agent_long)
@@ -336,7 +282,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     @objc func updateTime() {
         lblTime.text = "\(timeFormatted(totalTime))min"
 
-        if totalTime != 0 {
+        if totalTime > 0 {
             totalTime -= 1
         } else {
             endTimer()
@@ -412,20 +358,12 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                     self.lblAlmostTotalPrice.text = "\(tripDetail?.data?.trip_details?.total_price ?? "")"
                     self.imgCod.sd_setImage(with: URL(string: tripDetail?.data?.trip_details?.payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
                     
-//                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-//                        self.seconds -= 1
-//                        if self.seconds <= 0 {
-//                            print("Go!")
-//                            timer.invalidate()
-//                        } else {
-//                            print(self.seconds)
-//                            self.lblTime.text = "\(tripDetail?.data?.trip_details?.otp_time ?? 0)min"
-//                        }
-//                    }
+
                     self.totalTime = (tripDetail?.data?.trip_details?.otp_time ?? 0)
                     startTimer()
                     
                     self.loadHeaderData()
+                    self.loadMapViewa()
                     
                 }
             }
