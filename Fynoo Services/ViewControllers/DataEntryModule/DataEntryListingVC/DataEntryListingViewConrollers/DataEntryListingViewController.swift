@@ -88,7 +88,8 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         isMoreDataAvailable = false
         currentPageNumber = 0
         self.getBoServicesRequestListAPI()
-        
+
+
     }
     func setUpUI(){
         
