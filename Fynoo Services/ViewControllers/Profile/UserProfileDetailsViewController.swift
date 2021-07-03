@@ -371,7 +371,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                        
                         if self.pdfVat != ""{
                             let url = URL(string: self.pdfVat)
-                            //self.pdfImage = self.pdfThumbnail(url: url!)!
+                            self.pdfImage = self.pdfThumbnail(url: url!)!
                         }else{
                             self.pdfImage = UIImage(named:"dottedrectangle")!
                         }

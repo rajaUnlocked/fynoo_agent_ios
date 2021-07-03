@@ -65,6 +65,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         servicetypeColor_API()
         
     }
+   
     func fileSize(forURL url: Any) -> Double {
         var fileURL: URL?
         var fileSize: Double = 0.0
@@ -337,10 +338,13 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     if self.imgArr[i] != ""
                     {
                         let imageUrl = URL(string: self.imgArr[i])!
-
+            
                         do {
                             let imageData = try Data(contentsOf: imageUrl)
                             self.imglocalArr[i] = UIImage(data: imageData)
+                            if self.imglocalArr[i] == nil{
+                                self.documentlocalArr[i] = imageUrl
+                            }
                         }
                         catch{
                             self.imglocalArr[i] = nil
@@ -911,7 +915,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                             self.imglocalArr[i] = UIImage(data: imageData)
                         }
                         catch{
-                            self.imglocalArr[i] = nil
+                            self.documentlocalArr[i] = URL(string: self.imgArr[i])!
                         }
                     }
                     else
@@ -1187,7 +1191,11 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         {
             if isReasonForVehicle
             {
+                if SelectedIndex.contains(section)
+                {
                 return 2
+                }
+                return 1
             }
             return 0
         }
