@@ -25,6 +25,7 @@
                 <outlet property="lblAlmostPurchasePrice" destination="u52-Tw-Wqj" id="Jf3-AH-6dk"/>
                 <outlet property="lblAlmostTotalPrice" destination="cvv-0z-llO" id="FqF-4n-mam"/>
                 <outlet property="lblCreatedBy" destination="fB7-cs-oy3" id="aYi-bI-HLf"/>
+                <outlet property="lblDecline" destination="zu5-Oc-P14" id="py0-N6-aWE"/>
                 <outlet property="lblDeliveryPrice" destination="nPV-2h-WSE" id="s8n-GE-ZMG"/>
                 <outlet property="lblDistanceAgentToBo" destination="Y4C-V9-mwj" id="KML-jJ-b3G"/>
                 <outlet property="lblDistanceBoToCustomer" destination="Zys-8b-H31" id="XPU-VZ-Rge"/>
@@ -68,15 +69,15 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKt-Pl-1Qu" userLabel="Decline">
-                    <rect key="frame" x="10" y="99" width="99" height="30"/>
+                    <rect key="frame" x="10" y="99" width="90" height="30"/>
                     <color key="backgroundColor" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="CHz-me-RfO"/>
-                        <constraint firstAttribute="width" constant="99" id="UA8-Nd-28t"/>
+                        <constraint firstAttribute="width" constant="90" id="UA8-Nd-28t"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                     <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="Decline   ">
+                    <state key="normal">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -88,8 +89,8 @@
                         <action selector="btnTappedToDecline:" destination="-1" eventType="touchUpInside" id="R0X-4l-kWZ"/>
                     </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_add_24px" translatesAutoresizingMaskIntoConstraints="NO" id="GEN-Ie-caJ">
-                    <rect key="frame" x="15" y="104" width="20" height="20"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_add_24px" translatesAutoresizingMaskIntoConstraints="NO" id="GEN-Ie-caJ">
+                    <rect key="frame" x="15" y="106" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="4wu-j3-NaL"/>
                         <constraint firstAttribute="width" constant="20" id="BOM-I0-ZZB"/>
@@ -556,6 +557,12 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Decline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zu5-Oc-P14">
+                    <rect key="frame" x="35" y="105" width="55.5" height="18.5"/>
+                    <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -563,9 +570,11 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="6PJ-Ox-YXa" secondAttribute="bottom" id="3Bt-zr-6gx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Qz7-yi-gQc" secondAttribute="trailing" id="3k5-VZ-Pif"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hmF-pF-0Ha" secondAttribute="bottom" constant="1" id="6Qw-WM-Rs9"/>
+                <constraint firstItem="zu5-Oc-P14" firstAttribute="centerY" secondItem="GEN-Ie-caJ" secondAttribute="centerY" constant="-1.75" id="9lK-Ud-hKM"/>
                 <constraint firstItem="hmF-pF-0Ha" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="CeA-KY-HDd"/>
+                <constraint firstItem="zu5-Oc-P14" firstAttribute="leading" secondItem="GEN-Ie-caJ" secondAttribute="trailing" id="Egu-sN-zmb"/>
                 <constraint firstItem="wKt-Pl-1Qu" firstAttribute="leading" secondItem="Qz7-yi-gQc" secondAttribute="leading" constant="10" id="GUm-rI-f4J"/>
-                <constraint firstItem="GEN-Ie-caJ" firstAttribute="centerY" secondItem="wKt-Pl-1Qu" secondAttribute="centerY" id="GkB-PF-i8s"/>
+                <constraint firstItem="GEN-Ie-caJ" firstAttribute="centerY" secondItem="wKt-Pl-1Qu" secondAttribute="centerY" constant="2" id="GkB-PF-i8s"/>
                 <constraint firstItem="wKt-Pl-1Qu" firstAttribute="top" secondItem="Qz7-yi-gQc" secondAttribute="top" constant="9" id="JNC-MM-uHo"/>
                 <constraint firstItem="NmM-km-qaO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="M4o-XV-SFn"/>
                 <constraint firstItem="6PJ-Ox-YXa" firstAttribute="top" secondItem="Qz7-yi-gQc" secondAttribute="bottom" constant="46" id="Qvs-D4-oDM"/>
@@ -595,7 +604,7 @@
         <image name="circular-clockBig" width="30" height="30"/>
         <image name="cod_icon" width="47" height="21"/>
         <image name="home" width="22" height="25"/>
-        <image name="ic_add_24px" width="41" height="41"/>
+        <image name="ic_add_24px" width="85" height="85"/>
         <image name="suv" width="35" height="35"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
