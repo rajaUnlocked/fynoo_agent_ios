@@ -14,7 +14,6 @@ import GoogleMaps
 
 class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDelegate, DECancellationReasonViewControllerDelegate, DataEntryDetailViewControllerDelegate, DataEntryAgentRatingViewControllerDelegate, CompleteDataEntryListTableViewCellrDelegate, DataEntryFormViewControllerDelegate, MFMessageComposeViewControllerDelegate, CLLocationManagerDelegate {
     
-    
     @IBOutlet weak var noDataView: UIView!
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var tableView: UITableView!
