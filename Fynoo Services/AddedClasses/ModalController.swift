@@ -548,16 +548,13 @@ extension UIApplication {
         }
     }
 }
-extension NSMutableAttributedString {
-    
-    func setColor(color: UIColor, forText stringValue: String) {
-        let range: NSRange = self.mutableString.range(of: stringValue, options: .caseInsensitive)
-        self.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
-    }
-    
-}
 extension UINavigationController {
     
+    func removeViewController(_ controller: UIViewController.Type) {
+        if let viewController = viewControllers.first(where: { $0.isKind(of: controller.self) }) {
+            viewController.removeFromParent()
+        }
+    }
     func backToViewController(viewController: Swift.AnyClass) {
         
         for element in viewControllers as Array {
@@ -568,6 +565,15 @@ extension UINavigationController {
         }
     }
 }
+extension NSMutableAttributedString {
+    
+    func setColor(color: UIColor, forText stringValue: String) {
+        let range: NSRange = self.mutableString.range(of: stringValue, options: .caseInsensitive)
+        self.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
+    }
+    
+}
+
 
 extension String {
     var isNumeric: Bool {

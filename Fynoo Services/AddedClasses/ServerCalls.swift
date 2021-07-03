@@ -80,6 +80,48 @@ class ServerCalls: NSObject {
            }
            
        }
+    static func PdfFileAndImageUploadNew(inputUrl:String,parameters:[String:Any],pdfname: [String],pdfurl:[String],imageName: [String],imageFile:[UIImage],completion:((AnyObject?,Bool,AnyObject?) -> Void)?){
+        
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            
+            if pdfurl.count > 0 {
+                for i in 0..<pdfurl.count{
+                    let url = URL(string: pdfurl[i])
+                    let pdfData = try! Data(contentsOf: url!.asURL())
+                    multipartFormData.append(pdfData, withName: pdfname[i], fileName: pdfname[i], mimeType:"application/pdf")
+                }
+                
+            }
+            for (key, value) in parameters {
+                let val = "\(value)"
+                multipartFormData.append(val.data(using: String.Encoding.utf8)!, withName: key)
+                print("key",key,"value",val)
+            }
+            if imageFile.count > 0 {
+            for i in 0..<imageFile.count{
+                let selectedImageNew = imageFile[i].resizeWithWidth(width: 800)!
+                let compressData = selectedImageNew.jpegData(compressionQuality: 0.8) //max value is 1.0 and
+                multipartFormData.append(compressData!, withName: imageName[i], fileName: "file.jpg", mimeType: "image/jpg")
+            }
+           }
+            print("aa",multipartFormData)
+
+        }, to:inputUrl)
+        { (result) in
+            switch result {
+            case .success(let upload, _, _ ):
+                upload.uploadProgress(closure: { (progress) in
+                    print("Upload Progress: \(progress.fractionCompleted)")
+                })
+                upload.responseJSON { response in
+                    print(response.result.value)
+                    completion!(response.result.value as AnyObject,true,response.data as AnyObject)
+                }
+            case .failure(let encodingError):
+                completion!(nil,false,nil)
+            }
+        }
+    }
     static func PdfFileAndImageUpload(inputUrl:String,parameters:[String:Any],pdfname: String,pdfurl:String,imageName: String,imageFile:UIImage?,completion:((AnyObject?,Bool,AnyObject?) -> Void)?){
         
         Alamofire.upload(multipartFormData: { (multipartFormData) in

@@ -127,6 +127,7 @@ open class DatePickerDialog: UIView {
         if let locale = self.locale {
             self.datePicker.locale = locale
         }
+        datePicker.locale = Locale(identifier: "en_GB")
         /* Add dialog to main window */
         if #available(iOS 13.0, *) {
             for scene in UIApplication.shared.connectedScenes {

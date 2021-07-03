@@ -12,7 +12,6 @@ class OrderSuccessViewC: UIViewController {
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var lblMsg: UILabel!
-    
     var confirmDeliveryData : Dictionary<String,Any> = ["":""]
     
     override func viewDidLoad() {
@@ -30,6 +29,8 @@ class OrderSuccessViewC: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             let vc = AgentDeliveryViewController()
             vc.orderSuccessData = self.confirmDeliveryData
+            vc.isfrom = "100"
+            vc.selectedTrip = 2
             vc.isRating = true
             self.navigationController?.pushViewController(vc, animated: true)
             

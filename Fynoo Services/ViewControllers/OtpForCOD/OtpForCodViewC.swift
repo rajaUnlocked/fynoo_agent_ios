@@ -45,7 +45,7 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
         tableView.delegate = self
         tableView.dataSource = self
         self.headerHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-        self.headerView.titleHeader.text = "Product Details"
+        self.headerView.titleHeader.text = "Product Details".localized
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
         SetFont()

@@ -21,7 +21,6 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
    
     @IBOutlet weak var containerMapView: UIView!
     
-    
     @IBOutlet weak var lblDistanceAgentToBo: UILabel!
     @IBOutlet weak var lblDistanceBoToCustomer: UILabel!
     @IBOutlet weak var lblpickupTime: UILabel!
@@ -253,7 +252,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         
         let agent_marker: GMSMarker = GMSMarker() // Allocating Marker
 //        branch_marker.icon = UIImage(named: "home") // Marker icon
-        agent_marker.icon = #imageLiteral(resourceName: "placeholderMapHome")
+        agent_marker.icon = #imageLiteral(resourceName: "Car")
         agent_marker.appearAnimation = .pop // Appearing animation. default
         let agent_location  = CLLocationCoordinate2D(latitude: agentLat, longitude: agentLng)
         agent_marker.position = agent_location // CLLocationCoordinate2D
@@ -383,6 +382,8 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             
                             let vc = AgentDeliveryViewController()
                             vc.isRating = true
+                            vc.isfrom = "700"
+                            vc.selectedTrip = 0
                             vc.serviceID = "\(errorData["del_service_id"] as! Int)"
                             vc.selectedTab = "\(errorData["service_status"] as! Int)"
                             self.navigationController?.pushViewController(vc, animated: true)
@@ -478,6 +479,8 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             ModalController.showSuccessCustomAlertWith(title: ((ResponseDict.object(forKey: "error_description") as? String)!), msg: "")
                             let vc = AgentDeliveryViewController()
 //                            vc.serviceID = "\(tripDetail?.data?.trip_details?.service_id ?? 0)"
+                            vc.isfrom = "700"
+                            vc.selectedTrip = 2
                             vc.serviceID = serviceID
                             vc.serviceStatus = serviceStatus
                             vc.isRating = true
@@ -535,6 +538,8 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             
                             ModalController.showSuccessCustomAlertWith(title: ((ResponseDict.object(forKey: "error_description") as? String)!), msg: "")
                             let vc = AgentDeliveryViewController()
+                            vc.isfrom = "700"
+                            vc.selectedTrip = 3
                             vc.isRating = true
                             vc.serviceID = "\(tripDetail?.data?.trip_details?.service_id ?? 0)"
                             vc.serviceStatus = "\(tripDetail?.data?.trip_details?.service_status ?? 0)"
