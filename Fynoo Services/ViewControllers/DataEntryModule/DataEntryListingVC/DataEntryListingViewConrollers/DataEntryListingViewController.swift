@@ -90,7 +90,6 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         self.getBoServicesRequestListAPI()
         
     }
-    
     func setUpUI(){
         
         self.tableView.rowHeight = UITableView.automaticDimension
