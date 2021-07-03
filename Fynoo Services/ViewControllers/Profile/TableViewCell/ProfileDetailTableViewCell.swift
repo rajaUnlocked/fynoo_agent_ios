@@ -16,17 +16,7 @@ protocol ProfileDetailTableViewCellDelegate {
 }
 class ProfileDetailTableViewCell: UITableViewCell {
     var delegate:ProfileDetailTableViewCellDelegate?
-    @IBOutlet weak var followervw: UIView!
-    @IBOutlet weak var branchesvw: UIView!
-    
-    @IBOutlet weak var productsvw: UIView!
-    
-    @IBOutlet weak var likesvw: UIView!
-    
-    @IBOutlet weak var topconstraints: NSLayoutConstraint!
-    
-    
-    
+   
     @IBOutlet weak var agentimg: UIImageView!
     @IBOutlet weak var editHeight: NSLayoutConstraint!
     

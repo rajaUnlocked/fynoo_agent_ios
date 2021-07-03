@@ -234,7 +234,7 @@ extension ChangePasswordViewController : UITableViewDelegate{
         if indexPath.row == 0{
             return 210
         }else if indexPath.row == 1{
-            return 47
+            return 0
         }else{
             return 54
         }
@@ -269,8 +269,8 @@ extension ChangePasswordViewController : UITableViewDataSource{
         }else if indexPath.row == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileDetailTableViewCell",for: indexPath) as! ProfileDetailTableViewCell
             cell.titleView.isHidden = true
-            cell.branches.text = "\(self.userInfo?.data?.user_data?.total_branches ?? 0)"
-            cell.products.text = "\(self.userInfo?.data?.user_data?.total_products ?? 0)"
+//            cell.branches.text = "\(self.userInfo?.data?.user_data?.total_branches ?? 0)"
+//            cell.products.text = "\(self.userInfo?.data?.user_data?.total_products ?? 0)"
 //            cell.followers.text = "\(self.userData?.data?.total_follower ?? 0)"
 //            cell.branches.text = "\(self.userData?.data?.total_branch ?? 0)"
 //            cell.products.text = "\(self.userData?.data?.total_product ?? 0)"
