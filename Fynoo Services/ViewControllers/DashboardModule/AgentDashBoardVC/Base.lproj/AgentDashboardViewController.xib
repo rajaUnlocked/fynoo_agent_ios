@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,6 +27,7 @@
                 <outlet property="notifyLbl" destination="bUf-rX-9hF" id="BrJ-2n-ph3"/>
                 <outlet property="profileImg" destination="x5t-e2-1ak" id="OcI-D6-GBA"/>
                 <outlet property="qrcode" destination="rZL-Vp-xtg" id="MQZ-uE-Hyi"/>
+                <outlet property="sar" destination="r49-Yo-Nxk" id="d4b-et-fjd"/>
                 <outlet property="tableVw" destination="acc-ra-9eB" id="BtG-bh-CB2"/>
                 <outlet property="topVwHeightCons" destination="8OT-mZ-NeB" id="dZw-Zk-IQo"/>
                 <outlet property="userDetails" destination="bsz-if-q90" id="ad2-Ag-aqX"/>
