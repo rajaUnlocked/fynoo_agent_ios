@@ -1053,7 +1053,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                    if name == "DELIVERY"
                    {
                     let vc = DeliveryDocumentViewController(nibName: "DeliveryDocumentViewController", bundle: nil)
-                    vc.primaryid = 0
+                    vc.primaryid = (self.ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "dsd_id") as! Int
                     self.navigationController?.pushViewController(vc, animated: true)
                     return
                    }

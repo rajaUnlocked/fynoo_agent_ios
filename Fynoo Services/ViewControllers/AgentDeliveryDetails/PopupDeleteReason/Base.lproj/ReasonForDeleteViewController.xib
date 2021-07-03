@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReasonForDeleteViewController" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
+                <outlet property="btnREduceQtyOutlet" destination="PAq-4n-oV8" id="c5K-AC-7Bb"/>
                 <outlet property="containter" destination="Nu3-CC-R4O" id="mzB-x8-9QW"/>
                 <outlet property="imgProduct" destination="CdF-Td-rYx" id="bYD-SR-xMs"/>
                 <outlet property="lblProductName" destination="C2J-5r-732" id="CEk-Sw-b7a"/>
@@ -70,10 +71,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PAq-4n-oV8">
-                            <rect key="frame" x="15" y="238" width="344" height="50"/>
+                            <rect key="frame" x="15" y="254" width="344" height="34"/>
                             <color key="backgroundColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="Jur-yu-Aaq"/>
+                                <constraint firstAttribute="height" constant="34" id="Jur-yu-Aaq"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <state key="normal" title="SUBMIT">
@@ -103,7 +104,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FFY-gf-789">
-                            <rect key="frame" x="15" y="155" width="344" height="75"/>
+                            <rect key="frame" x="15" y="155" width="344" height="91"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </tableView>
                     </subviews>

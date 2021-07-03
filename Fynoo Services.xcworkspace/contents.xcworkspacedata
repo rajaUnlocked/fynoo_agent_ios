@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Fynoo Services.xcodeproj">
+      location = "group:/Users/ind-sen-lp-040/Documents/Project_AgentFynoo/fynoo_agent_ios/Fynoo Agent.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

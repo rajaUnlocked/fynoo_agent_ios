@@ -11,10 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopUpReduceQuantityViewController" customModule="Fynoo_Services" customModuleProvider="target">
             <connections>
+                <outlet property="btnREduceQtyOutlet" destination="Pa3-Og-KGD" id="RnW-es-FJ5"/>
                 <outlet property="containter" destination="Jt3-pU-g8J" id="0Z5-wa-aGE"/>
                 <outlet property="imgProduct" destination="usr-GC-P0Y" id="9kh-xG-u6t"/>
                 <outlet property="lblProductName" destination="OrR-Zb-Scf" id="tKB-AA-EGi"/>
                 <outlet property="lblProductQty" destination="7nN-Xq-Ua1" id="hIx-Bo-kTf"/>
+                <outlet property="lblQtyAvailForPickup" destination="I20-ah-AZ7" id="hnB-dz-d6w"/>
                 <outlet property="rejectedlbl" destination="eVu-8c-69G" id="7Fk-3B-n9g"/>
                 <outlet property="tableView" destination="Npe-un-6da" id="tBf-t2-lrM"/>
                 <outlet property="txtQty" destination="1rw-FZ-AVQ" id="BKs-IP-N7i"/>
@@ -71,10 +73,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pa3-Og-KGD">
-                            <rect key="frame" x="15" y="258" width="344" height="50"/>
+                            <rect key="frame" x="15" y="274" width="344" height="34"/>
                             <color key="backgroundColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="Whk-L7-kmo"/>
+                                <constraint firstAttribute="height" constant="34" id="Whk-L7-kmo"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <state key="normal" title="SUBMIT">
@@ -115,7 +117,7 @@
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Npe-un-6da">
-                            <rect key="frame" x="15" y="155" width="344" height="95"/>
+                            <rect key="frame" x="15" y="155" width="344" height="111"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </tableView>
                     </subviews>

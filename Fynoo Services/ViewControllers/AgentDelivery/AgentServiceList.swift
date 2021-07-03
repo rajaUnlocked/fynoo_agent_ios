@@ -67,7 +67,8 @@ class AgentServiceList: UITableViewCell,UITableViewDelegate {
           self.address.font = UIFont(name:"\(fontNameLight)",size:12)
           self.almostPriceLbl.font = UIFont(name:"\(fontNameLight)",size:12)
           self.price.font = UIFont(name:"\(fontNameLight)",size:12)
-         
+        self.statusLbl.font = UIFont(name:"\(fontNameLight)",size:14)
+        self.statusLbl.textColor = UIColor.AppThemeBlackTextColor()
           
       }
    
