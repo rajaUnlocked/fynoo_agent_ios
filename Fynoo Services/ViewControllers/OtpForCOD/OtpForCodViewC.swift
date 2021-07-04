@@ -308,7 +308,8 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
             case cell.txt3:
                 cell.txt4.becomeFirstResponder()
             case cell.txt4:
-                cell.txt4.resignFirstResponder()
+                self.view.endEditing(true)
+//                cell.txt4.resignFirstResponder()
            
             default:
                 break
@@ -382,6 +383,14 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
             return true
 }
       
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+          let maxLength = 1
+          let currentString: NSString = textField.text as! NSString
+          let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+          return newString.length <= maxLength
+      }
     
     
 //    func textFieldDidBeginEditing(_ textField: UITextField) {
