@@ -14,7 +14,8 @@ class ServiceHeaderTableViewCell: UITableViewCell {
     @IBOutlet weak var clickednewcar: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        deliverysercicedoc.font = UIFont(name:"\(fontNameLight)",size:16)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

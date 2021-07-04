@@ -562,7 +562,8 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     }
     
     func registernibs() {
-        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        submit.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:16)
         tabvw.register(UINib(nibName: "ServiceHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceHeaderTableViewCell")
         tabvw.register(UINib(nibName: "DocHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "DocHeaderTableViewCell")
         tabvw.register(UINib(nibName: "ServiceDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceDetailTableViewCell")

@@ -16,7 +16,8 @@ class DeliveryDashboardHeaderCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        textLbl.font = UIFont(name:"\(fontNameLight)",size:12)
     }
 
 }
