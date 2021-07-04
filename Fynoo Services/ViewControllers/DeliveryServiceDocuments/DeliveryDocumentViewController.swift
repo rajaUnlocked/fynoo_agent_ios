@@ -913,9 +913,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                         do {
                             let imageData = try Data(contentsOf: imageUrl)
                             self.imglocalArr[i] = UIImage(data: imageData)
+                            if self.imglocalArr[i] == nil{
+                                self.documentlocalArr[i] = imageUrl
+                            }
                         }
                         catch{
-                            self.documentlocalArr[i] = URL(string: self.imgArr[i])!
+                            self.imglocalArr[i] = nil
                         }
                     }
                     else
