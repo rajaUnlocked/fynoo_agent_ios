@@ -287,6 +287,8 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         }
     }
     
+    
+    
     //MARK: - Message compose method
    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
            //... handle sms screen actions

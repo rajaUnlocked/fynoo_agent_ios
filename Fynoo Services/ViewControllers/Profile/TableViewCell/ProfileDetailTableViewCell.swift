@@ -38,20 +38,9 @@ class ProfileDetailTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-//        BRANCHlBL.font = UIFont(name:"\(fontNameLight)",size:11)
-//        likeLbl.font = UIFont(name:"\(fontNameLight)",size:11)
-//        productLbl.font = UIFont(name:"\(fontNameLight)",size:11)
-//        followerlBL.font = UIFont(name:"\(fontNameLight)",size:11)
-//        followers.font = UIFont(name:"\(fontNameLight)",size:16)
-//        products.font = UIFont(name:"\(fontNameLight)",size:16)
-//
-//        likes.font = UIFont(name:"\(fontNameLight)",size:16)
-//        branches.font = UIFont(name:"\(fontNameLight)",size:16)
-       editProfileTitle.font = UIFont(name:"\(fontNameLight)",size:13)
+        titleLbl.font = UIFont(name:"\(fontNameLight)",size:16)
+        editProfileTitle.font = UIFont(name:"\(fontNameLight)",size:13)
 
-
-
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

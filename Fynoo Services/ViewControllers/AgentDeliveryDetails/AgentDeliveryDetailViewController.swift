@@ -96,7 +96,8 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
     }
     
     override func viewDidAppear(_ animated: Bool) {
-             self.loadMapViewa()
+//             self.loadMapViewa()
+//        self.loadMapViewForCustomer()
 
     }
     
@@ -110,7 +111,7 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
         
         }
     
-    func loadMapViewa() {
+    func loadMapViewBO() {
         
 //        if let location = self.orderResponse["location_name"] as? String{
 //            lblAddress.text = location
@@ -153,7 +154,7 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
 
         let branch_marker: GMSMarker = GMSMarker() // Allocating Marker
 //        branch_marker.icon = UIImage(named: "home") // Marker icon
-        branch_marker.icon = #imageLiteral(resourceName: "placeholder")
+        branch_marker.icon = #imageLiteral(resourceName: "Group 821")
         branch_marker.appearAnimation = .pop // Appearing animation. default
         let branch_location  = CLLocationCoordinate2D(latitude: branch_lat, longitude: branch_long)
         branch_marker.position = branch_location // CLLocationCoordinate2D
@@ -173,6 +174,57 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
         self.setMarkerBoundsOnMap()
         self.mapVw?.drawPolygon(from: cust_location, to: branch_location)
         self.mapVw?.drawPolygon(from: branch_location, to: agent_location)
+               
+     }
+    
+    
+    func loadMapViewForCustomer() {
+        
+
+        let agentLat : Double = Double.getDouble(acceptedtripDetail?.data?.trip_details?.agent_lat)
+        let agentLng : Double = Double.getDouble(acceptedtripDetail?.data?.trip_details?.agent_long)
+        var cust_lat:Double = Double.getDouble(acceptedtripDetail?.data?.trip_details?.cust_lat)
+        var cust_long : Double = Double.getDouble(acceptedtripDetail?.data?.trip_details?.cust_long)
+        var branch_lat : Double = Double.getDouble(acceptedtripDetail?.data?.trip_details?.bo_lat)
+        var branch_long : Double = Double.getDouble(acceptedtripDetail?.data?.trip_details?.bo_long)
+        
+        
+        let camera = GMSCameraPosition.camera(withLatitude: cust_lat, longitude: cust_long, zoom: 18.0)
+        self.mapVw = GMSMapView.map(withFrame:  self.view.bounds, camera: camera)
+        self.mapVw?.animate(toViewingAngle: 18)
+        self.mapVw?.delegate = self
+        self.mapVw?.isTrafficEnabled = true
+        self.containerMapView.addSubview(self.mapVw!)
+
+         let cust_marker: GMSMarker = GMSMarker() // Allocating Marker
+//         cust_marker.icon = UIImage(named: "Car") // Marker icon
+        cust_marker.icon = #imageLiteral(resourceName: "placeholder (2)")
+         let cust_location  = CLLocationCoordinate2D(latitude: cust_lat, longitude: cust_long)
+         cust_marker.position = cust_location // CLLocationCoordinate2D
+        cust_marker.map = self.mapVw // Setting marker on Mapview
+        markers.append(cust_marker)
+
+//        let branch_marker: GMSMarker = GMSMarker() // Allocating Marker
+//        branch_marker.icon = UIImage(named: "home") // Marker icon
+//        branch_marker.icon = #imageLiteral(resourceName: "Group 821")
+//        branch_marker.appearAnimation = .pop // Appearing animation. default
+//        let branch_location  = CLLocationCoordinate2D(latitude: branch_lat, longitude: branch_long)
+//        branch_marker.position = branch_location // CLLocationCoordinate2D
+//        branch_marker.map = self.mapVw // Setting marker on Mapview
+//        markers.append(branch_marker)
+        
+        
+        let agent_marker: GMSMarker = GMSMarker() // Allocating Marker
+//        branch_marker.icon = UIImage(named: "home") // Marker icon
+        agent_marker.icon = #imageLiteral(resourceName: "Car")
+        agent_marker.appearAnimation = .pop // Appearing animation. default
+        let agent_location  = CLLocationCoordinate2D(latitude: agentLat, longitude: agentLng)
+        agent_marker.position = agent_location // CLLocationCoordinate2D
+        agent_marker.map = self.mapVw // Setting marker on Mapview
+        markers.append(agent_marker)
+   
+        self.setMarkerBoundsOnMap()
+        self.mapVw?.drawPolygon(from: agent_location, to: cust_location)
                
      }
     
@@ -203,15 +255,29 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
         
         print("request:-", param)
         print("Url:-", Service.acceptedTripDetail)
+        ModalClass.startLoading(self.view)
         ServerCalls.postRequest(Service.acceptedTripDetail, withParameters: param) { [self] (response, success) in
             if success{
                 
+              
+                
 //                self.addPullUpController(animated: true)
                
-                
+                ModalClass.stopLoadingAllLoaders(self.view)
                 if let body = response as? [String: Any] {
                     self.acceptedtripDetail  = Mapper<deliveryTripDetail>().map(JSON: body)
                     print(self.acceptedtripDetail?.data)
+                    
+                    
+                    if let value = response as? NSDictionary{
+                        let msg = value.object(forKey: "error_description") as! String
+                        let error = value.object(forKey: "error_code") as! Int
+                        if error == 100{
+                            self.view.alpha = 0.5
+                            ModalController.showNegativeCustomAlertWith(title: "", msg: msg)
+                            
+                        }
+                    }
 //                    lblName.text = acceptedtripDetail?.data?.trip_details?.cust_nam
 //                    lblAvgRating.text = acceptedtripDetail?.data?.trip_details?.cust_rating
 //                    lblTotalRating.text = acceptedtripDetail?.data?.trip_details?.cust_total_rating
@@ -227,6 +293,8 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
                         lblDuration.text = (acceptedtripDetail?.data?.trip_details?.delivery_times?[0].time ?? "") + "(\(acceptedtripDetail?.data?.trip_details?.delivery_times?[0].distance ?? "" )km)"
                         
                         self.imgUser.sd_setImage(with: URL(string: acceptedtripDetail?.data?.trip_details?.branch_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+                        
+                        self.loadMapViewBO()
                     }else
                     {
                         lblName.text = acceptedtripDetail?.data?.trip_details?.cust_nam
@@ -236,6 +304,7 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
                         lblAddress.text =  "\(addressStr)\(acceptedtripDetail?.data?.trip_details?.cust_address ?? "")"
                         lblDuration.text = (acceptedtripDetail?.data?.trip_details?.delivery_times?[0].time ?? "") + "(\(acceptedtripDetail?.data?.trip_details?.delivery_times?[0].distance ?? "" )km)"
                         self.imgUser.sd_setImage(with: URL(string: acceptedtripDetail?.data?.trip_details?.cust_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+                        self.loadMapViewForCustomer()
                     }
                     
                     callOpenCloseStatus()
@@ -246,10 +315,7 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
                         imgAddressIcon.image = #imageLiteral(resourceName: "businessOwner_locationIcon")
                     }
                     
-                    
-                    
-
-
+               
                 }
             }
         }

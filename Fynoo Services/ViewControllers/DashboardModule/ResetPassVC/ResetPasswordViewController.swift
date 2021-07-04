@@ -13,15 +13,11 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var confirmPswdTxtFld: UITextField!
     var fyId:String?
     
-    
     @IBOutlet weak var descri: UILabel!
     @IBOutlet weak var resetTitle: UILabel!
-    
     @IBOutlet weak var otpTitle: UILabel!
     @IBOutlet weak var otpView: UIView!
-    
     @IBOutlet weak var counterText: UILabel!
-    
     @IBOutlet weak var confirmLbl: UILabel!
     @IBOutlet weak var passwordLbl: UILabel!
     @IBOutlet weak var headerVw: NavigationView!
@@ -34,17 +30,13 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var keyImage: UIImageView!
     @IBOutlet weak var bgImage: UIImageView!
     @IBOutlet weak var counterTime: UILabel!
-    
     @IBOutlet weak var resendView: UIView!
     @IBOutlet weak var resendOtp: UIButton!
     @IBOutlet weak var showPassword: UIButton!
-    
     @IBOutlet weak var counterrText: UILabel!
     @IBOutlet weak var showCnfPassword: UIButton!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var text1: UITextField!
-    
-    
     @IBOutlet weak var text4: UITextField!
     @IBOutlet weak var text3: UITextField!
     @IBOutlet weak var text2: UITextField!
@@ -590,8 +582,6 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
         
         print("request -",parameters)
         
-        
-        
         ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
             
             ModalClass.stopLoading()
@@ -607,25 +597,16 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
                             if controller.isKind(of: LoginNewDesignViewController.self) {
                                 self.navigationController!.popToViewController(controller, animated: true)
                                 
-                                
-                                
                                 break
                             }
                         }
-                        
                     }
                     else{
                         ModalController.showNegativeCustomAlertWith(title: "", msg: (self.Reset_Password?.error_description)!)
                     }
                 
-
-            }
-                
-            else{
-                
-                if response == nil
-                    
-                {
+            }else{
+                if response == nil                {
                     
                     print ("connection error")
                     
@@ -640,7 +621,5 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
             }
             
         }
-        
-        
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileVatTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var samplelbl: UILabel!
     @IBOutlet weak var vatcertlbl: UILabel!
     @IBOutlet weak var addText: UILabel!
     @IBOutlet weak var addIon: UIImageView!
@@ -18,9 +19,10 @@ class ProfileVatTableViewCell: UITableViewCell {
     @IBOutlet weak var vieww: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-      //  self.vieww.addDashBorder()
-        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+      vatcertlbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        samplelbl.font = UIFont(name:"\(fontNameLight)",size:10)
+        addText.font = UIFont(name:"\(fontNameLight)",size:18)
     }
     
 

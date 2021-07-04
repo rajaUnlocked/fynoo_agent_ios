@@ -27,6 +27,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     var orderDetailData : orderDetail?
     var reasonListData : reasonlistData?
     var itemListArray:[Item_detail]?
+    var agentViewModel = AgentModel()
     var orderId = ""
     var tripId = 0
     var isInvoiceEnable = true
@@ -37,6 +38,9 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     var vatAmount = ""
     var amoutWithVat = ""
     var checkReceivedItem : Bool = false
+    var distanceAgentToBo = ""
+    var distanceBoToCustomer = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -180,7 +184,8 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
                     if let body = response as? [String: Any] {
                         self.orderDetailData  = Mapper<orderDetail>().map(JSON: body)
                         
-                        print(self.orderDetailData?.data?.bo_name ?? "")
+                        
+                        callCalculateDistance()
                         if orderDetailData?.data?.user_type == "BO" {
                             callMainButtonstatusForBO()
                         }
@@ -1207,26 +1212,34 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         
         print("Total distance = \(totalDistance)")
       
-//        let agentLat = Double.getDouble(self.orderDetailData?.data?.agent_lat ?? "")
-//        let agentLng = Double.getDouble(self.orderDetailData?.data?.agent_long ?? "")
-//        let boLat = Double.getDouble(self.orderDetailData?.data?.bo_lat ?? "")
-//        let boLng = Double.getDouble(self.orderDetailData?.data?.bo_long ?? "")
-//        let custLat = Double.getDouble(self.orderDetailData?.data?.cust_lat ?? "")
-//        let custLng = Double.getDouble(self.orderDetailData?.data?.cust_long ?? "")
-//
-//        let distanceUrlFromAgentToBO = "\(Constant.GOOGLE_API_DISTANCE)origin=\(agentLat),\(agentLng)&destination=\(boLat),\(boLng)&key=\(Constant.GOOGLE_API_KEY)"
-//        AgentProfile.getDistance(distanceUrlFromAgentToBO) { (succes, response) in
-//            if succes{
-//                self.lblBoLocation.text = "\(response?.routes?.first?.legs?.first?.distance?.text ?? "")".uppercased()
-//            }
-//        }
-//        let distanceUrlFromBOToCustomer = "\(Constant.GOOGLE_API_DISTANCE)origin=\(boLat),\(boLng)&destination=\(custLat),\(custLng)&key=\(Constant.GOOGLE_API_KEY)"
-//        AgentProfile.getDistance(distanceUrlFromBOToCustomer) { (succes, response) in
-//                   if succes{
-//                    self.lblCustomerLocation.text = "\(response?.routes?.first?.legs?.first?.distance?.text ?? "")".uppercased()
-//                   }
-//               }
     }
+    
+    
+    func callCalculateDistance(){
+
+          let agentLat = Double.getDouble(orderDetailData?.data?.agent_lat)
+          let agentLng = Double.getDouble(orderDetailData?.data?.agent_long)
+          let boLat = Double.getDouble(orderDetailData?.data?.bo_lat)
+          let boLng = Double.getDouble(orderDetailData?.data?.bo_long)
+          let custLat = Double.getDouble(orderDetailData?.data?.cust_lat)
+          let custLng = Double.getDouble(orderDetailData?.data?.cust_long)
+          
+        let distanceUrlFromAgentToBO = "\(Constant.GOOGLE_API_DISTANCE)origin=\(agentLat),\(agentLng)&destination=\(boLat),\(boLng)&key=\(Constant.GOOGLE_API_KEY)"
+          agentViewModel.getDistance(distanceUrlFromAgentToBO) { (succes, response) in
+              if succes{
+                self.distanceAgentToBo = "\(response.routes?.first?.legs?.first?.distance?.text ?? "")".uppercased()
+                print("distAgToBO = \(self.distanceAgentToBo)")
+              }
+          }
+        let distanceUrlFromBOToCustomer = "\(Constant.GOOGLE_API_DISTANCE)origin=\(boLat),\(boLng)&destination=\(custLat),\(custLng)&key=\(Constant.GOOGLE_API_KEY)"
+          agentViewModel.getDistance(distanceUrlFromBOToCustomer) { (succes, response) in
+                     if succes{
+                        self.distanceBoToCustomer = "\(response.routes?.first?.legs?.first?.distance?.text ?? "")".uppercased()
+                        print("distBoToCustomer = \(self.distanceBoToCustomer)")
+                     }
+                 }
+     
+      }
     
     
    

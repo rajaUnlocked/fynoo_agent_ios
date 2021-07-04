@@ -86,7 +86,7 @@ class CompleteDataEntryListTableViewCell: UITableViewCell {
      giveRatingBtn.setTitle("Give Ratings".localized, for: .normal)
       
       let attrs = [
-          NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14.0),
+          NSAttributedString.Key.font : UIFont(name:"\(fontNameLight)",size:14),
           NSAttributedString.Key.foregroundColor :  UIColor(red: 28/255, green: 157/255, blue: 213/255, alpha: 1.0),
           NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
       let attributedString = NSMutableAttributedString(string:"")

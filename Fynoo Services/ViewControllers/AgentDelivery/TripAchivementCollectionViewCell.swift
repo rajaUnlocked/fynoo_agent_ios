@@ -19,7 +19,9 @@ class TripAchivementCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+       serviceNameLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+
     }
 
 }

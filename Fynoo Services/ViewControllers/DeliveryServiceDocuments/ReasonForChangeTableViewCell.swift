@@ -16,7 +16,10 @@ class ReasonForChangeTableViewCell: UITableViewCell {
     @IBOutlet weak var count: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        txtvw.font = UIFont(name:"\(fontNameLight)",size:12)
+        vehiclelbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        upload.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:16)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

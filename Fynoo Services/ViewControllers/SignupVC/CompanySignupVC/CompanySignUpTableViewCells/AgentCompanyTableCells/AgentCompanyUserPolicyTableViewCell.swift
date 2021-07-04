@@ -26,13 +26,13 @@ class AgentCompanyUserPolicyTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.SetFontAndTextColor()
-        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         self.signUpBtn.layer.cornerRadius = 5
         self.signUpBtn.clipsToBounds = true
          self.signUpBtn.setAllSideShadow(shadowShowSize: 3.0)
         self.agreeLbl.text = "I've agreed to the".localized
         let attrss = [
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14.0),
+            NSAttributedString.Key.font :  UIFont(name:"\(fontNameLight)",size:14),
             NSAttributedString.Key.foregroundColor :  UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0),
             NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
         let attributedStrings = NSMutableAttributedString(string:"")
@@ -41,7 +41,7 @@ class AgentCompanyUserPolicyTableViewCell: UITableViewCell {
         usrPolicy.setAttributedTitle(attributedStrings, for: .normal)
         
         let attrs = [
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12.0),
+            NSAttributedString.Key.font :  UIFont(name:"\(fontNameLight)",size:12),
             NSAttributedString.Key.foregroundColor :  UIColor(red: 28/255, green: 157/255, blue: 213/255, alpha: 1.0),
             NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
         let attributedString = NSMutableAttributedString(string:"")

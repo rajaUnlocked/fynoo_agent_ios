@@ -11,14 +11,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="252" id="KGk-i7-Jjw" customClass="AgentServiceList" customModule="Fynoo_Services" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="252" id="KGk-i7-Jjw" customClass="AgentServiceList" customModule="Fynoo_Agent" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="382" height="252"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="382" height="252"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LbT-ZD-hOn" customClass="CardView" customModule="Fynoo_Services" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LbT-ZD-hOn" customClass="CardView" customModule="Fynoo_Agent" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="366" height="236"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abdullah Al Haddad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27R-Pg-PVb">
@@ -305,6 +305,7 @@
                 <outlet property="totalCount" destination="gXp-6k-gq4" id="3Ot-sf-CKK"/>
                 <outlet property="totalRate" destination="EO7-Bv-hfR" id="iyq-Ul-K6V"/>
                 <outlet property="walletIcon" destination="QXd-WT-xFV" id="mIw-tG-iXa"/>
+                <outlet property="widthconst" destination="ZZI-gr-22w" id="VcA-bc-aHx"/>
             </connections>
             <point key="canvasLocation" x="186.95652173913044" y="99.776785714285708"/>
         </tableViewCell>

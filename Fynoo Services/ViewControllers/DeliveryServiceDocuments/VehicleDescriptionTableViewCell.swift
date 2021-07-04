@@ -17,7 +17,9 @@ class VehicleDescriptionTableViewCell: UITableViewCell {
     @IBOutlet weak var vw: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        toplbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        txt.font = UIFont(name:"\(fontNameLight)",size:12)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

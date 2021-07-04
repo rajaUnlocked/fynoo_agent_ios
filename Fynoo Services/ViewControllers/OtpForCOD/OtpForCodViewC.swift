@@ -81,6 +81,7 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
         vc.checkInvoiceUploaded = true
         vc.orderId = onTheWayTripDetailData?.data?.trip_details?.order_id ?? ""
         self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     func invoiceClicked(_ sender: Any) {
@@ -233,18 +234,34 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
         if ((onTheWayTripDetailData?.data?.trip_details?.payment_type) == "COD") {
             if (cell.txt1.text != "") && (cell.txt2.text != "") && (cell.txt3.text != "") && (cell.txt4.text != "") && (cell.btnReceivedCodAmt.isSelected == true){
                 self.btnConfirmDelivery.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+                cell.txt1.borderColor = UIColor.AppThemeGrayDisableColor()
+                cell.txt2.borderColor = UIColor.AppThemeGrayDisableColor()
+                cell.txt3.borderColor = UIColor.AppThemeGrayDisableColor()
+                cell.txt4.borderColor = UIColor.AppThemeGrayDisableColor()
             }else
             {
                 self.btnConfirmDelivery.backgroundColor = #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1)
+                cell.txt1.borderColor = UIColor.AppThemeRedTextColor()
+                cell.txt2.borderColor = UIColor.AppThemeRedTextColor()
+                cell.txt3.borderColor = UIColor.AppThemeRedTextColor()
+                cell.txt4.borderColor = UIColor.AppThemeRedTextColor()
             }
         }else
         {
 
         if (cell.txt1.text != "") && (cell.txt2.text != "") && (cell.txt3.text != "") && (cell.txt4.text != ""){
             self.btnConfirmDelivery.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+            cell.txt1.borderColor = UIColor.AppThemeGrayDisableColor()
+            cell.txt2.borderColor = UIColor.AppThemeGrayDisableColor()
+            cell.txt3.borderColor = UIColor.AppThemeGrayDisableColor()
+            cell.txt4.borderColor = UIColor.AppThemeGrayDisableColor()
         }else
         {
             self.btnConfirmDelivery.backgroundColor = #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1)
+            cell.txt1.borderColor = UIColor.AppThemeRedTextColor()
+            cell.txt2.borderColor = UIColor.AppThemeRedTextColor()
+            cell.txt3.borderColor = UIColor.AppThemeRedTextColor()
+            cell.txt4.borderColor = UIColor.AppThemeRedTextColor()
         }
     }
         
@@ -306,7 +323,7 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
             case cell.txt3:
                 cell.txt2.becomeFirstResponder()
             case cell.txt4:
-                cell.txt3.resignFirstResponder()
+                cell.txt3.becomeFirstResponder()
            
             default:
                 break
@@ -322,73 +339,115 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
         if ((onTheWayTripDetailData?.data?.trip_details?.payment_type) == "COD") {
             if (cell.txt1.text != "") && (cell.txt2.text != "") && (cell.txt3.text != "") && (cell.txt4.text != "") && (cell.btnReceivedCodAmt.isSelected == true){
                 self.btnConfirmDelivery.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+                cell.txt1.borderColor = UIColor.AppThemeGrayDisableColor()
+                cell.txt2.borderColor = UIColor.AppThemeGrayDisableColor()
+                cell.txt3.borderColor = UIColor.AppThemeGrayDisableColor()
+                cell.txt4.borderColor = UIColor.AppThemeGrayDisableColor()
             }else
             {
                 self.btnConfirmDelivery.backgroundColor = #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1)
+                cell.txt1.borderColor = UIColor.AppThemeRedTextColor()
+                cell.txt2.borderColor = UIColor.AppThemeRedTextColor()
+                cell.txt3.borderColor = UIColor.AppThemeRedTextColor()
+                cell.txt4.borderColor = UIColor.AppThemeRedTextColor()
             }
         }else
         {
 
         if (cell.txt1.text != "") && (cell.txt2.text != "") && (cell.txt3.text != "") && (cell.txt4.text != ""){
+            
             self.btnConfirmDelivery.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+            cell.txt1.borderColor = UIColor.AppThemeGrayDisableColor()
+            cell.txt2.borderColor = UIColor.AppThemeGrayDisableColor()
+            cell.txt3.borderColor = UIColor.AppThemeGrayDisableColor()
+            cell.txt4.borderColor = UIColor.AppThemeGrayDisableColor()
         }else
         {
             self.btnConfirmDelivery.backgroundColor = #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1)
+            cell.txt1.borderColor = UIColor.AppThemeRedTextColor()
+            cell.txt2.borderColor = UIColor.AppThemeRedTextColor()
+            cell.txt3.borderColor = UIColor.AppThemeRedTextColor()
+            cell.txt4.borderColor = UIColor.AppThemeRedTextColor()
         }
     }
         
-        
-        
-        
-        
-        
-       
-        
-//        let typeStr = cell1.userTypeField.text!
-//        if typeStr == "" {
-//            cell1.loginBtnOutlet.borderColor = #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1)
-//            cell1.loginBtnOutlet.setTitleColor(#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), for: .normal)
+   
+    }
+   
+    
+    
+    
+    private func textFieldDidBeginEditing(_ textField: UITextField) -> Bool {
+            textField.text = ""
+            return true
+}
+      
+    
+    
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+////        textField.text = ""
+//        if textField.tag == 1 {
+//            self.txt1 = ""
+//                // Do your Validate for first text field
+//            }else if textField.tag == 2 {
+//                self.txt2 = ""
+//                    // Do your Validate for first text field
+//                }else if textField.tag == 3 {
+//                    self.txt3 = ""
+//                        // Do your Validate for first text field
+//                    }else if textField.tag == 4 {
+//                        self.txt4 = ""
+//                            // Do your Validate for first text field
+//                        } else {
+//                //Do Nothing
+//            }
 //
+//    }
+    
+//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+//            return true
 //        }
-//        let value = ModalController.isValidEmail(testStr: email)
-//        if value{
-//            cell1.emailView.borderColor = #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1)
-//        }else{
-//            cell1.emailView.borderColor = #colorLiteral(red: 0.9490196078, green: 0.3882352941, blue: 0.3960784314, alpha: 1)
-//        }
-//        if password.validPassword{
-//            cell1.passwordView.borderColor = #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1)
-//        }else{
-//            cell1.passwordView.borderColor = #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1)
-//        }
-//        if selectedType != "" &&  value == true && email != "" && password != "" && password.validPassword == true{
-//            cell1.loginBtnOutlet.borderColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
-//            cell1.loginBtnOutlet.setTitleColor(#colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1), for: .normal)
-//        }else{
-//            cell1.loginBtnOutlet.borderColor = #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1)
-//            cell1.loginBtnOutlet.setTitleColor(#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), for: .normal)
-//        }
-//        if !password.containArabicNumber{
-//            password = String(password.dropLast())
-//            cell1.passwordField.text = password
-//                ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.passArabicNumber)
-//        }
-    }
     
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.text = ""
-    }
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        if string.rangeOfCharacter(from: NSCharacterSet.decimalDigits) != nil {
+//             return true
+//          } else {
+//          return false
+//       }
+//    }
     
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        if string.rangeOfCharacter(from: NSCharacterSet.decimalDigits) != nil {
+//             return false
+//          } else {
+//          return true
+//       }
+//    }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if string.rangeOfCharacter(from: NSCharacterSet.decimalDigits) != nil {
-             return true
-          } else {
-          return false
-       }
-    }
-    
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//
+////        let index = IndexPath(row: 0, section: 2)
+////        let cell: OtpTableViewCell = self.tableView.cellForRow(at: index) as! OtpTableViewCell
+//
+//        if textField.text!.count < 1  && string.count > 0{
+////        if textField == cell.txt2 {
+////            cell.txt2 .text = ""
+////                cell.txt1.becomeFirstResponder()
+////        } else if textField == cell.txt3 {
+////            cell.txt3.text = ""
+////            cell.txt2.becomeFirstResponder()
+////        } else if textField == cell.txt4 {
+////            cell.txt4.text = ""
+////            cell.txt3.becomeFirstResponder()
+////        }
+//            return false
+//        }else if textField.text!.count >= 1  && string.count == 0{
+//
+//    return false
+//        }
+//            return true
+//}
     
     func getOnTheWayTripDetail(){
         
@@ -438,9 +497,7 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
         print("request:-", param)
         print("Url:-", Service.deliverOrder)
         ServerCalls.postRequest(Service.deliverOrder, withParameters: param) { [self] (response, success) in
-
             ModalClass.stopLoadingAllLoaders(self.view)
-            
             if let value = response as? NSDictionary{
                 let msg = value.object(forKey: "error_description") as! String
                 let error = value.object(forKey: "error_code") as! Int
