@@ -38,14 +38,11 @@ class DEInprogressOrderInformationFirstTableViewCell: UITableViewCell {
         self.headerLbl.font = UIFont(name:"\(fontNameLight)",size:16)
         self.productDataEntryCountLbl.font = UIFont(name:"\(fontNameLight)",size:12)
         self.branchDataEntryCount.font = UIFont(name:"\(fontNameLight)",size:12)
-        self.productDataEntryBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
-        self.branchDataEntryBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
-       
        
         productDataEntryBtn.setTitle("Product Data Entry".localized, for: .normal)
         
         let attrs = [
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12.0),
+            NSAttributedString.Key.font :  UIFont(name:"\(fontNameLight)",size:12),
             NSAttributedString.Key.foregroundColor :  UIColor(red: 28/255, green: 157/255, blue: 213/255, alpha: 1.0),
             NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
         let attributedString = NSMutableAttributedString(string:"")
@@ -56,7 +53,7 @@ class DEInprogressOrderInformationFirstTableViewCell: UITableViewCell {
         branchDataEntryBtn.setTitle("Branch Data Entry".localized, for: .normal)
         
         let attrs1 = [
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12.0),
+            NSAttributedString.Key.font :  UIFont(name:"\(fontNameLight)",size:12),
             NSAttributedString.Key.foregroundColor :  UIColor(red: 28/255, green: 157/255, blue: 213/255, alpha: 1.0),
             NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
         let attributedString1 = NSMutableAttributedString(string:"")
