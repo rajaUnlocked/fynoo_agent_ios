@@ -14,7 +14,7 @@ import MapKit
 import CoreLocation
 import Alamofire
 
-class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate,PopUpAcceptProductDelegate,PopDeclineProductDelegate{
+class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate,PopUpAcceptProductDelegate,PopDeclineProductDelegate {
     
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
@@ -509,14 +509,9 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                         }else{
                             print ("data not in proper json")
                         }
-                    }
-
-                    
+                    }                    
                 }
             }
         }
     }
-    
-    
-    
 }

@@ -287,13 +287,11 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         }
     }
     
-    
-    
     //MARK: - Message compose method
-   func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-           //... handle sms screen actions
-           self.dismiss(animated: true, completion: nil)
-       }
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        //... handle sms screen actions
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func navigationClicked(_ sender: Any){
         
@@ -319,7 +317,6 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
                 //            self.openTrackerInBrowser()
                 UIApplication.shared.openURL(URL(string:
                     "https://www.google.co.in/maps/dir/?saddr=\(latStr),\(longStr)&daddr=\(self.BranchLat),\(self.BranchLong)&directionsmode=driving&zoom=14&views=traffic")!)
-                
             }
         }
     }
@@ -350,13 +347,13 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
      }
      
      func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        
          ModalController.showNegativeCustomAlertWith(title: "Please turn on your location services", msg: "")
          
          HeaderHeightSingleton.shared.longitude = 0.0
          HeaderHeightSingleton.shared.latitude = 0.0
 
     }
-    
 }
 
 extension DataEntryListingViewController : UITableViewDelegate {
@@ -376,7 +373,6 @@ extension DataEntryListingViewController : UITableViewDelegate {
                 let dataEntryLbl = headerView1!.viewWithTag(106) as! UILabel
                 let serviceIcon = headerView1!.viewWithTag(1011) as! UIImageView
                 
-                
                 let fontNameLight = NSLocalizedString("LightFontName", comment: "")
                 dataEntryLbl.font = UIFont(name:"\(fontNameLight)",size:16)
                 searchTxtFld.font = UIFont(name:"\(fontNameLight)",size:12)
@@ -395,9 +391,6 @@ extension DataEntryListingViewController : UITableViewDelegate {
                 searchTxtFld.addTarget(self, action: #selector(DataEntryListingViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
                 
                 filterBtn.addTarget(self, action: #selector(filterClicked), for: .touchUpInside)
-                
-             
-               
                 
                 if appliedFilterCount > 0 {
                     filterCount.isHidden = false
