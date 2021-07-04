@@ -103,19 +103,19 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         
         self.lblStAlmostTotalPrice.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblAlmostPurchasePrice.font = UIFont(name:"\(fontNameLight)",size:12)
-        self.lblStpickupTime.font = UIFont(name:"\(fontNameLight)",size:12)
-        self.lblStCreatedBy.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblStpickupTime.font = UIFont(name:"\(fontNameLight)",size:10)
+        self.lblStCreatedBy.font = UIFont(name:"\(fontNameLight)",size:10)
         self.lblStDeliveryPrice.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblStDeliveryPrice.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblpickupTime.font = UIFont(name:"\(fontNameLight)",size:10)
         
         self.lblCreatedBy.font = UIFont(name:"\(fontNameLight)",size:10)
-        self.lblRating.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblRating.font = UIFont(name:"\(fontNameLight)",size:10)
         self.lblQty.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblWeight.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblSize.font = UIFont(name:"\(fontNameLight)",size:12)
        
-        self.lblRating.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblRating.font = UIFont(name:"\(fontNameLight)",size:10)
         self.lblQty.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblWeight.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblSize.font = UIFont(name:"\(fontNameLight)",size:12)
@@ -185,7 +185,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
 
          let cust_marker: GMSMarker = GMSMarker() // Allocating Marker
 //         cust_marker.icon = UIImage(named: "home") // Marker icon
-        cust_marker.icon = #imageLiteral(resourceName: "placeholderBox")
+        cust_marker.icon = #imageLiteral(resourceName: "placeholderMapHome")
          let cust_location  = CLLocationCoordinate2D(latitude: cust_lat, longitude: cust_long)
          cust_marker.position = cust_location // CLLocationCoordinate2D
         cust_marker.map = self.mapVw // Setting marker on Mapview
@@ -291,6 +291,14 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
 
     func endTimer() {
         countdownTimer.invalidate()
+        let serviceID = String.getString(tripDetail?.data?.trip_details?.del_service_id)
+        let vc = AgentDeliveryViewController()
+        vc.isfrom = "700"
+        vc.selectedTrip = 2
+        vc.isRating = false
+        vc.serviceID = serviceID
+        vc.serviceStatus = "\(tripDetail?.data?.trip_details?.service_status ?? 0)"
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     func timeFormatted(_ totalSeconds: Int) -> String {
@@ -299,10 +307,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         //     let hours: Int = totalSeconds / 3600
         return String(format: "%02d:%02d", minutes, seconds)
     }
-    
-    
-    
-    
+   
     func getTripDetail(){
         
         var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
@@ -333,9 +338,9 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             
                             
                             let vc = AgentDeliveryViewController()
-                            vc.isRating = true
+                            vc.isRating = false
                             vc.isfrom = "700"
-                            vc.selectedTrip = 1
+                            vc.selectedTrip = 2
                             vc.serviceID = "\(errorData["del_service_id"] as! Int)"
                             vc.selectedTab = "\(errorData["service_status"] as! Int)"
                             self.navigationController?.pushViewController(vc, animated: true)
@@ -430,7 +435,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             vc.selectedTrip = 3
                             vc.serviceID = serviceID
                             vc.serviceStatus = serviceStatus
-                            vc.isRating = true
+                            vc.isRating = false
                             self.navigationController?.pushViewController(vc, animated: true)
                             
                         }
@@ -453,7 +458,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     }
     
     func callRequestReject(){
-        
+        let serviceID = String.getString(tripDetail?.data?.trip_details?.del_service_id)
         var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
         
         if userId == "0"{
@@ -488,9 +493,10 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             ModalController.showSuccessCustomAlertWith(title: ((ResponseDict.object(forKey: "error_description") as? String)!), msg: "")
                             let vc = AgentDeliveryViewController()
                             vc.isfrom = "700"
-                            vc.selectedTrip = 4
-                            vc.isRating = true
-                            vc.serviceID = "\(tripDetail?.data?.trip_details?.service_id ?? 0)"
+
+                            vc.selectedTrip = 2
+                            vc.isRating = false
+                            vc.serviceID = serviceID
                             vc.serviceStatus = "\(tripDetail?.data?.trip_details?.service_status ?? 0)"
                             self.navigationController?.pushViewController(vc, animated: true)
                             

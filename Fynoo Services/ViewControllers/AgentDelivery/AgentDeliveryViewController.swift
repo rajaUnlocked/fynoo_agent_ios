@@ -76,6 +76,15 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         {
             self.navigationController?.removeViewController(SearchedProductDeatailViewC.self)
         }
+        if ((orderSuccessData as NSDictionary).value(forKey: "isRating") != nil)
+        {
+            self.serviceID = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "del_service_id") as Any)
+            if (orderSuccessData as NSDictionary).value(forKey: "isRating") as! Bool
+            {
+               ratingClicked((Any).self)
+            }
+        }
+       
        
     }
     func reloadPage() {
@@ -103,21 +112,11 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         self.present(vc, animated: true, completion: nil)
         
     }
-    override func viewWillAppear(_ animated: Bool) {
-   
-   
-        if ((orderSuccessData as NSDictionary).value(forKey: "isRating") != nil)
-        {
-            self.serviceID = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "del_service_id") as Any)
-            if (orderSuccessData as NSDictionary).value(forKey: "isRating") as! Bool
-            {
-               ratingClicked((Any).self)
-            }
-        }
-        selecteIndex(self, selectedIndexID: "\(selectedTrip)")
-      getAgentData()
-      
+    override func viewDidAppear(_ animated: Bool) {
+        getAgentData()
+        self.selecteIndex(self, selectedIndexID: "\(self.selectedTrip)")
     }
+ 
     func SetFont() {
         
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
@@ -201,6 +200,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
                     self.present(vc, animated: true, completion: nil)
                     print(self.deliverData?.data?.agent_information?.del_service_document ?? "","del_service_document")
                         self.tableView.reloadData()
+                       
                     }
                     
                 }
@@ -362,7 +362,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         isMoreDataAvailable = false
         currentPageNumber = 0
         getTripData()
-        
+        tableView.reloadData()
     }
     
     func callClicked(_ sender: Any) {
@@ -673,6 +673,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
 
                 headerView1!.delegate = self
             }
+            headerView1?.collectionView.reloadData()
             headerView1!.selectedIndex = Index
            
             return headerView1

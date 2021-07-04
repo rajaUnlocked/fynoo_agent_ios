@@ -581,7 +581,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             
             selectedImg = img
             print(img)
-//            self.tableView.reloadSections([3], with: .automatic)
+            self.tableView.reloadSections([3], with: .automatic)
 //            UploadInvoice_API()
         }
     

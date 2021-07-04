@@ -197,6 +197,7 @@
                 <outlet property="lblReceivedCodAmt" destination="jLg-Ke-lxX" id="hqc-hd-0BW"/>
                 <outlet property="lblStatictextOtp" destination="BHc-NZ-U09" id="Mgf-RB-r5I"/>
                 <outlet property="lblStatictextVeryfy" destination="IEz-hG-DH5" id="VLw-zu-VQx"/>
+                <outlet property="otpMainview" destination="UpD-Gg-D7m" id="4c3-Ns-njv"/>
                 <outlet property="txt1" destination="1oG-ki-fib" id="diO-6c-GMj"/>
                 <outlet property="txt2" destination="euY-Ii-Ozu" id="sLg-hP-OCo"/>
                 <outlet property="txt3" destination="qa7-xF-iFg" id="y4H-tL-zUs"/>
