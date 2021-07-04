@@ -616,7 +616,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         cell.targetStartLbl.text = "\(ModalController.convertInString(str: self.dataDict.object(forKey: "target_achived") as AnyObject))/"
         if HeaderHeightSingleton.shared.LanguageSelected == "AR"
         {
-            cell.targetStartLbl.text = "/\(ModalController.convertInString(str: self.dataDict.object(forKey: "target_to_be_achive") as AnyObject))"
+            cell.targetStartLbl.text = "/\(ModalController.convertInString(str: self.dataDict.object(forKey: "target_achived") as AnyObject))"
         }
         cell.targetEndLbl.text = "\(ModalController.convertInString(str: self.dataDict.object(forKey: "target_to_be_achive") as AnyObject))"
         cell.endDate.text = "\("Target End Date".localized): \(dataDict.object(forKey: "target_end_date") as! String)"

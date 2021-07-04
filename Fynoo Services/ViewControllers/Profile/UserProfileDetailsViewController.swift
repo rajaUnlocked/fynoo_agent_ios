@@ -373,7 +373,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                             let url = URL(string: self.pdfVat)
                             self.pdfImage = self.pdfThumbnail(url: url!)!
                         }else{
-                            self.pdfImage = UIImage(named:"dottedrectangle")!
+                            self.pdfImage = UIImage(named:"vatSample_image")!
                         }
         
                         self.tableVw.delegate = self
