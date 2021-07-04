@@ -5,7 +5,7 @@ target 'Fynoo Agent' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Fynoo Services
+  # Pods for Fynoo Agent
 
 pod 'IQKeyboardManagerSwift'
 pod 'Alamofire', '~> 4.5'
