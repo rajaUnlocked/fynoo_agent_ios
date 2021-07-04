@@ -281,10 +281,7 @@ enum Service {
     static let agentConfirmToReceiveItems = Constant.BASE_URL + "bo_agent_delivery/agent_confirm_to_receive_items/"
     
     static let reportToBoByAgent = Constant.BASE_URL + "/shared_economy/agent/report_to_bo_by_agent/"
-    
-    
-    
-    
+  
 }
 
 enum Authentication {
