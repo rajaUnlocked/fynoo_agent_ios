@@ -54,7 +54,7 @@
 "cvv-0z-llO.text" = "SAR 10000.00";
 
 /* Class = "UILabel"; text = "2:00 min"; ObjectID = "drz-gn-txF"; */
-"drz-gn-txF.text" = "2:00 min";
+"drz-gn-txF.text" = "0:00 min";
 
 /* Class = "UILabel"; text = "Customer"; ObjectID = "fB7-cs-oy3"; */
 "fB7-cs-oy3.text" = "Customer";

@@ -16,24 +16,24 @@ protocol  OtpTableViewCellDelegate {
 class OtpTableViewCell: UITableViewCell {
      
     var delegate : OtpTableViewCellDelegate?
-
     @IBOutlet weak var lblStatictextVeryfy: UILabel!
-    
     @IBOutlet weak var lblStatictextOtp: UILabel!
-    
     @IBOutlet weak var txt1: UITextField!
     @IBOutlet weak var txt2: UITextField!
     @IBOutlet weak var txt3: UITextField!
     @IBOutlet weak var txt4: UITextField!
-    
     @IBOutlet weak var btnReceivedCodAmt: UIButton!
     
     @IBOutlet weak var imgCheck: UIImageView!
     
     @IBOutlet weak var lblReceivedCodAmt: UILabel!
+    
+    @IBOutlet weak var otpMainview: UIStackView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
   SetFont()
+        rotateViewForArabic()
     }
     
     
@@ -61,6 +61,26 @@ class OtpTableViewCell: UITableViewCell {
        
 
         }
+    
+    func rotateViewForArabic()  {
+   
+    if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String] {
+        if value[0] == "ar" {
+            let degrees = 180.0 // or -90, 180 depending on phone's movement.
+            let rotatedView: UIView = self.otpMainview
+            rotatedView.transform  = CGAffineTransform(rotationAngle: CGFloat(degrees) * CGFloat(M_PI / 180))
+
+            self.txt1.transform = CGAffineTransform(rotationAngle: CGFloat(-(Double.pi / 1.0)))
+            self.txt2.transform = CGAffineTransform(rotationAngle: CGFloat(-(Double.pi / 1.0)))
+            self.txt3.transform = CGAffineTransform(rotationAngle: CGFloat(-(Double.pi / 1.0)))
+            self.txt4.transform = CGAffineTransform(rotationAngle: CGFloat(-(Double.pi / 1.0)))
+
+        }else{
+
+        }
+    }
+        
+}
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
