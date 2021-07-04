@@ -57,7 +57,7 @@ class LoginNewSecondTableViewCell: UITableViewCell, UITextFieldDelegate {
         signUp.setTitle("Sign Up".localized, for: .normal)
         
         let attrs = [
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12.0),
+            NSAttributedString.Key.font :  UIFont(name:"\(fontNameLight)",size:12),
             NSAttributedString.Key.foregroundColor :  UIColor(red: 28/255, green: 157/255, blue: 213/255, alpha: 1.0),
             NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
         let attributedString = NSMutableAttributedString(string:"")
@@ -66,7 +66,7 @@ class LoginNewSecondTableViewCell: UITableViewCell, UITextFieldDelegate {
         signUp.setAttributedTitle(attributedString, for: .normal)
         
         let attrss = [
-                NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12.0),
+                NSAttributedString.Key.font :  UIFont(name:"\(fontNameLight)",size:12),
                 NSAttributedString.Key.foregroundColor :  UIColor(red: 127/255, green: 127/255, blue: 128/255, alpha: 1.0),
                 NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
             let attributedStrings = NSMutableAttributedString(string:"")

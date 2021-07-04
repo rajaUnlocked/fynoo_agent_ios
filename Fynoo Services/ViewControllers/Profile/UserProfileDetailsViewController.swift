@@ -371,9 +371,9 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                        
                         if self.pdfVat != ""{
                             let url = URL(string: self.pdfVat)
-                            //self.pdfImage = self.pdfThumbnail(url: url!)!
+                            self.pdfImage = self.pdfThumbnail(url: url!)!
                         }else{
-                            self.pdfImage = UIImage(named:"dottedrectangle")!
+                            self.pdfImage = UIImage(named:"vatSample_image")!
                         }
         
                         self.tableVw.delegate = self
@@ -643,10 +643,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                 
             }else{
                 let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileDetailTableViewCell",for: indexPath) as! ProfileDetailTableViewCell
-                cell.likesvw.isHidden = true
-                cell.followervw.isHidden = true
-                cell.branchesvw.isHidden = true
-                cell.productsvw.isHidden = true
+               
                 cell.agentimg.image = UIImage(named: "agent_indivdual")
                 cell.delegate = self
                 cell.selectionStyle = .none
@@ -658,13 +655,13 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
 
                 }
                 if isEdit{
-                    cell.topconstraints.constant = -64
+                    
                     cell.editHeight.constant = 0
                     cell.editBtn.isHidden = true
                     cell.editProfileTitle.isHidden = true
                     cell.imageButton.isHidden = true
                 }else{
-                    cell.topconstraints.constant = -30
+                   
                     cell.editHeight.constant = 34
                     cell.editBtn.isHidden = false
                     cell.editProfileTitle.isHidden = false

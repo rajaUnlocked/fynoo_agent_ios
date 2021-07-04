@@ -22,7 +22,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     
     var orderSuccessData:Dictionary<String,Any> = [:]
     
-    var selectedTrip = 0
+    var selectedTrip = 1
     var selectedTab:String = "1"
     var Index:Int = 0
     var deliverData : deliveryDashboard?
@@ -76,6 +76,15 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         {
             self.navigationController?.removeViewController(SearchedProductDeatailViewC.self)
         }
+        if ((orderSuccessData as NSDictionary).value(forKey: "isRating") != nil)
+        {
+            self.serviceID = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "del_service_id") as Any)
+            if (orderSuccessData as NSDictionary).value(forKey: "isRating") as! Bool
+            {
+               ratingClicked((Any).self)
+            }
+        }
+       
        
     }
     func reloadPage() {
@@ -103,19 +112,11 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         self.present(vc, animated: true, completion: nil)
         
     }
-    override func viewWillAppear(_ animated: Bool) {
-        if ((orderSuccessData as NSDictionary).value(forKey: "isRating") != nil)
-        {
-            self.serviceID = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "del_service_id") as Any)
-            if (orderSuccessData as NSDictionary).value(forKey: "isRating") as! Bool
-            {
-               ratingClicked((Any).self)
-            }
-        }
-        getTripData()
+    override func viewDidAppear(_ animated: Bool) {
         getAgentData()
-      
+        self.selecteIndex(self, selectedIndexID: "\(self.selectedTrip)")
     }
+ 
     func SetFont() {
         
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
@@ -198,7 +199,8 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
                     vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
                     self.present(vc, animated: true, completion: nil)
                     print(self.deliverData?.data?.agent_information?.del_service_document ?? "","del_service_document")
-                    self.tableView.reloadData()
+                        self.tableView.reloadData()
+                       
                     }
                     
                 }
@@ -223,7 +225,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         ServerCalls.postRequest(Service.tripList, withParameters: param) { (response, success) in
             if success{
                 //   print(response)
-                
+                self.tableView.reloadData()
                 ModalClass.stopLoadingAllLoaders(self.view)
                 if let body = response as? [String: Any] {
                     self.tripList  = Mapper<TripListInfo>().map(JSON: body)
@@ -360,7 +362,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         isMoreDataAvailable = false
         currentPageNumber = 0
         getTripData()
-        
+        tableView.reloadData()
     }
     
     func callClicked(_ sender: Any) {
@@ -444,7 +446,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         {
             return 400
         }
-            return 236
+        return UITableView.automaticDimension
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -608,10 +610,18 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             cell.messageBtn.isHidden = true
             cell.statusLbl.text = "Tap to accept".localized
             cell.statusView.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+            cell.statusLbl.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }else{
-           cell.statusView.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.8588235294, blue: 0.8588235294, alpha: 1)
+           cell.statusView.backgroundColor = #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.9176470588, alpha: 1)
+            cell.statusLbl.textColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
         }
-
+        cell.navigationBtn.isHidden = false
+        cell.widthconst.constant = 40
+        if selectedTab == "4" || selectedTab == "3"
+        {
+            cell.widthconst.constant = 0
+            cell.navigationBtn.isHidden = true
+        }
         cell.delegate = self
         cell.tag = index.row
         return cell
@@ -663,11 +673,9 @@ extension AgentDeliveryViewController : UITableViewDataSource {
 
                 headerView1!.delegate = self
             }
+            headerView1?.collectionView.reloadData()
             headerView1!.selectedIndex = Index
-            if isRating
-            {
-                headerView1!.selectedIndex = selectedTrip
-            }
+           
             return headerView1
             
             

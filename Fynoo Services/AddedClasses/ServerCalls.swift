@@ -49,17 +49,13 @@ class ServerCalls: NSObject {
     static func PdfFileMultipleUpload(inputUrl:String,parameters:[String:Any],pdfname: [String],pdfurl:[String],completion:((AnyObject?,Bool,AnyObject?) -> Void)?){
            print(inputUrl,parameters,pdfname)
         Alamofire.upload(multipartFormData: { (multipartFormData) in
-            
-          
-               
+                           
                 for i in 0..<pdfurl.count{
                     let url = URL(string: pdfurl[i])
                     let pdfData = try! Data(contentsOf: url!.asURL())
                     multipartFormData.append(pdfData, withName: pdfname[i], fileName: pdfname[i], mimeType:"application/pdf")
                 }
-                
-            
-                        
+                                        
             for (key, value) in parameters {
                 let val = "\(value)"
                 multipartFormData.append(val.data(using: String.Encoding.utf8)!, withName: key)

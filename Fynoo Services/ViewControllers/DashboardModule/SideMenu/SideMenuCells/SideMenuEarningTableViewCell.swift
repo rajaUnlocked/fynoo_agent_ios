@@ -15,10 +15,21 @@ protocol SideMenuEarningTableViewCellDelegate: class {
 
 class SideMenuEarningTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var earninglbl: UILabel!
+    @IBOutlet weak var commisionlbl: UILabel!
+    
+    @IBOutlet weak var targetlbl: UILabel!
+    
+    
     weak var delegate: SideMenuEarningTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        earninglbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        commisionlbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        targetlbl.font = UIFont(name:"\(fontNameLight)",size:12)
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

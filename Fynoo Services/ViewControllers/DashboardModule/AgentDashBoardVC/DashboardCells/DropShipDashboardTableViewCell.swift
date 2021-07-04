@@ -23,6 +23,12 @@ class DropShipDashboardTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        titleLbl.font = UIFont(name:"\(fontNameLight)",size:21)
+        productlbl.font = UIFont(name:"\(fontNameLight)",size:14)
+        soldproductlbl.font = UIFont(name:"\(fontNameLight)",size:14)
+        commisionlbl.font = UIFont(name:"\(fontNameLight)",size:14)
+        currencycode.font = UIFont(name:"\(fontNameLight)",size:10)
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
         self.bgView.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: (screenWidth - 40))

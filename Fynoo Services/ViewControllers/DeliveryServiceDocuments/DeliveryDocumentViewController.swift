@@ -65,6 +65,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         servicetypeColor_API()
         
     }
+   
     func fileSize(forURL url: Any) -> Double {
         var fileURL: URL?
         var fileSize: Double = 0.0
@@ -337,10 +338,13 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     if self.imgArr[i] != ""
                     {
                         let imageUrl = URL(string: self.imgArr[i])!
-
+            
                         do {
                             let imageData = try Data(contentsOf: imageUrl)
                             self.imglocalArr[i] = UIImage(data: imageData)
+                            if self.imglocalArr[i] == nil{
+                                self.documentlocalArr[i] = imageUrl
+                            }
                         }
                         catch{
                             self.imglocalArr[i] = nil
@@ -397,11 +401,14 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             
            if row == 1
            {
+//            if !string.isArabic || !string.contains(" ") || (!(string >= "a" && string <= "z") && !(string >= "A" && string <= "Z") )
+//            {
+//                return false
+//            }
             if textstr.count > 0
                        {
-                          
-                             
-                               cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+                
+                             cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
                            
                            
                        }
@@ -558,7 +565,8 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     }
     
     func registernibs() {
-        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        submit.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:16)
         tabvw.register(UINib(nibName: "ServiceHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceHeaderTableViewCell")
         tabvw.register(UINib(nibName: "DocHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "DocHeaderTableViewCell")
         tabvw.register(UINib(nibName: "ServiceDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "ServiceDetailTableViewCell")
@@ -909,6 +917,9 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                         do {
                             let imageData = try Data(contentsOf: imageUrl)
                             self.imglocalArr[i] = UIImage(data: imageData)
+                            if self.imglocalArr[i] == nil{
+                                self.documentlocalArr[i] = imageUrl
+                            }
                         }
                         catch{
                             self.imglocalArr[i] = nil
@@ -1187,7 +1198,11 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         {
             if isReasonForVehicle
             {
+                if SelectedIndex.contains(section)
+                {
                 return 2
+                }
+                return 1
             }
             return 0
         }

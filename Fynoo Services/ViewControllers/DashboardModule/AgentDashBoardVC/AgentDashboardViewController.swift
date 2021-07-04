@@ -10,8 +10,22 @@ import UIKit
 import SideMenu
 import CoreLocation
 import MTPopup
+
+
 class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource, ServicesDashboardTableViewCellDelegate, CommonPopupViewControllerDelegate ,UIImagePickerControllerDelegate, UINavigationControllerDelegate, OpenGalleryDelegate, CLLocationManagerDelegate, UITabBarControllerDelegate {
+    
+    @IBOutlet weak var progresslbl: UILabel!
+    @IBOutlet weak var holdingamtlbl: UILabel!
+    
+    @IBOutlet weak var walletballbl: UILabel!
+    @IBOutlet weak var walletbaltop: UILabel!
+    @IBOutlet weak var sar: UILabel!
+    @IBOutlet weak var sar1: UILabel!
+    
+    @IBOutlet weak var sar2: UILabel!
+    @IBOutlet weak var sar3: UILabel!
     var refreshControl = UIRefreshControl()
+    
     @IBOutlet weak var walletHeightConst: NSLayoutConstraint!
     @IBOutlet weak var walletvw: UIView!
     @IBOutlet weak var walletLbl: UILabel!
@@ -53,8 +67,24 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
 //    var lati : Double?
 //    var longi : Double?
     var apiTimer: Timer?
+    let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        sar1.font = UIFont(name:"\(fontNameLight)",size:8)
+        sar2.font = UIFont(name:"\(fontNameLight)",size:8)
+        sar3.font = UIFont(name:"\(fontNameLight)",size:8)
+        sar.font = UIFont(name:"\(fontNameLight)",size:12)
+        walletbaltop.font = UIFont(name:"\(fontNameLight)",size:16)
+        walletballbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        holdingamtlbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        progresslbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        walletbaltop.text = "Wallet Balance".localized
+        holdingamtlbl.text = "Holding Amount".localized
+        walletballbl.text = "Wallet Balance".localized
+        progresslbl.text = "Payment in progress".localized
+      
         getUserLocation()
         registerNotifications()
         sideMenuCode()
@@ -322,6 +352,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
     
     func registerCellNibs(){
+        availamount.font = UIFont(name:"\(fontNameLight)",size:14)
         availamount.text = "Available Amount".localized
         arrow1.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"rightArrow_dash")!)
         arrow2.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"rightArrow_dash")!)
@@ -585,7 +616,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         cell.targetStartLbl.text = "\(ModalController.convertInString(str: self.dataDict.object(forKey: "target_achived") as AnyObject))/"
         if HeaderHeightSingleton.shared.LanguageSelected == "AR"
         {
-            cell.targetStartLbl.text = "/\(ModalController.convertInString(str: self.dataDict.object(forKey: "target_to_be_achive") as AnyObject))"
+            cell.targetStartLbl.text = "/\(ModalController.convertInString(str: self.dataDict.object(forKey: "target_achived") as AnyObject))"
         }
         cell.targetEndLbl.text = "\(ModalController.convertInString(str: self.dataDict.object(forKey: "target_to_be_achive") as AnyObject))"
         cell.endDate.text = "\("Target End Date".localized): \(dataDict.object(forKey: "target_end_date") as! String)"
@@ -643,20 +674,20 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     
     
     @IBAction func qrcodeBtn(_ sender: Any) {
-                let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
+        let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)
-//        let vc = BranchQrCodePopupViewController(nibName: "BranchQrCodePopupViewController", bundle: nil)
-//        vc.isType = true
-//        vc.url = homeGraph?.data?.bo_qr_code ?? ""
-//        vc.urlPass =  homeGraph?.data?.main_branch_url ?? ""
-//        vc.businessName = homeGraph?.data?.main_branch_name ?? ""
-//        let popup = PopupDialog(viewController: vc,
-//                                buttonAlignment: .horizontal,
-//                                transitionStyle: .bounceDown,
-//                                tapGestureDismissal: true,
-//                                panGestureDismissal: false)
-//
-//        self.present(popup, animated: true, completion: nil)
+        //        let vc = BranchQrCodePopupViewController(nibName: "BranchQrCodePopupViewController", bundle: nil)
+        //        vc.isType = true
+        //        vc.url = homeGraph?.data?.bo_qr_code ?? ""
+        //        vc.urlPass =  homeGraph?.data?.main_branch_url ?? ""
+        //        vc.businessName = homeGraph?.data?.main_branch_name ?? ""
+        //        let popup = PopupDialog(viewController: vc,
+        //                                buttonAlignment: .horizontal,
+        //                                transitionStyle: .bounceDown,
+        //                                tapGestureDismissal: true,
+        //                                panGestureDismissal: false)
+        //
+        //        self.present(popup, animated: true, completion: nil)
     }
     
     @IBAction func notificationBtnClicked(_ sender: Any) {
@@ -871,7 +902,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     self.dataDict = dict
                     
                     self.availableBalanceLbl.text =  ModalController.convertInString(str: self.dataDict.object(forKey: "available_amount") as AnyObject)
-                    
+                    self.availableBalanceLbl.font = UIFont(name:"\(self.fontNameLight)",size:16)
+                    self.sar.font = UIFont(name:"\(self.fontNameLight)",size:12)
                     let image =  ((self.dataDict.object(forKey: "agent_information") as! NSArray).object(at: 0) as! NSDictionary).object(forKey: "user_img") as! NSString
                     
                     self.profileImg.sd_setImage(with: URL(string: "\(image)"), placeholderImage: UIImage(named: "profile_white"))
@@ -883,6 +915,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     let val1 = "Hello".localized
                     let val2 = "ID".localized
                     self.userDetails.text = "\(val1) \(nameStr)\n \(val2): \(idStr)"
+                    self.userDetails.font = UIFont(name:"\(self.fontNameLight)",size:13)
+                   
                     self.walletLbl.text = ModalController.convertInString(str: self.dataDict.object(forKey: "wallet_balance") as AnyObject)
                     self.holdingLBl.text = ModalController.convertInString(str: self.dataDict.object(forKey: "holding_amount") as AnyObject)
                     self.inprocessLbl.text = ModalController.convertInString(str: self.dataDict.object(forKey: "payment_in_progress") as AnyObject)

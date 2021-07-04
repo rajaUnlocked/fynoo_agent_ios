@@ -13,7 +13,9 @@ class NoTripFoundTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
+        notripfoundlbl.font = UIFont(name:"\(fontNameBold)",size:20)
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

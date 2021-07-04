@@ -18,12 +18,11 @@ protocol  AgentServiceListDelegate {
 class AgentServiceList: UITableViewCell,UITableViewDelegate {
    
     
- var  delegate : AgentServiceListDelegate?
+    @IBOutlet weak var widthconst: NSLayoutConstraint!
+    var  delegate : AgentServiceListDelegate?
     
     @IBOutlet weak var nexttabbtn: UIButton!
-    
     @IBOutlet weak var cardView: CardView!
-    
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var totalCount: UILabel!
     @IBOutlet weak var price: UILabel!
@@ -42,8 +41,6 @@ class AgentServiceList: UITableViewCell,UITableViewDelegate {
     @IBOutlet weak var almostPriceLbl: UILabel!
     @IBOutlet weak var walletIcon: UIImageView!
     @IBOutlet weak var statusLbl: UILabel!
-    
-    
       
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,33 +52,30 @@ class AgentServiceList: UITableViewCell,UITableViewDelegate {
     }
     
     func SetFont() {
-          
-          let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-          
-          self.name.font = UIFont(name:"\(fontNameLight)",size:14)
-          self.avgRating.font = UIFont(name:"\(fontNameLight)",size:12)
-          self.totalRate.font = UIFont(name:"\(fontNameLight)",size:12)
-          self.totalCount.font = UIFont(name:"\(fontNameLight)",size:10)
-          self.orderId.font = UIFont(name:"\(fontNameLight)",size:10)
-          self.date.font = UIFont(name:"\(fontNameLight)",size:10)
-          self.address.font = UIFont(name:"\(fontNameLight)",size:12)
-          self.almostPriceLbl.font = UIFont(name:"\(fontNameLight)",size:12)
-          self.price.font = UIFont(name:"\(fontNameLight)",size:12)
+        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        
+        self.name.font = UIFont(name:"\(fontNameLight)",size:14)
+        self.avgRating.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.totalRate.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.totalCount.font = UIFont(name:"\(fontNameLight)",size:10)
+        self.orderId.font = UIFont(name:"\(fontNameLight)",size:10)
+        self.date.font = UIFont(name:"\(fontNameLight)",size:10)
+        self.address.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.almostPriceLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.price.font = UIFont(name:"\(fontNameLight)",size:12)
         self.statusLbl.font = UIFont(name:"\(fontNameLight)",size:14)
         self.statusLbl.textColor = UIColor.AppThemeBlackTextColor()
-          
-      }
-   
+        
+    }
     @IBAction func navigationClicked(_ sender: Any) {
         self.delegate?.navigationClicked(self)
   
     }
-    
     @IBAction func callClicked(_ sender: Any) {
         self.delegate?.callClicked(self)
     }
     @IBAction func messageClicked(_ sender: Any) {
         self.delegate?.messageClicked(self)
     }
-    
 }

@@ -31,6 +31,9 @@ class TripAchievementViewCell: UITableViewCell,UICollectionViewDataSource, UICol
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+       tripAchivementLbl.font = UIFont(name:"\(fontNameLight)",size:16)
+
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.register(UINib.init(nibName: "TripAchivementCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TripAchivementCollectionViewCell")

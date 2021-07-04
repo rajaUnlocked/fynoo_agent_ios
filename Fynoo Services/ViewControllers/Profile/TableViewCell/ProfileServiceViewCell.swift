@@ -14,7 +14,8 @@ class ProfileServiceViewCell: UICollectionViewCell {
     @IBOutlet weak var serviceName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        serviceName.font = UIFont(name:"\(fontNameLight)",size:13)
     }
 
 }

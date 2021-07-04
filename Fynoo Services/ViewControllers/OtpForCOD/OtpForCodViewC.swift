@@ -506,9 +506,7 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
         print("request:-", param)
         print("Url:-", Service.deliverOrder)
         ServerCalls.postRequest(Service.deliverOrder, withParameters: param) { [self] (response, success) in
-
             ModalClass.stopLoadingAllLoaders(self.view)
-            
             if let value = response as? NSDictionary{
                 let msg = value.object(forKey: "error_description") as! String
                 let error = value.object(forKey: "error_code") as! Int

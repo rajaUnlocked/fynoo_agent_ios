@@ -304,6 +304,9 @@
 "Wholesale" = "بالجملة";
 
 //new
+"Payment in progress" = "عمليات دفع قيد التنفيذ";
+"Holding Amount" = "المبالغ المعلقة";
+"Wallet Balance" = "رصيد المحفظة";
 "Tap to accept" = "قبول";
 "Branch List" = "قائمة الفروع";
 "Choose your option"= "إختر أحد الخيارات";
