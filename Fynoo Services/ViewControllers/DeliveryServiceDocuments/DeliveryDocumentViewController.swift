@@ -401,11 +401,14 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             
            if row == 1
            {
+//            if !string.isArabic || !string.contains(" ") || (!(string >= "a" && string <= "z") && !(string >= "A" && string <= "Z") )
+//            {
+//                return false
+//            }
             if textstr.count > 0
                        {
-                          
-                             
-                               cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+                
+                             cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
                            
                            
                        }
