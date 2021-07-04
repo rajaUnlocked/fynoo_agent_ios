@@ -81,6 +81,7 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
         vc.checkInvoiceUploaded = true
         vc.orderId = onTheWayTripDetailData?.data?.trip_details?.order_id ?? ""
         self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     func invoiceClicked(_ sender: Any) {
