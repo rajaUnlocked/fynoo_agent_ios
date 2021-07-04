@@ -14,7 +14,9 @@ class TwoButtonsTableViewCell: UITableViewCell {
     @IBOutlet weak var cancel: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        save.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:13)
+        cancel.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:13)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

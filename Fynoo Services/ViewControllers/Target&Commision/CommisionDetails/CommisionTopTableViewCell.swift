@@ -19,7 +19,12 @@ class CommisionTopTableViewCell: UITableViewCell {
     @IBOutlet weak var detaillbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        commisionlbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        servicename.font = UIFont(name:"\(fontNameLight)",size:20)
+        detaillbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        commisionrangelbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        commisionrangelbl.font = UIFont(name:"\(fontNameLight)",size:21)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

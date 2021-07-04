@@ -30,6 +30,10 @@ class ServiceSingleCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        nameLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        countLbl.font = UIFont(name:"\(fontNameLight)",size:33)
+        inprocessLbl.font = UIFont(name:"\(fontNameLight)",size:12)
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
         self.bgVw.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: (screenWidth / 2) - 30 )

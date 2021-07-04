@@ -57,7 +57,7 @@ class ProfileEnteriesTableViewCell: UITableViewCell {
             self.mobileCode.font = UIFont(name:"\(fontNameLight)",size:13)
             self.entryLbl.font = UIFont(name:"\(fontNameLight)",size:12)
            self.headingLbl.font = UIFont(name:"\(fontNameLight)",size:12)
-            
+        self.genderView.font = UIFont(name:"\(fontNameLight)",size:11)
             
         }
 

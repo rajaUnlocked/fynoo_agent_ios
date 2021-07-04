@@ -40,6 +40,13 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
     var vatNo = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+      registerlbl.font = UIFont(name:"\(fontNameLight)",size:16)
+        yeslbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        noTxt.font = UIFont(name:"\(fontNameLight)",size:12)
+        vatcertificate.font = UIFont(name:"\(fontNameLight)",size:12)
+        addlbl.font = UIFont(name:"\(fontNameLight)",size:18)
+        saveBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
         vatcertificate.text = "Upload VAT Registration Certificate".localized
         registerlbl.text = "Are you registered in VAT?".localized
         txtField.placeholder = "Enter Registered VAT Number".localized

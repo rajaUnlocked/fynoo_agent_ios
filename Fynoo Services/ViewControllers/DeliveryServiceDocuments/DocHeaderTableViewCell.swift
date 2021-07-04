@@ -15,7 +15,8 @@ class DocHeaderTableViewCell: UITableViewCell {
     @IBOutlet weak var arrow: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        headerlbl.font = UIFont(name:"\(fontNameLight)",size:12)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

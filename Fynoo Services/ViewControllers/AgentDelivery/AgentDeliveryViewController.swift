@@ -103,7 +103,8 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         self.present(vc, animated: true, completion: nil)
         
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+   
    
         if ((orderSuccessData as NSDictionary).value(forKey: "isRating") != nil)
         {
@@ -615,8 +616,10 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             cell.statusLbl.textColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
         }
         cell.navigationBtn.isHidden = false
+        cell.widthconst.constant = 40
         if selectedTab == "4" || selectedTab == "3"
         {
+            cell.widthconst.constant = 0
             cell.navigationBtn.isHidden = true
         }
         cell.delegate = self

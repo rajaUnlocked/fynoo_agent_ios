@@ -42,12 +42,12 @@ pod 'BBannerView'
 #pod 'goSellSDK'
 
 
-  target 'Fynoo ServicesTests' do
+  target 'Fynoo AgentTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'Fynoo ServicesUITests' do
+  target 'Fynoo AgentUITests' do
     # Pods for testing
   end
 
