@@ -110,12 +110,12 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         self.lblpickupTime.font = UIFont(name:"\(fontNameLight)",size:10)
         
         self.lblCreatedBy.font = UIFont(name:"\(fontNameLight)",size:10)
-        self.lblRating.font = UIFont(name:"\(fontNameLight)",size:10)
+        self.lblRating.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblQty.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblWeight.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblSize.font = UIFont(name:"\(fontNameLight)",size:12)
        
-        self.lblRating.font = UIFont(name:"\(fontNameLight)",size:10)
+        self.lblRating.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblQty.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblWeight.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblSize.font = UIFont(name:"\(fontNameLight)",size:12)
@@ -432,7 +432,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             let vc = AgentDeliveryViewController()
 //                            vc.serviceID = "\(tripDetail?.data?.trip_details?.service_id ?? 0)"
                             vc.isfrom = "700"
-                            vc.selectedTrip = 2
+                            vc.selectedTrip = 1
                             vc.serviceID = serviceID
                             vc.serviceStatus = serviceStatus
                             vc.isRating = false

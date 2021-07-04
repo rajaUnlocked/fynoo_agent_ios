@@ -13,6 +13,7 @@ class Singleton {
      var RetailArr:NSMutableArray = NSMutableArray()
     var userType:String = ""
     var userProfileImageStr:String = ""
+    var selectedTab:Int = 0
     
     static let shared = Singleton()
     private init(){}
@@ -49,5 +50,15 @@ class Singleton {
         
         self.userProfileImageStr = profilePic;
     }
+    
+    func getDeliveryDashBoardTabID() -> Int{
+        
+        return selectedTab;
+    }
+    
+    func setDeliveryDashBoardTabID(tabId:Int) {
+        self.selectedTab = tabId;
+    }
+    
 }
 
