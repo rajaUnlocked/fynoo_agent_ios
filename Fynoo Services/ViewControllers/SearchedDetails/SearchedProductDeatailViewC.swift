@@ -509,7 +509,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                         }else{
                             print ("data not in proper json")
                         }
-                    }                    
+                    }
                 }
             }
         }
