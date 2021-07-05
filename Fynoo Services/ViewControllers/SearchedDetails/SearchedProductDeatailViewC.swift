@@ -295,6 +295,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         let vc = AgentDeliveryViewController()
         vc.isfrom = "700"
         vc.selectedTrip = 2
+        Singleton.shared.setDeliveryDashBoardTabID(tabId: 2)
         vc.isRating = false
         vc.serviceID = serviceID
         vc.serviceStatus = "\(tripDetail?.data?.trip_details?.service_status ?? 0)"
@@ -341,6 +342,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             vc.isRating = false
                             vc.isfrom = "700"
                             vc.selectedTrip = 2
+                            Singleton.shared.setDeliveryDashBoardTabID(tabId: 2)
                             vc.serviceID = "\(errorData["del_service_id"] as! Int)"
                             vc.selectedTab = "\(errorData["service_status"] as! Int)"
                             self.navigationController?.pushViewController(vc, animated: true)
@@ -433,6 +435,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
 //                            vc.serviceID = "\(tripDetail?.data?.trip_details?.service_id ?? 0)"
                             vc.isfrom = "700"
                             vc.selectedTrip = 1
+                            Singleton.shared.setDeliveryDashBoardTabID(tabId: 1)
                             vc.serviceID = serviceID
                             vc.serviceStatus = serviceStatus
                             vc.isRating = false
@@ -494,6 +497,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             let vc = AgentDeliveryViewController()
                             vc.isfrom = "700"
                             vc.selectedTrip = 2
+                            Singleton.shared.setDeliveryDashBoardTabID(tabId: 2)
                             vc.isRating = false
                             vc.serviceID = serviceID
                             vc.serviceStatus = "\(tripDetail?.data?.trip_details?.service_status ?? 0)"

@@ -964,6 +964,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             self.btnChangeStatus.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             self.btnChangeStatus.isUserInteractionEnabled = false
             cell.contentView.isUserInteractionEnabled = false
+            Singleton.shared.setDeliveryDashBoardTabID(tabId: 4)
             if orderDetailData?.data?.report_to_bo == true {
                 cell.btnAnyProblem.isHidden = false
 //                cell.btnAnyProblem.setTitle("Report Business Owner", for: .normal)
@@ -991,11 +992,13 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             cell.txtVatAmt.text = "\(orderDetailData?.data?.vat_amount ?? 0)"
             cell.txtTotalAmountWithVat.text = "\(orderDetailData?.data?.total_amount_with_vat ?? 0)"
 //            cell.btnAnyProblem.isHidden = false
-            
+            Singleton.shared.setDeliveryDashBoardTabID(tabId: 3)
         case 4:
             self.btnChangeStatus.setTitle("Cancel Request Received".localized, for: .normal)
+            Singleton.shared.setDeliveryDashBoardTabID(tabId: 4)
         default:
             self.btnChangeStatus.setTitle("Confirm and upload invoice".localized, for: .disabled)
+            Singleton.shared.setDeliveryDashBoardTabID(tabId: 1)
         }
         
         
