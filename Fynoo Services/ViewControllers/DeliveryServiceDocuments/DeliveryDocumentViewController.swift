@@ -401,10 +401,10 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             
            if row == 1
            {
-//            if !string.isArabic || !string.contains(" ") || (!(string >= "a" && string <= "z") && !(string >= "A" && string <= "Z") )
-//            {
-//                return false
-//            }
+            if !ModalController.isValidName(title: textstr)
+            {
+             return false
+            }
             if textstr.count > 0
                        {
                 
@@ -532,6 +532,10 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 if textstr.count > 0
                 {
                     
+                    if !ModalController.isValidPlatenumber(title: textstr)
+                    {
+                        return false
+                    }
                     if textstr.count > self.servicelist?.data?.plate_no_max_length ?? 0
                     {
                         return false
@@ -558,7 +562,8 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     
                     cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
                 }
-                txtArr[row - 1] = "\(textstr)"
+                txtArr[row - 1] = "\(textstr.uppercased())"
+              
             }
         }
         return true
