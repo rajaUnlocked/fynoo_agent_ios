@@ -426,6 +426,8 @@ extension DataEntryListingViewController : UITableViewDelegate {
         }
     }
     
+    
+    
     @objc func textFieldDidChange(_ textField: UITextField) {
         
         if let textStr = textField.text {
