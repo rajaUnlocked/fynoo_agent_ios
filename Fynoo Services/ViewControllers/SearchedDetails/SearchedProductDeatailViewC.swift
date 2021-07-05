@@ -14,7 +14,7 @@ import MapKit
 import CoreLocation
 import Alamofire
 
-class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate,PopUpAcceptProductDelegate,PopDeclineProductDelegate{
+class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GMSMapViewDelegate,PopUpAcceptProductDelegate,PopDeclineProductDelegate {
     
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
@@ -110,12 +110,12 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         self.lblpickupTime.font = UIFont(name:"\(fontNameLight)",size:10)
         
         self.lblCreatedBy.font = UIFont(name:"\(fontNameLight)",size:10)
-        self.lblRating.font = UIFont(name:"\(fontNameLight)",size:10)
+        self.lblRating.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblQty.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblWeight.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblSize.font = UIFont(name:"\(fontNameLight)",size:12)
        
-        self.lblRating.font = UIFont(name:"\(fontNameLight)",size:10)
+        self.lblRating.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblQty.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblWeight.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblSize.font = UIFont(name:"\(fontNameLight)",size:12)
@@ -295,6 +295,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         let vc = AgentDeliveryViewController()
         vc.isfrom = "700"
         vc.selectedTrip = 2
+        Singleton.shared.setDeliveryDashBoardTabID(tabId: 2)
         vc.isRating = false
         vc.serviceID = serviceID
         vc.serviceStatus = "\(tripDetail?.data?.trip_details?.service_status ?? 0)"
@@ -341,6 +342,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             vc.isRating = false
                             vc.isfrom = "700"
                             vc.selectedTrip = 2
+                            Singleton.shared.setDeliveryDashBoardTabID(tabId: 2)
                             vc.serviceID = "\(errorData["del_service_id"] as! Int)"
                             vc.selectedTab = "\(errorData["service_status"] as! Int)"
                             self.navigationController?.pushViewController(vc, animated: true)
@@ -432,7 +434,8 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             let vc = AgentDeliveryViewController()
 //                            vc.serviceID = "\(tripDetail?.data?.trip_details?.service_id ?? 0)"
                             vc.isfrom = "700"
-                            vc.selectedTrip = 3
+                            vc.selectedTrip = 1
+                            Singleton.shared.setDeliveryDashBoardTabID(tabId: 1)
                             vc.serviceID = serviceID
                             vc.serviceStatus = serviceStatus
                             vc.isRating = false
@@ -493,8 +496,8 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             ModalController.showSuccessCustomAlertWith(title: ((ResponseDict.object(forKey: "error_description") as? String)!), msg: "")
                             let vc = AgentDeliveryViewController()
                             vc.isfrom = "700"
-
                             vc.selectedTrip = 2
+                            Singleton.shared.setDeliveryDashBoardTabID(tabId: 2)
                             vc.isRating = false
                             vc.serviceID = serviceID
                             vc.serviceStatus = "\(tripDetail?.data?.trip_details?.service_status ?? 0)"
@@ -510,13 +513,8 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             print ("data not in proper json")
                         }
                     }
-
-                    
                 }
             }
         }
     }
-    
-    
-    
 }

@@ -287,8 +287,6 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         }
     }
     
-    
-    
     //MARK: - Message compose method
    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
            //... handle sms screen actions
@@ -396,9 +394,6 @@ extension DataEntryListingViewController : UITableViewDelegate {
                 
                 filterBtn.addTarget(self, action: #selector(filterClicked), for: .touchUpInside)
                 
-             
-               
-                
                 if appliedFilterCount > 0 {
                     filterCount.isHidden = false
                     filterCount.text = ModalController.toString(appliedFilterCount as Any)
@@ -430,6 +425,8 @@ extension DataEntryListingViewController : UITableViewDelegate {
             return 0
         }
     }
+    
+    
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         
@@ -744,4 +741,5 @@ extension DataEntryListingViewController : DataEntryFilterDelegate {
         print("appliedFilterCount:-", appliedFilterCount)
         self.refreshDataEntryCompleteServiceList()
     }
+        
 }

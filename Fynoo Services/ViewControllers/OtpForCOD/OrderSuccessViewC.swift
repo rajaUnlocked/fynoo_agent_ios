@@ -31,6 +31,7 @@ class OrderSuccessViewC: UIViewController {
             vc.orderSuccessData = self.confirmDeliveryData
             vc.isfrom = "100"
             vc.selectedTrip = 3
+            Singleton.shared.setDeliveryDashBoardTabID(tabId: 3)
             vc.isRating = true
             self.navigationController?.pushViewController(vc, animated: true)
             
