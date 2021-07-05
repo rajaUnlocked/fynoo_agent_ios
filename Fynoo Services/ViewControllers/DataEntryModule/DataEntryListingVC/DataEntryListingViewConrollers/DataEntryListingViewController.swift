@@ -394,9 +394,6 @@ extension DataEntryListingViewController : UITableViewDelegate {
                 
                 filterBtn.addTarget(self, action: #selector(filterClicked), for: .touchUpInside)
                 
-             
-               
-                
                 if appliedFilterCount > 0 {
                     filterCount.isHidden = false
                     filterCount.text = ModalController.toString(appliedFilterCount as Any)
