@@ -512,7 +512,7 @@ static func isStringValid(_ str: String?) -> Bool {
          }
     }
     static func isValidPlatenumber(title:String)->Bool{
-        let  Regex = "[a-z A-Z 0-9 ]+"
+        let  Regex = "[A-Z0-9]+\\s+[A-Z0-9]+"
          let predicate = NSPredicate.init(format: "SELF MATCHES %@", Regex)
 
          if predicate.evaluate(with: title) || title == "" {

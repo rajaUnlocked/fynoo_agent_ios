@@ -531,7 +531,6 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             {
                 if textstr.count > 0
                 {
-                    
                     if !ModalController.isValidPlatenumber(title: textstr)
                     {
                         return false
