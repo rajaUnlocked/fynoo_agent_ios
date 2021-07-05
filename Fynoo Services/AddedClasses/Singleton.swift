@@ -13,7 +13,8 @@ class Singleton {
      var RetailArr:NSMutableArray = NSMutableArray()
     var userType:String = ""
     var userProfileImageStr:String = ""
-    var selectedTab:Int = 0
+    var selectedTab:Int = 1
+    var delServiceID:String = ""
     
     static let shared = Singleton()
     private init(){}
@@ -58,6 +59,15 @@ class Singleton {
     
     func setDeliveryDashBoardTabID(tabId:Int) {
         self.selectedTab = tabId;
+    }
+    
+    func getDelServiceID() -> String{
+        
+        return delServiceID;
+    }
+    
+    func setDelServiceID(delServiceId:String) {
+        self.delServiceID = delServiceId;
     }
     
 }

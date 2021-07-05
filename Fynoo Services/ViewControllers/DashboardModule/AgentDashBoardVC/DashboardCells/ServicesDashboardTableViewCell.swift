@@ -73,7 +73,8 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
                 return
             }
                 let vc = AgentDeliveryViewController()
-                vc.serviceID = ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any) 
+            Singleton.shared.setDelServiceID(delServiceId: ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any) )
+            Singleton.shared.setDeliveryDashBoardTabID(tabId: 1)
                 parent.navigationController?.pushViewController(vc, animated: true)
             }else{
                 let vc = DataEntryListingViewController()
