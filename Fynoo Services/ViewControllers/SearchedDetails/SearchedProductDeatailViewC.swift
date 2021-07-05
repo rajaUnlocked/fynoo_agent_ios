@@ -84,7 +84,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        endTimer()
+       // endTimer()
     }
 
     
@@ -349,30 +349,34 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             vc.selectedTab = "\(errorData["service_status"] as! Int)"
                             self.navigationController?.pushViewController(vc, animated: true)
                         }
+                        else
+                        {
+                            print(self.tripDetail?.data)
+        //                    print(self.tripDetail?.data?.trip_details?.purchase_price)
+        //
+                            self.lblQty.text = "Qty:0\(tripDetail?.data?.trip_details?.qty ?? 0)"
+                            self.lblSize.text = "Size:\(tripDetail?.data?.trip_details?.size ?? "")"
+                            self.lblCreatedBy.text = "\(tripDetail?.data?.trip_details?.created_by ?? "")"
+                            self.lblpickupTime.text = "\(tripDetail?.data?.trip_details?.pick_up_time ?? "")"
+                            self.lblWeight.text = "Weight:\(tripDetail?.data?.trip_details?.weight ?? "")"
+                            self.lblRating.text = "\(tripDetail?.data?.trip_details?.rating ?? "")"
+                            self.lblavgRating.text = "\(tripDetail?.data?.trip_details?.total_rating ?? "")"
+                            self.lblpickupTime.text = "\(tripDetail?.data?.trip_details?.pick_up_time ?? "")"
+                            self.lblAlmostPurchasePrice.text = "\(tripDetail?.data?.trip_details?.purchase_price ?? "")"
+                            self.lblDeliveryPrice.text = "\(tripDetail?.data?.trip_details?.delivery_price ?? "")"
+                            self.lblAlmostTotalPrice.text = "\(tripDetail?.data?.trip_details?.total_price ?? "")"
+                            self.imgCod.sd_setImage(with: URL(string: tripDetail?.data?.trip_details?.payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+                            
+
+                            self.totalTime = (tripDetail?.data?.trip_details?.otp_time ?? 0)
+                            startTimer()
+                            
+                            self.loadHeaderData()
+                            self.loadMapViewa()
+                        }
                     }
                     
-                    print(self.tripDetail?.data)
-//                    print(self.tripDetail?.data?.trip_details?.purchase_price)
-//
-                    self.lblQty.text = "Qty:0\(tripDetail?.data?.trip_details?.qty ?? 0)"
-                    self.lblSize.text = "Size:\(tripDetail?.data?.trip_details?.size ?? "")"
-                    self.lblCreatedBy.text = "\(tripDetail?.data?.trip_details?.created_by ?? "")"
-                    self.lblpickupTime.text = "\(tripDetail?.data?.trip_details?.pick_up_time ?? "")"
-                    self.lblWeight.text = "Weight:\(tripDetail?.data?.trip_details?.weight ?? "")"
-                    self.lblRating.text = "\(tripDetail?.data?.trip_details?.rating ?? "")"
-                    self.lblavgRating.text = "\(tripDetail?.data?.trip_details?.total_rating ?? "")"
-                    self.lblpickupTime.text = "\(tripDetail?.data?.trip_details?.pick_up_time ?? "")"
-                    self.lblAlmostPurchasePrice.text = "\(tripDetail?.data?.trip_details?.purchase_price ?? "")"
-                    self.lblDeliveryPrice.text = "\(tripDetail?.data?.trip_details?.delivery_price ?? "")"
-                    self.lblAlmostTotalPrice.text = "\(tripDetail?.data?.trip_details?.total_price ?? "")"
-                    self.imgCod.sd_setImage(with: URL(string: tripDetail?.data?.trip_details?.payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
                     
-
-                    self.totalTime = (tripDetail?.data?.trip_details?.otp_time ?? 0)
-                    startTimer()
-                    
-                    self.loadHeaderData()
-                    self.loadMapViewa()
                     
                 }
             }

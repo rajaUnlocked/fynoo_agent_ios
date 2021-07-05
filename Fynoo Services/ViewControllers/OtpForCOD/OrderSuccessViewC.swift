@@ -32,7 +32,7 @@ class OrderSuccessViewC: UIViewController {
             vc.isfrom = "100"
             vc.selectedTrip = 3
             Singleton.shared.setDeliveryDashBoardTabID(tabId: 3)
-            Singleton.shared.setDelServiceID(delServiceId: self.confirmDeliveryData["del_service_id"] as! String)
+            Singleton.shared.setDelServiceID(delServiceId: "\(self.confirmDeliveryData["del_service_id"] as! Int)")
 
             vc.isRating = true
             self.navigationController?.pushViewController(vc, animated: true)

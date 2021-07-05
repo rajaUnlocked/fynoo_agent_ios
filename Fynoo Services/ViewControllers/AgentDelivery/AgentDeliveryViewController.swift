@@ -112,9 +112,12 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         self.present(vc, animated: true, completion: nil)
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        print(Singleton.shared.getDelServiceID())
+    }
     override func viewDidAppear(_ animated: Bool) {
         getAgentData()
-        self.selecteIndex(self, selectedIndexID: "\(self.selectedTrip)")
+        self.selecteIndex(self, selectedIndexID: "\(Singleton.shared.getDeliveryDashBoardTabID())")
     }
  
     func SetFont() {
@@ -138,7 +141,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         
         let param = ["user_id":Singleton.shared.getUserId(),
                      "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
-                     "services":self.serviceID]
+                     "services":Singleton.shared.getDelServiceID()]
         print("request:-", param)
         ServerCalls.postRequest(str, withParameters: param) { (response, success) in
             if success{
@@ -157,7 +160,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         
         let param = ["user_id":Singleton.shared.getUserId(),
                      "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
-                     "services":self.serviceID]
+                     "services":Singleton.shared.getDelServiceID()]
         print("request:-", param)
         ServerCalls.postRequest(str, withParameters: param) { (response, success) in
             if success{
@@ -179,7 +182,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
             userId = ""
             
         }
-        let param = ["service_id":self.serviceID,
+        let param = ["service_id":Singleton.shared.getDelServiceID(),
                      "user_id":userId,
                      "lang_code":HeaderHeightSingleton.shared.LanguageSelected]
         
@@ -210,7 +213,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     
     func getTripData(){
         
-        let param = ["service_id":self.serviceID,
+        let param = ["service_id":Singleton.shared.getDelServiceID(),
                      "user_id":Singleton.shared.getUserId(),
                      "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
                      "tab_id": self.selectedTab,
