@@ -511,7 +511,16 @@ static func isStringValid(_ str: String?) -> Bool {
              return false
          }
     }
-    
+    static func isValidPlatenumber(title:String)->Bool{
+        let  Regex = "[a-z A-Z 0-9 ]+"
+         let predicate = NSPredicate.init(format: "SELF MATCHES %@", Regex)
+
+         if predicate.evaluate(with: title) || title == "" {
+             return true
+         }else{
+             return false
+         }
+    }
    static  func hexStringToUIColor (hex:String) -> UIColor {
           var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
           
