@@ -41,7 +41,7 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-      registerlbl.font = UIFont(name:"\(fontNameLight)",size:16)
+      registerlbl.font = UIFont(name:"\(fontNameLight)",size:15)
         yeslbl.font = UIFont(name:"\(fontNameLight)",size:12)
         noTxt.font = UIFont(name:"\(fontNameLight)",size:12)
         vatcertificate.font = UIFont(name:"\(fontNameLight)",size:12)

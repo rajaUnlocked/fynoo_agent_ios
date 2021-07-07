@@ -323,15 +323,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             {
                 self.servicelist = response
                
-//                if self.servicelist?.data?.front_side ?? "" != ""{
-//                    self.vehicleKind_API(brandid: (self.servicelist?.data?.registration_type_id)!)
-//                    self.vehicleName_API(brandid: (self.servicelist?.data?.vehicle_brand_id)!)
-//
-//                }
-//                else
-//                {
-//                    ModalClass.stopLoadingAllLoaders(self.view)
-//                }
+                if self.servicelist?.data?.front_side ?? "" != ""{
+                    self.vehicleKind_API(brandid: (self.servicelist?.data?.registration_type_id)!)
+                    self.vehicleName_API(brandid: (self.servicelist?.data?.vehicle_brand_id)!)
+
+                }
+
                 self.imgArr = [self.servicelist?.data?.national_id ?? "",self.servicelist?.data?.driving_license ?? "",self.servicelist?.data?.registration ?? "",self.servicelist?.data?.insurance ?? "",self.servicelist?.data?.authorization ?? "",self.servicelist?.data?.front_side ?? ""]
                 for i in 0...self.imgArr.count - 1
                 {
