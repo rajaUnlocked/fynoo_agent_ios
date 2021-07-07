@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VatpopnewchangeViewController" customModule="Fynoo_Services" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VatpopnewchangeViewController" customModule="Fynoo_Agent" customModuleProvider="target">
             <connections>
                 <outlet property="add" destination="3jo-Tt-5Yr" id="k5u-tH-yRf"/>
                 <outlet property="addlbl" destination="vCl-3u-4jE" id="aEG-7d-JRs"/>
@@ -55,7 +55,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you registered in VAT?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vw3-Ct-jHu">
-                    <rect key="frame" x="106" y="396" width="189.5" height="18.5"/>
+                    <rect key="frame" x="81" y="396" width="252" height="18.5"/>
                     <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
                     <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -233,7 +233,8 @@
                 <constraint firstItem="Nio-0A-jrb" firstAttribute="centerX" secondItem="gNa-nb-ecS" secondAttribute="centerX" id="NkU-Cd-7zp"/>
                 <constraint firstItem="3pV-F8-hii" firstAttribute="centerX" secondItem="gNa-nb-ecS" secondAttribute="centerX" id="gFJ-cJ-OUU"/>
                 <constraint firstItem="gNa-nb-ecS" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="gGk-K6-suI"/>
-                <constraint firstItem="vw3-Ct-jHu" firstAttribute="leading" secondItem="gNa-nb-ecS" secondAttribute="leading" constant="50" id="wET-NV-TEu"/>
+                <constraint firstItem="vw3-Ct-jHu" firstAttribute="trailing" secondItem="gNa-nb-ecS" secondAttribute="trailing" constant="-25" id="off-Cv-kcB"/>
+                <constraint firstItem="vw3-Ct-jHu" firstAttribute="leading" secondItem="gNa-nb-ecS" secondAttribute="leading" constant="25" id="wET-NV-TEu"/>
                 <constraint firstItem="gNa-nb-ecS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ypO-oE-Ig8"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="89.732142857142847"/>

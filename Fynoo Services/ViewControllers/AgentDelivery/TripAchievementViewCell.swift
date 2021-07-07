@@ -34,11 +34,15 @@ class TripAchievementViewCell: UITableViewCell,UICollectionViewDataSource, UICol
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
        tripAchivementLbl.font = UIFont(name:"\(fontNameLight)",size:16)
 
+        
+    }
+    func setupData()
+    {
+        self.collectionView.register(UINib.init(nibName: "TripAchivementCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TripAchivementCollectionViewCell")
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        self.collectionView.register(UINib.init(nibName: "TripAchivementCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TripAchivementCollectionViewCell")
+        
     }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
