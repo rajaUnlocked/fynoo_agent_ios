@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DataEntryAgentRatingViewController" customModule="Fynoo_Services" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DataEntryAgentRatingViewController" customModule="Fynoo_Agent" customModuleProvider="target">
             <connections>
                 <outlet property="agentLanguageLbl" destination="Rjm-J9-OZq" id="aOt-rK-E61"/>
                 <outlet property="agentNameLbl" destination="Y7m-M4-nzP" id="qdt-gn-ucf"/>
