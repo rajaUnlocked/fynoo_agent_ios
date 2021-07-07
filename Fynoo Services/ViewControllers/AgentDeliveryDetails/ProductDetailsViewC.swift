@@ -40,6 +40,12 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     var checkReceivedItem : Bool = false
     var distanceAgentToBo = ""
     var distanceBoToCustomer = ""
+    var boToCustomerDistance = ""
+    var agentToBoDistance : Int = 0
+    var boToCustomerDistancec : Int = 0
+    var lblWatingTime = ""
+    var checkcondition = false
+    
     
     
     override func viewDidLoad() {
@@ -189,6 +195,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
                         if orderDetailData?.data?.user_type == "BO" {
                             callMainButtonstatusForBO()
                         }
+                        callGetDistance()
                         self.tableView.reloadData()
                         
                         print(orderDetailData?.data?.is_vat_available)
@@ -1201,6 +1208,76 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     
     
     
+    func callGetDistance(){
+           let dispatchGroup = DispatchGroup()
+           
+           let agentLat = self.orderDetailData?.data?.agent_lat
+           let agentLng = self.orderDetailData?.data?.agent_long
+           let boLat = self.orderDetailData?.data?.bo_lat
+           let boLng = self.orderDetailData?.data?.bo_long
+           let custLat = self.orderDetailData?.data?.cust_lat
+           let custLng = self.orderDetailData?.data?.cust_long
+
+           dispatchGroup.enter()   // <<---
+           let distanceUrlFromAgentToBO = "\(Constant.GOOGLE_API_DISTANCE)origin=\(agentLat!),\(agentLng!)&destination=\(boLat!),\(boLng!)&key=\(Constant.GOOGLE_API_KEY)"
+           agentViewModel.getDistance(distanceUrlFromAgentToBO) { (succes, response) in
+               if succes{
+//                   self.lblBoLocation.text = "\(response?.routes?.first?.legs?.first?.distance?.text ?? "")".uppercased()
+                self.agentToBoDistance = (response.routes?.first?.legs?.first?.distance?.value ?? 0)
+               
+               
+                   DispatchQueue.main.async {
+                                
+                                  dispatchGroup.leave()   // <<----
+                              }
+                
+               }
+           }
+
+           dispatchGroup.enter()   // <<---
+           let distanceUrlFromBOToCustomer = "\(Constant.GOOGLE_API_DISTANCE)origin=\(boLat!),\(boLng!)&destination=\(custLat!),\(custLng!)&key=\(Constant.GOOGLE_API_KEY)"
+           agentViewModel.getDistance(distanceUrlFromBOToCustomer) { (succes, response) in
+                      if succes{
+//                       self.lblCustomerLocation.text = "\(response?.routes?.first?.legs?.first?.distance?.text ?? "")".uppercased()
+                         self.boToCustomerDistancec = (response.routes?.first?.legs?.first?.distance?.value ?? 0)
+                       
+                       DispatchQueue.main.async {
+                                    
+                                      dispatchGroup.leave()   // <<----
+                                  }
+                      }
+                  }
+
+           dispatchGroup.notify(queue: .main) {
+               // whatever you want to do when both are done
+               self.calculateExpectedDelTime()
+           }
+       }
+       
+       func calculateExpectedDelTime()  {
+           let agentToBoDist = agentToBoDistance/1000
+           let BoToCustomerDist = boToCustomerDistancec/1000
+           let totaldistance = (agentToBoDist + BoToCustomerDist)
+           
+           for i in 0...((self.orderDetailData?.data?.delivery_times?.count ?? 0) - 1) {
+               
+               guard let dataa = self.orderDetailData?.data?.delivery_times else {return}
+               if totaldistance < Int((dataa[i]).distance ?? "") ?? 0{
+                lblWatingTime = (dataa[i]).time ?? ""
+                   checkcondition = true
+                self.tableView.reloadSections([1], with: .automatic)
+                   break
+               }
+           }
+           if checkcondition == false {
+            lblWatingTime = self.orderDetailData?.data?.delivery_times?[((self.orderDetailData?.data?.delivery_times?.count ?? 0) - 1)].time ?? ""
+            self.tableView.reloadSections([1], with: .automatic)
+           }
+       }
+
+    
+    
+    
     func calculateDistanceFromLatLong() {
         
         
@@ -1424,6 +1501,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         
                     }
                   
+                    cell.lblTime.text = lblWatingTime
                     
 //                    calculateDistanceFromLatLong()
                     

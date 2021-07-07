@@ -205,10 +205,10 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "OtpTableViewCell",for: index) as! OtpTableViewCell
         cell.selectionStyle = .none
         cell.delegate = self
-        cell.txt1.keyboardType = .numberPad
-        cell.txt2.keyboardType = .numberPad
-        cell.txt3.keyboardType = .numberPad
-        cell.txt4.keyboardType = .numberPad
+        cell.txt1.keyboardType = .asciiCapableNumberPad
+        cell.txt2.keyboardType = .asciiCapableNumberPad
+        cell.txt3.keyboardType = .asciiCapableNumberPad
+        cell.txt4.keyboardType = .asciiCapableNumberPad
         
         cell.txt1.addTarget(self, action: #selector(OtpForCodViewC.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         cell.txt2.addTarget(self, action: #selector(OtpForCodViewC.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
