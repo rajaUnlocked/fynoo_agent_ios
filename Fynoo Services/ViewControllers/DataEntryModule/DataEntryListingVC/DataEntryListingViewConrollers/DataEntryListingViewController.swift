@@ -227,7 +227,6 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
             }
         }
     }
-    
     func selectedCancelReason(reasonID: String) {
         print("reasonID", reasonID)
         self.rejectReasonID = reasonID
