@@ -323,15 +323,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             {
                 self.servicelist = response
                
-//                if self.servicelist?.data?.front_side ?? "" != ""{
-//                    self.vehicleKind_API(brandid: (self.servicelist?.data?.registration_type_id)!)
-//                    self.vehicleName_API(brandid: (self.servicelist?.data?.vehicle_brand_id)!)
-//
-//                }
-//                else
-//                {
-//                    ModalClass.stopLoadingAllLoaders(self.view)
-//                }
+                if self.servicelist?.data?.front_side ?? "" != ""{
+                    self.vehicleKind_API(brandid: (self.servicelist?.data?.registration_type_id)!)
+                    self.vehicleName_API(brandid: (self.servicelist?.data?.vehicle_brand_id)!)
+
+                }
+
                 self.imgArr = [self.servicelist?.data?.national_id ?? "",self.servicelist?.data?.driving_license ?? "",self.servicelist?.data?.registration ?? "",self.servicelist?.data?.insurance ?? "",self.servicelist?.data?.authorization ?? "",self.servicelist?.data?.front_side ?? ""]
                 for i in 0...self.imgArr.count - 1
                 {
@@ -939,7 +936,13 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 self.descriparr = [self.servicelist?.data?.national_id_content ?? "", "",self.servicelist?.data?.registration_content ?? "", "",self.servicelist?.data?.authorization_content ?? ""]
                 self.toptxtArr = [self.servicelist?.data?.full_name ?? "",self.servicelist?.data?.dob ?? "",self.servicelist?.data?.iqama_no ?? "",self.servicelist?.data?.doe ?? ""]
                 self.txtArr = [self.servicelist?.data?.registration_type ?? "",self.servicelist?.data?.vehicle_brand ?? "",self.servicelist?.data?.vehicle_name ?? "",self.servicelist?.data?.production_year ?? "",self.servicelist?.data?.vehicle_color ?? "",self.servicelist?.data?.vehicle_kind ?? "",self.servicelist?.data?.maximum_load ?? "",self.servicelist?.data?.plate_no ?? ""]
-                
+                self.submit.setTitle("Submit for approval".localized, for: .normal)
+                self.submit.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+                if self.servicelist?.data?.status ?? 0 == 1
+                {
+                    self.submit.backgroundColor = .lightGray
+                    self.submit.setTitle("Pending for approval".localized, for: .normal)
+                }
                // self.servicedocList_API()
                 self.tabvw.reloadData()
             }

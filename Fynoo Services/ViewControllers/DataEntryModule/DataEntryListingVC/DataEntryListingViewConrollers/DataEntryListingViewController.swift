@@ -227,7 +227,6 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
             }
         }
     }
-    
     func selectedCancelReason(reasonID: String) {
         print("reasonID", reasonID)
         self.rejectReasonID = reasonID
@@ -692,7 +691,6 @@ extension DataEntryListingViewController : UITableViewDataSource {
             cell.locationBtnWidthConstant.constant = 0
         }
         
-        
         cell.delegate = self
         cell.tag = index.row
         return cell
@@ -723,6 +721,7 @@ extension DataEntryListingViewController : UITableViewDataSource {
     }
 }
 
+
 extension DataEntryListingViewController : DataEntryFilterDelegate {
     
     func filterApplied(filters : [ChooseFilters]) {
@@ -739,5 +738,4 @@ extension DataEntryListingViewController : DataEntryFilterDelegate {
         print("appliedFilterCount:-", appliedFilterCount)
         self.refreshDataEntryCompleteServiceList()
     }
-        
 }

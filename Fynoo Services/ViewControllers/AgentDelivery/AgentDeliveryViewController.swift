@@ -524,6 +524,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             cell.selectionStyle = .none
             cell.tripAchivementLbl.text = "Trips Achievement".localized
             cell.tripAchivementData = deliverData?.data?.agent_information?.trips_achievements
+            cell.setupData()
             cell.collectionView.reloadData()
             
             
