@@ -691,7 +691,6 @@ extension DataEntryListingViewController : UITableViewDataSource {
             cell.locationBtnWidthConstant.constant = 0
         }
         
-        
         cell.delegate = self
         cell.tag = index.row
         return cell
