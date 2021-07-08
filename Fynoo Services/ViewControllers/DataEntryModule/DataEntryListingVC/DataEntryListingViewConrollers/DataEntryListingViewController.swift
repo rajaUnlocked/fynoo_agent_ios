@@ -722,6 +722,7 @@ extension DataEntryListingViewController : UITableViewDataSource {
     }
 }
 
+
 extension DataEntryListingViewController : DataEntryFilterDelegate {
     
     func filterApplied(filters : [ChooseFilters]) {
