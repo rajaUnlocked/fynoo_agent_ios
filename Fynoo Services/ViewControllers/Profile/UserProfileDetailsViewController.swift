@@ -1479,7 +1479,8 @@ extension UserProfileDetailsViewController : ProfileNameTableViewCellDelegate,Op
      let str = "\(Constant.BASE_URL)\(Constant.UpdateProfile_Image)"
     
     let param = [
-     "user_id":"\(Singleton.shared.getUserId())"
+     "user_id":"\(Singleton.shared.getUserId())",
+        "lang_code":HeaderHeightSingleton.shared.LanguageSelected
      ]
      
      

@@ -190,7 +190,6 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         print("Url:-", Service.deliveryDashboard)
         ServerCalls.postRequest(Service.deliveryDashboard, withParameters: param) { (response, success) in
             if success{
-                
                 if let body = response as? [String: Any] {
                     self.deliverData  = Mapper<deliveryDashboard>().map(JSON: body)
                     if self.deliverData?.data?.agent_information?.del_service_document_uploaded == 0 {

@@ -972,7 +972,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             self.btnChangeStatus.isUserInteractionEnabled = false
             cell.contentView.isUserInteractionEnabled = false
             Singleton.shared.setDeliveryDashBoardTabID(tabId: 4)
-            Singleton.shared.setDelServiceID(delServiceId: "\(orderDetailData?.data?.del_service_id ?? 0)")
+            Singleton.shared.setDelServiceID(delServiceId: "\((orderDetailData?.data?.del_service_id)!)")
             
             if orderDetailData?.data?.report_to_bo == true {
                 cell.btnAnyProblem.isHidden = false
@@ -1002,15 +1002,15 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             cell.txtTotalAmountWithVat.text = "\(orderDetailData?.data?.total_amount_with_vat ?? 0)"
 //            cell.btnAnyProblem.isHidden = false
             Singleton.shared.setDeliveryDashBoardTabID(tabId: 3)
-            Singleton.shared.setDelServiceID(delServiceId: "\(orderDetailData?.data?.del_service_id ?? 0)")
+            Singleton.shared.setDelServiceID(delServiceId: "\((orderDetailData?.data?.del_service_id)!)")
         case 4:
             self.btnChangeStatus.setTitle("Cancel Request Received".localized, for: .normal)
             Singleton.shared.setDeliveryDashBoardTabID(tabId: 4)
-            Singleton.shared.setDelServiceID(delServiceId: "\(orderDetailData?.data?.del_service_id ?? 0)")
+            Singleton.shared.setDelServiceID(delServiceId: "\((orderDetailData?.data?.del_service_id)!)")
         default:
             self.btnChangeStatus.setTitle("Confirm and upload invoice".localized, for: .disabled)
             Singleton.shared.setDeliveryDashBoardTabID(tabId: 1)
-            Singleton.shared.setDelServiceID(delServiceId: "\(orderDetailData?.data?.del_service_id ?? 0)")
+            Singleton.shared.setDelServiceID(delServiceId: "\((orderDetailData?.data?.del_service_id)!)")
         }
         
         
@@ -1384,7 +1384,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
             }
         }else
         {
-          return 1
+            return orderDetailData?.data?.item_detail?.count ?? 0 == 0 ? 0 : 1
         }
     }
     
