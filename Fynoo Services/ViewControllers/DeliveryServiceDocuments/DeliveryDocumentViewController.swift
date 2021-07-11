@@ -1409,9 +1409,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 vc.tag1 = indexPath.row - 1
                 vc.delegate = self
                 vc.isfiletr = true
-                vc.nameAr = ["Vehicle","Vehicle","Vehicle","Vehicle","Vehicle","Vehicle","Vehicle","Vehicle"]
-                vc.nameArId = [1,1,1,1,1,1,1,1]
-                vc.namelock = [1,1,1,1,1,1,1,1]
+   
                 if indexPath.row == 1
                 {
                     vc.nameAr = registrationtypeArr
@@ -1444,6 +1442,9 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                     vc.nameArId = vehiclekindidArr
                     vc.namelock = vehiclekindidArr
                     vc.imageKind = vehiclekindimageArr
+                }
+                else{
+                    return
                 }
                 let popupController = MTPopupController(rootViewController: vc)
                 popupController.autoAdjustKeyboardEvent = false
