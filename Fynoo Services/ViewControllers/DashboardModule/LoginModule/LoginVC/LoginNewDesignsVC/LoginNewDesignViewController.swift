@@ -705,7 +705,6 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
                                                 self.navigationController?.pushViewController(vc, animated: true)
                                             }
                                             
-                                            
                                         }else {
                                             if results.object(forKey: "is_language_added") as! Bool == true {
                                             let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
