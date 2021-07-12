@@ -64,7 +64,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         tableView.dataSource=self
         
         self.headerHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-        self.headerView.titleHeader.text = "Product Details".localized
+        self.headerView.titleHeader.text = "Order Details".localized
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
         SetFont()
@@ -903,7 +903,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         }
         
         if orderDetailData?.data?.order_status == 3 {
-            self.btnChangeStatus.setTitle("Cancelled".localized, for: .normal)
+            self.btnChangeStatus.setTitle("CancelledStatus".localized, for: .normal)
 
         }
     }
@@ -968,7 +968,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         
         switch orderDetailData?.data?.order_status {
         case 3:
-            self.btnChangeStatus.setTitle("Cancelled".localized, for: .normal)
+            self.btnChangeStatus.setTitle("CancelledStatus".localized, for: .normal)
             self.btnChangeStatus.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             self.btnChangeStatus.isUserInteractionEnabled = false
             cell.contentView.isUserInteractionEnabled = false
@@ -1579,7 +1579,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     }
                     
                     
-                    let ItemQty = "Item Qty".localized
+                    let ItemQty = "Qty".localized
                     
                     cell.lblQty.text = "\(ItemQty):0\(orderDetailData?.data?.item_detail? [indexPath.row].qty ?? 0)"
                     cell.lblAddress.text = orderDetailData?.data?.item_detail? [indexPath.row].pro_name ?? ""

@@ -9,19 +9,13 @@
 import UIKit
 
 class OrderSuccessViewC: UIViewController {
-    @IBOutlet weak var headerView: NavigationView!
-    @IBOutlet weak var headerHeightConstant: NSLayoutConstraint!
+   
     @IBOutlet weak var lblMsg: UILabel!
     var confirmDeliveryData : Dictionary<String,Any> = ["":""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.headerHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-        self.headerView.titleHeader.text = "Product Details"
-        self.headerView.menuBtn.isHidden = true
-        self.headerView.backButton.isHidden = true
-        self.headerView.viewControl = self
         SetFont()
         
         print(confirmDeliveryData)
@@ -48,7 +42,6 @@ class OrderSuccessViewC: UIViewController {
         
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         
-        self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
         self.lblMsg.font = UIFont(name:"\(fontNameLight)",size:24)!
         
     }

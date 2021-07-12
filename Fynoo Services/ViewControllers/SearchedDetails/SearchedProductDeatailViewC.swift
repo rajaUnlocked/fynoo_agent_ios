@@ -274,7 +274,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         
         let vc = PopUpAcceptProductViewController(nibName: "PopUpAcceptProductViewController", bundle: nil)
         vc.delegateDecline = self
-        vc.titleLabel = "Are you sure want to decline?".localized
+        vc.titleLabel = "Are you sure you want to decline?".localized
         vc.modalPresentationStyle = .overFullScreen
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         self.present(vc, animated: true, completion: nil)
@@ -366,8 +366,8 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         //
                             self.lblQty.text = "\(qty)0\(tripDetail?.data?.trip_details?.qty ?? 0)"
                             let size = "Size:".localized
-                            
-                            self.lblSize.text = "\(size)\(tripDetail?.data?.trip_details?.size ?? "")"
+                            let cm3 = "cm3".localized
+                            self.lblSize.text = "\(size)\(tripDetail?.data?.trip_details?.size ?? "")\(cm3)"
                             self.lblCreatedBy.text = "\(tripDetail?.data?.trip_details?.created_by ?? "")"
                             self.lblpickupTime.text = "\(tripDetail?.data?.trip_details?.pick_up_time ?? "")"
                             let weight = "Weight:".localized
