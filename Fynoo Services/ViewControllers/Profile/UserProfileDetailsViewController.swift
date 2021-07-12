@@ -495,6 +495,8 @@ extension UserProfileDetailsViewController : UITableViewDelegate{
             let view = SectionHeader()
             view.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: 40)
             view.sectionText.text = sectionHeading[section].localized
+            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+            view.sectionText.font = UIFont(name: "\(fontNameLight)", size: 13)
             return view
         }
         

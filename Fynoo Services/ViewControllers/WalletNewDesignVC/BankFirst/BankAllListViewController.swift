@@ -42,6 +42,7 @@ class BankAllListViewController: UIViewController, WalletFilterNewViewController
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.register(UINib(nibName: "WalletAvailableTopCell", bundle: nil), forCellReuseIdentifier: "WalletAvailableTopCell");
         tableView.register(UINib(nibName: "TransactionInnerTableCell", bundle: nil), forCellReuseIdentifier: "TransactionInnerTableCell");
+        tableView.register(UINib(nibName: "NoDataFoundTableViewCell", bundle: nil), forCellReuseIdentifier: "NoDataFoundTableViewCell");
         
         tableView.register(UINib(nibName: "PaymentProgressTableViewCell", bundle: nil), forCellReuseIdentifier: "PaymentProgressTableViewCell");
 
