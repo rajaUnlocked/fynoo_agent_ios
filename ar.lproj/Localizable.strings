@@ -286,7 +286,7 @@
 
 "Do you want to opt for" = "هل تريد إضافة خدمة";
 "service?" = "ضمن الخدمات التي تعمل عليها؟";
-
+"No Data Found" = "لا يوجد صور لعرضها";
 
 "Product Details" = "تفاصيل المنتج";
 "Item Qty" = "كمية المنتج";
@@ -379,7 +379,7 @@
 "Branch Data Entry" = "إدخال بيانات الفرع";
 "Order information" = "معلومات الطلب";
 
-"Waiting List" = "قائمة الإنتظار";
+"New Requests" = "طلبات جديدة";
 "Inprocess" = "قيد التنفيذ";
 "Completed" = "مكتملة";
 "New Order" = "الطلبات الجديدة";
@@ -1245,7 +1245,6 @@
 
 "Welcome, Let's Select Your Gallery"="معرض الصور الخاص بك";
 "Please select an Image"="Please select an Image";
-"No Data Found"="لا يوجد صور لعرضها";
 "No Product Found"="No Product Found";
 "View Images"="عرض الصورة";
 "Upload Images"="رفع الصور";
