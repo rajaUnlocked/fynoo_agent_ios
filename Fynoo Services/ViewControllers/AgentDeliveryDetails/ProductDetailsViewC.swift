@@ -1355,7 +1355,6 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         }
     
     }
-  
  
 }
 

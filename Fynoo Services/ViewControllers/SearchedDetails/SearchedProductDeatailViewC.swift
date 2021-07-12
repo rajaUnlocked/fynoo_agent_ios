@@ -130,6 +130,12 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         self.lblDecline.font =  UIFont(name:"\(fontNameLight)",size:16)
        
         self.lblDecline.text = "Decline".localized
+        self.lblStpickupTime.text = "Time of Pickup".localized
+        self.lblStCreatedBy.text = "Created By".localized
+        self.lblStAlmostPurchasePrice.text = "Almost Order Price".localized
+        self.lblStDeliveryPrice.text = "Delivery Price".localized
+        self.lblStAlmostTotalPrice.text = "Almost Total Price".localized
+        self.btnAcceptTxt.setTitle("Tap to accept".localized, for: .normal)
         }
         
     
@@ -280,7 +286,9 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     }
 
     @objc func updateTime() {
-        lblTime.text = "\(timeFormatted(totalTime))min"
+        let min = "min".localized
+        
+        lblTime.text = "\(timeFormatted(totalTime))\(min)"
 
         if totalTime > 0 {
             totalTime -= 1
@@ -353,12 +361,18 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                         {
                             print(self.tripDetail?.data)
         //                    print(self.tripDetail?.data?.trip_details?.purchase_price)
+                            let qty = "Qty :".localized
+                            
         //
-                            self.lblQty.text = "Qty:0\(tripDetail?.data?.trip_details?.qty ?? 0)"
-                            self.lblSize.text = "Size:\(tripDetail?.data?.trip_details?.size ?? "")"
+                            self.lblQty.text = "\(qty)0\(tripDetail?.data?.trip_details?.qty ?? 0)"
+                            let size = "Size:".localized
+                            
+                            self.lblSize.text = "\(size)\(tripDetail?.data?.trip_details?.size ?? "")"
                             self.lblCreatedBy.text = "\(tripDetail?.data?.trip_details?.created_by ?? "")"
                             self.lblpickupTime.text = "\(tripDetail?.data?.trip_details?.pick_up_time ?? "")"
-                            self.lblWeight.text = "Weight:\(tripDetail?.data?.trip_details?.weight ?? "")"
+                            let weight = "Weight:".localized
+                            
+                            self.lblWeight.text = "\(weight)\(tripDetail?.data?.trip_details?.weight ?? "")"
                             self.lblRating.text = "\(tripDetail?.data?.trip_details?.rating ?? "")"
                             self.lblavgRating.text = "\(tripDetail?.data?.trip_details?.total_rating ?? "")"
                             self.lblpickupTime.text = "\(tripDetail?.data?.trip_details?.pick_up_time ?? "")"

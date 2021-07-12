@@ -23,7 +23,9 @@ class DataBankHeader: UIView, UICollectionViewDelegate, UICollectionViewDataSour
     weak var delegate: DataEntryListHeaderViewDelegate?
     
     
-     var headerTextArray = ["Current".localized,"Next".localized,"Previous".localized,"Cancelled".localized]
+//     var headerTextArray = ["Current".localized,"Next".localized,"Previous".localized,"Cancelled".localized]
+    
+    var headerTextArray = ["Inprocess".localized,"New Order".localized,"Completed".localized,"Cancelled".localized]
       var selectedIndex:Int = 0
     
     

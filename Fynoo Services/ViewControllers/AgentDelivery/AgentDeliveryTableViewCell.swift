@@ -66,6 +66,14 @@ class AgentDeliveryTableViewCell: UITableViewCell {
         self.cod.font = UIFont(name:"\(fontNameLight)",size:16)
         self.totalCODStaticLbl.font = UIFont(name:"\(fontNameLight)",size:16)
          self.deliveryDocumentLbl.font = UIFont(name:"\(fontNameLight)",size:16)
+        self.deliveryStatusLbl.text = "Delivery Service".localized
+        self.totalCODStaticLbl.text = "Todays COD".localized
+        self.profileLbl.text = "Profile".localized
+        self.tripStaticLbl.text = "Trips".localized
+        self.earningStaticLbl.text = "Earning".localized
+        self.deliveryDocumentLbl.text = "Delivery Services Documents".localized
+        self.yearStaticLbl.text = "Joining".localized
+        
         
         
     }
