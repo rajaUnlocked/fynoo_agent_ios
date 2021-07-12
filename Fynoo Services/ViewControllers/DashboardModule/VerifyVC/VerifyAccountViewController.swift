@@ -19,8 +19,6 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var downImage: UIImageView!
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerView: NavigationView!
-    
-   
     @IBOutlet weak var verifyLbl: UILabel!
     @IBOutlet weak var otpView: UIView!
     
