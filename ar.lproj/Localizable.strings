@@ -286,7 +286,7 @@
 
 "Do you want to opt for" = "هل تريد إضافة خدمة";
 "service?" = "ضمن الخدمات التي تعمل عليها؟";
-
+"No Data Found" = "لا يوجد صور لعرضها";
 
 "Product Details" = "تفاصيل المنتج";
 "Item Qty" = "كمية المنتج";
@@ -379,7 +379,7 @@
 "Branch Data Entry" = "إدخال بيانات الفرع";
 "Order information" = "معلومات الطلب";
 
-"Waiting List" = "قائمة الإنتظار";
+"New Requests" = "طلبات جديدة";
 "Inprocess" = "قيد التنفيذ";
 "Completed" = "مكتملة";
 "New Order" = "الطلبات الجديدة";
@@ -467,6 +467,7 @@
 "Next" = "الطلبات التالية";
 "Previous" = "الطلبات السابقة";
 "Cancelled" = "الطلبات الملغاة";
+"CancelledStatus" = "ملغى";
 "Almost Total Price" = "المبلغ الإجمالي التقريبي";
 "Order Id" = "رقم الطلب";
 "Address" = "العنوان";
@@ -505,7 +506,8 @@
 "Delivery Price" = "قيمة التوصيل";
 "min" = "د";
 "Address :" = "العنوان:";
-"Report Business Owner" = "Report Business Owner";
+"Report Business Owner" = "إبلاغ عن صاحب النشاط";
+"Profile"="الملف الشخصي";
 
 //Forget Password
 "Business Owner" = "صاحب العمل";
@@ -1141,6 +1143,11 @@
 "Cancelled By Business Owner Date" = "تاريخ إلغاء الطلب بواسطة صاحب العمل";
 "Cancelled By Customer Date" = "تاريخ إلغاء الطلب بواسطة العميل";
 "Submit" = "إتمام";
+"Are you sure you want to decline?" = "هل تريد رفض الطلب؟";
+"cm3" = "سنتمتر مكعب";
+"Order Details" = "تفاصيل الطلب";
+"Qty" = "الكمية";
+"Reduce Qty" = "تغيير الكمية";
 
 
 "Oops! No Order Found" = "Oops! No Order Found";
@@ -1245,7 +1252,6 @@
 
 "Welcome, Let's Select Your Gallery"="معرض الصور الخاص بك";
 "Please select an Image"="Please select an Image";
-"No Data Found"="لا يوجد صور لعرضها";
 "No Product Found"="No Product Found";
 "View Images"="عرض الصورة";
 "Upload Images"="رفع الصور";

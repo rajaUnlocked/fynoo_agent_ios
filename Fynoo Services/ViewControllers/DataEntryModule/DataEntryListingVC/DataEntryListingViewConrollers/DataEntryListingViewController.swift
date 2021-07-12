@@ -372,7 +372,6 @@ extension DataEntryListingViewController : UITableViewDelegate {
                 let dataEntryLbl = headerView1!.viewWithTag(106) as! UILabel
                 let serviceIcon = headerView1!.viewWithTag(1011) as! UIImageView
                 
-                
                 let fontNameLight = NSLocalizedString("LightFontName", comment: "")
                 dataEntryLbl.font = UIFont(name:"\(fontNameLight)",size:16)
                 searchTxtFld.font = UIFont(name:"\(fontNameLight)",size:12)

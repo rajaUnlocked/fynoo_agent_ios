@@ -38,7 +38,7 @@ class PopUpAcceptProductViewController: UIViewController {
         self.yesOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: self.yesOutlet.frame.size.width)
         self.noOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: self.yesOutlet.frame.size.width)
 
-        if titleLabel == "Are you sure want to decline?" {
+        if titleLabel == "Are you sure you want to decline?".localized {
             lblInstruction.text = titleLabel
         }
     }
@@ -61,7 +61,7 @@ class PopUpAcceptProductViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
             return
         }
-        if titleLabel == "Are you sure want to decline?"{
+        if titleLabel == "Are you sure you want to decline?"{
             self.delegateDecline?.declineOrder()
             self.dismiss(animated: true, completion: nil)
             return

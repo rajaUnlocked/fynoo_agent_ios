@@ -9,10 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderSuccessViewC" customModule="Fynoo_Services" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderSuccessViewC" customModule="Fynoo_Agent" customModuleProvider="target">
             <connections>
-                <outlet property="headerHeightConstant" destination="fta-kW-1Dt" id="PIl-18-CRO"/>
-                <outlet property="headerView" destination="khQ-ai-HSQ" id="miT-xt-m5z"/>
                 <outlet property="lblMsg" destination="HRf-7M-Xca" id="DPO-mP-VIR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,13 +20,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="khQ-ai-HSQ" customClass="NavigationView" customModule="Fynoo_Services" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="90" id="fta-kW-1Dt"/>
-                    </constraints>
-                </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="8uR-8P-OQB">
                     <rect key="frame" x="0.0" y="367" width="285" height="201"/>
                     <constraints>
@@ -53,14 +44,11 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="khQ-ai-HSQ" secondAttribute="trailing" id="Ifl-WM-5gq"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HRf-7M-Xca" secondAttribute="trailing" constant="20" id="O5j-h5-akF"/>
                 <constraint firstItem="HRf-7M-Xca" firstAttribute="top" secondItem="06L-Pp-0Xj" secondAttribute="bottom" constant="40" id="PB9-mo-BCq"/>
                 <constraint firstItem="HRf-7M-Xca" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Pnm-fg-oju"/>
-                <constraint firstItem="khQ-ai-HSQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Q19-Ix-alI"/>
                 <constraint firstItem="06L-Pp-0Xj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dhM-fC-RFR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="8uR-8P-OQB" secondAttribute="bottom" id="ocb-9R-aJG"/>
-                <constraint firstItem="khQ-ai-HSQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="sc2-Ee-9u6"/>
                 <constraint firstItem="06L-Pp-0Xj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="uau-AU-DiE"/>
                 <constraint firstItem="8uR-8P-OQB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xQO-cZ-Dee"/>
             </constraints>

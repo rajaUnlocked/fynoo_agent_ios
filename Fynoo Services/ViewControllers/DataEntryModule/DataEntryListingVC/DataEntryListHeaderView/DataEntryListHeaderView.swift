@@ -39,9 +39,7 @@ class DataEntryListHeaderView: UIView, UICollectionViewDelegate, UICollectionVie
     
     @IBOutlet weak var totalRatingLbl: UILabel!
     
-    
-    
-     var headerTextArray = ["Waiting List".localized,"Inprocess".localized,"Completed".localized,"Rejected".localized]
+     var headerTextArray = ["New Requests".localized,"Inprocess".localized,"Completed".localized,"Rejected".localized]
       
        var headerImageArray = ["waitingDataEntry_selected","inprogress_dataEntry","complete_dataEntry","cancel_DataEntry"]
     

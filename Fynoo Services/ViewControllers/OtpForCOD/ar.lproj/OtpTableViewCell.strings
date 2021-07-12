@@ -1,12 +1,12 @@
 
 /* Class = "UILabel"; text = "OTP"; ObjectID = "BHc-NZ-U09"; */
-"BHc-NZ-U09.text" = "رمز التحقق";
+"BHc-NZ-U09.text" = "رمز التأكيد";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Eeg-TH-MyM"; */
 "Eeg-TH-MyM.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Enter OTP given by the customer \\nto verify your order confirmation."; ObjectID = "IEz-hG-DH5"; */
-"IEz-hG-DH5.text" = "قم بإدخال رمز التأكيد الذي سيزودك به العميل\n عند تسليم الطلب.;";
+"IEz-hG-DH5.text" = "قم بإدخال رمز التأكيد الذي سيزودك به العميل عند تسليم الطلب.";
 
 /* Class = "UILabel"; text = "I have received the COD amount from Customer."; ObjectID = "jLg-Ke-lxX"; */
 "jLg-Ke-lxX.text" = "I have received the COD amount from Customer.";
