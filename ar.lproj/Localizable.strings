@@ -376,6 +376,7 @@
 "Waiting List" = "قائمة الإنتظار";
 "Inprocess" = "قيد التنفيذ";
 "Completed" = "مكتملة";
+"New Order" = "الطلبات الجديدة";
 "Rejected" = "مرفوضة";
 "Order Id" = "رقم الطلب";
 "Sorry! No Order Found" = "عذراً! لاتوجد طلبات";
@@ -462,9 +463,41 @@
 "Cancelled" = "الطلبات الملغاة";
 "Almost Total Price" = "المبلغ الإجمالي التقريبي";
 "Order Id" = "رقم الطلب";
-"Address" = "Address";
+"Address" = "العنوان";
 "Delivery Services" = "خدمة التوصيل";
 "No Trips Found" = "لاتوجد رحلات";
+"Order Id " = "رقم الطلب";
+//Arv
+"Trips" = "الرحلات";
+"Earning" = "الأرباح";
+"Please Enter Otp" =  "الرجاء إدخال رمز التحقق";
+"Please Check COD Amount For Customer" = "Please Check COD Amount For Customer";
+"Please add invoice file" = "Please add invoice file";
+"Are you sure want to accept?" = "";
+"View Images" = "استعراض الصورة";
+"Please Enter Otp" =  "الرجاء إدخال رمز التحقق";
+"Please Check COD Amount For Customer" = "Please Check COD Amount For Customer";
+"Please add invoice file" = "Please add invoice file";
+"Are you sure want to accept?" = "هل تريد قبول هذا المنتج؟";
+"View Images" = "استعراض الصورة";
+"Confirm and upload invoice" = "تأكيد ورفع الفاتورة";
+"Invoice Uploaded" = "تم رفع الفاتورة";
+"km" = "كم";
+"Qty :" = "الكمية:";
+"Weight:" = "الوزن:";
+"Size:" = "الحجم:";
+"Confirm to received items" = "تأكيد استلام الطلب";
+"Please Enter Otp" = "Please Enter Otp";
+"Delivery Service" = "خدمة التوصيل";
+"Todays COD" = "مبلغ الدفع عند الإستلام اليوم";
+"Joining" = "الإنضمام";
+"Almost Total Amount" = "المبلغ الإجمالي التقريبي";
+"Decline" = "رفض";
+"Time of Pickup" = ":وقت الإستلام";
+"Created By" = ":أُنشئ بواسطة";
+"Almost Order Price" = "قيمة الطلب (تقريبي):";
+"Delivery Price" = "قيمة التوصيل";
+"min" = "د";
 
 //Forget Password
 "Business Owner" = "صاحب العمل";
@@ -479,7 +512,7 @@
 "Upload Driving License Front" = "إرفاق صورة رخصة القيادة";
 "Upload Vehicle Registration" = "إرفاق صورة إستمارة السيارة";
 "Upload Vehicle Insurance" = "إرفاق وثيقة تأمين المركبة";
-"Upload Driving Authorization(Not Required for the Owner)" = "Upload Driving Authorization(Not Required for the Owner)";
+"Upload Driving Authorization(Not Required for the Owner)" = "إرفاق تفويض قيادة المركبة (غير إلزامي لمالك المركبة)";
 "Upload Vehicle Description" = "Upload Vehicle Description";
 "Full Name" = "الاسم الكامل";
 "Date of Birth" = "تاريخ الميلاد";
@@ -1102,7 +1135,6 @@
 "Submit" = "إتمام";
 
 
-
 "Oops! No Order Found" = "Oops! No Order Found";
 "Go Back" = "Go Back";
 "Search by Order Id, Product Title" = "Search by Order Id, Product Title";
@@ -1111,7 +1143,7 @@
 "Customer has chosen Self Pick-Up, Do you want to accept?" = "Customer has chosen Self Pick-Up, Do you want to accept?";
 "Order Detail" = "Order Detail";
 "Address :" = "Address :";
-"Qty:" = "Qty:";
+"Qty:" = ":الكمية";
 "Have you packed your product?" = "Have you packed your product?";
 "Enter the OTP sent to" = "Enter the OTP sent to";
 "Have you left your branch for delivery ?" = "Have you left your branch for delivery ?";
@@ -1239,24 +1271,5 @@
 //"Invoice Copy" = "Invoice Copy"
 //"Confirm Delivery" = "تأكيد التسليم"
 
-
-"Please Enter Otp" =  "الرجاء إدخال رمز التحقق";
-"Please Check COD Amount For Customer" = "Please Check COD Amount For Customer";
-"Please add invoice file" = "Please add invoice file";
-"Are you sure want to accept?" = "";
-"View Images" = "استعراض الصورة",
-"Please Enter Otp" =  "الرجاء إدخال رمز التحقق";
-"Please Check COD Amount For Customer" = "Please Check COD Amount For Customer";
-"Please add invoice file" = "Please add invoice file";
-"Are you sure want to accept?" = "هل تريد قبول هذا المنتج؟";
-"View Images" = "استعراض الصورة";
-"Confirm and upload invoice" = "تأكيد ورفع الفاتورة";
-"Invoice Uploaded" = "تم رفع الفاتورة";
-"km" = "كم";
-"Qty :" = "الكمية:";
-"Weight:" = "الوزن:";
-"Size:" = "الحجم:";
-"Confirm to received items" = "تأكيد استلام الطلب";
-"Please Enter Otp" = "Please Enter Otp";
 
 
