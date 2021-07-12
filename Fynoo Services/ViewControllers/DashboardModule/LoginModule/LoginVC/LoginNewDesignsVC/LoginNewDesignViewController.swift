@@ -462,9 +462,7 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
             cell.rememberMeBtnOutlet.isSelected = false
             cell.loginBtnOutlet.borderColor = #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1)
             cell.loginBtnOutlet.setTitleColor(#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), for: .normal)
-        }
-        
-        
+        }        
         let valuess = ModalController.isValidEmail(testStr: email)
         if selectedType != "" &&  valuess == true && email != "" && password != "" && password.validPassword == true{
                   cell.loginBtnOutlet.borderColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
