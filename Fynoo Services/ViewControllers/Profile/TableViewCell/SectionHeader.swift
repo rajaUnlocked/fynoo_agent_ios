@@ -37,7 +37,8 @@ class SectionHeader: UIView {
      func xibSetup()
      {
          view = loadViewFromNib()
-          //let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
+          let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        self.sectionText.font = UIFont(name: "\(fontNameLight)", size: 13)
         
          
          view.frame = bounds

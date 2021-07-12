@@ -555,6 +555,7 @@
 "Service Requests" = "Service Requests";
 "Available Amount" = "Available Amount";
 "Inprocess" = "Inprocess";
+"New Order" = "New Order";
 "Hello"="Hello";
 "ID"="ID";
 "Home"="Home";
@@ -1225,3 +1226,16 @@
 "Total Amount" = "Total Amount";
 "Any Problem?" = "Any Problem?";
 "Please Enter Otp" = "Please Enter Otp";
+"Delivery Service" = "Delivery Service";
+"Todays COD" = "Todays COD";
+"Trips" = "Trips";
+"Earning" = "Earning";
+"Joining" = "Joining";
+"Almost Total Amount" = "Almost Total Amount";
+"Order Id " = "Order Id ";
+"Decline" = "Decline";
+"Time of Pickup" = "Time of Pickup";
+"Created By" = "Created By";
+"Almost Order Price" = "Almost Order Price";
+"Delivery Price" = "Delivery Price";
+"min" = "min";
