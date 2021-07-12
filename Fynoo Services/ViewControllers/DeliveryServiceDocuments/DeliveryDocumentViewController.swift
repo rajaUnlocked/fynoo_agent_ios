@@ -1158,11 +1158,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             let font = UIFont(name: "Gilroy-Light", size: 12)
             let attributedString = NSMutableAttributedString(attributedString: attributedString)
             attributedString.addAttribute(.font, value:font!, range: NSRange(location: 0, length: attributedString.length))
-            cell.detaillbl.textAlignment = .left
-            if HeaderHeightSingleton.shared.LanguageSelected == "AR"
-            {
-                cell.detaillbl.textAlignment = .right
-            }
+           
             cell.detaillbl.attributedText = attributedString
         }
         
@@ -1364,11 +1360,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 let font = UIFont(name: "Gilroy-Light", size: 12)
                 let attributedString = NSMutableAttributedString(attributedString: attributedString)
                 attributedString.addAttribute(.font, value:font!, range: NSRange(location: 0, length: attributedString.length))
-                cell.lbl.textAlignment = .left
-                if HeaderHeightSingleton.shared.LanguageSelected == "AR"
-                {
-                    cell.lbl.textAlignment = .right
-                }
+                
                 cell.lbl.attributedText = attributedString
             }
             return cell

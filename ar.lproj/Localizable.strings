@@ -304,6 +304,9 @@
 "Wholesale" = "بالجملة";
 
 //new
+"Today's COD Amount" = "مبلغ الدفع عند الإستلام اليوم";
+"You can enter the Today's COD amount and you can change it any time." = "يمكنك إدخال مبلغ الدفع عند الإستلام اليوم ويمكنك تغييره في أي وقت.";
+"COD Amount" = "مبلغ الدفع عند الإستلام";
 "Payment in progress" = "عمليات دفع قيد التنفيذ";
 "Holding Amount" = "المبالغ المعلقة";
 "Wallet Balance" = "رصيد المحفظة";
