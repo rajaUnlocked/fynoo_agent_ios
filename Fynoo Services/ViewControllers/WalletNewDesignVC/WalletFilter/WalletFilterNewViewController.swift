@@ -51,6 +51,7 @@ class WalletFilterNewViewController: UIViewController, TTRangeSliderDelegate {
     @IBOutlet weak var fromlbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        closeout.setTitle("Cancel".localized, for: .normal)
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
       walletlbl.font = UIFont(name:"\(fontNameLight)",size:12)
         filterby.font = UIFont(name:"\(fontNameLight)",size:12)

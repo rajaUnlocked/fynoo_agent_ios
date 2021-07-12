@@ -181,9 +181,16 @@ class BankAllListViewController: UIViewController, WalletFilterNewViewController
 
 extension BankAllListViewController :  UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
+        if self.transactionListArray.count == 0
+        {
+            return 3
+        }
         return 2
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       if indexPath.section == 2{
+            return 300
+       }
         if indexPath.section == 0{
              return 135
         }else{
@@ -205,7 +212,7 @@ extension BankAllListViewController :  UITableViewDelegate{
              headView.holdingAmount.tag = 1001
             headView.paymentProgress.tag = 1002
             headView.walletBalance.tag = 1000
-            
+            headView.paymentsucceslbl.text = "Payment Successfully".localized
             
             if selectedVl == 1000{
                 
@@ -392,7 +399,10 @@ extension BankAllListViewController :  UITableViewDelegate{
 
 extension BankAllListViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
+        if section == 2{
+             return 1
+        }
+        else if section == 0{
              return 1
         }else{
             
@@ -412,11 +422,20 @@ extension BankAllListViewController : UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        if indexPath.section == 2
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NoDataFoundTableViewCell", for: indexPath) as! NoDataFoundTableViewCell
+                       
+                      let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
+            cell.titleLbl.text = "No Data Found".localized
+                         cell.titleLbl.font =  UIFont(name:"\(fontNameBold)",size:20)
+                         cell.gobackBtn.isHidden = true
+                         return cell
+        }
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "WalletAvailableTopCell", for: indexPath) as! WalletAvailableTopCell
             cell.sendMoney.addTarget(self, action:#selector(sendMoneyClicked), for:.touchUpInside)
-            
+            cell.totalamtlbl.text = "Total Balance".localized
             if wholeDict.count > 0 {
                 cell.totalLbl.text = "\((self.wholeDict.object(forKey: "head_data") as! NSDictionary).object(forKey: "main_total_balance") as! String)"
                 cell.availableLbl.text = "\("Available".localized): SAR \((self.wholeDict.object(forKey: "head_data") as! NSDictionary).object(forKey: "main_available") as! String)"

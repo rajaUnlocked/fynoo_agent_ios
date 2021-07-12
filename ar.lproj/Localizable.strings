@@ -304,6 +304,9 @@
 "Wholesale" = "بالجملة";
 
 //new
+"Payment Successfully" = "عمليات تم تنفيذها";
+"Show More" = "المزيد";
+"Total Balance" = "الرصيد الإجمالي";
 "Today's COD Amount" = "مبلغ الدفع عند الإستلام اليوم";
 "You can enter the Today's COD amount and you can change it any time." = "يمكنك إدخال مبلغ الدفع عند الإستلام اليوم ويمكنك تغييره في أي وقت.";
 "COD Amount" = "مبلغ الدفع عند الإستلام";
@@ -396,7 +399,7 @@
 "Already Submitted" = "تم تسليم العمل";
 "Amount to be paid for this order." = "قيمة تنفيذ الطلب";
 "Number of days for order completion." = "كم عدد الأيام المطلوبة لإنهاء العمل";
-"Holding" = "معلقة";
+"Holding" = "المبالغ المعلقة";
 "please active" = "please active";
 "services to receive new order request." = "services to receive new order request.";
 
@@ -626,7 +629,7 @@
 "Store in Mall"="متجر في مول";
 "Store in Market"= "متجر في السوق";
 "Save"="حفظ";
-"Cancel"= "إلغاء";
+
 "Location"="موقعك";
 "Add Business Location" = "إضافة موقع العمل";
 
@@ -744,7 +747,7 @@
 "Personal Details" = "البيانات الشخصية";
 "Basic Information" = "المعلومات الأساسية";
 "Bank Details" = "تفاصيل الحساب البنكي";
-"Cancel" = "إلغاء" ;
+
 "https://www.maroof.com/" = "https://www.maroof.com/";
 "Error" = "Error";
 "Connection Error" = "Connection Error";
@@ -821,7 +824,7 @@
 "% Discount" = "% Discount";
 "Expiry On" = "Expiry On" ;
 "Info" = "Info" ;
-"No data found." = "No data found.";
+"No data found" = "لاتوجد بيانات";
 "Total" = "Total" ;
 "(Inclusive of VAT)" = "(Inclusive of VAT)";
 "Remaining Amount" = "Remaining Amount" ;
@@ -966,7 +969,7 @@
 "Fynoo Product Data Bank" = "بنك البيانات الخاص بفينو";
 "Purchased Product Data" = "البيانات التي تم شراؤها";
 "Product Data  For Sale" = "البيانات المعروضة للبيع";
-"Available" = "متوفر";
+"Available" = "الرصيد المتاح";
 "View Details" = "المزيد";
 "View Gallery" = "عرض الصور";
 "Price" = "السعر";
@@ -977,7 +980,7 @@
 "Products Created" = "عدد المنتجات";
 "No of Purchases" = "عدد عمليات الشراء";
 "Status" = "الحالة";
-"Pending" = "قيد الانتظار";
+"Pending" = "قيد الإنتظار";
 "Expired" = "منتهي الصلاحية";
 "Product Description" = "وصف المنتج";
 //Price History

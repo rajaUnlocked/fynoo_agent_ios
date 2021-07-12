@@ -283,6 +283,9 @@
 
 /////////////////////////             TAP PAYMENT             /////////////////////////
 //new
+"Payment Successfully" = "Payment Successfully";
+"Show More" = "Show More";
+"Total Balance" = "Total Balance";
 "Today's COD Amount" = "Today's COD Amount";
 "You can enter the Today's COD amount and you can change it any time." = "You can enter the Today's COD amount and you can change it any time.";
 "COD Amount" = "COD Amount";
@@ -668,7 +671,7 @@
 "% Discount" = "% Discount";
 "Expiry On" = "Expiry On" ;
 "Info" = "Info" ;
-"No data found." = "No data found.";
+"No data found" = "No data found";
 "Total" = "Total" ;
 "(Inclusive of VAT)" = "(Inclusive of VAT)";
 "Remaining Amount" = "Remaining Amount" ;
