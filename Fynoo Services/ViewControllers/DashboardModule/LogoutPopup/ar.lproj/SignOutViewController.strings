@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Are you sure you want to Logout?"; ObjectID = "I2V-lo-dCt"; */
+"I2V-lo-dCt.text" = "هل تريد تسجيل الخروج؟";
+
+/* Class = "UIButton"; normalTitle = "No"; ObjectID = "YQb-lc-Qmz"; */
+"YQb-lc-Qmz.normalTitle" = "لا";
+
+/* Class = "UIButton"; normalTitle = "Yes"; ObjectID = "eQl-yP-n8Z"; */
+"eQl-yP-n8Z.normalTitle" = "نعم";

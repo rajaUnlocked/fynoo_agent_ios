@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //  MARK: - UserDetails API
     func UserDetailsAPI(){
 //        ModalClass.startLoading(self.view)
-        let str = "\(Service.getProfile)"
+        let str = "\(Service.getUserDetail)"
         let parameters = [
             "user_id": Singleton.shared.getUserId(),
             "lang_code":HeaderHeightSingleton.shared.LanguageSelected
@@ -84,6 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "error_description") as? String)!, msg: "")
                 }else{
                     let results = (ResponseDict.object(forKey: "data") as! NSDictionary)
+                    
                     let userID:String = ModalController.toString(results.object(forKey: "id") as AnyObject)
                     Singleton.shared.setUserId(UserId: "\(userID)")
                     AuthorisedUser.shared.setAuthorisedUser(with:response as Any)

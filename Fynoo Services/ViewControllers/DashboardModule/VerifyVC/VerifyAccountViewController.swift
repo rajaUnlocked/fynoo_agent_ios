@@ -27,7 +27,7 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var resendOtp: UIButton!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var mobileNo: UILabel!
-    var isFromAgent : Bool = false
+    var isFromAgent : Bool = true
     var verifyAccountModal = VerifyAccountModal()
     var timer: Timer?
     var counter = 60
@@ -301,12 +301,7 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
                            
                             vc.isFromAgentSignUp = self.isFromAgent
                                self.navigationController?.pushViewController(vc, animated: false)
-                               //                        }else {
-                               //
-                               //
-                               //
-                               //                        }
-                               
+                             
                            }else {
                                
                             if userid.data!.is_language_added == true {

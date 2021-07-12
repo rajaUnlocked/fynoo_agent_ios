@@ -18,18 +18,15 @@ class SuccesssViewController: UIViewController {
     var newUser = ""
     var isFromAgentSignUp = false
      var isFromWhere = ""
-    
-    
+        
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var downImage: UIImageView!
-    @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var headerVw: NavigationView!
+   
+     
     override func viewDidLoad() {
         super.viewDidLoad()
         downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
-        self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-        self.headerVw.titleHeader.text = "Successfully"
-        self.headerVw.backButton.isHidden = true
+     
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(action), userInfo: nil, repeats: true)
         
         if isFromAgentSignUp == true {
@@ -37,7 +34,6 @@ class SuccesssViewController: UIViewController {
         }else{
              self.titleLbl.text = "Payment Successful"
         }
-        
     }
 
     @objc func action () {

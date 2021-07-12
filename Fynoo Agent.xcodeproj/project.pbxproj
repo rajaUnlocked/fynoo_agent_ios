@@ -107,7 +107,6 @@
 		2FEB12112511F0010012FE98 /* UnderDevelopmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FEB120B2511F0010012FE98 /* UnderDevelopmentViewController.xib */; };
 		2FEB12132511F0010012FE98 /* UnderDevelopmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB120D2511F0010012FE98 /* UnderDevelopmentViewController.swift */; };
 		2FEB121A2511F1530012FE98 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB12182511F1530012FE98 /* SignOutViewController.swift */; };
-		2FEB121B2511F1530012FE98 /* SignOutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FEB12192511F1530012FE98 /* SignOutViewController.xib */; };
 		2FEB121E2511F5E20012FE98 /* SideMenuEarningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB121C2511F5E20012FE98 /* SideMenuEarningTableViewCell.swift */; };
 		2FEB122325120E0F0012FE98 /* DashboardWalletTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB122125120E0F0012FE98 /* DashboardWalletTableViewCell.swift */; };
 		2FEB1227251215F50012FE98 /* ProgressDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB1225251215F50012FE98 /* ProgressDashboardTableViewCell.swift */; };
@@ -655,6 +654,7 @@
 		F4CEC2FF2511D9FF003C35E8 /* UploadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CEC2FE2511D9FE003C35E8 /* UploadImage.swift */; };
 		F4E772AA252D9F930045BD86 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E772A9252D9F920045BD86 /* ChangePasswordViewController.swift */; };
 		F4E772AC252D9F990045BD86 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4E772AB252D9F990045BD86 /* ChangePasswordViewController.xib */; };
+		F62E2423269C193700600BC4 /* SignOutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E2425269C193700600BC4 /* SignOutViewController.xib */; };
 		F62E4AE925148EC60021CEE0 /* popupViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AA025148EC60021CEE0 /* popupViewController.strings */; };
 		F62E4AEA25148EC60021CEE0 /* popupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62E4AA325148EC60021CEE0 /* popupViewController.xib */; };
 		F62E4AEB25148EC60021CEE0 /* popupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E4AA525148EC60021CEE0 /* popupViewController.swift */; };
@@ -968,7 +968,6 @@
 		2FEB120B2511F0010012FE98 /* UnderDevelopmentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnderDevelopmentViewController.xib; sourceTree = "<group>"; };
 		2FEB120D2511F0010012FE98 /* UnderDevelopmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderDevelopmentViewController.swift; sourceTree = "<group>"; };
 		2FEB12182511F1530012FE98 /* SignOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
-		2FEB12192511F1530012FE98 /* SignOutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignOutViewController.xib; sourceTree = "<group>"; };
 		2FEB121C2511F5E20012FE98 /* SideMenuEarningTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuEarningTableViewCell.swift; sourceTree = "<group>"; };
 		2FEB122125120E0F0012FE98 /* DashboardWalletTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWalletTableViewCell.swift; sourceTree = "<group>"; };
 		2FEB1225251215F50012FE98 /* ProgressDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDashboardTableViewCell.swift; sourceTree = "<group>"; };
@@ -1622,6 +1621,9 @@
 		F4CEC2FE2511D9FE003C35E8 /* UploadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImage.swift; sourceTree = "<group>"; };
 		F4E772A9252D9F920045BD86 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		F4E772AB252D9F990045BD86 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
+		F62E2424269C193700600BC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SignOutViewController.xib; sourceTree = "<group>"; };
+		F62E2427269C194200600BC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SignOutViewController.strings; sourceTree = "<group>"; };
+		F62E2429269C194800600BC4 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/SignOutViewController.strings; sourceTree = "<group>"; };
 		F62E4AA125148EC60021CEE0 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/popupViewController.strings; sourceTree = "<group>"; };
 		F62E4AA225148EC60021CEE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/popupViewController.strings; sourceTree = "<group>"; };
 		F62E4AA425148EC60021CEE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/popupViewController.xib; sourceTree = "<group>"; };
@@ -2190,7 +2192,7 @@
 			isa = PBXGroup;
 			children = (
 				2FEB12182511F1530012FE98 /* SignOutViewController.swift */,
-				2FEB12192511F1530012FE98 /* SignOutViewController.xib */,
+				F62E2425269C193700600BC4 /* SignOutViewController.xib */,
 			);
 			path = LogoutPopup;
 			sourceTree = "<group>";
@@ -4469,7 +4471,7 @@
 				2FEB12112511F0010012FE98 /* UnderDevelopmentViewController.xib in Resources */,
 				CEDD330A25765A7400023977 /* ScannerNewViewController.xib in Resources */,
 				CEBCD7502664A7FE001BF767 /* BankListTableViewCell.xib in Resources */,
-				2FEB121B2511F1530012FE98 /* SignOutViewController.xib in Resources */,
+				F62E2423269C193700600BC4 /* SignOutViewController.xib in Resources */,
 				CEBCD74C2664A7FE001BF767 /* BankListTableViewCell.strings in Resources */,
 				F44E35B2251C72C6002E41E2 /* AgentServiceList.xib in Resources */,
 				CEE3578D250740800097069D /* Roboto-Regular.ttf in Resources */,
@@ -6706,6 +6708,16 @@
 				CEF3F724268198BB00BA0C49 /* ar */,
 			);
 			name = MultipleBranchHeader.xib;
+			sourceTree = "<group>";
+		};
+		F62E2425269C193700600BC4 /* SignOutViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F62E2424269C193700600BC4 /* Base */,
+				F62E2427269C194200600BC4 /* en */,
+				F62E2429269C194800600BC4 /* ar */,
+			);
+			name = SignOutViewController.xib;
 			sourceTree = "<group>";
 		};
 		F62E4AA025148EC60021CEE0 /* popupViewController.strings */ = {
