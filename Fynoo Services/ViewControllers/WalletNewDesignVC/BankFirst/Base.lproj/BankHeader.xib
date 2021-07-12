@@ -17,7 +17,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BankHeader" customModule="Fynoo_Services" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BankHeader" customModule="Fynoo_Agent" customModuleProvider="target">
             <connections>
                 <outlet property="availableLbl" destination="TJd-bI-Jph" id="DpS-iB-kzO"/>
                 <outlet property="bankVw" destination="Bng-KX-r9q" id="XaO-UF-gZO"/>
@@ -323,7 +323,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Successful" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hh-zb-vS8">
-                            <rect key="frame" x="246" y="15" width="130" height="20"/>
+                            <rect key="frame" x="246" y="15" width="155" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="9Me-ab-swg"/>
                             </constraints>
@@ -344,7 +344,7 @@
                         <constraint firstItem="Mw6-S9-sqI" firstAttribute="leading" secondItem="UuM-08-Zts" secondAttribute="trailing" constant="6" id="IUV-aN-i3l"/>
                         <constraint firstItem="7hh-zb-vS8" firstAttribute="top" secondItem="Bng-KX-r9q" secondAttribute="top" constant="15" id="KBf-JF-GV5"/>
                         <constraint firstAttribute="trailing" secondItem="lJT-c0-6VO" secondAttribute="trailing" id="NG5-Qq-vU9"/>
-                        <constraint firstAttribute="trailing" secondItem="7hh-zb-vS8" secondAttribute="trailing" constant="35" id="bEl-vF-HLh"/>
+                        <constraint firstAttribute="trailing" secondItem="7hh-zb-vS8" secondAttribute="trailing" constant="10" id="bEl-vF-HLh"/>
                         <constraint firstAttribute="bottom" secondItem="lJT-c0-6VO" secondAttribute="bottom" id="dQW-tU-nRt"/>
                         <constraint firstItem="eki-s5-8W9" firstAttribute="leading" secondItem="Bng-KX-r9q" secondAttribute="leading" constant="5" id="hNf-pY-IUQ"/>
                         <constraint firstItem="lJT-c0-6VO" firstAttribute="leading" secondItem="Bng-KX-r9q" secondAttribute="leading" id="rBI-ah-ph8"/>
