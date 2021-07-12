@@ -936,12 +936,12 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     @IBAction func walletDetailsBtn(_ sender: Any) {
         if showWallet {
             showWallet = false
-            self.arrowImg.image = UIImage(named: "down-arrow-3")
+            self.arrowImg.image = UIImage(named: "up-arrow-3")
             walletHeightConst.constant = 150
             walletvw.isHidden = false
         }else{
             showWallet = true
-            self.arrowImg.image = UIImage(named: "up-arrow-3")
+            self.arrowImg.image = UIImage(named: "down-arrow-3")
             walletHeightConst.constant = 0
             walletvw.isHidden = true
         }

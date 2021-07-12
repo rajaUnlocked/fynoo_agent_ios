@@ -10,6 +10,7 @@ import UIKit
 
 class ServiceHeaderTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var addimg: UIImageView!
     @IBOutlet weak var deliverysercicedoc: UILabel!
     @IBOutlet weak var clickednewcar: UIButton!
     override func awakeFromNib() {
