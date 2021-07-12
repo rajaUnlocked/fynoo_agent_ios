@@ -86,9 +86,10 @@ class AddInvoiceInformationTableViewCell: UITableViewCell {
         self.lblAddInvoice.font = UIFont(name:"\(fontNameLight)",size:14)
         
         
-        let myNormalAttributedTitle = NSAttributedString(string: "Any Problem?".localized,attributes: [NSAttributedString.Key.foregroundColor : UIColor.AppThemeBlueTextColor(),.underlineStyle: NSUnderlineStyle.single.rawValue])
+        let myNormalAttributedTitle = NSAttributedString(string: "Any Problem?".localized,attributes: [NSAttributedString.Key.foregroundColor : UIColor.AppThemeBlueTextColor(),.underlineStyle: NSUnderlineStyle.single.rawValue,.underlineColor : UIColor.AppThemeBlueTextColor()])
         
-//        self.btnAnyProblem.titleLabel?.text = "Any Problem?".localized
+        
+//      self.btnAnyProblem.titleLabel?.text = "Any Problem?".localized
         self.btnAnyProblem.setAttributedTitle(myNormalAttributedTitle, for: .normal)
         lblAddInvoice.textColor = UIColor.AppThemeGreenTextColor()
       

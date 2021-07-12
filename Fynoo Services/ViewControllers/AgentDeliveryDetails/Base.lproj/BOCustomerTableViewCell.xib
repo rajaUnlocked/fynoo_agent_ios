@@ -293,13 +293,13 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="PXT-se-5So" secondAttribute="bottom" constant="7" id="5E3-Bx-FAW"/>
                                     <constraint firstItem="PXT-se-5So" firstAttribute="leading" secondItem="OJy-hh-bio" secondAttribute="trailing" constant="2" id="5we-Xn-HIq"/>
                                     <constraint firstAttribute="trailing" secondItem="Cyy-kI-aTF" secondAttribute="trailing" constant="10" id="Ibd-hq-ac7"/>
                                     <constraint firstItem="Cyy-kI-aTF" firstAttribute="leading" secondItem="PXT-se-5So" secondAttribute="trailing" constant="2" id="MwY-hH-z3v"/>
                                     <constraint firstAttribute="bottom" secondItem="Cyy-kI-aTF" secondAttribute="bottom" constant="7" id="SdM-2a-IAP"/>
-                                    <constraint firstAttribute="bottom" secondItem="OJy-hh-bio" secondAttribute="bottom" constant="7" id="hCs-th-Xod"/>
                                     <constraint firstAttribute="height" constant="30" id="jOl-oC-UnN"/>
+                                    <constraint firstItem="PXT-se-5So" firstAttribute="centerY" secondItem="Cyy-kI-aTF" secondAttribute="centerY" id="lLu-xn-cZ1"/>
+                                    <constraint firstItem="OJy-hh-bio" firstAttribute="centerY" secondItem="PXT-se-5So" secondAttribute="centerY" id="sCg-Pk-fH2"/>
                                 </constraints>
                             </view>
                         </subviews>

@@ -498,6 +498,8 @@
 "Almost Order Price" = "قيمة الطلب (تقريبي):";
 "Delivery Price" = "قيمة التوصيل";
 "min" = "د";
+"Address :" = "العنوان:";
+"Report Business Owner" = "Report Business Owner";
 
 //Forget Password
 "Business Owner" = "صاحب العمل";
@@ -1142,7 +1144,6 @@
 "Please perform accept/reject on all products." = "Please perform accept/reject on all products.";
 "Customer has chosen Self Pick-Up, Do you want to accept?" = "Customer has chosen Self Pick-Up, Do you want to accept?";
 "Order Detail" = "Order Detail";
-"Address :" = "Address :";
 "Qty:" = ":الكمية";
 "Have you packed your product?" = "Have you packed your product?";
 "Enter the OTP sent to" = "Enter the OTP sent to";
