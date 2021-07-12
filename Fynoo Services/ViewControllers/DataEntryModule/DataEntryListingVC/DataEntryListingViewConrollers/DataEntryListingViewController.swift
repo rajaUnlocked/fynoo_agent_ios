@@ -123,7 +123,6 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
-    
     @objc func searchClicked() {
         
         self.view.endEditing(true)

@@ -19,8 +19,6 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var downImage: UIImageView!
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerView: NavigationView!
-    
-   
     @IBOutlet weak var verifyLbl: UILabel!
     @IBOutlet weak var otpView: UIView!
     
@@ -300,6 +298,7 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
                                //                         {
                                let vc = SuccesssViewController(nibName: "SuccesssViewController", bundle: nil)
                                vc.newUser = isNewUser
+                           
                             vc.isFromAgentSignUp = self.isFromAgent
                                self.navigationController?.pushViewController(vc, animated: false)
                                //                        }else {

@@ -18,7 +18,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     var isReasonForVehicle = false
     var upload:ServiceUpload?
     var topArr = ["Full Name","Date of Birth","National ID / Iqama ID","Date of Expiry"]
-    var headertitlearr = ["Upload National Id / Iqama","Upload Driving License Front","Upload Vehicle Registration","Upload Vehicle Insurance","Upload Driving Authorization(Not Required for the Owner)","Upload Vehicle Description"]
+    var headertitlearr = ["Upload National Id / Iqama","Upload Driving License Front","Upload Vehicle Registration","Upload Vehicle Insurance","Upload Driving Authorization(Not Required for the Owner)".localized,"Upload Vehicle Description"]
     var toptxtArr = ["","","",""]
     var txtArr = ["","","","","","","",""]
     
