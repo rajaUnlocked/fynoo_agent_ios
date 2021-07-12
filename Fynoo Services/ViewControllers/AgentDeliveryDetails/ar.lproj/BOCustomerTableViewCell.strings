@@ -42,7 +42,8 @@
 "cE6-Wd-QaT.text" = "wed 32,4020";
 
 /* Class = "UILabel"; text = "Item Details"; ObjectID = "kOm-iz-bn1"; */
-"kOm-iz-bn1.text" = "تفاصيل المنتج";
+"kOm-iz-bn1.text" = "تفاصيل المنتجات"
+
 
 /* Class = "UILabel"; text = "3.5"; ObjectID = "mRy-YM-7Hl"; */
 "mRy-YM-7Hl.text" = "3.5";

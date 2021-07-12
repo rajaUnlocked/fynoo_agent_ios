@@ -104,6 +104,7 @@ class DataEntryAgentRatingViewController: UIViewController {
         self.agentNameLbl.font = UIFont(name:"\(fontNameLight)",size:16)
         self.agentLanguageLbl.font = UIFont(name:"\(fontNameLight)",size:12)
         self.staticTxtLbl.font = UIFont(name:"\(fontNameLight)",size:16)
+        self.submit.setTitle("Submit".localized, for: .normal)
         
     }
 

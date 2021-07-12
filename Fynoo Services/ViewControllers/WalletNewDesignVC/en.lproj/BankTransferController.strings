@@ -2,8 +2,8 @@
 /* Class = "UILabel"; text = "Remarks"; ObjectID = "5t8-0m-phn"; */
 "5t8-0m-phn.text" = "Remarks";
 
-/* Class = "UIButton"; normalTitle = "Proceed To Transfer To Bank"; ObjectID = "7pO-9H-G2L"; */
-"7pO-9H-G2L.normalTitle" = "Proceed To Transfer To Bank";
+/* Class = "UIButton"; normalTitle = "Send Transfer Request"; ObjectID = "7pO-9H-G2L"; */
+"7pO-9H-G2L.normalTitle" = "Send Transfer Request";
 
 /* Class = "UITextField"; placeholder = "Amount"; ObjectID = "Ocq-dC-rv7"; */
 "Ocq-dC-rv7.placeholder" = "Amount";

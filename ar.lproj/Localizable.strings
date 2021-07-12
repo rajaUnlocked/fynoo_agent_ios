@@ -467,6 +467,7 @@
 "Next" = "الطلبات التالية";
 "Previous" = "الطلبات السابقة";
 "Cancelled" = "الطلبات الملغاة";
+"CancelledStatus" = "ملغى";
 "Almost Total Price" = "المبلغ الإجمالي التقريبي";
 "Order Id" = "رقم الطلب";
 "Address" = "العنوان";
@@ -505,7 +506,8 @@
 "Delivery Price" = "قيمة التوصيل";
 "min" = "د";
 "Address :" = "العنوان:";
-"Report Business Owner" = "Report Business Owner";
+"Report Business Owner" = "إبلاغ عن صاحب النشاط";
+"Profile"="الملف الشخصي";
 
 //Forget Password
 "Business Owner" = "صاحب العمل";
@@ -1141,6 +1143,11 @@
 "Cancelled By Business Owner Date" = "تاريخ إلغاء الطلب بواسطة صاحب العمل";
 "Cancelled By Customer Date" = "تاريخ إلغاء الطلب بواسطة العميل";
 "Submit" = "إتمام";
+"Are you sure you want to decline?" = "هل تريد رفض الطلب؟";
+"cm3" = "سنتمتر مكعب";
+"Order Details" = "تفاصيل الطلب";
+"Qty" = "الكمية";
+"Reduce Qty" = "تغيير الكمية";
 
 
 "Oops! No Order Found" = "Oops! No Order Found";

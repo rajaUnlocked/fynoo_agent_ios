@@ -359,6 +359,7 @@
 "Next" = "Next";
 "Previous" = "Previous";
 "Cancelled" = "Cancelled";
+"CancelledStatus" = "Cancelled";
  "Almost Total Price" = "Almost Total Price";
   "Order Id" = "Order Id";
 "Address" = "Address";
@@ -988,7 +989,13 @@
 "Final Price for Customer" = "Final Price for Customer";
 "Cancelled By Business Owner Date" = "Cancelled By Business Owner Date";
 "Cancelled By Customer Date" = "Cancelled By Customer Date" ;
-"Submit" = "Submit" ;
+"Submit" = "Submit";
+"Are you sure you want to decline?" = "Are you sure you want to decline?";
+"cm3" = "cm3";
+"Order Details" = "Order Details";
+"Qty" = "Qty";
+"Reduce Qty" = "Reduce Qty";
+"Profile" = "Profile";
 
 "Search by Order Id, Product Title" = "Search by Order Id, Product Title";
 "Confirm to Accept" = "Confirm to Accept";
