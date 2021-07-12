@@ -11,6 +11,15 @@ protocol AddAmountDelegate {
     func reloadPage()
 }
 class AddAmountViewController: UIViewController {
+    
+    @IBOutlet weak var todaycodlbl: UILabel!
+    
+    @IBOutlet weak var descriplbl: UILabel!
+    
+    @IBOutlet weak var sar: UILabel!
+    @IBOutlet weak var codamtlbl: UILabel!
+    
+    @IBOutlet weak var submit: UIButton!
     var delegate:AddAmountDelegate?
      var descrptxt = ""
     var isNotFill = false
@@ -25,7 +34,18 @@ class AddAmountViewController: UIViewController {
     var taG = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        todaycodlbl.font = UIFont(name:"\(fontNameLight)",size:14)
+        descriplbl.font = UIFont(name:"\(fontNameLight)",size:14)
+        sar.font = UIFont(name:"\(fontNameLight)",size:14)
+        codamtlbl.font = UIFont(name:"\(fontNameLight)",size:14)
+        aamount.font = UIFont(name:"\(fontNameLight)",size:14)
+        submit.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:16)
+        submit.setTitle("Done".localized, for: .normal)
+        todaycodlbl.text = "Today's COD Amount".localized
+        descriplbl.text = "You can enter the Today's COD amount and you can change it any time.".localized
+        codamtlbl.text = "COD Amount".localized
+        sar.text = "SAR".localized
         aamount.keyboardType = .numberPad
      
         if isFrom {

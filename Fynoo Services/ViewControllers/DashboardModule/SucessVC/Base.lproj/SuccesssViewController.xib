@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -17,9 +16,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SuccesssViewController" customModule="Fynoo_Agent" customModuleProvider="target">
             <connections>
                 <outlet property="downImage" destination="qlV-f6-8Gr" id="O1d-kw-Nz3"/>
-                <outlet property="headerVw" destination="xUa-qe-nlC" id="5OQ-7q-d0q"/>
                 <outlet property="titleLbl" destination="WWh-TS-NpN" id="UbD-Vb-2xt"/>
-                <outlet property="topViewHeightConstraint" destination="bZD-Fr-CDj" id="duO-0i-xE8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,13 +25,6 @@
             <rect key="frame" x="0.0" y="0.0" width="352" height="513"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUa-qe-nlC" customClass="NavigationView" customModule="Fynoo_Agent" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="352" height="90"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="90" id="bZD-Fr-CDj"/>
-                    </constraints>
-                </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="qlV-f6-8Gr">
                     <rect key="frame" x="0.0" y="312" width="285" height="201"/>
                     <constraints>
@@ -64,9 +54,6 @@
                 <constraint firstItem="WWh-TS-NpN" firstAttribute="top" secondItem="ol5-dZ-Fki" secondAttribute="bottom" constant="20.5" id="FlV-es-idV"/>
                 <constraint firstItem="WWh-TS-NpN" firstAttribute="centerX" secondItem="ol5-dZ-Fki" secondAttribute="centerX" id="GUi-9O-yUs"/>
                 <constraint firstItem="qlV-f6-8Gr" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="OQI-fG-7KZ"/>
-                <constraint firstItem="xUa-qe-nlC" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Wz6-je-sdv"/>
-                <constraint firstItem="xUa-qe-nlC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ZmA-mg-cOP"/>
-                <constraint firstItem="xUa-qe-nlC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bpw-4a-0fv"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WWh-TS-NpN" secondAttribute="trailing" constant="20" id="fgg-hL-rq3"/>
                 <constraint firstItem="ol5-dZ-Fki" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="jsO-EM-6YA"/>
                 <constraint firstItem="ol5-dZ-Fki" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="mDw-gb-C1q"/>
@@ -79,8 +66,5 @@
     <resources>
         <image name="backgroundImage" width="297" height="208"/>
         <image name="greenTick" width="150" height="150"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

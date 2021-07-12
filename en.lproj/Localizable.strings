@@ -283,6 +283,9 @@
 
 /////////////////////////             TAP PAYMENT             /////////////////////////
 //new
+"Today's COD Amount" = "Today's COD Amount";
+"You can enter the Today's COD amount and you can change it any time." = "You can enter the Today's COD amount and you can change it any time.";
+"COD Amount" = "COD Amount";
 "Payment in progress" = "Payment in progress";
 "Holding Amount" = "Holding Amount";
 "Wallet Balance" = "Wallet Balance";
@@ -1239,3 +1242,4 @@
 "Almost Order Price" = "Almost Order Price";
 "Delivery Price" = "Delivery Price";
 "min" = "min";
+"Report Business Owner" = "Report Business Owner";

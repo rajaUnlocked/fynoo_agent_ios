@@ -184,9 +184,10 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             
             print("request:-", param)
             print("Url:-", Service.orderDetail)
+            ModalClass.startLoading(self.view)
             ServerCalls.postRequest(Service.orderDetail, withParameters: param) { [self] (response, success) in
                 if success{
-                    
+                    ModalClass.stopLoadingAllLoaders(self.view)
                     if let body = response as? [String: Any] {
                         self.orderDetailData  = Mapper<orderDetail>().map(JSON: body)
                         
@@ -977,7 +978,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             if orderDetailData?.data?.report_to_bo == true {
                 cell.btnAnyProblem.isHidden = false
 //                cell.btnAnyProblem.setTitle("Report Business Owner", for: .normal)
-                let myNormalAttributedTitle = NSAttributedString(string: "Report Business Owner",attributes: [NSAttributedString.Key.foregroundColor : UIColor.AppThemeBlueTextColor(),.underlineStyle: NSUnderlineStyle.single.rawValue])
+                let myNormalAttributedTitle = NSAttributedString(string: "Report Business Owner".localized,attributes: [NSAttributedString.Key.foregroundColor : UIColor.AppThemeBlueTextColor(),.underlineStyle: NSUnderlineStyle.single.rawValue])
                 cell.btnAnyProblem.setAttributedTitle(myNormalAttributedTitle, for: .normal)
                 cell.contentView.isUserInteractionEnabled = true
                 cell.tapToBtnUploadInvoice.isUserInteractionEnabled = false
@@ -1464,8 +1465,8 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     
                     cell.lblQty.text = "0\(orderDetailData?.data?.order_qty ?? 0)"
                     cell.lblStAlmosttoalPrice.text = "Total Amount".localized
-                    
-                    cell.lblOrderId.text = " Order Id :  \(orderDetailData?.data?.order_id ?? "0")"
+                    let orderId = "Order Id:".localized
+                    cell.lblOrderId.text = "\(orderId) \(orderDetailData?.data?.order_id ?? "0")"
                     
                     let timeSTAMP = "\(orderDetailData?.data?.order_date ?? 0)"
                     cell.lblOrderDate.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: timeSTAMP, format: "dd-MMM-yyyy HH:mm a")

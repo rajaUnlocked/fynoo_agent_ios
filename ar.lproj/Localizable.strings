@@ -304,6 +304,9 @@
 "Wholesale" = "بالجملة";
 
 //new
+"Today's COD Amount" = "مبلغ الدفع عند الإستلام اليوم";
+"You can enter the Today's COD amount and you can change it any time." = "يمكنك إدخال مبلغ الدفع عند الإستلام اليوم ويمكنك تغييره في أي وقت.";
+"COD Amount" = "مبلغ الدفع عند الإستلام";
 "Payment in progress" = "عمليات دفع قيد التنفيذ";
 "Holding Amount" = "المبالغ المعلقة";
 "Wallet Balance" = "رصيد المحفظة";
@@ -498,6 +501,8 @@
 "Almost Order Price" = "قيمة الطلب (تقريبي):";
 "Delivery Price" = "قيمة التوصيل";
 "min" = "د";
+"Address :" = "العنوان:";
+"Report Business Owner" = "Report Business Owner";
 
 //Forget Password
 "Business Owner" = "صاحب العمل";
@@ -1142,7 +1147,6 @@
 "Please perform accept/reject on all products." = "Please perform accept/reject on all products.";
 "Customer has chosen Self Pick-Up, Do you want to accept?" = "Customer has chosen Self Pick-Up, Do you want to accept?";
 "Order Detail" = "Order Detail";
-"Address :" = "Address :";
 "Qty:" = ":الكمية";
 "Have you packed your product?" = "Have you packed your product?";
 "Enter the OTP sent to" = "Enter the OTP sent to";

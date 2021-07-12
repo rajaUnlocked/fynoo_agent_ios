@@ -284,13 +284,15 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
 //                    lblAddress.text = acceptedtripDetail?.data?.trip_details?.cust_address
 //                    lblDuration.text = (acceptedtripDetail?.data?.trip_details?.delivery_times?[0].time ?? "") + "(\(acceptedtripDetail?.data?.trip_details?.delivery_times?[0].distance ?? "" )km)"
 //                    self.imgUser.sd_setImage(with: URL(string: acceptedtripDetail?.data?.trip_details?.cust_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
-                    
+                    let km = "km".localized
+                    let addressStr = "Address :".localized
                     if checkUsertype == "BO" {
                         lblName.text = acceptedtripDetail?.data?.trip_details?.branch_name
                         lblAvgRating.text = "(\(acceptedtripDetail?.data?.trip_details?.rating ?? ""))"
                         lblTotalRating.text = "(\(acceptedtripDetail?.data?.trip_details?.total_rating ?? ""))"
-                        lblAddress.text = acceptedtripDetail?.data?.trip_details?.address
-                        lblDuration.text = (acceptedtripDetail?.data?.trip_details?.delivery_times?[0].time ?? "") + "(\(acceptedtripDetail?.data?.trip_details?.delivery_times?[0].distance ?? "" )km)"
+                        lblAddress.text = "\(addressStr)\(acceptedtripDetail?.data?.trip_details?.address ?? "")"
+                       
+                        lblDuration.text = (acceptedtripDetail?.data?.trip_details?.delivery_times?[0].time ?? "") + "(\(acceptedtripDetail?.data?.trip_details?.delivery_times?[0].distance ?? "" )\(km))"
                         
                         self.imgUser.sd_setImage(with: URL(string: acceptedtripDetail?.data?.trip_details?.branch_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
                         
@@ -300,9 +302,9 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
                         lblName.text = acceptedtripDetail?.data?.trip_details?.cust_nam
                         lblAvgRating.text = acceptedtripDetail?.data?.trip_details?.cust_rating
                         lblTotalRating.text = acceptedtripDetail?.data?.trip_details?.cust_total_rating
-                        let addressStr = "Address :".localized
+                       
                         lblAddress.text =  "\(addressStr)\(acceptedtripDetail?.data?.trip_details?.cust_address ?? "")"
-                        lblDuration.text = (acceptedtripDetail?.data?.trip_details?.delivery_times?[0].time ?? "") + "(\(acceptedtripDetail?.data?.trip_details?.delivery_times?[0].distance ?? "" )km)"
+                        lblDuration.text = (acceptedtripDetail?.data?.trip_details?.delivery_times?[0].time ?? "") + "(\(acceptedtripDetail?.data?.trip_details?.delivery_times?[0].distance ?? "" )\(km)"
                         self.imgUser.sd_setImage(with: URL(string: acceptedtripDetail?.data?.trip_details?.cust_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
                         self.loadMapViewForCustomer()
                     }
@@ -314,8 +316,6 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
                         lblClose.isHidden = true
                         imgAddressIcon.image = #imageLiteral(resourceName: "businessOwner_locationIcon")
                     }
-                    
-               
                 }
             }
         }

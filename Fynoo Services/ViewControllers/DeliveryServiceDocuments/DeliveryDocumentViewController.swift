@@ -904,7 +904,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             ModalClass.stopLoadingAllLoaders(self.view)
             if success
             {
-               
+                self.SelectedIndex.removeAllObjects()
                 self.servicelist = response
                 ModalController.showSuccessCustomAlertWith(title: self.servicelist?.error_description ?? "", msg: "")
                 self.primaryid = self.servicelist?.data?.id ?? 0
@@ -1158,6 +1158,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             let font = UIFont(name: "Gilroy-Light", size: 12)
             let attributedString = NSMutableAttributedString(attributedString: attributedString)
             attributedString.addAttribute(.font, value:font!, range: NSRange(location: 0, length: attributedString.length))
+           
             cell.detaillbl.attributedText = attributedString
         }
         
@@ -1240,9 +1241,11 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             let cell = tabvw.dequeueReusableCell(withIdentifier: "ServiceHeaderTableViewCell", for: indexPath) as! ServiceHeaderTableViewCell
             cell.deliverysercicedoc.text = "Delivery Services Documents".localized
              cell.clickednewcar.isHidden = true
+            cell.addimg.isHidden = true
             if self.servicelist?.data?.new_upload_enable ?? false{
                 cell.clickednewcar.isHidden = false
-                
+                cell.addimg.isHidden = false
+                cell.clickednewcar.sd_setImage(with: URL(string: self.servicelist?.data?.front_side ?? ""), for: .normal, placeholderImage: UIImage(named: "newcar"))
             }
             cell.clickednewcar.addTarget(self, action: #selector(clickedaddnewcar), for: .touchUpInside)
             return cell
@@ -1357,6 +1360,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 let font = UIFont(name: "Gilroy-Light", size: 12)
                 let attributedString = NSMutableAttributedString(attributedString: attributedString)
                 attributedString.addAttribute(.font, value:font!, range: NSRange(location: 0, length: attributedString.length))
+                
                 cell.lbl.attributedText = attributedString
             }
             return cell
