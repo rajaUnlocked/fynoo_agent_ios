@@ -69,7 +69,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(notify), name: NSNotification.Name(Constant.AGENT_NOTIFICATION), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notify), name: NSNotification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: nil)
         
         SetFont()
         getOrderDetail()
