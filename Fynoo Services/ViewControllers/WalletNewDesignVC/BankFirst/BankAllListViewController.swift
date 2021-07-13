@@ -427,6 +427,7 @@ extension BankAllListViewController : UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "NoDataFoundTableViewCell", for: indexPath) as! NoDataFoundTableViewCell
                        
                       let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
+            cell.titleLbl.text = "No Data Found"
             if HeaderHeightSingleton.shared.LanguageSelected == "AR"{
                            cell.titleLbl.text = "لاتوجد بيانات"
                        }

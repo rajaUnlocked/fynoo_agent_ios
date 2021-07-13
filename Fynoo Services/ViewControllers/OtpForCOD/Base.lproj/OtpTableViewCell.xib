@@ -152,7 +152,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eeg-TH-MyM">
-                        <rect key="frame" x="10" y="128.5" width="300" height="34"/>
+                        <rect key="frame" x="10" y="123.5" width="300" height="34"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" title="Button"/>
                         <connections>
@@ -160,14 +160,14 @@
                         </connections>
                     </button>
                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="Mjh-0t-cXa">
-                        <rect key="frame" x="20" y="138" width="15" height="15"/>
+                        <rect key="frame" x="20" y="133" width="15" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="ClI-9k-weP"/>
                             <constraint firstAttribute="width" constant="15" id="rR5-GB-eAG"/>
                         </constraints>
                     </imageView>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I have received the COD amount from Customer." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLg-Ke-lxX">
-                        <rect key="frame" x="37" y="135.5" width="273.5" height="14.5"/>
+                        <rect key="frame" x="37" y="130.5" width="273.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -181,10 +181,10 @@
                     <constraint firstItem="BHc-NZ-U09" firstAttribute="leading" secondItem="UpD-Gg-D7m" secondAttribute="leading" id="CHh-3g-ta7"/>
                     <constraint firstItem="Mjh-0t-cXa" firstAttribute="leading" secondItem="Eeg-TH-MyM" secondAttribute="leading" constant="10" id="EsW-cI-aza"/>
                     <constraint firstAttribute="trailing" secondItem="IEz-hG-DH5" secondAttribute="trailing" id="JCW-Rx-gXp"/>
-                    <constraint firstAttribute="trailing" secondItem="Eeg-TH-MyM" secondAttribute="trailing" constant="10" id="fKs-ww-hIq"/>
                     <constraint firstItem="UpD-Gg-D7m" firstAttribute="top" secondItem="IEz-hG-DH5" secondAttribute="bottom" constant="30" id="hSw-jC-tCT"/>
                     <constraint firstItem="IEz-hG-DH5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="jHV-vA-hSS"/>
-                    <constraint firstItem="Eeg-TH-MyM" firstAttribute="top" secondItem="UpD-Gg-D7m" secondAttribute="bottom" constant="20" id="jkD-P0-cLJ"/>
+                    <constraint firstItem="Eeg-TH-MyM" firstAttribute="top" secondItem="UpD-Gg-D7m" secondAttribute="bottom" constant="15" id="jkD-P0-cLJ"/>
+                    <constraint firstAttribute="trailing" secondItem="Eeg-TH-MyM" secondAttribute="trailing" constant="10" id="lfq-gQ-het"/>
                     <constraint firstItem="Eeg-TH-MyM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="nCR-Ov-9Ji"/>
                     <constraint firstItem="UpD-Gg-D7m" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="oE7-g7-OwS"/>
                     <constraint firstItem="Mjh-0t-cXa" firstAttribute="centerY" secondItem="Eeg-TH-MyM" secondAttribute="centerY" id="wSx-dq-9AY"/>
