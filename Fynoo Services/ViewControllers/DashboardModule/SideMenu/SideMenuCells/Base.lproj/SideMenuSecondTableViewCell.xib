@@ -15,7 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SideMenuSecondTableViewCell" id="KGk-i7-Jjw" customClass="SideMenuSecondTableViewCell" customModule="Fynoo_Services" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SideMenuSecondTableViewCell" id="KGk-i7-Jjw" customClass="SideMenuSecondTableViewCell" customModule="Fynoo_Agent" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="136"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -79,41 +79,15 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbl-2h-74C">
-                        <rect key="frame" x="159.5" y="35" width="1" height="90"/>
-                        <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="0.69999999999999996" id="ifD-pE-bhA"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropShip_side" translatesAutoresizingMaskIntoConstraints="NO" id="QuC-3n-e3E">
-                        <rect key="frame" x="5" y="38" width="77" height="74"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="74" id="1X2-kc-qBB"/>
-                            <constraint firstAttribute="width" constant="77" id="acN-dT-eR4"/>
-                        </constraints>
-                    </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sidemenu_image" translatesAutoresizingMaskIntoConstraints="NO" id="SwO-mw-ZpC">
-                        <rect key="frame" x="166" y="38" width="77" height="74"/>
+                        <rect key="frame" x="44.5" y="38" width="77" height="74"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="77" id="Pdy-mE-7W2"/>
                             <constraint firstAttribute="height" constant="74" id="m8M-c3-T4e"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drop Shipping" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sv-dN-IQK">
-                        <rect key="frame" x="90" y="57" width="61.5" height="40"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="40" id="tja-wa-xwj"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
-                        <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Product data for Sale" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzC-nB-y01">
-                        <rect key="frame" x="251" y="57" width="61" height="40"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Product data for Sale" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzC-nB-y01">
+                        <rect key="frame" x="151.5" y="57" width="160.5" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="Dn0-ri-LzT"/>
                         </constraints>
@@ -121,17 +95,8 @@
                         <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaD-w7-Azp">
-                        <rect key="frame" x="0.0" y="0.0" width="160" height="136"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="136" id="7a2-Ix-qxY"/>
-                        </constraints>
-                        <connections>
-                            <action selector="dropShippingBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wwd-Uh-MNe"/>
-                        </connections>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u99-lM-CB7">
-                        <rect key="frame" x="160" y="0.0" width="160" height="136"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="136"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="136" id="azq-67-C6s"/>
                         </constraints>
@@ -141,49 +106,32 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="QuC-3n-e3E" firstAttribute="top" secondItem="kqo-JT-XJv" secondAttribute="bottom" constant="3" id="2xJ-Fr-J5v"/>
                     <constraint firstAttribute="trailing" secondItem="aoI-4v-kzc" secondAttribute="trailing" id="4cG-nf-eFa"/>
-                    <constraint firstItem="zaD-w7-Azp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Apf-8h-ysq"/>
-                    <constraint firstItem="u99-lM-CB7" firstAttribute="leading" secondItem="zaD-w7-Azp" secondAttribute="trailing" id="Efj-rd-W3b"/>
-                    <constraint firstItem="5Sv-dN-IQK" firstAttribute="leading" secondItem="QuC-3n-e3E" secondAttribute="trailing" constant="8" id="Gxm-8V-7c2"/>
+                    <constraint firstItem="SwO-mw-ZpC" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="-77" id="5wm-8N-H6h"/>
                     <constraint firstItem="u99-lM-CB7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="LTF-2Q-bKt"/>
                     <constraint firstItem="aoI-4v-kzc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="LZQ-KU-4Tg"/>
+                    <constraint firstItem="NzC-nB-y01" firstAttribute="leading" secondItem="SwO-mw-ZpC" secondAttribute="trailing" constant="30" id="LxP-QQ-lFw"/>
                     <constraint firstItem="NzC-nB-y01" firstAttribute="top" secondItem="kqo-JT-XJv" secondAttribute="bottom" constant="22" id="NvK-Yx-Axb"/>
-                    <constraint firstItem="QuC-3n-e3E" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="PLg-qW-Jvz"/>
                     <constraint firstItem="kqo-JT-XJv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="PSm-vn-fM3"/>
                     <constraint firstAttribute="bottom" secondItem="u99-lM-CB7" secondAttribute="bottom" id="VZw-Ee-0GG"/>
-                    <constraint firstItem="u99-lM-CB7" firstAttribute="leading" secondItem="zaD-w7-Azp" secondAttribute="trailing" id="WVb-sQ-vgH"/>
                     <constraint firstItem="kqo-JT-XJv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Y7V-Mq-EgI"/>
                     <constraint firstAttribute="trailing" secondItem="u99-lM-CB7" secondAttribute="trailing" id="bWM-9T-1hc"/>
-                    <constraint firstItem="NzC-nB-y01" firstAttribute="leading" secondItem="SwO-mw-ZpC" secondAttribute="trailing" constant="8" id="fR5-YL-zhY"/>
-                    <constraint firstItem="5Sv-dN-IQK" firstAttribute="top" secondItem="kqo-JT-XJv" secondAttribute="bottom" constant="22" id="gw6-rT-0EZ"/>
-                    <constraint firstItem="zaD-w7-Azp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hEB-24-gsC"/>
+                    <constraint firstItem="u99-lM-CB7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hnw-go-JzD"/>
                     <constraint firstAttribute="trailing" secondItem="NzC-nB-y01" secondAttribute="trailing" constant="8" id="j8q-5G-lB9"/>
                     <constraint firstAttribute="trailing" secondItem="kqo-JT-XJv" secondAttribute="trailing" id="lI1-EO-RcW"/>
-                    <constraint firstAttribute="bottom" secondItem="zbl-2h-74C" secondAttribute="bottom" constant="11" id="mQm-ji-KeG"/>
-                    <constraint firstItem="zbl-2h-74C" firstAttribute="leading" secondItem="5Sv-dN-IQK" secondAttribute="trailing" constant="8" id="osw-CD-VM4"/>
                     <constraint firstItem="SwO-mw-ZpC" firstAttribute="top" secondItem="kqo-JT-XJv" secondAttribute="bottom" constant="3" id="q9L-fc-JDA"/>
-                    <constraint firstItem="zbl-2h-74C" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="35" id="sA4-wc-6Fc"/>
                     <constraint firstAttribute="bottom" secondItem="aoI-4v-kzc" secondAttribute="bottom" constant="10" id="taJ-zL-SrY"/>
-                    <constraint firstItem="zaD-w7-Azp" firstAttribute="width" secondItem="u99-lM-CB7" secondAttribute="width" id="uMG-iY-knQ"/>
-                    <constraint firstAttribute="bottom" secondItem="zaD-w7-Azp" secondAttribute="bottom" id="ul0-MM-UVx"/>
-                    <constraint firstItem="SwO-mw-ZpC" firstAttribute="leading" secondItem="zbl-2h-74C" secondAttribute="trailing" constant="5.5" id="z4n-4b-lEf"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <constraints>
-                <constraint firstItem="zbl-2h-74C" firstAttribute="centerX" secondItem="njF-e1-oar" secondAttribute="centerX" id="lo8-A0-hVv"/>
-            </constraints>
             <connections>
                 <outlet property="addproductlbl" destination="NzC-nB-y01" id="7Jo-r5-E17"/>
-                <outlet property="dropshippinglbl" destination="5Sv-dN-IQK" id="Fk2-CF-TCo"/>
                 <outlet property="makemoneylbl" destination="uzC-Tg-AD4" id="98o-PD-b4X"/>
             </connections>
             <point key="canvasLocation" x="139" y="120"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="dropShip_side" width="348" height="231"/>
         <image name="sidemenu_image" width="231" height="222"/>
     </resources>
 </document>

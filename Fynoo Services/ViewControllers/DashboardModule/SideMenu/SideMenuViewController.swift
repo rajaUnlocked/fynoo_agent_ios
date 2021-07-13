@@ -13,7 +13,7 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var tableVw: UITableView!
-    var cellTextArray = ["Home".localized, "Manage Services".localized, "Service Requests".localized, "", "", "Wallet".localized, "User Profile".localized, "Settings".localized, "Change Language".localized, "Sign out".localized]
+    var cellTextArray = ["Home".localized, "Manage Services".localized, "Service Requests".localized,"Notification".localized, "", "", "Wallet".localized, "User Profile".localized,  "Change Language".localized, "Sign out".localized]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,10 +68,10 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 4 {
+        if indexPath.row == 5 {
             return dropShippingCell(index: indexPath)
         }
-        else if indexPath.row == 3 {
+        else if indexPath.row == 4 {
             return earningCell(index: indexPath)
         }
         else{
@@ -94,18 +94,22 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
             
               dismiss(animated: true, completion: nil)
           NotificationCenter.default.post(name: Notification.Name("serviceRequestClicked"), object: nil, userInfo: nil)
+        case 3:
+            
+              dismiss(animated: true, completion: nil)
+          NotificationCenter.default.post(name: Notification.Name("notificationRequestClicked"), object: nil, userInfo: nil)
 
-        case 5:
+        case 6:
             dismiss(animated: true, completion: nil)
             NotificationCenter.default.post(name: Notification.Name("walletClicked"), object: nil, userInfo: nil)
             
-        case 6:
+        case 7:
             dismiss(animated: true, completion: nil)
             NotificationCenter.default.post(name: Notification.Name("userProfileClicked"), object: nil, userInfo: nil)
             
-        case 7:
-            dismiss(animated: true, completion: nil)
-            NotificationCenter.default.post(name: Notification.Name("settingsClicked"), object: nil, userInfo: nil)
+//        case 7:
+//            dismiss(animated: true, completion: nil)
+//            NotificationCenter.default.post(name: Notification.Name("settingsClicked"), object: nil, userInfo: nil)
             
         case 8:
             dismiss(animated: true, completion: nil)
@@ -121,10 +125,10 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        if indexPath.row == 3 {
+        if indexPath.row == 4 {
             return 130
         }
-        if indexPath.row == 4 {
+        if indexPath.row == 5 {
             return 136
         }
         else{
