@@ -825,6 +825,7 @@ extension DataEntryDetailViewController : UITableViewDataSource {
 }
 
 
+
 extension UIButton {
     func underlineButton(text: String) {
         let titleString = NSMutableAttributedString(string: text)
