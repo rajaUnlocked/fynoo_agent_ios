@@ -186,7 +186,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
-//        NotificationCenter.default.post(name: Notification.Name(Constant.GET_NOTIFICATION), object: userInfo)
+        NotificationCenter.default.post(name: Notification.Name(Constant.GET_NOTIFICATION), object: userInfo)
         // Print full message.
         print(userInfo)
         // Change this to your preferred presentation option
