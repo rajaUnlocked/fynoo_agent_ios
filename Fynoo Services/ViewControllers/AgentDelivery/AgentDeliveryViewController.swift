@@ -540,7 +540,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
 //                self.navigationController?.pushViewController(vc, animated: true)
         
         if indexPath.section == 1 {
-            if self.selectedTab == "2"
+            if self.selectedTab == "1"
             {
                 
                 if self.tripList?.data?.trip_list?.count ?? 0 > 0  {
