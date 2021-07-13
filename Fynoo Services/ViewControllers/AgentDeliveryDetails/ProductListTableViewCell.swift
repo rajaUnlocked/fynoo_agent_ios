@@ -29,6 +29,7 @@ class ProductListTableViewCell: UITableViewCell,UITableViewDelegate {
     @IBOutlet weak var lblLineReduceQty : UILabel!
     @IBOutlet weak var imgCart: UIImageView!
 
+    @IBOutlet weak var lblCancelReasonn: UILabel!
     
    
     
@@ -59,6 +60,7 @@ class ProductListTableViewCell: UITableViewCell,UITableViewDelegate {
         self.lblPriceAlmost.font = UIFont(name:"\(fontNameLight)",size:12)
         self.btnDelete.titleLabel!.font = UIFont(name:"\(fontNameLight)",size:12)
         self.btnReduceQuantity.titleLabel!.font = UIFont(name:"\(fontNameLight)",size:10)
+        self.lblCancelReasonn.font = UIFont(name: "\(fontNameLight)", size: 12)
       
         }
     

@@ -51,6 +51,10 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     
     @IBOutlet weak var lblDecline: UILabel!
     
+    @IBOutlet weak var lblMin: UILabel!
+    
+    @IBOutlet weak var lblCubic: UILabel!
+    
     var tripDetail : newOrderTripData?
     var agentViewModel = AgentModel()
     let locationManager = CLLocationManager()
@@ -111,9 +115,10 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         
         self.lblCreatedBy.font = UIFont(name:"\(fontNameLight)",size:10)
         self.lblRating.font = UIFont(name:"\(fontNameLight)",size:12)
-        self.lblQty.font = UIFont(name:"\(fontNameLight)",size:12)
-        self.lblWeight.font = UIFont(name:"\(fontNameLight)",size:12)
-        self.lblSize.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblQty.font = UIFont(name:"\(fontNameLight)",size:10)
+        self.lblWeight.font = UIFont(name:"\(fontNameLight)",size:10)
+        self.lblSize.font = UIFont(name:"\(fontNameLight)",size:10)
+        self.lblCubic.font = UIFont(name:"\(fontNameLight)",size:10)
        
         self.lblRating.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblQty.font = UIFont(name:"\(fontNameLight)",size:12)
@@ -125,6 +130,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         self.lblavgRating.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblAlmostTotalPrice.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblTime.font = UIFont(name:"\(fontNameLight)",size:25)
+        self.lblMin.font = UIFont(name:"\(fontNameLight)",size:25)
         self.btnAcceptTxt.titleLabel?.font =  UIFont(name:"\(fontNameLight)",size:16)
         self.btnDeclineTxt.titleLabel?.font =  UIFont(name:"\(fontNameLight)",size:16)
         self.lblDecline.font =  UIFont(name:"\(fontNameLight)",size:16)
@@ -287,8 +293,12 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
 
     @objc func updateTime() {
         let min = "min".localized
-        
+        lblMin.text = ""
         lblTime.text = "\(timeFormatted(totalTime))\(min)"
+        if HeaderHeightSingleton.shared.LanguageSelected == "AR"{
+            lblMin.text = min
+            lblTime.text = "\(timeFormatted(totalTime))"
+                  }
 
         if totalTime > 0 {
             totalTime -= 1
@@ -303,7 +313,8 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         let vc = AgentDeliveryViewController()
         vc.isfrom = "700"
         vc.selectedTrip = 2
-        Singleton.shared.setDeliveryDashBoardTabID(tabId: 2)
+        //done
+        Singleton.shared.setDeliveryDashBoardTabID(tabId: 1)
         Singleton.shared.setDelServiceID(delServiceId: serviceID)
         vc.isRating = false
         vc.serviceID = serviceID
@@ -351,7 +362,8 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             vc.isRating = false
                             vc.isfrom = "700"
                             vc.selectedTrip = 2
-                            Singleton.shared.setDeliveryDashBoardTabID(tabId: 2)
+                            //Done
+                            Singleton.shared.setDeliveryDashBoardTabID(tabId: 1)
                             Singleton.shared.setDelServiceID(delServiceId: "\(errorData["del_service_id"] as! Int)")
                             vc.serviceID = "\(errorData["del_service_id"] as! Int)"
                             vc.selectedTab = "\(errorData["service_status"] as! Int)"
@@ -365,9 +377,25 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             
         //
                             self.lblQty.text = "\(qty)0\(tripDetail?.data?.trip_details?.qty ?? 0)"
+                            
+//                            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+//                            let font:UIFont? = UIFont(name: "Helvetica", size:20)
+//                            let fontSuper:UIFont? = UIFont(name: "Helvetica", size:10)
+//                            let attString:NSMutableAttributedString = NSMutableAttributedString(string: "cm3", attributes: [.font:font!])
+//                            attString.setAttributes([.font:fontSuper!,.baselineOffset:3], range: NSRange(location:2,length:1))
+//                            labelVarName.attributedText = attString
+//                            print("arv==\(attString)")
                             let size = "Size:".localized
                             let cm3 = "cm3".localized
-                            self.lblSize.text = "\(size)\(tripDetail?.data?.trip_details?.size ?? "")\(cm3)"
+                            self.lblSize.text = "\(size)\(tripDetail?.data?.trip_details?.size ?? "")cm"
+                            
+                            
+                            if HeaderHeightSingleton.shared.LanguageSelected == "AR"{
+                                lblCubic.isHidden = true
+                                self.lblSize.text = "\(size)\(tripDetail?.data?.trip_details?.size ?? "")سنتمتر مكعب"
+
+                                       }
+                            
                             self.lblCreatedBy.text = "\(tripDetail?.data?.trip_details?.created_by ?? "")"
                             self.lblpickupTime.text = "\(tripDetail?.data?.trip_details?.pick_up_time ?? "")"
                             let weight = "Weight:".localized
@@ -455,7 +483,8 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
 //                            vc.serviceID = "\(tripDetail?.data?.trip_details?.service_id ?? 0)"
                             vc.isfrom = "700"
                             vc.selectedTrip = 1
-                            Singleton.shared.setDeliveryDashBoardTabID(tabId: 1)
+                            //don3
+                            Singleton.shared.setDeliveryDashBoardTabID(tabId: 2)
                             Singleton.shared.setDelServiceID(delServiceId: serviceID)
                             vc.serviceID = serviceID
                             vc.serviceStatus = serviceStatus
@@ -518,7 +547,8 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             let vc = AgentDeliveryViewController()
                             vc.isfrom = "700"
                             vc.selectedTrip = 2
-                            Singleton.shared.setDeliveryDashBoardTabID(tabId: 2)
+                            //done
+                            Singleton.shared.setDeliveryDashBoardTabID(tabId: 1)
                             Singleton.shared.setDelServiceID(delServiceId: serviceID)
                             vc.isRating = false
                             vc.serviceID = serviceID

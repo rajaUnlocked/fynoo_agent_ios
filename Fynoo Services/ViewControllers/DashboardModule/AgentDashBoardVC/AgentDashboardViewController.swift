@@ -1136,6 +1136,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                                         }
                                         if(application.applicationState == .inactive)
                                           {
+                                            NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
                                             let vc = ProductDetailsViewC()
                                             let orderId = pushMessage["order_id"] as? String
                                             vc.orderId = orderId ?? ""
@@ -1143,13 +1144,14 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                                           }
                                           break;
                                       case "8": //An agent accept your product item individual need to refresh the details page {'nf_type': 5,'agent_id': 1205,'order_id': OD94031610329279}/
-                                        
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
                                         let vc = ProductDetailsViewC()
                                         let orderId = pushMessage["order_id"] as? String
                                         vc.orderId = orderId ?? ""
                                         self.navigationController?.pushViewController(vc, animated: true)
                                           break;
                                       case "13": //An agent cancel your individual product  need to refresh the details page {'nf_type': 6,'agent_id': 1205,'order_id': OD94031610329279}
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
                                         
                                         let vc = ProductDetailsViewC()
                                         let orderId = pushMessage["order_id"] as? String
@@ -1158,7 +1160,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
 //                                          
                                           break;
                                       case "15":
-                                        
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
                                         let vc = ProductDetailsViewC()
                                         let orderId = pushMessage["order_id"] as? String
                                         vc.orderId = orderId ?? ""
@@ -1166,6 +1168,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
 
                                           break;
                                       case "16":
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
                                         let vc = ProductDetailsViewC()
                                         let orderId = pushMessage["order_id"] as? String
                                         vc.orderId = orderId ?? ""
@@ -1173,6 +1176,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                                           break;
                                         
                                       case "17":
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
                                         let vc = ProductDetailsViewC()
                                         let orderId = pushMessage["order_id"] as? String
                                         vc.orderId = orderId ?? ""
@@ -1180,6 +1184,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                                         break;
 
                                       case "20":
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
                                         let vc = ProductDetailsViewC()
                                         let orderId = pushMessage["order_id"] as? String
                                         vc.orderId = orderId ?? ""
@@ -1187,12 +1192,14 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
 
                                           break;
                                       case "26":
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
                                         let vc = ProductDetailsViewC()
                                         let orderId = pushMessage["order_id"] as? String
                                         vc.orderId = orderId ?? ""
                                         self.navigationController?.pushViewController(vc, animated: true)
                                           break;
                                       case "28":
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
                                         let vc = ProductDetailsViewC()
                                         let orderId = pushMessage["order_id"] as? String
                                         vc.orderId = orderId ?? ""
@@ -1201,12 +1208,14 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                                          break;
 
                                       case "29":
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
                                         let vc = ProductDetailsViewC()
                                         let orderId = pushMessage["order_id"] as? String
                                         vc.orderId = orderId ?? ""
                                         self.navigationController?.pushViewController(vc, animated: true)
                                           break;
                                       case "31":
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
                                         let vc = ProductDetailsViewC()
                                         let orderId = pushMessage["order_id"] as? String
                                         vc.orderId = orderId ?? ""

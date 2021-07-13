@@ -565,6 +565,8 @@ extension OtpForCodViewC : UITableViewDataSource {
                 return 155
         }else if indexPath.section == 0{
             return 170
+        }else if indexPath.section == 2{
+            return 220
         }else
         {
             return 170

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OtpForCodViewC" customModule="Fynoo_Services" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OtpForCodViewC" customModule="Fynoo_Agent" customModuleProvider="target">
             <connections>
                 <outlet property="btnConfirmDelivery" destination="53U-nq-iar" id="Oga-jt-PlU"/>
                 <outlet property="headerHeightConstant" destination="oLY-XM-0a5" id="rXx-g2-Wo8"/>
@@ -24,14 +24,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wVQ-dy-zx8">
-                    <rect key="frame" x="0.0" y="50" width="320" height="401"/>
+                    <rect key="frame" x="0.0" y="50" width="320" height="448"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Ef2-95-Eyt"/>
                         <outlet property="delegate" destination="-1" id="Y0z-fP-eab"/>
                     </connections>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Rg-Yd-Hxe" customClass="NavigationView" customModule="Fynoo_Services" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Rg-Yd-Hxe" customClass="NavigationView" customModule="Fynoo_Agent" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -69,7 +69,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="53U-nq-iar" secondAttribute="bottom" constant="20" id="J2P-tA-ADB"/>
                 <constraint firstItem="0Rg-Yd-Hxe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KMy-hn-tSp"/>
                 <constraint firstItem="eZ3-Ct-26y" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Ufr-g0-uA2"/>
-                <constraint firstItem="wVQ-dy-zx8" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-117" id="YeE-8w-BQ0"/>
+                <constraint firstItem="wVQ-dy-zx8" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-70" id="YeE-8w-BQ0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wVQ-dy-zx8" secondAttribute="trailing" id="g9f-ER-9S8"/>
                 <constraint firstItem="eZ3-Ct-26y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hlA-Cj-a2S"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="53U-nq-iar" secondAttribute="trailing" constant="20" id="jl0-dh-bpK"/>

@@ -11,6 +11,7 @@ import ObjectMapper
 import MessageUI
 import MTPopup
 import MessageUI
+import AMShimmer
 
 class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProductDelegate,AddInvoiceInformationDelegate, OpenGalleryDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,DECancellationReasonViewControllerDelegate,AgentServiceListDelegate,MFMessageComposeViewControllerDelegate, BusinessOwnerTableViewCellDelegate,ConfirmToreceiveItemTableViewCellDelegate {
    
@@ -67,6 +68,9 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         self.headerView.titleHeader.text = "Order Details".localized
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(notify), name: NSNotification.Name(Constant.AGENT_NOTIFICATION), object: nil)
+        
         SetFont()
         getOrderDetail()
         
@@ -163,6 +167,35 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
 
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
+    
+    @objc func notify(_ userInfo:NSNotification) {
+        
+        if let pushMessage = userInfo.object as? Dictionary<String,Any>{
+            guard let order_id = pushMessage["order_id"] as? String else { return}
+            self.orderId = order_id
+            
+            self.getOrderDetail()
+//            AMShimmer.start(for: self.tabvw)
+//                      ModalClass.startLoading(self.view)
+//                      orderModal.getSharedOrderDetail(orderId) { (success, response) in
+//                      ModalClass.stopLoading()
+//                        ModalClass.stopLoadingAllLoaders(self.view)
+//                      AMShimmer.stop(for: self.tabvw)
+//                      if success{
+//                          if response != nil{
+//                            ModalClass.stopLoading()
+//                            ModalClass.stopLoadingAllLoaders(self.view)
+//                              self.orderDetailsResponse = response
+//                          }
+//                        ModalClass.stopLoadingAllLoaders(self.view)
+//                          self.reloadTableData()
+//                      }
+//                    }
+        }
+          
+      }
     
     
     func selectedCancelReason(reasonID: String) {
@@ -992,6 +1025,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         case 2:
             self.btnChangeStatus.setTitle("Delivered".localized, for: .normal)
             self.btnChangeStatus.isUserInteractionEnabled = false
+            self.btnChangeStatus.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             cell.imgInvoiceUploaded.isHidden = false
             cell.btnAnyProblem.isHidden = true
             cell.contentView.isUserInteractionEnabled = false
@@ -1010,7 +1044,8 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             Singleton.shared.setDelServiceID(delServiceId: "\((orderDetailData?.data?.del_service_id)!)")
         default:
             self.btnChangeStatus.setTitle("Confirm and upload invoice".localized, for: .disabled)
-            Singleton.shared.setDeliveryDashBoardTabID(tabId: 1)
+            //Done
+            Singleton.shared.setDeliveryDashBoardTabID(tabId: 2)
             Singleton.shared.setDelServiceID(delServiceId: "\((orderDetailData?.data?.del_service_id)!)")
         }
         
@@ -1418,6 +1453,9 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     return 350
                 }
             }
+            if (orderDetailData?.data?.item_detail? [indexPath.row].reason ?? "") != "" {
+                return 120
+            }
             return 160
         }else
         {
@@ -1585,6 +1623,8 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     cell.lblAddress.text = orderDetailData?.data?.item_detail? [indexPath.row].pro_name ?? ""
                     let Items_price_Almost = "Items price (Almost)".localized
                     cell.lblPriceAlmost.text = "\(Items_price_Almost):  \(orderDetailData?.data?.item_detail? [indexPath.row].price ?? 0)"
+                        cell.lblCancelReasonn.text = "\(orderDetailData?.data?.item_detail? [indexPath.row].reason ?? "")"
+                        
                     
                     cell.imgProduct.sd_setImage(with: URL(string: orderDetailData?.data?.item_detail?[indexPath.row].product_pic ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
                     
