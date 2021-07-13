@@ -116,6 +116,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         print(Singleton.shared.getDelServiceID())
     }
     override func viewDidAppear(_ animated: Bool) {
+       
         getAgentData()
         self.selecteIndex(self, selectedIndexID: "\(Singleton.shared.getDeliveryDashBoardTabID())")
     }
@@ -191,6 +192,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         ServerCalls.postRequest(Service.deliveryDashboard, withParameters: param) { (response, success) in
             if success{
                 if let body = response as? [String: Any] {
+                   
                     self.deliverData  = Mapper<deliveryDashboard>().map(JSON: body)
                     if self.deliverData?.data?.agent_information?.del_service_document_uploaded == 0 {
                     let vc = AddAmountViewController(nibName: "AddAmountViewController", bundle: nil)
@@ -204,7 +206,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
                         self.tableView.reloadData()
                        
                     }
-                    
+                    self.tableView.reloadData()
                 }
             }
         }
