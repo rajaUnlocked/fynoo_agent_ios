@@ -1429,6 +1429,11 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 }
                 else if indexPath.row == 3
                 {
+                    if vehiclebrandArr.count == 0
+                    {
+                        ModalController.showNegativeCustomAlertWith(title: "Please Select Brand First", msg: "")
+                        return
+                    }
                     vc.nameAr = vehiclenameArr
                     vc.nameArId = vehiclenameidArr
                     vc.namelock = vehiclenameidArr
