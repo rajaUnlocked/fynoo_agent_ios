@@ -602,6 +602,7 @@ extension DataEntryDetailViewController : UITableViewDataSource {
             cell.locationBtnWidthConstant.constant = 0
         }
         
+        
         let requestData = serviceDetailData?.data
         
         cell.headerLbl.text = requestData?.instruction
