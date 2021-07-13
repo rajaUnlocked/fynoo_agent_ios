@@ -69,7 +69,6 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
         tableView.register(UINib(nibName: "DEInprogressShowInstructionTableViewCell", bundle: nil), forCellReuseIdentifier: "DEInprogressShowInstructionTableViewCell")
         tableView.register(UINib(nibName: "OtherServicesOrderInformationTableViewCell", bundle: nil), forCellReuseIdentifier: "OtherServicesOrderInformationTableViewCell")
                 tableView.register(UINib(nibName: "MoreDetailSpecificationsTableViewCell", bundle: nil), forCellReuseIdentifier: "MoreDetailSpecificationsTableViewCell")
-        
         tableView.register(UINib(nibName: "ServicesBasicDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "ServicesBasicDetailTableViewCell")
                
         
@@ -580,7 +579,7 @@ extension DataEntryDetailViewController : UITableViewDataSource {
 
     func dataEntryBasicDetailCell(index : IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteDataEntryListTableViewCell", for: index) as! CompleteDataEntryListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ServicesBasicDetailTableViewCell", for: index) as! ServicesBasicDetailTableViewCell
         cell.selectionStyle = .none
         cell.lowerLbl.isHidden = true
         cell.giveRatingBtn.isHidden = true
@@ -610,7 +609,6 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         cell.orderIdLbl.text = "\(orderIdTxt) \(requestData?.order_id ?? "")"
         
         cell.dateLbl.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: "\(requestData?.order_date ?? 0)", format: "E, MMM dd, yyyy h:mm")
-        cell.paidTextLbl.text = "Holding".localized
         cell.priceValueLbl.text = "\(Constant.currency) \(requestData?.service_price ?? 0.00)"
         cell.agentProfileImgView.sd_setImage(with: URL(string:(requestData?.bo_name ?? "")), placeholderImage: UIImage(named: "agent_indivdual.png"))
         cell.agentNameLbl.text = requestData?.bo_name

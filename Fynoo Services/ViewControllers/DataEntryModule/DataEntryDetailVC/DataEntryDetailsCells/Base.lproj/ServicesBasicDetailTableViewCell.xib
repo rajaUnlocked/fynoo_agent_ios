@@ -179,7 +179,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PA-Yz-cL9">
-                        <rect key="frame" x="75" y="145.5" width="297.5" height="33"/>
+                        <rect key="frame" x="75" y="145.5" width="320" height="33"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="33" id="VkM-LZ-apd"/>
                         </constraints>
@@ -292,6 +292,7 @@ Utter Pradesh, India 201301</string>
                     <constraint firstAttribute="trailing" secondItem="cEd-bQ-i75" secondAttribute="trailing" id="dbS-Vf-HCT"/>
                     <constraint firstItem="7PA-Yz-cL9" firstAttribute="top" secondItem="DbH-bK-99o" secondAttribute="bottom" constant="5" id="fKt-va-DJo"/>
                     <constraint firstAttribute="trailing" secondItem="c54-Mj-GPi" secondAttribute="trailing" constant="20" id="gd2-Ce-EfX"/>
+                    <constraint firstAttribute="trailing" secondItem="7PA-Yz-cL9" secondAttribute="trailing" constant="20" id="iNO-kl-xpr"/>
                     <constraint firstItem="qkR-l5-qLH" firstAttribute="centerY" secondItem="1mB-Di-G0V" secondAttribute="centerY" id="isc-xl-dQs"/>
                     <constraint firstItem="Pwm-kD-YYK" firstAttribute="centerY" secondItem="c54-Mj-GPi" secondAttribute="centerY" id="jc4-NP-egu"/>
                     <constraint firstItem="Ne7-He-NvN" firstAttribute="centerY" secondItem="GUU-cS-d0a" secondAttribute="centerY" id="jlw-NS-Lmp"/>

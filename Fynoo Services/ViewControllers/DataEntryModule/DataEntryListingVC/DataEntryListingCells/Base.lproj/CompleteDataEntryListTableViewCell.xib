@@ -188,7 +188,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEz-bv-4Co">
-                        <rect key="frame" x="75" y="172" width="300" height="33"/>
+                        <rect key="frame" x="75" y="172" width="320" height="33"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="33" id="hXj-t6-4DC"/>
                         </constraints>
@@ -286,6 +286,7 @@ Utter Pradesh, India 201301</string>
                     <constraint firstAttribute="trailing" secondItem="14E-Nh-ZwP" secondAttribute="trailing" constant="20" id="H68-2E-raD"/>
                     <constraint firstItem="WaC-Km-OyV" firstAttribute="leading" secondItem="o5S-SU-rBS" secondAttribute="leading" id="P8v-ho-FJg"/>
                     <constraint firstItem="wnd-xz-wkc" firstAttribute="top" secondItem="dDm-gu-PgN" secondAttribute="bottom" constant="10" id="PKa-3U-dKS"/>
+                    <constraint firstAttribute="trailing" secondItem="OEz-bv-4Co" secondAttribute="trailing" constant="20" id="Sc8-ym-ntf"/>
                     <constraint firstItem="z25-gl-ymx" firstAttribute="leading" secondItem="7HB-Hr-zlw" secondAttribute="leading" id="TJr-wb-KyQ"/>
                     <constraint firstItem="OEz-bv-4Co" firstAttribute="leading" secondItem="z25-gl-ymx" secondAttribute="trailing" constant="10" id="U23-W9-eob"/>
                     <constraint firstItem="dDm-gu-PgN" firstAttribute="top" secondItem="W9K-IU-kNj" secondAttribute="bottom" constant="5" id="UcE-kU-L13"/>
@@ -299,7 +300,6 @@ Utter Pradesh, India 201301</string>
                     <constraint firstItem="DPd-Rl-b4U" firstAttribute="centerY" secondItem="BRH-1L-CEi" secondAttribute="centerY" id="bnh-Af-dMS"/>
                     <constraint firstItem="dDm-gu-PgN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="cQr-eI-yfA"/>
                     <constraint firstItem="14E-Nh-ZwP" firstAttribute="centerY" secondItem="7HB-Hr-zlw" secondAttribute="centerY" id="ghh-ax-lfu"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="OEz-bv-4Co" secondAttribute="trailing" constant="20" id="hHk-2N-GNQ"/>
                     <constraint firstItem="kmK-SP-wOq" firstAttribute="leading" secondItem="o5S-SU-rBS" secondAttribute="trailing" constant="3" id="hqG-KZ-bbt"/>
                     <constraint firstAttribute="bottom" secondItem="yk7-Ms-lpD" secondAttribute="bottom" id="inK-4D-vNe"/>
                     <constraint firstItem="W9K-IU-kNj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="lzb-hz-fgE"/>
