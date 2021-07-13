@@ -610,7 +610,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
        
         cell.callBtn.isHidden = false
         cell.messageBtn.isHidden = false
-        if selectedTab == "2" {
+        if selectedTab == "1" {
             cell.callBtn.isHidden = true
             cell.messageBtn.isHidden = true
             cell.statusLbl.text = "Tap to accept".localized
