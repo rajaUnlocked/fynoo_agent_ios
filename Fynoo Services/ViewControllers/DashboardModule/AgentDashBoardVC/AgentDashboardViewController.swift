@@ -98,6 +98,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         saveFcmTokenToServer_API()
         
         NotificationCenter.default.addObserver(self, selector: #selector(getNotification(_:)), name: NSNotification.Name(Constant.GET_NOTIFICATION), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(getNotificationARV(_:)), name: NSNotification.Name(Constant.GET_NOTIFICATIONARV), object: nil)
         tabBarController?.delegate = self
     }
     
@@ -1220,6 +1222,133 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                                         let orderId = pushMessage["order_id"] as? String
                                         vc.orderId = orderId ?? ""
                                         self.navigationController?.pushViewController(vc, animated: true)
+                                        break;
+
+
+                                          break;
+                                      default:
+                                                print("")
+                                            }
+                                  
+                           }
+              
+           
+       }
+    
+    
+    @objc func getNotificationARV( _ userInfo:NSNotification)  {
+               
+           print(userInfo)
+           var nf_type = ""
+           if let pushMessage = userInfo.object as? Dictionary<String,Any>{
+                           if let nftype = pushMessage["nf_type"] as? String{
+                              nf_type = nftype
+                           }
+                          switch (nf_type) {
+                                      case "1": //An agent accept new request {'nf_type': 2,'agent_id': 1205,'order_id': OD94031610329279}/
+                                       NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                                      
+                                        
+                                        
+                                         break;
+                                      case "4": //When No agent found for customer delivery request. when close the searching popup and open the no data found {'nf_type': 3}/
+                                        
+                                        if(application.applicationState == .active){
+                                            let vc = CommonPopViewC(nibName: "CommonPopViewC", bundle: nil)
+                                //          vc.delegate = self
+                                            let orderId = pushMessage["order_id"] as? String
+                                            vc.orderId = orderId ?? ""
+                                            vc.modalPresentationStyle = .overFullScreen
+                                            vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+                                                self.present(vc, animated: true, completion: nil)
+                                            
+                                        }
+                                        if(application.applicationState == .inactive)
+                                          {
+                                            NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+//                                            let vc = ProductDetailsViewC()
+//                                            let orderId = pushMessage["order_id"] as? String
+//                                            vc.orderId = orderId ?? ""
+//                                            self.navigationController?.pushViewController(vc, animated: true)
+                                          }
+                                          break;
+                                      case "8": //An agent accept your product item individual need to refresh the details page {'nf_type': 5,'agent_id': 1205,'order_id': OD94031610329279}/
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+//                                        let vc = ProductDetailsViewC()
+//                                        let orderId = pushMessage["order_id"] as? String
+//                                        vc.orderId = orderId ?? ""
+//                                        self.navigationController?.pushViewController(vc, animated: true)
+                                          break;
+                                      case "13": //An agent cancel your individual product  need to refresh the details page {'nf_type': 6,'agent_id': 1205,'order_id': OD94031610329279}
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                                        
+//                                        let vc = ProductDetailsViewC()
+//                                        let orderId = pushMessage["order_id"] as? String
+//                                        vc.orderId = orderId ?? ""
+//                                        self.navigationController?.pushViewController(vc, animated: true)
+//
+                                          break;
+                                      case "15":
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+//                                        let vc = ProductDetailsViewC()
+//                                        let orderId = pushMessage["order_id"] as? String
+//                                        vc.orderId = orderId ?? ""
+//                                        self.navigationController?.pushViewController(vc, animated: true)
+
+                                          break;
+                                      case "16":
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+//                                        let vc = ProductDetailsViewC()
+//                                        let orderId = pushMessage["order_id"] as? String
+//                                        vc.orderId = orderId ?? ""
+//                                        self.navigationController?.pushViewController(vc, animated: true)
+                                          break;
+                                        
+                                      case "17":
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+//                                        let vc = ProductDetailsViewC()
+//                                        let orderId = pushMessage["order_id"] as? String
+//                                        vc.orderId = orderId ?? ""
+//                                        self.navigationController?.pushViewController(vc, animated: true)
+                                        break;
+
+                                      case "20":
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+//                                        let vc = ProductDetailsViewC()
+//                                        let orderId = pushMessage["order_id"] as? String
+//                                        vc.orderId = orderId ?? ""
+//                                        self.navigationController?.pushViewController(vc, animated: true)
+
+                                          break;
+                                      case "26":
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+//                                        let vc = ProductDetailsViewC()
+//                                        let orderId = pushMessage["order_id"] as? String
+//                                        vc.orderId = orderId ?? ""
+//                                        self.navigationController?.pushViewController(vc, animated: true)
+                                          break;
+                                      case "28":
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+//                                        let vc = ProductDetailsViewC()
+//                                        let orderId = pushMessage["order_id"] as? String
+//                                        vc.orderId = orderId ?? ""
+//                                        self.navigationController?.pushViewController(vc, animated: true)
+
+                                         break;
+
+                                      case "29":
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+//                                        let vc = ProductDetailsViewC()
+//                                        let orderId = pushMessage["order_id"] as? String
+//                                        vc.orderId = orderId ?? ""
+//                                        self.navigationController?.pushViewController(vc, animated: true)
+                                          break;
+                                      case "31":
+                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+//                                        let vc = ProductDetailsViewC()
+//                                        let orderId = pushMessage["order_id"] as? String
+//                                        vc.orderId = orderId ?? ""
+//                                        self.navigationController?.pushViewController(vc, animated: true)
                                         break;
 
 

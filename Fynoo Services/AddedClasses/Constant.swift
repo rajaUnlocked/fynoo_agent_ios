@@ -214,6 +214,7 @@ class Constant: NSObject {
     static let GOOGLE_API_DISTANCE = "https://maps.googleapis.com/maps/api/directions/json?"
     static let SEARCH_AGENT_NOTIFICATION = "SEARCH_AGENT"
     static let AGENT_NOTIFICATION = "AGENT_NOTIFICATION"
+    static let GET_NOTIFICATIONARV = "AGENT_NOTIFICATIONARV"
     
     static let NF_KEY_FOR_PASS_DATA_TO_DELIVERYDASHBOARD = "PASS_DATA_TO_DELIVERY_DASHBOARD"
     

@@ -69,7 +69,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(notify), name: NSNotification.Name(Constant.AGENT_NOTIFICATION), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notify), name: NSNotification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: nil)
         
         SetFont()
         getOrderDetail()
@@ -1247,15 +1247,15 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     func callGetDistance(){
            let dispatchGroup = DispatchGroup()
            
-           let agentLat = self.orderDetailData?.data?.agent_lat
-           let agentLng = self.orderDetailData?.data?.agent_long
-           let boLat = self.orderDetailData?.data?.bo_lat
-           let boLng = self.orderDetailData?.data?.bo_long
-           let custLat = self.orderDetailData?.data?.cust_lat
-           let custLng = self.orderDetailData?.data?.cust_long
+        let agentLat = Double.getDouble(self.orderDetailData?.data?.agent_lat)
+           let agentLng = Double.getDouble(self.orderDetailData?.data?.agent_long)
+           let boLat = Double.getDouble(self.orderDetailData?.data?.bo_lat)
+           let boLng = Double.getDouble(self.orderDetailData?.data?.bo_long)
+           let custLat = Double.getDouble(self.orderDetailData?.data?.cust_lat)
+           let custLng = Double.getDouble(self.orderDetailData?.data?.cust_long)
 
            dispatchGroup.enter()   // <<---
-           let distanceUrlFromAgentToBO = "\(Constant.GOOGLE_API_DISTANCE)origin=\(agentLat!),\(agentLng!)&destination=\(boLat!),\(boLng!)&key=\(Constant.GOOGLE_API_KEY)"
+        let distanceUrlFromAgentToBO = "\(Constant.GOOGLE_API_DISTANCE)origin=\(agentLat),\(agentLng)&destination=\(boLat),\(boLng)&key=\(Constant.GOOGLE_API_KEY)"
            agentViewModel.getDistance(distanceUrlFromAgentToBO) { (succes, response) in
                if succes{
 //                   self.lblBoLocation.text = "\(response?.routes?.first?.legs?.first?.distance?.text ?? "")".uppercased()
@@ -1271,7 +1271,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
            }
 
            dispatchGroup.enter()   // <<---
-           let distanceUrlFromBOToCustomer = "\(Constant.GOOGLE_API_DISTANCE)origin=\(boLat!),\(boLng!)&destination=\(custLat!),\(custLng!)&key=\(Constant.GOOGLE_API_KEY)"
+           let distanceUrlFromBOToCustomer = "\(Constant.GOOGLE_API_DISTANCE)origin=\(boLat),\(boLng)&destination=\(custLat),\(custLng)&key=\(Constant.GOOGLE_API_KEY)"
            agentViewModel.getDistance(distanceUrlFromBOToCustomer) { (succes, response) in
                       if succes{
 //                       self.lblCustomerLocation.text = "\(response?.routes?.first?.legs?.first?.distance?.text ?? "")".uppercased()
@@ -1583,6 +1583,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.btnReduceQuantity.isHidden = true
                         cell.lblLineReduceQty.isHidden = true
                         cell.btnDelete.isHidden = true
+                        cell.lblCancelReasonn.isHidden = false
 
                     }
                     
