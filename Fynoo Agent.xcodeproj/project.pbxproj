@@ -825,6 +825,8 @@
 		F680D688259B7E79007EB12C /* CancelViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F680D687259B7E79007EB12C /* CancelViewModal.swift */; };
 		F680D68B259B7F27007EB12C /* CancelReasonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F680D689259B7F27007EB12C /* CancelReasonViewCell.swift */; };
 		F680D68C259B7F27007EB12C /* CancelReasonViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F680D68A259B7F27007EB12C /* CancelReasonViewCell.xib */; };
+		F68A0316269D2D5F0045D9EA /* ServicesBasicDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68A0314269D2D5F0045D9EA /* ServicesBasicDetailTableViewCell.swift */; };
+		F68A031B269D50820045D9EA /* ServicesBasicDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68A031D269D50820045D9EA /* ServicesBasicDetailTableViewCell.xib */; };
 		F68B78E32653ADE800B1E69E /* UserPolicyWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68B78E12653ADE800B1E69E /* UserPolicyWebViewController.swift */; };
 		F68B78E42653ADE800B1E69E /* UserPolicyWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68B78E22653ADE800B1E69E /* UserPolicyWebViewController.xib */; };
 		F6A5FB99259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A5FB98259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift */; };
@@ -1855,6 +1857,10 @@
 		F680D687259B7E79007EB12C /* CancelViewModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelViewModal.swift; sourceTree = "<group>"; };
 		F680D689259B7F27007EB12C /* CancelReasonViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelReasonViewCell.swift; sourceTree = "<group>"; };
 		F680D68A259B7F27007EB12C /* CancelReasonViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CancelReasonViewCell.xib; sourceTree = "<group>"; };
+		F68A0314269D2D5F0045D9EA /* ServicesBasicDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesBasicDetailTableViewCell.swift; sourceTree = "<group>"; };
+		F68A031C269D50820045D9EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ServicesBasicDetailTableViewCell.xib; sourceTree = "<group>"; };
+		F68A031F269D508A0045D9EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ServicesBasicDetailTableViewCell.strings; sourceTree = "<group>"; };
+		F68A0321269D508D0045D9EA /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ServicesBasicDetailTableViewCell.strings; sourceTree = "<group>"; };
 		F68B78E12653ADE800B1E69E /* UserPolicyWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPolicyWebViewController.swift; sourceTree = "<group>"; };
 		F68B78E22653ADE800B1E69E /* UserPolicyWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserPolicyWebViewController.xib; sourceTree = "<group>"; };
 		F6A5FB98259C0D4E0050812E /* SubscriptionBuyPaymentMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionBuyPaymentMethod.swift; sourceTree = "<group>"; };
@@ -3917,6 +3923,8 @@
 				F680D571259B7C2B007EB12C /* DEInprogressOrderInformationSecondTableViewCell.swift */,
 				F680D572259B7C2B007EB12C /* DEInprogressDetailTableViewCell.swift */,
 				F680D573259B7C2B007EB12C /* DEInprogressDetailWorkPlaceTableViewCell.swift */,
+				F68A0314269D2D5F0045D9EA /* ServicesBasicDetailTableViewCell.swift */,
+				F68A031D269D50820045D9EA /* ServicesBasicDetailTableViewCell.xib */,
 			);
 			path = DataEntryDetailsCells;
 			sourceTree = "<group>";
@@ -4541,6 +4549,7 @@
 				CECEF9F82577575C0090D459 /* HeaderBranchTableViewCell.strings in Resources */,
 				CE9CCDF7264BEDBD005AE619 /* TitleHeaderTableViewCell.xib in Resources */,
 				CECEFA962577A2C90090D459 /* BranchBottomPopUpController.xib in Resources */,
+				F68A031B269D50820045D9EA /* ServicesBasicDetailTableViewCell.xib in Resources */,
 				2FEB12082511EC930012FE98 /* SideMenuTableViewCell.xib in Resources */,
 				2F964B762513751B005FFEDC /* MultiBannerVw.xib in Resources */,
 				CEDD32EE25763C8E00023977 /* SendForAPProvalTableViewCell.xib in Resources */,
@@ -4853,6 +4862,7 @@
 				2F74CB58250A365F00DE21EF /* LogoAnimationView.swift in Sources */,
 				CE9CCE1C264BF0B6005AE619 /* FilterModel.swift in Sources */,
 				CEE72CAC251B405F00B02DAF /* ServiceHeaderTableViewCell.swift in Sources */,
+				F68A0316269D2D5F0045D9EA /* ServicesBasicDetailTableViewCell.swift in Sources */,
 				4EE631A0267F758900D5ED01 /* CancelReasonViewController.swift in Sources */,
 				CEDD33D82576975400023977 /* BranchMapModel.swift in Sources */,
 				2F74CB5A250A365F00DE21EF /* SplashAnimatedViewController.swift in Sources */,
@@ -7451,6 +7461,16 @@
 				F680D60F259B7C2C007EB12C /* Base */,
 			);
 			name = DataEntryListingTopTableViewCell.xib;
+			sourceTree = "<group>";
+		};
+		F68A031D269D50820045D9EA /* ServicesBasicDetailTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F68A031C269D50820045D9EA /* Base */,
+				F68A031F269D508A0045D9EA /* en */,
+				F68A0321269D508D0045D9EA /* ar */,
+			);
+			name = ServicesBasicDetailTableViewCell.xib;
 			sourceTree = "<group>";
 		};
 		F6D9271E268AC1EC0067C486 /* ConfirmToreceiveItemTableViewCell.strings */ = {

@@ -92,7 +92,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         registerCellNibs()
         addUIRefreshToTable()
         showWallet = true
-        self.arrowImg.image = UIImage(named: "up-arrow-3")
+        self.arrowImg.image = UIImage(named: "down-arrow-3")
         walletHeightConst.constant = 0
         walletvw.isHidden = true
         saveFcmTokenToServer_API()

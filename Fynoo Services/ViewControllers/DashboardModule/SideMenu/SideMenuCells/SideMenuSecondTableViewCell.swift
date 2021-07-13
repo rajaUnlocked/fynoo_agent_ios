@@ -25,7 +25,7 @@ class SideMenuSecondTableViewCell: UITableViewCell {
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         addproductlbl.font = UIFont(name:"\(fontNameLight)",size:12)
         makemoneylbl.font = UIFont(name:"\(fontNameLight)",size:12)
-        dropshippinglbl.font = UIFont(name:"\(fontNameLight)",size:12)
+       // dropshippinglbl.font = UIFont(name:"\(fontNameLight)",size:12)
 
     }
 

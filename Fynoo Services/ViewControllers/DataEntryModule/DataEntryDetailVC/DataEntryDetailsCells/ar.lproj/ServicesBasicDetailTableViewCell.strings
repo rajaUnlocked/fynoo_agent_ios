@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "Order Id: OD268231376364507"; ObjectID = "1mB-Di-G0V"; */
+"1mB-Di-G0V.text" = "Order Id: OD268231376364507";
+
+/* Class = "UILabel"; text = "Address: Plot No. B-3, B Block Sector-6, Noida,\nUtter Pradesh, India 201301"; ObjectID = "7PA-Yz-cL9"; */
+"7PA-Yz-cL9.text" = "Address: Plot No. B-3, B Block Sector-6, Noida,\nUtter Pradesh, India 201301";
+
+/* Class = "UILabel"; text = "Samsung Galaxy Prime 16GB J327 J3 ..."; ObjectID = "DbH-bK-99o"; */
+"DbH-bK-99o.text" = "Samsung Galaxy Prime 16GB J327 J3 ...";
+
+/* Class = "UILabel"; text = "SAR 4000.00"; ObjectID = "GUU-cS-d0a"; */
+"GUU-cS-d0a.text" = "SAR 4000.00";
+
+/* Class = "UILabel"; text = "Samsung Galaxy Prime 16GB J327 J3 ..."; ObjectID = "HSa-CA-ynT"; */
+"HSa-CA-ynT.text" = "Samsung Galaxy Prime 16GB J327 J3 ...";
+
+/* Class = "UILabel"; text = "(11)"; ObjectID = "NVb-6a-XG9"; */
+"NVb-6a-XG9.text" = "(11)";
+
+/* Class = "UILabel"; text = "Amount included VAT"; ObjectID = "Ne7-He-NvN"; */
+"Ne7-He-NvN.text" = "المبلغ شامل ضريبة القيمة المضافة";
+
+/* Class = "UIButton"; normalTitle = "Give Ratings"; ObjectID = "Pwm-kD-YYK"; */
+"Pwm-kD-YYK.normalTitle" = "Give Ratings";
+
+/* Class = "UILabel"; text = "5.23"; ObjectID = "ip8-jN-Kvt"; */
+"ip8-jN-Kvt.text" = "5.23";
+
+/* Class = "UILabel"; text = "Price: 12390"; ObjectID = "mD7-7H-I1H"; */
+"mD7-7H-I1H.text" = "Price: 12390";
+
+/* Class = "UILabel"; text = "Wed, Jan 08, 2020 13:04"; ObjectID = "qLQ-hh-B9C"; */
+"qLQ-hh-B9C.text" = "Wed, Jan 08, 2020 13:04";

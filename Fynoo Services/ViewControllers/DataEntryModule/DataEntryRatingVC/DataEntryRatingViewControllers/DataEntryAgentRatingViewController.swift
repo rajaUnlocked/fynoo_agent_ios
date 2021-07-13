@@ -75,14 +75,16 @@ class DataEntryAgentRatingViewController: UIViewController {
             
             submit.isHidden = false
             let staticText = "How was your experience with".localized
-            self.staticTxtLbl.text = "\(staticText) \(usertype)"
+            //self.staticTxtLbl.text = "\(staticText) \(usertype)"
             if usertype == "CUSTOMER"
             {
+                self.staticTxtLbl.text = "\(staticText) \(custName)"
                 self.agentNameLbl.text = custName
                 self.agentLanguageLbl.text = ""
                 self.agentProfileImageView.sd_setImage(with: URL(string: CustProfilePic), placeholderImage: UIImage(named: "agent_indivdual"))
             }
             else{
+                self.staticTxtLbl.text = "\(staticText) \(boName)"
                 self.agentNameLbl.text = boName
                 self.agentLanguageLbl.text = ""
                 self.agentProfileImageView.sd_setImage(with: URL(string: BoProfilePic), placeholderImage: UIImage(named: "agent_indivdual"))
@@ -120,7 +122,10 @@ class DataEntryAgentRatingViewController: UIViewController {
     }
     func ratingserviceAPI(rating:Double)
     {
-        
+        if rating == 0.0
+        {
+            return
+        }
         ModalClass.startLoading(self.view)
         var str = ""
         var parameters = [String:Any]()

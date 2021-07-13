@@ -143,18 +143,12 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
         
         if textField.tag == 1002{
             let lenght  = 24
-               
-            if textField.text!.count < 3 {
-                self.ibanNo.keyboardType = .asciiCapable
-            }else{
-                self.ibanNo.keyboardType = .asciiCapable
-            }
-            
+           
                // fixed SA
                var textstr = ""
                if let text = textField.text as NSString? {
                    let txtAfterUpdate = text.replacingCharacters(in: range, with: string)
-                   textstr = txtAfterUpdate
+                textstr = txtAfterUpdate.uppercased()
                }
                
 //               let textStr = "SA".localized
@@ -189,7 +183,7 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
                       var textstr = ""
                       if let text = textField.text as NSString? {
                           let txtAfterUpdate = text.replacingCharacters(in: range, with: string)
-                          textstr = txtAfterUpdate
+                        textstr = txtAfterUpdate.uppercased()
                       }
                       
 //                      let textStr = "SA".localized
@@ -263,14 +257,14 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
             
         case 1002:
             if accountNumber != "" {
-                accountValue = textField.text!
+                accountValue = textField.text!.uppercased()
                 accountNumber = accountValue.replacingOccurrences(of: " ", with: "")
                 accountValue = ModalController.customStringFormattingForAccountNumber(of: accountNumber)
             }else{
                 accountValue =  ModalController.customStringFormattingForAccountNumber(of: textField.text!)
                 accountNumber = accountValue.replacingOccurrences(of: " ", with: "")
             }
-            
+
             let str = self.ibanNo.text?.replacingOccurrences(of: " ", with: "")
             
             if str!.count >= 24 && self.ibanNo.text != "" && self.ibanNo.text != "SA" && self.ibanNo.text!.containArabicNumber {
@@ -306,7 +300,7 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
         case 1003:
             
             if accountNumbers != "" {
-                accountValues = textField.text!
+                accountValues = textField.text!.uppercased()
                 accountNumbers = accountValues.replacingOccurrences(of: " ", with: "")
                 accountValues = ModalController.customStringFormattingForAccountNumber(of: accountNumbers)
             }else{
@@ -316,7 +310,8 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
             
             textField.text = accountValues
 
-            
+//            let strg = reIban.text!.uppercased()
+//            reIban.text = strg
             let str = self.reIban.text?.replacingOccurrences(of: " ", with: "")
             
             if str!.count >= 24 && self.ibanNo.text != "" && self.reIban.text != "SA" && self.reIban.text!.containArabicNumber && self.reIban.text == self.ibanNo.text{
