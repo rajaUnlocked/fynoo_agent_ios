@@ -624,7 +624,10 @@ extension DataEntryListingViewController : UITableViewDataSource {
         
         return cell
     }
+   
     
+    
+   
     func dataEntryCompleteServiceCell(index : IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteDataEntryListTableViewCell", for: index) as! CompleteDataEntryListTableViewCell

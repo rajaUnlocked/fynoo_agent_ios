@@ -56,12 +56,12 @@ class PopUpAcceptProductViewController: UIViewController {
     
     @IBAction func yesClicked(_ sender: Any){
         
-        if titleLabel == "Are you sure want to accept?"{
+        if titleLabel == "Are you sure want to accept?".localized{
             self.delegate?.reloadPage()
             self.dismiss(animated: true, completion: nil)
             return
         }
-        if titleLabel == "Are you sure you want to decline?"{
+        if titleLabel == "Are you sure you want to decline?".localized{
             self.delegateDecline?.declineOrder()
             self.dismiss(animated: true, completion: nil)
             return
@@ -70,7 +70,7 @@ class PopUpAcceptProductViewController: UIViewController {
         let param = ["user_id":Singleton.shared.getUserId(),"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"item_id":itemId] as [String : Any]
         print(param)
         ServerCalls.postRequest(str, withParameters: param) { (response, success) in
-            self.delegate?.reloadPage()
+//            self.delegate?.reloadPage()
             
             print(response as Any)
            
@@ -86,12 +86,13 @@ class PopUpAcceptProductViewController: UIViewController {
 //                    self.transactionListArray.removeAllObjects()
 //                    self.tableView.reloadData()
                     
-                    self.delegate?.reloadPage()
+//                    self.delegate?.reloadPage()
                 }
                 else{
                     
                     
                     ModalController.showSuccessCustomAlertWith(title: ((ResponseDict.object(forKey: "error_description") as? String)!), msg: "")
+                    self.delegate?.reloadPage()
                    
                 }
             }else{
@@ -104,7 +105,7 @@ class PopUpAcceptProductViewController: UIViewController {
                 }
             }
             
-            self.delegate?.reloadPage()
+//            self.delegate?.reloadPage()
            
             self.dismiss(animated: true, completion: nil)
             

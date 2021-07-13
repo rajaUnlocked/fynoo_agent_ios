@@ -69,6 +69,8 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
         tableView.register(UINib(nibName: "DEInprogressShowInstructionTableViewCell", bundle: nil), forCellReuseIdentifier: "DEInprogressShowInstructionTableViewCell")
         tableView.register(UINib(nibName: "OtherServicesOrderInformationTableViewCell", bundle: nil), forCellReuseIdentifier: "OtherServicesOrderInformationTableViewCell")
                 tableView.register(UINib(nibName: "MoreDetailSpecificationsTableViewCell", bundle: nil), forCellReuseIdentifier: "MoreDetailSpecificationsTableViewCell")
+        
+        tableView.register(UINib(nibName: "ServicesBasicDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "ServicesBasicDetailTableViewCell")
                
         
         self.headerView.menuBtn.isHidden = true
