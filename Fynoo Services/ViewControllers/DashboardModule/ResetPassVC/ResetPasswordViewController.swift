@@ -114,8 +114,9 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
         passwordLbl.font = UIFont(name:"\(fontNameLight)",size:13)
         confirmLbl.font = UIFont(name:"\(fontNameLight)",size:13)
         counterrText.font = UIFont(name:"\(fontNameLight)",size:13)
+        otpTitle.font = UIFont(name:"\(fontNameLight)",size:12)
         saveBtnOutlet.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:13)
-        //resendOtp
+        resendOtp.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:13)
         
     }
     
