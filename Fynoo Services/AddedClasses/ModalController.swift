@@ -459,10 +459,21 @@ static func isStringValid(_ str: String?) -> Bool {
            return attributedString
            
        }
+    static  func setprofileStricColor(str: String,str1:String,str2:String) -> NSMutableAttributedString{
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+
+        let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: str, attributes: [NSAttributedString.Key.font:UIFont(name: fontNameLight, size: 12.0)!])
+        attributedString.setColor(color: #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1), forText: str2)
+        attributedString.setColor(color: #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1), forText: str1)
+
+        return attributedString
+        
+    }
     static  func setStricColor(str: String,str1:String,str2:String) -> NSMutableAttributedString{
         let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: str)
         attributedString.setColor(color: #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1), forText: str2)
         attributedString.setColor(color: #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1), forText: str1)
+    
         return attributedString
         
     }
@@ -579,7 +590,9 @@ extension NSMutableAttributedString {
     func setColor(color: UIColor, forText stringValue: String) {
         let range: NSRange = self.mutableString.range(of: stringValue, options: .caseInsensitive)
         self.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
+       
     }
+    
     
 }
 
