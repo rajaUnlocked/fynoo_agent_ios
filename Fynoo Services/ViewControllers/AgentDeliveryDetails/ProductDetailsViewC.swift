@@ -173,10 +173,12 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     @objc func notify(_ userInfo:NSNotification) {
         
         if let pushMessage = userInfo.object as? Dictionary<String,Any>{
-            guard let order_id = pushMessage["order_id"] as? String else { return}
-            self.orderId = order_id
-            
-            self.getOrderDetail()
+            guard let order_idd = pushMessage["order_id"] as? String else { return}
+//            self.orderId = order_idd
+            if self.orderId == order_idd {
+                self.getOrderDetail()
+            }
+           
 //            AMShimmer.start(for: self.tabvw)
 //                      ModalClass.startLoading(self.view)
 //                      orderModal.getSharedOrderDetail(orderId) { (success, response) in
@@ -1454,7 +1456,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                 }
             }
             if (orderDetailData?.data?.item_detail? [indexPath.row].reason ?? "") != "" {
-                return 120
+                return 160
             }
             return 160
         }else
