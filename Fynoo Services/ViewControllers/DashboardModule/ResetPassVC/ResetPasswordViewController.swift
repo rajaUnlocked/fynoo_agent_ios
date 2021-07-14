@@ -103,7 +103,6 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
         self.newPswdTxtFld.textAlignment = .left
         self.confirmPswdTxtFld.textAlignment = .left
         
-        
         let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         
