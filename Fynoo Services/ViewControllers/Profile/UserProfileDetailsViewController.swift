@@ -779,7 +779,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                    {
                        cell.isUserInteractionEnabled = true
                    }
-        cell.entryLbl.attributedText = ModalController.setStricColor(str: "\("Password".localized) *", str1: "\("Password".localized)", str2:" *" )
+        cell.entryLbl.attributedText = ModalController.setprofileStricColor(str: "\("Password".localized) *", str1: "\("Password".localized)", str2:" *" )
         cell.selectionStyle = .none
         cell.widthImg.constant = 0
         cell.codeBtn.isHidden = true
@@ -806,8 +806,9 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                    {
                        cell.isUserInteractionEnabled = true
                    }
-        
-        cell.entryLbl.attributedText = ModalController.setStricColor(str: "\("\(personalDetail[indexPath.row])".localized) *", str1: "\(personalDetail[indexPath.row])".localized, str2:" *" )
+  
+       
+       cell.entryLbl.attributedText = ModalController.setprofileStricColor(str: "\("\(personalDetail[indexPath.row])".localized) *", str1: "\(personalDetail[indexPath.row])".localized, str2:" *" )
         cell.headingLbl.isUserInteractionEnabled = true
         cell.headingLbl.isHidden = false
         cell.selectionStyle = .none
@@ -884,7 +885,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                    {
                        cell.isUserInteractionEnabled = true
                    }
-        cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(bankDetail[indexPath.row].localized) *", str1: "\(bankDetail[indexPath.row].localized)", str2:" *" )
+        cell.entryLbl.attributedText = ModalController.setprofileStricColor(str: "\(bankDetail[indexPath.row].localized) *", str1: "\(bankDetail[indexPath.row].localized)", str2:" *" )
         cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         cell.selectionStyle = .none
 
@@ -990,7 +991,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.headingLbl.isUserInteractionEnabled = false
             
         }
-        cell.entryLbl.attributedText = ModalController.setStricColor(str: " \(basicInfo[indexPath.row].localized) *", str1: "\(basicInfo[indexPath.row].localized)", str2:" *" )
+        cell.entryLbl.attributedText = ModalController.setprofileStricColor(str: " \(basicInfo[indexPath.row].localized) *", str1: "\(basicInfo[indexPath.row].localized)", str2:" *" )
         
         print(basicInfo[indexPath.row],"sd")
         cell.codeBtn.isHidden = true
@@ -1127,7 +1128,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                            cell.isUserInteractionEnabled = true
                        }
             let vt = "VAT Number".localized;
-            cell.entryLbl.attributedText = ModalController.setStricColor(str: "\(vt) *", str1: vt, str2:" *" )
+            cell.entryLbl.attributedText = ModalController.setprofileStricColor(str: "\(vt) *", str1: vt, str2:" *" )
             cell.flagImg.isHidden = true
             cell.mobileCode.isHidden = true
             cell.mobileCodeWidth.constant = 0
