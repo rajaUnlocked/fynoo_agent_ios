@@ -40,6 +40,9 @@ class CompanyAgentVatDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var deleteDocuementBtn: UIButton!    
     @IBOutlet weak var vatDocumentHeightConstant: NSLayoutConstraint!
     
+    
+    @IBOutlet weak var sampleImage: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.vatNumberTxtFld.keyboardType = .asciiCapableNumberPad
@@ -71,6 +74,7 @@ class CompanyAgentVatDetailTableViewCell: UITableViewCell {
         self.documentHeaderLbl.font = UIFont(name:"\(fontNameLight)",size:12)
         self.addDocumentLbl.font = UIFont(name:"\(fontNameLight)",size:18)
         self.vatNumberTxtFld.font = UIFont(name:"\(fontNameLight)",size:14)
+        self.sampleImage.font = UIFont(name:"\(fontNameLight)",size:10)
         
         self.headerTxtLbl.textColor = Constant.Black_TEXT_COLOR
         self.yesLbl.textColor = Constant.Black_TEXT_COLOR

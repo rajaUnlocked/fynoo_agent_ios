@@ -508,6 +508,7 @@
 "Address :" = "العنوان:";
 "Report Business Owner" = "إبلاغ عن صاحب النشاط";
 "Profile"="الملف الشخصي";
+"Order Details" = "تفاصيل الطلب";
 
 //Forget Password
 "Business Owner" = "صاحب العمل";
@@ -1145,9 +1146,9 @@
 "Submit" = "إتمام";
 "Are you sure you want to decline?" = "هل تريد رفض الطلب؟";
 "cm3" = "سنتمتر مكعب";
-"Order Details" = "تفاصيل الطلب";
 "Qty" = "الكمية";
 "Reduce Qty" = "تغيير الكمية";
+
 
 
 "Oops! No Order Found" = "Oops! No Order Found";

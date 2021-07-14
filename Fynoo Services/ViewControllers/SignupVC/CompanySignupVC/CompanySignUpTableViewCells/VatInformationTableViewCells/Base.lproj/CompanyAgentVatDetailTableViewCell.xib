@@ -16,7 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CompanyAgentVatDetailTableViewCell" customModule="Fynoo_Services" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CompanyAgentVatDetailTableViewCell" customModule="Fynoo_Agent" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="370"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -284,6 +284,7 @@
                 <outlet property="noBtn" destination="uue-cl-yFm" id="lcR-C5-jKi"/>
                 <outlet property="noLbl" destination="f8d-fZ-oEO" id="3yc-2L-3kK"/>
                 <outlet property="noView" destination="e64-bg-FmY" id="irj-8r-tJq"/>
+                <outlet property="sampleImage" destination="dui-e8-n5R" id="Q9H-9c-gzC"/>
                 <outlet property="vatDocumentHeightConstant" destination="Unf-c2-0HM" id="qgL-89-JsL"/>
                 <outlet property="vatDocumentImageView" destination="jBz-zK-Cdg" id="9qD-T4-8St"/>
                 <outlet property="vatNumberTxtFld" destination="6pv-DS-Dlk" id="4P4-rO-Yid"/>

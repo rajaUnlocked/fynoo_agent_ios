@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -41,11 +41,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="660"/>
+            <rect key="frame" x="0.0" y="0.0" width="475" height="660"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lVc-TC-9dd" customClass="NavigationView" customModule="Fynoo_Agent" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+                    <rect key="frame" x="0.0" y="0.0" width="475" height="90"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="90" id="xES-5V-qd9"/>
@@ -66,13 +66,13 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify Your Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vep-TX-HhO">
-                    <rect key="frame" x="87" y="120" width="146" height="20"/>
+                    <rect key="frame" x="164.5" y="120" width="146" height="20"/>
                     <fontDescription key="fontDescription" name="Gilroy-ExtraBold" family="Gilroy" pointSize="16"/>
                     <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999*****990" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ph5-EK-jlX">
-                    <rect key="frame" x="102.5" y="148" width="115.5" height="0.0"/>
+                    <rect key="frame" x="180" y="148" width="115.5" height="0.0"/>
                     <constraints>
                         <constraint firstAttribute="height" id="gYD-cm-LQ4"/>
                     </constraints>
@@ -81,7 +81,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="da***@*****.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gP5-gB-5Vn">
-                    <rect key="frame" x="102.5" y="148" width="115.5" height="12"/>
+                    <rect key="frame" x="180" y="148" width="115.5" height="12"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="12" id="p5T-jf-Xqc"/>
                     </constraints>
@@ -90,13 +90,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OTP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaG-6e-ewM">
-                    <rect key="frame" x="45" y="180" width="23" height="14"/>
+                    <rect key="frame" x="122.5" y="180" width="23" height="14"/>
                     <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
                     <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOM-iq-Zau">
-                    <rect key="frame" x="45" y="254" width="168" height="28"/>
+                    <rect key="frame" x="122.5" y="254" width="168" height="28"/>
                     <string key="text">Please wait before requesting 
 another SMS/Email Code</string>
                     <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
@@ -104,7 +104,7 @@ another SMS/Email Code</string>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSt-os-DIN">
-                    <rect key="frame" x="181" y="301.5" width="21" height="21"/>
+                    <rect key="frame" x="268.5" y="301.5" width="21" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="Llr-a3-Ef8"/>
                     </constraints>
@@ -113,7 +113,7 @@ another SMS/Email Code</string>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Re3-tr-9XX">
-                    <rect key="frame" x="45" y="297" width="130" height="30"/>
+                    <rect key="frame" x="122.5" y="297" width="140" height="30"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1009" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watch" translatesAutoresizingMaskIntoConstraints="NO" id="EmY-q9-cK3">
                             <rect key="frame" x="8" y="7" width="16" height="16"/>
@@ -124,7 +124,7 @@ another SMS/Email Code</string>
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVi-K2-Umh">
-                            <rect key="frame" x="32" y="2.5" width="90" height="25"/>
+                            <rect key="frame" x="32" y="2.5" width="100" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="387-BS-k8L"/>
                             </constraints>
@@ -144,7 +144,7 @@ another SMS/Email Code</string>
                         <constraint firstItem="EmY-q9-cK3" firstAttribute="centerY" secondItem="Re3-tr-9XX" secondAttribute="centerY" id="N0C-5I-AEj"/>
                         <constraint firstAttribute="height" constant="30" id="e11-S1-PWw"/>
                         <constraint firstItem="EmY-q9-cK3" firstAttribute="leading" secondItem="Re3-tr-9XX" secondAttribute="leading" constant="8" id="hxq-yq-KAt"/>
-                        <constraint firstAttribute="width" constant="130" id="iM8-5j-51l"/>
+                        <constraint firstAttribute="width" constant="140" id="iM8-5j-51l"/>
                         <constraint firstAttribute="trailing" secondItem="kVi-K2-Umh" secondAttribute="trailing" constant="8" id="mwS-yn-Gj7"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -167,7 +167,7 @@ another SMS/Email Code</string>
                     </constraints>
                 </imageView>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rA9-L9-Cym">
-                    <rect key="frame" x="180" y="600" width="110" height="30"/>
+                    <rect key="frame" x="335" y="566" width="110" height="30"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="e5j-J5-d8o"/>
@@ -193,7 +193,7 @@ another SMS/Email Code</string>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SC2-Bv-zBs">
-                    <rect key="frame" x="45" y="200" width="230" height="30"/>
+                    <rect key="frame" x="122.5" y="200" width="230" height="30"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O9n-Zy-KQf">
                             <rect key="frame" x="0.0" y="0.0" width="49" height="30"/>
@@ -323,7 +323,7 @@ another SMS/Email Code</string>
                 <constraint firstItem="Ph5-EK-jlX" firstAttribute="centerX" secondItem="Vep-TX-HhO" secondAttribute="centerX" id="tRP-5N-s2Z"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="47.826086956521742" y="61.607142857142854"/>
+            <point key="canvasLocation" x="-64.492753623188406" y="61.607142857142854"/>
         </view>
     </objects>
     <resources>
