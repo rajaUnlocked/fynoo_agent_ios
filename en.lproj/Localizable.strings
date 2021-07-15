@@ -313,9 +313,6 @@
 
 
 
-
-
-
 "Please enter iban number" = "Please enter iban number";
 "Please Re-enter iban number" = "Please Re-enter iban number";
 "IBAN and Re-IBAN number does not match" = "IBAN and Re-IBAN number does not match";
@@ -346,6 +343,12 @@
 "Enter Registered VAT Number" = "Enter Registered VAT Number";
 "Retake" = "Retake";
 "Use Photo" = "Use Photo";
+
+
+//ARV
+"Items price :" = "Items price :";
+
+
 // Target
 
 "Target" = "Target";

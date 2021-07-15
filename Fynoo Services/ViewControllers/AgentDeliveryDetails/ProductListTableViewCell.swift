@@ -82,7 +82,7 @@ class ProductListTableViewCell: UITableViewCell,UITableViewDelegate {
         self.delegate?.reduceQuantityClicked(self)
     }
     @IBAction func cartClicked(_ sender: Any) {
-        self.delegate?.cartClicked(self)
+//        self.delegate?.cartClicked(self)
     }
     
 }
