@@ -625,8 +625,6 @@ extension DataEntryListingViewController : UITableViewDataSource {
         return cell
     }
    
-    
-    
    
     func dataEntryCompleteServiceCell(index : IndexPath) -> UITableViewCell {
         
