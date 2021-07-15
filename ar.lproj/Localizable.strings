@@ -474,6 +474,7 @@
 "Delivery Services" = "خدمة التوصيل";
 "No Trips Found" = "لاتوجد رحلات";
 "Order Id " = "رقم الطلب";
+
 //Arv
 "Trips" = "الرحلات";
 "Earning" = "الأرباح";
@@ -509,6 +510,7 @@
 "Report Business Owner" = "إبلاغ عن صاحب النشاط";
 "Profile"="الملف الشخصي";
 "Order Details" = "تفاصيل الطلب";
+"Items price :" = "سعر المنتج :";
 
 //Forget Password
 "Business Owner" = "صاحب العمل";
