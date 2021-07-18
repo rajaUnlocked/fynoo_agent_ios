@@ -511,6 +511,8 @@
 "Profile"="الملف الشخصي";
 "Order Details" = "تفاصيل الطلب";
 "Items price :" = "سعر المنتج :";
+"Expected Delivery Time :" = "الوقت المتوقع للتوصيل:";
+"Items Details" = "تفاصيل المنتجات";
 
 //Forget Password
 "Business Owner" = "صاحب العمل";
