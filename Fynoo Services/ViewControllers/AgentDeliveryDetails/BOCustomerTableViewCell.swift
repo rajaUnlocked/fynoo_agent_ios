@@ -77,6 +77,9 @@ class BOCustomerTableViewCell: UITableViewCell {
             self.lblCurrencyCode.font = UIFont(name:"\(fontNameLight)",size:8)
             self.order_price.font = UIFont(name:"\(fontNameLight)",size:12)
             self.lblStExpectedelivery.font = UIFont(name:"\(fontNameLight)",size:12)
+            
+            self.lblStExpectedelivery.text = "Expected Delivery Time :".localized
+            self.lblStItem.text = "Items Details".localized
     
             self.lblTime.font = UIFont(name:"\(fontNameBold)",size:12)
             self.lblStItem.font = UIFont(name:"\(fontNameLight)",size:14)
