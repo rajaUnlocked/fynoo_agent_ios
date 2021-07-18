@@ -352,7 +352,6 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
          HeaderHeightSingleton.shared.latitude = 0.0
 
     }
-    
 }
 
 extension DataEntryListingViewController : UITableViewDelegate {
