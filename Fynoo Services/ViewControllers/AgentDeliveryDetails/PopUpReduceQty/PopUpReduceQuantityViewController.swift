@@ -34,6 +34,7 @@ class PopUpReduceQuantityViewController: UIViewController,CancelReasonViewCellDe
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CancelReasonViewCell", bundle: nil), forCellReuseIdentifier: "CancelReasonViewCell")
+        txtQty.textAlignment = .left
         getPopupHeight()
         SetFont()
     }

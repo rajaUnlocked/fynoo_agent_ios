@@ -53,6 +53,15 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.removeViewController(ProductDetailsViewC.self)
+        
+        Singleton.shared.setDeliveryDashBoardTabID(tabId: 2)
+      
+    }
+    
+    
     func SetFont() {
 
             let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
@@ -479,6 +488,7 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
                     self.onTheWayTripDetailData  = Mapper<OnthewayTripDetailsData>().map(JSON: body)
                     
                     print(self.onTheWayTripDetailData?.data?.trip_details?.bo_id ?? "")
+                    Singleton.shared.setDelServiceID(delServiceId: "\(String(describing: self.onTheWayTripDetailData?.data?.trip_details?.del_service_id))")
                     
                     self.tableView.reloadData()
 

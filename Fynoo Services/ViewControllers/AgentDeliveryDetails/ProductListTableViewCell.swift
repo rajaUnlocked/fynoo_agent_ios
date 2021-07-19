@@ -13,6 +13,8 @@ protocol  ProductListDelegate {
      func deleteClicked(_ sender: Any)
      func reduceQuantityClicked(_ sender: Any)
      func cartClicked(_ sender: Any)
+    func acceptClicked(_ sender: Any)
+   
 }
 
 class ProductListTableViewCell: UITableViewCell,UITableViewDelegate {
@@ -31,7 +33,8 @@ class ProductListTableViewCell: UITableViewCell,UITableViewDelegate {
 
     @IBOutlet weak var lblCancelReasonn: UILabel!
     
-   
+    @IBOutlet weak var btnAccept: UIButton!
+    
     
 
     override func awakeFromNib() {
@@ -83,6 +86,12 @@ class ProductListTableViewCell: UITableViewCell,UITableViewDelegate {
     }
     @IBAction func cartClicked(_ sender: Any) {
 //        self.delegate?.cartClicked(self)
+    }
+    
+    
+    @IBAction func btnAcceptTapped(_ sender: Any) {
+        self.delegate?.acceptClicked(self)
+        
     }
     
 }
