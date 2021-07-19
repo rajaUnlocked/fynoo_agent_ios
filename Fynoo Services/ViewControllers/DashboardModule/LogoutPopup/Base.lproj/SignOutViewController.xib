@@ -17,6 +17,7 @@
             <connections>
                 <outlet property="dismissBtnOutlet" destination="YQb-lc-Qmz" id="SVP-zQ-IRJ"/>
                 <outlet property="logoutBtnOutlet" destination="eQl-yP-n8Z" id="xiT-aX-aS8"/>
+                <outlet property="messageLbl" destination="I2V-lo-dCt" id="6Tc-XG-8lW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

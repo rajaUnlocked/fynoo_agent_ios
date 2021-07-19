@@ -69,8 +69,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5G-bR-TGv">
-                                <rect key="frame" x="60" y="117.5" width="83" height="22"/>
+                                <rect key="frame" x="60" y="117.5" width="61" height="14"/>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
                                 <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Delete     " image="trashcan">
@@ -92,8 +93,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2UQ-wL-2Cb">
-                                <rect key="frame" x="185" y="113.5" width="114" height="30"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <rect key="frame" x="220" y="112.5" width="79" height="24"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="10"/>
                                 <state key="normal" title="Reduce Quantity">
                                     <color key="titleColor" red="0.10980392156862745" green="0.61568627450980395" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -112,7 +113,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azc-FN-gW7">
-                                <rect key="frame" x="185" y="138.5" width="114" height="1"/>
+                                <rect key="frame" x="220" y="131.5" width="79" height="1"/>
                                 <color key="backgroundColor" red="0.10980392160000001" green="0.61568627450000002" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="EMq-VV-wFu"/>
@@ -127,6 +128,16 @@
                                 <color key="textColor" red="0.31764705882352939" green="0.36078431372549019" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2g-AU-WTZ">
+                                <rect key="frame" x="131" y="111.5" width="40" height="26"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                <state key="normal" title="Accept">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnAcceptTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xez-Ch-cR3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -143,11 +154,13 @@
                             <constraint firstItem="j5G-bR-TGv" firstAttribute="leading" secondItem="vkY-HJ-0Gd" secondAttribute="leading" id="XWu-0u-1JA"/>
                             <constraint firstItem="2UQ-wL-2Cb" firstAttribute="centerY" secondItem="j5G-bR-TGv" secondAttribute="centerY" id="Ycz-Qd-Vqb"/>
                             <constraint firstItem="GZR-VE-QRz" firstAttribute="top" secondItem="vkY-HJ-0Gd" secondAttribute="bottom" constant="8" id="dvl-KQ-VCo"/>
+                            <constraint firstItem="m2g-AU-WTZ" firstAttribute="leading" secondItem="j5G-bR-TGv" secondAttribute="trailing" constant="10" id="eG0-ro-hHC"/>
                             <constraint firstItem="azc-FN-gW7" firstAttribute="bottom" secondItem="2UQ-wL-2Cb" secondAttribute="bottom" constant="-4" id="fgI-CR-SB4"/>
                             <constraint firstItem="azc-FN-gW7" firstAttribute="leading" secondItem="2UQ-wL-2Cb" secondAttribute="leading" id="gwL-pK-C28"/>
                             <constraint firstItem="j5G-bR-TGv" firstAttribute="top" secondItem="vkY-HJ-0Gd" secondAttribute="bottom" constant="25" id="jIM-BD-hLO"/>
                             <constraint firstItem="vLP-if-2hw" firstAttribute="leading" secondItem="jrn-Zp-r2X" secondAttribute="leading" id="lju-xR-VaB"/>
                             <constraint firstItem="LmP-aw-J0b" firstAttribute="leading" secondItem="jrn-Zp-r2X" secondAttribute="trailing" constant="10" id="mgJ-a9-eqQ"/>
+                            <constraint firstItem="m2g-AU-WTZ" firstAttribute="centerY" secondItem="j5G-bR-TGv" secondAttribute="centerY" id="mzw-aj-a6a"/>
                             <constraint firstAttribute="trailing" secondItem="LmP-aw-J0b" secondAttribute="trailing" constant="5" id="onU-yT-YSC"/>
                             <constraint firstItem="e0I-7v-Kik" firstAttribute="leading" secondItem="EY8-Ek-xVc" secondAttribute="leading" constant="10" id="pTm-zO-6VB"/>
                             <constraint firstItem="LmP-aw-J0b" firstAttribute="top" secondItem="EY8-Ek-xVc" secondAttribute="top" constant="20" id="uNE-C0-iO0"/>
@@ -167,6 +180,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnAccept" destination="m2g-AU-WTZ" id="zqM-Aj-gZe"/>
                 <outlet property="btnCart" destination="wDl-t6-mMp" id="EML-ns-4Gc"/>
                 <outlet property="btnDelete" destination="j5G-bR-TGv" id="Pie-ei-255"/>
                 <outlet property="btnReduceQuantity" destination="2UQ-wL-2Cb" id="GTf-ee-c62"/>

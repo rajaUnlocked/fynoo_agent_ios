@@ -17,9 +17,16 @@ class SignOutViewController: UIViewController {
     var  delegate : signOutDelegate?
     @IBOutlet weak var logoutBtnOutlet: UIButton!
     @IBOutlet weak var dismissBtnOutlet: UIButton!
+    @IBOutlet weak var messageLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        
+        self.messageLbl.font = UIFont(name:"\(fontNameLight)",size:16)
+        self.logoutBtnOutlet.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.dismissBtnOutlet.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
+        
          self.logoutBtnOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)
          self.dismissBtnOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)
     }

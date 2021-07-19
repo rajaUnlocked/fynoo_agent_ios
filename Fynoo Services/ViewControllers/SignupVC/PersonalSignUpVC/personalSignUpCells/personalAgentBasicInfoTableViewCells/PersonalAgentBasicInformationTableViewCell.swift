@@ -80,7 +80,6 @@ class PersonalAgentBasicInformationTableViewCell: UITableViewCell {
 //
 //        }
 //
-        
         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: emailView)
         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: confirmEmailView)
         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: countryView)
