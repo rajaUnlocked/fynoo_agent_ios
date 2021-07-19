@@ -14,8 +14,6 @@ import MessageUI
 import AMShimmer
 
 class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProductDelegate,AddInvoiceInformationDelegate, OpenGalleryDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,DECancellationReasonViewControllerDelegate,AgentServiceListDelegate,MFMessageComposeViewControllerDelegate, BusinessOwnerTableViewCellDelegate,ConfirmToreceiveItemTableViewCellDelegate {
-   
-    
     
     
     @IBOutlet weak var headerView: NavigationView!
@@ -484,6 +482,30 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         self.present(vc, animated: true, completion: nil)
     }
     
+    func acceptClicked(_ sender: Any) {
+        
+        
+        if orderDetailData?.data?.user_type == "BO"  {
+            print("bo")
+        }else
+        {
+    
+            if checkInvoiceUploaded == true || orderDetailData?.data?.order_status == 3 || orderDetailData?.data?.order_status == 2 || orderDetailData?.data?.item_detail?[(sender as AnyObject).tag].item_status == 3 || orderDetailData?.data?.item_detail?[(sender as AnyObject).tag].item_status == 1 {
+                
+            }else
+            {
+      
+//        let vc = PopUpAcceptProductViewController(nibName: "PopUpAcceptProductViewController", bundle: nil)
+//                vc.itemId = orderDetailData?.data?.item_detail?[(sender as AnyObject).tag].item_id ?? 0
+//        vc.delegate = self
+//        vc.modalPresentationStyle = .overFullScreen
+//        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+//            self.present(vc, animated: true, completion: nil)
+                callAcceptIndivisualItems(itemId: orderDetailData?.data?.item_detail?[(sender as AnyObject).tag].item_id ?? 0)
+        }
+        }
+    }
+    
     func anyProblemClicked(_ sender: Any) {
 //        let vc = CancelReasonViewController(nibName: "CancelReasonViewController", bundle: nil)
 ////      vc.delegate = self
@@ -703,6 +725,50 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             }
         }
 
+    }
+    
+    
+    
+    func callAcceptIndivisualItems(itemId : Int){
+
+        let str = Service.acceptIndivisualItem
+        let param = ["user_id":Singleton.shared.getUserId(),"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"item_id":itemId] as [String : Any]
+        print(param)
+        ServerCalls.postRequest(str, withParameters: param) { (response, success) in
+//            self.delegate?.reloadPage()
+            
+            print(response as Any)
+           
+            
+            ModalClass.stopLoadingAllLoaders(self.view)
+            if success == true {
+                
+                let ResponseDict : NSDictionary = (response as? NSDictionary)!
+                print("ResponseDictionary %@",ResponseDict)
+                let x = ResponseDict.object(forKey: "error") as! Bool
+                if x {
+                ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "error_description") as? String)!, msg: "")
+//                    self.transactionListArray.removeAllObjects()
+//                    self.tableView.reloadData()
+                    
+//                    self.delegate?.reloadPage()
+                }
+                else{
+                    ModalController.showSuccessCustomAlertWith(title: ((ResponseDict.object(forKey: "error_description") as? String)!), msg: "")
+                    self.getOrderDetail()
+                }
+            }else{
+    
+                if response == nil {
+                    print ("connection error")
+                    ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                }else{
+                    print ("data not in proper json")
+                }
+            }
+//            self.delegate?.reloadPage()
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     
@@ -1372,28 +1438,28 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
-        if orderDetailData?.data?.user_type == "BO"  {
-            print("bo")
-        }else
-        {
-        
-        if indexPath.section == 2 {
-            
-            if checkInvoiceUploaded == true || orderDetailData?.data?.order_status == 3 || orderDetailData?.data?.order_status == 2 || orderDetailData?.data?.item_detail?[indexPath.row].item_status == 3  {
-                
-            }else
-            {
-      
-        let vc = PopUpAcceptProductViewController(nibName: "PopUpAcceptProductViewController", bundle: nil)
-        vc.itemId = orderDetailData?.data?.item_detail?[indexPath.row].item_id ?? 0
-        vc.delegate = self
-        vc.modalPresentationStyle = .overFullScreen
-        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-            self.present(vc, animated: true, completion: nil)
-        }
-            
-        }
-        }
+//        if orderDetailData?.data?.user_type == "BO"  {
+//            print("bo")
+//        }else
+//        {
+//
+//        if indexPath.section == 2 {
+//
+//            if checkInvoiceUploaded == true || orderDetailData?.data?.order_status == 3 || orderDetailData?.data?.order_status == 2 || orderDetailData?.data?.item_detail?[indexPath.row].item_status == 3  {
+//
+//            }else
+//            {
+//
+//        let vc = PopUpAcceptProductViewController(nibName: "PopUpAcceptProductViewController", bundle: nil)
+//        vc.itemId = orderDetailData?.data?.item_detail?[indexPath.row].item_id ?? 0
+//        vc.delegate = self
+//        vc.modalPresentationStyle = .overFullScreen
+//        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+//            self.present(vc, animated: true, completion: nil)
+//        }
+//
+//        }
+//        }
     
     }
  
@@ -1580,6 +1646,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     }
                     if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 1 {
                         cell.imgCart.image = #imageLiteral(resourceName: "shopping-cartGreen")
+                        cell.btnAccept.setTitle("Accepted".localized, for: .normal)
 
                     }
                     
@@ -1589,6 +1656,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.lblLineReduceQty.isHidden = true
                         cell.btnDelete.isHidden = true
                         cell.lblCancelReasonn.isHidden = false
+                        cell.btnAccept.isHidden = true
 
                     }
                     
@@ -1598,6 +1666,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.lblLineReduceQty.isHidden = false
                         cell.btnDelete.isHidden = false
                         cell.btnDelete.alpha = 0.5
+                        cell.btnAccept.isHidden = false
                     }
                     
                     

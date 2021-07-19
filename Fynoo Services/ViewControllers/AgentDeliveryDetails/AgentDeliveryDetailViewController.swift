@@ -304,7 +304,7 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
                         lblTotalRating.text = acceptedtripDetail?.data?.trip_details?.cust_total_rating
                        
                         lblAddress.text =  "\(addressStr)\(acceptedtripDetail?.data?.trip_details?.cust_address ?? "")"
-                        lblDuration.text = (acceptedtripDetail?.data?.trip_details?.delivery_times?[0].time ?? "") + "(\(acceptedtripDetail?.data?.trip_details?.delivery_times?[0].distance ?? "" )\(km)"
+                        lblDuration.text = (acceptedtripDetail?.data?.trip_details?.delivery_times?[0].time ?? "") + "(\(acceptedtripDetail?.data?.trip_details?.delivery_times?[0].distance ?? "" )\(km))"
                         self.imgUser.sd_setImage(with: URL(string: acceptedtripDetail?.data?.trip_details?.cust_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
                         self.loadMapViewForCustomer()
                     }
