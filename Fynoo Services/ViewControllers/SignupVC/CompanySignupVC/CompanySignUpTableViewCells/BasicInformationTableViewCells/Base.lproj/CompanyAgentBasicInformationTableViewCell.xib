@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,7 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CompanyAgentBasicInformationTableViewCell" customModule="Fynoo_Services" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CompanyAgentBasicInformationTableViewCell" customModule="Fynoo_Agent" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="645"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -145,7 +146,7 @@
                                             <constraint firstAttribute="height" constant="22" id="rnY-tH-Tg5"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v1t-ts-kBu" customClass="CustomUITextField" customModule="Fynoo_Services" customModuleProvider="target">
+                                    <textField opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v1t-ts-kBu" customClass="CustomUITextField" customModule="Fynoo_Agent" customModuleProvider="target">
                                         <rect key="frame" x="48" y="10.5" width="218" height="18"/>
                                         <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
@@ -197,8 +198,8 @@
                                             <constraint firstAttribute="width" constant="16" id="hJ5-mi-x1c"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Th-l5-m5B">
-                                        <rect key="frame" x="48" y="0.0" width="89" height="39"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Th-l5-m5B">
+                                        <rect key="frame" x="41" y="0.0" width="82" height="39"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                                         <state key="normal">
                                             <color key="titleColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
@@ -208,7 +209,7 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropDown_icon" translatesAutoresizingMaskIntoConstraints="NO" id="PSO-bQ-OgK">
-                                        <rect key="frame" x="122" y="14.5" width="10" height="10"/>
+                                        <rect key="frame" x="125" y="14.5" width="10" height="10"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="10" id="I34-1I-60M"/>
                                             <constraint firstAttribute="height" constant="10" id="PNd-Nz-o8b"/>
@@ -217,14 +218,14 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="PSO-bQ-OgK" firstAttribute="leading" secondItem="3Th-l5-m5B" secondAttribute="trailing" constant="-15" id="0hn-3t-RSH"/>
                                     <constraint firstItem="qNf-NH-THQ" firstAttribute="leading" secondItem="b86-Cn-gYx" secondAttribute="leading" constant="20" id="GR9-aj-Hg7"/>
-                                    <constraint firstAttribute="trailing" secondItem="PSO-bQ-OgK" secondAttribute="trailing" constant="8" id="GVm-05-RZ6"/>
+                                    <constraint firstAttribute="trailing" secondItem="PSO-bQ-OgK" secondAttribute="trailing" constant="5" id="GVm-05-RZ6"/>
                                     <constraint firstItem="qNf-NH-THQ" firstAttribute="centerY" secondItem="b86-Cn-gYx" secondAttribute="centerY" id="HJT-yp-Vnj"/>
-                                    <constraint firstItem="3Th-l5-m5B" firstAttribute="leading" secondItem="qNf-NH-THQ" secondAttribute="trailing" constant="12" id="J97-DW-4LK"/>
+                                    <constraint firstItem="3Th-l5-m5B" firstAttribute="leading" secondItem="qNf-NH-THQ" secondAttribute="trailing" constant="5" id="J97-DW-4LK"/>
                                     <constraint firstItem="3Th-l5-m5B" firstAttribute="top" secondItem="b86-Cn-gYx" secondAttribute="top" id="Zre-s4-k7c"/>
                                     <constraint firstItem="PSO-bQ-OgK" firstAttribute="centerY" secondItem="qNf-NH-THQ" secondAttribute="centerY" id="cwn-cn-JuB"/>
                                     <constraint firstAttribute="bottom" secondItem="3Th-l5-m5B" secondAttribute="bottom" id="ezg-MT-RiT"/>
+                                    <constraint firstItem="PSO-bQ-OgK" firstAttribute="leading" secondItem="3Th-l5-m5B" secondAttribute="trailing" constant="2" id="ksl-Xf-3Ow"/>
                                     <constraint firstAttribute="height" constant="39" id="yj4-EB-TDi"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -255,8 +256,8 @@
                                             <constraint firstAttribute="height" constant="16" id="PZv-tk-YmL"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X03-ca-K40">
-                                        <rect key="frame" x="42" y="0.0" width="111" height="39"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X03-ca-K40">
+                                        <rect key="frame" x="41" y="0.0" width="98" height="39"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                                         <state key="normal" title="City">
                                             <color key="titleColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
@@ -266,7 +267,7 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropDown_icon" translatesAutoresizingMaskIntoConstraints="NO" id="pGX-J2-qee">
-                                        <rect key="frame" x="138" y="14.5" width="10" height="10"/>
+                                        <rect key="frame" x="141" y="14.5" width="10" height="10"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="10" id="E8p-Gx-E8i"/>
                                             <constraint firstAttribute="height" constant="10" id="chc-gs-y0c"/>
@@ -275,12 +276,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="pGX-J2-qee" secondAttribute="trailing" constant="8" id="8AI-t9-rxk"/>
-                                    <constraint firstItem="X03-ca-K40" firstAttribute="leading" secondItem="7bp-PG-1qI" secondAttribute="trailing" constant="6" id="ALJ-wQ-cg4"/>
+                                    <constraint firstAttribute="trailing" secondItem="pGX-J2-qee" secondAttribute="trailing" constant="5" id="8AI-t9-rxk"/>
+                                    <constraint firstItem="X03-ca-K40" firstAttribute="leading" secondItem="7bp-PG-1qI" secondAttribute="trailing" constant="5" id="ALJ-wQ-cg4"/>
                                     <constraint firstItem="7bp-PG-1qI" firstAttribute="leading" secondItem="cRm-At-P8Q" secondAttribute="leading" constant="20" id="Zcw-vF-N5A"/>
+                                    <constraint firstItem="pGX-J2-qee" firstAttribute="leading" secondItem="X03-ca-K40" secondAttribute="trailing" constant="2" id="eqF-bD-o6D"/>
                                     <constraint firstItem="pGX-J2-qee" firstAttribute="centerY" secondItem="7bp-PG-1qI" secondAttribute="centerY" id="j8D-pf-7qR"/>
                                     <constraint firstAttribute="bottom" secondItem="X03-ca-K40" secondAttribute="bottom" id="jNx-hy-MAI"/>
-                                    <constraint firstItem="pGX-J2-qee" firstAttribute="leading" secondItem="X03-ca-K40" secondAttribute="trailing" constant="-15" id="ma0-RC-1ZE"/>
                                     <constraint firstItem="7bp-PG-1qI" firstAttribute="centerY" secondItem="cRm-At-P8Q" secondAttribute="centerY" id="tYm-jV-S4s"/>
                                     <constraint firstItem="X03-ca-K40" firstAttribute="top" secondItem="cRm-At-P8Q" secondAttribute="top" id="vyX-Sg-Ehu"/>
                                 </constraints>
@@ -344,7 +345,7 @@
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ii-VK-7oz">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ii-VK-7oz">
                                         <rect key="frame" x="41" y="0.0" width="93" height="39"/>
                                         <connections>
                                             <action selector="mobileCodeDropDownClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WqQ-d9-ZTE"/>
@@ -416,7 +417,7 @@
                                             <constraint firstAttribute="width" constant="25" id="zDj-X8-nya"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrU-xL-bNt">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrU-xL-bNt">
                                         <rect key="frame" x="41" y="0.0" width="93" height="39"/>
                                         <connections>
                                             <action selector="phoneCodeDropDownClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="u8q-28-nDS"/>
@@ -717,8 +718,8 @@
                     <constraint firstItem="dsB-8B-Lmm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="x47-Dg-6OX"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="businessNameView" destination="bol-TR-YIs" id="IpZ-NX-ntj"/>
                 <outlet property="cityBtn" destination="X03-ca-K40" id="Ouv-Wf-1vE"/>
@@ -764,6 +765,11 @@
             <point key="canvasLocation" x="131.8840579710145" y="129.57589285714286"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="v1t-ts-kBu">
+            <size key="intrinsicContentSize" width="4" height="18"/>
+        </designable>
+    </designables>
     <resources>
         <image name="businessCompnayLogo" width="153" height="144"/>
         <image name="city" width="14" height="12"/>
