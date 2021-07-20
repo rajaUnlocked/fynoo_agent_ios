@@ -371,7 +371,7 @@ class agentInfo : Mappable{
     var name = ""
     var service_icon = ""
     var total_earnings = 0
-    var total_rating = 0
+    var total_rating = "0"
     var total_trips = 0
     var u_image_id = 0
     var user_img = ""

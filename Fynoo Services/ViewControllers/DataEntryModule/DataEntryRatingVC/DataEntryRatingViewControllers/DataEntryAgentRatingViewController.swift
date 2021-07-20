@@ -102,12 +102,11 @@ class DataEntryAgentRatingViewController: UIViewController {
     func SetFont() {
         
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-        
         self.agentNameLbl.font = UIFont(name:"\(fontNameLight)",size:16)
         self.agentLanguageLbl.font = UIFont(name:"\(fontNameLight)",size:12)
         self.staticTxtLbl.font = UIFont(name:"\(fontNameLight)",size:16)
         self.submit.setTitle("Submit".localized, for: .normal)
-        
+        self.submit.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:16)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
