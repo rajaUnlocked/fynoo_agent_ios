@@ -488,7 +488,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             cell.earning.text = "\(deliverData?.data?.agent_information?.total_earnings ?? 0)"
             cell.cod.text = (deliverData?.data?.del_accept_limit?.today_cod ?? 0) == 0 ? "" : "\(deliverData?.data?.del_accept_limit?.today_cod ?? 0)"
             cell.agentProfileImageView.sd_setImage(with: URL(string: deliverData?.data?.agent_information?.user_img ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
-            cell.langugae.text = "\(deliverData?.data?.user_lang ?? "")"
+            cell.langugae.text = "Speak: \(deliverData?.data?.user_lang ?? "")"
             cell.infoClicked.isHidden = true
             cell.widthconst.constant = 0
             if deliverData?.data?.agent_information?.del_service_document_uploaded == 0 {
