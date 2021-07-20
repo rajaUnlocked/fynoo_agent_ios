@@ -309,7 +309,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
 
     func endTimer() {
         countdownTimer.invalidate()
-        let serviceID = String.getString(tripDetail?.data?.trip_details?.del_service_id)
+        let serviceID = String.getString((tripDetail?.data?.trip_details?.del_service_id)!)
         let vc = AgentDeliveryViewController()
         vc.isfrom = "700"
         vc.selectedTrip = 2
@@ -433,7 +433,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     
     func callRequestAccept(){
         
-        let serviceID = String.getString(tripDetail?.data?.trip_details?.del_service_id)
+        let serviceID = String.getString((tripDetail?.data?.trip_details?.del_service_id)!)
         let serviceStatus = String.getString(tripDetail?.data?.trip_details?.service_status)
         print(serviceID)
         print(serviceStatus)
@@ -463,7 +463,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
             if success{
                 ModalClass.stopLoadingAllLoaders(self.view)
                 if let body = response as? [String: Any] {
-                    self.tripDetail  = Mapper<newOrderTripData>().map(JSON: body)
+//                    self.tripDetail  = Mapper<newOrderTripData>().map(JSON: body)
                     if success == true {
                         
                         let ResponseDict : NSDictionary = (response as? NSDictionary)!
@@ -511,7 +511,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     }
     
     func callRequestReject(){
-        let serviceID = String.getString(tripDetail?.data?.trip_details?.del_service_id)
+        let serviceID = String.getString((tripDetail?.data?.trip_details?.del_service_id)!)
         var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
         
         if userId == "0"{
@@ -528,7 +528,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
             if success{
                 ModalClass.stopLoadingAllLoaders(self.view)
                 if let body = response as? [String: Any] {
-                    self.tripDetail  = Mapper<newOrderTripData>().map(JSON: body)
+//                    self.tripDetail  = Mapper<newOrderTripData>().map(JSON: body)
                     if success == true {
                         
                         let ResponseDict : NSDictionary = (response as? NSDictionary)!
