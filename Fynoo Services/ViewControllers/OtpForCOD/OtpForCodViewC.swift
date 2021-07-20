@@ -488,7 +488,7 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
                     self.onTheWayTripDetailData  = Mapper<OnthewayTripDetailsData>().map(JSON: body)
                     
                     print(self.onTheWayTripDetailData?.data?.trip_details?.bo_id ?? "")
-                    Singleton.shared.setDelServiceID(delServiceId: "\(String(describing: self.onTheWayTripDetailData?.data?.trip_details?.del_service_id))")
+                    Singleton.shared.setDelServiceID(delServiceId: "\((self.onTheWayTripDetailData?.data?.trip_details?.del_service_id)!)")
                     
                     self.tableView.reloadData()
 

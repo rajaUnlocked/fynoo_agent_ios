@@ -848,7 +848,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
             "user_id": Singleton.shared.getUserId(),
             "lang_code":HeaderHeightSingleton.shared.LanguageSelected
         ]
-        print("request -",parameters)
+        print("request -",parameters,str)
         ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
             ModalClass.stopLoading()
             if success == true {
