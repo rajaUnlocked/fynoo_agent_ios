@@ -13,81 +13,88 @@ class CommonPopViewC: UIViewController {
     @IBOutlet weak var containter: UIView!
     @IBOutlet weak var lblNotes: UILabel!{
         didSet {
-            lblNotes.font = UIFont.getFont(style: .regular, size: .size10)
+            lblNotes.font = UIFont(name:"\(Constant.FONT_Light)",size:10)
             lblNotes.textColor = UIColor.AppThemeBlackTextColor()
+//            self.lblNotes.text = "Customer has requested cancellation. Please confirm or reject the request within 15 mins,otherwise order will be automatically cancelled.".localized
         }
     }
     @IBOutlet weak var imgUser: UIImageView!
     @IBOutlet weak var lblName: UILabel!{
         didSet {
-            lblName.font = UIFont.getFont(style: .regular, size: .size12)
+            lblName.font = UIFont(name:"\(Constant.FONT_Light)",size:12)
             lblName.textColor = UIColor.AppThemeBlackTextColor()
         }
     }
     @IBOutlet weak var lblProductQty: UILabel!{
         didSet {
-            lblProductQty.font = UIFont.getFont(style: .regular, size: .size10)
+            lblProductQty.font = UIFont(name:"\(Constant.FONT_Light)",size:10)
             lblProductQty.textColor = UIColor.AppThemeBlackTextColor()
         }
     }
     
     @IBOutlet weak var lblOrderId: UILabel!{
         didSet {
-            lblOrderId.font = UIFont.getFont(style: .extrabold, size: .size12)
+            lblOrderId.font = UIFont(name:"\(Constant.FONT_Light)",size:12)
             lblOrderId.textColor = UIColor.AppThemeBlackTextColor()
         }
     }
     
     @IBOutlet weak var lblAddress: UILabel!{
         didSet {
-            lblAddress.font = UIFont.getFont(style: .regular, size: .size10)
+            lblAddress.font = UIFont(name:"\(Constant.FONT_Light)",size:10)
             lblAddress.textColor = UIColor.AppThemeBlackTextColor()
         }
     }
     @IBOutlet weak var lblDate: UILabel!{
         didSet {
-            lblDate.font = UIFont.getFont(style: .regular, size: .size10)
+            lblDate.font = UIFont(name:"\(Constant.FONT_Light)",size:10)
             lblDate.textColor = UIColor.AppThemeBlackTextColor()
         }
     }
     @IBOutlet weak var lblAlmostPrice: UILabel!{
         didSet {
-            lblAlmostPrice.font = UIFont.getFont(style: .regular, size: .size12)
+            lblAlmostPrice.font = UIFont(name:"\(Constant.FONT_Light)",size:12)
             lblAlmostPrice.textColor = UIColor.AppThemeBlackTextColor()
+            self.lblAlmostPrice.text = "Almost Total Price".localized
         }
     }
     
     @IBOutlet weak var lblTotalPrice: UILabel!{
         didSet {
-            lblTotalPrice.font = UIFont.getFont(style: .regular, size: .size12)
+            lblTotalPrice.font = UIFont(name:"\(Constant.FONT_Light)",size:12)
             lblTotalPrice.textColor = UIColor.AppThemeGreenTextColor()
         }
     }
     
     @IBOutlet weak var lblStNote: UILabel!{
         didSet {
-            lblStNote.font = UIFont.getFont(style: .extrabold, size: .size12)
+            lblStNote.font = UIFont(name:"\(Constant.FONT_Light)",size:12)
             lblStNote.textColor = UIColor.AppThemeBlackTextColor()
+            let note = "Note".localized
+            self.lblStNote.text = "\(note):"
         }
     }
     
     @IBOutlet weak var lblStcancelationRequest: UILabel!{
         didSet {
-            lblStcancelationRequest.font = UIFont.getFont(style: .extrabold, size: .size14)
+            lblStcancelationRequest.font = UIFont(name:"\(Constant.FONT_Extra_BOLD)",size:14)
             lblStcancelationRequest.textColor = UIColor.AppThemeBlackTextColor()
+            self.lblStcancelationRequest.text = "Cancellation Request".localized
         }
     }
     
     @IBOutlet weak var btnStOnMyWay: UIButton!{
         didSet {
-            btnStOnMyWay.titleLabel!.font = UIFont.getFont(style: .regular, size: .size12)
+            btnStOnMyWay.titleLabel!.font = UIFont(name:"\(Constant.FONT_Light)",size:12)
             btnStOnMyWay.setTitleColor(UIColor.AppThemeGreenTextColor(), for: .normal)
+            self.btnStOnMyWay.setTitle("I'm on my way".localized, for: .normal)
         }
     }
     @IBOutlet weak var btnStAccept: UIButton!{
         didSet {
-            btnStAccept.titleLabel!.font = UIFont.getFont(style: .regular, size: .size12)
+            btnStAccept.titleLabel!.font = UIFont(name:"\(Constant.FONT_Light)",size:12)
             btnStAccept.setTitleColor(UIColor.AppThemeGreenTextColor(), for: .normal)
+            self.btnStAccept.setTitle("Accept Cancellation".localized, for: .normal)
         }
     }
     var orderId = ""
@@ -262,8 +269,9 @@ class CommonPopViewC: UIViewController {
                     lblDate.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: timeSTAMP, format: "dd-MMM-yyyy HH:mm a")
                     
                     
-                    self.lblProductQty.text = "\(cancelpDetail?.data?.order_qty ?? 0)"
-                    self.lblOrderId.text = cancelpDetail?.data?.order_id
+                    self.lblProductQty.text = "0\(cancelpDetail?.data?.order_qty ?? 0)"
+                    let orderId = "Order Id:".localized
+                    self.lblOrderId.text = "\(orderId)\(cancelpDetail?.data?.order_id ?? "")"
                     self.lblAddress.text = cancelpDetail?.data?.address
                     self.lblNotes.text = cancelpDetail?.data?.note
                     self.lblTotalPrice.text =  "\(cancelpDetail?.data?.currency_code ?? "")" + "\(cancelpDetail?.data?.order_price ?? 0)"

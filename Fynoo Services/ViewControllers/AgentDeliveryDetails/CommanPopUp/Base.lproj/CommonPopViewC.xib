@@ -89,7 +89,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----------------------------------------------------------------------------------------" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYn-xo-sZD">
-                                    <rect key="frame" x="195" y="31.5" width="2" height="21"/>
+                                    <rect key="frame" x="207" y="31.5" width="2" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="2Jd-Q9-cwC"/>
                                         <constraint firstAttribute="width" constant="2" id="fpz-eF-CIf"/>
@@ -98,18 +98,18 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Id: 98765432140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZh-yW-Wih">
-                                    <rect key="frame" x="83" y="34" width="110" height="16"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Order Id: 98765432140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZh-yW-Wih">
+                                    <rect key="frame" x="83" y="34" width="122" height="16"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="16" id="AfT-7b-cW6"/>
-                                        <constraint firstAttribute="width" constant="110" id="YPn-ha-a8M"/>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="106" id="YPn-ha-a8M"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wed 32,4020" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ya-Az-SH3">
-                                    <rect key="frame" x="201" y="34" width="61" height="16"/>
+                                    <rect key="frame" x="213" y="34" width="52" height="16"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="16" id="enP-cf-Xdh"/>
                                     </constraints>
@@ -160,7 +160,7 @@
                                 <constraint firstItem="9ek-4G-Sop" firstAttribute="leading" secondItem="RIS-O1-NSE" secondAttribute="trailing" constant="5" id="9dt-4O-e9W"/>
                                 <constraint firstItem="gcP-xI-WOW" firstAttribute="leading" secondItem="G0K-uF-jXn" secondAttribute="trailing" constant="2" id="B9S-8W-7Ai"/>
                                 <constraint firstItem="Nl2-f8-rMt" firstAttribute="centerY" secondItem="gcP-xI-WOW" secondAttribute="centerY" id="BSz-9G-G6p"/>
-                                <constraint firstAttribute="trailing" secondItem="7Ya-Az-SH3" secondAttribute="trailing" constant="8" id="BcR-r6-h3A"/>
+                                <constraint firstAttribute="trailing" secondItem="7Ya-Az-SH3" secondAttribute="trailing" constant="5" id="BcR-r6-h3A"/>
                                 <constraint firstItem="7Ya-Az-SH3" firstAttribute="leading" secondItem="PYn-xo-sZD" secondAttribute="trailing" constant="4" id="Bxp-Sh-pF9"/>
                                 <constraint firstItem="G0K-uF-jXn" firstAttribute="leading" secondItem="gu8-Gc-15g" secondAttribute="leading" id="ECb-M7-gU3"/>
                                 <constraint firstAttribute="height" constant="110" id="EP2-hn-Fc3"/>
@@ -191,8 +191,12 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKr-RY-TMp">
-                            <rect key="frame" x="20" y="207" width="32" height="14.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="247" verticalCompressionResistancePriority="747" text="Note:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKr-RY-TMp">
+                            <rect key="frame" x="20" y="207" width="40" height="14.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="32k-r6-hF7"/>
+                                <constraint firstAttribute="height" constant="14.5" id="3m3-SH-yzJ"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -271,10 +275,10 @@
                                 <constraint firstAttribute="height" constant="80" id="die-GN-S2E"/>
                             </constraints>
                         </stackView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czD-u6-R2c">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czD-u6-R2c">
                             <rect key="frame" x="62" y="207" width="228" height="66"/>
                             <constraints>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="39.5" id="ckf-vK-Sby"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="ckf-vK-Sby"/>
                             </constraints>
                             <string key="text">Customer has requested cancellation. Please
 confirm or reject the request within 15 mins,
@@ -313,7 +317,7 @@ otherwise order will be automatically cancelled.</string>
                         <constraint firstItem="mCx-1y-I7v" firstAttribute="top" secondItem="aXV-JP-G0S" secondAttribute="top" constant="0.10000000000000001" id="NJc-AV-Jw0"/>
                         <constraint firstAttribute="trailing" secondItem="v73-N8-sLx" secondAttribute="trailing" constant="25" id="PTe-Ha-gqu"/>
                         <constraint firstAttribute="trailing" secondItem="mCx-1y-I7v" secondAttribute="trailing" constant="0.10000000000000001" id="PuP-6G-t7h"/>
-                        <constraint firstItem="czD-u6-R2c" firstAttribute="leading" secondItem="gKr-RY-TMp" secondAttribute="trailing" constant="10" id="T77-Mm-U6U"/>
+                        <constraint firstItem="czD-u6-R2c" firstAttribute="leading" secondItem="gKr-RY-TMp" secondAttribute="trailing" constant="2" id="T77-Mm-U6U"/>
                         <constraint firstItem="gKr-RY-TMp" firstAttribute="top" secondItem="86u-Oa-uVl" secondAttribute="bottom" constant="15" id="USM-y7-sev"/>
                         <constraint firstItem="Sy1-3I-4ZL" firstAttribute="top" secondItem="8QV-YD-pMu" secondAttribute="bottom" constant="15" id="a5s-Ez-3Lc"/>
                         <constraint firstAttribute="trailing" secondItem="czD-u6-R2c" secondAttribute="trailing" constant="20" id="atz-DF-eYX"/>
@@ -322,6 +326,7 @@ otherwise order will be automatically cancelled.</string>
                         <constraint firstItem="86u-Oa-uVl" firstAttribute="leading" secondItem="aXV-JP-G0S" secondAttribute="leading" constant="20" id="eug-rj-Wgm"/>
                         <constraint firstItem="XGR-vZ-fFy" firstAttribute="top" secondItem="czD-u6-R2c" secondAttribute="bottom" constant="19" id="gny-6z-USK"/>
                         <constraint firstAttribute="bottom" secondItem="mCx-1y-I7v" secondAttribute="bottom" id="hGm-ek-Tc1"/>
+                        <constraint firstItem="XGR-vZ-fFy" firstAttribute="top" secondItem="gKr-RY-TMp" secondAttribute="bottom" constant="70.5" id="ktb-bB-Jgo"/>
                         <constraint firstItem="mCx-1y-I7v" firstAttribute="leading" secondItem="aXV-JP-G0S" secondAttribute="leading" constant="0.10000000000000001" id="lWX-so-eYL"/>
                         <constraint firstAttribute="trailing" secondItem="86u-Oa-uVl" secondAttribute="trailing" constant="20" id="nQG-jF-YC1"/>
                         <constraint firstItem="8QV-YD-pMu" firstAttribute="centerX" secondItem="mCx-1y-I7v" secondAttribute="centerX" id="w2X-Au-Ng3"/>
