@@ -84,7 +84,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         holdingamtlbl.text = "Holding Amount".localized
         walletballbl.text = "Wallet Balance".localized
         progresslbl.text = "Payment in progress".localized
-      
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapWalletView(_:)))
+        walletvw.addGestureRecognizer(tapGestureRecognizer)
         getUserLocation()
         registerNotifications()
         sideMenuCode()
@@ -102,7 +103,13 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         NotificationCenter.default.addObserver(self, selector: #selector(getNotificationARV(_:)), name: NSNotification.Name(Constant.GET_NOTIFICATIONARV), object: nil)
         tabBarController?.delegate = self
     }
-    
+    @objc private func didTapWalletView(_ sender: UITapGestureRecognizer) {
+        if sender.isEnabled
+        {
+            let vc = BankAllListViewController(nibName: "BankAllListViewController", bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     override func viewWillAppear(_ animated: Bool) {
         self.dashboardAPI()
     }

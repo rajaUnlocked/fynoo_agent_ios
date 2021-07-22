@@ -188,6 +188,8 @@ class Constant: NSObject {
     static let agent_dashboard: String = "agentapis/v2/agent_dashboard/"
     static let firebase_token : String = "customerapi/v2/firebase_token/"
     static let add_services: String = "agentapis/v2/add_services/"
+    static let logout: String = "customerapi/v2/user_logout/"
+    
     //  static let UpdateProfile_Image : String = "businessapi/v1/ChaneProfileImage/";
     static let activate_services: String = "agentapis/v2/activate_services/"
     static let deactivate_services: String = "agentapis/v2/deactivate_services/"
