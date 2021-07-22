@@ -81,7 +81,9 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         self.getBoServicesRequestListAPI()
         
     }
-    
+
+
+
     @objc func methodOfReceivedNotificationRefreshList(_ notification: NSNotification) {
 //          self.createHeaderAgain = true
         ModalClass.startLoading(self.view)
@@ -733,6 +735,9 @@ extension DataEntryListingViewController : DataEntryFilterDelegate {
                 
             }
         }
+        
+        
+        
         print("appliedFilterCount:-", appliedFilterCount)
         self.refreshDataEntryCompleteServiceList()
     }

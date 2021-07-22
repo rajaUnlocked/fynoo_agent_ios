@@ -473,6 +473,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AgentDeliveryTableViewCell",for: indexPath) as! AgentDeliveryTableViewCell
               cell.clickservicedocument.addTarget(self, action: #selector(clickedservicedoc), for: .touchUpInside)
             cell.switches.addTarget(self, action: #selector(switchClicked), for: .touchUpInside)
+            
             if deliverData?.data?.agent_information?.del_service_status == 1{
                 cell.switches.isSelected = true
             }else{
@@ -480,13 +481,14 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             }
             cell.name.text = deliverData?.data?.agent_information?.name ?? ""
             cell.avgRating.text = "\(deliverData?.data?.agent_information?.avg_rating ?? 0)"
-            cell.totalRating.text = "(\(deliverData?.data?.agent_information?.total_rating ?? 0))"
+            cell.rating.rating = deliverData?.data?.agent_information?.avg_rating ?? 0
+            cell.totalRating.text = "(\(deliverData?.data?.agent_information?.total_rating ?? ""))"
             cell.trip.text = "\(deliverData?.data?.agent_information?.total_trips ?? 0)"
             cell.year.text = "\(deliverData?.data?.agent_information?.active_years ?? 0)"
             cell.earning.text = "\(deliverData?.data?.agent_information?.total_earnings ?? 0)"
             cell.cod.text = (deliverData?.data?.del_accept_limit?.today_cod ?? 0) == 0 ? "" : "\(deliverData?.data?.del_accept_limit?.today_cod ?? 0)"
             cell.agentProfileImageView.sd_setImage(with: URL(string: deliverData?.data?.agent_information?.user_img ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
-            cell.langugae.text = "\(deliverData?.data?.user_lang ?? "")"
+            cell.langugae.text = "Speak: \(deliverData?.data?.user_lang ?? "")"
             cell.infoClicked.isHidden = true
             cell.widthconst.constant = 0
             if deliverData?.data?.agent_information?.del_service_document_uploaded == 0 {

@@ -59,7 +59,7 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
         self.customHeader.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
         self.headerLbl.font = UIFont(name:"\(fontNameLight)",size:14)
         self.signUpBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
-        
+        self.signUpBtn.setTitle("Save".localized, for: .normal)
         
         searchField.textColor = Constant.Black_TEXT_COLOR
         self.headerLbl.textColor = Constant.Black_TEXT_COLOR
