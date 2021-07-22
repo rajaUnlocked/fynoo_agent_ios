@@ -463,7 +463,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
             if success{
                 ModalClass.stopLoadingAllLoaders(self.view)
                 if let body = response as? [String: Any] {
-                    self.tripDetail  = Mapper<newOrderTripData>().map(JSON: body)
+//                    self.tripDetail  = Mapper<newOrderTripData>().map(JSON: body)
                     if success == true {
                         
                         let ResponseDict : NSDictionary = (response as? NSDictionary)!
@@ -528,7 +528,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
             if success{
                 ModalClass.stopLoadingAllLoaders(self.view)
                 if let body = response as? [String: Any] {
-                    self.tripDetail  = Mapper<newOrderTripData>().map(JSON: body)
+//                    self.tripDetail  = Mapper<newOrderTripData>().map(JSON: body)
                     if success == true {
                         
                         let ResponseDict : NSDictionary = (response as? NSDictionary)!

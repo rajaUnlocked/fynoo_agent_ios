@@ -510,7 +510,7 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
         let param = ["order_id": String(orderId),
                      "user_id":String(userId),
                      "otp" :"\(txt1+txt2+txt3+txt4)",
-                     "user_type":(onTheWayTripDetailData?.data?.trip_details?.user_type),
+                     "user_type":((onTheWayTripDetailData?.data?.trip_details?.user_type)!),
                      "lang_code":HeaderHeightSingleton.shared.LanguageSelected] as [String : Any]
         
         print("request:-", param)

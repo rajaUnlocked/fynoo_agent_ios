@@ -210,6 +210,8 @@ class Constant: NSObject {
     static let Black_TEXT_COLOR = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     static let Grey_TEXT_COLOR = UIColor(red: 56.0/255, green: 56.0/255, blue: 56.0/255, alpha: 1.0)
     static let Red_TEXT_COLOR = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
+    static let FONT_Extra_BOLD =  NSLocalizedString("BoldFontName", comment: "")
+    static let FONT_Light =  NSLocalizedString("LightFontName", comment: "")
     
     
     // Mark:- Google ApiKey
