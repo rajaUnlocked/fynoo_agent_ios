@@ -95,6 +95,7 @@ class CommonPopViewC: UIViewController {
             btnStAccept.titleLabel!.font = UIFont(name:"\(Constant.FONT_Light)",size:12)
             btnStAccept.setTitleColor(UIColor.AppThemeGreenTextColor(), for: .normal)
             self.btnStAccept.setTitle("Accept Cancellation".localized, for: .normal)
+            
         }
     }
     var orderId = ""
