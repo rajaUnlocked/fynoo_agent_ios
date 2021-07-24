@@ -58,7 +58,7 @@ class CreateProductFirstViewController: UIViewController {
              else if  ProductModel.shared.filledstep > 1
              {
                 let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
-                
+                vc.isDataBank = isDataBank
                 vc.isFromBranch = isFromBranch
                              if ProductModel.shared.filledstep == 2
                              {
