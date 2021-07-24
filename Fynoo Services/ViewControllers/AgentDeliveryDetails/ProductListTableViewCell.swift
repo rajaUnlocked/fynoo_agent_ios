@@ -64,6 +64,7 @@ class ProductListTableViewCell: UITableViewCell,UITableViewDelegate {
         self.btnDelete.titleLabel!.font = UIFont(name:"\(fontNameLight)",size:12)
         self.btnReduceQuantity.titleLabel!.font = UIFont(name:"\(fontNameLight)",size:10)
         self.lblCancelReasonn.font = UIFont(name: "\(fontNameLight)", size: 12)
+        self.btnAccept.setTitle("Accept".localized, for: .normal)
       
         }
     

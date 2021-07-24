@@ -39,10 +39,10 @@ class SignOutViewController: UIViewController {
         }
     
     @IBAction func logOutClicked(_ sender: Any) {
-        
+    
             ModalClass.startLoading(self.view)
             let device_id = UIDevice.current.identifierForVendor!.uuidString
-            let str = "\(Constant.BASE_URL)\(Constant.firebase_token)"
+            let str = "\(Constant.BASE_URL)\(Constant.logout)"
             let parameters = [
                 "user_id":Singleton.shared.getUserId(),
                 "device_id":device_id,

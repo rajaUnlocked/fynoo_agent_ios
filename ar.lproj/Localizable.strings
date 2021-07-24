@@ -516,8 +516,11 @@
 "Qty" = "الكمية";
 "Accepted" = "Accepted";
 "Are you sure you want to decline?" = "هل تريد رفض الطلب؟";
-
-
+"Accept" = "Accept";
+"Customer has requested cancellation. Please confirm or reject the request within 15 mins,otherwise order will be automatically cancelled." = "Customer has requested cancellation. Please confirm or reject the request within 15 mins,otherwise order will be automatically cancelled.";
+"Cancellation Request" = "Cancellation Request";
+"Accept Cancellation" = "Accept Cancellation";
+"I'm on my way" = "I'm on my way";
 
 //Forget Password
 "Business Owner" = "صاحب العمل";

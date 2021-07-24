@@ -69,8 +69,8 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
             if indexPath.row == 0
             {
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "TargetprogressTableViewCell", for: indexPath) as! TargetprogressTableViewCell
-                let attributedString : NSMutableAttributedString = NSMutableAttributedString(string: "\(self.targetlist?.data?.target_to_be_achive ?? 0) / \(self.targetlist?.data?.total_target ?? 0)")
-                attributedString.setColor(color: #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1), forText: " \(self.targetlist?.data?.total_target ?? 0)")
+                let attributedString : NSMutableAttributedString = NSMutableAttributedString(string: "\(self.targetlist?.data?.total_target ?? 0) / \(self.targetlist?.data?.target_to_be_achive ?? 0)")
+                attributedString.setColor(color: #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1), forText: " \(self.targetlist?.data?.target_to_be_achive ?? 0)")
                 cell.countlbl.attributedText = attributedString
                 cell.progressvw.isHidden = false
                 cell.targetimg.isHidden = false
@@ -85,7 +85,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
                 cell.countlbl.text = "\(self.targetlist?.data?.target_to_be_achive ?? 0) /  \(self.targetlist?.data?.total_target ?? 0)"
                 cell.countlbl.textColor = #colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1)
                 }
-                cell.progressvw.progress = Float(self.targetlist?.data?.target_to_be_achive ?? 0)
+                cell.progressvw.progress = Float(self.targetlist?.data?.total_target ?? 0)
                 return cell
             }
             else{

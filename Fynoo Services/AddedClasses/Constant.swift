@@ -188,6 +188,8 @@ class Constant: NSObject {
     static let agent_dashboard: String = "agentapis/v2/agent_dashboard/"
     static let firebase_token : String = "customerapi/v2/firebase_token/"
     static let add_services: String = "agentapis/v2/add_services/"
+    static let logout: String = "customerapi/v2/user_logout/"
+    
     //  static let UpdateProfile_Image : String = "businessapi/v1/ChaneProfileImage/";
     static let activate_services: String = "agentapis/v2/activate_services/"
     static let deactivate_services: String = "agentapis/v2/deactivate_services/"
@@ -208,6 +210,8 @@ class Constant: NSObject {
     static let Black_TEXT_COLOR = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     static let Grey_TEXT_COLOR = UIColor(red: 56.0/255, green: 56.0/255, blue: 56.0/255, alpha: 1.0)
     static let Red_TEXT_COLOR = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
+    static let FONT_Extra_BOLD =  NSLocalizedString("BoldFontName", comment: "")
+    static let FONT_Light =  NSLocalizedString("LightFontName", comment: "")
     
     
     // Mark:- Google ApiKey

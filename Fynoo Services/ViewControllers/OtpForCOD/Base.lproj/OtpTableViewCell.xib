@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter OTP given by the customer to verify your order confirmation." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEz-hG-DH5">
-                        <rect key="frame" x="10" y="5" width="310" height="33.5"/>
+                        <rect key="frame" x="15" y="5" width="295" height="33.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -152,7 +152,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eeg-TH-MyM">
-                        <rect key="frame" x="10" y="123.5" width="300" height="34"/>
+                        <rect key="frame" x="15" y="123.5" width="295" height="34"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" title="Button"/>
                         <connections>
@@ -160,14 +160,14 @@
                         </connections>
                     </button>
                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 1624" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mjh-0t-cXa">
-                        <rect key="frame" x="20" y="133" width="15" height="15"/>
+                        <rect key="frame" x="18" y="127" width="25" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="15" id="ClI-9k-weP"/>
-                            <constraint firstAttribute="width" constant="15" id="rR5-GB-eAG"/>
+                            <constraint firstAttribute="height" constant="25" id="ClI-9k-weP"/>
+                            <constraint firstAttribute="width" constant="25" id="rR5-GB-eAG"/>
                         </constraints>
                     </imageView>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I have received the COD amount from Customer." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLg-Ke-lxX">
-                        <rect key="frame" x="37" y="130.5" width="273.5" height="14.5"/>
+                        <rect key="frame" x="42" y="130.5" width="273.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -175,19 +175,19 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="IEz-hG-DH5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="8C0-3F-5us"/>
-                    <constraint firstItem="jLg-Ke-lxX" firstAttribute="centerY" secondItem="Mjh-0t-cXa" secondAttribute="centerY" constant="-3" id="8rD-Vz-IXK"/>
-                    <constraint firstItem="jLg-Ke-lxX" firstAttribute="leading" secondItem="Mjh-0t-cXa" secondAttribute="leading" constant="17" id="Ai7-en-Wwo"/>
+                    <constraint firstItem="jLg-Ke-lxX" firstAttribute="centerY" secondItem="Mjh-0t-cXa" secondAttribute="centerY" constant="-1.75" id="8rD-Vz-IXK"/>
+                    <constraint firstItem="jLg-Ke-lxX" firstAttribute="leading" secondItem="Mjh-0t-cXa" secondAttribute="leading" constant="24" id="Ai7-en-Wwo"/>
                     <constraint firstItem="UpD-Gg-D7m" firstAttribute="top" secondItem="BHc-NZ-U09" secondAttribute="bottom" constant="4" id="Bz1-Ja-k9l"/>
                     <constraint firstItem="BHc-NZ-U09" firstAttribute="leading" secondItem="UpD-Gg-D7m" secondAttribute="leading" id="CHh-3g-ta7"/>
-                    <constraint firstItem="Mjh-0t-cXa" firstAttribute="leading" secondItem="Eeg-TH-MyM" secondAttribute="leading" constant="10" id="EsW-cI-aza"/>
-                    <constraint firstAttribute="trailing" secondItem="IEz-hG-DH5" secondAttribute="trailing" id="JCW-Rx-gXp"/>
+                    <constraint firstItem="Mjh-0t-cXa" firstAttribute="leading" secondItem="Eeg-TH-MyM" secondAttribute="leading" constant="3" id="EsW-cI-aza"/>
+                    <constraint firstAttribute="trailing" secondItem="IEz-hG-DH5" secondAttribute="trailing" constant="10" id="JCW-Rx-gXp"/>
                     <constraint firstItem="UpD-Gg-D7m" firstAttribute="top" secondItem="IEz-hG-DH5" secondAttribute="bottom" constant="30" id="hSw-jC-tCT"/>
-                    <constraint firstItem="IEz-hG-DH5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="jHV-vA-hSS"/>
+                    <constraint firstItem="IEz-hG-DH5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="jHV-vA-hSS"/>
                     <constraint firstItem="Eeg-TH-MyM" firstAttribute="top" secondItem="UpD-Gg-D7m" secondAttribute="bottom" constant="15" id="jkD-P0-cLJ"/>
                     <constraint firstAttribute="trailing" secondItem="Eeg-TH-MyM" secondAttribute="trailing" constant="10" id="lfq-gQ-het"/>
-                    <constraint firstItem="Eeg-TH-MyM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="nCR-Ov-9Ji"/>
+                    <constraint firstItem="Eeg-TH-MyM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="nCR-Ov-9Ji"/>
                     <constraint firstItem="UpD-Gg-D7m" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="oE7-g7-OwS"/>
-                    <constraint firstItem="Mjh-0t-cXa" firstAttribute="centerY" secondItem="Eeg-TH-MyM" secondAttribute="centerY" id="wSx-dq-9AY"/>
+                    <constraint firstItem="Mjh-0t-cXa" firstAttribute="centerY" secondItem="Eeg-TH-MyM" secondAttribute="centerY" constant="-1" id="wSx-dq-9AY"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -207,7 +207,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Rectangle 1624" width="32" height="32"/>
+        <image name="Rectangle 1624" width="7086.5" height="7086.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
