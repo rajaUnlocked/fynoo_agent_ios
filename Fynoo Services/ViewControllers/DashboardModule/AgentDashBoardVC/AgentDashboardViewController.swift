@@ -97,7 +97,6 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         walletHeightConst.constant = 0
         walletvw.isHidden = true
         saveFcmTokenToServer_API()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(getNotification(_:)), name: NSNotification.Name(Constant.GET_NOTIFICATION), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(getNotificationARV(_:)), name: NSNotification.Name(Constant.GET_NOTIFICATIONARV), object: nil)
