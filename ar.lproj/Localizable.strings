@@ -521,6 +521,11 @@
 "Cancellation Request" = "Cancellation Request";
 "Accept Cancellation" = "Accept Cancellation";
 "I'm on my way" = "I'm on my way";
+"Total Weight" = "Total Weight";
+"Total Size" = "Total Size";
+"kg" = "kg";
+"Confirm & Upload Invoice" = "تأكيد ورفع الفاتورة";
+"I have reached BO's store" = "I have reached BO's store";
 
 //Forget Password
 "Business Owner" = "صاحب العمل";

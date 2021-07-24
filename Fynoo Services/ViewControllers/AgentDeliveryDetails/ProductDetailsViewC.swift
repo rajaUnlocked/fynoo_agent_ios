@@ -990,7 +990,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         case 1:
             self.btnChangeStatus.setTitle("Confirm & Upload Invoice".localized, for: .normal)
         case 2:
-            self.btnChangeStatus.setTitle("Confirm to received Items".localized, for: .normal)
+            self.btnChangeStatus.setTitle("Confirm to received items".localized, for: .normal)
            
         default:
            print("")
@@ -1219,10 +1219,11 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         let ItemQty = "Item Qty".localized
         
         cell.lblQty.text = "\(ItemQty): 0\(orderDetailData?.data?.item_detail? [index.row].qty ?? 0)"
-
-        cell.lblOrderId.text = "Total Weight :  \(orderDetailData?.data?.total_weight ?? 0.0)kg"
-        
-        cell.lblDate.text = "Total Size :  \(orderDetailData?.data?.total_size ?? 0.0)"
+        let totalWeight = "Total Weight".localized
+        let kg = "kg".localized
+        cell.lblOrderId.text = "\(totalWeight):  \(orderDetailData?.data?.total_weight ?? 0.0)\(kg)"
+        let totalSize = "Total Size".localized
+        cell.lblDate.text = "\(totalSize):  \(orderDetailData?.data?.total_size ?? 0.0)"
         
         
 
@@ -1284,6 +1285,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
                 cell.btnDelete.isHidden = true
                 cell.btnReduceQuantity.isHidden = true
                 cell.lblLineReduceQty.isHidden = true
+        cell.btnAccept.isHidden = true
         let ItemQty = "Item Qty".localized
         
         cell.lblQty.text = "\(ItemQty): 0\(orderDetailData?.data?.item_detail? [index.row].qty ?? 0)"
