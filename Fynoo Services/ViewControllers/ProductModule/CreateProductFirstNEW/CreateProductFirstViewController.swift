@@ -13,6 +13,7 @@ import ObjectMapper
 import BarcodeScanner
 class CreateProductFirstViewController: UIViewController {
     var prolimit:ProductLimit?
+    var dataforsale = false
     var isDataBank = false
      var isPurchaseData = false
    var serviceid = ""
@@ -25,6 +26,7 @@ class CreateProductFirstViewController: UIViewController {
     var isNextColor = false
     var isVarient = false
     var isSimilar = false
+    var pro = ProductModel.shared
     var currency = NSMutableArray()
      var currencyid = NSMutableArray()
     @IBOutlet weak var tabvw: UITableView!
@@ -56,7 +58,7 @@ class CreateProductFirstViewController: UIViewController {
              else if  ProductModel.shared.filledstep > 1
              {
                 let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
-                
+                vc.isDataBank = isDataBank
                 vc.isFromBranch = isFromBranch
                              if ProductModel.shared.filledstep == 2
                              {
@@ -349,7 +351,66 @@ class CreateProductFirstViewController: UIViewController {
        
         }
         
+    if isDataBank
+    {
+        if isSimilar || isVarient
+        {
+            let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
+                  vc.isDataBank = self.isDataBank
+                  vc.isSimilar = self.isSimilar
+                  vc.isVarient = self.isVarient
+                  vc.hidesBottomBarWhenPushed = true;
+                 self.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
     
+            ModalClass.startLoading(self.view)
+                       productmodel.isdraft = true
+                          productmodel.step = 1
+                     productmodel.proid = pro.productId
+                         productmodel.addDatasaleNew { (success, response) in
+                             ModalClass.stopLoading()
+                             self.editpronew = response
+                             if success {
+                                 if sender.tag == 0
+                                        {
+                                 self.navigationController?.popViewController(animated: true)
+                                 }
+                                 else
+                                 {
+                                  
+                                    self.pro.finalStatus = self.editpronew?.data?.pro_status ?? 0
+                                                     self.pro.productcode = self.editpronew?.data?.pro_code ?? ""
+                                                     self.pro.productTitle = self.editpronew?.data?.pro_name ?? ""
+                                                     self.pro.statusActive = self.editpronew?.data?.pro_status ?? 0
+                                                self.pro.productDecription = self.editpronew?.data?.pro_description ?? ""
+                
+                                    
+                                                     self.pro.productId = "\(self.editpronew?.data?.pro_id ?? 0)"
+                                                     self.pro.galleryFeatureImage = "\(self.editpronew?.data?.pro_featured_image ?? "")"
+                                                     let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
+                                                     //vc.isFromBranch = self.isFromBranch
+                                                     vc.isDataBank = self.isDataBank
+                                                     vc.isSimilar = self.isSimilar
+                                                       vc.isVarient = self.isVarient
+                                                     //vc.isPurchaseData = self.isPurchaseData
+                                                      vc.hidesBottomBarWhenPushed = true;
+                                                     self.navigationController?.pushViewController(vc, animated: true)
+                                                 }
+                                                
+                                             }
+                                      
+                                     
+                                 
+                             
+                             else
+                             {
+                                 ModalController.showNegativeCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
+                             }
+                         }
+    }
+        else
+     {
         if sender.tag == 0
         {
             if ProductModel.shared.productId == ""
@@ -447,7 +508,7 @@ class CreateProductFirstViewController: UIViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }
-        
+     }
         
         
     }

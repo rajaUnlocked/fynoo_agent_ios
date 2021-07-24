@@ -60,7 +60,7 @@ class ProductListDataBankSellingTableViewCell: UITableViewCell {
         self.datapricelbl.text = "Data Price".localized
         self.statusl.text = "\("Status".localized):"
         let url = productList?[index].pro_image ?? ""
-        self.proImg.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "placeholder"))
+        self.proImg.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "category_placeholder"))
         let attributedString : NSMutableAttributedString = NSMutableAttributedString(string: "\( "\("Category".localized):  ")\(productList?[index].pro_category ?? "")")
         attributedString.setColor(color: #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1), forText: (productList?[index].pro_category ?? ""))
         self.categoryLbl.attributedText = attributedString

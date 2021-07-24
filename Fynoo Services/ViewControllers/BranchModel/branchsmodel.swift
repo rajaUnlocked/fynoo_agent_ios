@@ -154,9 +154,10 @@ class branchsmodel:NSObject {
             {
             str = "\(Constant.BASE_URL)\(Constant.uploadgalleryImage)"
             }
+        
         var parameters =
         ["image_from":branchfrom,"image_type":imageType,"branch_id":AddBranch.shared.BranchId,
-         "user_id":Singleton.shared.getBoId(),"lang_code": HeaderHeightSingleton.shared.LanguageSelected] as [String : Any]
+         "user_id":Singleton.shared.getBoId() == "" ? Singleton.shared.getUserId():Singleton.shared.getBoId(),"lang_code": HeaderHeightSingleton.shared.LanguageSelected] as [String : Any]
         if isproduct
         {
           parameters["is_featured"] = true
