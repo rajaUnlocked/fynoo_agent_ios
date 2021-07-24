@@ -268,12 +268,18 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     
     @IBAction func BtnTappedToAccept(_ sender: UIButton) {
         
+        if ((tripDetail?.data?.trip_details?.service_going_on) == true) {
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "You can not accept the order")
+        }else
+        {
+        
         let vc = PopUpAcceptProductViewController(nibName: "PopUpAcceptProductViewController", bundle: nil)
         vc.delegate = self
         vc.titleLabel = "Are you sure want to accept?".localized
         vc.modalPresentationStyle = .overFullScreen
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         self.present(vc, animated: true, completion: nil)
+        }
     }
     
     @IBAction func btnTappedToDecline(_ sender: Any) {
