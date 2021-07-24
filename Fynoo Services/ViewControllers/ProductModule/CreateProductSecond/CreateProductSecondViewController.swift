@@ -1218,7 +1218,45 @@ pro.RetailReturnDays = ""
         
     }
     @objc func saveClick(_ sender :UIButton)
+    
     {
+        if isDataBank
+        {
+            if sender.tag == 0
+            {
+              ModalClass.startLoading(self.view)
+                   productmodel.isdraft = true
+                      productmodel.step = 2
+                 productmodel.proid = pro.productId
+                     productmodel.addDatasaleNew { (success, response) in
+                         ModalClass.stopLoading()
+                         self.editpronew = response
+                         if success {
+                            self.navigationController?.backToViewController(viewController: ProductListNewViewController.self)
+                        }
+            }
+            }
+            else{
+              
+                ModalClass.startLoading(self.view)
+                          productmodel.isdraft = false
+                             productmodel.step = 2
+                        productmodel.proid = pro.productId
+                productmodel.isSimilar = isSimilar
+                productmodel.isVarient = isVarient
+                            productmodel.addDatasaleNew { (success, response) in
+                                ModalClass.stopLoading()
+                                self.editpronew = response
+                                if success {
+                                    self.navigationController?.backToViewController(viewController: ProductListNewViewController.self)
+                         
+            }
+                }
+            
+        }
+        }
+        else
+        {
         if clicktab == 0
         {
             
@@ -1602,6 +1640,7 @@ pro.RetailReturnDays = ""
                     }
                 }
             }
+        }
         }
     }
     func sameAsOnline()
@@ -2833,7 +2872,7 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 if isDataBank
                 {
                     let cell = tabvw.dequeueReusableCell(withIdentifier: "SendForAPProvalTableViewCell", for: indexPath) as! SendForAPProvalTableViewCell
-                    cell.approvalbtn.addTarget(self, action: #selector(clickSendApproval), for: .touchUpInside)
+                    cell.approvalbtn.addTarget(self, action: #selector(saveClick(_:)), for: .touchUpInside)
                     return cell
                 }
                 else

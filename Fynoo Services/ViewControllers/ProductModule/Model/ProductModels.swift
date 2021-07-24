@@ -132,6 +132,7 @@ struct EditProductnew : Mappable {
 
 }
 struct EditProductnewData : Mappable {
+    var pro_id : Int?
     var product_id : Int?
     var pro_code : String?
     var pro_barcode : String?
@@ -151,6 +152,8 @@ struct EditProductnewData : Mappable {
     }
 
     mutating func mapping(map: Map) {
+        
+        pro_id <- map["pro_id"]
        pro_pdf <- map["pro_pdf"]
         product_id <- map["product_id"]
         pro_code <- map["pro_code"]

@@ -112,9 +112,12 @@ class Constant: NSObject {
      static let getproductlistfilter : String = "customerapi/v1/product_list_filter/";
       static let removedatasellproduct : String = "product_api/customerDataBankDeleteProduct/";
      static let payment_method_list : String = "product_api/payment_page/"
+    static let customerdatabank : String = "product_api/customerDataBankProduct/";
+    static let similarvarientdata : String = "product_api/customerDataBankProductOther/";
     static let addproductNew : String = "services/agent_add_product/";
    static let productlimit : String = "product_api/ProductLimit/";
       static let productsellinfo : String = "product_api/sellProductInfo/";
+    static let databankdetails : String = "product_api/customerDataBankProductDetails/";
     static let productcode : String = "product_api/getProductCode/";
       static let checkbar : String = "product_api/checkBarcode/";
      static let storepay : String = "product_api/storePaymentList/";

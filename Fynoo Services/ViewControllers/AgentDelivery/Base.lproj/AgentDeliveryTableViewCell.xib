@@ -459,11 +459,6 @@
             <point key="canvasLocation" x="-520.28985507246375" y="20.758928571428569"/>
         </tableViewCell>
     </objects>
-    <designables>
-        <designable name="EAa-V6-ZYz">
-            <size key="intrinsicContentSize" width="80" height="12"/>
-        </designable>
-    </designables>
     <resources>
         <image name="edit_feature" width="66" height="66"/>
         <image name="grayTick" width="20" height="20"/>

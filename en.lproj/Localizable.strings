@@ -355,6 +355,13 @@
 "Cancellation Request" = "Cancellation Request";
 "Accept Cancellation" = "Accept Cancellation";
 "I'm on my way" = "I'm on my way";
+"Total Weight" = "Total Weight";
+"Total Size" = "Total Size";
+"kg" = "kg";
+"Confirm to received items" = "Confirm to received items";
+"Confirm & Upload Invoice" = "Confirm & Upload Invoice";
+"I have reached BO's store" = "I have reached BO's store";
+
 
 
 // Target
@@ -1247,7 +1254,6 @@
 "Items price (Almost)" = "Items price (Almost)";
 "Delivered" = "Delivered";
 "Cancel Request Received" = "Cancel Request Received";
-"Confirm to received items" = "Confirm to received items";
 "Total Amount" = "Total Amount";
 "Any Problem?" = "Any Problem?";
 "Please Enter Otp" = "Please Enter Otp";

@@ -101,6 +101,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         
         NotificationCenter.default.addObserver(self, selector: #selector(getNotificationARV(_:)), name: NSNotification.Name(Constant.GET_NOTIFICATIONARV), object: nil)
         tabBarController?.delegate = self
+        
+        doBackgroundTask()
     }
     @objc private func didTapWalletView(_ sender: UITapGestureRecognizer) {
         if sender.isEnabled
@@ -502,11 +504,11 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         }
         
         @objc func sideMenuaddProductDataForSaleBtnClicked(_ notification: NSNotification) {
-//            let vc = ProductListNewViewController(nibName: "ProductListNewViewController", bundle: nil)
-//            self.navigationController?.pushViewController(vc, animated: true)
-          
-            let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
+            let vc = ProductListNewViewController(nibName: "ProductListNewViewController", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
+//
+//            let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
+//            self.navigationController?.pushViewController(vc, animated: true)
         }
    
     // MARK: - LOGOUT DELEGATE

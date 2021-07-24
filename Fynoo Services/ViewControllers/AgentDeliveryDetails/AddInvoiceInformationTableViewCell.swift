@@ -56,6 +56,8 @@ class AddInvoiceInformationTableViewCell: UITableViewCell {
     @IBOutlet weak var viewForBoToAgent: UIView!
     
     
+    @IBOutlet weak var lblNoteBo: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -92,6 +94,8 @@ class AddInvoiceInformationTableViewCell: UITableViewCell {
 //      self.btnAnyProblem.titleLabel?.text = "Any Problem?".localized
         self.btnAnyProblem.setAttributedTitle(myNormalAttributedTitle, for: .normal)
         lblAddInvoice.textColor = UIColor.AppThemeGreenTextColor()
+        self.lblNoteBo.font = UIFont(name:"\(fontNameLight)",size:11)
+        self.lblNoteBo.text = "Note: Please share the OTP with Business Owner which you will receive after Confirm and Upload Invoice' to confirm that you have received all products from Business Owner.".localized
       
         
         }
