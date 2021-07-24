@@ -31,6 +31,10 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>access camera to upload your picture</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>This app requires user's current position always So whenever users moves to new location then they will track user current location.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>This app requires user's current position always So whenever users moves to new location then they will track user current location.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>access location for using delivery services.</string>
 	<key>NSPhotoLibraryUsageDescription</key>

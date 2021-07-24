@@ -993,6 +993,7 @@ class newOrderTripData : Mappable {
 
 
 struct NewOrder_Trip_details : Mappable {
+    var service_going_on : Bool?
     var search_id : Int?
     var service_id : Int?
     var qty : Int?
@@ -1025,7 +1026,7 @@ struct NewOrder_Trip_details : Mappable {
     }
 
     mutating func mapping(map: Map) {
-
+        service_going_on <- map["service_going_on"]
         search_id <- map["search_id"]
         service_id <- map["service_id"]
         qty <- map["qty"]

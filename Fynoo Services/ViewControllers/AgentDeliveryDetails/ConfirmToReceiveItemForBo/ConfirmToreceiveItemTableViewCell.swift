@@ -59,6 +59,9 @@ class ConfirmToreceiveItemTableViewCell: UITableViewCell {
         self.lblIHaveReceivedItem.font = UIFont(name:"\(fontNameLight)",size:12)
         
         self.btnAnyProblemOutlet.titleLabel!.font = UIFont(name:"\(fontNameBold)",size:14)
+        let myNormalAttributedTitle = NSAttributedString(string: "Any Problem?".localized,attributes: [NSAttributedString.Key.foregroundColor : UIColor.AppThemeBlueTextColor(),.underlineStyle: NSUnderlineStyle.single.rawValue,.underlineColor : UIColor.AppThemeBlueTextColor()])
+        
+        self.btnAnyProblemOutlet.setAttributedTitle(myNormalAttributedTitle, for: .normal)
 
 
         }
