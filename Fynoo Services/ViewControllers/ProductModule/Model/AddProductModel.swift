@@ -10,6 +10,7 @@ import Foundation
 
 import ObjectMapper
 class AddProductModel: NSObject {
+    var isDatabank = false
     var checkbar:CheckBarCode?
     var editpronew:EditProductnew?
     var filterlist:ProductFilterList?
@@ -18,6 +19,7 @@ class AddProductModel: NSObject {
     var storepayment:StorePayment?
     var subcataid = ""
     var barcode = ""
+    var viewNewPoductDetailData: viewProductDetailEditNew?
     var step = 1
      var isdraft = false
     var isVarient = false
@@ -25,6 +27,131 @@ class AddProductModel: NSObject {
     var vatnum = ""
     var proid = ""
     var serviceid = ""
+    func addDatasaleNew(completion:@escaping(Bool, EditProductnew?) -> ()) {
+         let userid:UserData = AuthorisedUser.shared.getAuthorisedUser()
+        let pro = ProductModel.shared
+        var mediaid = ""
+        var branchesid = ""
+        var filterid = ""
+        var filteridVal = ""
+        var docid = ""
+         var varientid = ""
+        let mediaImg:NSMutableArray = NSMutableArray()
+        mediaImg.removeAllObjects()
+        for i in 0...pro.galleryId.count - 1 {
+            if "\(pro.galleryId[i])" != ""
+            {
+                mediaImg.add(pro.galleryId[i])
+            }
+            else{
+            
+            }
+            
+        }
+                if pro.documentId.count > 0
+                {
+                    docid.removeAll()
+                    for item in pro.documentId{
+                        docid = "\(item),\(docid)"
+                    }
+                    docid.removeLast()
+                }
+               if pro.filterId.count > 0
+               {
+                   filterid.removeAll()
+                   for item in pro.filterId{
+                       filterid = "\(item),\(filterid)"
+                   }
+                   filterid.removeLast()
+               }
+               if pro.filterIdValue.count > 0
+               {
+                   filteridVal.removeAll()
+                   for item in pro.filterIdValue{
+                       filteridVal = "\(item),\(filteridVal)"
+                   }
+                   filteridVal.removeLast()
+               }
+        if pro.branchIdnew.count > 0
+        {
+            for item in pro.branchIdnew{
+                branchesid = "\(item),\(branchesid)"
+            }
+            branchesid.removeLast()
+        }
+        if mediaImg.count > 0
+        {
+            for item in mediaImg{
+                mediaid = "\(item),\(mediaid)"
+            }
+            mediaid.removeLast()
+        }
+        if pro.varientId.count > 0
+        {
+            for item in  pro.varientId{
+                varientid = "\(item),\(varientid)"
+            }
+            varientid.removeLast()
+        }
+      
+        var str = ""
+         str = "\(Constant.BASE_URL)\(Constant.customerdatabank)"
+       var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
+
+             if userId == "0"{
+               userId = ""
+
+             }
+        var parameters =
+            ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,
+             "pro_user_id":userId,
+             "pro_filled_step":step,
+             "pro_id":proid,
+             "pro_barcode":pro.barcode,
+             "pro_name":pro.productTitle,
+             "pro_parent_cat":pro.cataId,
+             "pro_sub_cat":pro.subcataId,
+             "pro_filter_id":filterid,
+             "pro_filter_value_id":filteridVal,
+            "pro_filter_variant":varientid,
+            "pro_technical_specification":pro.descriptions,
+             "pro_desc":pro.productDecription,
+             "pro_doc_id":docid,
+             "pro_video_url":pro.videoUrl,
+             "pro_image_id": mediaid,
+             "save_as_draft" : isdraft
+           ] as [String : Any]
+        if isVarient
+        {
+            parameters["pro_parent_id"] = pro.productId
+             str = "\(Constant.BASE_URL)\(Constant.similarvarientdata)"
+        }
+         if isSimilar{
+           parameters["pro_parent_id"] = ""
+             str = "\(Constant.BASE_URL)\(Constant.similarvarientdata)"
+        }
+        print(str,parameters)
+        ServerCalls.postRequest(str, withParameters: parameters)
+        { (response, success) in
+            if let value = response as? NSDictionary{
+                let error = value.object(forKey: "error") as! Int
+                if error == 0{
+                    if let body = response as? [String: Any] {
+                        self.editpronew = Mapper<EditProductnew>().map(JSON: response as! [String : Any])
+                        completion(true, self.editpronew)
+                        return
+                    }
+                    completion(false,nil)
+                }else{
+                    let msg =  value.object(forKey: "error_description") as! String
+                    ModalController.showSuccessCustomAlertWith(title: "", msg: msg)
+                    completion(false, nil)
+                    
+                }
+                
+            }
+        }
+    }
     func addProductNew(completion:@escaping(Bool, EditProductnew?) -> ()) {
         let pro = ProductModel.shared
         var mediaid = ""
@@ -674,8 +801,9 @@ class AddProductModel: NSObject {
     }
     
     func productDetails(completion:@escaping(Bool, ProductDetailNew?) -> ()) {
-        
-        let str = "\(Constant.BASE_URL)\(Constant.productdetailnew)"
+       
+        let str  = "\(Constant.BASE_URL)\(Constant.productdetailnew)"
+       
         let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"pro_bo_id":Singleton.shared.getUserId(),
                           "pro_id":ProductModel.shared.productId]
         print(parameters)
@@ -889,6 +1017,124 @@ class AddProductModel: NSObject {
                     
                 }
                 
+            }
+        }
+    }
+    func databankDetails(completion:@escaping(Bool, viewProductDetailEditNew?) -> ()) {
+   let userid:UserData = AuthorisedUser.shared.getAuthorisedUser()
+        let str = "\(Constant.BASE_URL)\(Constant.databankdetails)"
+        let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"pro_bo_id":(userid.data?.id)!,
+                          "pro_id":proid] as [String : Any]
+        print(parameters)
+        ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
+
+
+            if let value = response as? NSDictionary{
+                let error = value.object(forKey: "error") as! Int
+                if error == 0{
+                    let pro = ProductModel.shared
+                    if let body = response as? [String: Any] {
+                        self.viewNewPoductDetailData = Mapper<viewProductDetailEditNew>().map(JSON: response as! [String : Any])
+                        let pr = self.viewNewPoductDetailData?.data
+                        //page 1
+                         // pro.statusActive = pr?.pro_status ?? 0
+                          pro.finalStatus = pr?.pro_status ?? 0
+                        pro.filledstep = pr?.pro_filled_step ?? 0
+                        pro.barcode = pr?.pro_barcode ?? ""
+                        pro.productId = "\(pr?.pro_id ?? 0)"
+                        pro.productTitle = pr?.pro_name ?? ""
+                        pro.branchIdnew.removeAllObjects()
+                       
+
+                        pro.galleryId = ["","","","","","","","","",""]
+                      pro.galleryIdImageNew = [#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder")]
+                        if (pr?.pro_image?.count ?? 0) > 0
+                        {
+
+                            for i in 0...(pr?.pro_image?.count ?? 0) - 1
+                            {
+                                let br:Pro_image1 = (pr?.pro_image![i])!
+
+                                let url = URL(string:br.image!)
+                                    if let data = try? Data(contentsOf: url!)
+                                    {
+                                        let image: UIImage = UIImage(data: data)!
+                                        pro.galleryIdImageNew[br.index!] = image
+                                        pro.galleryFeatureImage = br.image ?? ""
+                                    }
+                                    pro.galleryId.replaceObject(at: br.index!, with: br.id!)
+
+                                }
+
+
+
+
+                        }
+                        pro.productcode = pr?.pro_code ?? ""
+                       pro.productDecription = pr?.pro_description ?? ""
+                       
+                        pro.videoUrl = pr?.pro_video_url ?? ""
+                        //page2
+                        pro.cataId = "\(pr?.pro_parent_category_id ?? 0)"
+                        pro.cataIdname = pr?.pro_parent_category ?? ""
+                        pro.cataImage = pr?.pro_parent_category_image ?? ""
+                        pro.subcataImage = pr?.pro_sub_category_image ?? ""
+                        pro.subcataId = "\(pr?.pro_sub_category_id ?? 0)"
+                        pro.subcataIdName = pr?.pro_sub_category ?? ""
+                        
+                        pro.descriptions = pr?.pro_technical_specification ?? ""
+                        pro.documentId.removeAllObjects()
+                         pro.documentImage.removeAllObjects()
+                          pro.documentImageSize.removeAllObjects()
+                        if (pr?.pro_pdf?.count ?? 0) > 0
+
+                        {
+
+                            for i in 0...(pr?.pro_pdf?.count ?? 0) - 1
+                                                   {
+                                    let br:Pro_pdf2 = (pr?.pro_pdf![i])!
+                                                       pro.documentId.add(br.id!)
+                                                       pro.documentImage.add(br.pdf!)
+                                                       pro.documentImageSize.add(br.size!)
+                                                   }
+
+
+                                               }
+                       
+                        pro.filterId.removeAllObjects()
+                        pro.filterIdValue.removeAllObjects()
+                        pro.filterIdName.removeAllObjects()
+                        pro.filterIdValueName.removeAllObjects()
+                        if (pr?.pro_specification?.count ?? 0) > 0
+                        {
+
+                            for i in 0...(pr?.pro_specification?.count ?? 0) - 1
+                            {
+                                let br:Pro_specification1 = (pr?.pro_specification![i])!
+                                pro.filterId.add(br.filter_id!)
+                                pro.filterIdValue.add(br.filter_value_id!)
+                                pro.filterIdName.add(br.filter_name!)
+                                pro.filterIdValueName.add(br.filter_value_name!)
+                                  if br.filter_variant!
+                                  {
+                                    pro.SelectedVarientIndex.add(br.filter_id!)
+                                }
+                            }
+
+
+                        }
+                       
+                        
+
+                        completion(true, self.viewNewPoductDetailData)
+                        return
+                    }
+                    completion(false,nil)
+                }else{
+                    completion(false, nil)
+
+                }
+
             }
         }
     }
