@@ -158,7 +158,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         currentPageNumber = 0
         self.getBoServicesRequestListAPI()
     }
-    
+
     func getBoServicesRequestListAPI() {
         
         apiManagerModal.agentServicesOrderListing(serviceID:self.serviceID, tabStatus: self.selectedTab, searchStr: self.searchBoxEntryText, pageNumber: currentPageNumber, filter: selectedFilters ) { [self] (success, response) in
