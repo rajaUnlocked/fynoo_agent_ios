@@ -80,11 +80,6 @@ class SignOutViewController: UIViewController {
 //        self.delegate?.popViewController()
     }
 
-    
-    
-    
-    
-    
     @IBAction func DISMISS(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
