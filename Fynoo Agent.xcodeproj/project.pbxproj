@@ -7615,9 +7615,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_ENTITLEMENTS = "Fynoo Services/Fynoo Services.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = 94V2SEBR29;
 				INFOPLIST_FILE = "Fynoo Services/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -7626,7 +7626,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sendan.Fynoo-Services";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Fynoo_agentDistributionProvisioning;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -7638,9 +7638,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_ENTITLEMENTS = "Fynoo Services/Fynoo Services.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = 94V2SEBR29;
 				INFOPLIST_FILE = "Fynoo Services/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -7649,7 +7649,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sendan.Fynoo-Services";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Fynoo_agentDistributionProvisioning;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
