@@ -25,6 +25,8 @@ class ProductSpecCatagoryTableViewCell: UITableViewCell {
         super.awakeFromNib()
       let fontNameLight = NSLocalizedString("LightFontName", comment: "")
      categoriesLbl.font = UIFont(name:"\(fontNameLight)",size:15)
+     cataname.font = UIFont(name:"\(fontNameLight)",size:8)
+     subcataname.font = UIFont(name:"\(fontNameLight)",size:8)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

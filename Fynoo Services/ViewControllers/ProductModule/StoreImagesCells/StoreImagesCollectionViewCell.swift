@@ -15,6 +15,8 @@ class StoreImagesCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         btypeLbl.layer.masksToBounds = true
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        btypeLbl.font = UIFont(name:"\(fontNameLight)",size:10)
     }
    
 }

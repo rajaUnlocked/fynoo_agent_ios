@@ -43,6 +43,7 @@ class MallMarketPopupViewController: UIViewController,UITableViewDelegate,UITabl
         self.MallMarketList_API()
         //        self.headerView.layer.insertSublayer(ModalController.setnewGradientColorBGBlackWithPopupHeight(), at: 0)
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        save.setTitle("SAVE".localized, for: .normal)
         save.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:16)
         headerVw.titleHeader.text = "Name Of Mall & Market".localized
         headerVw.viewControl = self
@@ -73,6 +74,7 @@ class MallMarketPopupViewController: UIViewController,UITableViewDelegate,UITabl
             if indexPath.row  == (mallmarketArr.count ) + 1
             {
                 let cell1 = tabView.dequeueReusableCell(withIdentifier: "otherTableViewCell", for: indexPath) as! otherTableViewCell
+                
                 if cell1.nametxtfield.text!.count > 0
                 {
                     if !cell1.nametxtfield.text!.containArabicNumber
@@ -98,11 +100,11 @@ class MallMarketPopupViewController: UIViewController,UITableViewDelegate,UITabl
         {
             
             let cell1 = tabView.dequeueReusableCell(withIdentifier: "marketTableViewCell", for: indexPath) as! marketTableViewCell
+            cell1.middlelbl.text = "Other".localized
             cell1.tag = indexPath.row
             cell1.toplbl.isHidden = true
             cell1.bottomlbl.isHidden = true
             cell1.middlelbl.isHidden = false
-            cell1.middlelbl.text = "Other"
             if isTrue{
                 cell1.checkbtn.isSelected = true
             }else{

@@ -23,8 +23,8 @@ class otherTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-         self.nametxtfield.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
-         self.addresstxtfield.attributedPlaceholder = NSAttributedString(string: "Address", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        self.nametxtfield.attributedPlaceholder = NSAttributedString(string: "Name".localized, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        self.addresstxtfield.attributedPlaceholder = NSAttributedString(string: "Address".localized, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
     }
     
 }

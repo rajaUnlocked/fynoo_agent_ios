@@ -448,15 +448,16 @@ extension BusinessTimesheet1PopupViewController: UITableViewDelegate,UITableView
             if indexPath.row == 0
             {
                 let cell = tabview.dequeueReusableCell(withIdentifier: "CountingTableViewCell", for: indexPath) as! CountingTableViewCell
+                cell.countLblTop.constant = 10
                 cell.counlbl.textAlignment = .left
                 cell.counlbl.textColor = UIColor.init(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)
                 cell.counlbl.numberOfLines = 2
-                cell.counlbl.textAlignment = .left
+                cell.counlbl.text = " Update Your Business Hours So Search Results Show When Your Location Is Open.".localized
                 if HeaderHeightSingleton.shared.LanguageSelected == "AR"
                 {
                     cell.counlbl.textAlignment = .right
+                    cell.counlbl.text = "قم بتحديث أوقات العمل ليتم إدراج متجرك في قائمة البحث عندما يكون مفتوح";
                 }
-                cell.counlbl.text = "   Update Your Business Hours So Search Results Show When Your Location Is Open.".localized
                         return cell
             }
             else

@@ -10,13 +10,14 @@ import UIKit
 
 class ORTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var orimg: UIImageView!
+    @IBOutlet weak var orlbl: UILabel!
     @IBOutlet weak var techlbl: UILabel!
     @IBOutlet weak var count: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-       techlbl.font = UIFont(name:"\(fontNameLight)",size:12)
+       let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        techlbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        orlbl.font = UIFont(name:"\(fontNameLight)",size:12)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

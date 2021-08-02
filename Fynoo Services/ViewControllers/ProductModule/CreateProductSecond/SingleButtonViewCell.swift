@@ -15,6 +15,8 @@ class SingleButtonViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
          self.saveButton.setAllSideShadow(shadowShowSize: 1.0)
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        saveButton.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

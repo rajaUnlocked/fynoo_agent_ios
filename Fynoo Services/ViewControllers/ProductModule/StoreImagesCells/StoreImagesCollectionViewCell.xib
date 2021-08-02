@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StoreImagesCollectionViewCell" id="gTV-IL-0wX" customClass="StoreImagesCollectionViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StoreImagesCollectionViewCell" id="gTV-IL-0wX" customClass="StoreImagesCollectionViewCell" customModule="Fynoo_Agent" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="145" height="55"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -52,7 +52,7 @@
                                     <constraint firstAttribute="width" constant="14" id="Qis-xa-z7I"/>
                                     <constraint firstAttribute="height" constant="14" id="cvP-VC-tTZ"/>
                                 </constraints>
-                                <state key="normal" image="closed"/>
+                                <state key="normal" image="closed_grey"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -72,13 +72,13 @@
                     </view>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="PW5-gZ-hR9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="CfX-dI-UE5"/>
                 <constraint firstAttribute="trailing" secondItem="PW5-gZ-hR9" secondAttribute="trailing" id="gIy-4i-00b"/>
                 <constraint firstAttribute="bottom" secondItem="PW5-gZ-hR9" secondAttribute="bottom" id="zue-P6-hrj"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="194" height="82"/>
             <connections>
                 <outlet property="btypeLbl" destination="DH7-t0-KQf" id="ZBr-eW-2S6"/>
@@ -88,6 +88,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="closed" width="25" height="25"/>
+        <image name="closed_grey" width="14" height="14"/>
     </resources>
 </document>

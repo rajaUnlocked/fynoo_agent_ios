@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Apply these timings to all days"; ObjectID = "22Q-D4-Gca"; */
+"22Q-D4-Gca.text" = "Apply these timings to all days";
+
+/* Class = "UIButton"; normalTitle = "Apply To All"; ObjectID = "2va-RP-Dq5"; */
+"2va-RP-Dq5.normalTitle" = "Apply To All";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "rea-Mm-QpE"; */
+"rea-Mm-QpE.normalTitle" = "Cancel";
