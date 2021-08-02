@@ -2569,6 +2569,7 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "ProductSpecCatagoryTableViewCell", for: indexPath) as! ProductSpecCatagoryTableViewCell
                 
+                cell.forwardImg.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"right_arrow_new")!)
                 cell.isUserInteractionEnabled = true
                 cell.cataimg.sd_setImage(with: URL(string: pro.cataImage), placeholderImage: UIImage(named: "category_placeholder"))
                 cell.subcataimg.sd_setImage(with: URL(string: pro.subcataImage), placeholderImage: UIImage(named: "category_placeholder"))
@@ -2797,14 +2798,7 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
             case filterCount + 10:
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "ORTableViewCell", for: indexPath) as! ORTableViewCell
                 cell.count.textColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1)
-                if HeaderHeightSingleton.shared.LanguageSelected == "AR"
-                {
-                    cell.orimg.image = UIImage(named: "OR_Arb")
-                }
-                else
-                {
-                   cell.orimg.image = UIImage(named: "OR")
-                }
+                cell.orlbl.text = "OR".localized
                 cell.techlbl.text = "Technical Description Attachment".localized
                 if docId.count == pro.productDocVal
                 {
@@ -2935,10 +2929,12 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                     
                     let cell = tabvw.dequeueReusableCell(withIdentifier: "SelectProductTypeNewTableViewCell", for: indexPath) as! SelectProductTypeNewTableViewCell
                     //                    cell.rightBtnLeading.constant = 90
+                    cell.leftlblwidth.constant = 70
+                    cell.middlelblwidth.constant = 70
                     cell.lbl.isHidden = false
                     cell.leftlbl.isHidden = false
                     cell.leftbtn.isHidden = false
-                    cell.leftLblLeading.constant =  self.view.frame.width/12
+//                    cell.leftLblLeading.constant =  self.view.frame.width/12
                     cell.outervw.backgroundColor = UIColor.init(red: 251/255, green: 251/255, blue: 251/255, alpha: 1)
                     cell.outervw.layer.borderWidth = 0.3
                     cell.topConst.constant = 2.5
@@ -2958,13 +2954,13 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                     if indexPath.row == 1
                     {
                         cell.leftbtn.isUserInteractionEnabled = true
-                        cell.btnleading.constant = 58
-                        cell.rightBtnLeading.constant = 61
-                        if HeaderHeightSingleton.shared.LanguageSelected == "AR"
-                        {
-                            cell.btnleading.constant = 25
-                            cell.rightBtnLeading.constant = 50
-                        }
+//                        cell.btnleading.constant = 58
+//                        cell.rightBtnLeading.constant = 61
+//                        if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+//                        {
+//                            cell.btnleading.constant = 25
+//                            cell.rightBtnLeading.constant = 50
+//                        }
                         cell.leftbtn.tag = 0
                         cell.rgtbtn.tag = 1
                         if OnlineSelectedIndex.contains(0) || OnlineSelectedIndex.contains(1)
@@ -2995,8 +2991,8 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                     else
                     {
                         cell.leftbtn.isUserInteractionEnabled = false
-                        cell.rightBtnLeading.constant = 58
-                        cell.btnleading.constant = 12
+//                        cell.rightBtnLeading.constant = 58
+//                        cell.btnleading.constant = 12
                         cell.leftbtn.tag = 2
                         cell.rgtbtn.tag = 3
                         if OnlineSelectedIndex.contains(2) || OnlineSelectedIndex.contains(3)
@@ -3148,7 +3144,7 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                     {
                         let cell = tableView.dequeueReusableCell(withIdentifier: "WholeAddSlabTableViewCell", for: indexPath) as! WholeAddSlabTableViewCell
                         cell.isUserInteractionEnabled = true
-                        
+                        cell.slablbl.text = "Add Slab".localized
                         cell.addSlab.addTarget(self, action: #selector(createWholesaleSlab), for: .touchUpInside)
                         cell.selectionStyle = .none
                         return cell
@@ -3275,9 +3271,9 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                         cell.currency.delegate = self
                         cell.price.delegate = self
                         cell.finalPrice.delegate = self
-                        cell.currency.textAlignment = .left
-                        cell.price.textAlignment = .left
-                        cell.finalPrice.textAlignment = .left
+//                        cell.currency.textAlignment = .left
+//                        cell.price.textAlignment = .left
+//                        cell.finalPrice.textAlignment = .left
                         cell.currency.addTarget(self, action: #selector(CreateProductSecondViewController.retailOnlineChange(_:)), for: UIControl.Event.editingChanged)
                         cell.price.addTarget(self, action: #selector(CreateProductSecondViewController.retailOnlineChange(_:)), for: UIControl.Event.editingChanged)
                         cell.finalPrice.addTarget(self, action: #selector(CreateProductSecondViewController.retailOnlineChange(_:)), for: UIControl.Event.editingChanged)
@@ -3451,16 +3447,18 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                     cell.leftlbl.isHidden = false
                     cell.leftbtn.isHidden = false
                     cell.rgtbtn.isUserInteractionEnabled = true
-                      cell.leftLblLeading.constant = 10
-                    if HeaderHeightSingleton.shared.LanguageSelected == "AR"
-                                           {
-                    cell.leftLblLeading.constant = self.view.frame.width/12
-                                            
-                    }
+                     // cell.leftLblLeading.constant = 10
+//                    if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+//                                           {
+//                    cell.leftLblLeading.constant = self.view.frame.width/12
+//
+//                    }
                     if indexPath.row == 0
                     {
-                        cell.btnleading.constant = 30
-                        cell.rightBtnLeading.constant = self.view.frame.width/6
+                        //cell.btnleading.constant = 30
+                        //cell.rightBtnLeading.constant = self.view.frame.width/6
+                        cell.middlelblwidth.constant = 0
+                        cell.leftlblwidth.constant = 0
                         cell.rgtlbl.text = "Field Same As Online".localized
                         cell.lbl.isHidden = true
                         cell.leftlbl.isHidden = true
@@ -3483,16 +3481,18 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                     }
                     else
                     {
-                        cell.btnleading.constant = self.view.frame.width/6
-                          cell.rightBtnLeading.constant = self.view.frame.width/10
-                        if HeaderHeightSingleton.shared.LanguageSelected == "AR"
-                        {
-                            
-                         cell.btnleading.constant = self.view.frame.width/5
-                             cell.rightBtnLeading.constant = self.view.frame.width/9
-                        }
-                        
-                      
+//                        cell.btnleading.constant = self.view.frame.width/6
+//                          cell.rightBtnLeading.constant = self.view.frame.width/10
+//                        if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+//                        {
+//
+//                         cell.btnleading.constant = self.view.frame.width/5
+//                             cell.rightBtnLeading.constant = self.view.frame.width/9
+//                        }
+//
+//
+                        cell.middlelblwidth.constant = 70
+                        cell.leftlblwidth.constant = 70
                         cell.lbl.text = "Sale In".localized
                         cell.rgtlbl.text = "Wholesale".localized
                         cell.leftlbl.text = "Retail".localized
@@ -3613,9 +3613,9 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 }
                 cell.price.delegate = self
                 cell.finalPrice.delegate = self
-                cell.currency.textAlignment = .left
-                cell.price.textAlignment = .left
-                cell.finalPrice.textAlignment = .left
+//                cell.currency.textAlignment = .left
+//                cell.price.textAlignment = .left
+//                cell.finalPrice.textAlignment = .left
                 cell.price.addTarget(self, action: #selector(CreateProductSecondViewController.retailDidChange(_:)), for: UIControl.Event.editingChanged)
                 cell.finalPrice.addTarget(self, action: #selector(CreateProductSecondViewController.retailDidChange(_:)), for: UIControl.Event.editingChanged)
                 return cell
@@ -4115,9 +4115,9 @@ extension CreateProductSecondViewController:DeleteSlabPopupDelegate
                                            cell.leadingCurrency.constant = 19.5
                                        }
                      cell.pricewidthConst.constant = 16
-                    cell.currency.textAlignment = .left
-                    cell.price.textAlignment = .left
-                    cell.finalPrice.textAlignment = .left
+//                    cell.currency.textAlignment = .left
+//                    cell.price.textAlignment = .left
+//                    cell.finalPrice.textAlignment = .left
                     cell.leadingcurrencyconst.constant = 19.5
                     if i == 10
                     {

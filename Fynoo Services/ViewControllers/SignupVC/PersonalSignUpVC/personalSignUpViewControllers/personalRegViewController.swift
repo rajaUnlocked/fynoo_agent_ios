@@ -1057,9 +1057,13 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
             }
         }else if index.section == 2 {
             
+            //Add below cooment line if gender and dob required in if condition
+            
+//            personalAgentSignUPModal.personalAgentGender != ""  &&
+//            personalAgentSignUPModal.personalAgentDob != ""  &&
+            
             if personalAgentSignUPModal.personalAgentName != ""  &&
-                personalAgentSignUPModal.personalAgentGender != ""  &&
-                personalAgentSignUPModal.personalAgentDob != ""  && personalAgentSignUPModal.personalAgentEducation != ""  &&  personalAgentSignUPModal.personalAgentMajorEducation != "" &&  personalAgentSignUPModal.personalAgentName.containArabicNumber  {
+                 personalAgentSignUPModal.personalAgentEducation != ""  &&  personalAgentSignUPModal.personalAgentMajorEducation != "" &&  personalAgentSignUPModal.personalAgentName.containArabicNumber  {
                 cell.editImageView.image = UIImage(named: "section_filled.png")
             }else {
                 cell.editImageView.image = UIImage(named: "edit_red")

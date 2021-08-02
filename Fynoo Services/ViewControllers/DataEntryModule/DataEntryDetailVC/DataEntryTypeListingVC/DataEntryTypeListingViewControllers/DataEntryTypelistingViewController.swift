@@ -141,7 +141,7 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
         
         let typeData = serviceTypeList?.data?.data_entry_lines?[indexPath.row]
         
-        if typeData?.type_name == "Product" {
+        if self.dataEntryType == "1" {
             if (typeData?.product_id ?? 0) > 0{
                 
                 ProductModel.shared.remove()
@@ -164,7 +164,7 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
                 vc.serviceid = "\(typeData?.form_id ?? 0 )"
                 self.navigationController?.pushViewController(vc, animated: true)
             }
-        } else if typeData?.type_name == "Branch" {
+        } else if self.dataEntryType == "2"  {
             if (typeData?.branch_id ?? 0) > 0{
                 
                 AddBranch.shared.removeall()

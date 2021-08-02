@@ -283,7 +283,8 @@
 
 
 // dashbaord
-
+"Successfully Registration With FYNOO" = "تم التسجيل مع فينو بنجاح";
+"Payment Successful" = "عمليات تم تنفيذها";
 "Do you want to opt for" = "هل تريد إضافة خدمة";
 "service?" = "ضمن الخدمات التي تعمل عليها؟";
 "No Data Found" = "لا يوجد صور لعرضها";
@@ -304,6 +305,11 @@
 "Wholesale" = "بالجملة";
 
 //new
+"Add Slab" = "أضف حد";
+"wholesale_" = "البيع بالجملة";
+"Permanently closed" = "مغلق دائماً";
+"SAVE" = "حفظ";
+"Other" = "أخرى";
 "Payment Successfully" = "عمليات تم تنفيذها";
 "Show More" = "المزيد";
 "Total Balance" = "الرصيد الإجمالي";
@@ -518,14 +524,15 @@
 "Are you sure you want to decline?" = "هل تريد رفض الطلب؟";
 "Accept" = "Accept";
 "Customer has requested cancellation. Please confirm or reject the request within 15 mins,otherwise order will be automatically cancelled." = "Customer has requested cancellation. Please confirm or reject the request within 15 mins,otherwise order will be automatically cancelled.";
-"Cancellation Request" = "Cancellation Request";
-"Accept Cancellation" = "Accept Cancellation";
-"I'm on my way" = "I'm on my way";
+"Cancellation Request" = "طلب إلغاء";
+"Accept Cancellation" = "قبول الإلغاء";
+"I'm on my way" = "أنا في الطريق";
 "Total Weight" = "Total Weight";
 "Total Size" = "Total Size";
 "kg" = "kg";
 "Confirm & Upload Invoice" = "تأكيد ورفع الفاتورة";
 "I have reached BO's store" = "I have reached BO's store";
+"Speak:" = "لغة التحدث:";
 
 //Forget Password
 "Business Owner" = "صاحب العمل";
@@ -652,7 +659,7 @@
 "Store in Market"= "متجر في السوق";
 "Save"="حفظ";
 
-"Location"="موقعك";
+"Location"="تحديد الموقع";
 "Add Business Location" = "إضافة موقع العمل";
 
 

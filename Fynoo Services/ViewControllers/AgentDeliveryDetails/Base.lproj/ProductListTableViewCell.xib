@@ -113,7 +113,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azc-FN-gW7">
-                                <rect key="frame" x="220" y="131.5" width="79" height="1"/>
+                                <rect key="frame" x="220" y="129.5" width="79" height="1"/>
                                 <color key="backgroundColor" red="0.10980392160000001" green="0.61568627450000002" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="EMq-VV-wFu"/>
@@ -155,7 +155,7 @@
                             <constraint firstItem="2UQ-wL-2Cb" firstAttribute="centerY" secondItem="j5G-bR-TGv" secondAttribute="centerY" id="Ycz-Qd-Vqb"/>
                             <constraint firstItem="GZR-VE-QRz" firstAttribute="top" secondItem="vkY-HJ-0Gd" secondAttribute="bottom" constant="8" id="dvl-KQ-VCo"/>
                             <constraint firstItem="m2g-AU-WTZ" firstAttribute="leading" secondItem="j5G-bR-TGv" secondAttribute="trailing" constant="10" id="eG0-ro-hHC"/>
-                            <constraint firstItem="azc-FN-gW7" firstAttribute="bottom" secondItem="2UQ-wL-2Cb" secondAttribute="bottom" constant="-4" id="fgI-CR-SB4"/>
+                            <constraint firstItem="azc-FN-gW7" firstAttribute="bottom" secondItem="2UQ-wL-2Cb" secondAttribute="bottom" constant="-6" id="fgI-CR-SB4"/>
                             <constraint firstItem="azc-FN-gW7" firstAttribute="leading" secondItem="2UQ-wL-2Cb" secondAttribute="leading" id="gwL-pK-C28"/>
                             <constraint firstItem="j5G-bR-TGv" firstAttribute="top" secondItem="vkY-HJ-0Gd" secondAttribute="bottom" constant="25" id="jIM-BD-hLO"/>
                             <constraint firstItem="vLP-if-2hw" firstAttribute="leading" secondItem="jrn-Zp-r2X" secondAttribute="leading" id="lju-xR-VaB"/>

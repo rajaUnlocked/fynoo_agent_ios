@@ -20,7 +20,8 @@ class ProductImgCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var img: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-     
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        mainlbl.font = UIFont(name:"\(fontNameLight)",size:8)
     }
 
     @IBAction func add(_ sender: Any) {

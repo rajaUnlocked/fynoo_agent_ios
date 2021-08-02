@@ -30,9 +30,9 @@ class SuccesssViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(action), userInfo: nil, repeats: true)
         
         if isFromAgentSignUp == true {
-           self.titleLbl.text = "Successfully Registration With FYNOO"
+            self.titleLbl.text = "Successfully Registration With FYNOO".localized
         }else{
-             self.titleLbl.text = "Payment Successful"
+             self.titleLbl.text = "Payment Successful".localized
         }
     }
 
