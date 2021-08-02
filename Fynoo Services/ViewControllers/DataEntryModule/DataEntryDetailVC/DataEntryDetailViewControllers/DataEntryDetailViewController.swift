@@ -277,7 +277,6 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
             }
         }
     }
-    
     func popUpOkayClicked(_ sender: Any) {
         
         self.delegate?.refreshDataEntryServiceList()
