@@ -9,14 +9,14 @@
 import UIKit
 
 class SelectProductTypeNewTableViewCell: UITableViewCell {
-     @IBOutlet weak var rightBtnLeading: NSLayoutConstraint!
+     @IBOutlet weak var leftlblwidth: NSLayoutConstraint!
      
-     @IBOutlet weak var leftLblLeading: NSLayoutConstraint!
+     @IBOutlet weak var middlelblwidth: NSLayoutConstraint!
      @IBOutlet weak var topConst: NSLayoutConstraint!
      @IBOutlet weak var bottomConst: NSLayoutConstraint!
      @IBOutlet weak var rgtbtn: UIButton!
      @IBOutlet weak var leftbtn: UIButton!
-     @IBOutlet weak var btnleading: NSLayoutConstraint!
+     @IBOutlet weak var rightlblwidth: NSLayoutConstraint!
      @IBOutlet weak var rgtlbl: UILabel!
      @IBOutlet weak var lbl: UILabel!
      @IBOutlet weak var leftlbl: UILabel!

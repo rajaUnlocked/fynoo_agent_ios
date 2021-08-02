@@ -187,7 +187,9 @@
 		CE2EFB42251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */; };
 		CE2EFB43251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2EFB41251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib */; };
 		CE3E9A59251E0B0300B60038 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E9A58251E0B0300B60038 /* ServiceModel.swift */; };
+		CE8110CF26B7D47F00D4F350 /* RetailPriceListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8110D126B7D47F00D4F350 /* RetailPriceListViewCell.xib */; };
 		CE8E8595250F4C3800B74A9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE8E8597250F4C3800B74A9E /* Localizable.strings */; };
+		CE96D3B226B51820002CB24F /* TimeSheetPOpUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE96D3B426B51820002CB24F /* TimeSheetPOpUpViewController.xib */; };
 		CE9CCD3F264BAA14005AE619 /* TimingShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CCC89264BAA13005AE619 /* TimingShowTableViewCell.swift */; };
 		CE9CCD42264BAA14005AE619 /* TimingShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9CCC8C264BAA13005AE619 /* TimingShowTableViewCell.xib */; };
 		CE9CCD43264BAA14005AE619 /* ProductListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9CCC8E264BAA13005AE619 /* ProductListHeader.xib */; };
@@ -310,7 +312,6 @@
 		CEBCD7522664A7FE001BF767 /* BankListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD7282664A7FE001BF767 /* BankListViewController.swift */; };
 		CEBCD7B226669A28001BF767 /* NoTripFoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCD7B026669A28001BF767 /* NoTripFoundTableViewCell.swift */; };
 		CEBCD7B326669A28001BF767 /* NoTripFoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBCD7B126669A28001BF767 /* NoTripFoundTableViewCell.xib */; };
-		CECEF8B125774EE20090D459 /* RetailPriceListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEF8AF25774EE10090D459 /* RetailPriceListViewCell.xib */; };
 		CECEF8B225774EE20090D459 /* RetailPriceListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEF8B025774EE20090D459 /* RetailPriceListViewCell.swift */; };
 		CECEF8B525774F9B0090D459 /* AddWholeSlabViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEF8B325774F9B0090D459 /* AddWholeSlabViewCell.xib */; };
 		CECEF8B625774F9B0090D459 /* AddWholeSlabViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEF8B425774F9B0090D459 /* AddWholeSlabViewCell.swift */; };
@@ -330,7 +331,6 @@
 		CECEF9982577575B0090D459 /* deleterowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEF8D42577575B0090D459 /* deleterowTableViewCell.xib */; };
 		CECEF9992577575B0090D459 /* BusinessTimesheet1PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEF8D62577575B0090D459 /* BusinessTimesheet1PopupViewController.xib */; };
 		CECEF99A2577575B0090D459 /* BusinessTimesheet1PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEF8D82577575B0090D459 /* BusinessTimesheet1PopupViewController.swift */; };
-		CECEF99B2577575B0090D459 /* TimeSheetPOpUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEF8D92577575B0090D459 /* TimeSheetPOpUpViewController.xib */; };
 		CECEF99C2577575B0090D459 /* TimeDisplayStyleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEF8DA2577575B0090D459 /* TimeDisplayStyleTableViewCell.swift */; };
 		CECEF9AA2577575B0090D459 /* BranchQrCodePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEF8EA2577575B0090D459 /* BranchQrCodePopupViewController.swift */; };
 		CECEF9AB2577575B0090D459 /* BranchQrCodePopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECEF8EB2577575B0090D459 /* BranchQrCodePopupViewController.xib */; };
@@ -1087,9 +1087,19 @@
 		CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVehicleImageTableViewCell.swift; sourceTree = "<group>"; };
 		CE2EFB41251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadVehicleImageTableViewCell.xib; sourceTree = "<group>"; };
 		CE3E9A58251E0B0300B60038 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
+		CE8110D026B7D47F00D4F350 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RetailPriceListViewCell.xib; sourceTree = "<group>"; };
+		CE8110D626B7D48A00D4F350 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RetailPriceListViewCell.strings; sourceTree = "<group>"; };
+		CE8110D826B7D48E00D4F350 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/RetailPriceListViewCell.strings; sourceTree = "<group>"; };
 		CE8E8594250F4C1B00B74A9E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		CE8E8596250F4C3800B74A9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE8E8598250F4C4200B74A9E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CE96D3B326B51820002CB24F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TimeSheetPOpUpViewController.xib; sourceTree = "<group>"; };
+		CE96D3B926B51825002CB24F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TimeSheetPOpUpViewController.strings; sourceTree = "<group>"; };
+		CE96D3BB26B51827002CB24F /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TimeSheetPOpUpViewController.strings; sourceTree = "<group>"; };
+		CE96D3BC26B519FE002CB24F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/nextTableViewCell.strings; sourceTree = "<group>"; };
+		CE96D3BD26B51A01002CB24F /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/nextTableViewCell.strings; sourceTree = "<group>"; };
+		CE96D3C726B532EB002CB24F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/otherTableViewCell.strings; sourceTree = "<group>"; };
+		CE96D3C926B53309002CB24F /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/otherTableViewCell.strings; sourceTree = "<group>"; };
 		CE9CCC89264BAA13005AE619 /* TimingShowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimingShowTableViewCell.swift; sourceTree = "<group>"; };
 		CE9CCC8C264BAA13005AE619 /* TimingShowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimingShowTableViewCell.xib; sourceTree = "<group>"; };
 		CE9CCC8E264BAA13005AE619 /* ProductListHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductListHeader.xib; sourceTree = "<group>"; };
@@ -1230,7 +1240,6 @@
 		CEBCD7282664A7FE001BF767 /* BankListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankListViewController.swift; sourceTree = "<group>"; };
 		CEBCD7B026669A28001BF767 /* NoTripFoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTripFoundTableViewCell.swift; sourceTree = "<group>"; };
 		CEBCD7B126669A28001BF767 /* NoTripFoundTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoTripFoundTableViewCell.xib; sourceTree = "<group>"; };
-		CECEF8AF25774EE10090D459 /* RetailPriceListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RetailPriceListViewCell.xib; sourceTree = "<group>"; };
 		CECEF8B025774EE20090D459 /* RetailPriceListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetailPriceListViewCell.swift; sourceTree = "<group>"; };
 		CECEF8B325774F9B0090D459 /* AddWholeSlabViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddWholeSlabViewCell.xib; sourceTree = "<group>"; };
 		CECEF8B425774F9B0090D459 /* AddWholeSlabViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWholeSlabViewCell.swift; sourceTree = "<group>"; };
@@ -1254,7 +1263,6 @@
 		CECEF8D52577575B0090D459 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/deleterowTableViewCell.xib; sourceTree = "<group>"; };
 		CECEF8D72577575B0090D459 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BusinessTimesheet1PopupViewController.xib; sourceTree = "<group>"; };
 		CECEF8D82577575B0090D459 /* BusinessTimesheet1PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessTimesheet1PopupViewController.swift; sourceTree = "<group>"; };
-		CECEF8D92577575B0090D459 /* TimeSheetPOpUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeSheetPOpUpViewController.xib; sourceTree = "<group>"; };
 		CECEF8DA2577575B0090D459 /* TimeDisplayStyleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeDisplayStyleTableViewCell.swift; sourceTree = "<group>"; };
 		CECEF8EA2577575B0090D459 /* BranchQrCodePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchQrCodePopupViewController.swift; sourceTree = "<group>"; };
 		CECEF8EB2577575B0090D459 /* BranchQrCodePopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BranchQrCodePopupViewController.xib; sourceTree = "<group>"; };
@@ -2809,7 +2817,7 @@
 				CECEF8D42577575B0090D459 /* deleterowTableViewCell.xib */,
 				CECEF8D62577575B0090D459 /* BusinessTimesheet1PopupViewController.xib */,
 				CECEF8D82577575B0090D459 /* BusinessTimesheet1PopupViewController.swift */,
-				CECEF8D92577575B0090D459 /* TimeSheetPOpUpViewController.xib */,
+				CE96D3B426B51820002CB24F /* TimeSheetPOpUpViewController.xib */,
 				CECEF8DA2577575B0090D459 /* TimeDisplayStyleTableViewCell.swift */,
 			);
 			path = timeSheetPopup;
@@ -3145,7 +3153,7 @@
 				CECEF8B425774F9B0090D459 /* AddWholeSlabViewCell.swift */,
 				CECEF8B325774F9B0090D459 /* AddWholeSlabViewCell.xib */,
 				CECEF8B025774EE20090D459 /* RetailPriceListViewCell.swift */,
-				CECEF8AF25774EE10090D459 /* RetailPriceListViewCell.xib */,
+				CE8110D126B7D47F00D4F350 /* RetailPriceListViewCell.xib */,
 				CEDD32B925763C8D00023977 /* WholeAddSlabTableViewCell.swift */,
 				CEDD32BA25763C8D00023977 /* ORTableViewCell.swift */,
 				CEDD32BB25763C8D00023977 /* ProductSecondTableViewCell.xib */,
@@ -4419,7 +4427,7 @@
 				CEDD334625765C4C00023977 /* BarCodePopupNewViewController.xib in Resources */,
 				4E790211267B37F800CE9600 /* AgentDashboardViewController.xib in Resources */,
 				4E6D37C7267B41B100BFA77B /* otherTableViewCell.xib in Resources */,
-				CECEF8B125774EE20090D459 /* RetailPriceListViewCell.xib in Resources */,
+				CE8110CF26B7D47F00D4F350 /* RetailPriceListViewCell.xib in Resources */,
 				CE9CCD49264BAA14005AE619 /* ProductListDataBankSellingTableViewCell.xib in Resources */,
 				F64D5FBC2524400E003DE670 /* CompanyRegViewController.xib in Resources */,
 				CECEF9B42577575B0090D459 /* BusinessLocation1ViewController.xib in Resources */,
@@ -4633,7 +4641,7 @@
 				2FEB12062511EC930012FE98 /* SideMenuSecondTableViewCell.xib in Resources */,
 				CEAD29FA2506A43D008B1F9C /* VideoTableViewCell.xib in Resources */,
 				CE9CCD52264BAA14005AE619 /* ProductVariantCollectionViewCell.xib in Resources */,
-				CECEF99B2577575B0090D459 /* TimeSheetPOpUpViewController.xib in Resources */,
+				CE96D3B226B51820002CB24F /* TimeSheetPOpUpViewController.xib in Resources */,
 				CEDD33CB257676F100023977 /* InventoryDetailTableViewCell.xib in Resources */,
 				CEBCD74F2664A7FE001BF767 /* BankListAddCell.xib in Resources */,
 				CEDBFDB6266DF71E00A8D318 /* DashboardWalletTableViewCell.xib in Resources */,
@@ -5540,6 +5548,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E6D37C5267B41B100BFA77B /* Base */,
+				CE96D3C726B532EB002CB24F /* en */,
+				CE96D3C926B53309002CB24F /* ar */,
 			);
 			name = otherTableViewCell.xib;
 			sourceTree = "<group>";
@@ -5652,6 +5662,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E790219267B402D00CE9600 /* Base */,
+				CE96D3BC26B519FE002CB24F /* en */,
+				CE96D3BD26B51A01002CB24F /* ar */,
 			);
 			name = nextTableViewCell.xib;
 			sourceTree = "<group>";
@@ -5734,6 +5746,16 @@
 			name = ServiceSingleCollectionViewCell.xib;
 			sourceTree = "<group>";
 		};
+		CE8110D126B7D47F00D4F350 /* RetailPriceListViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE8110D026B7D47F00D4F350 /* Base */,
+				CE8110D626B7D48A00D4F350 /* en */,
+				CE8110D826B7D48E00D4F350 /* ar */,
+			);
+			name = RetailPriceListViewCell.xib;
+			sourceTree = "<group>";
+		};
 		CE8E8597250F4C3800B74A9E /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -5741,6 +5763,16 @@
 				CE8E8598250F4C4200B74A9E /* ar */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		CE96D3B426B51820002CB24F /* TimeSheetPOpUpViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE96D3B326B51820002CB24F /* Base */,
+				CE96D3B926B51825002CB24F /* en */,
+				CE96D3BB26B51827002CB24F /* ar */,
+			);
+			name = TimeSheetPOpUpViewController.xib;
 			sourceTree = "<group>";
 		};
 		CE9CCDD0264BEDBC005AE619 /* ProductWarrentySupportTableViewCell.strings */ = {

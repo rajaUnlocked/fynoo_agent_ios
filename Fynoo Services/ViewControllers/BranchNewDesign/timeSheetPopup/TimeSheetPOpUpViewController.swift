@@ -13,10 +13,15 @@ protocol TimeSheetPOpUpDelegate {
 class TimeSheetPOpUpViewController: UIViewController {
     var arr = [[String]]()
     var delegate:TimeSheetPOpUpDelegate?
+    @IBOutlet weak var applytoall: UIButton!
+    @IBOutlet weak var cancelbtn: UIButton!
+    @IBOutlet weak var titlelbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        titlelbl.font = UIFont(name:"\(fontNameLight)",size:16)
+        cancelbtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:15)
+        applytoall.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:15)
     }
 
     @IBAction func cancel(_ sender: Any) {

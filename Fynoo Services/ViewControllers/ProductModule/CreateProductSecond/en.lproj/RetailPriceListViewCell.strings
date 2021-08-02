@@ -1,0 +1,24 @@
+
+/* Class = "UITextField"; text = "0.00"; ObjectID = "LKp-X3-2sx"; */
+"LKp-X3-2sx.text" = "0.00";
+
+/* Class = "UILabel"; text = "Min"; ObjectID = "Mzo-2c-bBw"; */
+"Mzo-2c-bBw.text" = "Min";
+
+/* Class = "UITextField"; text = "0.00"; ObjectID = "Qeu-Fq-1sK"; */
+"Qeu-Fq-1sK.text" = "0.00";
+
+/* Class = "UILabel"; text = "Quantity"; ObjectID = "SXQ-F3-rMm"; */
+"SXQ-F3-rMm.text" = "Quantity";
+
+/* Class = "UILabel"; text = "Max"; ObjectID = "T5h-uS-U2x"; */
+"T5h-uS-U2x.text" = "Max";
+
+/* Class = "UILabel"; text = "%"; ObjectID = "qoe-mv-GIJ"; */
+"qoe-mv-GIJ.text" = "%";
+
+/* Class = "UILabel"; text = "SAR"; ObjectID = "yEy-4c-LUQ"; */
+"yEy-4c-LUQ.text" = "SAR";
+
+/* Class = "UITextField"; text = "0.0"; ObjectID = "zFA-zl-q6L"; */
+"zFA-zl-q6L.text" = "0.0";

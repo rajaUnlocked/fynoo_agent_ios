@@ -283,8 +283,15 @@
 
 /////////////////////////             TAP PAYMENT             /////////////////////////
 //new
+
 "Successfully Registration With FYNOO" = "Successfully Registration With FYNOO";
 "Payment Successful" = "Payment Successful";
+"Add Slab" = "Add Slab";
+"wholesale_" = "Wholesale";
+"Permanently closed" = "Permanently closed";
+"SAVE" = "SAVE";
+"Other" = "Other";
+
 "Payment Successfully" = "Payment Successfully";
 "Show More" = "Show More";
 "Total Balance" = "Total Balance";

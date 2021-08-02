@@ -28,6 +28,7 @@ class AddWholeSlabViewController: UIViewController,UITextFieldDelegate {
     var proName = ""
     var proImage = ""
     var vatPercent = 0.0
+    let fontNameLight = NSLocalizedString("LightFontName", comment: "")
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -425,7 +426,7 @@ extension AddWholeSlabViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddWholeSlabViewCell", for: indexPath) as! AddWholeSlabViewCell
-            cell.wholesalelbl.text = "Wholesale".localized
+            cell.wholesalelbl.text = "wholesale_".localized
             cell.proImg.sd_setImage(with: URL(string: proImage), placeholderImage: UIImage(named: "productplaceholder"))
             cell.proName.text = proName
             cell.selectionStyle = .none
@@ -441,7 +442,7 @@ extension AddWholeSlabViewController : UITableViewDataSource{
             }
            
             cell.bottomConstraint.constant = 0
-            cell.titleLabel.font = UIFont(name: "Gilroy-Light", size: 12.0)
+            cell.titleLabel.font = UIFont(name: "\(fontNameLight)", size: 12.0)
             cell.selectionStyle = .none
             return cell
         }else if indexPath.row == 8{
@@ -518,7 +519,7 @@ extension AddWholeSlabViewController : UITableViewDataSource{
             case 3:
                 cell.titleLabel.attributedText = ModalController.setStricColor(str: "\(textArray[indexPath.row]) *", str1: "\(textArray[indexPath.row])", str2:" *" )
                 cell.currency.text = "SAR"
-                cell.currency.font = UIFont(name: "Gilroy-Light", size: 7.0)
+                cell.currency.font = UIFont(name: "\(fontNameLight)", size: 7.0)
                 cell.price.isHidden = true
                 cell.exchangeImg.isHidden = true
                 cell.finalPrice.text = "\(wholesalePrice)"
@@ -529,7 +530,7 @@ extension AddWholeSlabViewController : UITableViewDataSource{
                 cell.contentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 
                 cell.currency.text = "SAR"
-                cell.currency.font = UIFont(name: "Gilroy-Light", size: 7.0)
+                cell.currency.font = UIFont(name: "\(fontNameLight)", size: 7.0)
                 cell.price.isHidden = false
                 cell.exchangeImg.isHidden = true
                 cell.percentLabel.isHidden = false
@@ -557,12 +558,12 @@ extension AddWholeSlabViewController : UITableViewDataSource{
                 cell.price.isHidden = false
                 cell.finalCurrency.isHidden = true
                 cell.greenTick.isHidden = true
-                cell.currency.font = UIFont(name: "Gilroy-Light", size: 7.0)
+                cell.currency.font = UIFont(name: "\(fontNameLight)", size: 7.0)
                 cell.price.isHidden = true
                 cell.exchangeImg.isHidden = true
                 cell.finalPrice.isUserInteractionEnabled = false
                 cell.finalPrice.textColor = #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1)
-                cell.finalPrice.font = UIFont(name: "Gilroy-Light", size: 12.0)
+                cell.finalPrice.font = UIFont(name: "\(fontNameLight)", size: 12.0)
                 netSelling = wholesalePrice-discountPrice
                 netSelling = (netSelling*100).rounded()/100
 
@@ -581,7 +582,7 @@ extension AddWholeSlabViewController : UITableViewDataSource{
                     cell.finalPrice.isUserInteractionEnabled = true
                 }
                 cell.currency.text = "SAR"
-                cell.currency.font = UIFont(name: "Gilroy-Light", size: 7.0)
+                cell.currency.font = UIFont(name: "\(fontNameLight)", size: 7.0)
                 cell.price.isHidden = false
                 cell.exchangeImg.isHidden = true
                 cell.percentLabel.isHidden = false
@@ -612,7 +613,7 @@ extension AddWholeSlabViewController : UITableViewDataSource{
                 cell.greenTick.isHidden = true
                 cell.finalPrice.isUserInteractionEnabled = true
                 cell.finalPrice.textColor = #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1)
-                cell.finalPrice.font = UIFont(name: "Gilroy-Light", size: 12.0)
+                cell.finalPrice.font = UIFont(name: "\(fontNameLight)", size: 12.0)
             default:
                 cell.contentView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
                 cell.currency.isHidden = true
@@ -621,7 +622,8 @@ extension AddWholeSlabViewController : UITableViewDataSource{
                 cell.finalCurrency.isHidden = false
                 cell.greenTick.isHidden = false
                 cell.finalPrice.isUserInteractionEnabled = false
-                cell.finalPrice.font = UIFont(name: "Gilroy-ExtraBold", size: 12.0)
+                let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
+                cell.finalPrice.font = UIFont(name: "\(fontNameBold)", size: 12.0)
                 cell.finalPrice.textColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
 
                 var vall = netSelling+vatPrice
@@ -632,9 +634,9 @@ extension AddWholeSlabViewController : UITableViewDataSource{
 //                cell.finalPrice.text = "\(netSelling+vatPrice)"
 
             }
-            cell.currency.textAlignment = .left
-           cell.price.textAlignment = .left
-         cell.finalPrice.textAlignment = .left
+//            cell.currency.textAlignment = .left
+//           cell.price.textAlignment = .left
+//         cell.finalPrice.textAlignment = .left
             return cell
         }
     }
