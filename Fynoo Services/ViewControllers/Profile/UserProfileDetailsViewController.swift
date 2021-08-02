@@ -831,7 +831,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         if indexPath.row == 0{
             cell.headingLbl.isHidden = false
             cell.headingLbl.text = agentInfo.name
-            
+            cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         }else if indexPath.row == 1{
             cell.genderWidth.constant = (self.tableVw.frame.width)/2 + 10
             cell.genderHorizantal.constant = 0
@@ -1399,8 +1399,8 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
         switch textField.tag  {
         case 0:
             
-            agentInfo.businessName = textField.text!
-            
+            //agentInfo.businessName = textField.text!
+            agentInfo.name = textField.text!
             
             
         case 1:
