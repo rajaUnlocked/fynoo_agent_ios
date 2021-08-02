@@ -283,7 +283,8 @@
 
 
 // dashbaord
-
+"Successfully Registration With FYNOO" = "تم التسجيل مع فينو بنجاح";
+"Payment Successful" = "عمليات تم تنفيذها";
 "Do you want to opt for" = "هل تريد إضافة خدمة";
 "service?" = "ضمن الخدمات التي تعمل عليها؟";
 "No Data Found" = "لا يوجد صور لعرضها";

@@ -187,7 +187,6 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
             ModalController.showSuccessCustomAlertWith(title: "You have already submitted the work for this order.", msg: "")
             return
         }
-        
     }
     
     @objc func productDataEntryClicked(_ sender : UIButton) {
@@ -201,6 +200,7 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
     }
     
     @objc func branchDataEntryClicked(_ sender : UIButton) {
+        
         let vc = DataEntryTypelistingViewController()
         vc.serviceID = ModalController.toString(serviceDetailData?.data?.id as Any)
         vc.dataEntryType = "2"
