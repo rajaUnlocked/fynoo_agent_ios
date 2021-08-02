@@ -357,12 +357,12 @@ class PersonalAgentSignUPModal: NSObject {
         if ModalController.isValidName(title: personalAgentName) == false {
             return (isFilled, ValidationMessages.validName)
         }
-        if personalAgentGender == "" {
-            return (isFilled, ValidationMessages.Gender)
-        }
-        if personalAgentDob == "" {
-           return (isFilled, ValidationMessages.Dob)
-        }
+//        if personalAgentGender == "" {
+//            return (isFilled, ValidationMessages.Gender)
+//        }
+//        if personalAgentDob == "" {
+//           return (isFilled, ValidationMessages.Dob)
+//        }
         if !personalAgentDob.containArabicNumber {
             
             return (isFilled, ValidationMessages.dobArabicNumber)
