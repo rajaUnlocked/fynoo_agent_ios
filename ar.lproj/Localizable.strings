@@ -283,7 +283,8 @@
 
 
 // dashbaord
-
+"Successfully Registration With FYNOO" = "تم التسجيل مع فينو بنجاح";
+"Payment Successful" = "عمليات تم تنفيذها";
 "Do you want to opt for" = "هل تريد إضافة خدمة";
 "service?" = "ضمن الخدمات التي تعمل عليها؟";
 "No Data Found" = "لا يوجد صور لعرضها";
@@ -304,6 +305,11 @@
 "Wholesale" = "بالجملة";
 
 //new
+"Add Slab" = "أضف حد";
+"wholesale_" = "البيع بالجملة";
+"Permanently closed" = "مغلق دائماً";
+"SAVE" = "حفظ";
+"Other" = "أخرى";
 "Payment Successfully" = "عمليات تم تنفيذها";
 "Show More" = "المزيد";
 "Total Balance" = "الرصيد الإجمالي";
@@ -653,7 +659,7 @@
 "Store in Market"= "متجر في السوق";
 "Save"="حفظ";
 
-"Location"="موقعك";
+"Location"="تحديد الموقع";
 "Add Business Location" = "إضافة موقع العمل";
 
 

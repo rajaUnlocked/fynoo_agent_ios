@@ -1839,7 +1839,7 @@
                                            
                                            if arrr.is24Open == 0 &&  arrr.isClose == 0
                                            {
-                                            displayLbl = "Always Close".localized
+                                            displayLbl = "Permanently closed".localized
                                            }
                                            if arrr.is24Open == 1 &&  arrr.isClose == 0
                                            {

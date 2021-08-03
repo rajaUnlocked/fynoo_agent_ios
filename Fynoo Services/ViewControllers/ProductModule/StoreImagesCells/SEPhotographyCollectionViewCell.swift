@@ -23,7 +23,8 @@ class SEPhotographyCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        addlbl.font = UIFont(name:"\(fontNameLight)",size:12)
       
     }
     

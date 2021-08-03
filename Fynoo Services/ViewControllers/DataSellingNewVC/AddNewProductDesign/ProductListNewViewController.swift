@@ -219,7 +219,7 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
        ProductModel.shared.remove()
         ModalClass.startLoading(self.view)
         productmodel.proid = "\(dataselllist[sender.tag].pro_id ?? 0)"
-        productmodel.productDetails { (success, response) in
+        productmodel.databankDetails { (success, response) in
                 ModalClass.stopLoading()
                               
                     if success {
@@ -498,7 +498,7 @@ extension ProductListNewViewController : BottomPopupEditProductViewControllerDel
                                       ModalClass.startLoading(self.view)
                     ProductModel.shared.editproductsell = true
                                productmodel.proid = "\(dataselllist[index].pro_id ?? 0)"
-                                           productmodel.productDetails { (success, response) in
+                                           productmodel.databankDetails { (success, response) in
                                                ModalClass.stopLoading()
                        
                                                if success {
@@ -514,7 +514,7 @@ extension ProductListNewViewController : BottomPopupEditProductViewControllerDel
                                          ModalClass.startLoading(self.view)
                           
                                   productmodel.proid = "\(dataselllist[index].pro_id ?? 0)"
-                                              productmodel.productDetails { (success, response) in
+                                              productmodel.databankDetails { (success, response) in
                                                   ModalClass.stopLoading()
                           
                                                   if success {
@@ -531,7 +531,7 @@ extension ProductListNewViewController : BottomPopupEditProductViewControllerDel
                                          ModalClass.startLoading(self.view)
                           
                                   productmodel.proid = "\(dataselllist[index].pro_id ?? 0)"
-                                              productmodel.productDetails { (success, response) in
+                                              productmodel.databankDetails { (success, response) in
                                                   ModalClass.stopLoading()
                           
                                                   if success {
@@ -560,7 +560,7 @@ extension ProductListNewViewController : BottomPopupEditProductViewControllerDel
                                          ModalClass.startLoading(self.view)
                            ProductModel.shared.editproductsell = true
                                   productmodel.proid = "\(dataselllist[index].pro_id ?? 0)"
-                                              productmodel.productDetails { (success, response) in
+                                              productmodel.databankDetails { (success, response) in
                                                   ModalClass.stopLoading()
                           
                                                   if success {
@@ -580,7 +580,7 @@ extension ProductListNewViewController : BottomPopupEditProductViewControllerDel
                                          ModalClass.startLoading(self.view)
                           
                                   productmodel.proid = "\(dataselllist[index].pro_id ?? 0)"
-                                              productmodel.productDetails { (success, response) in
+                                              productmodel.databankDetails { (success, response) in
                                                   ModalClass.stopLoading()
                           
                                                   if success {

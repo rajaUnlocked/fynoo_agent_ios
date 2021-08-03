@@ -37,12 +37,13 @@ class BusinessLocation1ViewController: UIViewController,UITableViewDelegate,UITa
     var add = ""
     var charCount = 0
     var nameAr = ["Store on Road","Store in Market","Store in Mall"]
+    let fontNameLight = NSLocalizedString("LightFontName", comment: "")
     override func viewDidLoad() {
         super.viewDidLoad()
          self.topHeightConstraints.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         AddressList_API()
         headerVw.titleHeader.text = "Welcome, Let's Select Your Location".localized
-        headerVw.titleHeader.font = UIFont(name: "Gilroy-Light", size: 16.0)
+        
         headerVw.viewControl = self
         tabView.delegate = self
         tabView.dataSource = self
@@ -87,8 +88,9 @@ class BusinessLocation1ViewController: UIViewController,UITableViewDelegate,UITa
                 let cell = tabView.dequeueReusableCell(withIdentifier: "purchasedHeaderTableViewCell", for: indexPath) as! purchasedHeaderTableViewCell
                 cell.contentView.backgroundColor = UIColor.clear
                 cell.leftLbl.text = "Add Your Business Location".localized
+               
                 cell.leftLbl.textColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
-                cell.leftLbl.font = UIFont(name: "Gilroy-Light", size: 16.0)
+                cell.leftLbl.font = UIFont(name: "\(fontNameLight)", size: 16.0)
                 cell.bottomLbl.isHidden = true
                 cell.rightLbl.isHidden = true
                 cell.selectionStyle = .none
@@ -117,7 +119,7 @@ class BusinessLocation1ViewController: UIViewController,UITableViewDelegate,UITa
                 cell.lbl.text = "LocationB".localized
                 cell.cornerRadius = 6
                 cell.lbl.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
-                cell.lbl.font = UIFont(name: "Gilroy-Light", size: 12.0)
+                cell.lbl.font = UIFont(name: "\(fontNameLight)", size: 12.0)
                 cell.leadingConstant.constant = 0
                  cell.trailingConstant.constant = 0
                 cell.selectionStyle = .none

@@ -57,16 +57,16 @@ class BusinessTypeListViewController: UIViewController ,UITableViewDelegate,UITa
            self.innerView.setAllSideShadowForFields(shadowShowSize: 2.0, sizeFloat: UIScreen.main.bounds.size.width - 60)
        self.innervw.setAllSideShadow(shadowShowSize: 1.0)
 //        self.tabView.setAllSideShadowForFieldsWithHeight(shadowShowSize: 2.0, sizeFloat: UIScreen.main.bounds.size.width - 20, sizeFloatHeight: UIScreen.main.bounds.size.width - (outerView.frame.maxY + 150))
-      
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         self.cancelBtn.setAllSideShadow(shadowShowSize: 3.0)
         self.saveBtn.setAllSideShadow(shadowShowSize: 3.0)
         var placeHolders = NSMutableAttributedString()
         let txt = "Search Business Type".localized
-        placeHolders = NSMutableAttributedString(string:txt, attributes: [NSAttributedString.Key.font:UIFont(name: "Roboto-light", size: 12.0)!])
+        placeHolders = NSMutableAttributedString(string:txt, attributes: [NSAttributedString.Key.font:UIFont(name: "\(fontNameLight)", size: 12.0)!])
         placeHolders.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.init(red: 112/255, green: 112/255, blue: 112/255, alpha: 1), range:NSRange(location:0,length:txt.count))
         textField.attributedPlaceholder = placeHolders
 //        textField.addTarget(self, action: #selector(BranchListViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-          let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+          
       selectbtypelbl.font = UIFont(name:"\(fontNameLight)",size:16)
          btypelbl.font = UIFont(name:"\(fontNameLight)",size:12)
         saveBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)

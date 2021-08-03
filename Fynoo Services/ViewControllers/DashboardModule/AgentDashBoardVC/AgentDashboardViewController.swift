@@ -504,11 +504,11 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         }
         
         @objc func sideMenuaddProductDataForSaleBtnClicked(_ notification: NSNotification) {
-//            let vc = ProductListNewViewController(nibName: "ProductListNewViewController", bundle: nil)
-//            self.navigationController?.pushViewController(vc, animated: true)
-          
-            let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
+            let vc = ProductListNewViewController(nibName: "ProductListNewViewController", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
+//
+//            let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
+//            self.navigationController?.pushViewController(vc, animated: true)
         }
    
     // MARK: - LOGOUT DELEGATE

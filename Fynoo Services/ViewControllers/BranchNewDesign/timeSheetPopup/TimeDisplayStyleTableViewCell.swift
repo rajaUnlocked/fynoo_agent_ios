@@ -20,7 +20,7 @@ class TimeDisplayStyleTableViewCell: UITableViewCell {
         super.awakeFromNib()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
        leftLbl.font = UIFont(name:"\(fontNameLight)",size:12)
-        leftLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        rightLbl.font = UIFont(name:"\(fontNameLight)",size:12)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
