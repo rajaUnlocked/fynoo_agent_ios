@@ -14,7 +14,7 @@ import iOSDropDown
  }
 class InventoryTableViewCell: UITableViewCell {
     var delegate : InventoryTableViewCellDelegate?
-
+    let fontNameLight = NSLocalizedString("LightFontName", comment: "")
     @IBOutlet weak var addSubtract: DropDown!
     @IBOutlet weak var txtField: UITextField!
     @IBOutlet weak var add: UIButton!
@@ -24,7 +24,7 @@ class InventoryTableViewCell: UITableViewCell {
         self.addSubtract.optionArray = ["+","-"]
         self.addSubtract.textColor = #colorLiteral(red: 0.5058823529, green: 0.5058823529, blue: 0.5058823529, alpha: 1)
         self.addSubtract.text = "+"
-        self.addSubtract.font = UIFont(name: "Gilroy-light", size: 22.0)
+        self.addSubtract.font = UIFont(name: "\(fontNameLight)", size: 22.0)
         self.addSubtract.textAlignment = .center
         self.addSubtract.isSearchEnable = false
         self.addSubtract.listHeight = 500
