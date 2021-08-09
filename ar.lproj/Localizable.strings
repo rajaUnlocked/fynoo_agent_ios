@@ -283,6 +283,8 @@
 
 
 // dashbaord
+
+"User Policy" = "سياسة المستخدم";
 "Forgot Password" = "نسيت كلمة المرور";
 "Successfully Registration With FYNOO" = "تم التسجيل مع فينو بنجاح";
 "Payment Successful" = "عمليات تم تنفيذها";
@@ -413,7 +415,7 @@
 
 //////////////////////////////
 
-"User Policy" = "سياسة المستخدم";
+
 "Are you registered in VAT?" = " هل تم التسجيل في ضريبة القيمة المضافة؟";
 "Verification"="التحقق";
 "Upload VAT Registration Certificate" = "أرفق شهادة تسجيل ضريبة القيمة المضافة";
@@ -667,7 +669,6 @@
 //Sign Up
 "Welcome, Let's Create An Account"="مرحبا، أنشئ حسابك الآن";
 "Business Owner"="صاحب عمل";
-"User Policy"="سياسة الإستخدام";
 "Login"="دخول";
 
 //"I'v Agreed to the user policy"

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -15,7 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DEInprogressOrderInformationFirstTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DEInprogressOrderInformationFirstTableViewCell" customModule="Fynoo_Agent" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="415" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -34,60 +35,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7y-6I-27w">
                         <rect key="frame" x="40" y="56" width="335" height="25"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lff-MA-aMK">
-                                <rect key="frame" x="0.0" y="0.0" width="45" height="25"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Sign Up">
-                                            <attributes>
-                                                <color key="NSBackgroundColor" red="0.10979999999999999" green="0.61568999999999996" blue="0.83528999999999998" alpha="0.0" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                <color key="NSColor" red="0.10979999999999999" green="0.61568999999999996" blue="0.83528999999999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                <font key="NSFont" metaFont="label" size="12"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="28.299999237060547">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="56.650001525878906">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="85">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="113.34999847412109">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="141.69999694824219">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="170.05000305175781">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="198.39999389648438">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="226.75">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="255.10000610351562">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="283.45001220703125">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="311.79998779296875">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="340.14999389648438">
-                                                            <options/>
-                                                        </textTab>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <integer key="NSUnderline" value="1"/>
-                                                <color key="NSUnderlineColor" red="0.10979999999999999" green="0.61568999999999996" blue="0.83528999999999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lff-MA-aMK">
+                                <rect key="frame" x="0.0" y="3" width="45" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19" id="c2i-jj-lCA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" red="0.10979999999999999" green="0.61568999999999996" blue="0.83528999999999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accepted_tick" translatesAutoresizingMaskIntoConstraints="NO" id="BZt-Q8-ntC">
@@ -108,75 +63,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="lff-MA-aMK" firstAttribute="centerY" secondItem="m7y-6I-27w" secondAttribute="centerY" id="3be-fL-ZFK"/>
                             <constraint firstItem="lff-MA-aMK" firstAttribute="leading" secondItem="m7y-6I-27w" secondAttribute="leading" id="4HE-7i-yfT"/>
-                            <constraint firstItem="lff-MA-aMK" firstAttribute="top" secondItem="m7y-6I-27w" secondAttribute="top" id="GP7-O0-oCa"/>
                             <constraint firstAttribute="height" constant="25" id="Giv-vY-FJ4"/>
                             <constraint firstItem="BZt-Q8-ntC" firstAttribute="centerY" secondItem="lff-MA-aMK" secondAttribute="centerY" id="Otc-Rh-gzz"/>
                             <constraint firstItem="3qI-bm-vbY" firstAttribute="centerY" secondItem="BZt-Q8-ntC" secondAttribute="centerY" id="PSx-zM-Uch"/>
                             <constraint firstItem="BZt-Q8-ntC" firstAttribute="leading" secondItem="lff-MA-aMK" secondAttribute="trailing" constant="15" id="RXn-Re-fFU"/>
                             <constraint firstAttribute="trailing" secondItem="3qI-bm-vbY" secondAttribute="trailing" id="uO7-Vd-I29"/>
-                            <constraint firstAttribute="bottom" secondItem="lff-MA-aMK" secondAttribute="bottom" id="yIk-Ht-27y"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cd0-Ck-BgK">
                         <rect key="frame" x="40" y="81" width="335" height="25"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I1a-qP-5mj">
-                                <rect key="frame" x="0.0" y="0.0" width="45" height="25"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Sign Up">
-                                            <attributes>
-                                                <color key="NSBackgroundColor" red="0.10979999999999999" green="0.61568999999999996" blue="0.83528999999999998" alpha="0.0" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                <color key="NSColor" red="0.10979999999999999" green="0.61568999999999996" blue="0.83528999999999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                <font key="NSFont" metaFont="label" size="12"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="28.299999237060547">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="56.650001525878906">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="85">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="113.34999847412109">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="141.69999694824219">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="170.05000305175781">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="198.39999389648438">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="226.75">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="255.10000610351562">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="283.45001220703125">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="311.79998779296875">
-                                                            <options/>
-                                                        </textTab>
-                                                        <textTab alignment="left" location="340.14999389648438">
-                                                            <options/>
-                                                        </textTab>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                                <integer key="NSUnderline" value="1"/>
-                                                <color key="NSUnderlineColor" red="0.10979999999999999" green="0.61568999999999996" blue="0.83528999999999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1a-qP-5mj">
+                                <rect key="frame" x="0.0" y="3" width="45" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19" id="ydf-CE-rIh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" red="0.10979999999999999" green="0.61568999999999996" blue="0.83528999999999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accepted_tick" translatesAutoresizingMaskIntoConstraints="NO" id="nuL-tg-295">
@@ -197,12 +105,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="dVo-12-6l3" firstAttribute="centerY" secondItem="nuL-tg-295" secondAttribute="centerY" id="5a1-2P-fGl"/>
-                            <constraint firstAttribute="bottom" secondItem="I1a-qP-5mj" secondAttribute="bottom" id="7Sc-pX-jd7"/>
-                            <constraint firstItem="I1a-qP-5mj" firstAttribute="top" secondItem="Cd0-Ck-BgK" secondAttribute="top" id="7Wt-J1-T5o"/>
                             <constraint firstAttribute="trailing" secondItem="dVo-12-6l3" secondAttribute="trailing" id="CIB-2f-yME"/>
+                            <constraint firstItem="I1a-qP-5mj" firstAttribute="centerY" secondItem="Cd0-Ck-BgK" secondAttribute="centerY" id="Eyf-OC-yzt"/>
                             <constraint firstAttribute="height" constant="25" id="Lmp-kZ-qYg"/>
                             <constraint firstItem="nuL-tg-295" firstAttribute="centerY" secondItem="I1a-qP-5mj" secondAttribute="centerY" id="O7n-Tx-7ZZ"/>
                             <constraint firstItem="I1a-qP-5mj" firstAttribute="leading" secondItem="Cd0-Ck-BgK" secondAttribute="leading" id="Rhw-Ak-siN"/>
@@ -241,17 +148,22 @@
                 <outlet property="branchDataEntryHeightConstant" destination="Lmp-kZ-qYg" id="RVD-WH-MBA"/>
                 <outlet property="branchDataEntryTickImageView" destination="nuL-tg-295" id="aS8-wM-jux"/>
                 <outlet property="branchDataEntryView" destination="Cd0-Ck-BgK" id="Wqg-bH-eK1"/>
+                <outlet property="branchTxtHeightConstant" destination="ydf-CE-rIh" id="cLV-hs-pC6"/>
                 <outlet property="headerLbl" destination="pbA-mH-czo" id="poY-Cr-e3I"/>
                 <outlet property="productDataEntryBtn" destination="lff-MA-aMK" id="Wve-Bd-2rH"/>
                 <outlet property="productDataEntryCountLbl" destination="3qI-bm-vbY" id="dDh-n0-UfE"/>
                 <outlet property="productDataEntryHeightConstant" destination="Giv-vY-FJ4" id="FHw-PB-2TS"/>
                 <outlet property="productDataEntryTickImgeView" destination="BZt-Q8-ntC" id="ItU-t5-lxl"/>
                 <outlet property="productDataEntryView" destination="m7y-6I-27w" id="06t-MF-orQ"/>
+                <outlet property="productTxtHeightConstant" destination="c2i-jj-lCA" id="0Zh-LI-lBX"/>
             </connections>
             <point key="canvasLocation" x="139.85507246376812" y="97.433035714285708"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="accepted_tick" width="40" height="40"/>
+        <image name="accepted_tick" width="14" height="14"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
