@@ -686,6 +686,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     @IBAction func qrcodeBtn(_ sender: Any) {
         let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)
+        
+        
         //        let vc = BranchQrCodePopupViewController(nibName: "BranchQrCodePopupViewController", bundle: nil)
         //        vc.isType = true
         //        vc.url = homeGraph?.data?.bo_qr_code ?? ""
