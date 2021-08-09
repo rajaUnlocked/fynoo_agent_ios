@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoginNewSecondTableViewCell" rowHeight="468" id="KGk-i7-Jjw" customClass="LoginNewSecondTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoginNewSecondTableViewCell" rowHeight="468" id="KGk-i7-Jjw" customClass="LoginNewSecondTableViewCell" customModule="Fynoo_Agent" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -234,8 +234,8 @@
                         <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAM-id-Ome">
-                        <rect key="frame" x="146" y="265" width="110" height="28"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAM-id-Ome">
+                        <rect key="frame" x="148" y="265" width="110" height="28"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="28" id="iHS-zr-EVe"/>
@@ -260,74 +260,25 @@
                             <action selector="loginBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mld-q9-lXj"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EkT-ko-P59">
-                        <rect key="frame" x="301" y="265" width="45" height="28"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EkT-ko-P59">
+                        <rect key="frame" x="303" y="265" width="43" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="28" id="pnO-ZG-dpQ"/>
+                            <constraint firstAttribute="height" constant="16" id="pnO-ZG-dpQ"/>
                         </constraints>
-                        <state key="normal">
-                            <attributedString key="attributedTitle">
-                                <fragment content="Sign Up">
-                                    <attributes>
-                                        <color key="NSBackgroundColor" red="0.10979999999999999" green="0.61568999999999996" blue="0.83528999999999998" alpha="0.0" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <color key="NSColor" red="0.10979999999999999" green="0.61568999999999996" blue="0.83528999999999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <font key="NSFont" metaFont="label" size="12"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                            <tabStops>
-                                                <textTab alignment="left" location="28.299999237060547">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="56.650001525878906">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="85">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="113.34999847412109">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="141.69999694824219">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="170.05000305175781">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="198.39999389648438">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="226.75">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="255.10000610351562">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="283.45001220703125">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="311.79998779296875">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="340.14999389648438">
-                                                    <options/>
-                                                </textTab>
-                                            </tabStops>
-                                        </paragraphStyle>
-                                        <integer key="NSUnderline" value="1"/>
-                                        <color key="NSUnderlineColor" red="0.10979999999999999" green="0.61568999999999996" blue="0.83528999999999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                    </attributes>
-                                </fragment>
-                            </attributedString>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                        <state key="normal" title="Sign Up">
+                            <color key="titleColor" red="0.10979999999999999" green="0.61568999999999996" blue="0.83528999999999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         </state>
                         <connections>
                             <action selector="signupBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="qbd-QY-QFO"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKL-s8-9fS">
-                        <rect key="frame" x="258" y="312" width="88" height="28"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKL-s8-9fS">
+                        <rect key="frame" x="254" y="312" width="92" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="28" id="VZQ-Pf-RI6"/>
+                            <constraint firstAttribute="height" constant="16" id="VZQ-Pf-RI6"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
+                        <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
                         <state key="normal" title="Forgot Password">
                             <color key="titleColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
@@ -375,8 +326,8 @@
                     <constraint firstItem="kNg-dO-dUo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="zAZ-oo-Ttf"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="emailField" destination="bPh-LU-hXs" id="K0W-Fp-dqd"/>
                 <outlet property="emailLbl" destination="nA4-CB-HY7" id="2qo-J3-2sP"/>

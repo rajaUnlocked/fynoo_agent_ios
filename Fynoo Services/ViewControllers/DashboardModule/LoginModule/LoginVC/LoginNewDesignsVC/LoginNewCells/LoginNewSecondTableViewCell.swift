@@ -29,21 +29,12 @@ class LoginNewSecondTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var loginBtnOutlet: UIButton!
     @IBOutlet weak var signUp: UIButton!
     @IBOutlet weak var forgotPass: UIButton!
-    
-    
-    
-    
     @IBOutlet weak var userTypeView: UIView!
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var passwordView: UIView!
-    
     @IBOutlet weak var userTypeImage: UIImageView!
     weak var delegate: LoginNewSecondTableViewCellDelegate?
-    
-    
     @IBOutlet weak var userTypeField: DropDown!
-    
-    
     @IBOutlet weak var eyeBtnOutlet: UIButton!
     @IBOutlet weak var rememberMeBtnOutlet: UIButton!
     
@@ -56,23 +47,29 @@ class LoginNewSecondTableViewCell: UITableViewCell, UITextFieldDelegate {
         forgotPass.setTitle("Forgot Password".localized, for: .normal)
         signUp.setTitle("Sign Up".localized, for: .normal)
         
-        let attrs = [
-            NSAttributedString.Key.font :  UIFont(name:"\(fontNameLight)",size:12),
-            NSAttributedString.Key.foregroundColor :  UIColor(red: 28/255, green: 157/255, blue: 213/255, alpha: 1.0),
-            NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
-        let attributedString = NSMutableAttributedString(string:"")
-        let buttonTitleStr = NSMutableAttributedString(string:"Sign Up".localized, attributes:attrs)
-        attributedString.append(buttonTitleStr)
-        signUp.setAttributedTitle(attributedString, for: .normal)
+        signUp.titleLabel?.font =  UIFont(name: "\(fontNameLight)", size: 12)
+        forgotPass.titleLabel?.font =  UIFont(name: "\(fontNameLight)", size: 12)
         
-        let attrss = [
-                NSAttributedString.Key.font :  UIFont(name:"\(fontNameLight)",size:12),
-                NSAttributedString.Key.foregroundColor :  UIColor(red: 127/255, green: 127/255, blue: 128/255, alpha: 1.0),
-                NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
-            let attributedStrings = NSMutableAttributedString(string:"")
-            let buttonTitleStrs = NSMutableAttributedString(string:"Forget Password".localized, attributes:attrss)
-            attributedStrings.append(buttonTitleStrs)
-            forgotPass.setAttributedTitle(attributedStrings, for: .normal)
+        if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+        {
+            let lineView1 = UIView(frame: CGRect(x: 0, y: signUp.frame.size.height - 0.6, width: signUp.frame.size.width - 12, height: 0.6))
+            lineView1.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
+            signUp.addSubview(lineView1)
+            
+            let lineView = UIView(frame: CGRect(x: 0, y: forgotPass.frame.size.height - 0.6, width: forgotPass.frame.size.width - 8, height: 0.6))
+            lineView.backgroundColor = UIColor.darkGray
+            forgotPass.addSubview(lineView)
+            
+        }else{
+            let lineView1 = UIView(frame: CGRect(x: 0, y: signUp.frame.size.height - 0.6, width: signUp.frame.size.width, height: 0.6))
+            lineView1.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
+            signUp.addSubview(lineView1)
+            
+            let lineView = UIView(frame: CGRect(x: 0, y: forgotPass.frame.size.height - 0.6, width: forgotPass.frame.size.width + 2, height: 0.6))
+            lineView.backgroundColor = UIColor.darkGray
+            forgotPass.addSubview(lineView)
+        }
+      
         
         
         pleaseLbl.font = UIFont(name:"\(fontNameLight)",size:12)

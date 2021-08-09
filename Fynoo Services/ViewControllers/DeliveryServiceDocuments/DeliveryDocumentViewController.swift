@@ -285,15 +285,15 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
              return
         }
             
-        else if self.servicelist?.data?.reason_for_change ?? "" == ""
-        {
-            if self.servicelist?.data?.new_upload_enable ?? false
-            {
-                ModalController.showNegativeCustomAlertWith(title: "Please filled Vehicle Description", msg: "")
-                           return
-            }
-         
-        }
+//        else if self.servicelist?.data?.reason_for_change ?? "" == ""
+//        {
+//            if self.servicelist?.data?.new_upload_enable ?? false
+//            {
+//                ModalController.showNegativeCustomAlertWith(title: "Please filled Vehicle Description", msg: "")
+//                           return
+//            }
+//
+//        }
         
           if self.servicelist?.data?.switch_vehicle ?? false{
                 let vc = CommonPopupViewController(nibName: "CommonPopupViewController", bundle: nil)

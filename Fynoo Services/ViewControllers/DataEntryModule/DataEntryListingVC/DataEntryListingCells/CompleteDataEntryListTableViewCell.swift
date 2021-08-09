@@ -77,22 +77,36 @@ class CompleteDataEntryListTableViewCell: UITableViewCell {
         self.addressLbl.font = UIFont(name:"\(fontNameLight)",size:14)
         self.paidTextLbl.font = UIFont(name:"\(fontNameLight)",size:14)
         self.priceValueLbl.font = UIFont(name:"\(fontNameLight)",size:14)
-         self.amountVatLbl.font = UIFont(name:"\(fontNameLight)",size:14)
+        self.amountVatLbl.font = UIFont(name:"\(fontNameLight)",size:14)
         self.agentNameLbl.font = UIFont(name:"\(fontNameLight)",size:16)
-         self.agentAddressLbl.font = UIFont(name:"\(fontNameLight)",size:14)
-//        self.completeTxtLbl.font = UIFont(name:"\(fontNameLight)",size:14)
+        self.agentAddressLbl.font = UIFont(name:"\(fontNameLight)",size:14)
+        //        self.completeTxtLbl.font = UIFont(name:"\(fontNameLight)",size:14)
         self.giveRatingBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:14)
-
-     giveRatingBtn.setTitle("Give Ratings".localized, for: .normal)
-      
-      let attrs = [
-          NSAttributedString.Key.font : UIFont(name:"\(fontNameLight)",size:14),
-          NSAttributedString.Key.foregroundColor :  UIColor(red: 28/255, green: 157/255, blue: 213/255, alpha: 1.0),
-          NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
-      let attributedString = NSMutableAttributedString(string:"")
-      let buttonTitleStr = NSMutableAttributedString(string:"Give Ratings".localized, attributes:attrs)
-      attributedString.append(buttonTitleStr)
-      giveRatingBtn.setAttributedTitle(attributedString, for: .normal)
+        
+        giveRatingBtn.setTitle("Give Ratings".localized, for: .normal)
+        
+        //      let attrs = [
+        //          NSAttributedString.Key.font : UIFont(name:"\(fontNameLight)",size:14),
+        //          NSAttributedString.Key.foregroundColor :  UIColor(red: 28/255, green: 157/255, blue: 213/255, alpha: 1.0),
+        //          NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
+        //      let attributedString = NSMutableAttributedString(string:"")
+        //      let buttonTitleStr = NSMutableAttributedString(string:"Give Ratings".localized, attributes:attrs)
+        //      attributedString.append(buttonTitleStr)
+        //      giveRatingBtn.setAttributedTitle(attributedString, for: .normal)
+        
+        
+        if HeaderHeightSingleton.shared.LanguageSelected == "AR" {
+            let lineView1 = UIView(frame: CGRect(x: 0, y: self.giveRatingBtn.frame.size.height - 0.6, width: self.giveRatingBtn.frame.size.width - 45 , height: 0.6))
+            lineView1.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
+            self.giveRatingBtn.addSubview(lineView1)
+            
+        }else{
+            let lineView1 = UIView(frame: CGRect(x: 0, y: self.giveRatingBtn.frame.size.height - 0.6, width: self.giveRatingBtn.frame.size.width - 5 , height: 0.6))
+            lineView1.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
+            self.giveRatingBtn.addSubview(lineView1)
+            
+        }
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

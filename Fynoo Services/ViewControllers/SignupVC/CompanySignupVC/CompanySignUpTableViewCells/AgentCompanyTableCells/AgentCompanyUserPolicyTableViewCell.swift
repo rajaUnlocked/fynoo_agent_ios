@@ -31,23 +31,50 @@ class AgentCompanyUserPolicyTableViewCell: UITableViewCell {
         self.signUpBtn.clipsToBounds = true
          self.signUpBtn.setAllSideShadow(shadowShowSize: 3.0)
         self.agreeLbl.text = "I've agreed to the".localized
-        let attrss = [
-            NSAttributedString.Key.font :  UIFont(name:"\(fontNameLight)",size:14),
-            NSAttributedString.Key.foregroundColor :  UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0),
-            NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
-        let attributedStrings = NSMutableAttributedString(string:"")
-        let buttonTitleStrs = NSMutableAttributedString(string:"User Policy".localized, attributes:attrss)
-        attributedStrings.append(buttonTitleStrs)
-        usrPolicy.setAttributedTitle(attributedStrings, for: .normal)
         
-        let attrs = [
-            NSAttributedString.Key.font :  UIFont(name:"\(fontNameLight)",size:12),
-            NSAttributedString.Key.foregroundColor :  UIColor(red: 28/255, green: 157/255, blue: 213/255, alpha: 1.0),
-            NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
-        let attributedString = NSMutableAttributedString(string:"")
-        let buttonTitleStr = NSMutableAttributedString(string:"Login".localized, attributes:attrs)
-        attributedString.append(buttonTitleStr)
-        loginBtn.setAttributedTitle(attributedString, for: .normal)
+//        let attrss = [
+//            NSAttributedString.Key.font :  UIFont(name:"\(fontNameLight)",size:14),
+//            NSAttributedString.Key.foregroundColor :  UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0),
+//            NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
+//        let attributedStrings = NSMutableAttributedString(string:"")
+//        let buttonTitleStrs = NSMutableAttributedString(string:"User Policy".localized, attributes:attrss)
+//        attributedStrings.append(buttonTitleStrs)
+//        usrPolicy.setAttributedTitle(attributedStrings, for: .normal)
+//
+//        let attrs = [
+//            NSAttributedString.Key.font :  UIFont(name:"\(fontNameLight)",size:12),
+//            NSAttributedString.Key.foregroundColor :  UIColor(red: 28/255, green: 157/255, blue: 213/255, alpha: 1.0),
+//            NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any] as [NSAttributedString.Key : Any]
+//        let attributedString = NSMutableAttributedString(string:"")
+//        let buttonTitleStr = NSMutableAttributedString(string:"Login".localized, attributes:attrs)
+//        attributedString.append(buttonTitleStr)
+//        loginBtn.setAttributedTitle(attributedString, for: .normal)
+        
+        usrPolicy.setTitle("User Policy".localized, for: .normal)
+        loginBtn.setTitle("Login".localized, for: .normal)
+        
+        if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+        {
+            let lineView1 = UIView(frame: CGRect(x: 0, y: loginBtn.frame.size.height - 0.6, width: loginBtn.frame.size.width , height: 0.6))
+            lineView1.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
+            loginBtn.addSubview(lineView1)
+            
+            let lineView = UIView(frame: CGRect(x: 0, y: usrPolicy.frame.size.height - 0.6, width: usrPolicy.frame.size.width + 15, height: 0.6))
+            lineView.backgroundColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+            usrPolicy.addSubview(lineView)
+            
+        }else{
+            let lineView1 = UIView(frame: CGRect(x: 0, y: loginBtn.frame.size.height - 0.6, width: loginBtn.frame.size.width, height: 0.6))
+            lineView1.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
+            loginBtn.addSubview(lineView1)
+            
+            
+            let lineView = UIView(frame: CGRect(x: 0, y: usrPolicy.frame.size.height - 0.6, width: usrPolicy.frame.size.width - 3 , height: 0.6))
+            lineView.backgroundColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+            usrPolicy.addSubview(lineView)
+        }
+        
+        
     }
 
     func SetFontAndTextColor(){

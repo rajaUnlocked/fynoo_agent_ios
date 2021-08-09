@@ -404,7 +404,7 @@ extension DataEntryDetailViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 3 && mainServiceID != "1" {
             let views = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
-            let label = UILabel(frame: CGRect(x: 20, y: 20, width: view.frame.size.width - 20, height: 20))
+            let label = UILabel(frame: CGRect(x: 20, y: 20, width: view.frame.size.width - 40, height: 20))
             views.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             let fontNameLight = NSLocalizedString("LightFontName", comment: "")
             label.font = UIFont(name:"\(fontNameLight)",size:16)
@@ -555,7 +555,6 @@ extension DataEntryDetailViewController : UITableViewDataSource {
                     }
                 }
             }
-
         }else if indexPath.section == 4 {
             return dataEntryOrderInformationSecondCell(index: indexPath)
             

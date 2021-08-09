@@ -15,7 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="AgentCompanyUserPolicyTableViewCell" customModule="Fynoo_Services" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="AgentCompanyUserPolicyTableViewCell" customModule="Fynoo_Agent" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -35,29 +35,21 @@
                             <action selector="checkBoxBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Nyb-nB-pru"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p1w-As-rIu">
-                        <rect key="frame" x="245" y="68" width="69" height="20"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1w-As-rIu">
+                        <rect key="frame" x="261" y="68" width="31" height="17"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="69" id="bzQ-2j-tmW"/>
-                            <constraint firstAttribute="height" constant="20" id="gTt-xJ-vWp"/>
+                            <constraint firstAttribute="height" constant="17" id="gTt-xJ-vWp"/>
                         </constraints>
-                        <state key="normal">
-                            <attributedString key="attributedTitle">
-                                <fragment content="Login">
-                                    <attributes>
-                                        <color key="NSColor" red="0.92549019607843142" green="0.29019607843137252" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
-                                        <font key="NSFont" metaFont="system"/>
-                                        <integer key="NSUnderline" value="1"/>
-                                    </attributes>
-                                </fragment>
-                            </attributedString>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                        <state key="normal" title="Login">
+                            <color key="titleColor" red="0.92549019607843142" green="0.29019607843137252" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <connections>
                             <action selector="loginCicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eTl-HO-GUh"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vi5-PM-hnn">
-                        <rect key="frame" x="141" y="66" width="100" height="24"/>
+                        <rect key="frame" x="133" y="64.5" width="100" height="24"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="5Qh-Ue-fF5"/>
@@ -71,18 +63,14 @@
                             <action selector="signUpBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4cS-HD-BbZ"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Jw-oc-H5s">
-                        <rect key="frame" x="78" y="35" width="64" height="26.5"/>
-                        <state key="normal">
-                            <attributedString key="attributedTitle">
-                                <fragment content="User Policy">
-                                    <attributes>
-                                        <color key="NSColor" red="0.3921568627" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <font key="NSFont" metaFont="cellTitle"/>
-                                        <integer key="NSUnderline" value="1"/>
-                                    </attributes>
-                                </fragment>
-                            </attributedString>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Jw-oc-H5s">
+                        <rect key="frame" x="78" y="40" width="64" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="Z3I-RA-O3R"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                        <state key="normal" title="User Policy">
+                            <color key="titleColor" red="0.3921568627" green="0.39607843139999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <connections>
                             <action selector="userPolicyClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="azc-DT-TpI"/>
@@ -105,7 +93,7 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="p1w-As-rIu" secondAttribute="trailing" constant="6" id="1AK-X7-ghn"/>
+                    <constraint firstAttribute="trailing" secondItem="p1w-As-rIu" secondAttribute="trailing" constant="28" id="1AK-X7-ghn"/>
                     <constraint firstItem="9Jw-oc-H5s" firstAttribute="centerY" secondItem="epe-DD-Eoz" secondAttribute="centerY" constant="1" id="8fp-fw-WPz"/>
                     <constraint firstItem="LOI-bD-jxL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="AT5-ke-uDB"/>
                     <constraint firstItem="Vi5-PM-hnn" firstAttribute="centerY" secondItem="p1w-As-rIu" secondAttribute="centerY" id="DBN-ca-smB"/>
@@ -113,7 +101,7 @@
                     <constraint firstItem="epe-DD-Eoz" firstAttribute="leading" secondItem="LOI-bD-jxL" secondAttribute="trailing" constant="1" id="JJH-3h-0Id"/>
                     <constraint firstItem="6Eg-CT-Ryx" firstAttribute="bottom" secondItem="epe-DD-Eoz" secondAttribute="bottom" id="Qnb-cb-VSv"/>
                     <constraint firstItem="epe-DD-Eoz" firstAttribute="centerY" secondItem="LOI-bD-jxL" secondAttribute="centerY" constant="-3" id="Rxo-CR-suA"/>
-                    <constraint firstItem="p1w-As-rIu" firstAttribute="leading" secondItem="Vi5-PM-hnn" secondAttribute="trailing" constant="4" id="ThC-oa-VFK"/>
+                    <constraint firstItem="p1w-As-rIu" firstAttribute="leading" secondItem="Vi5-PM-hnn" secondAttribute="trailing" constant="28" id="ThC-oa-VFK"/>
                     <constraint firstItem="LOI-bD-jxL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="V25-Gs-w0v"/>
                     <constraint firstItem="6Eg-CT-Ryx" firstAttribute="trailing" secondItem="epe-DD-Eoz" secondAttribute="trailing" id="bhm-Q8-MEz"/>
                     <constraint firstItem="6Eg-CT-Ryx" firstAttribute="top" secondItem="epe-DD-Eoz" secondAttribute="top" id="rBa-92-QdJ"/>
