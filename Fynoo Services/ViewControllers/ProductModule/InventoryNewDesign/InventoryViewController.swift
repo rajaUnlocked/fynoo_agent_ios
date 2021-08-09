@@ -97,7 +97,8 @@ extension InventoryViewController: UITableViewDelegate,UITableViewDataSource{
             cell.rightarrow.isHidden = true
             cell.lbl.text = "Stock Update".localized
             cell.lbl.textColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
-            cell.lbl.font = UIFont(name: "Gilroy-Light", size: 16.0)
+            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+            cell.lbl.font = UIFont(name: "\(fontNameLight)", size: 16.0)
             cell.btn.setImage(UIImage(named: "producticon"), for: .normal)
             cell.contentView.backgroundColor = #colorLiteral(red: 0.9843137255, green: 0.9843137255, blue: 0.9843137255, alpha: 1)
             cell.innerView.backgroundColor = #colorLiteral(red: 0.9843137255, green: 0.9843137255, blue: 0.9843137255, alpha: 1)

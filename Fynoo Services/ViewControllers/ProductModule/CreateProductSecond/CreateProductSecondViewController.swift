@@ -874,7 +874,8 @@ pro.RetailReturnDays = ""
         
         
         Selectedtab.add(1)
-        if ((tabvw.indexPathsForVisibleRows?.contains(IndexPath(row: 0, section: 2)))!) {
+        
+        if tabvw.isRowCompletelyVisible(at: IndexPath(row: 0, section: 2)) {
             let cell = tabvw.cellForRow(at: IndexPath(row: 0, section: 2)) as! nextTableViewCell
             
             if Selectedtab.contains(1)
@@ -1913,7 +1914,7 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 return false
             }
             pro.descriptions = textstr
-            if ((tabvw.indexPathsForVisibleRows?.contains(IndexPath(row: filterCount + 8, section: 1)))!)
+            if tabvw.isRowCompletelyVisible(at: IndexPath(row: filterCount + 8, section: 1))
             {
                 let cell = tabvw.cellForRow(at: IndexPath(row: filterCount + 8, section: 1)) as! BusinessTableViewCell
                 
@@ -2333,7 +2334,7 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
             pro.width = (dimensionArrVal[4] as NSString).doubleValue
             pro.weight = (dimensionArrVal[1] as NSString).doubleValue
             
-            if ((tabvw.indexPathsForVisibleRows?.contains(IndexPath(row: filterCount + 3, section: 1)))!) {
+            if tabvw.isRowCompletelyVisible(at: IndexPath(row: filterCount + 3, section: 1)) {
                 let cell = tabvw.cellForRow(at: IndexPath(row: filterCount + 3, section: 1)) as! ProductDimentionTableViewCell
                 cell.rgtlbl.text = "\(dimensionArrVal[0]) cm³"
                 
@@ -4142,7 +4143,7 @@ extension CreateProductSecondViewController:DeleteSlabPopupDelegate
                 }
                 else
                 {
-                    if ((tabvw.indexPathsForVisibleRows?.contains(IndexPath(row: i, section: 1)))!) {
+                    if tabvw.isRowCompletelyVisible(at: IndexPath(row: i, section: 1)) {
                         tabvw.reloadRows(at: [IndexPath(row: i, section: 1)], with: .none)
                         
                     }
@@ -4194,3 +4195,17 @@ extension CreateProductSecondViewController: UITextFieldDelegate {
     
 }
 
+extension UITableView {
+
+    public var boundsWithoutInset: CGRect {
+        var boundsWithoutInset = bounds
+        boundsWithoutInset.origin.y += contentInset.top
+        boundsWithoutInset.size.height -= contentInset.top + contentInset.bottom
+        return boundsWithoutInset
+    }
+
+    public func isRowCompletelyVisible(at indexPath: IndexPath) -> Bool {
+        let rect = rectForRow(at: indexPath)
+        return boundsWithoutInset.contains(rect)
+    }
+}
