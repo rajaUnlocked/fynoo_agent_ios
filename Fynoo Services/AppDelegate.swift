@@ -171,9 +171,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
 }
-
-
-
 @available(iOS 10, *)
 extension AppDelegate : UNUserNotificationCenterDelegate {
     
