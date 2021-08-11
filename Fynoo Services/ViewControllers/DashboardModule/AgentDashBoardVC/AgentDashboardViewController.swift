@@ -87,7 +87,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapWalletView(_:)))
         walletvw.addGestureRecognizer(tapGestureRecognizer)
         getUserLocation()
-        registerNotifications()
+        //registerNotifications()
         sideMenuCode()
         configureHeaderUI()
         registerCellNibs()
@@ -112,6 +112,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         }
     }
     override func viewWillAppear(_ animated: Bool) {
+        registerNotifications()
         self.dashboardAPI()
     }
     
@@ -121,6 +122,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        NotificationCenter.default.removeObserver(self)
     }
     func addUIRefreshToTable() {
             refreshControl = UIRefreshControl()
@@ -329,7 +331,9 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationclickMenuClicked(_:)), name: NSNotification.Name(rawValue: "clickMenuFromAnywhere"), object: nil)
     }
-    
+    func applicationWillResign(notification : NSNotification) {
+        NotificationCenter.default.removeObserver(self)
+     }
     // MARK: - SIDE MENU
     func sideMenuCode()
     {
@@ -408,6 +412,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         @objc func sideMenuwalletClicked(_ notification: NSNotification) {
             let vc = BankAllListViewController(nibName: "BankAllListViewController", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
+          
             
         }
         

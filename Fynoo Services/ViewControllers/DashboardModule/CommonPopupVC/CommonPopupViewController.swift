@@ -32,7 +32,10 @@ class CommonPopupViewController: UIViewController {
         super.viewDidLoad()
         self.yesOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)
         self.noOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)
-        
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        titleLbl.font = UIFont(name: "\(fontNameLight)", size: 15)!
+        yesOutlet.titleLabel?.font = UIFont(name: "\(fontNameLight)", size: 14)!
+        noOutlet.titleLabel?.font = UIFont(name: "\(fontNameLight)", size: 14)!
         
         
     }

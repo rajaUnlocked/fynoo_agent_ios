@@ -28,12 +28,13 @@ class ServiceSingleCollectionViewCell: UICollectionViewCell {
     var serviceID = 0
     var ind = 0
     
+    @IBOutlet weak var leadingConst: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         nameLbl.font = UIFont(name:"\(fontNameLight)",size:12)
-        countLbl.font = UIFont(name:"\(fontNameLight)",size:33)
-        inprocessLbl.font = UIFont(name:"\(fontNameLight)",size:12)
+        countLbl.font = UIFont(name:"\(fontNameLight)",size:24)
+        inprocessLbl.font = UIFont(name:"\(fontNameLight)",size:14)
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
         self.bgVw.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: (screenWidth / 2) - 30 )
