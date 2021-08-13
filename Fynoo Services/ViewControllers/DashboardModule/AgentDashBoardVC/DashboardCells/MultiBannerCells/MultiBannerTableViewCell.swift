@@ -15,7 +15,7 @@ class MultiBannerTableViewCell: UITableViewCell, UIScrollViewDelegate {
     var timer = Timer()
     var isproduct = false
     var multiBannerArray = NSArray()
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
@@ -49,8 +49,19 @@ class MultiBannerTableViewCell: UITableViewCell, UIScrollViewDelegate {
             setView?.frame = CGRect(x:frame.origin.x, y:0, width:UIScreen.main.bounds.width-20,height: height)
             
                setView?.multiBannerImage.sd_setImage(with: URL(string: "\((multiBannerArray.object(at: index) as! NSDictionary).object(forKey: "banner_pics") as! String)"), placeholderImage: UIImage(named: "banner_placeholder"))
+          
             
                             if let setView = setView {
+                                
+                                if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String] {
+
+                                    if value[0] == "ar" {
+                                        setView.transform = CGAffineTransform(scaleX:-1,y: 1)
+                                    }else{
+                                        
+                                        setView.transform = CGAffineTransform(scaleX:1,y: 1)
+                                    }
+                                }
                             scrollView.addSubview(setView)
                             }
                     }
@@ -79,6 +90,18 @@ class MultiBannerTableViewCell: UITableViewCell, UIScrollViewDelegate {
       func configurePageControl() {
              // The total number of pages that are available is based on how many available colors we have.
              self.pageCntrl.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        
+        if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String] {
+
+            if value[0] == "ar" {
+                self.scrollView.transform = CGAffineTransform(scaleX:-1,y: 1)
+            }else{
+                
+                self.scrollView.transform = CGAffineTransform(scaleX:1,y: 1)
+            }
+        }
+        
+        
         self.pageCntrl.numberOfPages = multiBannerArray.count
              self.pageCntrl.currentPage = 0
      //        self.pageCntrl.tintColor = UIColor.red
@@ -92,6 +115,11 @@ class MultiBannerTableViewCell: UITableViewCell, UIScrollViewDelegate {
              let x = CGFloat(pageCntrl.currentPage) * scrollView.frame.size.width
              scrollView.setContentOffset(CGPoint(x:x, y:0), animated: true)
             pageCntrl.currentPage = Int(x)
+           // for Arabic
+            let pageWidth = self.scrollView.frame.size.width
+            let page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1
+            self.pageCntrl.currentPage = (Int(page) % (multiBannerArray.count ?? 0))
+            
          }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
              let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
