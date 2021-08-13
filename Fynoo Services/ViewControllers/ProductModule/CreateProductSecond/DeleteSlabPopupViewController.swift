@@ -20,6 +20,7 @@ class DeleteSlabPopupViewController: UIViewController {
     @IBOutlet weak var bottomlbl: UILabel!
     @IBOutlet weak var toplbl: UILabel!
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
                 let fontNameLight = NSLocalizedString("LightFontName", comment: "")
              toplbl.font = UIFont(name:"\(fontNameLight)",size:16)

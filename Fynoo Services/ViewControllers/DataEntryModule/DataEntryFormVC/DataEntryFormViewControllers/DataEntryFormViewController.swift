@@ -53,6 +53,7 @@ class DataEntryFormViewController: UIViewController, DataEntryFormItemPopUpViewC
     var serviceIcon:String = ""
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         self.setUpUI()
          self.getServiceDetailAPI()

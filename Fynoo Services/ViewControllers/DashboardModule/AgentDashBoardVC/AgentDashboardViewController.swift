@@ -13,7 +13,7 @@ import MTPopup
 
 
 class AgentDashboardViewController: UIViewController, signOutDelegate, UITableViewDelegate, UITableViewDataSource, ServicesDashboardTableViewCellDelegate, CommonPopupViewControllerDelegate ,UIImagePickerControllerDelegate, UINavigationControllerDelegate, OpenGalleryDelegate, CLLocationManagerDelegate, UITabBarControllerDelegate {
-    
+    var isOpen = true
     @IBOutlet weak var progresslbl: UILabel!
     @IBOutlet weak var holdingamtlbl: UILabel!
     
@@ -72,6 +72,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("hjgjkkgjjjg\(self.navigationController?.viewControllers)")
         sar1.font = UIFont(name:"\(fontNameLight)",size:8)
         sar2.font = UIFont(name:"\(fontNameLight)",size:8)
         sar3.font = UIFont(name:"\(fontNameLight)",size:8)
@@ -87,7 +88,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapWalletView(_:)))
         walletvw.addGestureRecognizer(tapGestureRecognizer)
         getUserLocation()
-        //registerNotifications()
+        registerNotifications()
         sideMenuCode()
         configureHeaderUI()
         registerCellNibs()
@@ -112,7 +113,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        registerNotifications()
+        //registerNotifications()
         self.dashboardAPI()
     }
     
@@ -122,7 +123,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        NotificationCenter.default.removeObserver(self)
+        //NotificationCenter.default.removeObserver(self)
     }
     func addUIRefreshToTable() {
             refreshControl = UIRefreshControl()
@@ -410,10 +411,12 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         }
         
         @objc func sideMenuwalletClicked(_ notification: NSNotification) {
+            if isOpen
+            {
             let vc = BankAllListViewController(nibName: "BankAllListViewController", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
-          
-            
+                isOpen = false
+            }
         }
         
     @objc func sideMenuuserProfileClicked(_ notification: NSNotification) {

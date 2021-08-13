@@ -17,6 +17,7 @@ class SplashAnimatedViewController: UIViewController, VersionPopupViewController
     var userTypeStr = ""
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
         if  HeaderHeightSingleton.shared.LanguageSelected == "AR" {
@@ -29,7 +30,7 @@ class SplashAnimatedViewController: UIViewController, VersionPopupViewController
         }
         
         
-        rotateImagesOnLanguage()
+       // rotateImagesOnLanguage()
         headerHeightMethod()
     }
     
@@ -75,21 +76,21 @@ class SplashAnimatedViewController: UIViewController, VersionPopupViewController
         }
     }
     
-    func rotateImagesOnLanguage(){
-        if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
-            if value[0]=="ar"
-            {
-                let img = UIImage(named: "backgroundImage")
-                let image = UIImage(cgImage: (img?.cgImage)!, scale: (img?.scale)!, orientation: UIImage.Orientation.upMirrored)
-                bgImage.image = image
-            }
-            else if value[0]=="en"
-            {
-                let image = UIImage(named: "backgroundImage")
-                bgImage.image = image
-            }
-        }
-    }
+//    func rotateImagesOnLanguage(){
+//        if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
+//            if value[0]=="ar"
+//            {
+//                let img = UIImage(named: "backgroundImage")
+//                let image = UIImage(cgImage: (img?.cgImage)!, scale: (img?.scale)!, orientation: UIImage.Orientation.upMirrored)
+//                bgImage.image = image
+//            }
+//            else if value[0]=="en"
+//            {
+//                let image = UIImage(named: "backgroundImage")
+//                bgImage.image = image
+//            }
+//        }
+//    }
     
     func headerHeightMethod(){
         if #available(iOS 11.0, *) {

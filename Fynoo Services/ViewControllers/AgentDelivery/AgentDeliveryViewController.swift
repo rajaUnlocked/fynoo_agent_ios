@@ -35,6 +35,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     var currentPageNumber: Int = 0
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         self.tableView.separatorStyle = .none
         

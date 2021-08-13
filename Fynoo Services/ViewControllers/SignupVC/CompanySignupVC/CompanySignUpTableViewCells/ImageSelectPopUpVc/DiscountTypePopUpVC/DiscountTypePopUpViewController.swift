@@ -22,6 +22,7 @@ class DiscountTypePopUpViewController: UIViewController {
     var images : [UIImage] = [#imageLiteral(resourceName: "camera_picture"),#imageLiteral(resourceName: "galery_Picture")]
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         self.SetFont()
         tableView.separatorStyle = .none

@@ -27,6 +27,7 @@ class popupViewController: UIViewController {
     @IBOutlet weak var joinLlb: UILabel!
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         rotateImagesOnLanguage()
         self.SetFontAndTextColor()
@@ -58,17 +59,17 @@ class popupViewController: UIViewController {
         if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
             if value[0]=="ar"
             {
-                let img1 = UIImage(named: "backgroundImage")
-                let image1 = UIImage(cgImage: (img1?.cgImage)!, scale: (img1?.scale)!, orientation: UIImage.Orientation.upMirrored)
-                bgImage.image = image1
+//                let img1 = UIImage(named: "backgroundImage")
+//                let image1 = UIImage(cgImage: (img1?.cgImage)!, scale: (img1?.scale)!, orientation: UIImage.Orientation.upMirrored)
+//                bgImage.image = image1
                 let img2 = UIImage(named: "back_new")
                                let image2 = UIImage(cgImage: (img2?.cgImage)!, scale: (img2?.scale)!, orientation: UIImage.Orientation.upMirrored)
                                backBtn.setImage(image2, for: .normal)
             }
             else if value[0]=="en"
             {
-                let image1 = UIImage(named: "backgroundImage")
-                bgImage.image = image1
+//                let image1 = UIImage(named: "backgroundImage")
+//                bgImage.image = image1
                 let image12 = UIImage(named: "back_new")
                 backBtn.setImage(image12, for: .normal)
             }

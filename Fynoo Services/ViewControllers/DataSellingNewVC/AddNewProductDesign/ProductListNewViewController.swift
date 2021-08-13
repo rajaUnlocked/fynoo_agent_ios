@@ -33,6 +33,7 @@ class ProductListNewViewController: UIViewController {
   var count = 0
 //    @IBOutlet weak var headerVw: NavigationView!
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         ProductModel.shared.remove()
          setupUI()

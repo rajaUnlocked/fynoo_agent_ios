@@ -35,6 +35,7 @@ class GetLocationViewController: UIViewController, CLLocationManagerDelegate, GM
     @IBOutlet weak var headerView: UIView!
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         doneOutlet.titleLabel?.font =  UIFont(name:"\(fontNameLight)",size:16)

@@ -29,6 +29,7 @@ class CommonPopupViewController: UIViewController {
     var imgURL = ""
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         self.yesOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)
         self.noOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)

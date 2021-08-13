@@ -35,6 +35,7 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var arabicText: UILabel!
     @IBOutlet weak var centers: NSLayoutConstraint!
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
         setupScrollUI()
@@ -123,17 +124,17 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
                 let image = UIImage(cgImage: (img?.cgImage)!, scale: (img?.scale)!, orientation: UIImage.Orientation.upMirrored)
                 languageBtnOutlet.setImage(image, for: .normal)
                 
-                let img1 = UIImage(named: "backgroundImage")
-                let image1 = UIImage(cgImage: (img1?.cgImage)!, scale: (img1?.scale)!, orientation: UIImage.Orientation.upMirrored)
-                bgImage.image = image1
+//                let img1 = UIImage(named: "backgroundImage")
+//                let image1 = UIImage(cgImage: (img1?.cgImage)!, scale: (img1?.scale)!, orientation: UIImage.Orientation.upMirrored)
+//                bgImage.image = image1
             }
             else if value[0]=="en"
             {
                 let image = UIImage(named: "semicircle_new")
                 languageBtnOutlet.setImage(image, for: .normal)
                 
-                let image1 = UIImage(named: "backgroundImage")
-                bgImage.image = image1
+//                let image1 = UIImage(named: "backgroundImage")
+//                bgImage.image = image1
             }
         }
     }

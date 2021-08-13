@@ -32,6 +32,8 @@ class BankTransferController: UIViewController, UITextFieldDelegate, Transaction
     var walletValue = 0.0
     var selectedDetailsDictTransfer : NSDictionary = NSDictionary()
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
         print(bankId)

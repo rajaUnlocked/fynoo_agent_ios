@@ -36,6 +36,7 @@ class ViewImagesViewController: UIViewController,UICollectionViewDelegate, UICol
     }
 
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
 

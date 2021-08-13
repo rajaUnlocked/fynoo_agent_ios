@@ -22,6 +22,7 @@ class BarCodePopupNewViewController: UIViewController {
     @IBOutlet weak var barmsg: UILabel!
     var delegate:BarCodePopupNewViewControllerDelegate?
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
          let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         productListBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)

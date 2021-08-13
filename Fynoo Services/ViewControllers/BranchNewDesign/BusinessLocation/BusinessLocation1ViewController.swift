@@ -39,6 +39,7 @@ class BusinessLocation1ViewController: UIViewController,UITableViewDelegate,UITa
     var nameAr = ["Store on Road","Store in Market","Store in Mall"]
     let fontNameLight = NSLocalizedString("LightFontName", comment: "")
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
          self.topHeightConstraints.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         AddressList_API()
@@ -57,7 +58,7 @@ class BusinessLocation1ViewController: UIViewController,UITableViewDelegate,UITa
         tabView.register(UINib(nibName: "BusinessLocationSearch2TableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessLocationSearch2TableViewCell")
           tabView.register(UINib(nibName: "LocationDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: "LocationDetailsTableViewCell")
         tabView.register(UINib(nibName: "CountingTableViewCell", bundle: nil), forCellReuseIdentifier: "CountingTableViewCell")
-         bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+//         bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
     self.tabView.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
 
         tabView.separatorStyle = .none

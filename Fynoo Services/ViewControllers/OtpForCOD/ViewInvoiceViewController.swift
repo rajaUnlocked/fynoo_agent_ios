@@ -19,6 +19,7 @@ class ViewInvoiceViewController: UIViewController {
     
 
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
 
         self.headerHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)

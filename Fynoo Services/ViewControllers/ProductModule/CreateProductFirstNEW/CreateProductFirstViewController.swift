@@ -46,6 +46,7 @@ class CreateProductFirstViewController: UIViewController {
   
     var isFromBranch = ""
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         print("Device Gallery".localized)
         self.navigationController?.isNavigationBarHidden = true
@@ -186,6 +187,20 @@ class CreateProductFirstViewController: UIViewController {
                     {
                         self.currency.add((self.Currency_Type_List?.data?.currency_list[i].currency)!)
                         self.currencyid.add((self.Currency_Type_List?.data?.currency_list[i].id)!)
+                        if self.productValArr[1] == ""
+                        {
+                            self.productValArr[1] = self.currency[0] as! String
+                            ProductModel.shared.currencyId = "\(self.currencyid[0])"
+                            if ProductModel.shared.currencyId.count > 0
+                                   {
+                                self.borderColor[1] = "#B2B2B2"
+                                      }
+                                   else
+                                   {
+                                    self.borderColor[1] = "#EC4A53"
+                                   }
+                            self.tabvw.reloadSections(IndexSet(integer: 1), with: .none)
+                        }
                     }
                 }
             }else{

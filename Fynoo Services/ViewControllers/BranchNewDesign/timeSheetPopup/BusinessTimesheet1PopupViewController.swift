@@ -50,6 +50,7 @@ addrowssDelegate,deleterowssDelegate {
     var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
      var days1 = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
          let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         toplevel.font = UIFont(name:"\(fontNameLight)",size:12)
@@ -73,8 +74,8 @@ addrowssDelegate,deleterowssDelegate {
             toplevel.textAlignment = .right
         }
          self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-        bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
-       
+//        bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+//       
         self.headerVw.titleHeader.text = "Welcome, Let's Select Your Time".localized;
        self.headerVw.viewControl = self
        tabview.register(UINib(nibName: "TimeDisplayStyleTableViewCell", bundle: nil), forCellReuseIdentifier: "TimeDisplayStyleTableViewCell")

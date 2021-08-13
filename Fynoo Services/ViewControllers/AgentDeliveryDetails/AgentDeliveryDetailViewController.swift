@@ -55,6 +55,7 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
     var acceptedtripDetail : deliveryTripDetail?
 
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         self.headerHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         self.headerView.titleHeader.text = "Order Details".localized

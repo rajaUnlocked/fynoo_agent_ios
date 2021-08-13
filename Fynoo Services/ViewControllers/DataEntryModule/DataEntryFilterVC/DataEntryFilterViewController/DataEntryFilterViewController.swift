@@ -41,6 +41,7 @@ class DataEntryFilterViewController: UIViewController, TTRangeSliderDelegate, Ra
     var toDateTimeStamp = ""
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
         print("filterData:-", dataEntryFilter as Any)

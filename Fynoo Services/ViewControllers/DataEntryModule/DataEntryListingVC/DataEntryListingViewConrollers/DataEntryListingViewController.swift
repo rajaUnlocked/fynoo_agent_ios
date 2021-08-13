@@ -48,6 +48,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     var longitude = 0.0
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         self.getUserLocation()
         self.setUpUI()

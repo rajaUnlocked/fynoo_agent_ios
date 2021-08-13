@@ -23,6 +23,7 @@ class AddFilterViewController: UIViewController,UITextFieldDelegate {
     var isEdit = false
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
        if fetureName == ""
        {

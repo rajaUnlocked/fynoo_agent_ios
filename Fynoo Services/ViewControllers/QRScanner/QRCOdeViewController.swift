@@ -38,6 +38,7 @@ class QRCOdeViewController: UIViewController {
                                       AVMetadataObject.ObjectType.interleaved2of5,
                                       AVMetadataObject.ObjectType.qr]
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
          let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         scanlbl.font = UIFont(name:"\(fontNameLight)",size:20)

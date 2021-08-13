@@ -39,6 +39,7 @@ class MallMarketPopupViewController: UIViewController,UITableViewDelegate,UITabl
     var selectmallId:Int?
     @IBOutlet weak var tabView: UITableView!
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         self.MallMarketList_API()
         //        self.headerView.layer.insertSublayer(ModalController.setnewGradientColorBGBlackWithPopupHeight(), at: 0)

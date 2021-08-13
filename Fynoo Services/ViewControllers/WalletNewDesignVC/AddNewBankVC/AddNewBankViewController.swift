@@ -51,6 +51,7 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var ibanlbl: UILabel!
     var bankIds = 0
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
     sendmoneylbl.font = UIFont(name:"\(fontNameLight)",size:12)
@@ -103,7 +104,7 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
         self.headerVieww.titleHeader.text = "Manage Your Wallet".localized
         self.headerVieww.viewControl = self
         self.widthConstant.constant = UIScreen.main.bounds.size.width
-        bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+//        bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
         validIbanTick.isHidden = true
          self.save.setAllSideShadow(shadowShowSize: 3.0)
          self.cancel.setAllSideShadow(shadowShowSize: 3.0)

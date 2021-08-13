@@ -50,6 +50,7 @@ class BankListViewController: UIViewController, UITableViewDelegate, UITableView
     var chosenRow = 99999
  
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         availlbl.text = "\("Available Balance".localized): SAR"
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")

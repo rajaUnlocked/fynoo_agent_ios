@@ -51,6 +51,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     @IBOutlet weak var headervw: NavigationView!
     var SelectedIndex = NSMutableArray()
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         headervw.viewControl = self
         headervw.titleHeader.text = "Delivery Services".localized
