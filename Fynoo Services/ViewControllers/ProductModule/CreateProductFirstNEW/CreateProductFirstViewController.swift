@@ -46,6 +46,7 @@ class CreateProductFirstViewController: UIViewController {
   
     var isFromBranch = ""
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         print("Device Gallery".localized)
         self.navigationController?.isNavigationBarHidden = true
@@ -186,6 +187,20 @@ class CreateProductFirstViewController: UIViewController {
                     {
                         self.currency.add((self.Currency_Type_List?.data?.currency_list[i].currency)!)
                         self.currencyid.add((self.Currency_Type_List?.data?.currency_list[i].id)!)
+                        if self.productValArr[1] == ""
+                        {
+                            self.productValArr[1] = self.currency[0] as! String
+                            ProductModel.shared.currencyId = "\(self.currencyid[0])"
+                            if ProductModel.shared.currencyId.count > 0
+                                   {
+                                self.borderColor[1] = "#B2B2B2"
+                                      }
+                                   else
+                                   {
+                                    self.borderColor[1] = "#EC4A53"
+                                   }
+                            self.tabvw.reloadSections(IndexSet(integer: 1), with: .none)
+                        }
                     }
                 }
             }else{
@@ -852,7 +867,7 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
                 return cell
             case 6:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CountingTableViewCell", for: indexPath) as! CountingTableViewCell
-                cell.countLblTop.constant = -5
+                cell.countLblTop.constant = 5
                 cell.vw.layer.borderWidth = 0
                 cell.vw.layer.cornerRadius = 0
                 cell.topConst.constant = 0
@@ -948,6 +963,7 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
             else if indexPath.row == 2
             {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CountingTableViewCell", for: indexPath) as! CountingTableViewCell
+                cell.countLblTop.constant = 10
                 cell.vw.layer.borderWidth = 0
                 cell.topConst.constant = -10
                 cell.trailConst.constant = 40
@@ -966,6 +982,7 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "CollectionViewTableViewCell", for: indexPath) as! CollectionViewTableViewCell
                 cell.delegate = self
                 cell.viewcontrol = self
+                cell.isDataBank = isDataBank
                 cell.view = self.view
                 cell.istype = "Product"
                 cell.isDataBank = isDataBank || isPurchaseData

@@ -41,6 +41,7 @@ class SelectCategoryViewController: UIViewController {
     @IBOutlet weak var noDataLbl: UILabel!
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         self.noDataLbl.text = "No discount found.".localized
         self.savebtn.setTitle("Save", for: .normal)
@@ -62,7 +63,7 @@ class SelectCategoryViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
 
         self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-        bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+//        bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
         tableView.register(UINib(nibName: "SelectCategoryCell", bundle: nil), forCellReuseIdentifier: "SelectCategoryCell")
         navigationView.viewControl = self
         navigationView.titleHeader.text = "Manage Your Products".localized

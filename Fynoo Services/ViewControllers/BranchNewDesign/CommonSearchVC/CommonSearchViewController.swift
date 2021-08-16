@@ -17,6 +17,7 @@ class CommonSearchViewController: UIViewController {
     @IBOutlet weak var txtField: UITextField!
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
   
         self.tabView.delegate = self

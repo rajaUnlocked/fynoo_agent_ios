@@ -24,6 +24,7 @@ class AddedServicesInDataEntryViewController: UIViewController {
       var addedserviceDetailData  : serviceDetailData?
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
          self.okayBtn.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)

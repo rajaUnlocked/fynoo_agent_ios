@@ -107,13 +107,14 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
     
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         appDelegate.selectServiceStr = ""
            self.serviceAPI()
         self.getVatInfoAPI()
         self.tabView.delegate = self
         self.tabView.dataSource = self
-        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+//        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
         self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         self.view.bringSubviewToFront(headerView)
         maroofLink = "https://www.maroof.com/".localized;

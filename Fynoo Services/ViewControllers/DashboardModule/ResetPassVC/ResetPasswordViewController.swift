@@ -47,6 +47,7 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
     var  Reset_Password:ResetPassword?
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
         setupUIMEthod()
@@ -273,17 +274,17 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
     func rotateImagesOnLanguage(){
         if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
             if value[0]=="ar"{
-                let img = UIImage(named: "backgroundImage")
-                let image = UIImage(cgImage: (img?.cgImage)!, scale: (img?.scale)!, orientation: UIImage.Orientation.upMirrored)
-                bgImage.image = image
+//                let img = UIImage(named: "backgroundImage")
+//                let image = UIImage(cgImage: (img?.cgImage)!, scale: (img?.scale)!, orientation: UIImage.Orientation.upMirrored)
+//                bgImage.image = image
                 
                 let img1 = UIImage(named: "resetpass_icon")
                 let image1 = UIImage(cgImage: (img1?.cgImage)!, scale: (img1?.scale)!, orientation: UIImage.Orientation.upMirrored)
                 keyImage.image = image1
             }
             else if value[0]=="en"{
-                let image = UIImage(named: "backgroundImage")
-                bgImage.image = image
+//                let image = UIImage(named: "backgroundImage")
+//                bgImage.image = image
                 
                 let image1 = UIImage(named: "resetpass_icon")
                 keyImage.image = image1

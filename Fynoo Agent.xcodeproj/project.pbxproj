@@ -7649,7 +7649,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Fynoo Services/Fynoo Services.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2;
+				CURRENT_PROJECT_VERSION = 1.5;
 				DEVELOPMENT_TEAM = 94V2SEBR29;
 				INFOPLIST_FILE = "Fynoo Services/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -7672,7 +7672,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Fynoo Services/Fynoo Services.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2;
+				CURRENT_PROJECT_VERSION = 1.5;
 				DEVELOPMENT_TEAM = 94V2SEBR29;
 				INFOPLIST_FILE = "Fynoo Services/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

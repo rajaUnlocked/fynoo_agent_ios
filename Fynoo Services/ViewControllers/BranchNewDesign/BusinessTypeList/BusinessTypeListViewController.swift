@@ -36,6 +36,7 @@ class BusinessTypeListViewController: UIViewController ,UITableViewDelegate,UITa
    var selectarr = Array<Any>()
       var selectarray:NSMutableArray = NSMutableArray()
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
          selectarr = selectedTypeArray as! Array<Any>
         selectarray = NSMutableArray(array: selectarr)
@@ -49,7 +50,7 @@ class BusinessTypeListViewController: UIViewController ,UITableViewDelegate,UITa
               img.image = UIImage(named: "btype")
         }
          self.BusinessTypeList_API()
-           bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+//           bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
         headerVw.viewControl = self
         self.headerVw.titleHeader.text = "Select Your Business Type".localized;
         tabView.register(UINib(nibName: "SelectBusinesstypeTableViewCell", bundle: nil), forCellReuseIdentifier: "SelectBusinesstypeTableViewCell")

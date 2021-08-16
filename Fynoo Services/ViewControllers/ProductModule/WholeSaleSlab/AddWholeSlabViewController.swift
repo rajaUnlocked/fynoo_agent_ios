@@ -30,6 +30,7 @@ class AddWholeSlabViewController: UIViewController,UITextFieldDelegate {
     var vatPercent = 0.0
     let fontNameLight = NSLocalizedString("LightFontName", comment: "")
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
         navigationView.viewControl = self
@@ -38,7 +39,7 @@ class AddWholeSlabViewController: UIViewController,UITextFieldDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         self.heightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-        bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+//        bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
         tableView.register(UINib(nibName: "AddWholeSlabViewCell", bundle: nil), forCellReuseIdentifier: "AddWholeSlabViewCell")
         tableView.register(UINib(nibName: "PriceTopTableViewCell", bundle: nil), forCellReuseIdentifier: "PriceTopTableViewCell")
         tableView.register(UINib(nibName: "RetailPriceListViewCell", bundle: nil), forCellReuseIdentifier: "RetailPriceListViewCell")

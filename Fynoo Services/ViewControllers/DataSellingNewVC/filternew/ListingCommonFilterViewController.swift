@@ -68,6 +68,7 @@ class ListingCommonFilterViewController: UIViewController, TTRangeSliderDelegate
     var orderFilter : orderFilterModel?
     var choosenFilter : ((String) -> Void)?
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         close.setTitle("Close".localized, for: .normal)
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))

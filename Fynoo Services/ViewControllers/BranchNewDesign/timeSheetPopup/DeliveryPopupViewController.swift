@@ -13,6 +13,7 @@ class DeliveryPopupViewController: UIViewController {
     @IBOutlet weak var noClickedOutlet: UIButton!
     var activateHandler : ((String)-> Void)?
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         self.yesClickedOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)
         self.noClickedOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)

@@ -346,10 +346,10 @@ extension CollectionViewTableViewCell:OpenGalleryDelegate,BottomPopupEditProduct
                       branch.isproduct = true
                   }
            branch.branchfrom = "Product"
-                   if isDataBank
-                   {
-                  branch.branchfrom = "Databank"
-                   }
+          if isDataBank
+         {
+          branch.branchfrom = "Databank"
+         }
                  
                   branch.imgfile = img[0]
                   branch.indeximg = tag1
@@ -393,11 +393,13 @@ extension CollectionViewTableViewCell:OpenGalleryDelegate,BottomPopupEditProduct
             
             OpenGallery.shared.viewControl = viewcontrol
                    OpenGallery.shared.imgType = "Product"
+            
             OpenGallery.shared.openCamera()
             
         }else if tag == 1{
             OpenGallery.shared.viewControl = viewcontrol
                    OpenGallery.shared.imgType = "Product"
+           
            OpenGallery.shared.openGallery()
         }
         else
@@ -421,6 +423,10 @@ extension CollectionViewTableViewCell:OpenGalleryDelegate,BottomPopupEditProduct
             ModalClass.startLoading(view)
             branch.imageType = ""
             branch.branchfrom = "Product"
+            if isDataBank
+            {
+                branch.branchfrom = "DataBank"
+            }
             AddBranch.shared.BranchId = ""
             branch.imgfile = img
             branch.indeximg = tag1

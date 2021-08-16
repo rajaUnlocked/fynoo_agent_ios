@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +13,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommonPopupViewController" customModule="Fynoo_Services" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommonPopupViewController" customModule="Fynoo_Agent" customModuleProvider="target">
             <connections>
                 <outlet property="noOutlet" destination="Qas-ye-hTM" id="Xmb-km-XQ3"/>
                 <outlet property="popupBG" destination="tjd-C6-dXY" id="MpK-Yn-JyS"/>
@@ -39,7 +39,7 @@
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7zH-VW-hIC">
-                            <rect key="frame" x="32.5" y="130" width="100" height="24"/>
+                            <rect key="frame" x="32.5" y="135" width="100" height="24"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="24" id="0E4-iW-KWm"/>
@@ -69,7 +69,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vq-1D-okQ">
-                            <rect key="frame" x="26" y="65" width="248" height="40"/>
+                            <rect key="frame" x="26" y="70" width="248" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="w5t-mW-mSY"/>
                             </constraints>
@@ -80,7 +80,7 @@ this service?</string>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qas-ye-hTM">
-                            <rect key="frame" x="162.5" y="130" width="100" height="24"/>
+                            <rect key="frame" x="162.5" y="135" width="100" height="24"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="24" id="K9v-Nj-7o0"/>
@@ -121,14 +121,14 @@ this service?</string>
                         <constraint firstAttribute="width" constant="300" id="8MF-7N-ePv"/>
                         <constraint firstItem="7zH-VW-hIC" firstAttribute="top" secondItem="0Vq-1D-okQ" secondAttribute="bottom" constant="25" id="DUn-Gd-EkU"/>
                         <constraint firstItem="Qas-ye-hTM" firstAttribute="centerY" secondItem="7zH-VW-hIC" secondAttribute="centerY" id="GvL-go-z3G"/>
-                        <constraint firstItem="tjd-C6-dXY" firstAttribute="top" secondItem="0Vq-1D-okQ" secondAttribute="bottom" constant="-95" id="Hax-L3-1BA"/>
+                        <constraint firstItem="tjd-C6-dXY" firstAttribute="top" secondItem="0Vq-1D-okQ" secondAttribute="bottom" constant="-100" id="Hax-L3-1BA"/>
                         <constraint firstItem="0Vq-1D-okQ" firstAttribute="leading" secondItem="C90-hJ-naC" secondAttribute="leading" constant="26" id="O7F-hu-ckc"/>
                         <constraint firstItem="tjd-C6-dXY" firstAttribute="centerX" secondItem="C90-hJ-naC" secondAttribute="centerX" id="QEK-bl-NeC"/>
                         <constraint firstItem="Qas-ye-hTM" firstAttribute="leading" secondItem="7zH-VW-hIC" secondAttribute="trailing" constant="30" id="UZ2-Xr-ZUb"/>
                         <constraint firstItem="0Vq-1D-okQ" firstAttribute="centerX" secondItem="tjd-C6-dXY" secondAttribute="centerX" id="WoD-fD-don"/>
                         <constraint firstItem="7zH-VW-hIC" firstAttribute="leading" secondItem="tjd-C6-dXY" secondAttribute="leading" constant="35" id="Yb5-za-rQo"/>
+                        <constraint firstItem="Xht-Sn-e4Y" firstAttribute="top" secondItem="C90-hJ-naC" secondAttribute="top" constant="30" id="aQe-PU-iT7"/>
                         <constraint firstItem="Xht-Sn-e4Y" firstAttribute="centerX" secondItem="tjd-C6-dXY" secondAttribute="centerX" id="h9O-Kb-POD"/>
-                        <constraint firstItem="0Vq-1D-okQ" firstAttribute="top" secondItem="Xht-Sn-e4Y" secondAttribute="bottom" constant="11" id="kbh-u4-SzQ"/>
                         <constraint firstAttribute="height" constant="200" id="oTK-v9-49o"/>
                         <constraint firstAttribute="trailing" secondItem="0Vq-1D-okQ" secondAttribute="trailing" constant="26" id="rPK-N0-QiO"/>
                         <constraint firstItem="tjd-C6-dXY" firstAttribute="centerY" secondItem="C90-hJ-naC" secondAttribute="centerY" id="z5H-pP-Xd5"/>

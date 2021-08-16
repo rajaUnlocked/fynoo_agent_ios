@@ -22,6 +22,7 @@ class VersionPopupViewController: UIViewController {
     @IBOutlet weak var updateNowLEad: NSLayoutConstraint!
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         self.updateLaterOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)
         self.updateNowOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)

@@ -24,6 +24,7 @@ class BranchQrCodePopupViewController: UIViewController {
     @IBOutlet weak var shareBtn: UIButton!
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         view.addDashBorder()
         qrCodeImg.layer.masksToBounds = true

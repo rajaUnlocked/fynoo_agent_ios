@@ -24,6 +24,7 @@ class UploadImageViewController: UIViewController {
     var url = ""
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         self.saveBtn.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)
          self.cancelBtn.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: 100)

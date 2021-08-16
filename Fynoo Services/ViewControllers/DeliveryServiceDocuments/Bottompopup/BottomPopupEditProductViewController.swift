@@ -36,6 +36,7 @@ class BottomPopupEditProductViewController: UIViewController ,UITableViewDelegat
     var namelock = [Int]()
     var imgAr  = ["edit_grey", "add_variant","similar_pro","add_pro_grey"]
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         self.chooselbl.text = "Choose your option".localized
         if isVarient

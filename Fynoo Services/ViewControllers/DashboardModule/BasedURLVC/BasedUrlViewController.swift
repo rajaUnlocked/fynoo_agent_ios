@@ -24,6 +24,7 @@ class BasedUrlViewController: UIViewController {
     @IBOutlet weak var versionLbl: UILabel!
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         let buildNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
         versionLbl.text = "Dev Build Version: \(buildNumber)"

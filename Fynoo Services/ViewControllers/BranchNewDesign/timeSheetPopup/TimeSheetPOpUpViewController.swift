@@ -17,6 +17,7 @@ class TimeSheetPOpUpViewController: UIViewController {
     @IBOutlet weak var cancelbtn: UIButton!
     @IBOutlet weak var titlelbl: UILabel!
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         titlelbl.font = UIFont(name:"\(fontNameLight)",size:16)
