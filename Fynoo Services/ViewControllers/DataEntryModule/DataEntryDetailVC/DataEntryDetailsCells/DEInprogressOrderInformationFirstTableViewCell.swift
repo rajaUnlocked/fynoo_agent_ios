@@ -32,7 +32,6 @@ class DEInprogressOrderInformationFirstTableViewCell: UITableViewCell {
         // Initialization code
         self.SetFont()
     }
-            
     func SetFont() {
         
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
