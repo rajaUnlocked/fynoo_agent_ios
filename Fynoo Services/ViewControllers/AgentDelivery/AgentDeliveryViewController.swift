@@ -366,6 +366,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         
         self.selectedTab = selectedIndexID
         self.Index = Int(self.selectedTab)! - Int(1)
+        Singleton.shared.setDeliveryDashBoardTabID(tabId: self.Index + 1)
         isMoreDataAvailable = false
         currentPageNumber = 0
         getTripData()

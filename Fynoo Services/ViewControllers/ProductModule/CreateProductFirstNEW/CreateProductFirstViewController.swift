@@ -867,7 +867,7 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
                 return cell
             case 6:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CountingTableViewCell", for: indexPath) as! CountingTableViewCell
-                cell.countLblTop.constant = -5
+                cell.countLblTop.constant = 5
                 cell.vw.layer.borderWidth = 0
                 cell.vw.layer.cornerRadius = 0
                 cell.topConst.constant = 0
@@ -963,6 +963,7 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
             else if indexPath.row == 2
             {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CountingTableViewCell", for: indexPath) as! CountingTableViewCell
+                cell.countLblTop.constant = 10
                 cell.vw.layer.borderWidth = 0
                 cell.topConst.constant = -10
                 cell.trailConst.constant = 40
@@ -981,6 +982,7 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "CollectionViewTableViewCell", for: indexPath) as! CollectionViewTableViewCell
                 cell.delegate = self
                 cell.viewcontrol = self
+                cell.isDataBank = isDataBank
                 cell.view = self.view
                 cell.istype = "Product"
                 cell.isDataBank = isDataBank || isPurchaseData
