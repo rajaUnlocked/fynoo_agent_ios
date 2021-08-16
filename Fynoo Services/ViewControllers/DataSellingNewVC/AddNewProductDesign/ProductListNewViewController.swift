@@ -376,7 +376,7 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         if indexPath.section == 1 {
-            let action =  UIContextualAction(style: .normal, title: "Delete Product", handler: { (action,view,completionHandler ) in
+            let action =  UIContextualAction(style: .normal, title: "", handler: { (action,view,completionHandler ) in
                 //do stuff
                 let vc = DeleteBranchPopupViewController(nibName: "DeleteBranchPopupViewController", bundle: nil)
                 vc.isType = "PRODUCT"
@@ -389,7 +389,11 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
                 completionHandler(true)
             })
             
-            action.image = UIImage(named: "delete_pro")
+            action.image = UIImage(named: "deleteproen")
+            if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+            {
+                action.image = UIImage(named: "deleteproar")
+            }
             action.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
             let configuration = UISwipeActionsConfiguration(actions: [action])
             return configuration

@@ -332,9 +332,9 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationclickMenuClicked(_:)), name: NSNotification.Name(rawValue: "clickMenuFromAnywhere"), object: nil)
     }
-    func applicationWillResign(notification : NSNotification) {
-        NotificationCenter.default.removeObserver(self)
-     }
+//    func applicationWillResign(notification : NSNotification) {
+//        NotificationCenter.default.removeObserver(self)
+//     }
     // MARK: - SIDE MENU
     func sideMenuCode()
     {
@@ -868,7 +868,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         ]
         print("request -",parameters,str)
         ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
-            ModalClass.stopLoading()
+            ModalClass.stopLoadingAllLoaders(self.view)
             if success == true {
                 if self.refreshControl.isRefreshing {
                            self.refreshControl.endRefreshing()

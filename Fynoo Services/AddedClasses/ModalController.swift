@@ -598,6 +598,9 @@ extension UINavigationController {
             }
         }
     }
+    func hasViewController(ofKind kind: AnyClass) -> UIViewController? {
+           return self.viewControllers.first(where: {$0.isKind(of: kind)})
+       }
 }
 extension NSMutableAttributedString {
     
