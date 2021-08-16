@@ -15,13 +15,14 @@ class UnderDevelopmentViewController: UIViewController {
     @IBOutlet weak var comeSoonOutlet: UIButton!
     var showBack = false
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
         setupUIMethod()
     }
     
     func setupUIMethod(){
-         downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+//         downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
             self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
             headerView.titleHeader.text = "Under Construction"
             self.headerView.viewControl = self

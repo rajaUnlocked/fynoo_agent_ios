@@ -19,6 +19,7 @@ class SelectImageTypePopupViewController: UIViewController,UITableViewDelegate,U
     var choosenOption : ((String) -> Void)?
     var img : [UIImage] = [#imageLiteral(resourceName: "agent_indivdual"),#imageLiteral(resourceName: "businessOwner"),#imageLiteral(resourceName: "producticonpopup")]
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         typeLbl.font =  UIFont(name: "\(fontNameLight)", size: 12)

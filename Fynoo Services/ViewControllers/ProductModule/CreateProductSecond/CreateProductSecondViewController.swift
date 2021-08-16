@@ -75,6 +75,7 @@ class CreateProductSecondViewController: UIViewController{
     let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
     var isFromBranch = ""
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         UINibs()
           
@@ -1951,6 +1952,7 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                     }
                 }
             }
+           
             tabvw.reloadRows(at: [IndexPath(row: filterCount + 9, section: 1)], with: .none)
             tabvw.reloadRows(at: [IndexPath(row: filterCount + 11, section: 1)], with: .none)
             
@@ -2781,7 +2783,7 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 return cell
             case filterCount + 9:
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "CountingTableViewCell", for: indexPath) as! CountingTableViewCell
-                
+                cell.countLblTop.constant = 10
                 cell.leadingConstvw.constant = 10
                 cell.trailingConstvw.constant = 10
                 cell.counlbl.text = "\(pro.descriptions.count)/\(pro.descriptionsVal)"

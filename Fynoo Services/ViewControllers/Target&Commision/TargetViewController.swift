@@ -17,6 +17,7 @@ class TargetViewController: UIViewController {
     var player: AVPlayer!
 
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         headervw.viewControl = self
         headervw.titleHeader.text = "Target".localized

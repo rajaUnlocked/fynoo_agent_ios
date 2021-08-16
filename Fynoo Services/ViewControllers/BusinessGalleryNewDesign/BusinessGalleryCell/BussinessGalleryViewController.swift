@@ -47,6 +47,7 @@ class BussinessGalleryViewController: UIViewController{
     var branchImgCount = 0
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
          img_id.removeAllObjects()
         if HeaderHeightSingleton.shared.LanguageSelected == "EN"{

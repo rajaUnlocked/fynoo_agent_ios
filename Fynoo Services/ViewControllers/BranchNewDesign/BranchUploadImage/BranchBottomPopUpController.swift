@@ -17,6 +17,7 @@ class BranchBottomPopUpController: UIViewController {
     var img : [UIImage] = [#imageLiteral(resourceName: "camera_icon"),#imageLiteral(resourceName: "pro_img_outline"),#imageLiteral(resourceName: "fynooGallery")]
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
         tableView.separatorStyle = .none

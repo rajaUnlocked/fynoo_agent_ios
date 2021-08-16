@@ -35,6 +35,7 @@ class ViewAllImagesNewDesignViewController: UIViewController, UICollectionViewDe
         }
     }
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         self.mainImageViewBtn.isHidden = true
         super.viewDidLoad()
         self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)

@@ -67,12 +67,13 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet var resentOTPBtn: UIButton!
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
         let redTapImage = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"back_new")!)
         backNewOutlet.setImage(redTapImage, for: .normal)
         
-        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+//        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
         self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         headerView.titleHeader.text = "Verification".localized
         self.headerView.viewControl = self

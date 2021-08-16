@@ -25,6 +25,7 @@ class DataEntryWorkConfirmationPopUpViewController: UIViewController {
     var comeFromStr:String = ""
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         self.SetFont()
         

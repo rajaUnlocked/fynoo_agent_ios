@@ -41,6 +41,7 @@ class DataEntryAgentRatingViewController: UIViewController {
   
 
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         submit.isHidden = true
         if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{

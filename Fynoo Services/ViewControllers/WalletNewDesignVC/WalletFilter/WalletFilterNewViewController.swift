@@ -50,6 +50,7 @@ class WalletFilterNewViewController: UIViewController, TTRangeSliderDelegate {
     @IBOutlet weak var tolbl: UILabel!
     @IBOutlet weak var fromlbl: UILabel!
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         closeout.setTitle("Cancel".localized, for: .normal)
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
@@ -65,7 +66,7 @@ class WalletFilterNewViewController: UIViewController, TTRangeSliderDelegate {
         applybnout.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
         closeout.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
         
-        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+//        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
         self.navigationController?.navigationBar.isHidden = true
         self.topheightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         self.headerVw.viewControl = self

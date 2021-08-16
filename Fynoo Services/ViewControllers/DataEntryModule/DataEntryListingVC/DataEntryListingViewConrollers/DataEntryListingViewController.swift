@@ -48,6 +48,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     var longitude = 0.0
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         self.getUserLocation()
         self.setUpUI()
@@ -487,7 +488,13 @@ extension DataEntryListingViewController : UITableViewDataSource {
                     success(true)
                 })
                 closeAction.backgroundColor = #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1)
-                closeAction.image = UIImage(named: "service-Reject.png")
+                if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+                {
+                    closeAction.image = UIImage(named: "reject_arabic")
+                }
+                else{
+                    closeAction.image = UIImage(named: "reject_eng")
+                }
                 return UISwipeActionsConfiguration(actions: [closeAction])
                 
             }else {

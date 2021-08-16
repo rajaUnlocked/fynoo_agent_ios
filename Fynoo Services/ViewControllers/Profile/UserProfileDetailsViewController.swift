@@ -72,6 +72,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     var selectedMajorEducation : NSMutableDictionary = NSMutableDictionary()
 
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         
         tableVw.register(UINib(nibName: "ProfileNameTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileNameTableViewCell");
         tableVw.register(UINib(nibName: "ProfileDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileDetailTableViewCell");
@@ -208,6 +209,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                     
                 }else{
                     self.agentInfo.bankname = ""
+                    self.tableVw.reloadRows(at: [IndexPath(row: 1, section: 4)], with: .none)
                 }
                 
             }
@@ -236,6 +238,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                     
                 }else{
                     self.agentInfo.bankname = ""
+                    self.tableVw.reloadRows(at: [IndexPath(row: 1, section: 4)], with: .none)
                 }
                 
             }
@@ -799,6 +802,8 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     
     func personalCell(indexPath : IndexPath) -> UITableViewCell{
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        cell.headingLbl.font = UIFont(name: "\(fontNameLight)", size: 11)!
         cell.headingLbl.isHidden = true
         cell.genderView.isHidden = true
         cell.isUserInteractionEnabled = false
@@ -909,9 +914,11 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.headingLbl.tag = 1000
             cell.headingLbl.delegate=self
         }else if indexPath.row == 2{
+           
             cell.headingLbl.tag = 1001
             cell.headingLbl.text = agentInfo.cardHolderName
         }else if indexPath.row == 0{
+            cell.headingLbl.autocapitalizationType = .allCharacters
             cell.headingLbl.tag = 1002
             cell.headingLbl.delegate = self
             cell.headingLbl.text = agentInfo.iban
@@ -968,6 +975,8 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     func BasicInfoCell(indexPath : IndexPath) -> UITableViewCell{
         
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "ProfileEnteriesTableViewCell",for: indexPath) as! ProfileEnteriesTableViewCell
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        cell.headingLbl.font = UIFont(name: "\(fontNameLight)", size: 11)!
         cell.genderView.isHidden = true
         cell.selectBtn.isHidden = true
         cell.selectionStyle = .none
@@ -1346,7 +1355,7 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
                 return false
             }
             let updateText =  str!.replacingCharacters(in: stringRange, with: string)
-            return (updateText.count) < agentInfo.ibanLenght+val+5
+            return (updateText.count) <= agentInfo.ibanLenght
         }
             
         if textField.tag == 3000{
@@ -1409,7 +1418,7 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
         case 5:
             agentInfo.maroof = textField.text!
             
-        case 1000:
+        case 1002:
             agentInfo.iban = textField.text!
             
             if textField.text!.count == 2{
@@ -1421,7 +1430,7 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
                 
             }
             
-        case 1002:
+        case 1000:
             
             agentInfo.bankname = textField.text!
            

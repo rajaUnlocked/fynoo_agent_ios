@@ -33,6 +33,7 @@ class AddAmountViewController: UIViewController {
     var isFrom = false
     var taG = 0
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         todaycodlbl.font = UIFont(name:"\(fontNameLight)",size:14)

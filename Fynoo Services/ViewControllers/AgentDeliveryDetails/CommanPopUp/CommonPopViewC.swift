@@ -105,6 +105,7 @@ class CommonPopViewC: UIViewController {
     
 
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
         getagentCancelDetail()

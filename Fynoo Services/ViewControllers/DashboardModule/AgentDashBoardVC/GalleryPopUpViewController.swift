@@ -20,6 +20,7 @@ class GalleryPopUpViewController: UIViewController {
     @IBOutlet weak var chooseLbl: UILabel!
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         self.setFontUI()
         tableView.separatorStyle = .none

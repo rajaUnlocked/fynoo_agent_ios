@@ -26,6 +26,7 @@ class GalleryFilterViewController: UIViewController {
     @IBOutlet weak var applyBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         tabView.delegate = self
         tabView.dataSource = self

@@ -41,6 +41,7 @@ class SelectMultipleBranchesNewDesignViewController: UIViewController, UITableVi
     var isFromProductList = false
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         titlelabel.font = UIFont(name:"\(fontNameLight)",size:16)
@@ -75,7 +76,7 @@ class SelectMultipleBranchesNewDesignViewController: UIViewController, UITableVi
         }
        
         searchField.addTarget(self, action: #selector(SelectMultipleBranchesNewDesignViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+//        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
            self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         headerView.titleHeader.text = "Branch List".localized
         self.titlelabel.text = "Branch List".localized

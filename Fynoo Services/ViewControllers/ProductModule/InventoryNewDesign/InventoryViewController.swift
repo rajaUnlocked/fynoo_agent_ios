@@ -22,6 +22,7 @@ class InventoryViewController: UIViewController {
     var flag = "a"
     var availableQty = ""
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
         self.headerVw.viewControl = self

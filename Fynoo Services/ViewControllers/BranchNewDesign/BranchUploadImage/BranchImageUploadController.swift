@@ -24,6 +24,7 @@ class BranchImageUploadController: UIViewController,OpenGalleryDelegate {
     var TotalCount = 0
     var isEmpty = ""
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
         self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)

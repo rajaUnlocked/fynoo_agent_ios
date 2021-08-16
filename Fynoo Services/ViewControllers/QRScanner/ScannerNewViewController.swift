@@ -12,6 +12,7 @@ import BarcodeScanner
 class ScannerNewViewController: UIViewController {
 
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         let viewController = BarcodeScannerViewController()
         viewController.codeDelegate = self

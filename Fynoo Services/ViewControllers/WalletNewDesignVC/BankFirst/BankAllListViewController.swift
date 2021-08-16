@@ -29,9 +29,11 @@ class BankAllListViewController: UIViewController, WalletFilterNewViewController
     let fontNameLight = NSLocalizedString("LightFontName", comment: "")
     let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
-        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+//        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+       
         self.navigationController?.navigationBar.isHidden = true
         self.topheightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         self.headerVw.viewControl = self

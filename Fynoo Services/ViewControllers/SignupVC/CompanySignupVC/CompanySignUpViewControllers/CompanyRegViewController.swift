@@ -107,6 +107,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
     var agentIbanInfoDatas : IbanLengthInfoModal?
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         appDelegate.selectServiceStr = ""
         self.serviceAPI()
@@ -115,7 +116,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         }
-        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+//        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
         
         self.tabView.delegate = self
         self.tabView.dataSource = self

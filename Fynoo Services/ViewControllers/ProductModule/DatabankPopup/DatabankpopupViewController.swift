@@ -21,6 +21,7 @@ class DatabankpopupViewController: UIViewController {
     @IBOutlet weak var nobtn: UIButton!
     @IBOutlet weak var lbl: UILabel!
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
                 let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         lbl.font = UIFont(name:"\(fontNameLight)",size:16)

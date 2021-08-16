@@ -24,8 +24,9 @@ class SuccesssViewController: UIViewController {
    
      
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
-        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+//        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
      
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(action), userInfo: nil, repeats: true)
         
