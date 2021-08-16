@@ -62,7 +62,6 @@ class DEInprogressOrderInformationFirstTableViewCell: UITableViewCell {
 //        attributedString1.append(buttonTitleStr1)
 //        branchDataEntryBtn.setAttributedTitle(attributedString1, for: .normal)
 //
-        
         self.productDataEntryBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
         self.branchDataEntryBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
         
