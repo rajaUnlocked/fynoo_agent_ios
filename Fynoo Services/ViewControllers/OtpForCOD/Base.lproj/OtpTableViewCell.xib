@@ -152,22 +152,25 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eeg-TH-MyM">
-                        <rect key="frame" x="15" y="123.5" width="295" height="34"/>
+                        <rect key="frame" x="15" y="123.5" width="295" height="40"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="XNI-oJ-Y7G"/>
+                        </constraints>
                         <state key="normal" title="Button"/>
                         <connections>
                             <action selector="receivedCodClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nbJ-tH-dhi"/>
                         </connections>
                     </button>
-                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 1624" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mjh-0t-cXa">
-                        <rect key="frame" x="18" y="127" width="25" height="25"/>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheck" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mjh-0t-cXa">
+                        <rect key="frame" x="18" y="130" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="ClI-9k-weP"/>
                             <constraint firstAttribute="width" constant="25" id="rR5-GB-eAG"/>
                         </constraints>
                     </imageView>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I have received the COD amount from Customer." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLg-Ke-lxX">
-                        <rect key="frame" x="42" y="130.5" width="273.5" height="14.5"/>
+                        <rect key="frame" x="42" y="133.5" width="273.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -207,7 +210,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Rectangle 1624" width="7086.5" height="7086.5"/>
+        <image name="uncheck" width="102" height="102"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
