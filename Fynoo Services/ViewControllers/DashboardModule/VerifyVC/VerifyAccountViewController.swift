@@ -26,7 +26,6 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var resendView: UIView!
     @IBOutlet weak var resendOtp: UIButton!
     @IBOutlet weak var email: UILabel!
-    @IBOutlet weak var mobileNo: UILabel!
     var isFromAgent : Bool = true
     var verifyAccountModal = VerifyAccountModal()
     var timer: Timer?
@@ -78,11 +77,7 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
         headerView.titleHeader.text = "Verification".localized
         self.headerView.viewControl = self
         self.headerView.backButton.isHidden = true
-        let intLetters = mobile.prefix(1)
-        let endLetters = mobile.suffix(1)
-        let newString = intLetters + "*****" + endLetters
-        print(newString)
-        mobileNo.text = "\(newString)"
+       
         
         let intLetterss = emailId.prefix(3)
         let endLetterss = emailId.suffix(3)
@@ -124,7 +119,6 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
 
         verifyLbl.font = UIFont(name:"\(fontNameBold)",size:16)
-        mobileNo.font = UIFont(name:"\(fontNameLight)",size:22)
         email.font = UIFont(name:"\(fontNameLight)",size:12)
         otp.font = UIFont(name:"\(fontNameLight)",size:12)
         counterrText.font = UIFont(name:"\(fontNameLight)",size:12)
