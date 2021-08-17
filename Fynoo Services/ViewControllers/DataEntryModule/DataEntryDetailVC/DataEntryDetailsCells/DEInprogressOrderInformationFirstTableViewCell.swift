@@ -94,7 +94,6 @@ class DEInprogressOrderInformationFirstTableViewCell: UITableViewCell {
             self.branchDataEntryBtn.addSubview(lineView1)
             
         }
-        
     }
 
 
