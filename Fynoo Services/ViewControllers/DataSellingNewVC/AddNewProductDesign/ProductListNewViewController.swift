@@ -266,7 +266,7 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
             view.addproductlbl.text = "Add Products Data".localized
             view.draftData.text = "\("\("Total Draft Data".localized)             ")\(data_bank_list?.data?.total_draft ?? 0)"
             view.soldData.text = "\("\("Total Sold Data".localized)              ")\(data_bank_list?.data?.total_sold ?? 0)"
-            view.totalEarning.text = "\("\("Total Earning".localized)                  ")\("SAR".localized) \(data_bank_list?.data?.total_earning ?? 0)"
+            view.totalEarning.text = "\("\("Total Earning".localized)                  ")\("SAR") \(data_bank_list?.data?.total_earning ?? 0)"
             view.filtercount.isHidden = true
             if ProductModel.shared.salecount > 0
             {

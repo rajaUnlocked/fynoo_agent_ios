@@ -368,7 +368,7 @@ class CreateProductFirstViewController: UIViewController {
         
     if isDataBank
     {
-        if isSimilar || isVarient
+        if isSimilar || isVarient || pro.productId != ""
         {
             let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
                   vc.isDataBank = self.isDataBank
@@ -394,16 +394,15 @@ class CreateProductFirstViewController: UIViewController {
                                  else
                                  {
                                   
-                                    self.pro.finalStatus = self.editpronew?.data?.pro_status ?? 0
-                                                     self.pro.productcode = self.editpronew?.data?.pro_code ?? ""
-                                                     self.pro.productTitle = self.editpronew?.data?.pro_name ?? ""
-                                                     self.pro.statusActive = self.editpronew?.data?.pro_status ?? 0
-                                                self.pro.productDecription = self.editpronew?.data?.pro_description ?? ""
-                
-                                    
-                                                     self.pro.productId = "\(self.editpronew?.data?.pro_id ?? 0)"
-                                                     self.pro.galleryFeatureImage = "\(self.editpronew?.data?.pro_featured_image ?? "")"
-                                                     let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
+                        self.pro.finalStatus = self.editpronew?.data?.pro_status ?? 0
+                        self.pro.productcode = self.editpronew?.data?.pro_code ?? ""
+                         self.pro.productTitle = self.editpronew?.data?.pro_name ?? ""
+                          self.pro.statusActive = self.editpronew?.data?.pro_status ?? 0
+                            self.pro.productstatus = self.editpronew?.data?.product_status ?? ""
+                          self.pro.productDecription = self.editpronew?.data?.pro_description ?? ""
+                 self.pro.productId = "\(self.editpronew?.data?.pro_id ?? 0)"
+                      self.pro.galleryFeatureImage = "\(self.editpronew?.data?.pro_featured_image ?? "")"
+                     let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
                                                      //vc.isFromBranch = self.isFromBranch
                                                      vc.isDataBank = self.isDataBank
                                                      vc.isSimilar = self.isSimilar
@@ -473,6 +472,7 @@ class CreateProductFirstViewController: UIViewController {
                          pro.productcode = self.editpronew?.data?.pro_code ?? ""
                         pro.productTitle = self.editpronew?.data?.pro_name ?? ""
                         pro.statusActive = self.editpronew?.data?.pro_status ?? 0
+                        self.pro.productstatus = self.editpronew?.data?.product_status ?? ""
                         pro.barcode = self.editpronew?.data?.pro_barcode ?? ""
                         pro.Currencyname = self.editpronew?.data?.pro_currency_name ?? ""
                         pro.BranchCount = self.editpronew?.data?.pro_no_of_branch ?? 0
@@ -1029,7 +1029,10 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
             }
             if isDataBank
             {
-             cell.savedraft.isHidden = true
+                if pro.productId != ""
+                {
+                    cell.savedraft.isHidden = true
+                }
             }
             if isNextColor
             {

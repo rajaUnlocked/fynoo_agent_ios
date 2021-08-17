@@ -162,8 +162,12 @@ class CreateProductSecondViewController: UIViewController{
                 Selectedtab.add(2)
             }
         }
-        retailDimensionalArr = [[0,0],[0.0],[0.0,0.0],[0.0],[0.0,0.0],[0.0]]
         
+        retailDimensionalArr = [[0,0],[0.0],[0.0,0.0],[0.0],[0.0,0.0],[0.0]]
+        if isDataBank
+        {
+            self.checkspecColor()
+        }
         //        if isVat
         //        {
         //            retailDimensionalArr = [[0,0],[0.0],[0.0,0.0],[0.0],[0.0,5.0],[0.0]]
@@ -658,10 +662,13 @@ pro.RetailReturnDays = ""
             tabvw.reloadRows(at: [IndexPath(row: filterCount + 14, section: 1)], with: .none)
             return
         }
+        if !isDataBank
+        {
         if pro.length == 0.0 || pro.height == 0.0 || pro.width == 0.0 || pro.weight == 0.0
         {
             tabvw.reloadRows(at: [IndexPath(row: filterCount + 14, section: 1)], with: .none)
             return
+        }
         }
         if pro.descriptions == "" && docId.count == 0
         {
@@ -789,12 +796,14 @@ pro.RetailReturnDays = ""
 //            ModalController.showNegativeCustomAlertWith(title: "Please Select Catagory", msg: "")
             return
         }
+        if !isDataBank
+        {
         if pro.length == 0.0 || pro.height == 0.0 || pro.width == 0.0 || pro.weight == 0.0
         {
 //            ModalController.showNegativeCustomAlertWith(title: "Please Fill Dimension Feilds", msg: "")
             return
         }
-        
+        }
         if pro.descriptions == "" && docId.count == 0
         {
             if docId.count == 0
@@ -2524,25 +2533,30 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
 
                 cell.pro_img.sd_setImage(with: URL(string: pro.galleryFeatureImage), placeholderImage: UIImage(named: "category_placeholder"))
                 cell.pro_name.text = pro.productTitle
-                
+                let attributedString : NSMutableAttributedString = NSMutableAttributedString(string: "\( "Status:  ".localized)\(pro.productstatus)")
                 if pro.statusActive == 1
                 {
-                    let attributedString : NSMutableAttributedString = NSMutableAttributedString(string: "\( "Status:  ".localized)\("ACTIVE".localized)")
-                    attributedString.setColor(color: UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1), forText: "ACTIVE".localized)
-                    cell.status.attributedText = attributedString
+                attributedString.setColor(color: #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1), forText: pro.productstatus)
                 }
-                if pro.statusActive == 0 && ProductModel.shared.pro_final_status == 1
+                else if pro.statusActive == 0
                 {
-                    let attributedString : NSMutableAttributedString = NSMutableAttributedString(string: "\( "Status:  ".localized)\("INACTIVE".localized)")
-                    attributedString.setColor(color: UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1), forText: "INACTIVE".localized)
-                    cell.status.attributedText = attributedString
+                attributedString.setColor(color: #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1), forText: pro.productstatus)
                 }
-                if pro.statusActive == 0 && ProductModel.shared.pro_final_status == 0
+                else if pro.statusActive == 2
                 {
-                    let attributedString : NSMutableAttributedString = NSMutableAttributedString(string: "\( "Status:  ".localized)\("DRAFT".localized)")
-                    attributedString.setColor(color: UIColor.init(red: 246/255, green: 181/255, blue: 25/255, alpha: 1), forText: "DRAFT".localized)
-                    cell.status.attributedText = attributedString
+                attributedString.setColor(color: #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1), forText: pro.productstatus)
                 }
+                
+                else if pro.statusActive == 4
+                {
+                attributedString.setColor(color: #colorLiteral(red: 0.9137254902, green: 0.7960784314, blue: 0.01176470588, alpha: 1), forText: pro.productstatus)
+                }
+                else
+                {
+               attributedString.setColor(color: #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1), forText: pro.productstatus)
+                }
+                cell.status.attributedText = attributedString
+                
                 if isVarient
                 {
                     let attributedString1 : NSMutableAttributedString = NSMutableAttributedString(string: "Status:  Varient")
@@ -2866,14 +2880,14 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 return cell
             default:
                 
-                if isDataBank
-                {
-                    let cell = tabvw.dequeueReusableCell(withIdentifier: "SendForAPProvalTableViewCell", for: indexPath) as! SendForAPProvalTableViewCell
-                    cell.approvalbtn.addTarget(self, action: #selector(saveClick(_:)), for: .touchUpInside)
-                    return cell
-                }
-                else
-                {
+//                if isDataBank
+//                {
+////                    let cell = tabvw.dequeueReusableCell(withIdentifier: "SendForAPProvalTableViewCell", for: indexPath) as! SendForAPProvalTableViewCell
+////                    cell.approvalbtn.addTarget(self, action: #selector(saveClick(_:)), for: .touchUpInside)
+////                    return cell
+//                }
+//                else
+//                {
                     let cell = tabvw.dequeueReusableCell(withIdentifier: "nextTableViewCell", for: indexPath) as! nextTableViewCell
                     cell.savedraft.isHidden = false
                     
@@ -2901,12 +2915,22 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                     cell.savedraft.setTitle("Save As Draft".localized, for: .normal)
                     cell.savedraft.tag = 0
                     cell.nextbtn.setTitle("Next".localized, for: .normal)
+                if isDataBank
+                {
+                    cell.nextbtn.setTitle("Save and send For approval".localized, for: .normal)
+                    cell.savedraft.isHidden = true
+                    if pro.statusActive == 4
+                    {
+                        cell.savedraft.isHidden = false
+                    }
+                    
+                }
                     cell.savedraft.addTarget(self, action: #selector(saveClick(_ :)), for: .touchUpInside)
                     cell.nextbtn.tag = 1
                     cell.nextbtn.addTarget(self, action: #selector(saveClick(_ :)), for: .touchUpInside)
                     cell.selectionStyle = .none
                     return cell
-                }
+               // }
                 
             }
             
