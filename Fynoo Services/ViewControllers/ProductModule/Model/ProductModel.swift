@@ -82,7 +82,7 @@ class ProductModel
     // discountPrice
     var discountPriceRangeSlider = ""
     var PriceRangeDisSlider = ""
-    
+    var productstatus = ""
     var descriptions = ""
     var supportdescriptions = ""
     var onlineQuanTo = 0
@@ -291,6 +291,7 @@ class ProductModel
     
     func remove()
     {
+        productstatus = ""
         availIndextemp.removeAllObjects()
         ratingrange = ""
             discountIdtemp = ""

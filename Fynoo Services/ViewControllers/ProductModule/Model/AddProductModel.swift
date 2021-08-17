@@ -982,7 +982,7 @@ class AddProductModel: NSObject {
                         pro.retail = pr?.pro_store_retail ?? false
                         pro.Whole = pr?.pro_store_wholesale ?? false
                          pro.pro_final_status = pr?.pro_final_status ?? 0
-        
+                        pro.productstatus = pr?.status ?? ""
                          pro.statusActive = pr?.pro_status ?? 0
                          pro.filledstep  = pr?.pro_filled_step ?? 0
                         pro.RetailRegular = "\(pr?.pro_store_retail_price ?? 0)"
@@ -1037,7 +1037,8 @@ class AddProductModel: NSObject {
                         self.viewNewPoductDetailData = Mapper<viewProductDetailEditNew>().map(JSON: response as! [String : Any])
                         let pr = self.viewNewPoductDetailData?.data
                         //page 1
-                         // pro.statusActive = pr?.pro_status ?? 0
+                          pro.statusActive = pr?.pro_status ?? 0
+                        pro.productstatus = pr?.product_status ?? ""
                           pro.finalStatus = pr?.pro_status ?? 0
                         pro.filledstep = pr?.pro_filled_step ?? 0
                         pro.barcode = pr?.pro_barcode ?? ""

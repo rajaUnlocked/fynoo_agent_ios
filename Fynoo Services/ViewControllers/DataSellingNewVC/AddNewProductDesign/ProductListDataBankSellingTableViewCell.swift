@@ -116,11 +116,12 @@ class ProductListDataBankSellingTableViewCell: UITableViewCell {
             self.infoimgWidth.constant = 0
         }
             else if  productList?[index].pro_status == 4 {
+                self.statusLbl.textColor = #colorLiteral(red: 0.9137254902, green: 0.7960784314, blue: 0.01176470588, alpha: 1)
                 self.editBtn.isUserInteractionEnabled = true
                 self.infoimgWidth.constant = 0
             }
         else {
-            self.statusLbl.textColor = #colorLiteral(red: 0.9137254902, green: 0.7960784314, blue: 0.01176470588, alpha: 1)
+//            self.statusLbl.textColor = #colorLiteral(red: 0.9137254902, green: 0.7960784314, blue: 0.01176470588, alpha: 1)
             self.infoimgWidth.constant = 0
         }
         
