@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewAllImagesNewDesignViewController" customModule="Fynoo_Business" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewAllImagesNewDesignViewController" customModule="Fynoo" customModuleProvider="target">
             <connections>
                 <outlet property="collectionVw" destination="yQv-AZ-XE2" id="GgX-O1-wzI"/>
                 <outlet property="headerView" destination="WhQ-dI-DMZ" id="jfl-U6-BAP"/>
-                <outlet property="mainImageViewBtn" destination="ba1-6A-dUk" id="sjN-sX-Dxh"/>
+                <outlet property="mainImageViewBtn" destination="paU-BS-BTW" id="BvU-iv-t7o"/>
                 <outlet property="productImage" destination="Jin-6K-UGT" id="I1F-w9-U0U"/>
                 <outlet property="topViewHeightConstraint" destination="CFs-5E-DHS" id="pzD-4I-azh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -23,9 +24,9 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WhQ-dI-DMZ" customClass="NavigationView" customModule="Fynoo_Business" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WhQ-dI-DMZ" customClass="NavigationView" customModule="Fynoo" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="CFs-5E-DHS"/>
                     </constraints>
@@ -34,10 +35,10 @@
                     <rect key="frame" x="10" y="80" width="300" height="246"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ba1-6A-dUk">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paU-BS-BTW">
                     <rect key="frame" x="10" y="80" width="300" height="246"/>
                     <connections>
-                        <action selector="mainImageViewClicked:" destination="-1" eventType="touchUpInside" id="Z7v-SZ-iEL"/>
+                        <action selector="mainImageViewClicked:" destination="-1" eventType="touchUpInside" id="qsa-MK-MLW"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eD-5K-Mhg">
@@ -66,26 +67,31 @@
                     </constraints>
                 </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Jin-6K-UGT" secondAttribute="trailing" constant="10" id="3DT-SY-dQG"/>
                 <constraint firstItem="WhQ-dI-DMZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8G9-i0-AxV"/>
                 <constraint firstItem="3eD-5K-Mhg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="CW2-pi-OnB"/>
+                <constraint firstItem="paU-BS-BTW" firstAttribute="bottom" secondItem="Jin-6K-UGT" secondAttribute="bottom" id="E5y-rt-sgw"/>
                 <constraint firstItem="Jin-6K-UGT" firstAttribute="top" secondItem="WhQ-dI-DMZ" secondAttribute="bottom" id="KlZ-85-L5o"/>
+                <constraint firstItem="paU-BS-BTW" firstAttribute="leading" secondItem="Jin-6K-UGT" secondAttribute="leading" id="LZJ-Xn-drg"/>
                 <constraint firstItem="3eD-5K-Mhg" firstAttribute="top" secondItem="Jin-6K-UGT" secondAttribute="bottom" id="Nwd-gY-3Lc"/>
                 <constraint firstItem="WhQ-dI-DMZ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="SPt-8T-fc6"/>
                 <constraint firstItem="3eD-5K-Mhg" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="T3j-5s-U3o"/>
                 <constraint firstItem="3eD-5K-Mhg" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="VRZ-Su-iBD"/>
                 <constraint firstItem="Jin-6K-UGT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="X1o-Mu-e3r"/>
-                <constraint firstItem="ba1-6A-dUk" firstAttribute="top" secondItem="Jin-6K-UGT" secondAttribute="top" id="Zyt-q2-IPh"/>
-                <constraint firstItem="ba1-6A-dUk" firstAttribute="leading" secondItem="Jin-6K-UGT" secondAttribute="leading" id="dOf-EV-Osi"/>
                 <constraint firstItem="WhQ-dI-DMZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eab-ty-gfB"/>
-                <constraint firstItem="ba1-6A-dUk" firstAttribute="bottom" secondItem="Jin-6K-UGT" secondAttribute="bottom" id="jBa-Vd-c17"/>
-                <constraint firstItem="ba1-6A-dUk" firstAttribute="trailing" secondItem="Jin-6K-UGT" secondAttribute="trailing" id="lDr-R3-TcZ"/>
+                <constraint firstItem="paU-BS-BTW" firstAttribute="top" secondItem="Jin-6K-UGT" secondAttribute="top" id="rOD-wm-dXS"/>
+                <constraint firstItem="paU-BS-BTW" firstAttribute="trailing" secondItem="Jin-6K-UGT" secondAttribute="trailing" id="ssY-El-Ioo"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="124.55357142857142"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

@@ -716,12 +716,14 @@ pro.RetailReturnDays = ""
             ModalController.showNegativeCustomAlertWith(title: "Please Select Catagory", msg: "")
             return
         }
+        if !isDataBank
+        {
         if pro.length == 0.0 || pro.height == 0.0 || pro.width == 0.0 || pro.weight == 0.0
         {
             ModalController.showNegativeCustomAlertWith(title: "Please Fill Dimension Feilds", msg: "")
             return
         }
-        
+        }
         if pro.descriptions == "" && docId.count == 0
         {
             if docId.count == 0
@@ -731,10 +733,13 @@ pro.RetailReturnDays = ""
             }
             
         }
+        if !isDataBank
+        {
         if !"\(dimensionArrVal[1])".containArabicNumber || !"\(dimensionArrVal[2])".containArabicNumber || !"\(dimensionArrVal[3])".containArabicNumber || !"\(dimensionArrVal[4])".containArabicNumber
         {
             ModalController.showNegativeCustomAlertWith(title: "Dimension Should not accept Arbic Number", msg: "")
             return
+        }
         }
         if pro.descriptions.count > 0
         {
@@ -1233,8 +1238,10 @@ pro.RetailReturnDays = ""
     {
         if isDataBank
         {
+            ValidateSpecTab()
             if sender.tag == 0
             {
+               
               ModalClass.startLoading(self.view)
                    productmodel.isdraft = true
                       productmodel.step = 2
@@ -2686,13 +2693,13 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                     }
                     
                 }
-                if isDataBank
-                {
-                    cell.trailconst.constant = 0
-                    cell.dottedline.isHidden = true
-                    cell.clickCheck.isHidden = true
-                    cell.varientlbl.isHidden = true
-                }
+//                if isDataBank
+//                {
+//                    cell.trailconst.constant = 0
+//                    cell.dottedline.isHidden = true
+//                    cell.clickCheck.isHidden = true
+//                    cell.varientlbl.isHidden = true
+//                }
                 cell.clickCheck.tag = indexPath.row
                 cell.downarrow.tag = indexPath.row
                 cell.downarrow.addTarget(self, action: #selector(openFilterPopup(_:)), for: .touchUpInside)
