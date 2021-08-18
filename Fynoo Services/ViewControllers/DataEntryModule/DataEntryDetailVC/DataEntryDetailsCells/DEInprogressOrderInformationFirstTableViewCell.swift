@@ -75,7 +75,6 @@ class DEInprogressOrderInformationFirstTableViewCell: UITableViewCell {
             lineView.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
             self.productDataEntryBtn.addSubview(lineView)
             
-            
             let lineView1 = UIView(frame: CGRect(x: 0, y: self.branchDataEntryBtn.frame.size.height - 0.6, width: self.branchDataEntryBtn.frame.size.width + 35, height: 0.6))
             lineView1.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
             self.branchDataEntryBtn.addSubview(lineView1)
