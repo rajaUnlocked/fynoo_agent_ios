@@ -62,41 +62,10 @@ class AddInvoiceInformationTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         SetFont()
-       
-//        if HeaderHeightSingleton.shared.LanguageSelected == "AR"{
-//
-//                  setTextUnderline()
-//
-//                }
-        
+
     }
     
- func setTextUnderline()
-        {
-////            let dummyButton: UIButton = UIButton.init()
-            btnAnyProblem.setTitle("Any Problem?".localized, for: .normal)
-//    btnAnyProblem.titleLabel?.font = UIFont(name:"\(Constant.FONT_Light)",size:12)
-////            dummyButton.sizeToFit()
-//        btnAnyProblem.sizeToFit()
-//            let dummyHeight = btnAnyProblem.frame.size.height + 3
-//
-//            let bottomLine = CALayer()
-//            bottomLine.frame = CGRect.init(x: (self.frame.size.width - btnAnyProblem.frame.size.width)/2, y: -(self.frame.size.height - dummyHeight), width: btnAnyProblem.frame.size.width, height: 1.0)
-//            bottomLine.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
-//            self.layer.addSublayer(bottomLine)
-    let dummyButton: UIButton = UIButton.init()
-           dummyButton.setTitle("Any Problem?".localized, for: .normal)
-//           dummyButton.titleLabel?.font = "Any Problem?".localized,.font
-           dummyButton.sizeToFit()
 
-           let dummyHeight = dummyButton.frame.size.height + 3
-
-           let bottomLine = CALayer()
-           bottomLine.frame = CGRect.init(x: (self.frame.size.width - dummyButton.frame.size.width)/2, y: -(self.frame.size.height - dummyHeight), width: dummyButton.frame.size.width, height: 1.0)
-    bottomLine.backgroundColor = self.btnAnyProblem.titleLabel?.textColor.cgColor
-           self.layer.addSublayer(bottomLine)
-    
-        }
     
     func SetFont() {
 
@@ -114,16 +83,16 @@ class AddInvoiceInformationTableViewCell: UITableViewCell {
         self.lblCurrencyWtVat.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblCurrencyVat.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblCurrencyWithVat.font = UIFont(name:"\(fontNameLight)",size:12)
-//        self.btnAnyProblem.titleLabel!.font = UIFont(name:"\(fontNameLight)",size:12)
         self.lblAddInvoice.font = UIFont(name:"\(fontNameLight)",size:14)
-        
-        self.btnAnyProblem.titleLabel!.font = UIFont(name:"\(Constant.FONT_Light)",size:12)
+        self.btnAnyProblem.titleLabel!.font = UIFont(name:"\(fontNameLight)",size:12)
 
-        let myNormalAttributedTitle = NSAttributedString(string: "Any Problem?".localized,attributes: [NSAttributedString.Key.foregroundColor : UIColor.AppThemeBlueTextColor(),.underlineStyle: NSUnderlineStyle.single.rawValue,.underlineColor : UIColor.AppThemeBlueTextColor()])
         
-//      self.btnAnyProblem.titleLabel?.text = "Any Problem?".localized
-        btnAnyProblem.titleLabel?.textAlignment = NSTextAlignment.center
-        self.btnAnyProblem.setAttributedTitle(myNormalAttributedTitle, for: .normal)
+        let lineView1 = UIView(frame: CGRect(x: 0, y: btnAnyProblem.frame.size.height - 12, width: ("Any Problem?".localized ).widthOfString(usingFont: UIFont(name: "\(fontNameLight)", size: 12)!), height: 0.6))
+        lineView1.backgroundColor = Constant.Blue_TEXT_COLOR
+        btnAnyProblem.addSubview(lineView1)
+        btnAnyProblem.setTitle("Any Problem?".localized, for: .normal)
+        btnAnyProblem.titleLabel?.textColor = Constant.Blue_TEXT_COLOR
+        
         lblAddInvoice.textColor = UIColor.AppThemeGreenTextColor()
         self.lblNoteBo.font = UIFont(name:"\(fontNameLight)",size:11)
         self.lblNoteBo.text = "Note: Please share the OTP with Business Owner which you will receive after Confirm and Upload Invoice' to confirm that you have received all products from Business Owner.".localized

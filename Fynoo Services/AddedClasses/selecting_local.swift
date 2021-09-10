@@ -26,6 +26,7 @@ extension Bundle {
                 /*2*/ let lang = userlang.object(forKey: "AppleLanguages") as! Array<String>
                 let currentLanguage=lang[0];
     //    let currentLanguage = CSLanguage.currentAppleLanguage()
+        print(currentLanguage)
         var bundle = Bundle.main
         if let path = Bundle.main.path(forResource: currentLanguage, ofType: "lproj") {
             bundle = Bundle.init(path: path)!
