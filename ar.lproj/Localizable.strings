@@ -308,6 +308,9 @@
 "Wholesale" = "بالجملة";
 
 //new
+"Note: Please share the otp with business onwer which you will receive after confirm and upload invoice to confirm that you have received all products from business owner." = "ملاحظة: قم برفع الفاتورة وإضغط على زر تأكيد ورفع الفاتورة لتحصل على رمز التأكيد الذي سيطلبه منك البائع لتأكيد تسليم المنتجات.";
+"I have reached BO store" = "تأكيد الوصول للمتجر";
+"Discount Percentage" = "نسبة الخصم";
 "Document" = "الملفات";
 "Edit Product"="تعديل المنتج";
 "Add Similar Product"="إضافة منتج مماثل";
@@ -535,8 +538,8 @@
 "Cancellation Request" = "طلب إلغاء";
 "Accept Cancellation" = "قبول الإلغاء";
 "I'm on my way" = "أنا في الطريق";
-"Total Weight" = "Total Weight";
-"Total Size" = "Total Size";
+"Total Weight" = "الوزن الإجمالي";
+"Total Size" = "الحجم الإجمالي";
 "kg" = "kg";
 "Confirm & Upload Invoice" = "تأكيد ورفع الفاتورة";
 "I have reached BO's store" = "I have reached BO's store";

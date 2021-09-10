@@ -11,6 +11,7 @@ import UIKit
 class PriceTopTableViewCell: UITableViewCell {
     
     
+    @IBOutlet weak var vw: UIView!
     
     @IBOutlet weak var titleLblLeading: NSLayoutConstraint!
     @IBOutlet weak var topConst: NSLayoutConstraint!
