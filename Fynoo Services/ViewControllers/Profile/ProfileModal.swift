@@ -519,7 +519,7 @@ class triplist : Mappable{
     var cust_image : String?
     var qty : Int?
     var address : String?
-    var almost_total_price : Double?
+    var almost_total_price : String?
     var currency : String?
     var order_id : String?
     var payment_mode : String?
@@ -532,12 +532,16 @@ class triplist : Mappable{
     var lat : String?
     var long : String?
     var cust_mobile : String?
+    var user_type : String?
+    var delivery_price : String?
+    
     
     
     required init?(map: Map) {}
     
     func mapping(map: Map) {
-        
+        user_type <- map["user_type"]
+        delivery_price <- map["delivery_price"]
        id <- map["id"]
         cust_name <- map["cust_name"]
         search_id <- map["search_id"]
@@ -635,6 +639,8 @@ class OrderDetailsInfo : Mappable {
     var order_status_desc : String?
     var del_service_id : Int?
     var service_status : Int?
+    var delivery_price : String?
+    var cancellation_reason : String?
 
     required init?(map: Map) {
 
@@ -690,6 +696,8 @@ class OrderDetailsInfo : Mappable {
         order_status_desc <- map["order_status_desc"]
         del_service_id <- map["del_service_id"]
         service_status <- map["service_status"]
+        delivery_price <- map["delivery_price"]
+        cancellation_reason<-map["cancellation_reason"]
     }
 
 }
@@ -858,7 +866,14 @@ class Trip_details : Mappable {
     var payment_type : String?
     var del_service_id : Int?
     var service_status : Int?
-
+    var bo_address : String?
+    var bo_rating : String?
+    var bo_total_rating : String?
+    var total_size : Double?
+    var total_weight : Double?
+    var delivery_price : String?
+    
+    
     required init?(map: Map) {
 
     }
@@ -893,6 +908,12 @@ class Trip_details : Mappable {
         payment_type <- map["payment_type"]
         del_service_id <- map["del_service_id"]
         service_status <- map["service_status"]
+        bo_address <- map["bo_address"]
+        bo_rating <- map["bo_rating"]
+        bo_total_rating <- map["bo_total_rating"]
+        total_size <- map["total_size"]
+        total_weight <- map["total_weight"]
+        delivery_price <- map["delivery_price"]
     }
 
 }
@@ -1019,6 +1040,8 @@ struct NewOrder_Trip_details : Mappable {
     var agent_long : String?
     var del_service_id : Int?
     var service_status : Int?
+    var delivery_amount_with_vat : String?
+    var delivery_vat_amount : String?
     var delivery_times : [Delivery_times]?
 
     init?(map: Map) {
@@ -1026,6 +1049,8 @@ struct NewOrder_Trip_details : Mappable {
     }
 
     mutating func mapping(map: Map) {
+        delivery_amount_with_vat <- map["delivery_amount_with_vat"]
+        delivery_vat_amount <- map["delivery_vat_amount"]
         service_going_on <- map["service_going_on"]
         search_id <- map["search_id"]
         service_id <- map["service_id"]

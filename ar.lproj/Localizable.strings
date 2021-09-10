@@ -316,6 +316,7 @@
 "Add Similar Product"="إضافة منتج مماثل";
 "Add Variant Product"="إضافة منتج مختلف";
 "Save and send For approval" = "حفظ و إرسال للموافقة";
+"Any Problem?" = "هل توجد مشكلة؟";
 "Add Slab" = "أضف حد";
 "wholesale_" = "البيع بالجملة";
 "Permanently closed" = "مغلق دائماً";
@@ -352,7 +353,6 @@
 "Paid" = "تم الدفع";
 "How was your experience with" = "كيف كانت تجربتك مع";
 "Have you completed this task item?" = "هل تم إنجاز العمل؟";
-
 
 "Please enter iban number" = "الرجاء إدخال رقم الآيبان";
 "Please Re-enter iban number" = "إعادة إدخال رقم الآيبان";
@@ -538,12 +538,13 @@
 "Cancellation Request" = "طلب إلغاء";
 "Accept Cancellation" = "قبول الإلغاء";
 "I'm on my way" = "أنا في الطريق";
-"Total Weight" = "الوزن الإجمالي";
-"Total Size" = "الحجم الإجمالي";
+"Total Weight" = "الوزن الإجمالي:";
+"Total Size" = " الحجم الإجمالي:";
 "kg" = "kg";
 "Confirm & Upload Invoice" = "تأكيد ورفع الفاتورة";
-"I have reached BO's store" = "I have reached BO's store";
+"I have reached BO's store" = "تأكيد الوصول للمتجر";
 "Speak:" = "لغة التحدث:";
+"Note: Please share the OTP with Business Owner which you will receive after Confirm and Upload Invoice' to confirm that you have received all products from Business Owner." = "ملاحظة: قم برفع الفاتورة وإضغط على زر تأكيد ورفع الفاتورة لتحصل على رمز التأكيد الذي سيطلبه منك البائع لتأكيد تسليم المنتجات.";
 
 //Forget Password
 "Business Owner" = "صاحب العمل";
@@ -633,9 +634,6 @@
 "UNLIMITED" = "لامحدود" ;
 "Order Id:" = "رقم الطلب:";
 "Total Amount" = "المبلغ الإجمالي";
-"Any Problem?" = "هل توجد مشكلة؟";
- 
- 
 "Please upload branch logo" = "الرجاء رفع صورة الشعار";
 "File uploaded successfully" = "تم رفع الصورة بنجاح";
 "Please enter branch name" = "الرجاء إدخال اسم الفرع";

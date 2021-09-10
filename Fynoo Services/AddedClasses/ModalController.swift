@@ -652,6 +652,28 @@ extension String {
      var isInt: Bool {
            return Int(self) != nil
        }
+    
+    
+    func heightOfString(usingFont font: UIFont) -> CGFloat {
+
+               let fontAttributes = [NSAttributedString.Key.font: font]
+
+               let size = self.size(withAttributes: fontAttributes)
+
+               return size.height
+
+           }
+
+
+        func widthOfString(usingFont font: UIFont) -> CGFloat {
+
+               let fontAttributes = [NSAttributedString.Key.font: font]
+
+               let size = self.size(withAttributes: fontAttributes)
+
+               return size.width
+
+    }
 }
 
 extension Double {

@@ -597,11 +597,18 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         cell.cardView.cornerRadius = 8
         cell.statusView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         cell.cardView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        cell.price.text = "\(tripListListArray?[index.row].currency ?? "") \(ModalController.toString(tripListListArray?[index.row].almost_total_price ?? 0.0 as Any))"
+        
         if tripListListArray?[index.row].status == 0 || tripListListArray?[index.row].status == 3 {
             cell.almostPriceLbl.text = "Almost Total Amount".localized
         }else
         {
             cell.almostPriceLbl.text = "Actual Total Amount".localized
+        }
+        if tripListListArray?[index.row].user_type ?? "" == "BO"
+        {
+            cell.almostPriceLbl.text = "Delivery Price".localized
+            cell.price.text = "\(tripListListArray?[index.row].currency ?? "") \(ModalController.toString(tripListListArray?[index.row].delivery_price ?? 0.0 as Any))"
         }
         cell.name.text = tripListListArray?[index.row].cust_name ?? ""
         cell.profileImageView.sd_setImage(with: URL(string: tripListListArray?[index.row].cust_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
@@ -611,7 +618,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         cell.orderId.text = "\("Order Id ".localized):\(tripListListArray?[index.row].order_id ?? "")"
         cell.date.text  = tripListListArray?[index.row].order_date ?? ""
         cell.address.text = "\("Address".localized):\(tripListListArray?[index.row].address ?? "")"
-        cell.price.text = "\(tripListListArray?[index.row].currency ?? "") \(ModalController.toString(tripListListArray?[index.row].almost_total_price ?? 0.0 as Any))"
+       
         cell.walletIcon.sd_setImage(with: URL(string: tripListListArray?[index.row].payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
         cell.statusLbl.text = tripListListArray?[index.row].status_desc
        

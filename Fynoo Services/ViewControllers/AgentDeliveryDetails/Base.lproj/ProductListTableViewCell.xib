@@ -57,13 +57,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Qty : 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLP-if-2hw">
-                                <rect key="frame" x="60" y="53.5" width="76" height="17"/>
+                                <rect key="frame" x="60" y="53.5" width="209" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Price (Almost): 1800.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkY-HJ-0Gd">
-                                <rect key="frame" x="60" y="75.5" width="176" height="17"/>
+                                <rect key="frame" x="60" y="75.5" width="209" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -71,6 +71,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5G-bR-TGv">
                                 <rect key="frame" x="60" y="117.5" width="61" height="14"/>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="rxo-Wq-Wwi"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
                                 <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -129,9 +132,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2g-AU-WTZ">
-                                <rect key="frame" x="131" y="111.5" width="40" height="26"/>
+                                <rect key="frame" x="131" y="111.5" width="74" height="26"/>
                                 <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
-                                <state key="normal" title="Accept">
+                                <state key="normal" title="Accepthhhhh">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -150,6 +153,8 @@
                             <constraint firstAttribute="trailing" secondItem="Eth-UN-ctQ" secondAttribute="trailing" id="FAP-vC-ez1"/>
                             <constraint firstItem="wDl-t6-mMp" firstAttribute="trailing" secondItem="LmP-aw-J0b" secondAttribute="trailing" id="Gry-QM-TeP"/>
                             <constraint firstItem="jrn-Zp-r2X" firstAttribute="leading" secondItem="e0I-7v-Kik" secondAttribute="trailing" constant="10" id="I3S-A0-Y8q"/>
+                            <constraint firstItem="vLP-if-2hw" firstAttribute="trailing" secondItem="jrn-Zp-r2X" secondAttribute="trailing" id="LMb-ym-1cw"/>
+                            <constraint firstAttribute="bottom" secondItem="j5G-bR-TGv" secondAttribute="bottom" constant="22.5" id="Nlm-41-YJk"/>
                             <constraint firstAttribute="trailing" secondItem="2UQ-wL-2Cb" secondAttribute="trailing" constant="5" id="VYC-0P-XIg"/>
                             <constraint firstItem="j5G-bR-TGv" firstAttribute="leading" secondItem="vkY-HJ-0Gd" secondAttribute="leading" id="XWu-0u-1JA"/>
                             <constraint firstItem="2UQ-wL-2Cb" firstAttribute="centerY" secondItem="j5G-bR-TGv" secondAttribute="centerY" id="Ycz-Qd-Vqb"/>
@@ -163,6 +168,7 @@
                             <constraint firstItem="m2g-AU-WTZ" firstAttribute="centerY" secondItem="j5G-bR-TGv" secondAttribute="centerY" id="mzw-aj-a6a"/>
                             <constraint firstAttribute="trailing" secondItem="LmP-aw-J0b" secondAttribute="trailing" constant="5" id="onU-yT-YSC"/>
                             <constraint firstItem="e0I-7v-Kik" firstAttribute="leading" secondItem="EY8-Ek-xVc" secondAttribute="leading" constant="10" id="pTm-zO-6VB"/>
+                            <constraint firstItem="vkY-HJ-0Gd" firstAttribute="trailing" secondItem="vLP-if-2hw" secondAttribute="trailing" id="tLx-XM-3ef"/>
                             <constraint firstItem="LmP-aw-J0b" firstAttribute="top" secondItem="EY8-Ek-xVc" secondAttribute="top" constant="20" id="uNE-C0-iO0"/>
                             <constraint firstItem="jrn-Zp-r2X" firstAttribute="top" secondItem="EY8-Ek-xVc" secondAttribute="top" constant="15" id="x2m-gv-Qov"/>
                             <constraint firstItem="azc-FN-gW7" firstAttribute="trailing" secondItem="2UQ-wL-2Cb" secondAttribute="trailing" id="xOF-vn-wo0"/>

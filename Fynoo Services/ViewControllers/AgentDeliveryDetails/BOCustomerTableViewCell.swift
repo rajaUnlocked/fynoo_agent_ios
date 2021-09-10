@@ -41,6 +41,9 @@ class BOCustomerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var viewFortotalOutoff: UIView!
     
+    @IBOutlet weak var imgBankNote: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
