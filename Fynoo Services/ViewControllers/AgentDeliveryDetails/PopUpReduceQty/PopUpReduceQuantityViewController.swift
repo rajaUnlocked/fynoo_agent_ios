@@ -26,7 +26,7 @@ class PopUpReduceQuantityViewController: UIViewController,CancelReasonViewCellDe
     var reasonListData : reasonlistData?
     var delegateDelegate : PopUpAcceptProductDelegate?
     var SelectedIndex:NSMutableArray = NSMutableArray()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,7 +51,7 @@ class PopUpReduceQuantityViewController: UIViewController,CancelReasonViewCellDe
         self.btnREduceQtyOutlet.titleLabel!.font = UIFont(name:"\(fontNameLight)",size:16)
         
         
-        }
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
@@ -59,20 +59,20 @@ class PopUpReduceQuantityViewController: UIViewController,CancelReasonViewCellDe
             
         }else{
             dismiss(animated: true, completion: nil)
-
+            
         }
     }
     
     func getPopupHeight() {
-
-           
-                let count = self.reasonListData?.data?.reason_list?.count ?? 0
-                let height = CGFloat(count*35) + 300
+        
+        
+        let count = self.reasonListData?.data?.reason_list?.count ?? 0
+        let height = CGFloat(count*35) + 300
         viewHeightConstant.constant = height
-//                          self.contentSizeInPopup = CGSize(width: UIScreen.main.bounds.width, height:height)
-
-                self.tableView.reloadData()
-            }
+        //                          self.contentSizeInPopup = CGSize(width: UIScreen.main.bounds.width, height:height)
+        
+        self.tableView.reloadData()
+    }
     
     func selectedReason(_ sender: Any) {
         print("abc")
@@ -89,14 +89,41 @@ class PopUpReduceQuantityViewController: UIViewController,CancelReasonViewCellDe
         if SelectedIndex.count > 0 {
             
             let selectedID = self.SelectedIndex.object(at: 0)
-
+            
             print((ModalController.toString(selectedID as Any)))
             let str = Service.reduceQuantity
             let param = ["user_id":Singleton.shared.getUserId(),"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"item_id":itemId,"order_id":orderId,"changed_qty":"\(txtQty.text ?? "")","reason_qty_change":"\(ModalController.toString(selectedID as Any))"] as [String : Any]
             print(param)
             ServerCalls.postRequest(str, withParameters: param) { (response, success) in
-                self.delegateDelegate?.reloadPage()
-                self.dismiss(animated: true, completion: nil)
+                //                self.delegateDelegate?.reloadPage()
+                //                self.dismiss(animated: true, completion: nil)
+                
+                ModalClass.stopLoadingAllLoaders(self.view)
+                if success == true {
+                    
+                    let ResponseDict : NSDictionary = (response as? NSDictionary)!
+                    print("ResponseDictionary %@",ResponseDict)
+                    let x = ResponseDict.object(forKey: "error") as! Bool
+                    if x {
+                        ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "error_description") as? String)!, msg: "")
+                        
+                    }
+                    else{
+                        
+                        self.delegateDelegate?.reloadPage()
+                        self.dismiss(animated: true, completion: nil)
+                        
+                        ModalController.showSuccessCustomAlertWith(title: ((ResponseDict.object(forKey: "error_description") as? String)!), msg: "")
+                    }
+                }else{
+                    
+                    if response == nil {
+                        print ("connection error")
+                        ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                    }else{
+                        print ("data not in proper json")
+                    }
+                }
             }
             
         }else{
@@ -107,13 +134,13 @@ class PopUpReduceQuantityViewController: UIViewController,CancelReasonViewCellDe
         
         
         
-//        let str = Service.deleteIndivisualItem
-//        let param = ["user_id":Singleton.shared.getUserId(),"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"item_id":itemId,"order_id":orderId,"reason_id":"8"] as [String : Any]
-//        print(param)
-//        ServerCalls.postRequest(str, withParameters: param) { (response, success) in
-////            self.delegate?.reloadPage()
-//            self.dismiss(animated: true, completion: nil)
-//        }
+        //        let str = Service.deleteIndivisualItem
+        //        let param = ["user_id":Singleton.shared.getUserId(),"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"item_id":itemId,"order_id":orderId,"reason_id":"8"] as [String : Any]
+        //        print(param)
+        //        ServerCalls.postRequest(str, withParameters: param) { (response, success) in
+        ////            self.delegate?.reloadPage()
+        //            self.dismiss(animated: true, completion: nil)
+        //        }
         
     }
     
@@ -121,9 +148,9 @@ class PopUpReduceQuantityViewController: UIViewController,CancelReasonViewCellDe
     @IBAction func closeClicked(_ sender: Any){
         
         self.dismiss(animated: true, completion: nil)
-
+        
     }
-
+    
 }
 
 
@@ -143,7 +170,7 @@ extension PopUpReduceQuantityViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      
+        
         let reasonID = ModalController.toString( reasonListData?.data?.reason_list?[indexPath.row].reason_id as Any)
         if SelectedIndex.count > 0 {
             if SelectedIndex.contains(reasonID){
@@ -168,10 +195,10 @@ extension PopUpReduceQuantityViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CancelReasonViewCell", for: indexPath) as! CancelReasonViewCell
         cell.selectionStyle = .none
-            cell.upperLabel.isHidden = true
+        cell.upperLabel.isHidden = true
         cell.selectBtn.isUserInteractionEnabled = false
         
-            cell.name.text = reasonListData?.data?.reason_list?[indexPath.row].reason ?? ""
+        cell.name.text = reasonListData?.data?.reason_list?[indexPath.row].reason ?? ""
         
         let reasonID = ModalController.toString(reasonListData?.data?.reason_list?[indexPath.row].reason_id as Any)
         

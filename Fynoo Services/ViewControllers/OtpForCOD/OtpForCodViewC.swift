@@ -28,12 +28,12 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.tableView.separatorStyle = .none
-        
         tableView.register(UINib(nibName: "BusinessOwnerTableViewCell", bundle: nil), forCellReuseIdentifier: "BusinessOwnerTableViewCell");
         tableView.register(UINib(nibName: "InformationTableViewCell", bundle: nil), forCellReuseIdentifier: "InformationTableViewCell");
         tableView.register(UINib(nibName: "OtpTableViewCell", bundle: nil), forCellReuseIdentifier: "OtpTableViewCell");
+        tableView.register(UINib(nibName: "AddedNewViewBoTableViewCell", bundle: nil), forCellReuseIdentifier: "AddedNewViewBoTableViewCell");
+        tableView.register(UINib(nibName: "BOCustomerTableViewCell", bundle: nil), forCellReuseIdentifier: "BOCustomerTableViewCell");
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -50,12 +50,9 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.removeViewController(ProductDetailsViewC.self)
-        
         Singleton.shared.setDeliveryDashBoardTabID(tabId: 2)
         
     }
-    
-    
     func SetFont() {
         
         let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
@@ -150,12 +147,9 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
     func navigationClicked(_ sender: Any) {
         let vc = AgentDeliveryDetailViewController()
         vc.tripId = tripId
-        vc.checkUsertype = onTheWayTripDetailData?.data?.trip_details?.user_type ?? ""
+        vc.checkUsertype = "CUSTOMER"
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    
-    
     
     @IBAction func tappedTobtnConfirmDelivery(_ sender: UIButton) {
         
@@ -165,7 +159,6 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
         }
         
         if ((onTheWayTripDetailData?.data?.trip_details?.payment_type) == "COD") {
-            
             if cod == false {
                 ModalController.showNegativeCustomAlertWith(title: "", msg: "Please Check COD Amount For Customer".localized)
                 return
@@ -176,8 +169,11 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
     }
     
     func selectClicked(_ sender: Any) {
-        
-        let index = IndexPath(row: 0, section: 2)
+        var section = 2
+        if (onTheWayTripDetailData?.data?.trip_details?.user_type) == "BO" {
+            section = 3
+        }
+        let index = IndexPath(row: 0, section: section)
         let cell: OtpTableViewCell = self.tableView.cellForRow(at: index) as! OtpTableViewCell
         
         if cell.btnReceivedCodAmt.isSelected == true {
@@ -304,7 +300,11 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
         {
             txt4 = textField.text!
         }
-        let index = IndexPath(row: 0, section: 2)
+        var section = 2
+        if (onTheWayTripDetailData?.data?.trip_details?.user_type) == "BO" {
+            section = 3
+        }
+        let index = IndexPath(row: 0, section: section)
         let cell: OtpTableViewCell = self.tableView.cellForRow(at: index) as! OtpTableViewCell
         
         let text = textField.text
@@ -512,7 +512,12 @@ class OtpForCodViewC: UIViewController,UITableViewDelegate,UITextFieldDelegate,O
 extension OtpForCodViewC : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+       if onTheWayTripDetailData?.data?.trip_details?.user_type == "BO" {
+            return 4
+        }else
+        {
         return 3
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -522,10 +527,21 @@ extension OtpForCodViewC : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        
-        
+        if onTheWayTripDetailData?.data?.trip_details?.user_type == "BO" {
+            if indexPath.section == 0{
+                
+                return 170
+            }else if indexPath.section == 1{
+                return 180
+            }else if indexPath.section == 2{
+                return 155
+            }else
+            {
+                return 220
+            }
+         }else
+        {
         if indexPath.section == 1{
-            
             return 155
         }else if indexPath.section == 0{
             return 170
@@ -534,6 +550,8 @@ extension OtpForCodViewC : UITableViewDataSource {
         }else
         {
             return 170
+        }
+            
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -545,14 +563,60 @@ extension OtpForCodViewC : UITableViewDataSource {
             cell.selectionStyle = .none
             cell.delegate = self
             
-            cell.lblBoName.text = onTheWayTripDetailData?.data?.trip_details?.cust_name ?? ""
-            cell.lblBoAddress.text = onTheWayTripDetailData?.data?.trip_details?.address ?? ""
-            cell.bo_total_rating.text = "(\(onTheWayTripDetailData?.data?.trip_details?.total_rating ?? "0"))"
-            cell.bo_rating.text = onTheWayTripDetailData?.data?.trip_details?.rating ?? "0"
-            cell.imgbo_pic.sd_setImage(with: URL(string: onTheWayTripDetailData?.data?.trip_details?.cust_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+            if onTheWayTripDetailData?.data?.trip_details?.user_type == "BO" {
+            
+            cell.lblBoName.text = onTheWayTripDetailData?.data?.trip_details?.bo_name ?? ""
+            cell.lblBoAddress.text = onTheWayTripDetailData?.data?.trip_details?.bo_address ?? ""
+            cell.bo_total_rating.text = "(\(onTheWayTripDetailData?.data?.trip_details?.bo_total_rating ?? "0"))"
+            cell.bo_rating.text = onTheWayTripDetailData?.data?.trip_details?.bo_rating ?? "0"
+            cell.imgbo_pic.sd_setImage(with: URL(string: onTheWayTripDetailData?.data?.trip_details?.bo_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+            }else
+            {
+                
+                cell.lblBoName.text = onTheWayTripDetailData?.data?.trip_details?.cust_name ?? ""
+                cell.lblBoAddress.text = onTheWayTripDetailData?.data?.trip_details?.address ?? ""
+                cell.bo_total_rating.text = "(\(onTheWayTripDetailData?.data?.trip_details?.total_rating ?? "0"))"
+                cell.bo_rating.text = onTheWayTripDetailData?.data?.trip_details?.rating ?? "0"
+                cell.imgbo_pic.sd_setImage(with: URL(string: onTheWayTripDetailData?.data?.trip_details?.cust_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+                
+            }
             
             return cell
         }else if indexPath.section == 1{
+            
+            
+            if onTheWayTripDetailData?.data?.trip_details?.user_type == "BO" {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "BOCustomerTableViewCell",for: indexPath) as! BOCustomerTableViewCell
+                cell.selectionStyle = .none
+                cell.delegate = self
+                
+                cell.lblCustName.text = onTheWayTripDetailData?.data?.trip_details?.cust_name ?? ""
+                cell.lblCustAddress.text = onTheWayTripDetailData?.data?.trip_details?.address ?? ""
+                cell.lblCusttotalrating.text = "(\(onTheWayTripDetailData?.data?.trip_details?.total_rating ?? "0"))"
+                cell.lblCustrating.text = onTheWayTripDetailData?.data?.trip_details?.rating ?? "0"
+                cell.imgCustpic.sd_setImage(with: URL(string: onTheWayTripDetailData?.data?.trip_details?.cust_image ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+                
+                
+                cell.lblQty.text = "0\(onTheWayTripDetailData?.data?.trip_details?.order_qty ?? 0)"
+                cell.lblStAlmosttoalPrice.text = "Total Amount".localized
+                let orderId = "Order Id:".localized
+                cell.lblOrderId.text = "\(orderId) \(onTheWayTripDetailData?.data?.trip_details?.order_id ?? "0")"
+                
+//                let timeSTAMP = "\(onTheWayTripDetailData?.data?.trip_details?.order_date ?? "")"
+//                cell.lblOrderDate.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: timeSTAMP, format: "dd-MMM-yyyy HH:mm a")
+                cell.lblOrderDate.text = "\(onTheWayTripDetailData?.data?.trip_details?.order_date ?? "")"
+               
+                cell.lblCurrencyCode.isHidden = true
+                cell.lblStAlmosttoalPrice.isHidden = true
+                cell.lblTotalOrder.isHidden = true
+                cell.viewFortotalOutoff.isHidden = true
+                cell.imgPaymentIcon.isHidden = true
+                cell.imgBankNote.isHidden = true
+                cell.order_price.isHidden = true
+                
+                return cell
+            }else
+            {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "InformationTableViewCell",for: indexPath) as! InformationTableViewCell
             cell.selectionStyle = .none
@@ -579,6 +643,43 @@ extension OtpForCodViewC : UITableViewDataSource {
             
             
             return cell
+            }
+            
+           
+        }
+        else if indexPath.section == 2{
+            
+            if onTheWayTripDetailData?.data?.trip_details?.user_type == "BO" {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AddedNewViewBoTableViewCell",for: indexPath) as! AddedNewViewBoTableViewCell
+                cell.selectionStyle = .none
+                let BoxQty = "Box Qty:".localized
+                
+        cell.lblBoxQty.text = "\(BoxQty) 0\(onTheWayTripDetailData?.data?.trip_details?.order_qty ?? 0)"
+                
+                
+                let OrderId = "Order Id:".localized
+                
+                cell.lblOrderId.text = "\(OrderId) \(onTheWayTripDetailData?.data?.trip_details?.order_id ?? "0")"
+                let kg = "kg".localized
+                let cm = "cm".localized
+                let TotalWeight = "Total Weight".localized
+                let TotalSize = "Total Size".localized
+                
+                cell.lblSize.text = "\(TotalSize): \(onTheWayTripDetailData?.data?.trip_details?.total_size ?? 0.0)\(cm)"
+                
+                cell.lblOrderId.text = "\(TotalWeight): \(onTheWayTripDetailData?.data?.trip_details?.total_weight ?? 0.0)\(kg)"
+                
+                cell.lblCurrencyCode.text = onTheWayTripDetailData?.data?.trip_details?.order_currency ?? "0"
+                
+                cell.order_price.text = "\(onTheWayTripDetailData?.data?.trip_details?.delivery_price ?? "0.00")"
+              
+                cell.imgPaymentIcon.sd_setImage(with: URL(string: onTheWayTripDetailData?.data?.trip_details?.payment_icon ?? ""), placeholderImage: UIImage(named: "cod_icon"))
+                return cell
+            }else{
+                return entryOtpCell(index: indexPath)
+            }
+            
+            
         }else {
             
             return entryOtpCell(index: indexPath)

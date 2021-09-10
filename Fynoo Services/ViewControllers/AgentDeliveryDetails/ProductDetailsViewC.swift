@@ -57,6 +57,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         tableView.register(UINib(nibName: "ProductListTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductListTableViewCell");
         tableView.register(UINib(nibName: "AddInvoiceInformationTableViewCell", bundle: nil), forCellReuseIdentifier: "AddInvoiceInformationTableViewCell");
         tableView.register(UINib(nibName: "ConfirmToreceiveItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ConfirmToreceiveItemTableViewCell");
+        tableView.register(UINib(nibName: "AddedNewViewBoTableViewCell", bundle: nil), forCellReuseIdentifier: "AddedNewViewBoTableViewCell");
         
        
         tableView.delegate=self
@@ -204,9 +205,8 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     }
     
         func getOrderDetail(){
-            
+            isInvoiceEnable = true
             var userId = "\(AuthorisedUser.shared.user?.data?.id ?? 0)"
-            
             if userId == "0"{
                 userId = ""
                 
@@ -724,11 +724,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
                 ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
             }
         }
-
     }
-    
-    
-    
     func callAcceptIndivisualItems(itemId : Int){
 
         let str = Service.acceptIndivisualItem
@@ -816,6 +812,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         
         if orderDetailData?.data?.user_type == "BO" {
             
+           /*
             switch orderDetailData?.data?.is_agent_reached {
             case 0:
                 callAgentReachedToBoStore()
@@ -839,7 +836,15 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             default:
                 return
               }
-           
+        */
+            
+            //Mark new Design change
+            if checkReceivedItem == false {
+                ModalController.showNegativeCustomAlertWith(title: "", msg: "Please Check i received the items from BO".localized)
+                return
+               }
+            callAgentConfirmToReceivItems()
+            
         }else
         {
         
@@ -982,7 +987,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
     // Mark--button status for bo
     
     func callMainButtonstatusForBO()  {
-        
+        /*
         switch orderDetailData?.data?.is_agent_reached {
         case 0:
             self.btnChangeStatus.setTitle("I have reached BO's store".localized, for: .normal)
@@ -991,24 +996,41 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             self.btnChangeStatus.setTitle("Confirm & Upload Invoice".localized, for: .normal)
         case 2:
             self.btnChangeStatus.setTitle("Confirm to received items".localized, for: .normal)
+            
+            Singleton.shared.setDeliveryDashBoardTabID(tabId: 2)
+            Singleton.shared.setDelServiceID(delServiceId: "\((orderDetailData?.data?.del_service_id)!)")
            
         default:
            print("")
         }
         
+ */
+        //Mark new Design change
+        
+        self.btnChangeStatus.setTitle("Confirm to received items".localized, for: .normal)
+        
+        Singleton.shared.setDeliveryDashBoardTabID(tabId: 2)
+        Singleton.shared.setDelServiceID(delServiceId: "\((orderDetailData?.data?.del_service_id)!)")
+        //
         
         if orderDetailData?.data?.is_agent_reached == 2 && orderDetailData?.data?.order_status == 1 {
             self.btnChangeStatus.setTitle("Invoice Uploaded".localized, for: .normal)
+            
         }else if  orderDetailData?.data?.is_agent_reached == 2 && orderDetailData?.data?.order_status == 2 {
             self.btnChangeStatus.setTitle("Delivered".localized, for: .normal)
             self.btnChangeStatus.isUserInteractionEnabled = false
             self.btnChangeStatus.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            
+            Singleton.shared.setDeliveryDashBoardTabID(tabId: 3)
+            Singleton.shared.setDelServiceID(delServiceId: "\((orderDetailData?.data?.del_service_id)!)")
         }
         
         if orderDetailData?.data?.order_status == 3 {
             self.btnChangeStatus.setTitle("CancelledStatus".localized, for: .normal)
             self.btnChangeStatus.isUserInteractionEnabled = false
             self.btnChangeStatus.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            Singleton.shared.setDeliveryDashBoardTabID(tabId: 4)
+            Singleton.shared.setDelServiceID(delServiceId: "\((orderDetailData?.data?.del_service_id)!)")
         }
     }
     
@@ -1082,8 +1104,16 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             if orderDetailData?.data?.report_to_bo == true {
                 cell.btnAnyProblem.isHidden = false
 //                cell.btnAnyProblem.setTitle("Report Business Owner", for: .normal)
-                let myNormalAttributedTitle = NSAttributedString(string: "Report Business Owner".localized,attributes: [NSAttributedString.Key.foregroundColor : UIColor.AppThemeBlueTextColor(),.underlineStyle: NSUnderlineStyle.single.rawValue])
-                cell.btnAnyProblem.setAttributedTitle(myNormalAttributedTitle, for: .normal)
+//                let myNormalAttributedTitle = NSAttributedString(string: "Report Business Owner".localized,attributes: [NSAttributedString.Key.foregroundColor : UIColor.AppThemeBlueTextColor(),.underlineStyle: NSUnderlineStyle.single.rawValue])
+//                cell.btnAnyProblem.setAttributedTitle(myNormalAttributedTitle, for: .normal)
+                
+                let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+                let lineView1 = UIView(frame: CGRect(x: 0, y: cell.btnAnyProblem.frame.size.height - 12, width: ("Report Business Owner".localized ).widthOfString(usingFont: UIFont(name: "\(fontNameLight)", size: 12)!), height: 0.6))
+                lineView1.backgroundColor = Constant.Blue_TEXT_COLOR
+                cell.btnAnyProblem.addSubview(lineView1)
+                cell.btnAnyProblem.setTitle("Report Business Owner".localized, for: .normal)
+                cell.btnAnyProblem.titleLabel?.textColor = Constant.Blue_TEXT_COLOR
+                
                 cell.contentView.isUserInteractionEnabled = true
                 cell.tapToBtnUploadInvoice.isUserInteractionEnabled = false
                 cell.txtTotalAmtWithoughtVat.isUserInteractionEnabled = false
@@ -1119,10 +1149,6 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             Singleton.shared.setDeliveryDashBoardTabID(tabId: 2)
             Singleton.shared.setDelServiceID(delServiceId: "\((orderDetailData?.data?.del_service_id)!)")
         }
-        
-        
-        
-        
         if checkInvoiceUploaded == true {
             self.btnChangeStatus.setTitle("Invoice Uploaded".localized, for: .normal)
             self.btnChangeStatus.isUserInteractionEnabled = false
@@ -1216,26 +1242,23 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         cell.selectionStyle = .none
         cell.delegate = self
        
-        let ItemQty = "Item Qty".localized
+        let ItemQty = "Box Qty".localized
         
         cell.lblQty.text = "\(ItemQty): 0\(orderDetailData?.data?.item_detail? [index.row].qty ?? 0)"
         let totalWeight = "Total Weight".localized
         let kg = "kg".localized
+        let cm = "cm".localized
         cell.lblOrderId.text = "\(totalWeight):  \(orderDetailData?.data?.total_weight ?? 0.0)\(kg)"
         let totalSize = "Total Size".localized
-        cell.lblDate.text = "\(totalSize):  \(orderDetailData?.data?.total_size ?? 0.0)"
-        
-        
+        cell.lblDate.text = "\(totalSize):  \(orderDetailData?.data?.total_size ?? 0.0)\(cm)"
 
-//        let timeSTAMP = "\(orderDetailData?.data?.order_date ?? 0)"
-//        cell.lblDate.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: timeSTAMP, format: "dd-MMM-yyyy HH:mm a")
         let testString = "\(orderDetailData?.data?.otp ?? "")"
-        
-
         let ansTest = testString.enumerated().compactMap({ ($0 > 0) && ($0 % 1 == 0) ? "  \($1)" : "\($1)" }).joined()
-        
         cell.lblOtp.text =  ansTest
-       
+        
+        cell.lblOrderPrice.text = "\(orderDetailData?.data?.delivery_price ?? "0.00")"
+        cell.imgPaymentIcon.sd_setImage(with: URL(string: orderDetailData?.data?.payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+        cell.lblCurrency.text = orderDetailData?.data?.currency_code
         
 //        switch orderDetailData?.data?.is_agent_reached {
 //        case 0:
@@ -1285,7 +1308,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
                 cell.btnDelete.isHidden = true
                 cell.btnReduceQuantity.isHidden = true
                 cell.lblLineReduceQty.isHidden = true
-        cell.btnAccept.isHidden = true
+                cell.btnAccept.isHidden = true
         let ItemQty = "Item Qty".localized
         
         cell.lblQty.text = "\(ItemQty): 0\(orderDetailData?.data?.item_detail? [index.row].qty ?? 0)"
@@ -1296,6 +1319,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         cell.imgProduct.sd_setImage(with: URL(string: orderDetailData?.data?.item_detail?[index.row].product_pic ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
                 if orderDetailData?.data?.order_status == 3 {
                     cell.imgCart.image = #imageLiteral(resourceName: "shopping-cartgrayCross")
+                    
                 }else
                 {
                     cell.imgCart.image = #imageLiteral(resourceName: "shopping-cartGreen")
@@ -1311,6 +1335,41 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
 
             
             return cell
+        }
+    
+    
+    func addeddNewViewForBo(index : IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "AddedNewViewBoTableViewCell",for: index) as! AddedNewViewBoTableViewCell
+        
+        cell.lblExptViewHeight.constant = 0
+        cell.viewExptDel.isHidden = true
+        cell.stackUpperConstant.constant = 0
+        
+        if orderDetailData?.data?.order_status == 3 {
+            cell.lblCancelReason.isHidden = false
+        }
+        
+        
+        let boxQty = "Box Qty".localized
+        
+        cell.lblBoxQty.text = "\(boxQty): 0\(orderDetailData?.data?.order_qty ?? 0)"
+        let totalWeight = "Total Weight".localized
+        let kg = "kg".localized
+        let cm = "cm".localized
+        cell.lblOrderId.text = "\(totalWeight):  \(orderDetailData?.data?.total_weight ?? 0.0)\(kg)"
+        let totalSize = "Total Size".localized
+        cell.lblSize.text = "\(totalSize):  \(orderDetailData?.data?.total_size ?? 0.0)\(cm)"
+
+        
+        cell.lblCurrencyCode.text = "\(orderDetailData?.data?.currency_code ?? "")"
+        cell.order_price.text = "\(orderDetailData?.data?.delivery_price ?? "")"
+        let cancellationReason = "Cancellation Reason".localized
+        cell.lblCancelReason.text = "\(cancellationReason):\(orderDetailData?.data?.cancellation_reason ?? "")"
+        
+        
+        
+            return cell
+        
         }
     
  //arv
@@ -1471,8 +1530,14 @@ extension ProductDetailsViewC : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        if ((orderDetailData?.data?.user_type == "BO") && (orderDetailData?.data?.is_agent_reached == 2) && (orderDetailData?.data?.order_status == 0)){
+//        if ((orderDetailData?.data?.user_type == "BO") && (orderDetailData?.data?.is_agent_reached == 2) && (orderDetailData?.data?.order_status == 0)){
+//            return 3
+        
+        //Mark new design change
+        
+        if ((orderDetailData?.data?.user_type == "BO")){
             return 3
+            
         }else
         {
             return 4
@@ -1483,9 +1548,14 @@ extension ProductDetailsViewC : UITableViewDataSource {
         
         if section == 2 {
             
-            if ((orderDetailData?.data?.user_type == "BO") && (orderDetailData?.data?.is_agent_reached == 2) && (orderDetailData?.data?.order_status == 0))
+//            if ((orderDetailData?.data?.user_type == "BO") && (orderDetailData?.data?.is_agent_reached == 2) && (orderDetailData?.data?.order_status == 0))
+//            {
+//             return 1
+            //Mark new design change
+            if ((orderDetailData?.data?.user_type == "BO") && (orderDetailData?.data?.order_status == 0))
             {
              return 1
+            
             }else
             {
             return orderDetailData?.data?.item_detail?.count ?? 0
@@ -1502,7 +1572,11 @@ extension ProductDetailsViewC : UITableViewDataSource {
 
         if indexPath.section == 1{
             
-            if (orderDetailData?.data?.user_type == "BO") && (orderDetailData?.data?.is_agent_reached == 2)  {
+//            if (orderDetailData?.data?.user_type == "BO") && (orderDetailData?.data?.is_agent_reached == 2)  {
+//               return 180
+            
+            //Mark new design change
+            if (orderDetailData?.data?.user_type == "BO"){
                return 180
                 
             }else
@@ -1522,14 +1596,23 @@ extension ProductDetailsViewC : UITableViewDataSource {
         }else if indexPath.section == 2
         {
             if orderDetailData?.data?.user_type == "BO" {
-                if (orderDetailData?.data?.is_agent_reached) == 2 && (orderDetailData?.data?.order_status) == 0{
-                    return 350
-                }
+//                if (orderDetailData?.data?.is_agent_reached) == 2 && (orderDetailData?.data?.order_status) == 0{
+//                    return 350
+//                }
+                
+                //Mark new design change
+                   if (orderDetailData?.data?.order_status) == 0{
+                       return 400
+                   }else
+                   {
+                    return 250
+                   }
             }
             if (orderDetailData?.data?.item_detail? [indexPath.row].reason ?? "") != "" {
                 return 160
             }
-            return 160
+//            return 160
+            return UITableView.automaticDimension
         }else
         {
             return 0
@@ -1606,16 +1689,14 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     
                     if orderDetailData?.data?.user_type == "BO" {
                         
-                        if orderDetailData?.data?.is_agent_reached == 2{
-                            cell.viewFortotalOutoff.isHidden = true
-                        }
-                        
+//                        if orderDetailData?.data?.is_agent_reached == 2{
+//                            cell.viewFortotalOutoff.isHidden = true
+//                        }
+                        //Mark new design change
+                        cell.viewFortotalOutoff.isHidden = true
                     }
                   
                     cell.lblTime.text = lblWatingTime
-                    
-//                    calculateDistanceFromLatLong()
-                    
                     
                     return cell
                 }else if indexPath.section == 3{
@@ -1631,11 +1712,19 @@ extension ProductDetailsViewC : UITableViewDataSource {
                 }else
                 {
                     if orderDetailData?.data?.user_type == "BO"  {
-                        if ((orderDetailData?.data?.is_agent_reached == 2) &&  (orderDetailData?.data?.order_status == 0))  {
-                            return entryCellForBoConfirmForReceiveItem(index: indexPath)
+//                        if ((orderDetailData?.data?.is_agent_reached == 2) &&  (orderDetailData?.data?.order_status == 0))  {
+//                            return entryCellForBoConfirmForReceiveItem(index: indexPath)
+//                        }else
+//                        {
+//                        return productListCellForBo(index: indexPath)
+//                        }
+                        
+                        //Mark- New Design change
+                        if (orderDetailData?.data?.order_status == 0){
+                          return entryCellForBoConfirmForReceiveItem(index: indexPath)
                         }else
                         {
-                        return productListCellForBo(index: indexPath)
+                            return addeddNewViewForBo(index: indexPath)
                         }
                        
                     }else
@@ -1645,6 +1734,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     
                     if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 0 {
                         cell.imgCart.image = #imageLiteral(resourceName: "Accepted")
+                        cell.btnAccept.setTitle("Accept".localized, for: .normal)
                     }
                     if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 1 {
                         cell.imgCart.image = #imageLiteral(resourceName: "shopping-cartGreen")
@@ -1654,8 +1744,8 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     
                     if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 2 || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 0 && orderDetailData?.data?.order_status == 3) || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 1 && orderDetailData?.data?.order_status == 3){
                         cell.imgCart.image = #imageLiteral(resourceName: "shopping-cartgrayCross")
-                        cell.btnReduceQuantity.isHidden = true
-                        cell.lblLineReduceQty.isHidden = true
+//                        cell.btnReduceQuantity.isHidden = true
+//                        cell.lblLineReduceQty.isHidden = true
                         cell.btnDelete.isHidden = true
                         cell.lblCancelReasonn.isHidden = false
                         cell.btnAccept.isHidden = true
@@ -1663,13 +1753,13 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     }
                     
                     
-                    if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 3 {
-                        cell.imgCart.image = #imageLiteral(resourceName: "Accepted")
-                        cell.lblLineReduceQty.isHidden = false
-                        cell.btnDelete.isHidden = false
-                        cell.btnDelete.alpha = 0.5
-                        cell.btnAccept.isHidden = false
-                    }
+//                    if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 3 {
+//                        cell.imgCart.image = #imageLiteral(resourceName: "Accepted")
+//                        cell.lblLineReduceQty.isHidden = false
+//                        cell.btnDelete.isHidden = false
+//                        cell.btnDelete.alpha = 0.5
+//                        cell.btnAccept.isHidden = false
+//                    }
                     
                     
 //                    if  orderDetailData?.data?.item_detail? [indexPath.row].qty ?? 0 < 2 && orderDetailData?.data?.item_detail? [indexPath.row].item_status == 1{
@@ -1681,6 +1771,11 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         
                         cell.btnReduceQuantity.isHidden = true
                         cell.lblLineReduceQty.isHidden = true
+                    }else
+                    {
+                        cell.btnReduceQuantity.isHidden = false
+                        cell.lblLineReduceQty.isHidden = false
+                        
                     }
                     
                     if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 3{
@@ -1691,6 +1786,21 @@ extension ProductDetailsViewC : UITableViewDataSource {
 
                         cell.btnReduceQuantity.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
                         cell.btnReduceQuantity.titleLabel?.textColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
+                        cell.btnAccept.isHidden = true
+                        cell.imgCart.image = #imageLiteral(resourceName: "Accepted")
+                        cell.btnDelete.isHidden = false
+                        cell.btnDelete.alpha = 0.5
+                       
+                    }else
+                    {
+                        
+                        cell.btnReduceQuantity.isUserInteractionEnabled = true
+                        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+                        cell.btnReduceQuantity.setTitle("Reduce Qty", for: .normal)
+                        cell.btnReduceQuantity.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:10)
+                        cell.btnReduceQuantity.titleLabel?.textColor = UIColor.AppThemeBlueTextColor()
+//                        cell.btnAccept.isHidden = false
+                        cell.btnDelete.alpha = 1
                     }
                     
                     
@@ -1710,7 +1820,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         isInvoiceEnable = false
                     }else
                     {
-                        isInvoiceEnable = true
+//                        isInvoiceEnable = true
                         
                     }
                     
@@ -1718,7 +1828,6 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.contentView.isUserInteractionEnabled = false
                         
                     }
-                        
                         
                         if checkInvoiceUploaded == true || orderDetailData?.data?.order_status == 3 || orderDetailData?.data?.order_status == 2 || orderDetailData?.data?.item_detail?[indexPath.row].item_status == 3  {
                             cell.btnDelete.isUserInteractionEnabled = false
@@ -1737,32 +1846,6 @@ extension ProductDetailsViewC : UITableViewDataSource {
     }
     
 
-
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
-           
-//           if cell.tag == 999999 {
-//
-//               currentPageNumber += 1
-//               self.getTripData()
-//           }
-       }
-    
-    func loadingCell() -> UITableViewCell {
-        
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        let activityIndicator = UIActivityIndicatorView(style: .gray)
-        cell.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-        cell.tag = 999999
-        cell.contentView.backgroundColor = UIColor.clear
-        cell.backgroundColor = cell.contentView.backgroundColor
-        activityIndicator.frame = CGRect(x: (UIScreen.main.bounds.size.width / 2) - 10, y: 12, width: 20, height: 20)
-        
-        return cell
-        
-        
-    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
           if section == 0{
