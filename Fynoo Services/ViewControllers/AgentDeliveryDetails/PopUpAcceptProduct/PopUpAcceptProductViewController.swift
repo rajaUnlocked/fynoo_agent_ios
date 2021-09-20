@@ -49,7 +49,6 @@ class PopUpAcceptProductViewController: UIViewController {
             
         }else{
             dismiss(animated: true, completion: nil)
-
         }
     }
     
@@ -73,8 +72,6 @@ class PopUpAcceptProductViewController: UIViewController {
 //            self.delegate?.reloadPage()
             
             print(response as Any)
-           
-            
             ModalClass.stopLoadingAllLoaders(self.view)
             if success == true {
                 
@@ -119,5 +116,4 @@ class PopUpAcceptProductViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
 
     }
-
 }
