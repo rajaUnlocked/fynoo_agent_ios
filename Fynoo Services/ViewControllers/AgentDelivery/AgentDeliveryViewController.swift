@@ -473,11 +473,9 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             }
         }else{
         if indexPath.row == 0{
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "AgentDeliveryTableViewCell",for: indexPath) as! AgentDeliveryTableViewCell
               cell.clickservicedocument.addTarget(self, action: #selector(clickedservicedoc), for: .touchUpInside)
             cell.switches.addTarget(self, action: #selector(switchClicked), for: .touchUpInside)
-            
             if deliverData?.data?.agent_information?.del_service_status == 1{
                 cell.switches.isSelected = true
             }else{
