@@ -491,6 +491,13 @@ static func isStringValid(_ str: String?) -> Bool {
         return attributedString
         
     }
+    static  func setStricColorfinal(str: String,str1:String,str2:String) -> NSMutableAttributedString{
+        let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: str)
+        attributedString.setColor(color: #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1), forText: str2)
+        attributedString.setColor(color: #colorLiteral(red: 0.3882352941, green: 0.3882352941, blue: 0.3882352941, alpha: 1), forText: str1)
+        return attributedString
+        
+    }
     static  func setMultiColorTextStringss(str: String,str1:String,str2:String,color:UIColor,color2:UIColor) -> NSMutableAttributedString{
         let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: str)
         attributedString.setColor(color: color, forText: str2)

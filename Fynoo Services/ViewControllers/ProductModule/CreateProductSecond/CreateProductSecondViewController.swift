@@ -285,7 +285,7 @@ class CreateProductSecondViewController: UIViewController{
         
         
         productPolicyArr[2] = pro.stockQuan == "0" ? "" : pro.stockQuan
-        checkonlineColor()
+        //checkonlineColor()
         tabvw.reloadData()
         
     }
@@ -2861,6 +2861,7 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 cell.txtView.tag = 100
                 cell.txtView.delegate = self
                 cell.downarrow.isHidden = true
+                cell.bordertxt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
                 cell.lblk.text = "    \("Warranty and Support Section".localized)"
                 cell.txtView.text = pro.supportdescriptions
                 if isDataBank{
@@ -2872,6 +2873,7 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "CountingTableViewCell", for: indexPath) as! CountingTableViewCell
                 
                 cell.selectionStyle = .none
+                cell.countLblTop.constant = 10
                 cell.leadingConstvw.constant = 10
                 cell.trailingConstvw.constant = 10
                 cell.counlbl.text = "\(pro.supportdescriptions.count)/\(pro.supportdescriptionsVal)"
@@ -2963,13 +2965,25 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                     
                     let cell = tabvw.dequeueReusableCell(withIdentifier: "SelectProductTypeNewTableViewCell", for: indexPath) as! SelectProductTypeNewTableViewCell
                     //                    cell.rightBtnLeading.constant = 90
-                    cell.leftlblwidth.constant = 70
-                    cell.middlelblwidth.constant = 70
+                    cell.outervw.backgroundColor = #colorLiteral(red: 0.9960784314, green: 0.9960784314, blue: 0.9960784314, alpha: 1)
                     cell.lbl.isHidden = false
                     cell.leftlbl.isHidden = false
                     cell.leftbtn.isHidden = false
-//                    cell.leftLblLeading.constant =  self.view.frame.width/12
-                    cell.outervw.backgroundColor = UIColor.init(red: 251/255, green: 251/255, blue: 251/255, alpha: 1)
+                    cell.rgtlbl.isHidden = false
+                    cell.rgtbtn.isHidden = false
+                    cell.leftlblwidth.constant = 90
+                    cell.middlelblwidth.constant = 70
+                    cell.lbl.textAlignment = .left
+                    cell.leftlbl.textAlignment = .left
+                    
+                    if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+                    {
+                        cell.leftlblwidth.constant = 70
+                        cell.middlelblwidth.constant = 70
+                        cell.lbl.textAlignment = .right
+                        cell.leftlbl.textAlignment = .right
+                        
+                    }
                     cell.outervw.layer.borderWidth = 0.3
                     cell.topConst.constant = 2.5
                     cell.bottomConst.constant = 2.5
@@ -3172,6 +3186,8 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                         cell.titleLabel.text = "Retail Pricing".localized
                         cell.selectionStyle = .none
                         cell.topConst.constant = 10
+                        cell.bottomConstraint.constant = 0
+                        cell.vw.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1)
                         return cell
                     }
                     else
@@ -3190,21 +3206,20 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                     if isSelected == "retail"{
                         
                         let cell = tableView.dequeueReusableCell(withIdentifier: "RetailPriceListViewCell", for: indexPath) as! RetailPriceListViewCell
-                        cell.min.text = "Min".localized
-                        cell.max.text = "Max".localized
                         cell.isUserInteractionEnabled = false
-                        if HeaderHeightSingleton.shared.LanguageSelected == "EN"
-                                           {
-                                               cell.leadingCurrency.constant = 19.5
-                                           }
-                        cell.leadingcurrencyconst.constant = 19.5
+                        cell.rgtvw.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
+
                         if pro.Onlineretail
                         {
                             cell.isUserInteractionEnabled = true
                         }
-                        cell.finalPrice.textColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
-                          cell.currency.font = UIFont(name: fontNameLight, size: 7.0)
+                        cell.price.textColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
+                        cell.finalCurrency.text = "SAR"
+//                          cell.currency.font = UIFont(name: fontNameLight, size: 12.0)
                         cell.finalPrice.font = UIFont(name: fontNameLight, size: 12.0)
+                        cell.price.font = UIFont(name: fontNameLight, size: 12.0)
+                        cell.finalCurrency.font = UIFont(name: fontNameLight, size: 8.0)
+                        cell.finalCurrency.textColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
                         cell.selectionStyle = .none
                      
                         cell.min.isHidden = true
@@ -3223,38 +3238,58 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                         cell.price.isUserInteractionEnabled = true
                         cell.finalPrice.isUserInteractionEnabled = true
                         cell.titleLabel.text = onlineretailArr[indexPath.row - 10]
-                          cell.pricewidthConst.constant = 16
+//                          cell.pricewidthConst.constant = 16
                         cell.bottomlbl.backgroundColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2")
                         cell.price.keyboardType = .decimalPad
                         cell.finalPrice.keyboardType = .decimalPad
-                     
+                        cell.currency.isHidden = true
+                        cell.finalCurrency.isHidden = false
+                        cell.contentView.backgroundColor = .clear
+                        cell.titleLabel.font = UIFont(name: fontNameLight, size: 12.0)
                         if indexPath.row == 10
                         {
-                              cell.currency.font = UIFont(name: fontNameLight, size: 12.0)
-                            cell.pricewidthConst.constant = cell.contentView.frame.width/5
-                            let str1 = "Quantity".localized
-                            let str2 = "That Can be Bought".localized
-                            onlineretailArr[0] = "\(str1) \n \(str2)"
+                            cell.finalCurrency.isHidden = true
+                         cell.currency.isHidden = true
+                            cell.finalPrice.isHidden = false
+                            cell.price.isHidden = false
+//                        cell.currency.font = UIFont(name: fontNameLight, size: 12.0)
+//                        cell.pricewidthConst.constant = cell.contentView.frame.width/5
+                            cell.min.text = "Min".localized
+                             cell.max.text = "Max".localized
+                           
+                            if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+                            {
+                                let l1 = "الكمية";
+                                let l2 = "عدد المنتجات لكل طلب";
+                                onlineretailArr[0] = "\(l1) \n \(l2)";
+                            }
+                           
                             cell.titleLabel.attributedText = ModalController.setStricColor(str: "\(onlineretailArr[indexPath.row - 10]) *", str1: "\(onlineretailArr[indexPath.row - 10])", str2: "*")
+                          
                             cell.min.isHidden = false
                             cell.max.isHidden = false
                             cell.currency.isUserInteractionEnabled = true
-                            cell.currency.tag = 0
-                            cell.finalPrice.tag = 1
-                            cell.currency.text = "\(retailDimensionalArr[indexPath.row - 10][0])"
-                            cell.finalPrice.text = "\(retailDimensionalArr[indexPath.row - 10][1])"
+                            cell.finalPrice.tag = 0
+                            cell.price.tag = 1
+                            cell.finalPrice.text = "\(retailDimensionalArr[indexPath.row - 10][0])"
+                            cell.price.text = "\(retailDimensionalArr[indexPath.row - 10][1])"
                             cell.exchangeImg.isHidden = false
-                            cell.currency.keyboardType = .asciiCapableNumberPad
                             cell.finalPrice.keyboardType = .asciiCapableNumberPad
+                            cell.price.keyboardType = .asciiCapableNumberPad
                         }
                         else if indexPath.row == 11 || indexPath.row == 13
                         {
+                            
+                            cell.finalPrice.tag = 0
+                            cell.finalPrice.isHidden = true
+                            cell.price.isHidden = false
+                            cell.price.isUserInteractionEnabled = false
+                            cell.price.text = "\(retailDimensionalArr[indexPath.row - 10][0])"
                             if indexPath.row == 11
                             {
                                 cell.titleLabel.attributedText = ModalController.setStricColor(str: "\(onlineretailArr[indexPath.row - 10]) *", str1: "\(onlineretailArr[indexPath.row - 10])", str2: "*")
+                                cell.price.isUserInteractionEnabled = true
                             }
-                            cell.finalPrice.tag = 0
-                            cell.finalPrice.text = "\(retailDimensionalArr[indexPath.row - 10][0])"
                             
                         }
                             
@@ -3273,13 +3308,14 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                                 if isVat
                                 {
                                     cell.titleLabel.attributedText = ModalController.setStricColor(str: "\(onlineretailArr[indexPath.row - 10]) *", str1: "\(onlineretailArr[indexPath.row - 10])", str2: "*")
-                                    cell.price.isUserInteractionEnabled = true
-                                    cell.finalPrice.isUserInteractionEnabled = true
+//                                    cell.price.isUserInteractionEnabled = true
+//                                    cell.finalPrice.isUserInteractionEnabled = true
                                     
                                 }
                             }
                             
                             cell.price.isHidden = false
+                            cell.finalPrice.isHidden = false
                             cell.percentLabel.isHidden = false
                             cell.price.tag = 0;
                             cell.finalPrice.tag = 1
@@ -3288,14 +3324,22 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                         }
                         if indexPath.row == 15
                         {
+                            cell.contentView.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1)
+                            cell.finalCurrency.textColor = #colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1)
+                            cell.finalCurrency.font = UIFont(name: fontNameBold, size: 10.0)
                             cell.greenTick.isHidden = false
                             cell.currency.isHidden = true
                             cell.finalCurrency.isHidden = false
                             cell.finalPrice.tag = 0
-                            cell.finalPrice.textColor = #colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1)
-                            cell.finalPrice.font = UIFont(name: fontNameBold, size: 12.0)
-                            cell.finalPrice.text = "\(retailDimensionalArr[indexPath.row - 10][0])"
-                            
+                            cell.price.textColor = #colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1)
+                            cell.price.font = UIFont(name: fontNameBold, size: 12.0)
+                            cell.titleLabel.font = UIFont(name: fontNameBold, size: 12.0)
+                            cell.finalPrice.isHidden = true
+                            cell.price.isHidden = false
+                            cell.price.text = "\(retailDimensionalArr[indexPath.row - 10][0])"
+                            cell.titleLabel.attributedText = ModalController.setStricColorfinal(str: "\(onlineretailArr[indexPath.row - 10]) *", str1: "\(onlineretailArr[indexPath.row - 10])", str2: "*")
+                            cell.price.isUserInteractionEnabled = false
+                           
                         }
                         
                         cell.price.delegate = self
@@ -3305,9 +3349,9 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                         cell.currency.delegate = self
                         cell.price.delegate = self
                         cell.finalPrice.delegate = self
-//                        cell.currency.textAlignment = .left
-//                        cell.price.textAlignment = .left
-//                        cell.finalPrice.textAlignment = .left
+                        cell.currency.textAlignment = .center
+                        //cell.price.textAlignment = .left
+                        //cell.finalPrice.textAlignment = .left
                         cell.currency.addTarget(self, action: #selector(CreateProductSecondViewController.retailOnlineChange(_:)), for: UIControl.Event.editingChanged)
                         cell.price.addTarget(self, action: #selector(CreateProductSecondViewController.retailOnlineChange(_:)), for: UIControl.Event.editingChanged)
                         cell.finalPrice.addTarget(self, action: #selector(CreateProductSecondViewController.retailOnlineChange(_:)), for: UIControl.Event.editingChanged)
@@ -3437,7 +3481,7 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 if indexPath.row == 0
                 {
                     cell.heightConst.constant = 40
-                    cell.paylbl.text = "Payment Mode".localized
+                    cell.paylbl.text = "   \("Payment Mode".localized)"
                 }
                 cell.digitalpay.setImage(UIImage(named: "uncheck"), for: .normal)
                 if pro.storePayArr.count == 0
@@ -3492,7 +3536,7 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                         //cell.btnleading.constant = 30
                         //cell.rightBtnLeading.constant = self.view.frame.width/6
                         cell.middlelblwidth.constant = 0
-                        cell.leftlblwidth.constant = 0
+                        cell.leftlblwidth.constant = 110
                         cell.rgtlbl.text = "Field Same As Online".localized
                         cell.lbl.isHidden = true
                         cell.leftlbl.isHidden = true
@@ -3515,18 +3559,9 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                     }
                     else
                     {
-//                        cell.btnleading.constant = self.view.frame.width/6
-//                          cell.rightBtnLeading.constant = self.view.frame.width/10
-//                        if HeaderHeightSingleton.shared.LanguageSelected == "AR"
-//                        {
-//
-//                         cell.btnleading.constant = self.view.frame.width/5
-//                             cell.rightBtnLeading.constant = self.view.frame.width/9
-//                        }
-//
-//
+
                         cell.middlelblwidth.constant = 70
-                        cell.leftlblwidth.constant = 70
+                        cell.leftlblwidth.constant = 80
                         cell.lbl.text = "Sale In".localized
                         cell.rgtlbl.text = "Wholesale".localized
                         cell.leftlbl.text = "Retail".localized
@@ -3569,14 +3604,8 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 else
                 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "RetailPriceListViewCell", for: indexPath) as! RetailPriceListViewCell
-                    cell.min.text = "Min".localized
-                    cell.max.text = "Max".localized
-                    if HeaderHeightSingleton.shared.LanguageSelected == "EN"
-                    {
-                        cell.leadingCurrency.constant = 19.5
-                    }
-                cell.leadingcurrencyconst.constant = 10
-                cell.pricewidthConst.constant = 16
+                    cell.contentView.backgroundColor = .clear
+                    cell.titleLabel.font = UIFont(name: fontNameLight, size: 12.0)
                 cell.finalPrice.textColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
                 cell.finalPrice.font = UIFont(name: fontNameLight, size: 12.0)
                 cell.price.isUserInteractionEnabled = false
@@ -3584,15 +3613,18 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 cell.currency.keyboardType = .decimalPad
                 cell.finalPrice.keyboardType = .decimalPad
                 cell.isUserInteractionEnabled = true
+                    cell.price.textColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
+                    cell.price.font = UIFont(name: fontNameLight, size: 12.0)
                 if instoreSelectedIndex.contains(1)
-                {
-                    cell.price.isUserInteractionEnabled = true
-                }
-                if instoreSelectedIndex.contains(2)
                 {
                     cell.finalPrice.isUserInteractionEnabled = true
                 }
-                cell.finalCurrency.isHidden = true
+                if instoreSelectedIndex.contains(2)
+                {
+                    cell.price.isUserInteractionEnabled = true
+                }
+                    cell.currency.font = UIFont(name: fontNameLight, size: 8.0)
+                cell.finalCurrency.text = ""
                 cell.currency.isHidden = false
                 cell.price.isHidden = false
                 cell.finalPrice.isHidden = false
@@ -3603,11 +3635,11 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 cell.titleLblLeading.constant = 15
                 cell.currency.text = SARArr[indexPath.row - 2]
                 cell.titleLabel.text = instoreNameArr[indexPath.row - 2]
-                cell.currency.font = UIFont(name: fontNameLight, size: 7.0)
+//                cell.currency.font = UIFont(name: fontNameLight, size: 7.0)
                     let retail = String(format: "%.2f", (instoreRetailArr[indexPath.row - 2] as NSString).doubleValue)
                 let whole = String(format: "%.2f", (instoreWholeSaleArr[indexPath.row - 2] as NSString).doubleValue)
-                cell.price.text = retail
-                cell.finalPrice.text = whole
+                cell.price.text = whole
+                cell.finalPrice.text = retail
                 cell.bottomlbl.backgroundColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2")
                 cell.currency.isUserInteractionEnabled = false
                 cell.exchangeImg.isHidden = true
@@ -3615,8 +3647,8 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 cell.percentLabel.isHidden = true
                 cell.min.isHidden = true
                 cell.max.isHidden = true
-                cell.price.tag = 0
-                cell.finalPrice.tag = 1
+                cell.price.tag = 1
+                cell.finalPrice.tag = 0
                 cell.price.keyboardType = .decimalPad
                 cell.finalPrice.keyboardType = .decimalPad
                 if indexPath.row == 2
@@ -3631,8 +3663,8 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                     if isVat
                     {
                         cell.titleLabel.attributedText = ModalController.setStricColor(str: "\(instoreNameArr[indexPath.row - 2]) *", str1: "\(instoreNameArr[indexPath.row - 2])", str2: "*")
-                        cell.price.isUserInteractionEnabled = true
-                        cell.finalPrice.isUserInteractionEnabled = true
+//                        cell.price.isUserInteractionEnabled = true
+//                        cell.finalPrice.isUserInteractionEnabled = true
                     }
                 }
                 if indexPath.row == 5 ||  indexPath.row == 8
@@ -3647,9 +3679,9 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 }
                 cell.price.delegate = self
                 cell.finalPrice.delegate = self
-//                cell.currency.textAlignment = .left
-//                cell.price.textAlignment = .left
-//                cell.finalPrice.textAlignment = .left
+            cell.currency.textAlignment = .center
+                //cell.price.textAlignment = .left
+                //cell.finalPrice.textAlignment = .left
                 cell.price.addTarget(self, action: #selector(CreateProductSecondViewController.retailDidChange(_:)), for: UIControl.Event.editingChanged)
                 cell.finalPrice.addTarget(self, action: #selector(CreateProductSecondViewController.retailDidChange(_:)), for: UIControl.Event.editingChanged)
                 return cell
@@ -3808,7 +3840,13 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
             case 8:
                 return 45
             case 9:
-                return 80
+                if isSelected == "retail"
+                {
+                return 60
+                }
+                else{
+                   return 80
+                }
             default:
                 if isSelected == "retail"
                 {
@@ -3870,12 +3908,7 @@ extension CreateProductSecondViewController: UIDocumentPickerDelegate, UINavigat
             popupController.dismiss()
         }
         popupController.present(in: self)
-        
-        
-        
-        
-        
-        
+   
     }
     func fileSize(forURL url: Any) -> Double {
         var fileURL: URL?
@@ -4012,7 +4045,7 @@ extension CreateProductSecondViewController:DeleteSlabPopupDelegate
                     {
                         if ((textField.text! as NSString).integerValue) > (pro.OnlineMax as NSString).integerValue
                         {
-                            ModalController.showNegativeCustomAlertWith(title: "Min Qty Always Less Than Max Qty", msg: "")
+                            ModalController.showNegativeCustomAlertWith(title: "Please enter online maximum quantity greater than online minimum quantity".localized, msg: "")
                             tabvw.reloadSections(IndexSet(integer: 1), with: .none)
                             
                         }
@@ -4144,20 +4177,20 @@ extension CreateProductSecondViewController:DeleteSlabPopupDelegate
                 if i == row
                 {
                     let cell = tabvw.cellForRow(at: IndexPath(row: i, section: 1)) as! RetailPriceListViewCell
-                    if HeaderHeightSingleton.shared.LanguageSelected == "EN"
-                                       {
-                                           cell.leadingCurrency.constant = 19.5
-                                       }
-                     cell.pricewidthConst.constant = 16
-//                    cell.currency.textAlignment = .left
-//                    cell.price.textAlignment = .left
-//                    cell.finalPrice.textAlignment = .left
-                    cell.leadingcurrencyconst.constant = 19.5
+//                    if HeaderHeightSingleton.shared.LanguageSelected == "EN"
+//                                       {
+//                                           cell.leadingCurrency.constant = 19.5
+//                                       }
+//                     cell.pricewidthConst.constant = 16
+                    cell.currency.textAlignment = .center
+                    //cell.price.textAlignment = .left
+                    //cell.finalPrice.textAlignment = .left
+//                    cell.leadingcurrencyconst.constant = 19.5
                     if i == 10
                     {
-                        cell.pricewidthConst.constant = cell.contentView.frame.width/5
-                        cell.currency.text = "\(retailDimensionalArr[i - 10][0])"
-                        cell.finalPrice.text = "\(retailDimensionalArr[i - 10][1])"
+//                        cell.pricewidthConst.constant = cell.contentView.frame.width/5
+                        cell.finalPrice.text = "\(retailDimensionalArr[i - 10][0])"
+                        cell.price.text = "\(retailDimensionalArr[i - 10][1])"
                         
                     }
                     else if i == 12 || i == 14
@@ -4171,12 +4204,12 @@ extension CreateProductSecondViewController:DeleteSlabPopupDelegate
                     }
                     else if  i == 11 || i == 13 || i == 15
                     {
-                        cell.finalPrice.text = "\(retailDimensionalArr[i - 10][0])"
+                        cell.price.text = "\(retailDimensionalArr[i - 10][0])"
                     }
                 }
                 else
                 {
-                    if tabvw.isRowCompletelyVisible(at: IndexPath(row: i, section: 1)) {
+                    if ((tabvw.indexPathsForVisibleRows?.contains(IndexPath(row: i, section: 1)))!) {
                         tabvw.reloadRows(at: [IndexPath(row: i, section: 1)], with: .none)
                         
                     }
