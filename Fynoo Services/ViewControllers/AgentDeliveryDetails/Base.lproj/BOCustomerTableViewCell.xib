@@ -373,6 +373,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="btnNavWidth" destination="UZK-vb-dus" id="GTn-jw-A33"/>
+                <outlet property="imgBankNote" destination="Vgp-cj-BZr" id="AOB-m6-ck7"/>
                 <outlet property="imgCustpic" destination="Wrf-xu-nb0" id="AuO-ku-Ayt"/>
                 <outlet property="imgPaymentIcon" destination="wsv-xU-Fgr" id="6hX-4T-itl"/>
                 <outlet property="lblCurrencyCode" destination="yzz-t8-TOu" id="Yf1-fZ-Gg1"/>
@@ -397,11 +398,6 @@
             <point key="canvasLocation" x="31.884057971014496" y="44.866071428571423"/>
         </tableViewCell>
     </objects>
-    <designables>
-        <designable name="5zH-TW-HaO">
-            <size key="intrinsicContentSize" width="18" height="18"/>
-        </designable>
-    </designables>
     <resources>
         <image name="banknote" width="14" height="14"/>
         <image name="call" width="48" height="48"/>

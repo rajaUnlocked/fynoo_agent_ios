@@ -135,6 +135,8 @@
 		4E1DA09926839FB00055D201 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1DA09526839FAF0055D201 /* UIFont+Extension.swift */; };
 		4E1DA09A26839FB00055D201 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1DA09626839FAF0055D201 /* UIView+Extension.swift */; };
 		4E1DA09B26839FB00055D201 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1DA09726839FAF0055D201 /* UIColor+Extension.swift */; };
+		4E66C75726E9CFD80037CDEE /* AddedNewViewBoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66C75526E9CFD80037CDEE /* AddedNewViewBoTableViewCell.swift */; };
+		4E66C75826E9CFD80037CDEE /* AddedNewViewBoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E66C75626E9CFD80037CDEE /* AddedNewViewBoTableViewCell.xib */; };
 		4E6D37C6267B41B100BFA77B /* marketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6D37C2267B41B000BFA77B /* marketTableViewCell.xib */; };
 		4E6D37C7267B41B100BFA77B /* otherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6D37C4267B41B000BFA77B /* otherTableViewCell.xib */; };
 		4E758345268442BC002EFB30 /* CommonPopViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E758347268442BC002EFB30 /* CommonPopViewC.xib */; };
@@ -1010,6 +1012,8 @@
 		4E1DA09526839FAF0055D201 /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		4E1DA09626839FAF0055D201 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		4E1DA09726839FAF0055D201 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		4E66C75526E9CFD80037CDEE /* AddedNewViewBoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedNewViewBoTableViewCell.swift; sourceTree = "<group>"; };
+		4E66C75626E9CFD80037CDEE /* AddedNewViewBoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddedNewViewBoTableViewCell.xib; sourceTree = "<group>"; };
 		4E6D37C3267B41B000BFA77B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/marketTableViewCell.xib; sourceTree = "<group>"; };
 		4E6D37C5267B41B100BFA77B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/otherTableViewCell.xib; sourceTree = "<group>"; };
 		4E758346268442BC002EFB30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CommonPopViewC.xib; sourceTree = "<group>"; };
@@ -1947,6 +1951,8 @@
 				4E19EB89267A1909003510BC /* OrderSuccessViewC.xib */,
 				4E1DA081268342520055D201 /* ViewInvoiceViewController.swift */,
 				4E1DA082268342520055D201 /* ViewInvoiceViewController.xib */,
+				4E66C75526E9CFD80037CDEE /* AddedNewViewBoTableViewCell.swift */,
+				4E66C75626E9CFD80037CDEE /* AddedNewViewBoTableViewCell.xib */,
 			);
 			path = OtpForCOD;
 			sourceTree = "<group>";
@@ -4364,6 +4370,7 @@
 				F62E4AEA25148EC60021CEE0 /* popupViewController.xib in Resources */,
 				CEDD31F02576206500023977 /* SelectProductTypeTableViewCell.xib in Resources */,
 				F680D650259B7C2C007EB12C /* DataEntryFormFirstTopTableViewCell.xib in Resources */,
+				4E66C75826E9CFD80037CDEE /* AddedNewViewBoTableViewCell.xib in Resources */,
 				4E75835326844F13002EFB30 /* BOCustomerTableViewCell.xib in Resources */,
 				F6547ABE25DE594A00171862 /* DataEntryFilterViewController.xib in Resources */,
 				2F8463E5250F6EBC0084EB32 /* LoginIntroFirst.xib in Resources */,
@@ -5213,6 +5220,7 @@
 				CECEF9F12577575C0090D459 /* ViewLocationTableViewCell.swift in Sources */,
 				2F07D1AB2505F89100193658 /* ServerCalls.swift in Sources */,
 				2F84641A250F7F1C0084EB32 /* ForgotPasswordViewController.swift in Sources */,
+				4E66C75726E9CFD80037CDEE /* AddedNewViewBoTableViewCell.swift in Sources */,
 				CEBCD7392664A7FE001BF767 /* WalletAvailableTopCell.swift in Sources */,
 				CEDD330925765A7400023977 /* ScannerNewViewController.swift in Sources */,
 				CEDD32E225763C8E00023977 /* CreateProductSecondViewController.swift in Sources */,

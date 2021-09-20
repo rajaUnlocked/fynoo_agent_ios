@@ -18,8 +18,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter OTP given by the customer to verify your order confirmation." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEz-hG-DH5">
-                        <rect key="frame" x="15" y="5" width="295" height="33.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter OTP given by the customer to verify your order confirmation." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEz-hG-DH5">
+                        <rect key="frame" x="35" y="5" width="250" height="33.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -180,12 +180,12 @@
                     <constraint firstItem="IEz-hG-DH5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="8C0-3F-5us"/>
                     <constraint firstItem="jLg-Ke-lxX" firstAttribute="centerY" secondItem="Mjh-0t-cXa" secondAttribute="centerY" constant="-1.75" id="8rD-Vz-IXK"/>
                     <constraint firstItem="jLg-Ke-lxX" firstAttribute="leading" secondItem="Mjh-0t-cXa" secondAttribute="leading" constant="24" id="Ai7-en-Wwo"/>
+                    <constraint firstItem="IEz-hG-DH5" firstAttribute="trailing" secondItem="UpD-Gg-D7m" secondAttribute="trailing" id="BIy-5I-Hm9"/>
                     <constraint firstItem="UpD-Gg-D7m" firstAttribute="top" secondItem="BHc-NZ-U09" secondAttribute="bottom" constant="4" id="Bz1-Ja-k9l"/>
                     <constraint firstItem="BHc-NZ-U09" firstAttribute="leading" secondItem="UpD-Gg-D7m" secondAttribute="leading" id="CHh-3g-ta7"/>
                     <constraint firstItem="Mjh-0t-cXa" firstAttribute="leading" secondItem="Eeg-TH-MyM" secondAttribute="leading" constant="3" id="EsW-cI-aza"/>
-                    <constraint firstAttribute="trailing" secondItem="IEz-hG-DH5" secondAttribute="trailing" constant="10" id="JCW-Rx-gXp"/>
+                    <constraint firstItem="IEz-hG-DH5" firstAttribute="leading" secondItem="UpD-Gg-D7m" secondAttribute="leading" id="TZu-fE-BQQ"/>
                     <constraint firstItem="UpD-Gg-D7m" firstAttribute="top" secondItem="IEz-hG-DH5" secondAttribute="bottom" constant="30" id="hSw-jC-tCT"/>
-                    <constraint firstItem="IEz-hG-DH5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="jHV-vA-hSS"/>
                     <constraint firstItem="Eeg-TH-MyM" firstAttribute="top" secondItem="UpD-Gg-D7m" secondAttribute="bottom" constant="15" id="jkD-P0-cLJ"/>
                     <constraint firstAttribute="trailing" secondItem="Eeg-TH-MyM" secondAttribute="trailing" constant="10" id="lfq-gQ-het"/>
                     <constraint firstItem="Eeg-TH-MyM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="nCR-Ov-9Ji"/>

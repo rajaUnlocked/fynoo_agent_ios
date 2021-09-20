@@ -26,10 +26,16 @@
                 <outlet property="lblAlmostTotalPrice" destination="cvv-0z-llO" id="FqF-4n-mam"/>
                 <outlet property="lblCreatedBy" destination="fB7-cs-oy3" id="aYi-bI-HLf"/>
                 <outlet property="lblCubic" destination="dd2-fk-VY5" id="6Mp-Ba-bJD"/>
+                <outlet property="lblCurrency1" destination="BMK-kB-H5a" id="9oF-kv-70h"/>
+                <outlet property="lblCurrency2" destination="j1n-iy-lGG" id="gV0-HL-fKH"/>
+                <outlet property="lblCurrency3" destination="Ro1-i5-r6q" id="I6U-G5-Wxw"/>
                 <outlet property="lblDecline" destination="zu5-Oc-P14" id="py0-N6-aWE"/>
                 <outlet property="lblDeliveryPrice" destination="nPV-2h-WSE" id="s8n-GE-ZMG"/>
                 <outlet property="lblDistanceAgentToBo" destination="Y4C-V9-mwj" id="KML-jJ-b3G"/>
                 <outlet property="lblDistanceBoToCustomer" destination="Zys-8b-H31" id="XPU-VZ-Rge"/>
+                <outlet property="lblDot1" destination="YTl-gL-8el" id="c8g-nx-SJT"/>
+                <outlet property="lblDot2" destination="IHq-5T-YTB" id="3zf-ao-lnp"/>
+                <outlet property="lblDot3" destination="UqB-VT-61a" id="KbP-i0-0lq"/>
                 <outlet property="lblMin" destination="Rzn-41-VDp" id="fg6-JB-nVg"/>
                 <outlet property="lblQty" destination="m6M-6d-vI5" id="Uab-zB-tK8"/>
                 <outlet property="lblRating" destination="c26-7u-cx9" id="fcg-9C-3JI"/>

@@ -20,18 +20,20 @@ class ConfirmToreceiveItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lblOrderId: UILabel!
     @IBOutlet weak var lblDate: UILabel!
-    
     @IBOutlet weak var lblTextshareOtp: UILabel!
-    
     @IBOutlet weak var lblOtp: UILabel!
-    
     @IBOutlet weak var btnReceiveItemOutlet: UIButton!
-    
     @IBOutlet weak var imgCheck: UIImageView!
-    
     @IBOutlet weak var lblIHaveReceivedItem: UILabel!
-    
     @IBOutlet weak var btnAnyProblemOutlet: UIButton!
+    
+    @IBOutlet weak var lblStDeliveryPrice : UILabel!
+    @IBOutlet weak var lblCurrency : UILabel!
+    @IBOutlet weak var lblOrderPrice : UILabel!
+    @IBOutlet weak var imgPaymentIcon : UIImageView!
+    @IBOutlet weak var lblStExpDelTime : UILabel!
+    @IBOutlet weak var lblExpDelTime : UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         SetFont()
@@ -60,13 +62,20 @@ class ConfirmToreceiveItemTableViewCell: UITableViewCell {
         
         self.btnAnyProblemOutlet.titleLabel!.font = UIFont(name:"\(fontNameBold)",size:14)
         let myNormalAttributedTitle = NSAttributedString(string: "Any Problem?".localized,attributes: [NSAttributedString.Key.foregroundColor : UIColor.AppThemeBlueTextColor(),.underlineStyle: NSUnderlineStyle.single.rawValue,.underlineColor : UIColor.AppThemeBlueTextColor()])
-        
         self.btnAnyProblemOutlet.setAttributedTitle(myNormalAttributedTitle, for: .normal)
-
-
-        }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
+        
+        //
+        
+        self.lblStDeliveryPrice.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblCurrency.font = UIFont(name:"\(fontNameLight)",size:8)
+        self.lblOrderPrice.font = UIFont(name:"\(fontNameLight)",size:10)
+        self.lblStExpDelTime.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblExpDelTime.font = UIFont(name:"\(fontNameLight)",size:12)
+        self.lblStExpDelTime.text = "Expected Delivery Time :".localized
+        self.lblStDeliveryPrice.text = "Delivery Price".localized
+    }
+        
+      override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
