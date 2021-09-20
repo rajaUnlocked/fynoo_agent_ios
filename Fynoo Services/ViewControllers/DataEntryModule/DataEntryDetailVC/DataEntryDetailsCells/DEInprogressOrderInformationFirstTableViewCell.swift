@@ -68,8 +68,8 @@ class DEInprogressOrderInformationFirstTableViewCell: UITableViewCell {
         
         if HeaderHeightSingleton.shared.LanguageSelected == "AR" {
             
-            self.productTxtHeightConstant.constant = 19
-            self.branchTxtHeightConstant.constant = 19
+            self.productTxtHeightConstant.constant = 10
+            self.branchTxtHeightConstant.constant = 10
             
             let lineView = UIView(frame: CGRect(x: 0, y: self.productDataEntryBtn.frame.size.height - 0.6, width: self.productDataEntryBtn.frame.size.width + 40, height: 0.6))
             lineView.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
@@ -80,9 +80,9 @@ class DEInprogressOrderInformationFirstTableViewCell: UITableViewCell {
             self.branchDataEntryBtn.addSubview(lineView1)
             
         }else{
-            self.productTxtHeightConstant.constant = 15
-            self.branchTxtHeightConstant.constant = 15
-            
+//            self.productTxtHeightConstant.constant = 5
+//            self.branchTxtHeightConstant.constant = 5
+//
             let lineView = UIView(frame: CGRect(x: 0, y: self.productDataEntryBtn.frame.size.height - 0.6, width: self.productDataEntryBtn.frame.size.width + 60, height: 0.6))
             lineView.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
             self.productDataEntryBtn.addSubview(lineView)
