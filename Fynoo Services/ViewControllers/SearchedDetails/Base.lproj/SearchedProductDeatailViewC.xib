@@ -22,6 +22,7 @@
                 <outlet property="headerHeightConstant" destination="Yte-TM-AEt" id="NnR-h0-NXG"/>
                 <outlet property="headerView" destination="NmM-km-qaO" id="7c3-Fi-zD0"/>
                 <outlet property="imgCod" destination="WUh-ET-v6k" id="k0R-ZL-fJZ"/>
+                <outlet property="imgCodBo" destination="GiJ-Mh-ZvO" id="5te-3V-6T9"/>
                 <outlet property="lblAlmostPurchasePrice" destination="u52-Tw-Wqj" id="Jf3-AH-6dk"/>
                 <outlet property="lblAlmostTotalPrice" destination="cvv-0z-llO" id="FqF-4n-mam"/>
                 <outlet property="lblCreatedBy" destination="fB7-cs-oy3" id="aYi-bI-HLf"/>
@@ -414,14 +415,23 @@
                                     <color key="textColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="cod_icon" translatesAutoresizingMaskIntoConstraints="NO" id="GiJ-Mh-ZvO">
+                                    <rect key="frame" x="268" y="0.0" width="30" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="ETr-Wp-BL0"/>
+                                        <constraint firstAttribute="height" constant="20" id="qYS-X2-H06"/>
+                                    </constraints>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="u52-Tw-Wqj" firstAttribute="leading" secondItem="BMK-kB-H5a" secondAttribute="trailing" constant="2" id="3XX-jA-g2X"/>
                                 <constraint firstAttribute="height" constant="20" id="3ne-yP-XCl"/>
+                                <constraint firstAttribute="trailing" secondItem="GiJ-Mh-ZvO" secondAttribute="trailing" constant="2" id="88l-8L-J3Q"/>
                                 <constraint firstItem="Kqs-XP-bnE" firstAttribute="centerY" secondItem="uXl-Zr-6yx" secondAttribute="centerY" id="Ogg-Mh-SkU"/>
                                 <constraint firstItem="YTl-gL-8el" firstAttribute="centerY" secondItem="uXl-Zr-6yx" secondAttribute="centerY" id="X5P-Om-heE"/>
                                 <constraint firstItem="u52-Tw-Wqj" firstAttribute="centerY" secondItem="uXl-Zr-6yx" secondAttribute="centerY" id="bKV-Wb-vfT"/>
+                                <constraint firstItem="GiJ-Mh-ZvO" firstAttribute="centerY" secondItem="uXl-Zr-6yx" secondAttribute="centerY" id="mE1-vq-rxp"/>
                                 <constraint firstItem="BMK-kB-H5a" firstAttribute="centerY" secondItem="uXl-Zr-6yx" secondAttribute="centerY" constant="4.25" id="pdO-cu-Oud"/>
                                 <constraint firstItem="YTl-gL-8el" firstAttribute="centerX" secondItem="uXl-Zr-6yx" secondAttribute="centerX" id="pxn-sK-Nk4"/>
                                 <constraint firstItem="BMK-kB-H5a" firstAttribute="leading" secondItem="YTl-gL-8el" secondAttribute="trailing" constant="5" id="rtq-VT-blk"/>
@@ -460,8 +470,9 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="cod_icon" translatesAutoresizingMaskIntoConstraints="NO" id="WUh-ET-v6k">
-                                    <rect key="frame" x="251" y="0.0" width="47" height="20"/>
+                                    <rect key="frame" x="268" y="0.0" width="30" height="20"/>
                                     <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="kAY-yU-Zo7"/>
                                         <constraint firstAttribute="height" constant="20" id="lzL-hU-d9E"/>
                                     </constraints>
                                 </imageView>

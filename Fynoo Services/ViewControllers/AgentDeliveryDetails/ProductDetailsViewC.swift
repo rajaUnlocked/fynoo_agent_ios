@@ -1605,7 +1605,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                 
                 //Mark new design change
                    if (orderDetailData?.data?.order_status) == 0{
-                       return 400
+                       return 450
                    }else
                    {
                     return 250
@@ -1666,6 +1666,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     cell.lblOrderId.text = "\(orderId) \(orderDetailData?.data?.order_id ?? "0")"
                     
                     let timeSTAMP = "\(orderDetailData?.data?.order_date ?? 0)"
+                    
                     cell.lblOrderDate.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: timeSTAMP, format: "dd-MMM-yyyy HH:mm a")
                     
                     cell.lblCustrating.text = orderDetailData?.data?.cust_rating ?? "0"
@@ -1738,11 +1739,12 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 0 {
                         cell.imgCart.image = #imageLiteral(resourceName: "Accepted")
                         cell.btnAccept.setTitle("Accept".localized, for: .normal)
+                        cell.imgaccepted.image = #imageLiteral(resourceName: "accept")
                     }
                     if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 1 {
                         cell.imgCart.image = #imageLiteral(resourceName: "shopping-cartGreen")
                         cell.btnAccept.setTitle("Accepted".localized, for: .normal)
-
+                        cell.imgaccepted.image = #imageLiteral(resourceName: "accepted-1")
                     }
                     
                     if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 2 || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 0 && orderDetailData?.data?.order_status == 3) || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 1 && orderDetailData?.data?.order_status == 3){
