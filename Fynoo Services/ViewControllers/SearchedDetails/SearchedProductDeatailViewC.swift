@@ -48,6 +48,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var imgCod: UIImageView!
+    @IBOutlet weak var imgCodBo: UIImageView!
     
     @IBOutlet weak var lblDecline: UILabel!
     
@@ -406,6 +407,8 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                                     self.lblAlmostPurchasePrice.text = tripDetail?.data?.trip_details?.delivery_price ?? ""
                                     self.lblDeliveryPrice.text = tripDetail?.data?.trip_details?.delivery_vat_amount ?? ""
                                     self.lblAlmostTotalPrice.text = tripDetail?.data?.trip_details?.delivery_amount_with_vat ?? ""
+                                    self.imgCod.isHidden = false
+                                    
                                 }else
                                 {
                                     //Mark- For Left side
@@ -421,7 +424,8 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                                     self.lblDot3.isHidden = true
                                     self.lblCurrency2.isHidden = true
                                     self.lblCurrency3.isHidden = true
-                                    
+                                    self.imgCodBo.isHidden = false
+                                    self.imgCod.isHidden = true
                                     
                                 }
                             }else
@@ -434,6 +438,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             }
                             
                             self.imgCod.sd_setImage(with: URL(string: tripDetail?.data?.trip_details?.payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
+                            self.imgCodBo.sd_setImage(with: URL(string: tripDetail?.data?.trip_details?.payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
                             self.totalTime = (tripDetail?.data?.trip_details?.otp_time ?? 0)
                             startTimer()
                             

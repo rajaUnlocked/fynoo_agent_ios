@@ -1602,7 +1602,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                 
                 //Mark new design change
                    if (orderDetailData?.data?.order_status) == 0{
-                       return 400
+                       return 450
                    }else
                    {
                     return 250
@@ -1663,6 +1663,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     cell.lblOrderId.text = "\(orderId) \(orderDetailData?.data?.order_id ?? "0")"
                     
                     let timeSTAMP = "\(orderDetailData?.data?.order_date ?? 0)"
+                    
                     cell.lblOrderDate.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: timeSTAMP, format: "dd-MMM-yyyy HH:mm a")
                     
                     cell.lblCustrating.text = orderDetailData?.data?.cust_rating ?? "0"

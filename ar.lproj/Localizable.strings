@@ -485,6 +485,7 @@
 "Order Id " = "رقم الطلب";
 
 //Arv
+"Actual Total Amount" = "المبلغ الإجمالي الفعلي";
 "Trips" = "الرحلات";
 "Earning" = "الأرباح";
 "Please Enter Otp" =  "الرجاء إدخال رمز التحقق";

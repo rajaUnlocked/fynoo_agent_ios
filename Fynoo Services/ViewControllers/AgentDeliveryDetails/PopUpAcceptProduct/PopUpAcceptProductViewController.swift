@@ -7,8 +7,6 @@
 //
 
 import UIKit
-
-
 protocol PopUpAcceptProductDelegate {
     func reloadPage()
     
@@ -34,15 +32,15 @@ class PopUpAcceptProductViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        SetFont()
         self.yesOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: self.yesOutlet.frame.size.width)
         self.noOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: self.yesOutlet.frame.size.width)
 
         if titleLabel == "Are you sure you want to decline?".localized {
             lblInstruction.text = titleLabel
         }
+        
     }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
         if touch?.view == self.containter {
@@ -52,6 +50,14 @@ class PopUpAcceptProductViewController: UIViewController {
         }
     }
     
+    func SetFont() {
+
+             let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
+             let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+            self.lblInstruction.font = UIFont(name:"\(fontNameLight)",size:14)
+            self.yesOutlet.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
+            self.noOutlet.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
+    }
     
     @IBAction func yesClicked(_ sender: Any){
         
