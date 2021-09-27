@@ -124,18 +124,18 @@ class DataEntryListHeaderView: UIView, UICollectionViewDelegate, UICollectionVie
 
     }
 
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let screenSize = UIScreen.main.bounds
-            let screenWidth = screenSize.width
-                let size = CGSize(width: (screenWidth / 3) + 20  , height: 40 )
-                if let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout{
-                    let width = UIScreen.main.bounds.width
-                    layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-                    layout.minimumInteritemSpacing = 0
-                    layout.minimumLineSpacing = 0
-                }
-                return size
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let size = CGSize(width: (screenWidth / 3) + 30  , height: 40 )
+        if let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout{
+            let width = UIScreen.main.bounds.width
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+            layout.minimumInteritemSpacing = 0
+            layout.minimumLineSpacing = 0
         }
+        return size
+    }
 
     func categoryCell(index : IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DataEntryHeaderCollectionViewCell", for: index) as! DataEntryHeaderCollectionViewCell
@@ -190,7 +190,6 @@ class DataEntryListHeaderView: UIView, UICollectionViewDelegate, UICollectionVie
                 cell.nameLbl.textAlignment = .left
             }
         }
-        
         
         cell.tag = index.row
         return cell

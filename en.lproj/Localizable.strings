@@ -359,6 +359,7 @@
 
 
 //ARV
+"Actual Total Amount" = "Actual Total Amount";
 "Items price :" = "Items price :";
 "Expected Delivery Time :" = "Expected Delivery Time :";
 "Items Details" = "Items Details";
@@ -1244,7 +1245,6 @@
 
 // Product Detail
 
-//"Actual Total Amount" = "Actual Total Amount"
 //"Buyer Information" = "Buyer Information"
 //"Order Information" = "Order Information"
 //"Invoices Copy" = "Invoices Copy"

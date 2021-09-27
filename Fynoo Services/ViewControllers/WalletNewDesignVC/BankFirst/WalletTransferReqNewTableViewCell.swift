@@ -10,6 +10,7 @@ import UIKit
 
 class WalletTransferReqNewTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var leadingWalletConst: NSLayoutConstraint!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var transactionLbl: UILabel!
     @IBOutlet weak var orderIdLbl: UILabel!

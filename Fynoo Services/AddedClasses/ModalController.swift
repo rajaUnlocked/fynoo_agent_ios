@@ -356,6 +356,8 @@ static func isStringValid(_ str: String?) -> Bool {
          let time = Double(timeResult)
           let date = Date(timeIntervalSince1970: time)
              let dateFormatter = DateFormatter()
+             let loc = Locale(identifier: "en")
+             dateFormatter.locale = loc
              dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
              dateFormatter.dateFormat = format
              dateFormatter.timeZone = .current

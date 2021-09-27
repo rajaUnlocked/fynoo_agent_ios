@@ -20,6 +20,9 @@ class DataEntryListingTableViewCell: UITableViewCell {
     @IBOutlet weak var rejectReasonLbl: UILabel!
     @IBOutlet weak var rejectReasonHeightConstant: NSLayoutConstraint!
     
+    @IBOutlet weak var StatusLbl: UILabel!
+    @IBOutlet weak var statusLeadingConstant: NSLayoutConstraint!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,6 +52,7 @@ class DataEntryListingTableViewCell: UITableViewCell {
         self.addressLbl.font = UIFont(name:"\(fontNameLight)",size:14)
         self.priceLbl.font = UIFont(name:"\(fontNameLight)",size:14)
         self.rejectReasonLbl.font = UIFont(name:"\(fontNameLight)",size:16)
+        self.StatusLbl.font = UIFont(name:"\(fontNameLight)",size:12)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

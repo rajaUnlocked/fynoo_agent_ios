@@ -10,6 +10,8 @@ import UIKit
 
 class WalletNewSimpleTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var underline: UILabel!
+    @IBOutlet weak var viewInvoice: UIButton!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var transactionLbl: UILabel!
     @IBOutlet weak var orderIdLbl: UILabel!
