@@ -1736,11 +1736,12 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 0 {
                         cell.imgCart.image = #imageLiteral(resourceName: "Accepted")
                         cell.btnAccept.setTitle("Accept".localized, for: .normal)
+                        cell.imgaccepted.image = #imageLiteral(resourceName: "accept")
                     }
                     if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 1 {
                         cell.imgCart.image = #imageLiteral(resourceName: "shopping-cartGreen")
                         cell.btnAccept.setTitle("Accepted".localized, for: .normal)
-
+                        cell.imgaccepted.image = #imageLiteral(resourceName: "accepted-1")
                     }
                     
                     if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 2 || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 0 && orderDetailData?.data?.order_status == 3) || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 1 && orderDetailData?.data?.order_status == 3){
