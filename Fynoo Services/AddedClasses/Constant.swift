@@ -95,6 +95,7 @@ enum ValidationMessages {
 class Constant: NSObject {
      static let currency : String = "SAR".localized
     //wallet
+    static let viewinvoice : String = "invoice/download_invoice/"
     static let DeleteBankURL: String = "businessapi/v2/bankdelete/"
     static let allWalletTransactionsAPI : String = "wallet/wallet_balance_list/"
     static let addedBanksList : String = "businessapi/v2/users_bank_list/"

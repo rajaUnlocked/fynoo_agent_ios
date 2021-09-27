@@ -10,7 +10,7 @@ import UIKit
 import AMShimmer
 
 class BankAllListViewController: UIViewController, WalletFilterNewViewControllerDelegate {
-
+    @IBOutlet weak var watermarkConst: NSLayoutConstraint!
     @IBOutlet weak var topheightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerVw: NavigationView!
@@ -31,9 +31,8 @@ class BankAllListViewController: UIViewController, WalletFilterNewViewController
     override func viewDidLoad() {
         ModalController.watermark(self.view)
         super.viewDidLoad()
-        
+      //  watermarkConst.constant = -(self.view.frame.width - 295)/2
 //        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
-       
         self.navigationController?.navigationBar.isHidden = true
         self.topheightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         self.headerVw.viewControl = self
@@ -44,8 +43,9 @@ class BankAllListViewController: UIViewController, WalletFilterNewViewController
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.register(UINib(nibName: "WalletAvailableTopCell", bundle: nil), forCellReuseIdentifier: "WalletAvailableTopCell");
         tableView.register(UINib(nibName: "TransactionInnerTableCell", bundle: nil), forCellReuseIdentifier: "TransactionInnerTableCell");
-        tableView.register(UINib(nibName: "NoDataFoundTableViewCell", bundle: nil), forCellReuseIdentifier: "NoDataFoundTableViewCell");
-        
+//        tableView.register(UINib(nibName: "NoDataFoundTableViewCell", bundle: nil), forCellReuseIdentifier: "NoDataFoundTableViewCell");
+        tableView.register(UINib(nibName: "NoDataFoundTableViewCell", bundle: nil
+        ), forCellReuseIdentifier: "NoDataFoundTableViewCell")
         tableView.register(UINib(nibName: "PaymentProgressTableViewCell", bundle: nil), forCellReuseIdentifier: "PaymentProgressTableViewCell");
 
         tableView.register(UINib(nibName: "ShowMoreViewCell", bundle: nil), forCellReuseIdentifier: "ShowMoreViewCell");
@@ -65,7 +65,6 @@ class BankAllListViewController: UIViewController, WalletFilterNewViewController
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
     }
     
     @objc func methodOfReceivedNotificationTransferSuccess(_ notification: NSNotification) {
@@ -427,15 +426,17 @@ extension BankAllListViewController : UITableViewDataSource{
         if indexPath.section == 2
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NoDataFoundTableViewCell", for: indexPath) as! NoDataFoundTableViewCell
-                       
-                      let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
+            
+            let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
             cell.titleLbl.text = "No Data Found"
             if HeaderHeightSingleton.shared.LanguageSelected == "AR"{
-                           cell.titleLbl.text = "لاتوجد بيانات"
-                       }
+                cell.titleLbl.text = "لاتوجد بيانات"
+            }
             cell.titleLbl.font =  UIFont(name:"\(fontNameBold)",size:20)
-           cell.gobackBtn.isHidden = true
-                         return cell
+            cell.gobackBtn.isHidden = true
+            
+            
+            return cell
         }
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "WalletAvailableTopCell", for: indexPath) as! WalletAvailableTopCell
@@ -468,17 +469,19 @@ extension BankAllListViewController : UITableViewDataSource{
                     
                     cell.titleLbl.text = "\((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_remarks") as! String)"
                     
-                    cell.transactionLbl.text = "\((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_order_id") as! String)"
+                   let orderIds = "\((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_order_id") as! String)"
+                    cell.transactionLbl.text = orderIds
+                    cell.underline.isHidden = false
                     
                     cell.orderIdLbl.text = "\((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_trans_id") as! String) |  \((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_date") as! String)"
                     
                     let creditDebit = (self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_dr_cr_flag") as! String
-                    
-                    if creditDebit == "D" {
-                        cell.priceLbl.text = "(-) SAR \((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_amount") as! String)"
+                    let currency = (self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_currency") as! String
+                    if creditDebit == "C" {
+                        cell.priceLbl.text = "(-) \(currency) \((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_amount") as! String)"
                         cell.priceLbl.textColor = UIColor(red: 236/256, green: 74/256, blue: 83/256, alpha: 1.0)
                     }else{
-                        cell.priceLbl.text = "SAR \((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_amount") as! String)"
+                        cell.priceLbl.text = "\(currency) \((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_amount") as! String)"
                         cell.priceLbl.textColor = UIColor(red: 97/256, green: 192/256, blue: 136/256, alpha: 1.0)
                     }
                     
@@ -487,7 +490,10 @@ extension BankAllListViewController : UITableViewDataSource{
                     }else{
                         cell.transHeight.constant = 17
                     }
-                    
+                    cell.viewInvoice.isHidden = false
+                  
+                    cell.viewInvoice.tag = indexPath.row
+                    cell.viewInvoice.addTarget(self, action: #selector(clickedViewInvoice(_:)), for: .touchUpInside)
                     return cell
                     
                 }else if selectedVl == 1001{
@@ -508,12 +514,22 @@ extension BankAllListViewController : UITableViewDataSource{
                     
                     cell.titleLbl.text = "\((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_remarks") as! String)"
                     
-                    cell.transactionLbl.text = "\((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_order_id") as! String)"
-                    
+                    let orderIds = "\((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_order_id") as! String)"
+                     cell.transactionLbl.text = orderIds
+                    cell.underline.isHidden = true
                     cell.orderIdLbl.text = "\((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_trans_id") as! String) |  \((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_date") as! String)"
-                    
+                    let currency = (self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_currency") as! String
+                    let creditDebit = (self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_dr_cr_flag") as! String
+                    if creditDebit == "D" {
+                        cell.priceLbl.text = "(-) \(currency) \((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_amount") as! String)"
+                        cell.priceLbl.textColor = UIColor(red: 236/256, green: 74/256, blue: 83/256, alpha: 1.0)
+                    }else{
+                        cell.priceLbl.text = "\(currency) \((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_amount") as! String)"
+                        cell.priceLbl.textColor = UIColor(red: 97/256, green: 192/256, blue: 136/256, alpha: 1.0)
+                    }
                     cell.priceLbl.text = "SAR \((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_amount") as! String)"
-                    
+                    cell.viewInvoice.isHidden = true
+                  
                     return cell
                     
                 }
@@ -551,37 +567,48 @@ extension BankAllListViewController : UITableViewDataSource{
                         
                         cell.holdingLbl.text = "\((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_type") as! String)"
                         
-                        let creditDebit = (self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_dr_cr_flag") as! String
+                        let creditDebit = (self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_status") as! Int
+                        let currency = (self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_currency") as! String
                         
-                        if creditDebit == "D" {
-                            cell.priceLbl.text = "(-) SAR \((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_amount") as! String)"
+                        if creditDebit == 2 {
+                            cell.priceLbl.text = "(-) \(currency) \((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_amount") as! String)"
+                            cell.rejectedLbl.textColor = UIColor(red: 236/256, green: 74/256, blue: 83/256, alpha: 1.0)
+                            cell.rejectedLbl.text = "Rejected".localized;
+                            cell.infoWidth.constant = 30
+                            cell.infoOutlet.isHidden = false
                             cell.priceLbl.textColor = UIColor(red: 236/256, green: 74/256, blue: 83/256, alpha: 1.0)
+                            cell.holdingLbl.textColor = UIColor(red: 97/256, green: 192/256, blue: 136/256, alpha: 1.0)
                         }else{
-                            cell.priceLbl.text = "SAR \((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_amount") as! String)"
+                            cell.priceLbl.text = "\(currency) \((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_amount") as! String)"
+                            cell.rejectedLbl.text = "Pending".localized
+                            cell.rejectedLbl.textColor = UIColor(red: 43/256, green: 163/256, blue: 215/256, alpha: 1.0)
+                            cell.infoWidth.constant = 0
+                            cell.infoOutlet.isHidden = true
                             cell.priceLbl.textColor = UIColor(red: 97/256, green: 192/256, blue: 136/256, alpha: 1.0)
+                            cell.holdingLbl.textColor = UIColor(red: 236/256, green: 74/256, blue: 83/256, alpha: 1.0)
                         }
                         
-                        cell.rejectedLbl.text = "\((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_type") as! String)"
+                       
                         
                         cell.reasonLbl.text = "\((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_rejection_reason") as! String)"
                         
                         cell.walletIcon.isHidden = false
                         cell.holdingLbl.isHidden = false
-                        cell.infoOutlet.isHidden = false
-                        cell.rejectedLbl.textColor = UIColor(red: 43/256, green: 163/256, blue: 215/256, alpha: 1.0)
-                        cell.reasonVw.isHidden = false
-                        cell.infoWidth.constant = 30
-                        
-                        if cell.rejectedLbl.text == "HOLDING" {
-                            cell.rejectedLbl.text = "Pending".localized
+                         if cell.reasonLbl.text == ""
+                         {
                             cell.reasonVw.isHidden = true
-                        }
-                        
+                         }
+                        else
+                         {
+                            cell.reasonVw.isHidden = false
+                         }
                         if cell.transactionLbl.text == ""
                         {
                             cell.transIconWidth.constant = 0
+                            cell.leadingWalletConst.constant = -9
                         }else{
                             cell.transIconWidth.constant = 17
+                          cell.leadingWalletConst.constant = 10.5
                         }
                     }
                     
@@ -595,7 +622,58 @@ extension BankAllListViewController : UITableViewDataSource{
         }
       
     }
+    @objc func clickedViewInvoice(_ sender:UIButton)
+    {
+      
+        let invoce = (self.transactionListArray.object(at: sender.tag) as! NSDictionary).object(forKey: "txn_invoice_for") as! Int
+        let fyid = (self.transactionListArray.object(at: sender.tag) as! NSDictionary).object(forKey: "fynoo_id") as! String
+        let orderid = (self.transactionListArray.object(at: sender.tag) as! NSDictionary).object(forKey: "txn_order_id") as! String
+        ModalClass.startLoading(self.view)
+        let str = "\(Constant.BASE_URL)\(Constant.viewinvoice)"
+        let parameters = [
+            "order_id": orderid,
+            "invoice_for": invoce,
+            "fynoo_id": fyid,
+            "lang_code":HeaderHeightSingleton.shared.LanguageSelected
+        ] as [String : Any]
+        print("request -",parameters)
+        AMShimmer.start(for: self.tableView)
+        
+        ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
+            
+            AMShimmer.stop(for: self.tableView)
+            DispatchQueue.main.async {
+            AMShimmer.stop(for: self.view)
+            }
+            
+            ModalClass.stopLoadingAllLoaders(self.view)
+            if success == true {
+                
+                let ResponseDict : NSDictionary = (response as? NSDictionary)!
+                print("ResponseDictionary %@",ResponseDict)
+                let x = ResponseDict.object(forKey: "error") as! Bool
+                if x {
+                ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "error_description") as? String)!, msg: "")
+                   
+                }
+                else{
+                    if let url = URL(string: (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "invoice_url") as! String), UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url, completionHandler: nil)
+                    }
+                    }
+                    
+                }
+            else{
     
+                if response == nil {
+                    print ("connection error")
+                    ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+                }else{
+                    print ("data not in proper json")
+                }
+            }
+        }
+    }
     @objc func showClicked(){
         pageNo += 1
         walletTransactionsAPI(searchValue: "")
