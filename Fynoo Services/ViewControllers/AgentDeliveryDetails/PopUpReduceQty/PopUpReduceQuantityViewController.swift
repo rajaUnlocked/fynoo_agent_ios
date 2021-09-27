@@ -28,6 +28,7 @@ class PopUpReduceQuantityViewController: UIViewController,CancelReasonViewCellDe
     var SelectedIndex:NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
         tableView.separatorStyle = .none

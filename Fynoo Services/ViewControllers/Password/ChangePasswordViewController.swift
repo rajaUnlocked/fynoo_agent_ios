@@ -17,6 +17,7 @@ class ChangePasswordViewController: UIViewController, ProfileDetailTableViewCell
     var userInfo  : ProfileModal?
 
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
         navigationView.viewControl = self

@@ -46,6 +46,7 @@ class CreateProductFirstViewController: UIViewController {
   
     var isFromBranch = ""
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         print("Device Gallery".localized)
         self.navigationController?.isNavigationBarHidden = true
@@ -186,6 +187,20 @@ class CreateProductFirstViewController: UIViewController {
                     {
                         self.currency.add((self.Currency_Type_List?.data?.currency_list[i].currency)!)
                         self.currencyid.add((self.Currency_Type_List?.data?.currency_list[i].id)!)
+                        if self.productValArr[1] == ""
+                        {
+                            self.productValArr[1] = self.currency[0] as! String
+                            ProductModel.shared.currencyId = "\(self.currencyid[0])"
+                            if ProductModel.shared.currencyId.count > 0
+                                   {
+                                self.borderColor[1] = "#B2B2B2"
+                                      }
+                                   else
+                                   {
+                                    self.borderColor[1] = "#EC4A53"
+                                   }
+                            self.tabvw.reloadSections(IndexSet(integer: 1), with: .none)
+                        }
                     }
                 }
             }else{
@@ -353,7 +368,7 @@ class CreateProductFirstViewController: UIViewController {
         
     if isDataBank
     {
-        if isSimilar || isVarient
+        if isSimilar || isVarient || pro.productId != ""
         {
             let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
                   vc.isDataBank = self.isDataBank
@@ -379,16 +394,15 @@ class CreateProductFirstViewController: UIViewController {
                                  else
                                  {
                                   
-                                    self.pro.finalStatus = self.editpronew?.data?.pro_status ?? 0
-                                                     self.pro.productcode = self.editpronew?.data?.pro_code ?? ""
-                                                     self.pro.productTitle = self.editpronew?.data?.pro_name ?? ""
-                                                     self.pro.statusActive = self.editpronew?.data?.pro_status ?? 0
-                                                self.pro.productDecription = self.editpronew?.data?.pro_description ?? ""
-                
-                                    
-                                                     self.pro.productId = "\(self.editpronew?.data?.pro_id ?? 0)"
-                                                     self.pro.galleryFeatureImage = "\(self.editpronew?.data?.pro_featured_image ?? "")"
-                                                     let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
+                        self.pro.finalStatus = self.editpronew?.data?.pro_status ?? 0
+                        self.pro.productcode = self.editpronew?.data?.pro_code ?? ""
+                         self.pro.productTitle = self.editpronew?.data?.pro_name ?? ""
+                          self.pro.statusActive = self.editpronew?.data?.pro_status ?? 0
+                            self.pro.productstatus = self.editpronew?.data?.product_status ?? ""
+                          self.pro.productDecription = self.editpronew?.data?.pro_description ?? ""
+                 self.pro.productId = "\(self.editpronew?.data?.pro_id ?? 0)"
+                      self.pro.galleryFeatureImage = "\(self.editpronew?.data?.pro_featured_image ?? "")"
+                     let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
                                                      //vc.isFromBranch = self.isFromBranch
                                                      vc.isDataBank = self.isDataBank
                                                      vc.isSimilar = self.isSimilar
@@ -458,6 +472,7 @@ class CreateProductFirstViewController: UIViewController {
                          pro.productcode = self.editpronew?.data?.pro_code ?? ""
                         pro.productTitle = self.editpronew?.data?.pro_name ?? ""
                         pro.statusActive = self.editpronew?.data?.pro_status ?? 0
+                        self.pro.productstatus = self.editpronew?.data?.product_status ?? ""
                         pro.barcode = self.editpronew?.data?.pro_barcode ?? ""
                         pro.Currencyname = self.editpronew?.data?.pro_currency_name ?? ""
                         pro.BranchCount = self.editpronew?.data?.pro_no_of_branch ?? 0
@@ -852,7 +867,7 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
                 return cell
             case 6:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CountingTableViewCell", for: indexPath) as! CountingTableViewCell
-                cell.countLblTop.constant = -5
+                cell.countLblTop.constant = 5
                 cell.vw.layer.borderWidth = 0
                 cell.vw.layer.cornerRadius = 0
                 cell.topConst.constant = 0
@@ -948,6 +963,7 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
             else if indexPath.row == 2
             {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CountingTableViewCell", for: indexPath) as! CountingTableViewCell
+                cell.countLblTop.constant = 10
                 cell.vw.layer.borderWidth = 0
                 cell.topConst.constant = -10
                 cell.trailConst.constant = 40
@@ -966,6 +982,7 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "CollectionViewTableViewCell", for: indexPath) as! CollectionViewTableViewCell
                 cell.delegate = self
                 cell.viewcontrol = self
+                cell.isDataBank = isDataBank
                 cell.view = self.view
                 cell.istype = "Product"
                 cell.isDataBank = isDataBank || isPurchaseData
@@ -1012,7 +1029,10 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
             }
             if isDataBank
             {
-             cell.savedraft.isHidden = true
+                if pro.productId != ""
+                {
+                    cell.savedraft.isHidden = true
+                }
             }
             if isNextColor
             {

@@ -20,6 +20,7 @@ class TransactionNewPopupViewController: UIViewController {
     @IBOutlet weak var noBtnOutlet: UIButton!
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         yesBtnOutlet.titleLabel!.font = UIFont(name:"\(fontNameLight)",size:12)

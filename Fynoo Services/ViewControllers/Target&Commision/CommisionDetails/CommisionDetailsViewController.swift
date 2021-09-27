@@ -21,6 +21,7 @@ class CommisionDetailsViewController: UIViewController {
     @IBOutlet weak var headervw: NavigationView!
     @IBOutlet weak var tabvw: UITableView!
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         headervw.viewControl = self
         headervw.titleHeader.text = "Commission".localized

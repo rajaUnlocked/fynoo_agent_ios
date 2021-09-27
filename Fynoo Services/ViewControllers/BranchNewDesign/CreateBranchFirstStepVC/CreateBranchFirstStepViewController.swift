@@ -83,6 +83,7 @@
         @IBOutlet weak var tableVw: UITableView!
         
         override func viewDidLoad() {
+        ModalController.watermark(self.view)
             super.viewDidLoad()
         
             self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
@@ -97,7 +98,7 @@
             DescriprionLengthAPI()
             countryAPI()
             
-            bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+//            bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
             
             self.headervw.titleHeader.text = "Create Branch".localized;
             self.headervw.viewControl = self

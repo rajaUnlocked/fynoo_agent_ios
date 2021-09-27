@@ -55,6 +55,7 @@ class OCRViewController:  UIViewController, UINavigationControllerDelegate {
     // MARK: - UIViewController
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
         self.indicator.isHidden = true

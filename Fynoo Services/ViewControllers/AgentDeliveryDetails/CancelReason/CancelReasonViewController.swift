@@ -27,6 +27,7 @@ class CancelReasonViewController: UIViewController, CancelReasonViewCellDelegate
          var SelectedIndex:NSMutableArray = NSMutableArray()
         
         override func viewDidLoad() {
+        ModalController.watermark(self.view)
             super.viewDidLoad()
               
             self.headerHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)

@@ -14,6 +14,7 @@ class OrderSuccessViewC: UIViewController {
     var confirmDeliveryData : Dictionary<String,Any> = ["":""]
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
 
         SetFont()

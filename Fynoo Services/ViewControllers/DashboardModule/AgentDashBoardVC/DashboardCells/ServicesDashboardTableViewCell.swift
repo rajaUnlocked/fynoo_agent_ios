@@ -60,7 +60,7 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
 //            if  serviceStatus == "1" {
 //                ModalController.showNegativeCustomAlertWith(title: "This service is disabled. Please contact Fynoo Admin for more information.".localized, msg: "")
 //            }else{
-                let nameStr = ((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_code") as! NSString) as String
+                let nameStr = ((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_name") as! NSString) as String
                 let idInt = Int((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber)
                 self.delegate?.addServiceClickedHome(id: idInt, name: nameStr,index: indexPath.item)
            // }
@@ -105,11 +105,17 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
     func categoryCell(index : IndexPath) -> UICollectionViewCell {
         
     let cell = collectionVw.dequeueReusableCell(withReuseIdentifier: "ServiceSingleCollectionViewCell", for: index) as! ServiceSingleCollectionViewCell
+        cell.leadingConst.constant = (UIScreen.main.bounds.size.width/9)
         cell.inprocessLbl.text = "Inprocess".localized
-        cell.nameLbl.text = "  \((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "service_name") as! String)"
+        cell.nameLbl.text = "     \((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "service_name") as! String)"
         cell.img.sd_setImage(with: URL(string: "\((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "service_icon") as! String)"), placeholderImage: UIImage(named: "moving-truck"))
-        
+        if ("\((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "inprogress_service_count") as! NSNumber)" as NSString).integerValue > 10
+        {
         cell.countLbl.text = "\((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "inprogress_service_count") as! NSNumber)"
+        }
+        else{
+            cell.countLbl.text = "0\((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "inprogress_service_count") as! NSNumber)"
+        }
         cell.totalCountLbl.text = "\((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "inprogress_service_count") as! NSNumber)"
         let is_active = "\((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "is_active") as! NSNumber)"
         
@@ -121,26 +127,29 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
         let opt = "\((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "is_opt") as! NSNumber)"
         
         if Int(opt) == 2 {
-            cell.plusImg.isHidden = false
+            cell.plusImg.isHidden = true
             cell.plusOutlet.isHidden = false
             cell.totalCountLbl.isHidden = true
             cell.img.alpha = 0.4
             cell.nameLbl.alpha = 0.4
-            cell.inprocessLbl.isHidden = true
+            cell.inprocessLbl.alpha = 0.4
+            cell.countLbl.alpha = 0.4
             cell.greenImg.image = UIImage(named: "deactive_gray")
         }else{
             cell.img.alpha = 1.0
             cell.nameLbl.alpha = 1.0
+            cell.inprocessLbl.alpha = 1.0
+            cell.countLbl.alpha = 1.0
             cell.plusImg.isHidden = true
             cell.plusOutlet.isHidden = true
             let serCount = "\((serviceArr.object(at: index.item) as! NSDictionary).object(forKey: "inprogress_service_count") as! NSNumber)"
             
             if serCount == "0" {
                 cell.totalCountLbl.isHidden = true
-                cell.inprocessLbl.isHidden = true
+                //cell.inprocessLbl.isHidden = true
             }else{
-                cell.totalCountLbl.isHidden = false
-                cell.inprocessLbl.isHidden = false
+                cell.totalCountLbl.isHidden = true
+               // cell.inprocessLbl.isHidden = false
             }
         }
         

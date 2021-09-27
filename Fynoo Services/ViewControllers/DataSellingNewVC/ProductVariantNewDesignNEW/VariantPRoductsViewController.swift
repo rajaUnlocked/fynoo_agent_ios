@@ -21,10 +21,11 @@ class VariantPRoductsViewController: UIViewController {
     @IBOutlet weak var backGroundView: UIImageView!
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         headerVw.titleHeader.text = "Variant Products".localized
         headerVw.viewControl = self
-        backGroundView.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+//        backGroundView.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
         tabView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         tabView.register(UINib(nibName: "ProductVariantDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductVariantDetailTableViewCell")
         

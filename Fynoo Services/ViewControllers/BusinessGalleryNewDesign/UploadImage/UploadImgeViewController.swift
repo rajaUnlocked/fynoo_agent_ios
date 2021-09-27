@@ -30,6 +30,7 @@ class UploadImgeViewController: UIViewController, UploadimgTableViewCellDelegate
     var offsetVal = CGFloat()
   
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         save.titleLabel?.font =  UIFont(name: "\(fontNameLight)", size: 12)

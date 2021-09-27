@@ -27,6 +27,7 @@ var delegate : DECancellationReasonViewControllerDelegate?
      var SelectedIndex:NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
           
         

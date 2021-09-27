@@ -28,6 +28,7 @@ class DataEntryFormItemPopUpViewController: UIViewController {
 
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
 
        self.SetFont()

@@ -25,6 +25,7 @@ class ImageSelectPopUpDialogViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         self.SetFontAndTextColor()
     }

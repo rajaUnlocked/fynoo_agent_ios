@@ -48,6 +48,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
     var longitude = 0.0
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         self.getUserLocation()
         self.setUpUI()
@@ -487,7 +488,13 @@ extension DataEntryListingViewController : UITableViewDataSource {
                     success(true)
                 })
                 closeAction.backgroundColor = #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1)
-                closeAction.image = UIImage(named: "service-Reject.png")
+                if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+                {
+                    closeAction.image = UIImage(named: "reject_arabic")
+                }
+                else{
+                    closeAction.image = UIImage(named: "reject_eng")
+                }
                 return UISwipeActionsConfiguration(actions: [closeAction])
                 
             }else {
@@ -585,7 +592,8 @@ extension DataEntryListingViewController : UITableViewDataSource {
         cell.selectionStyle = .none
         cell.rejectReasonLbl.isHidden = true
         cell.rejectReasonHeightConstant.constant = 0
-        
+        cell.StatusLbl.isHidden = true
+        cell.statusLeadingConstant.constant = 0
         let requestData = totalRequestListArray?[index.row]
         
         if selectedTab == "4" {
@@ -597,7 +605,6 @@ extension DataEntryListingViewController : UITableViewDataSource {
         }
         let reason = "Rejection Reason:".localized
         cell.rejectReasonLbl.text = "\(reason) \(requestData?.reason ?? "")"
-        
         
         cell.headerTxt.text = requestData?.instruction
         
@@ -623,6 +630,33 @@ extension DataEntryListingViewController : UITableViewDataSource {
             }
         }
         
+        
+        if selectedTab == "2" {
+            cell.StatusLbl.isHidden = false
+            cell.statusLeadingConstant.constant = 5
+            let workStatus = requestData?.start_work
+            
+            if workStatus == 1 {
+                cell.StatusLbl.text = "Start Work".localized
+                cell.StatusLbl.textColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+                // green color
+            }else if workStatus == 2 {
+                // green
+                cell.StatusLbl.text = "Submit your work".localized
+                cell.StatusLbl.textColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+                
+            }else{
+                // grey
+                cell.StatusLbl.text = "Already Submitted".localized
+                cell.StatusLbl.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+
+            }
+            
+        }else{
+            cell.StatusLbl.isHidden = true
+            cell.statusLeadingConstant.constant = 0
+        }
+       
         return cell
     }
    

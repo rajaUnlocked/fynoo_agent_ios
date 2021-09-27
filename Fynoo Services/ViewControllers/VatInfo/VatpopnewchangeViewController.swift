@@ -39,6 +39,7 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var yeslbl: UILabel!
     var vatNo = ""
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
       registerlbl.font = UIFont(name:"\(fontNameLight)",size:15)

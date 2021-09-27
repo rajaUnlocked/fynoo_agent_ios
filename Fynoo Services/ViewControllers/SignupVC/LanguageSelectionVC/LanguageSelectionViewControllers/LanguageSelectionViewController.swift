@@ -43,6 +43,7 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
     var IBANinformationModal = AgentIbanLengthModal()
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         setupUiMethod()
         registerCellNibs()

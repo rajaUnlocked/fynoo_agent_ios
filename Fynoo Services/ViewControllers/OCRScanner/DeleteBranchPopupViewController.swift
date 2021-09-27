@@ -29,6 +29,7 @@ class DeleteBranchPopupViewController: UIViewController {
 
     
        override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         lbl.addShadowView(0.0, height: 3.0, Opacidade: 3.0, maskToBounds: true, radius: 0.0)
         self.yes.setAllSideShadow(shadowShowSize: 3.0)

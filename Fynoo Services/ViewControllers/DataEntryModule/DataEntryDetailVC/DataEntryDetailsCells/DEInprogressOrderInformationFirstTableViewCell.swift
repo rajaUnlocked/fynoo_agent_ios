@@ -32,7 +32,6 @@ class DEInprogressOrderInformationFirstTableViewCell: UITableViewCell {
         // Initialization code
         self.SetFont()
     }
-            
     func SetFont() {
         
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
@@ -63,42 +62,38 @@ class DEInprogressOrderInformationFirstTableViewCell: UITableViewCell {
 //        attributedString1.append(buttonTitleStr1)
 //        branchDataEntryBtn.setAttributedTitle(attributedString1, for: .normal)
 //
-        
         self.productDataEntryBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
         self.branchDataEntryBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
         
         
         if HeaderHeightSingleton.shared.LanguageSelected == "AR" {
             
-            self.productTxtHeightConstant.constant = 19
-            self.branchTxtHeightConstant.constant = 19
+            self.productTxtHeightConstant.constant = 10
+            self.branchTxtHeightConstant.constant = 10
             
-            let lineView = UIView(frame: CGRect(x: 0, y: self.productDataEntryBtn.frame.size.height - 0.6, width: self.productDataEntryBtn.frame.size.width - 20 , height: 0.6))
+            let lineView = UIView(frame: CGRect(x: 0, y: self.productDataEntryBtn.frame.size.height - 0.6, width: self.productDataEntryBtn.frame.size.width + 40, height: 0.6))
             lineView.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
             self.productDataEntryBtn.addSubview(lineView)
             
-            
-            let lineView1 = UIView(frame: CGRect(x: 0, y: self.branchDataEntryBtn.frame.size.height - 0.6, width: self.branchDataEntryBtn.frame.size.width - 20  , height: 0.6))
+            let lineView1 = UIView(frame: CGRect(x: 0, y: self.branchDataEntryBtn.frame.size.height - 0.6, width: self.branchDataEntryBtn.frame.size.width + 35, height: 0.6))
             lineView1.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
             self.branchDataEntryBtn.addSubview(lineView1)
             
         }else{
-            self.productTxtHeightConstant.constant = 17
-            self.branchTxtHeightConstant.constant = 17
-            
-            let lineView = UIView(frame: CGRect(x: 0, y: self.productDataEntryBtn.frame.size.height - 0.6, width: self.productDataEntryBtn.frame.size.width, height: 0.6))
+//            self.productTxtHeightConstant.constant = 5
+//            self.branchTxtHeightConstant.constant = 5
+//
+            let lineView = UIView(frame: CGRect(x: 0, y: self.productDataEntryBtn.frame.size.height - 0.6, width: self.productDataEntryBtn.frame.size.width + 60, height: 0.6))
             lineView.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
             self.productDataEntryBtn.addSubview(lineView)
             
             
-            let lineView1 = UIView(frame: CGRect(x: 0, y: self.branchDataEntryBtn.frame.size.height - 0.6, width: self.branchDataEntryBtn.frame.size.width , height: 0.6))
+            let lineView1 = UIView(frame: CGRect(x: 0, y: self.branchDataEntryBtn.frame.size.height - 0.6, width: self.branchDataEntryBtn.frame.size.width + 60, height: 0.6))
             lineView1.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
             self.branchDataEntryBtn.addSubview(lineView1)
             
         }
-        
     }
-
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

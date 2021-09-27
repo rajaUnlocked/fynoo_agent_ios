@@ -27,6 +27,7 @@ class DataEntryTypelistingViewController: UIViewController {
     var searchBoxEntryText:String = ""
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         setupUiMethod()
         registerCellNibs()

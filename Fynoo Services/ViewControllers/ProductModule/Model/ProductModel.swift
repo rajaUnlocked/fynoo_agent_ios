@@ -82,7 +82,7 @@ class ProductModel
     // discountPrice
     var discountPriceRangeSlider = ""
     var PriceRangeDisSlider = ""
-    
+    var productstatus = ""
     var descriptions = ""
     var supportdescriptions = ""
     var onlineQuanTo = 0
@@ -170,16 +170,16 @@ class ProductModel
     
     var deliveryDays:String = ""
     var stockQuan:String = ""
-    var OnlineRegular:String = ""
-    var Onlinediscount:String  = ""
-    var OnlinediscountPer:String  = ""
+    var OnlineRegular:String = "0.0"
+    var Onlinediscount:String  = "0.0"
+    var OnlinediscountPer:String  = "0.0"
     
-    var Onlinesell:String  = ""
-    var OnlineFinal:String  = ""
-    var OnlineVat:String  = ""
-    var OnlineVatPer:String  = ""
-    var OnlineMax:String  = ""
-    var OnlineMin:String = ""
+    var Onlinesell:String  = "0.0"
+    var OnlineFinal:String  = "0.0"
+    var OnlineVat:String  = "0.0"
+    var OnlineVatPer:String  = "0.0"
+    var OnlineMax:String  = "0.0"
+    var OnlineMin:String = "0.0"
     var OnlineMaxQuan:String = ""
     var OnlineperProduct:Bool  = false
     var OnlinefixedProduct:Bool  = true
@@ -291,6 +291,7 @@ class ProductModel
     
     func remove()
     {
+        productstatus = ""
         availIndextemp.removeAllObjects()
         ratingrange = ""
             discountIdtemp = ""

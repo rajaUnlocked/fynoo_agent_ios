@@ -24,12 +24,12 @@ class AddWholeSlabViewController: UIViewController,UITextFieldDelegate {
     var slabtag = 0
     var isedit = false
     var isVat = false
-    var textArray = ["","","Quantity".localized,"Wholesale Price *".localized,"Discount".localized,"Net Selling Price".localized,"VAT".localized,"Final Price".localized]
+    var textArray = ["","","Quantity".localized,"Wholesale Price".localized,"Discount".localized,"Net Selling Price".localized,"VAT".localized,"Final Price".localized]
     var proName = ""
     var proImage = ""
     var vatPercent = 0.0
-    let fontNameLight = NSLocalizedString("LightFontName", comment: "")
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
         navigationView.viewControl = self
@@ -38,7 +38,8 @@ class AddWholeSlabViewController: UIViewController,UITextFieldDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         self.heightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-        bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+        ModalController.watermark(self.view)
+//        bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
         tableView.register(UINib(nibName: "AddWholeSlabViewCell", bundle: nil), forCellReuseIdentifier: "AddWholeSlabViewCell")
         tableView.register(UINib(nibName: "PriceTopTableViewCell", bundle: nil), forCellReuseIdentifier: "PriceTopTableViewCell")
         tableView.register(UINib(nibName: "RetailPriceListViewCell", bundle: nil), forCellReuseIdentifier: "RetailPriceListViewCell")
@@ -264,7 +265,7 @@ class AddWholeSlabViewController: UIViewController,UITextFieldDelegate {
 
                     discountPrice = getRupessfromPercent(price: wholesalePrice, discount: value)
                     discountPrice = (discountPrice*100).rounded()/100
-
+                    
                        let cell = tableView.cellForRow(at: IndexPath(row: 4, section: 0)) as! RetailPriceListViewCell
                    // cell.price.text = "\(discountPrice)"
                    // cell.finalPrice.text = String(format: "%.2f",value)
@@ -301,7 +302,7 @@ class AddWholeSlabViewController: UIViewController,UITextFieldDelegate {
                     
                 }
                 if Int(textField.text!)! < minQty{
-                    ModalController.showNegativeCustomAlertWith(title: "", msg: "Max Quantity must be larger then min Quantuity")
+                    ModalController.showNegativeCustomAlertWith(title: "Maximum Quantity not valid i.e. Greater than minimum quantity".localized, msg: "")
                     tableView.reloadData()
                     return
                 }
@@ -426,7 +427,7 @@ extension AddWholeSlabViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddWholeSlabViewCell", for: indexPath) as! AddWholeSlabViewCell
-            cell.wholesalelbl.text = "wholesale_".localized
+            
             cell.proImg.sd_setImage(with: URL(string: proImage), placeholderImage: UIImage(named: "productplaceholder"))
             cell.proName.text = proName
             cell.selectionStyle = .none
@@ -435,19 +436,15 @@ extension AddWholeSlabViewController : UITableViewDataSource{
         else if indexPath.row == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "PriceTopTableViewCell", for: indexPath) as! PriceTopTableViewCell
             cell.titleLblLeading.constant = 15
-            cell.titleLabel.text = "Wholesale Price"
-            if HeaderHeightSingleton.shared.LanguageSelected == "AR"
-            {
-                cell.titleLabel.text = "سعر الجملة";
-            }
-           
+            cell.titleLabel.text = "Wholesale Price".localized
             cell.bottomConstraint.constant = 0
-            cell.titleLabel.font = UIFont(name: "\(fontNameLight)", size: 12.0)
+            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+            cell.titleLabel.font = UIFont(name:"\(fontNameLight)",size:12)
             cell.selectionStyle = .none
             return cell
         }else if indexPath.row == 8{
             let cell = tableView.dequeueReusableCell(withIdentifier: "SingleButtonViewCell", for: indexPath) as! SingleButtonViewCell
-            cell.saveButton.setTitle("Save".localized, for: .normal)
+            
             if minQty == 0 || maxQty == 0 || wholesalePrice == 0.0{
                 cell.saveButton.borderColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
                 cell.saveButton.setTitleColor(#colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1), for: .normal)
@@ -461,6 +458,8 @@ extension AddWholeSlabViewController : UITableViewDataSource{
             return cell
         }        else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "RetailPriceListViewCell", for: indexPath) as! RetailPriceListViewCell
+            cell.min.isHidden = true
+            cell.max.isHidden = true
             cell.price.delegate = self
             cell.selectionStyle = .none
             cell.finalPrice.tag = indexPath.row
@@ -469,16 +468,20 @@ extension AddWholeSlabViewController : UITableViewDataSource{
             cell.currency.keyboardType = .numberPad
             cell.price.keyboardType = .decimalPad
             //   cell.finalPrice.addTarget(self, action: #selector(AddWholeSlabViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-            cell.titleLblLeading.constant = 15
-            cell.leadingCurrency.constant = 30
+//            cell.titleLblLeading.constant = 15
+//            cell.leadingCurrency.constant = 30
             //cell.imgLeading.constant = 0
             //cell.priceLeading.constant = -10
-            cell.percentTrailing.constant = 15
+//            cell.percentTrailing.constant = 15
             
             cell.finalPrice.isUserInteractionEnabled = true
             cell.currency.isUserInteractionEnabled  = false
             cell.percentLabel.isHidden = true
+            cell.finalCurrency.isHidden = false
             cell.titleLabel.text = textArray[indexPath.row]
+            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+            cell.price.font = UIFont(name:"\(fontNameLight)",size:12)
+            cell.finalPrice.font = UIFont(name:"\(fontNameLight)",size:12)
             switch indexPath.row {
             case 2:
                 cell.titleLabel.attributedText = ModalController.setStricColor(str: "\(textArray[indexPath.row]) *", str1: "\(textArray[indexPath.row])", str2:" *" )
@@ -487,11 +490,11 @@ extension AddWholeSlabViewController : UITableViewDataSource{
                 if isMax
                 {
                     cell.currency.isUserInteractionEnabled = false
-                    cell.finalPrice.isUserInteractionEnabled = false
+                    cell.price.isUserInteractionEnabled = false
                 }
                 else{
                     cell.currency.isUserInteractionEnabled = true
-                    cell.finalPrice.isUserInteractionEnabled = true
+                    cell.price.isUserInteractionEnabled = true
                     if ProductModel.shared.onlineQuanTo > 1
                     {
                         cell.currency.isUserInteractionEnabled = false
@@ -503,34 +506,36 @@ extension AddWholeSlabViewController : UITableViewDataSource{
                 }
                 
                 
-                cell.currency.tag = 201
-                
-                cell.finalPrice.tag = 301
-                cell.finalPrice.delegate = self
+                cell.finalPrice.tag = 201
+                cell.price.tag = 301
+                cell.price.delegate = self
                 cell.currency.delegate = self
-                cell.currency.text = "\(minQty)"
-                cell.finalPrice.text = "\(maxQty)"
-                cell.price.isHidden = true
+                cell.finalPrice.text = "\(minQty)"
+                cell.price.text = "\(maxQty)"
+                cell.finalPrice.isHidden = false
                 cell.exchangeImg.isHidden = false
                 cell.min.isHidden = false
                 cell.max.isHidden = false
-                cell.currency.keyboardType = .asciiCapableNumberPad
+                cell.currency.isHidden = true
+                cell.finalCurrency.isHidden = true
+                cell.price.keyboardType = .asciiCapableNumberPad
                 cell.finalPrice.keyboardType = .asciiCapableNumberPad
             case 3:
                 cell.titleLabel.attributedText = ModalController.setStricColor(str: "\(textArray[indexPath.row]) *", str1: "\(textArray[indexPath.row])", str2:" *" )
-                cell.currency.text = "SAR"
-                cell.currency.font = UIFont(name: "\(fontNameLight)", size: 7.0)
-                cell.price.isHidden = true
+                cell.finalCurrency.text = "SAR"
+                let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+                cell.finalCurrency.font = UIFont(name:"\(fontNameLight)",size:7)
+                cell.finalPrice.isHidden = true
                 cell.exchangeImg.isHidden = true
-                cell.finalPrice.text = "\(wholesalePrice)"
-                cell.finalPrice.tag = indexPath.row
-                
-                cell.finalPrice.addTarget(self, action: #selector(AddWholeSlabViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+                cell.price.text = "\(wholesalePrice)"
+                cell.price.tag = indexPath.row
+                cell.currency.isHidden = true
+                cell.price.addTarget(self, action: #selector(AddWholeSlabViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
             case 4:
                 cell.contentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                
-                cell.currency.text = "SAR"
-                cell.currency.font = UIFont(name: "\(fontNameLight)", size: 7.0)
+                let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+                cell.finalCurrency.font = UIFont(name:"\(fontNameLight)",size:7)
+                cell.finalPrice.isHidden = false
                 cell.price.isHidden = false
                 cell.exchangeImg.isHidden = true
                 cell.percentLabel.isHidden = false
@@ -539,7 +544,7 @@ extension AddWholeSlabViewController : UITableViewDataSource{
                 cell.price.text = "\(discountPrice)"
                 cell.finalPrice.delegate = self
                 cell.finalPrice.tag = 100
-                cell.finalCurrency.isHidden = true
+                cell.currency.isHidden = true
                 
                 if wholesalePrice != 0.0{
                     let value = getRupess(price: wholesalePrice, discount: discountPrice)
@@ -552,37 +557,38 @@ extension AddWholeSlabViewController : UITableViewDataSource{
                 cell.finalPrice.addTarget(self, action: #selector(AddWholeSlabViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
             case 5:
                 cell.contentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                
-                cell.currency.text = "SAR"
-                cell.currency.isHidden = false
+             
+                cell.currency.isHidden = true
                 cell.price.isHidden = false
-                cell.finalCurrency.isHidden = true
+                cell.finalCurrency.isHidden = false
                 cell.greenTick.isHidden = true
-                cell.currency.font = UIFont(name: "\(fontNameLight)", size: 7.0)
-                cell.price.isHidden = true
+                let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+                cell.finalCurrency.font = UIFont(name:"\(fontNameLight)",size:7)
+                cell.finalPrice.isHidden = true
                 cell.exchangeImg.isHidden = true
-                cell.finalPrice.isUserInteractionEnabled = false
-                cell.finalPrice.textColor = #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1)
-                cell.finalPrice.font = UIFont(name: "\(fontNameLight)", size: 12.0)
+                cell.price.isUserInteractionEnabled = false
+                cell.price.textColor = #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1)
+                cell.price.font = UIFont(name:"\(fontNameLight)",size:12)
                 netSelling = wholesalePrice-discountPrice
                 netSelling = (netSelling*100).rounded()/100
 
-                cell.finalPrice.text = String(format: "%.2f",netSelling)
+                cell.price.text = String(format: "%.2f",netSelling)
                 
                 
             case 6:
                 cell.contentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                
+                cell.finalPrice.isHidden = false
                 cell.price.isUserInteractionEnabled = false
                 cell.finalPrice.isUserInteractionEnabled = false
                 if isVat
                 {
                     cell.titleLabel.attributedText = ModalController.setStricColor(str: "\(textArray[indexPath.row]) *", str1: "\(textArray[indexPath.row])", str2:" *" )
-                    cell.price.isUserInteractionEnabled = true
-                    cell.finalPrice.isUserInteractionEnabled = true
+//                    cell.price.isUserInteractionEnabled = true
+//                    cell.finalPrice.isUserInteractionEnabled = true
                 }
-                cell.currency.text = "SAR"
-                cell.currency.font = UIFont(name: "\(fontNameLight)", size: 7.0)
+              
+                let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+                cell.finalCurrency.font = UIFont(name:"\(fontNameLight)",size:7)
                 cell.price.isHidden = false
                 cell.exchangeImg.isHidden = true
                 cell.percentLabel.isHidden = false
@@ -597,46 +603,46 @@ extension AddWholeSlabViewController : UITableViewDataSource{
                 
                 cell.finalPrice.text = "\(vatPercent)"
 
-           //     vatPrice = getRupessfromPercent(price: netSelling, discount: vatPercent)
+                vatPrice = getRupessfromPercent(price: netSelling, discount: vatPercent)
                 
-              //  vatPrice = (vatPrice*100).rounded()/100
+                vatPrice = (vatPrice*100).rounded()/100
 
                 
                 cell.price.text = "\(vatPrice)"
                 cell.price.text = String(format: "%.2f",vatPrice )
                 cell.finalPrice.text = String(format: "%.2f",vatPercent)
-
-                cell.currency.isHidden = false
+                cell.currency.isHidden = true
+                cell.finalCurrency.isHidden = false
                 cell.price.isHidden = false
-                cell.exchangeImg.isHidden = false
-                cell.finalCurrency.isHidden = true
+                cell.exchangeImg.isHidden = true
                 cell.greenTick.isHidden = true
-                cell.finalPrice.isUserInteractionEnabled = true
                 cell.finalPrice.textColor = #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1)
-                cell.finalPrice.font = UIFont(name: "\(fontNameLight)", size: 12.0)
+                cell.finalPrice.font = UIFont(name:"\(fontNameLight)",size:12)
             default:
                 cell.contentView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
                 cell.currency.isHidden = true
-                cell.price.isHidden = true
+                cell.finalPrice.isHidden = true
                 cell.exchangeImg.isHidden = true
                 cell.finalCurrency.isHidden = false
                 cell.greenTick.isHidden = false
                 cell.finalPrice.isUserInteractionEnabled = false
                 let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
-                cell.finalPrice.font = UIFont(name: "\(fontNameBold)", size: 12.0)
-                cell.finalPrice.textColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+                cell.finalCurrency.font = UIFont(name:"\(fontNameBold)",size:10)
+                cell.price.font = UIFont(name:"\(fontNameBold)",size:12)
+                cell.finalCurrency.textColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+                cell.price.textColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
 
                 var vall = netSelling+vatPrice
                 vall = (vall*100).rounded()/100
 
-                cell.finalPrice.text = String(format: "%.2f",vall)
+                cell.price.text = String(format: "%.2f",vall)
 
 //                cell.finalPrice.text = "\(netSelling+vatPrice)"
 
             }
-//            cell.currency.textAlignment = .left
-//           cell.price.textAlignment = .left
-//         cell.finalPrice.textAlignment = .left
+            //cell.currency.textAlignment = .left
+           //cell.price.textAlignment = .left
+         //cell.finalPrice.textAlignment = .left
             return cell
         }
     }

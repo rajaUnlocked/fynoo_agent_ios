@@ -15,6 +15,7 @@ var targetmodel = TargetModel()
     @IBOutlet weak var tabvw: UITableView!
     @IBOutlet weak var headervw: NavigationView!
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         headervw.viewControl = self
         headervw.titleHeader.text = "Commission".localized

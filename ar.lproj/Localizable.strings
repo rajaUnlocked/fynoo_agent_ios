@@ -308,6 +308,14 @@
 "Wholesale" = "بالجملة";
 
 //new
+"Note: Please share the otp with business onwer which you will receive after confirm and upload invoice to confirm that you have received all products from business owner." = "ملاحظة: قم برفع الفاتورة وإضغط على زر تأكيد ورفع الفاتورة لتحصل على رمز التأكيد الذي سيطلبه منك البائع لتأكيد تسليم المنتجات.";
+"I have reached BO store" = "تأكيد الوصول للمتجر";
+"Discount Percentage" = "نسبة الخصم";
+"Document" = "الملفات";
+"Edit Product"="تعديل المنتج";
+"Add Similar Product"="إضافة منتج مماثل";
+"Add Variant Product"="إضافة منتج مختلف";
+"Save and send For approval" = "حفظ و إرسال للموافقة";
 "Any Problem?" = "هل توجد مشكلة؟";
 "Add Slab" = "أضف حد";
 "wholesale_" = "البيع بالجملة";
@@ -800,13 +808,13 @@
 
 // subscriptionPackage List
 "Welcome, Let's Select Your Plan" = "مرحبا، لنختار الباقة المناسبة لك";
-"SAR" = "ر.س.";
+"SAR" = "SAR";
 "Trial" = "تجربة";
 "unlimited" = "لامحدود" ;
 "Apply" = "تطبيق";
 "Year" = "سنة";
 "Month" = "شهر";
-"SAR " = "صار ";
+"SAR " = "SAR";
 "Pay" = "إدفع";
 
 "/Month" = "/Month";
@@ -886,7 +894,7 @@
 "Paying through Wallet" = "Paying through Wallet";
 "Pay Online" = "Pay Online";
 
-"SAR " = "صار ";
+"SAR " = "SAR";
 
 "Time Period :  TRIAL"="الفترة الزمنية: التجربة";
 
@@ -986,7 +994,7 @@
 "That Can be Bought" = "المتوفرة للببع";
 "Min Qty" = "الحد الأدنى للكمية";
 "Product Return Policy (Days)" = "سياسة الاسترجاع (الأيام)";
-"SAR" = "ر.س.";
+"SAR" = "SAR";
 "Field Same As Online" = "ملء الحقول تلقائيا";
 "VAr" = "vat";
 // databank
@@ -1003,7 +1011,7 @@
 "View Details" = "المزيد";
 "View Gallery" = "عرض الصور";
 "Price" = "السعر";
-"SAR" = "ر.س.";
+"SAR" = "SAR";
 "Add" = "إضافة";
 "ADD" = "إضافة";
 "Product Created" = "المنتجات المُنشأة";
@@ -1034,15 +1042,6 @@
 "Final Price"="السعر النهائي";
 "Price Detail" = "تفاصيل السعر";
 "Wholesale Price"="سعر الجملة";
-"Edit Product"="تعديل المنتج";
-"Add Similar Product"="إضافة منتج مماثل";
-"Add Variant Product"="إضافة منتج مختلف";
-
-
-
-
-
-
 
 
 // newProductView

@@ -23,6 +23,7 @@ class PopUpBelowViewController: UIViewController {
     var images : [UIImage] = [#imageLiteral(resourceName: "businessOwner"),#imageLiteral(resourceName: "agent_indivdual"),#imageLiteral(resourceName: "agent_company")]
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         
         tableView.separatorStyle = .none

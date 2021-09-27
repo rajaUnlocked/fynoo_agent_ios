@@ -31,6 +31,7 @@ class PopUpAcceptProductViewController: UIViewController {
     var titleLabel = ""
 
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         SetFont()
         self.yesOutlet.setAllSideShadowForFields(shadowShowSize: 3.0, sizeFloat: self.yesOutlet.frame.size.width)

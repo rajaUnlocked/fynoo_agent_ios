@@ -283,7 +283,11 @@
 
 /////////////////////////             TAP PAYMENT             /////////////////////////
 //new
-
+"Note: Please share the otp with business onwer which you will receive after confirm and upload invoice to confirm that you have received all products from business owner." = "Note: Please share the otp with business onwer which you will receive after confirm and upload invoice to confirm that you have received all products from business owner.";
+"I have reached BO store" = "I have reached BO store";
+"Discount Percentage" = "Discount Percentage";
+"Document" = "Document";
+"Save and send For approval" = "Save and send For approval";
 "Successfully Registration With FYNOO" = "Successfully Registration With FYNOO";
 "Payment Successful" = "Payment Successful";
 "Add Slab" = "Add Slab";

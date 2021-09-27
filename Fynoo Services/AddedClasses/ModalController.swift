@@ -27,7 +27,21 @@ class ModalController: NSObject {
         return attributedString
         
     }
-    
+    static  func watermark(_ view:UIView)
+    {
+        let img = UIImageView()
+        img.image = UIImage(named: "backgroundnew")
+        img.frame = CGRect(x: 0, y: 0, width: 295, height: 206)
+        img.contentMode = .scaleAspectFit
+        img.translatesAutoresizingMaskIntoConstraints = false
+        view.insertSubview(img, at: 0)
+     
+        img.centerXAnchor.constraint(equalTo:view.centerXAnchor ,constant: -((UIScreen.main.bounds.size.width - 295)/2)).isActive = true
+            img.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: 0).isActive = true
+            img.widthAnchor.constraint(equalToConstant: 295).isActive = true
+            img.heightAnchor.constraint(equalToConstant: 206).isActive = true
+   
+    }
     static func showSuccessCustomAlertWith(title: String, msg: String)
     {
         let banner = Banner(title: title, subtitle: msg, image: UIImage(named: "like_thumb"), backgroundColor: UIColor(red:48.00/255.0, green:174.0/255.0, blue:51.0/255.0, alpha:1.000))
@@ -479,6 +493,13 @@ static func isStringValid(_ str: String?) -> Bool {
         return attributedString
         
     }
+    static  func setStricColorfinal(str: String,str1:String,str2:String) -> NSMutableAttributedString{
+        let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: str)
+        attributedString.setColor(color: #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1), forText: str2)
+        attributedString.setColor(color: #colorLiteral(red: 0.3882352941, green: 0.3882352941, blue: 0.3882352941, alpha: 1), forText: str1)
+        return attributedString
+        
+    }
     static  func setMultiColorTextStringss(str: String,str1:String,str2:String,color:UIColor,color2:UIColor) -> NSMutableAttributedString{
         let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: str)
         attributedString.setColor(color: color, forText: str2)
@@ -586,6 +607,9 @@ extension UINavigationController {
             }
         }
     }
+    func hasViewController(ofKind kind: AnyClass) -> UIViewController? {
+           return self.viewControllers.first(where: {$0.isKind(of: kind)})
+       }
 }
 extension NSMutableAttributedString {
     

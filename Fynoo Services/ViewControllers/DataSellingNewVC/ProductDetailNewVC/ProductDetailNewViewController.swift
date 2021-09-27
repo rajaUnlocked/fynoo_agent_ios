@@ -75,6 +75,7 @@ class ProductDetailNewViewController: UIViewController,UIImagePickerControllerDe
     var timerLabel:String = ""
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         print("isProductOnlineAvailable:-",isProductOnlineAvailable)
         print("isProductInstoreAvailable:-",isProductStoreAvailable)

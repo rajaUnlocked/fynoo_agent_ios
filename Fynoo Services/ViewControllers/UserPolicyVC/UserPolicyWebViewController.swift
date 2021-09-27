@@ -18,6 +18,7 @@ class UserPolicyWebViewController: UIViewController, WKNavigationDelegate, WKUID
     
     
     override func viewDidLoad() {
+        ModalController.watermark(self.view)
         super.viewDidLoad()
         webView.navigationDelegate = self
         self.webView.uiDelegate = self

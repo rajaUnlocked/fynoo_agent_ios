@@ -79,7 +79,7 @@ struct OrderService_list : Mappable {
     var bo_number : String?
     var bo_mob_code : String?
     var bo_pic : String?
-    
+    var start_work : Int?
     
     var address : String?
     var rating_count : Int?
@@ -118,6 +118,7 @@ struct OrderService_list : Mappable {
         rating_avg <- map["rating_avg"]
         rating_given <- map["rating_given"]
         reason <- map["reason"]
+        start_work <- map["start_work"]
         
     }
 }
