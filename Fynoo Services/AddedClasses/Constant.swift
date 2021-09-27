@@ -176,15 +176,13 @@ class Constant: NSObject {
 //         static var BASE_URL : String = "http://61.95.220.248:9092/"
     //      static var BASE_URL : String = "http://61.95.220.248:9095/"  //CLIENT URL FOR NOW
     //static var BASE_URL : String = "https://dev.fynoo.com:8001/"
-     static var BASE_URL : String = "http://uat.sendan.com.sa:9003/"  // dev
-//     static var BASE_URL : String = "https://dev.fynoo.com/"   //live
+//     static var BASE_URL : String = "http://uat.sendan.com.sa:9003/"  // dev
+     static var BASE_URL : String = "https://dev.fynoo.com/"   //live
    
     
     //      static var BASE_URL : String = "http://43.241.61.141:9003/"
     //  static var BASE_URL : String = "http://43.241.61.141:9005/"
-    
-    
-    
+        
     static let getAppVersion : String = "common/getAppVersion/";
     static let ForgotPswd: String = "customerapi/v2/forgot_password/"
     static let ResetPswd: String = "customerapi/v2/reset_password/"
