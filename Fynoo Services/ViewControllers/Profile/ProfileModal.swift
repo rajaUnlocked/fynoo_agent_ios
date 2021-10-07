@@ -376,11 +376,11 @@ class agentInfo : Mappable{
     var u_image_id = 0
     var user_img = ""
     var very_helpful = 0
-    
+    var joining_date = ""
     required init?(map: Map) {}
     
     func mapping(map: Map) {
-        
+        joining_date <- map["joining_date"]
         del_service_document_reason <- map["del_service_document_reason"]
           dsd_id <- map["dsd_id"]
           trips_achievements <- map["trips_achievements"]

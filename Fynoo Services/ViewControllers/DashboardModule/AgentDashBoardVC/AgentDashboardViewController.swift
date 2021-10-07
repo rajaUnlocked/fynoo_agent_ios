@@ -85,8 +85,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         holdingamtlbl.text = "Holding Amount".localized
         walletballbl.text = "Wallet Balance".localized
         progresslbl.text = "Payment in progress".localized
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapWalletView(_:)))
-        walletvw.addGestureRecognizer(tapGestureRecognizer)
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapWalletView(_:)))
+//        walletvw.addGestureRecognizer(tapGestureRecognizer)
         getUserLocation()
         registerNotifications()
         sideMenuCode()
@@ -105,13 +105,21 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         
         doBackgroundTask()
     }
-    @objc private func didTapWalletView(_ sender: UITapGestureRecognizer) {
-        if sender.isEnabled
-        {
-            let vc = BankAllListViewController(nibName: "BankAllListViewController", bundle: nil)
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+    
+    @IBAction func walletBalanceClicked(_ sender: UIButton) {
+        
+        let vc = BankAllListViewController(nibName: "BankAllListViewController", bundle: nil)
+        vc.selectedVl = Int("100\(sender.tag)")!
+        self.navigationController?.pushViewController(vc, animated: true)
     }
+  
+    
+//    @objc private func didTapWalletView(_ sender: UITapGestureRecognizer) {
+//        if sender.isEnabled
+//        {
+//
+//        }
+//    }
     override func viewWillAppear(_ animated: Bool) {
         //registerNotifications()
         self.dashboardAPI()
