@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRCOdeViewController" customModule="Fynoo_Business" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRCOdeViewController" customModule="Fynoo_Agent" customModuleProvider="target">
             <connections>
                 <outlet property="messageLabel" destination="Vmv-A0-jyC" id="S1h-Xo-5Hf"/>
                 <outlet property="scanlbl" destination="FFg-8r-GBs" id="ySM-Wj-yPp"/>
@@ -30,7 +30,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CrA-Ui-vxs">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CrA-Ui-vxs">
                             <rect key="frame" x="15" y="39" width="18" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="18" id="acZ-oH-SXT"/>
@@ -38,7 +38,7 @@
                                 <constraint firstAttribute="width" constant="18" id="o8T-DS-mGi"/>
                             </constraints>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" image="cancel"/>
+                            <state key="normal" image="cross_new"/>
                             <connections>
                                 <action selector="cancel:" destination="-1" eventType="touchUpInside" id="SWc-b7-4BB"/>
                             </connections>
@@ -64,6 +64,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="hwO-DD-RXp" secondAttribute="trailing" id="0C8-M4-Y1y"/>
@@ -73,11 +74,10 @@
                 <constraint firstItem="hwO-DD-RXp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="c4r-P6-D7r"/>
                 <constraint firstItem="Vmv-A0-jyC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pBc-pe-Zlp"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="141" y="100"/>
         </view>
     </objects>
     <resources>
-        <image name="cancel" width="64" height="64"/>
+        <image name="cross_new" width="43" height="43"/>
     </resources>
 </document>

@@ -713,14 +713,16 @@ pro.RetailReturnDays = ""
         }
         if pro.subcataId == "" || pro.subcataId == "0"
         {
-            ModalController.showNegativeCustomAlertWith(title: "Please Select Catagory", msg: "")
+            ModalController.showNegativeCustomAlertWith(title: "Please select category and sub category".localized, msg: "")
+
             return
         }
         if !isDataBank
         {
         if pro.length == 0.0 || pro.height == 0.0 || pro.width == 0.0 || pro.weight == 0.0
         {
-            ModalController.showNegativeCustomAlertWith(title: "Please Fill Dimension Feilds", msg: "")
+            ModalController.showNegativeCustomAlertWith(title: "Dimension can not be zero.".localized, msg: "")
+
             return
         }
         }
@@ -728,7 +730,8 @@ pro.RetailReturnDays = ""
         {
             if docId.count == 0
             {
-                ModalController.showNegativeCustomAlertWith(title: "Please Fill Technical Description", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please enter technical description or attach files".localized, msg: "")
+
                 return
             }
             

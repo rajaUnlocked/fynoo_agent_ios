@@ -306,8 +306,25 @@
 "More Details" = "المزيد";
 "Retail" = "بالتجزئة";
 "Wholesale" = "بالجملة";
-
+//product form toast
+"Please enter valid whatsApp number" = "أدخل رقم واتسب فعال";
+"Please enter technical description or attach files" = "الرجاء أدخل وصف فني أو أرفق الملف";
+"Please select category and sub category" = "الرجاء اختر التصنيف الرئيسي والتصنيف الفرعي";
+"Please add product main picture" = "الرجاء إرفع الصورة الرئيسي للمنتج";
+"Please enter valid video link" = "الرجاء إدخال رابط فيديو فعال";
+"Please select one from Online or In Store." = "الرجاء اختيار  إما  أونلاين أو في المتجر";
+"Please Add description" = "الرجاء إضافة وصف";
+"Please Select Branch" = "الرجاء تحديد الفرع";
+"Please Add Product Name" = "الرجاء إدخال اسم المنتج";
+"Please Fill Slot Mandatory Field" = "الرجاء ملئ القول المطلوبة";
+"Please Select Currency" = "الرجاء إضافة العملة";
+"Please enter valid phone number" = "أدخل رقم جوال فعال";
 //new
+"Notification" = "الإشعارات";
+"Total Draft Data" = "مجموع بيانات المسودة";
+"Total Sold Data" = "مجموع البيانات المباعة";
+"Total Earning" = "مجموع الأرباح";
+"Add Products Data" = "أضف بيانات المنتجات";
 "Note: Please share the otp with business onwer which you will receive after confirm and upload invoice to confirm that you have received all products from business owner." = "ملاحظة: قم برفع الفاتورة وإضغط على زر تأكيد ورفع الفاتورة لتحصل على رمز التأكيد الذي سيطلبه منك البائع لتأكيد تسليم المنتجات.";
 "I have reached BO store" = "تأكيد الوصول للمتجر";
 "Discount Percentage" = "نسبة الخصم";

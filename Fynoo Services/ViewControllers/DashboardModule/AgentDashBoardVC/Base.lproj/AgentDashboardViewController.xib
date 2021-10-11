@@ -80,7 +80,7 @@
                                 <action selector="notificationBtnClicked:" destination="-1" eventType="touchUpInside" id="G2c-bB-HOF"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99k" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUf-rX-9hF">
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99k" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUf-rX-9hF">
                             <rect key="frame" x="424" y="72" width="18" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="13" id="cd2-em-Kv8"/>

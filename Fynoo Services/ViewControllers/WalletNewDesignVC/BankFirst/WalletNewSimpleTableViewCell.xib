@@ -56,7 +56,7 @@
                         </constraints>
                     </imageView>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kov-HR-phz">
-                        <rect key="frame" x="41" y="52" width="110.5" height="1"/>
+                        <rect key="frame" x="41" y="52.5" width="110.5" height="1"/>
                         <color key="backgroundColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="Sq8-ZA-nIJ"/>
@@ -123,7 +123,7 @@
                     <constraint firstItem="8FE-we-4St" firstAttribute="top" secondItem="jJ8-3H-pl0" secondAttribute="bottom" constant="8" id="7A1-Oy-Kp3"/>
                     <constraint firstItem="PqD-aK-nOK" firstAttribute="top" secondItem="ov9-MM-AzK" secondAttribute="bottom" constant="13" id="9eU-wK-iPE"/>
                     <constraint firstItem="ov9-MM-AzK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Ceg-1p-HEn"/>
-                    <constraint firstItem="kov-HR-phz" firstAttribute="bottom" secondItem="PqD-aK-nOK" secondAttribute="bottom" constant="0.20000000000000001" id="Cp6-Kb-pNs"/>
+                    <constraint firstItem="kov-HR-phz" firstAttribute="bottom" secondItem="PqD-aK-nOK" secondAttribute="bottom" constant="0.29999999999999999" id="Cp6-Kb-pNs"/>
                     <constraint firstItem="X0F-y3-7lU" firstAttribute="top" secondItem="UV0-dT-hRF" secondAttribute="top" constant="-1" id="F4O-uH-Bjr"/>
                     <constraint firstItem="5tL-eK-2vE" firstAttribute="leading" secondItem="jJ8-3H-pl0" secondAttribute="trailing" id="Gbl-W3-LdX"/>
                     <constraint firstItem="TPq-Th-30F" firstAttribute="leading" secondItem="IND-OP-Oev" secondAttribute="trailing" constant="6" id="NgO-Tu-n6W"/>

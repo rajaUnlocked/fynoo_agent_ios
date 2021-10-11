@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GalleryPopUpViewController" customModule="Fynoo_Services" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GalleryPopUpViewController" customModule="Fynoo_Agent" customModuleProvider="target">
             <connections>
                 <outlet property="chooseLbl" destination="Esg-4Q-wtg" id="u4F-Mt-Bed"/>
                 <outlet property="crossButton" destination="T5m-HW-LBu" id="arS-SY-8gb"/>
@@ -29,7 +29,7 @@
             <subviews>
                 <view alpha="0.60000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aw3-oi-c4i">
                     <rect key="frame" x="0.0" y="0.0" width="376" height="310"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJG-Bf-gg3">
                     <rect key="frame" x="0.0" y="-10" width="376" height="340"/>

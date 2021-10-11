@@ -182,9 +182,9 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     let msg = value.object(forKey: "error_description") as! String
                     let error = value.object(forKey: "error_code") as! Int
                     if error == 100{
-                        print(msg)
+                       // print(msg)
                     }else{
-                       print(msg)
+                       //print(msg)
                     }
                 }
             }

@@ -290,7 +290,8 @@ class CreateProductFirstViewController: UIViewController {
         
             if ProductModel.shared.productTitle == ""
                    {
-                       ModalController.showNegativeCustomAlertWith(title: "Please Fill Product Name  ", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Add Product Name".localized, msg: "")
+
                        return
                    }
                    if  ProductModel.shared.productTitle.count > 0
@@ -308,7 +309,8 @@ class CreateProductFirstViewController: UIViewController {
             }
             if ProductModel.shared.productDecription == ""
                    {
-                       ModalController.showNegativeCustomAlertWith(title: "Please Fill Description  ", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Add description".localized, msg: "")
+
                        return
                    }
                    if ProductModel.shared.productDecription.first!.isWhitespace
@@ -326,7 +328,8 @@ class CreateProductFirstViewController: UIViewController {
                           }
             if "\(ProductModel.shared.galleryId[0])" == ""
                  {
-                     ModalController.showNegativeCustomAlertWith(title: "Main Image is Mandatory  ", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please add product main picture".localized, msg: "")
+
                      return
                  }
                   if  ProductModel.shared.videoUrl.count > 0
