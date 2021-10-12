@@ -698,17 +698,17 @@ extension BankAllListViewController : UITableViewDataSource{
             da_range = ""
         }else{
             
-            var dfmatter = DateFormatter()
+            let dfmatter = DateFormatter()
             dfmatter.dateFormat="dd/MM/yyyy"
-            var date = dfmatter.date(from: "\(fromStr)")
-            var dateStamp:TimeInterval = date!.timeIntervalSince1970
-            var dateSt:Int = Int(dateStamp)
+            let date = dfmatter.date(from: "\(fromStr)")
+            let dateStamp:TimeInterval = date!.timeIntervalSince1970
+            let dateSt:Int = Int(dateStamp)
             
-            var dfmatter1 = DateFormatter()
+            let dfmatter1 = DateFormatter()
             dfmatter1.dateFormat="dd/MM/yyyy"
-            var date1 = dfmatter1.date(from: "\(toStr)")
-            var dateStamp1:TimeInterval = date1!.timeIntervalSince1970
-            var dateSt1:Int = Int(dateStamp1)
+            let date1 = dfmatter1.date(from: "\(toStr)")
+            let dateStamp1:TimeInterval = date1!.timeIntervalSince1970
+            let dateSt1:Int = Int(dateStamp1)
             
             
             da_range = "\(dateSt)-\(dateSt1)"

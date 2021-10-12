@@ -17,6 +17,8 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        nameLbl.font = UIFont(name:"\(fontNameLight)",size:20)
         self.navigationController?.navigationBar.isHidden = true
         registerCellNibs()
         profileImage.layer.cornerRadius = profileImage.layer.frame.width*0.5

@@ -54,13 +54,13 @@ class CompleteDataEntryListTableViewCell: UITableViewCell {
                 self.addressLbl.textAlignment = .right
                 self.agentNameLbl.textAlignment = .right
                 self.agentAddressLbl.textAlignment = .right
-                self.priceValueLbl.textAlignment = .right
+                self.priceValueLbl.textAlignment = .left
               }else if value[0]=="en"{
                   self.headerLbl.textAlignment = .left
                 self.addressLbl.textAlignment = .left
                 self.agentNameLbl.textAlignment = .left
                 self.agentAddressLbl.textAlignment = .left
-                self.priceValueLbl.textAlignment = .left
+                self.priceValueLbl.textAlignment = .right
               }
           }
     }

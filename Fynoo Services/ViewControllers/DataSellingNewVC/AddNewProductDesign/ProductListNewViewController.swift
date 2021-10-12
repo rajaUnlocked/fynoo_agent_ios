@@ -262,6 +262,12 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
             {
                 view.searchTxtField.textAlignment = .right
             }
+            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+            view.searchTxtField.font =  UIFont(name:"\(fontNameLight)",size:12)
+            view.soldData.font =  UIFont(name:"\(fontNameLight)",size:12)
+            view.totalEarning.font =  UIFont(name:"\(fontNameLight)",size:12)
+            view.draftData.font =  UIFont(name:"\(fontNameLight)",size:12)
+            view.addproductlbl.font =  UIFont(name:"\(fontNameLight)",size:6)
             view.searchTxtField.placeholder = "Search".localized
             view.addproductlbl.text = "Add Products Data".localized
             view.draftData.text = "\("\("Total Draft Data".localized)             ")\(data_bank_list?.data?.total_draft ?? 0)"

@@ -8,6 +8,7 @@
 import UIKit
 
 enum ValidationMessages {
+    
     static let passwordCount  = "Please enter 8 digit password"
     static var WrongemailAddress = "Please enter valid Email"
     static let emailAddress = "Please enter Email"
@@ -176,8 +177,8 @@ class Constant: NSObject {
 //         static var BASE_URL : String = "http://61.95.220.248:9092/"
     //      static var BASE_URL : String = "http://61.95.220.248:9095/"  //CLIENT URL FOR NOW
     //static var BASE_URL : String = "https://dev.fynoo.com:8001/"
-//     static var BASE_URL : String = "http://uat.sendan.com.sa:9003/"  // dev
-     static var BASE_URL : String = "https://dev.fynoo.com/"   //live
+    static var BASE_URL : String = "http://uat.sendan.com.sa:9003/"  // dev
+     //static var BASE_URL : String = "https://dev.fynoo.com/"   //live
    
     
     //      static var BASE_URL : String = "http://43.241.61.141:9003/"
@@ -225,7 +226,6 @@ class Constant: NSObject {
     static let GET_NOTIFICATIONARV = "AGENT_NOTIFICATIONARV"
     
     static let NF_KEY_FOR_PASS_DATA_TO_DELIVERYDASHBOARD = "PASS_DATA_TO_DELIVERY_DASHBOARD"
-    
     
 }
 

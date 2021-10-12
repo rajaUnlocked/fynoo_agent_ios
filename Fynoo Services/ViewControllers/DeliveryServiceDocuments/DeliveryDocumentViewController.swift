@@ -25,6 +25,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     @IBOutlet weak var submit: UIButton!
     var txtIdArr = [0,0,0,0,0,0,0,0]
     var imgArr = [String]()
+    var imgIdUploadedArr = [Bool]()
     var imgIdArr = [Bool]()
     var imglocalArr = [UIImage?]()
     var documentlocalArr = [URL?]()
@@ -62,7 +63,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         imglocalArr = [nil,nil,nil,nil,nil,nil,nil]
         documentlocalArr = [nil,nil,nil,nil,nil,nil]
         imgIdArr = [false,false,false,false,false,false,false]
-        
+        imgIdUploadedArr = [false,false,false,false,false,false,false]
         servicetypeColor_API()
         
     }
@@ -237,8 +238,29 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         {
             imglocalArr[id] = nil
             documentlocalArr[id] = nil
-            imgIdArr[id] = false
-            tabvw.reloadData()
+            imgIdUploadedArr[id] = false
+            let param = ["type":id+1,"primary_id":service.primaryid,"lang_code":HeaderHeightSingleton.shared.LanguageSelected] as [String : Any]
+            print(param)
+            ModalClass.startLoading(self.view)
+            ServerCalls.postRequest("\(Constant.BASE_URL)agentapi/v1/delete_vehicle_service_document/", withParameters: param) { response, suceess, resp in
+                ModalClass.stopLoading()
+                if suceess
+                {
+                    self.imgIdArr[id] = false
+                    
+                    let imageUrl = URL(string: ((response as! NSDictionary).object(forKey: "data") as! NSDictionary).object(forKey: "placeholder") as! String)!
+        
+                    do {
+                        let imageData = try Data(contentsOf: imageUrl)
+                        self.imglocalArr[id] = UIImage(data: imageData)
+                        self.tabvw.reloadData()
+                    }
+                    catch{
+                        self.imglocalArr[id] = nil
+                    }
+                  
+                }
+            }
             return
 
         }
@@ -265,22 +287,22 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             return
         }
         }
-        else if !imgIdArr[1]
+        if !imgIdArr[1]
         {
            ModalController.showNegativeCustomAlertWith(title: "Please filled Driving License Front ", msg: "")
              return
         }
-        else if !imgIdArr[2]
+        if !imgIdArr[2]
         {
            ModalController.showNegativeCustomAlertWith(title: "Please filled Vehicle Registration", msg: "")
              return
         }
-        else if !imgIdArr[3]
+        if !imgIdArr[3]
         {
            ModalController.showNegativeCustomAlertWith(title: "Please filled Vehicle Insurance", msg: "")
              return
         }
-        else if !imgIdArr[5]
+        if !imgIdArr[5]
         {
            ModalController.showNegativeCustomAlertWith(title: "Please filled Vehicle Description", msg: "")
              return
@@ -581,7 +603,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     func gallery(img: UIImage, imgtype: String) {
         
         imglocalArr[tag1] = img
-        
+        imgIdUploadedArr[tag1] = true
         tabvw.reloadData()
     }
     func information(Value: String) {
@@ -639,6 +661,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         }
         documentlocalArr[tag1] = urls.first
         imglocalArr[tag1] = nil
+        imgIdUploadedArr[tag1] = true
         tabvw.reloadData()
     }
     
@@ -671,6 +694,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                }
         imglocalArr[sender.tag] = nil
                // imgArr[sender.tag] = ""
+        imgIdUploadedArr[tag1] = false
                 tabvw.reloadData()
 
      
@@ -722,15 +746,20 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 ModalController.showNegativeCustomAlertWith(title: "Please Select DOE", msg: "")
                 return
             }
-            if  imglocalArr[sender.tag] == nil && documentlocalArr[sender.tag] == nil {
-                ModalController.showNegativeCustomAlertWith(title: "Please Upload National Id / Iqama", msg: "")
-                return
-            }
+            
             service.username = toptxtArr[0]
             service.dob = toptxtArr[1]
             service.iqmano = toptxtArr[2]
             service.edob = toptxtArr[3]
             service.isType = sender.tag + 1
+            if !imgIdArr[sender.tag]
+            {
+            if !imgIdUploadedArr[sender.tag]
+            {
+                ModalController.showNegativeCustomAlertWith(title: "Please Upload National Id / Iqama", msg: "")
+                return
+            }
+            }
             if imglocalArr[sender.tag] == nil{
               
                 service.docfilereg.append(documentlocalArr[sender.tag]!)
@@ -801,9 +830,14 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 }
             }
             
-        if  imglocalArr[sender.tag] == nil && documentlocalArr[sender.tag] == nil {
+        
+            if !imgIdArr[sender.tag]
+            {
+            if !imgIdUploadedArr[sender.tag]
+            {
                 ModalController.showNegativeCustomAlertWith(title: "Please Upload the Front side Photo", msg: "")
                 return
+            }
             }
             service.regtype = "\(txtIdArr[0])"
             service.vehicleBrand = "\(txtIdArr[1])"
@@ -843,15 +877,23 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         }
         else if sender.tag == 4
         {
-            if  imglocalArr[2] == nil && documentlocalArr[2] == nil
+           
+            if !imgIdArr[2]
+            {
+            if !imgIdUploadedArr[2]
             {
                 ModalController.showNegativeCustomAlertWith(title: "Please Upload Vehicle Registration", msg: "")
                 return
             }
-            if  imglocalArr[sender.tag] == nil && documentlocalArr[sender.tag] == nil
+            
+            }
+            if !imgIdArr[4]
             {
-                ModalController.showNegativeCustomAlertWith(title: "Upload Driving Authorization ", msg: "")
-                return
+            if !imgIdUploadedArr[4]
+            {
+                    ModalController.showNegativeCustomAlertWith(title: "Upload Driving Authorization ", msg: "")
+                    return
+            }
             }
             service.isType = sender.tag + 1
             service.sendforapproval = "0"
@@ -860,7 +902,9 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         }
         else
         {
-            if  imglocalArr[sender.tag] == nil && documentlocalArr[sender.tag] == nil
+            if !imgIdArr[sender.tag]
+            {
+            if  !imgIdUploadedArr[sender.tag]
             {
                 if sender.tag == 1
                 {
@@ -882,6 +926,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     ModalController.showNegativeCustomAlertWith(title: "Upload Driving Authorization ", msg: "")
                     return
                 }
+            }
             }
             service.isType = sender.tag + 1
             service.sendforapproval = "0"
@@ -1141,7 +1186,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         }
         cell.crossclicked.isHidden =  true
       cell.uploadimg.isUserInteractionEnabled = true
-        if imgIdArr[section - 1]
+        if imgIdArr[section - 1] || imgIdUploadedArr[section - 1]
         {
           cell.crossclicked.isHidden =  false
         cell.uploadimg.isUserInteractionEnabled = false

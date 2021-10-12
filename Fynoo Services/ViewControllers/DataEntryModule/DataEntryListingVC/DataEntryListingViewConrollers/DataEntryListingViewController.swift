@@ -446,7 +446,7 @@ extension DataEntryListingViewController : UITableViewDelegate {
             if selectedTab == "4" {
                 return 130
             } else if selectedTab == "3"{
-                return 260
+                return 230
             }else{
                 return 105
             }
@@ -754,8 +754,6 @@ extension DataEntryListingViewController : UITableViewDataSource {
         
     }
 }
-
-
 extension DataEntryListingViewController : DataEntryFilterDelegate {
     
     func filterApplied(filters : [ChooseFilters]) {
@@ -769,9 +767,6 @@ extension DataEntryListingViewController : DataEntryFilterDelegate {
                 
             }
         }
-        
-        
-        
         print("appliedFilterCount:-", appliedFilterCount)
         self.refreshDataEntryCompleteServiceList()
     }
