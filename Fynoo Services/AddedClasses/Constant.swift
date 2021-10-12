@@ -8,6 +8,7 @@
 import UIKit
 
 enum ValidationMessages {
+    
     static let passwordCount  = "Please enter 8 digit password"
     static var WrongemailAddress = "Please enter valid Email"
     static let emailAddress = "Please enter Email"
@@ -225,7 +226,6 @@ class Constant: NSObject {
     static let GET_NOTIFICATIONARV = "AGENT_NOTIFICATIONARV"
     
     static let NF_KEY_FOR_PASS_DATA_TO_DELIVERYDASHBOARD = "PASS_DATA_TO_DELIVERY_DASHBOARD"
-    
     
 }
 
