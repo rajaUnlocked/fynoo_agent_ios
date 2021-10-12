@@ -282,7 +282,25 @@
 
 
 /////////////////////////             TAP PAYMENT             /////////////////////////
+//product form toast
+"Please enter valid whatsApp number" = "Please enter valid whatsApp number";
+"Please enter technical description or attach files" = "Please enter technical description or attach files";
+"Please select category and sub category" = "Please select category and sub category";
+"Please add product main picture" = "Please add product main picture";
+"Please enter valid video link" = "Please enter valid video link";
+"Please select one from Online or In Store." = "Please select one from Online or In Store.";
+"Please Add description" = "Please Add description";
+"Please Select Branch" = "Please Select Branch";
+"Please Add Product Name" = "Please Add Product Name";
+"Please Select Currency" = "Please Select Currency";
+"Please Fill Slot Mandatory Field" = "Please Fill Slot Mandatory Field";
+"Please enter valid phone number" = "Please enter valid phone number";
 //new
+"Notification" = "Notification";
+"Total Draft Data" = "Total Draft Data";
+"Total Sold Data" = "Total Sold Data";
+"Total Earning" = "Total Earning";
+"Add Products Data" = "Add Products Data";
 "Note: Please share the otp with business onwer which you will receive after confirm and upload invoice to confirm that you have received all products from business owner." = "Note: Please share the otp with business onwer which you will receive after confirm and upload invoice to confirm that you have received all products from business owner.";
 "I have reached BO store" = "I have reached BO store";
 "Discount Percentage" = "Discount Percentage";

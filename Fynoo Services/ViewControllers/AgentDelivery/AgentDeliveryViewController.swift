@@ -486,7 +486,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             cell.rating.rating = deliverData?.data?.agent_information?.avg_rating ?? 0
             cell.totalRating.text = "(\(deliverData?.data?.agent_information?.total_rating ?? ""))"
             cell.trip.text = "\(deliverData?.data?.agent_information?.total_trips ?? 0)"
-            cell.year.text = "\(deliverData?.data?.agent_information?.active_years ?? 0)"
+            cell.year.text = "\(deliverData?.data?.agent_information?.joining_date ?? "")"
             cell.earning.text = "\(deliverData?.data?.agent_information?.total_earnings ?? 0)"
             cell.cod.text = (deliverData?.data?.del_accept_limit?.today_cod ?? 0) == 0 ? "" : "\(deliverData?.data?.del_accept_limit?.today_cod ?? 0)"
             cell.agentProfileImageView.sd_setImage(with: URL(string: deliverData?.data?.agent_information?.user_img ?? ""), placeholderImage: UIImage(named: "profile_white.png"))

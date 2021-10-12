@@ -195,8 +195,14 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
 
                         self.navigationController?.popViewController(animated: true)
                     }else{
-                        let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
-                        self.navigationController?.pushViewController(vc, animated: true)
+                        if(self.navigationController?.hasViewController(ofKind: AgentDashboardViewController.self)) != nil
+                        {
+                         self.navigationController?.backToViewController(viewController: AgentDashboardViewController.self)
+                        }
+                        else{
+                         let vc = AgentDashboardViewController(nibName: "AgentDashboardViewController", bundle: nil)
+                         self.navigationController?.pushViewController(vc, animated: true)
+                                        }
                     }
                    
                 }
