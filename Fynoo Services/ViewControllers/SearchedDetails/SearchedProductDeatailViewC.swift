@@ -265,10 +265,10 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     
     @IBAction func BtnTappedToAccept(_ sender: UIButton) {
         
-        //        if ((tripDetail?.data?.trip_details?.service_going_on) == true) {
-        //            ModalController.showNegativeCustomAlertWith(title: "", msg: "You can not accept the order")
-        //        }else
-        //        {
+                if ((tripDetail?.data?.trip_details?.service_going_on) == true) {
+                    ModalController.showNegativeCustomAlertWith(title: "", msg: "You can not accept the order")
+                }else
+                {
         
         let vc = PopUpAcceptProductViewController(nibName: "PopUpAcceptProductViewController", bundle: nil)
         vc.delegate = self
@@ -276,7 +276,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         vc.modalPresentationStyle = .overFullScreen
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         self.present(vc, animated: true, completion: nil)
-        //        }
+                }
     }
     
     @IBAction func btnTappedToDecline(_ sender: Any) {
@@ -432,9 +432,14 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
                             }else
                             {
                                 //Mark- For Customer
+                                
+                                
+                                if (tripDetail?.data?.trip_details?.delivery_vat_amount ?? "") != "" {
+                                    self.lblStDeliveryPrice.text = "Delivery Price With VAT".localized
+                                }
                             
                             self.lblAlmostPurchasePrice.text = "\(tripDetail?.data?.trip_details?.purchase_price ?? "")"
-                            self.lblDeliveryPrice.text = "\(tripDetail?.data?.trip_details?.delivery_price ?? "")"
+                            self.lblDeliveryPrice.text = "\(tripDetail?.data?.trip_details?.delivery_amount_with_vat ?? "")"
                             self.lblAlmostTotalPrice.text = "\(tripDetail?.data?.trip_details?.total_price ?? "")"
                             }
                             

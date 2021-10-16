@@ -1246,11 +1246,11 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         let ItemQty = "Box Qty".localized
         
         cell.lblQty.text = "\(ItemQty): 0\(orderDetailData?.data?.item_detail? [index.row].qty ?? 0)"
-        let totalWeight = "\("Total Weight".localized):"
+        let totalWeight = "\("Total Weight".localized)"
         let kg = "kg".localized
         let cm = "cm".localized
         cell.lblOrderId.text = "\(totalWeight):  \(orderDetailData?.data?.total_weight ?? 0.0)\(kg)"
-        let totalSize = "\("Total Size".localized):"
+        let totalSize = "\("Total Size".localized)"
         cell.lblDate.text = "\(totalSize):  \(orderDetailData?.data?.total_size ?? 0.0)"
         
         
