@@ -34,11 +34,11 @@ class BasedUrlViewController: UIViewController {
         self.localUrlEntryTxtFld.isHidden = true
         self.otherUrlView.isHidden = true
         
-        self.selectedUrlTxtFld.optionArray = ["http://61.95.220.248:9092/", "http://61.95.220.248:9095/", "http://43.241.61.141:9005/","https://dev.fynoo.com:8001/","https://dev.fynoo.com/","Local Pointing"]
+        self.selectedUrlTxtFld.optionArray = ["http://61.95.220.248:9092/", "http://61.95.220.248:9095/", "http://43.241.61.141:9005/","https://dev.fynoo.com:8001/","https://dev.fynoo.com/","http://uat.sendan.com.sa:9003/","Local Pointing"]
         //Its Id Values and its optional
-        self.selectedUrlTxtFld.optionIds = [1,2,3,4,5,6]
+        self.selectedUrlTxtFld.optionIds = [1,2,3,4,5,6,7]
         self.selectedUrlTxtFld.isSearchEnable = false
-        self.selectedUrlTxtFld.listHeight = 150
+        self.selectedUrlTxtFld.listHeight = 190
         self.selectedUrlTxtFld.rowHeight = 40
         self.selectedUrlTxtFld.arrowColor = .white
         self.selectedUrlTxtFld.selectedRowColor = .lightGray

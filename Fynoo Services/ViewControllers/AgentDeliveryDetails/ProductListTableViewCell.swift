@@ -53,22 +53,19 @@ class ProductListTableViewCell: UITableViewCell,UITableViewDelegate {
     func SetFont() {
 
             let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
-
             let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-
-       
-
             self.lblAddress.font = UIFont(name:"\(fontNameLight)",size:12)
-
             self.lblQty.font = UIFont(name:"\(fontNameLight)",size:12)
-
         self.lblPriceAlmost.font = UIFont(name:"\(fontNameLight)",size:12)
         self.btnDelete.titleLabel!.font = UIFont(name:"\(fontNameLight)",size:12)
         self.btnReduceQuantity.titleLabel!.font = UIFont(name:"\(fontNameLight)",size:10)
         self.lblCancelReasonn.font = UIFont(name: "\(fontNameLight)", size: 12)
         self.btnAccept.setTitle("Accept".localized, for: .normal)
-      
+        
+        if HeaderHeightSingleton.shared.LanguageSelected == "AR"{
+        btnDelete.titleEdgeInsets.top = -4
         }
+    }
     
     func configureWithCell(withDict dict : Dictionary<String,Any> , andIndexPath indexPath : IndexPath)
       {
