@@ -159,6 +159,7 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
         if indexPath.section == 0 {
             let cell = tabView.dequeueReusableCell(withIdentifier: "AddProductHeaderTableViewCell", for: indexPath) as! AddProductHeaderTableViewCell
             cell.headerLbl.text = "Manage Products".localized
+            cell.headerLbl.font = UIFont(name: NSLocalizedString("LightFontName", comment: ""), size: 12)
             return cell
         }
         else {

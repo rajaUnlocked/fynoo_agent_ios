@@ -1871,9 +1871,6 @@ extension ListingCommonFilterViewController: RadioTypeFilterTableViewCellDelegat
             }
             
         }
-            
-            
-            
         else
         {
             
@@ -1887,9 +1884,6 @@ extension ListingCommonFilterViewController: RadioTypeFilterTableViewCellDelegat
             {
                 self.pro.dropshipingId = ""
             }
-            
-            
-            
         }
         productListAPI()
     }

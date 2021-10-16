@@ -85,7 +85,6 @@ class DataEntryFilterViewController: UIViewController, TTRangeSliderDelegate, Ra
        
        self.headerHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
 
-        
         var tab =  ""
         if fromWhere == "1" {
             tab = "waiting"
