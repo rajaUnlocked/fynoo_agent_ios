@@ -191,22 +191,87 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
     }
     
     @objc func productDataEntryClicked(_ sender : UIButton) {
-        let vc = DataEntryTypelistingViewController()
-        vc.serviceID = ModalController.toString(serviceDetailData?.data?.id as Any)
-        vc.boID = ModalController.toString(serviceDetailData?.data?.bo_id as Any)
-        vc.dataEntryType = "1"
         
-        self.navigationController?.pushViewController(vc, animated: true)
+        let workStatus = serviceDetailData?.data?.start_work
+        if workStatus == 1 {
+            let vc = DataEntryWorkConfirmationPopUpViewController(nibName: "DataEntryWorkConfirmationPopUpViewController", bundle: nil)
+            vc.messageTxtStr = "Are you sure you want to start the work?".localized
+            vc.comeFromStr = "startWork"
+            vc.modalPresentationStyle = .overFullScreen
+            vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+            vc.delegate =  self
+            self.present(vc, animated: true, completion: nil)
+            
+        }
+//        else if workStatus == 2 {
+//
+//            let vc = DataEntryWorkConfirmationPopUpViewController(nibName: "DataEntryWorkConfirmationPopUpViewController", bundle: nil)
+//            vc.messageTxtStr = "Have you completed this task item?".localized
+//            vc.comeFromStr = "agentSubmitServiceTask"
+//            vc.modalPresentationStyle = .overFullScreen
+//            vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+//            vc.delegate =  self
+//            self.present(vc, animated: true, completion: nil)
+//
+////            self.agentSubmitServiceTask(entryID: entryID)
+//        }
+        else{
+            let vc = DataEntryTypelistingViewController()
+            vc.serviceID = ModalController.toString(serviceDetailData?.data?.id as Any)
+            vc.boID = ModalController.toString(serviceDetailData?.data?.bo_id as Any)
+            vc.dataEntryType = "1"
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
         
+        
+//        let vc = DataEntryTypelistingViewController()
+//        vc.serviceID = ModalController.toString(serviceDetailData?.data?.id as Any)
+//        vc.boID = ModalController.toString(serviceDetailData?.data?.bo_id as Any)
+//        vc.dataEntryType = "1"
+//
+//        self.navigationController?.pushViewController(vc, animated: true)
+//
     }
     
     @objc func branchDataEntryClicked(_ sender : UIButton) {
+        let workStatus = serviceDetailData?.data?.start_work
+        if workStatus == 1 {
+            let vc = DataEntryWorkConfirmationPopUpViewController(nibName: "DataEntryWorkConfirmationPopUpViewController", bundle: nil)
+            vc.messageTxtStr = "Are you sure you want to start the work?".localized
+            vc.comeFromStr = "startWork"
+            vc.modalPresentationStyle = .overFullScreen
+            vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+            vc.delegate =  self
+            self.present(vc, animated: true, completion: nil)
+            
+        }
+//        else if workStatus == 2 {
+//            
+//            let vc = DataEntryWorkConfirmationPopUpViewController(nibName: "DataEntryWorkConfirmationPopUpViewController", bundle: nil)
+//            vc.messageTxtStr = "Have you completed this task item?".localized
+//            vc.comeFromStr = "agentSubmitServiceTask"
+//            vc.modalPresentationStyle = .overFullScreen
+//            vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+//            vc.delegate =  self
+//            self.present(vc, animated: true, completion: nil)
+//            
+////            self.agentSubmitServiceTask(entryID: entryID)
+//        }
+        else{
+            let vc = DataEntryTypelistingViewController()
+            vc.serviceID = ModalController.toString(serviceDetailData?.data?.id as Any)
+            vc.dataEntryType = "2"
+            vc.boID = ModalController.toString(serviceDetailData?.data?.bo_id as Any)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
-        let vc = DataEntryTypelistingViewController()
-        vc.serviceID = ModalController.toString(serviceDetailData?.data?.id as Any)
-        vc.dataEntryType = "2"
-        vc.boID = ModalController.toString(serviceDetailData?.data?.bo_id as Any)
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = DataEntryTypelistingViewController()
+//        vc.serviceID = ModalController.toString(serviceDetailData?.data?.id as Any)
+//        vc.dataEntryType = "2"
+//        vc.boID = ModalController.toString(serviceDetailData?.data?.bo_id as Any)
+//        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     func popUpYesClicked(_ sender: Any, fromWhere: String) {
