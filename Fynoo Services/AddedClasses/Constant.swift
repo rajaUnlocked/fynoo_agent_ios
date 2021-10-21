@@ -218,7 +218,6 @@ class Constant: NSObject {
     static let FONT_Extra_BOLD =  NSLocalizedString("BoldFontName", comment: "")
     static let FONT_Light =  NSLocalizedString("LightFontName", comment: "")
     
-    
     // Mark:- Google ApiKey
     static let GET_NOTIFICATION = "GET_NOTIFICATION"
     static let GOOGLE_API_KEY = "AIzaSyDGzVH50GxKpAAU69gcux1_VMd45G1gJxc"
