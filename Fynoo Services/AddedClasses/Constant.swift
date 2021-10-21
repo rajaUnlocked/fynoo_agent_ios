@@ -164,7 +164,6 @@ class Constant: NSObject {
        static let deleteBusinessGallery: String = "gallery/business_gallery_delete/"
        static let filterGallery: String = "gallery/business_gallery_filter/"
        static let filterList: String = "gallery/bo_agent_list/"
-    
 
     static let vatlengthlist: String = "product_api/getVatLength/"
     
