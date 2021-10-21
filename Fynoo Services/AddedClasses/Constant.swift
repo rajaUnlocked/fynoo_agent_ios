@@ -164,7 +164,6 @@ class Constant: NSObject {
        static let deleteBusinessGallery: String = "gallery/business_gallery_delete/"
        static let filterGallery: String = "gallery/business_gallery_filter/"
        static let filterList: String = "gallery/bo_agent_list/"
-    
 
     static let vatlengthlist: String = "product_api/getVatLength/"
     
@@ -217,7 +216,6 @@ class Constant: NSObject {
     static let Red_TEXT_COLOR = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
     static let FONT_Extra_BOLD =  NSLocalizedString("BoldFontName", comment: "")
     static let FONT_Light =  NSLocalizedString("LightFontName", comment: "")
-    
     
     // Mark:- Google ApiKey
     static let GET_NOTIFICATION = "GET_NOTIFICATION"

@@ -143,8 +143,6 @@ class DataEntryFilterViewController: UIViewController, TTRangeSliderDelegate, Ra
     func noClicked(tag: Int,btn:UIButton) {
         
     }
-     
-
     
 }
 extension DataEntryFilterViewController : UITableViewDelegate {
