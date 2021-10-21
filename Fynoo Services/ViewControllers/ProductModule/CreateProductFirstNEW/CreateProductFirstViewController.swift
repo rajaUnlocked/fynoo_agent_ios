@@ -811,6 +811,13 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
                 cell.downarrow.isHidden = true
                 cell.imgbtn.isHidden = false
                 cell.lblk.text = "\(headerLbl1[indexPath.row - 1])".localized
+//                if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
+//                    if value[0]=="ar"{
+//                        cell.lblk.textAlignment = .right
+//                    }else if value[0]=="en"{
+//                        cell.lblk.textAlignment = .left
+//                    }
+//                }
                 cell.bordertxt.layer.borderColor =  ModalController.hexStringToUIColor(hex: borderColor[indexPath.row - 1]).cgColor
                 if isDataBank
                 {
