@@ -348,7 +348,6 @@ enum Authentication {
      static let changeDiscountStatusOnProduct = Constant.BASE_URL +  "businessapi/v3/ChangeDiscountStatus/"
     static let editDiscountOnProduct = Constant.BASE_URL +  "businessapi/v3/BoToCustomerDiscountEdit/"
     
-    
 }
 
  // dataEntryModule APIs
