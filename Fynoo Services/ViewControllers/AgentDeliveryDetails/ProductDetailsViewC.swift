@@ -1580,7 +1580,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
             
             //Mark new design change
             if (orderDetailData?.data?.user_type == "BO"){
-               return 180
+               return 164
                 
             }else
             {
@@ -1645,7 +1645,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.btnNavWidth.constant = 0
                     }
                     
-//                    cell.langugae.text = "\(deliverData?.data?.user_lang ?? "")"
+//            cell.langugae.text = "\(deliverData?.data?.user_lang ?? "")"
             
 //            cell.tripAchivementData = deliverData?.data?.agent_information?.trips_achievements
 //            cell.collectionView.reloadData()
@@ -1698,6 +1698,14 @@ extension ProductDetailsViewC : UITableViewDataSource {
 //                        }
                         //Mark new design change
                         cell.viewFortotalOutoff.isHidden = true
+                        cell.imgPaymentIcon.isHidden = true
+                        cell.imgBankNote.isHidden = true
+                        cell.lblStAlmosttoalPrice.isHidden = true
+                        cell.lblCurrencyCode.isHidden = true
+                        cell.order_price.isHidden = true
+                        cell.btnNavigationTopConstraints.constant = 0
+
+
                     }
                   
                     cell.lblTime.text = lblWatingTime

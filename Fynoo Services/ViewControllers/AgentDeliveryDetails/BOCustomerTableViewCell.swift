@@ -12,6 +12,7 @@ class BOCustomerTableViewCell: UITableViewCell {
     
     var  delegate : AgentServiceListDelegate?
     
+    @IBOutlet weak var btnNavigationTopConstraints: NSLayoutConstraint!
     @IBOutlet weak var lblCustName : UILabel!
     @IBOutlet weak var lblCustAddress : UILabel!
     @IBOutlet weak var lblCustrating : UILabel!
