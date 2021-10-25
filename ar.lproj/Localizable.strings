@@ -563,7 +563,7 @@
 "I have reached BO's store" = "تأكيد الوصول للمتجر";
 "Speak:" = "لغة التحدث:";
 "Note: Please share the OTP with Business Owner which you will receive after Confirm and Upload Invoice' to confirm that you have received all products from Business Owner." = "ملاحظة: قم برفع الفاتورة وإضغط على زر تأكيد ورفع الفاتورة لتحصل على رمز التأكيد الذي سيطلبه منك البائع لتأكيد تسليم المنتجات.";
-
+"Cancellation Reason" = "سبب الإلغاء";
 //Forget Password
 "Business Owner" = "صاحب العمل";
 "Agent Company" = "شركة الوكيل";
