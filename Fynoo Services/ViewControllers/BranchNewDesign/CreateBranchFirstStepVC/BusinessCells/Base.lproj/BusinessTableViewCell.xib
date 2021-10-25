@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -15,7 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BusinessTableViewCell" rowHeight="239" id="KGk-i7-Jjw" customClass="BusinessTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BusinessTableViewCell" rowHeight="239" id="KGk-i7-Jjw" customClass="BusinessTableViewCell" customModule="Fynoo_Agent" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="357" height="188"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -49,7 +50,7 @@
                         </userDefinedRuntimeAttributes>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Od-XG-g50">
-                        <rect key="frame" x="10" y="5" width="337" height="21"/>
+                        <rect key="frame" x="14" y="5" width="328" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="72e-15-xhI"/>
                         </constraints>
@@ -72,7 +73,7 @@
                     </textField>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ozG-s1-qdn">
                         <rect key="frame" x="14" y="27" width="278" height="160"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -101,7 +102,7 @@
                         </constraints>
                         <state key="normal" image="ocrimg"/>
                     </button>
-                    <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nfa-i4-RMH">
+                    <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nfa-i4-RMH">
                         <rect key="frame" x="5" y="92" width="46" height="30"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </button>
@@ -122,7 +123,7 @@
                     <constraint firstItem="Ce8-J2-fuj" firstAttribute="centerX" secondItem="CwE-yc-vDW" secondAttribute="centerX" id="Xtj-8P-kwK"/>
                     <constraint firstAttribute="bottom" secondItem="CwE-yc-vDW" secondAttribute="bottom" id="ZWZ-zx-Pws"/>
                     <constraint firstItem="w17-Yf-tG0" firstAttribute="trailing" secondItem="CwE-yc-vDW" secondAttribute="trailing" constant="-10" id="e36-4X-xWk"/>
-                    <constraint firstAttribute="trailing" secondItem="5Od-XG-g50" secondAttribute="trailing" constant="10" id="eU7-y7-wbc"/>
+                    <constraint firstAttribute="trailing" secondItem="5Od-XG-g50" secondAttribute="trailing" constant="15" id="eU7-y7-wbc"/>
                     <constraint firstItem="cKN-QT-d1b" firstAttribute="centerY" secondItem="CwE-yc-vDW" secondAttribute="centerY" id="f51-41-T0R"/>
                     <constraint firstItem="Pqz-Wi-P8P" firstAttribute="leading" secondItem="ozG-s1-qdn" secondAttribute="trailing" constant="3" id="f6i-wA-1NL"/>
                     <constraint firstItem="w17-Yf-tG0" firstAttribute="height" secondItem="CwE-yc-vDW" secondAttribute="height" multiplier="0.772727" id="hrX-LK-dji"/>
@@ -132,7 +133,7 @@
                     <constraint firstItem="CwE-yc-vDW" firstAttribute="top" secondItem="5Od-XG-g50" secondAttribute="bottom" id="nmY-YR-tuV"/>
                     <constraint firstAttribute="bottom" secondItem="Ce8-J2-fuj" secondAttribute="bottom" id="o2Q-vJ-Qwc"/>
                     <constraint firstItem="ozG-s1-qdn" firstAttribute="leading" secondItem="CwE-yc-vDW" secondAttribute="leading" constant="4" id="oOq-KA-YTI"/>
-                    <constraint firstItem="5Od-XG-g50" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ps7-TS-qmE"/>
+                    <constraint firstItem="5Od-XG-g50" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="ps7-TS-qmE"/>
                     <constraint firstItem="w17-Yf-tG0" firstAttribute="leading" secondItem="cKN-QT-d1b" secondAttribute="trailing" constant="10" id="qPb-Ef-2DI"/>
                     <constraint firstAttribute="trailing" secondItem="CwE-yc-vDW" secondAttribute="trailing" constant="10" id="sTt-PT-5TL"/>
                     <constraint firstItem="Nfa-i4-RMH" firstAttribute="width" secondItem="cKN-QT-d1b" secondAttribute="width" multiplier="2.875" id="xFP-ks-GC2"/>
@@ -162,7 +163,10 @@
     </objects>
     <resources>
         <image name="barCode_new" width="16" height="16"/>
-        <image name="down-arrow-3" width="32" height="32"/>
+        <image name="down-arrow-3" width="512" height="512"/>
         <image name="ocrimg" width="97" height="84"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
