@@ -75,11 +75,16 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
                 let img2 = UIImage(named: "back_new")
                 let image2 = UIImage(cgImage: (img2?.cgImage)!, scale: (img2?.scale)!, orientation: UIImage.Orientation.upMirrored)
                 backBtn.setImage(image2, for: .normal)
+            
+                self.headerLbl.textAlignment = .right
+                
             }
             else if value[0]=="en"
             {
                 let image12 = UIImage(named: "back_new")
                 backBtn.setImage(image12, for: .normal)
+                self.headerLbl.textAlignment = .left
+                
             }
         }
    

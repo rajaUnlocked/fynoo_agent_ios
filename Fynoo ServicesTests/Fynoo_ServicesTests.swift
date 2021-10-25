@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Fynoo_Services
+@testable import Fynoo_Agent
 
 class Fynoo_ServicesTests: XCTestCase {
 
