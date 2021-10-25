@@ -52,7 +52,8 @@ var delegate : DECancellationReasonViewControllerDelegate?
            let fontNameLight = NSLocalizedString("LightFontName", comment: "")
            
            self.headerLbl.font = UIFont(name:"\(fontNameLight)",size:12)
-          
+           self.submitBtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
+           self.headerLbl.text = "Cancellation Reason".localized
        }
        @objc func closePopUp(_ sender : UIButton){
              dismiss(animated: true, completion: nil)
