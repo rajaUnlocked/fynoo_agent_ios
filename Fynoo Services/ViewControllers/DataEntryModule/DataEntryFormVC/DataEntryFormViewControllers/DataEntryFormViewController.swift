@@ -145,7 +145,8 @@ class DataEntryFormViewController: UIViewController, DataEntryFormItemPopUpViewC
                 
                 self.tableView.reloadData()
             }else{
-                ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.serviceDetailData?.error_description ?? "")")
+                
+               
             }
         }
     }
