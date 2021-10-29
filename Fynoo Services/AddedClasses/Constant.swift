@@ -179,7 +179,7 @@ class Constant: NSObject {
 
     //static var BASE_URL : String = "https://dev.fynoo.com/"   //live
      static var BASE_URL : String = "http://uat.sendan.com.sa:9003/"  // dev
-//     static var BASE_URL : String = "https://dev.fynoo.com/"   //live
+//    static var BASE_URL : String = "https://dev.fynoo.com/"   //live
    
     
     //      static var BASE_URL : String = "http://43.241.61.141:9003/"
@@ -206,7 +206,6 @@ class Constant: NSObject {
     static let IBANLengthInfo_Data : String = "agentapi/v1/get_iban_length/";
     static let language_List : String = "agentapi/v1/agent_language_list/";
     static let saveSelected_Language : String = "agentapi/v1/save_language/";
-    
     
     // MARK: - COLORS AND FONTS
     static let Green_TEXT_COLOR = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)

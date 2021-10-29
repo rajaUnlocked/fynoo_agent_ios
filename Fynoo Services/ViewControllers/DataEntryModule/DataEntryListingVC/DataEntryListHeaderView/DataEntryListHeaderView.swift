@@ -46,6 +46,7 @@ class DataEntryListHeaderView: UIView, UICollectionViewDelegate, UICollectionVie
     var selectedIndex:Int = 0
     var avgRating:String = ""
     
+    
     var view: UIView!
       
       override init(frame: CGRect)

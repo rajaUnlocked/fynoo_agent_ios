@@ -248,7 +248,7 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
             
         }
 //        else if workStatus == 2 {
-//            
+//
 //            let vc = DataEntryWorkConfirmationPopUpViewController(nibName: "DataEntryWorkConfirmationPopUpViewController", bundle: nil)
 //            vc.messageTxtStr = "Have you completed this task item?".localized
 //            vc.comeFromStr = "agentSubmitServiceTask"
@@ -256,7 +256,7 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
 //            vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
 //            vc.delegate =  self
 //            self.present(vc, animated: true, completion: nil)
-//            
+//
 ////            self.agentSubmitServiceTask(entryID: entryID)
 //        }
         else{

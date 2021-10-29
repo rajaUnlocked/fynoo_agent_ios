@@ -26,6 +26,7 @@ class SuccesssViewController: UIViewController {
     override func viewDidLoad() {
         ModalController.watermark(self.view)
         super.viewDidLoad()
+        self.SetFont()
 //        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
      
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(action), userInfo: nil, repeats: true)
@@ -36,7 +37,12 @@ class SuccesssViewController: UIViewController {
              self.titleLbl.text = "Payment Successful".localized
         }
     }
-
+    
+    func SetFont() {
+        let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        self.titleLbl.font = UIFont(name:"\(fontNameLight)",size:15)
+        
+    }
     @objc func action () {
         counter -= 1
         if counter == 57{

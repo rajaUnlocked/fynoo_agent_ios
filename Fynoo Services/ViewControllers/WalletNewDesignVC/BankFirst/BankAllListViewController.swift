@@ -74,7 +74,10 @@ class BankAllListViewController: UIViewController, WalletFilterNewViewController
     }
 
     @objc func walletBalance(_ sender : UIButton){
-        
+        if sender.tag == selectedVl
+        {
+            return
+        }
         switch sender.tag {
         case 1000:
             selectedVl = 1000
@@ -637,7 +640,7 @@ extension BankAllListViewController : UITableViewDataSource{
             "lang_code":HeaderHeightSingleton.shared.LanguageSelected
         ] as [String : Any]
         print("request -",parameters)
-        AMShimmer.start(for: self.tableView)
+       // AMShimmer.start(for: self.tableView)
         
         ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
             
@@ -743,7 +746,7 @@ extension BankAllListViewController : UITableViewDataSource{
             "DATE_RANGE": da_range
         ]
         print("request -",parameters)
-        AMShimmer.start(for: self.tableView)
+       // AMShimmer.start(for: self.tableView)
         
         ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
             
