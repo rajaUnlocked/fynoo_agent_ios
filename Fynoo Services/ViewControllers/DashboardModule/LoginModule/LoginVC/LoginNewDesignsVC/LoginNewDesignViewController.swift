@@ -568,7 +568,6 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
     
     func loginBtnClicked(){
         
-        
         if selectedType == ""{
             ModalController.showNegativeCustomAlertWith(title: "", msg: "Please select User Type")
             return

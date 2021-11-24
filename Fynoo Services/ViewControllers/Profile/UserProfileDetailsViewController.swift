@@ -397,7 +397,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     
 }
 
-extension UserProfileDetailsViewController : UITableViewDelegate{
+extension UserProfileDetailsViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         

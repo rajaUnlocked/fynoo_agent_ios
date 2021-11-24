@@ -12,7 +12,7 @@ import ObjectMapper
 
 
 
-class AgentProfile : NSObject{
+class AgentProfile : NSObject {
     //basic Info
     var name = ""
     var businessName = "ffjdfgh"
