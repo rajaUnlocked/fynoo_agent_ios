@@ -361,7 +361,7 @@ extension BankAllListViewController :  UITableViewDelegate{
             
             
             var count = 0
-            if minAmount == 0.0 && maxAmount == 9999 {
+            if minAmount == 0.0 && maxAmount == 0.0 {
                 count = 0
             }else{
                 count = count + 1
