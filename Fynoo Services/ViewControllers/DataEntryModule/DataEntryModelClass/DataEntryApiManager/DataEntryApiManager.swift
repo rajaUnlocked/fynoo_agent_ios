@@ -178,7 +178,6 @@ class DataEntryApiManager: NSObject {
         })
     }
     
-    
     func cancelDataEntryFromList(serviceID:String,reasonID:String, completion:@escaping(Bool, NSDictionary?) -> ()) {
         
         var param = [String:String]()
@@ -215,12 +214,11 @@ class DataEntryApiManager: NSObject {
         var param = [String:String]()
         var url = ""
         
-        param = ["agent_id": Singleton.shared.getUserId(),
+        param = [
+            "agent_id": Singleton.shared.getUserId(),
                  "service_id": serviceID,
-                 "user_type": "AGENT",
-                 "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
-                 
         ]
+        
         url = dataEntryModuleApi.DataEntry_Detail
         print(param)
         print(url)

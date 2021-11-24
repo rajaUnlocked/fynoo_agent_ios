@@ -39,6 +39,8 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
     var serviceName:String = ""
     var serviceIcon:String = ""
     
+    let dispatchGroup = DispatchGroup()
+    
     override func viewDidLoad() {
         ModalController.watermark(self.view)
         super.viewDidLoad()

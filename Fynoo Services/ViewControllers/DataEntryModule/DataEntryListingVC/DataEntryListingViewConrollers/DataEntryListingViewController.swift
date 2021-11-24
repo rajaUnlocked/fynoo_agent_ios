@@ -698,9 +698,9 @@ extension DataEntryListingViewController : UITableViewDataSource {
             }
         }
         
-        if requestData?.rating_given == 0 {
-            cell.giveRatingBtn.isHidden = false
-        }else  {
+            if requestData?.rating_given == 0 {
+                cell.giveRatingBtn.isHidden = false
+            }else  {
             cell.giveRatingBtn.isHidden = true
         }
         
