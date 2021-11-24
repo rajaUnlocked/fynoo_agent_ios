@@ -9,7 +9,7 @@
 import UIKit
 
 class MoreDetailSpecificationsTableViewCell: UITableViewCell {
-    @IBOutlet weak var moreDetailLbl: UILabel!
+    @IBOutlet weak var moreDetailLbl: UILabel! = nil
     @IBOutlet weak var downIconImageView: UIImageView!
     
     @IBAction func moreDetailsClicked(_ sender: Any) {
