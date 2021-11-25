@@ -1173,11 +1173,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             return cell
         }
     }
-    
-    
-    
 }
-
 
 extension UserProfileDetailsViewController : ProfileDetailTableViewCellDelegate{
     func edit() {
@@ -1201,9 +1197,7 @@ extension UserProfileDetailsViewController : ProfileDetailTableViewCellDelegate{
     func likesClicked() {
         
     }
-    
-    
-    
+        
 }
 
 extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
