@@ -541,6 +541,7 @@ struct SeviceDocument : Mappable {
    }
 
 struct SeviceDocumentData : Mappable  {
+    var document_expiry_day:Int?
     var new_upload_enable : Bool?
     var new_upload_id : Int?
     var id : Int?
@@ -606,6 +607,7 @@ struct SeviceDocumentData : Mappable  {
     }
 
     mutating func mapping(map: Map) {
+        document_expiry_day <- map["document_expiry_day"]
         maximum_load_allowed <- map["maximum_load_allowed"]
           notes <- map["notes"]
         new_upload_enable <- map["new_upload_enable"]

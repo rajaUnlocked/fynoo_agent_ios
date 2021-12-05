@@ -115,6 +115,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             title = "Select - Date of Expiry".localized
             components.year = 0
             components.month = 0
+            components.day = self.servicelist?.data?.document_expiry_day ?? 0
             minDate =  calendar.date(byAdding: components, to: currentDate)!
             maxDate = nil
         }
@@ -356,7 +357,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             if success
             {
                 self.servicelist = response
-               
+                ModalClass.stopLoadingAllLoaders(self.view)
                 if self.servicelist?.data?.front_side ?? "" != ""{
                     self.vehicleKind_API(brandid: (self.servicelist?.data?.registration_type_id)!)
                     self.vehicleName_API(brandid: (self.servicelist?.data?.vehicle_brand_id)!)
@@ -403,7 +404,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     self.submit.setTitle("Pending for approval".localized, for: .normal)
                 }
               
-                ModalClass.stopLoadingAllLoaders(self.view)
+              
                 self.tabvw.reloadData()
                
             }
