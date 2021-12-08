@@ -333,6 +333,11 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
 
      }
     @objc func filterClicked() {
+        if self.dataselllist.count == 0
+        {
+            ModalController.showNegativeCustomAlertWith(title: "filter not applicable because your list is blank", msg: "")
+            return
+        }
       let vc = ListingCommonFilterViewController(nibName: "ListingCommonFilterViewController", bundle: nil)
         vc.isFilterType = "dataSell"
         //vc.filterlist = self.data_bank_list?.data?.filters
@@ -456,7 +461,10 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
 }
 extension ProductListNewViewController : BottomPopupEditProductViewControllerDelegate,QRCOdeViewControllerDelegate,DeleteBranchPopupViewControllerDelegate{
     func reloadPage() {
-        self.databankSellingListAPI()
+        pageno = 0
+      dataselllist.removeAll()
+      databankSellingListAPI()
+    
     }
     
     func QRCodeScanner(str: String) {

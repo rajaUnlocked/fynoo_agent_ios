@@ -131,6 +131,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     self.fdate = dt
                 }
                 let formatter = DateFormatter()
+                formatter.locale = Locale(identifier: "en_US_POSIX")
                 formatter.dateFormat = "MMM dd, yyyy"
                 print(formatter.string(from: dt))
                 self.toptxtArr[tag] = formatter.string(from: dt)
