@@ -133,6 +133,8 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+//        resendOtps()
+    
     }
     
     func otpTime(){

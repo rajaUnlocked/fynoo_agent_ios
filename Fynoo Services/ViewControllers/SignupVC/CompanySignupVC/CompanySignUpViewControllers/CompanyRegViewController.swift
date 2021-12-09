@@ -107,6 +107,7 @@ class CompanyRegViewController: UIViewController,UIImagePickerControllerDelegate
     var agentIbanInfoDatas : IbanLengthInfoModal?
     
     override func viewDidLoad() {
+        
         ModalController.watermark(self.view)
         super.viewDidLoad()
         appDelegate.selectServiceStr = ""

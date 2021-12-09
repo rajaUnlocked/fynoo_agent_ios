@@ -107,6 +107,7 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
     
     
     override func viewDidLoad() {
+        
         ModalController.watermark(self.view)
         super.viewDidLoad()
         appDelegate.selectServiceStr = ""
@@ -948,9 +949,9 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                 if SelectedIndex.count > 0
                 {
                     if SelectedIndex.contains(indexPath.section){
-                        SelectedIndex.removeAllObjects()
+                        SelectedIndex.remove(indexPath.section)
                     }else{
-                        SelectedIndex.removeAllObjects()
+                      
                         SelectedIndex.add(indexPath.section)
                     }
                 }else{
@@ -1156,8 +1157,8 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         cell.genderDropDown.text = personalAgentGender
         cell.dobTxtFld.text = signupDobOnlyToDisplay
         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.nameView)
-          ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.genderView)
-          ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.dobView)
+          ModalController.setViewBorderColor(color:#colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.genderView)
+          ModalController.setViewBorderColor(color:#colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.dobView)
         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.educationView)
         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.educationView)
        
@@ -1172,12 +1173,12 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
               }
         
        if cell.genderDropDown.text == "" {
-            ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.genderView)
+            ModalController.setViewBorderColor(color:#colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.genderView)
         }else{
             ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.genderView)
         }
         if cell.dobTxtFld.text == "" {
-            ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.dobView)
+            ModalController.setViewBorderColor(color:#colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.dobView)
         }else{
             ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.dobView)
         }
