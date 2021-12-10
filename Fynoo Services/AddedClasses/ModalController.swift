@@ -79,6 +79,19 @@ class ModalController: NSObject {
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
     }
+    static func setEngArbicFontStyle(str: String,lineHeight:CGFloat,FontSize:CGFloat) -> NSMutableAttributedString{
+    let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+    let paragraphStyle = NSMutableParagraphStyle()
+    paragraphStyle.minimumLineHeight = CGFloat(lineHeight)
+    paragraphStyle.maximumLineHeight = CGFloat(lineHeight)
+    let attriText = NSMutableAttributedString(
+        string: str,
+        attributes: [
+            .paragraphStyle : paragraphStyle,.font:UIFont(name: "\(fontNameLight)", size: FontSize)!
+        ]
+    )
+        return attriText
+    }
     static  func setProductStricColor(str: String,str1:String,str2:String,fontsize:CGFloat,fontfamily:String,txtcolor:UIColor) -> NSMutableAttributedString{
         let fontNameLight = NSLocalizedString(fontfamily, comment: "")
         if str1.contains("\n")

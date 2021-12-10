@@ -1242,6 +1242,8 @@ pro.RetailReturnDays = ""
         if isDataBank
         {
             ValidateSpecTab()
+            if Selectedtab.contains(0)
+            {
             if sender.tag == 0
             {
                
@@ -1275,6 +1277,7 @@ pro.RetailReturnDays = ""
                 }
             
         }
+            }
         }
         else
         {
@@ -1843,6 +1846,10 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
             ModalController.showNegativeCustomAlertWith(title: "Doc Size is large", msg: "")
             return
         }
+        if isDataBank
+        {
+            branch.isUploadfrom = "DATABANK"
+        }
         branch.imgfile = img
         branch.uploadDocumentImage { (success, response) in
             ModalClass.stopLoading()
@@ -1921,6 +1928,13 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
         {
             return false
         }
+        if textView.text.count == 0
+           {
+                if text == " "
+            {
+           return false
+            }
+          }
         var textstr = ""
         if let text1 = textView.text as NSString? {
             let txtAfterUpdate = text1.replacingCharacters(in: range, with: text)
@@ -2711,15 +2725,16 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 
                 return cell
             case filterCount + 2:
-                
+              
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "AddFeatureTableViewCell", for: indexPath) as! AddFeatureTableViewCell
                 cell.vw.isHidden = false
                 cell.addfeturelbl.text = "Add Feature".localized
                 cell.whatlbl.text = "What is this?".localized
-                if isDataBank
-                {
-                    cell.vw.isHidden = true
-                }
+            
+//                if isDataBank
+//                {
+//                    cell.vw.isHidden = true
+//                }
                 if isFilter
                 {
                     cell.downarrow.image = UIImage(named: "upArror_blue")
@@ -2728,6 +2743,14 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 else{
                     cell.downarrow.image = UIImage(named: "DownArror_blue")
                     cell.moredetail.setTitle("More Details".localized, for: .normal)
+                }
+                cell.moredetail.isHidden = false
+                cell.heighttopConst.constant = 7
+                if self.filterlist?.data?.filter_list?.count ?? 0 == 0
+                {
+                    cell.moredetail.isHidden = true
+                    cell.heighttopConst.constant = -30
+                    cell.downarrow.image = UIImage(named: "xyz")
                 }
                 cell.moredetail.addTarget(self, action: #selector(clickfilterDetail), for: .touchUpInside)
                 cell.addfilter.addTarget(self, action: #selector(clickaddfilter), for: .touchUpInside)
@@ -2813,13 +2836,17 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 cell.counlbl.text = "\(pro.descriptions.count)/\(pro.descriptionsVal)"
                 cell.vw.layer.borderWidth = 0
                 cell.selectionStyle = .none
-                cell.counlbl.textColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1)
-                
+               
+                cell.counlbl.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
+
+                cell.counlbl.attributedText = ModalController.setProductStricColor(str: "\(pro.descriptions.count)/\(pro.descriptionsVal)", str1: "\(pro.descriptions.count)", str2: " /\(pro.descriptionsVal)", fontsize: 12, fontfamily: "LightFontName", txtcolor: #colorLiteral(red: 97/255, green: 192/255, blue: 136/255, alpha: 1))
+
                 if pro.descriptions.count == pro.descriptionsVal
                 {
                     cell.counlbl.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
                     
                 }
+           
                 return cell
                 
             case filterCount + 10:
@@ -2833,6 +2860,15 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 }
                 
                 cell.count.text = "0\(docId.count)/02"
+                cell.count.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
+
+                cell.count.attributedText = ModalController.setProductStricColor(str: "0\(docId.count)/02", str1: "0\(docId.count)", str2: " /02", fontsize: 12, fontfamily: "LightFontName", txtcolor: #colorLiteral(red: 97/255, green: 192/255, blue: 136/255, alpha: 1))
+
+              
+                if docId.count == 2
+                {
+                    cell.count.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
+                }
                 cell.selectionStyle = .none
                 return cell
             case filterCount + 11:
@@ -2880,8 +2916,11 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                 cell.leadingConstvw.constant = 10
                 cell.trailingConstvw.constant = 10
                 cell.counlbl.text = "\(pro.supportdescriptions.count)/\(pro.supportdescriptionsVal)"
-                cell.vw.layer.borderWidth = 0 ;
-                cell.counlbl.textColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1)
+                cell.counlbl.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
+
+                cell.counlbl.attributedText = ModalController.setProductStricColor(str: "\(pro.supportdescriptions.count)/\(pro.supportdescriptionsVal)", str1: "\(pro.supportdescriptions.count)", str2: " /\(pro.supportdescriptionsVal)", fontsize: 12, fontfamily: "LightFontName", txtcolor: #colorLiteral(red: 97/255, green: 192/255, blue: 136/255, alpha: 1))
+
+              
                 if pro.supportdescriptions.count == pro.supportdescriptionsVal
                 {
                     cell.counlbl.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
@@ -3757,7 +3796,11 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
                     case filterCount + 3...filterCount + 7:
                         return 0
                     case filterCount + 2:
-                        return 40
+                        if self.filterlist?.data?.filter_list?.count ?? 0 == 0
+                        {
+                            return 112
+                        }
+                        return 142
                     case filterCount + 8:
                         return 95
                     case filterCount + 11:
@@ -3936,22 +3979,20 @@ extension CreateProductSecondViewController: UIDocumentPickerDelegate, UINavigat
     @objc func cilckedmore()
     {
 
-//            let vc = ReturnPolicyNewViewController(nibName: "ReturnPolicyNewViewController", bundle: nil)
-//
-//               vc.datasalestr = pro.productDecription
-//          vc.isDatasale = true
-//            let popupController = MTPopupController(rootViewController: vc)
-//                   popupController.autoAdjustKeyboardEvent = false
-//                   popupController.style = .bottomSheet
-//                   popupController.navigationBarHidden = true
-//                   popupController.hidesCloseButton = false
-//                   let blurEffect = UIBlurEffect(style: .dark)
-//                   popupController.backgroundView = UIVisualEffectView(effect: blurEffect)
-//                   popupController.backgroundView?.alpha = 0.6
-//                   popupController.backgroundView?.onClick {
-//                       popupController.dismiss()
-//                   }
-//                   popupController.present(in: self)
+            let vc = ReturnPolicyNewViewController(nibName: "ReturnPolicyNewViewController", bundle: nil)
+             vc.productdesp = pro.productDecription
+            let popupController = MTPopupController(rootViewController: vc)
+                   popupController.autoAdjustKeyboardEvent = false
+                   popupController.style = .bottomSheet
+                   popupController.navigationBarHidden = true
+                   popupController.hidesCloseButton = false
+                   let blurEffect = UIBlurEffect(style: .dark)
+                   popupController.backgroundView = UIVisualEffectView(effect: blurEffect)
+                   popupController.backgroundView?.alpha = 0.6
+                   popupController.backgroundView?.onClick {
+                       popupController.dismiss()
+                   }
+                 popupController.present(in: self)
         }
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         ModalClass.startLoading(self.view)
@@ -3974,7 +4015,10 @@ extension CreateProductSecondViewController: UIDocumentPickerDelegate, UINavigat
             ModalController.showNegativeCustomAlertWith(title: "Image Size is large", msg: "")
             return
         }
-        
+        if isDataBank
+        {
+            branch.isUploadfrom = "DATABANK"
+        }
         
         branch.uploadPdfImage { (success, response) in
             ModalClass.stopLoading()

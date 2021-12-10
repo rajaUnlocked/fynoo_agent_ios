@@ -9,7 +9,6 @@
 import UIKit
 protocol SelectCategoryDelegate {
     func cataList(dict:NSDictionary)
-    func productDiscountCategory(categoryDict:NSMutableDictionary, subCategoryDict:NSMutableDictionary?)
 }
 class SelectCategoryViewController: UIViewController {
     var delegate:SelectCategoryDelegate?
@@ -45,13 +44,15 @@ class SelectCategoryViewController: UIViewController {
         super.viewDidLoad()
         self.noDataLbl.text = "No discount found.".localized
         self.savebtn.setTitle("Save", for: .normal)
-        if isFromProductDiscount == true {
+      //  if isFromProductDiscount == true {
               self.bottomView.isHidden = false
             self.SetUpProductDiscountUI()
-        }else{
-            self.bottomView.isHidden = true
-            self.bottomVieqHeightConstant.constant = 0
-        }
+//        }
+//
+//        else{
+//            self.bottomView.isHidden = true
+//            self.bottomVieqHeightConstant.constant = 0
+//        }
         
         productName.text = proName
         tableView.separatorStyle = .none
@@ -68,6 +69,7 @@ class SelectCategoryViewController: UIViewController {
         navigationView.viewControl = self
         navigationView.titleHeader.text = "Manage Your Products".localized
         collectionView.register(UINib(nibName: "SelectSubCat", bundle: nil), forCellWithReuseIdentifier: "SelectSubCat");
+        collectionView.register(UINib(nibName: "NodatafoundCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NodatafoundCollectionViewCell");
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -95,22 +97,19 @@ class SelectCategoryViewController: UIViewController {
     }
     @IBAction func savebtnClicked(_ sender: Any) {
         
-        let catDict = NSMutableDictionary()
-        let subCatDict = NSMutableDictionary()
+        let tempDict = NSMutableDictionary()
         let id =  catList?.data?.cat_list?[selectedRow].cat_id ?? 0
         let catImage = catList?.data?.cat_list?[selectedRow].category_image ?? ""
         let catName = catList?.data?.cat_list?[selectedRow].cat_name ?? ""
-        
-        catDict.setValue("\(id)", forKey: "cat_id")
-        catDict.setValue(catImage, forKey: "cat_image")
-        catDict.setValue(catName, forKey: "cat_name")
+        tempDict.setValue("\(id)", forKey: "cat_id")
+        tempDict.setValue(catImage, forKey: "cat_image")
+        tempDict.setValue(catName, forKey: "cat_name")
         
         var subCatName = ""
         var subCatImage = ""
         var subCatId = ""
-      
-        
-        if subCateogrySelectRow != 99999 {
+        if subCateogrySelectRow != 99999
+        {
         if (filterArray?.count) != nil {
             if filterArray?.count == 0 {
                 subCatName = SubcatList?.data?.sub_cat_list?[subCateogrySelectRow].sub_cat_name ?? ""
@@ -126,18 +125,15 @@ class SelectCategoryViewController: UIViewController {
             subCatImage = SubcatList?.data?.sub_cat_list?[subCateogrySelectRow].category_image ?? ""
             subCatId = "\(SubcatList?.data?.sub_cat_list?[subCateogrySelectRow].sub_cat_id ?? 0)"
         }
+        
+      
+        tempDict.setValue("\(subCatId)", forKey: "sub_cat_id")
+        tempDict.setValue(subCatImage, forKey: "sub_cat_image")
+        tempDict.setValue(subCatName, forKey: "sub_cat_name")
+          self.delegate?.cataList(dict: tempDict)
+     
         }
-        subCatDict.setValue("\(subCatId)", forKey: "sub_cat_id")
-        subCatDict.setValue(subCatImage, forKey: "sub_cat_image")
-        subCatDict.setValue(subCatName, forKey: "sub_cat_name")
-        
-        print("catDict:-", catDict)
-        print("subCatDict:-", subCatDict)
-        
-        self.delegate?.productDiscountCategory(categoryDict: catDict, subCategoryDict: subCatDict)
         self.navigationController?.popViewController(animated: true)
-        
-        
     }
     
     func SetUpProductDiscountUI(){
@@ -177,7 +173,8 @@ class SelectCategoryViewController: UIViewController {
             }
             
             if textField.text!.count == 0{
-                filterArray?.removeAll()
+                filterArray = nil
+                return
             }
            // textSTR = textStr
             print("t5y7iglujkgm")
@@ -195,58 +192,76 @@ extension SelectCategoryViewController:UICollectionViewDelegate,UICollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if searchField.text != "" {
-            return filterArray!.count
+            return  filterArray!.count != 0 ? filterArray!.count:1
+           
             
         }else{
-            guard let value = SubcatList?.data?.sub_cat_list?.count else{return 0}
-            return value
+            guard let value = SubcatList?.data?.sub_cat_list?.count else{return 1}
+            return value != 0 ? value:1
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectSubCat", for: indexPath) as! SelectSubCat
         
-        if isFromProductDiscount {
             cell.contentView.cornerRadius = cell.contentView.frame.size.width / 2
             if subCateogrySelectRow == indexPath.row {
                 cell.subCatTitle.textColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
-                cell.contentView.backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1)
+                cell.innervw.isHidden = false
                 
             }else{
                 cell.subCatTitle.textColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
-                cell.contentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                cell.innervw.isHidden = true
             }
-        }
        
-        
         if (filterArray?.count) != nil{
             if filterArray?.count == 0{
-                cell.subCatTitle.text = SubcatList?.data?.sub_cat_list?[indexPath.item].sub_cat_name ?? ""
-                let str = SubcatList?.data?.sub_cat_list?[indexPath.item].category_image ?? ""
-                cell.subCat.setImageSDWebImage(imgURL: str, placeholder: "placeholder")
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NodatafoundCollectionViewCell", for: indexPath) as! NodatafoundCollectionViewCell
+                return cell
+          
             }else{
-                cell.subCatTitle.text = filterArray?[indexPath.item].sub_cat_name ?? ""
+                cell.subCatTitle.attributedText = ModalController.setEngArbicFontStyle(str: filterArray?[indexPath.item].sub_cat_name ?? "", lineHeight: 12, FontSize: 8)
+//                cell.subCatTitle.text = filterArray?[indexPath.item].sub_cat_name ?? ""
                 let str = filterArray?[indexPath.item].category_image ?? ""
-                cell.subCat.setImageSDWebImage(imgURL: str, placeholder: "placeholder")
+                cell.subCat.setImageSDWebImage(imgURL: str, placeholder: "category_placeholder")
             }
         }else{
-            cell.subCatTitle.text = SubcatList?.data?.sub_cat_list?[indexPath.item].sub_cat_name ?? ""
+            if SubcatList?.data?.sub_cat_list?.count == 0
+            {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NodatafoundCollectionViewCell", for: indexPath) as! NodatafoundCollectionViewCell
+                return cell
+            }
+           // cell.subCatTitle.text = SubcatList?.data?.sub_cat_list?[indexPath.item].sub_cat_name ?? ""
+            cell.subCatTitle.attributedText = ModalController.setEngArbicFontStyle(str: SubcatList?.data?.sub_cat_list?[indexPath.item].sub_cat_name ?? "", lineHeight: 12, FontSize: 8)
             let str = SubcatList?.data?.sub_cat_list?[indexPath.item].category_image ?? ""
-            cell.subCat.setImageSDWebImage(imgURL: str, placeholder: "placeholder")
+            cell.subCat.setImageSDWebImage(imgURL: str, placeholder: "category_placeholder")
         }
+        cell.subCatTitle.textAlignment = .center
         return cell
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenSize = collectionView.frame.width
-        let size = CGSize(width: (screenSize - 40)/3  , height: 70)
-        return size
-        
-        
+        if (filterArray?.count) != nil
+        {
+            if filterArray?.count == 0
+            {
+                return CGSize(width: (screenSize - 20)  , height: 300)
+            }
+       return CGSize(width: (screenSize)/3-5  , height: (screenSize)/3-5)
+        }
+        else{
+            if SubcatList?.data?.sub_cat_list?.count == 0
+            {
+                return CGSize(width: (screenSize - 20)  , height: 300)
+            }
+           return CGSize(width: (screenSize)/3-5  , height: (screenSize)/3-5)
+        }
+      
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 5)
+        return UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 0)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
@@ -256,46 +271,8 @@ extension SelectCategoryViewController:UICollectionViewDelegate,UICollectionView
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if isFromProductDiscount {
-            subCateogrySelectRow = indexPath.item
-            self.collectionView.reloadData()
-            
-        }else{
-        let tempDict = NSMutableDictionary()
-        let id =  catList?.data?.cat_list?[selectedRow].cat_id ?? 0
-        let catImage = catList?.data?.cat_list?[selectedRow].category_image ?? ""
-        let catName = catList?.data?.cat_list?[selectedRow].cat_name ?? ""
-        
-        var subCatName = ""
-        var subCatImage = ""
-        var subCatId = ""
-        if (filterArray?.count) != nil {
-            if filterArray?.count == 0 {
-                subCatName = SubcatList?.data?.sub_cat_list?[indexPath.item].sub_cat_name ?? ""
-                subCatImage = SubcatList?.data?.sub_cat_list?[indexPath.item].category_image ?? ""
-                subCatId = "\(SubcatList?.data?.sub_cat_list?[indexPath.item].sub_cat_id ?? 0)"
-            }else{
-                subCatName = filterArray?[indexPath.item].sub_cat_name ?? ""
-                subCatImage = filterArray?[indexPath.item].category_image ?? ""
-                subCatId =  "\(filterArray?[indexPath.item].sub_cat_id ?? 0)"
-            }
-        }else{
-            subCatName = SubcatList?.data?.sub_cat_list?[indexPath.item].sub_cat_name ?? ""
-            subCatImage = SubcatList?.data?.sub_cat_list?[indexPath.item].category_image ?? ""
-            subCatId = "\(SubcatList?.data?.sub_cat_list?[indexPath.item].sub_cat_id ?? 0)"
-        }
-        
-        tempDict.setValue("\(id)", forKey: "cat_id")
-        tempDict.setValue(catImage, forKey: "cat_image")
-        tempDict.setValue(catName, forKey: "cat_name")
-        
-        tempDict.setValue("\(subCatId)", forKey: "sub_cat_id")
-        tempDict.setValue(subCatImage, forKey: "sub_cat_image")
-        tempDict.setValue(subCatName, forKey: "sub_cat_name")
-          self.delegate?.cataList(dict: tempDict)
-        self.navigationController?.popViewController(animated: true)
-      
-    }
+        subCateogrySelectRow = indexPath.item
+        collectionView.reloadData()
     }
 }
 
