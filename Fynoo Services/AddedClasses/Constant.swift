@@ -56,6 +56,7 @@ enum ValidationMessages {
     static let agentName_compare = "Your Business Name & Acount Holder Name Does Not Match"
     static let bankAccountNumber = "Please enter your IBAN No."
     static let validIbanNumber = "IBAN number does not belong to any bank."
+    static let ValidIBANNumber = "IBAN number should be 24 char"
     static let vatNumber = "Please enter valid vat Number."
      static let vatNumberDoc = "Please enter valid vat Number/vat certificate."
      static let vat_certificate = "Please submit vat certificate."

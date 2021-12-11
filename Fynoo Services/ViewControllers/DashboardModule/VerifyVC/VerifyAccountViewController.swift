@@ -124,16 +124,23 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
         otp.font = UIFont(name:"\(fontNameLight)",size:12)
         counterrText.font = UIFont(name:"\(fontNameLight)",size:12)
         resendOtp.titleLabel?.font=UIFont(name:"\(fontNameLight)",size:12)
+//        resendOtps()
         
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+//        resendOtps()
+//    }
+//
     override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
+    
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-//        resendOtps()
+   
     
     }
     

@@ -450,7 +450,7 @@ class PersonalAgentSignUPModal: NSObject {
         }
          personalAgentAccountNbr = personalAgentAccountNbr.replacingOccurrences(of: " ", with: "")
         if personalAgentAccountNbr.count != personalAgentIBanLength {
-              return (isFilled, ValidationMessages.validIbanNumber)
+              return (isFilled, ValidationMessages.ValidIBANNumber)
         }
          let bankCode =  personalAgentAccountNbr.substring(from: 0, to: 1)
         let ibanBool = ModalController.isValidIBAN(ibanStr: personalAgentAccountNbr, length: personalAgentIBanLength, countryType: bankCode)
