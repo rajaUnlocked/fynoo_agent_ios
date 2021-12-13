@@ -211,9 +211,9 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
     
     @objc private func textFieldDidChange(_ textField: UITextField)
     {
+        textField.textAlignment =  ("\(textField.text!.first)".isArabic ? .right:.left)
         textSTR = textField.text!
-        
-              if textField.text == "" {
+          if textField.text == "" {
                    pageno = 0
                 dataselllist.removeAll()
                  databankSellingListAPI()

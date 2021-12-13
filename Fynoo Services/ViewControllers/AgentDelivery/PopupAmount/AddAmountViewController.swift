@@ -32,6 +32,7 @@ class AddAmountViewController: UIViewController {
     @IBOutlet weak var aamount: UITextField!
     var isFrom = false
     var taG = 0
+    
     override func viewDidLoad() {
         ModalController.watermark(self.view)
         super.viewDidLoad()
@@ -48,7 +49,8 @@ class AddAmountViewController: UIViewController {
         codamtlbl.text = "COD Amount".localized
         sar.text = "SAR".localized
         aamount.keyboardType = .numberPad
-     
+        aamount.placeholder = "0.0"
+      
         if isFrom {
             TopConst.constant = 10
             reasonView.isHidden = false
@@ -90,7 +92,12 @@ class AddAmountViewController: UIViewController {
     @IBAction func submitClicked(_ sender: Any){
         
         if aamount.text == ""{
-            ModalController.showNegativeCustomAlertWith(title: "", msg: "Enter an amount")
+            ModalController.showNegativeCustomAlertWith(title: "Enter an amount", msg: "")
+            return
+        }
+        if (aamount.text! as NSString).doubleValue == 0.0
+        {
+            ModalController.showNegativeCustomAlertWith(title: "Amount should be gretaer than 0", msg: "")
             return
         }
         let str = Service.updateCod
@@ -99,8 +106,13 @@ class AddAmountViewController: UIViewController {
             //                "cod_amount":"1000"]
         
         let param = ["user_id":Singleton.shared.getUserId(),"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"cod_amount":aamount.text!]
-        print(param)
+        print(str,param)
         ServerCalls.postRequest(str, withParameters: param) { (response, success) in
+            if (response as! NSDictionary).value(forKey: "error_code") as! Int == 100
+            {
+                ModalController.showNegativeCustomAlertWith(title: (response as! NSDictionary).value(forKey: "error_description") as! String, msg: "")
+                return
+            }
             self.delegate?.reloadPage()
             self.dismiss(animated: true, completion: nil)
         }

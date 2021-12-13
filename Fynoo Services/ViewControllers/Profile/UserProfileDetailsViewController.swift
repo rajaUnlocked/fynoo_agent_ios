@@ -38,8 +38,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
 
    @objc func cancel() {
         isEdit = false
-        tableVw.reloadData()
-        print("dgd")
+       getProfileData()
     }
     
   
@@ -793,6 +792,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         cell.genderHorizantal.constant = 0
         cell.genderWidth.constant = 0
         cell.genderHorizantal.constant = 0
+        cell.selectBtn.isHidden = true
         cell.headingLbl.text = "* * * * * * * *"
         cell.headingLbl.isUserInteractionEnabled = false
         cell.selectionStyle = .none
