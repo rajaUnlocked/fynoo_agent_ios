@@ -216,7 +216,7 @@ class DataEntryApiManager: NSObject {
         
         param = [
             "agent_id": Singleton.shared.getUserId(),
-                 "service_id": serviceID,
+            "service_id": serviceID,"lang_code":HeaderHeightSingleton.shared.LanguageSelected
         ]
         
         url = dataEntryModuleApi.DataEntry_Detail

@@ -705,6 +705,7 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
    
     @objc private func textFieldDidChange(_ textField: UITextField)
           {
+              textField.textAlignment =  ("\(textField.text!.first)".isArabic ? .right:.left)
               if textField.tag == 100
               {
                   return
@@ -1214,7 +1215,7 @@ extension CreateProductFirstViewController:UITableViewDelegate,UITextViewDelegat
     
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-       
+      
         if textView.text.count == 0
         {
             if text == " "
@@ -1227,6 +1228,7 @@ extension CreateProductFirstViewController:UITableViewDelegate,UITextViewDelegat
             let txtAfterUpdate = text1.replacingCharacters(in: range, with: text)
             textstr = txtAfterUpdate
         }
+        textView.textAlignment =  ("\(textstr.first)".isArabic ? .right:.left)
         if textView.tag == 10
         {
             if !text.containArabicNumber

@@ -29,7 +29,9 @@ struct DataBankSellingList : Mappable {
 
 }
  struct Data_DataBankSelling : Mappable {
-    var total_draft : Int?
+     var page_limit : Int?
+     var total_draft : Int?
+     var total_records : Int?
     var total_sold : Int?
     var total_earning : Int?
     var product_list : [Product_list_data_Bank_Selling]?
@@ -40,7 +42,8 @@ struct DataBankSellingList : Mappable {
     }
 
     mutating func mapping(map: Map) {
-
+        page_limit <- map["page_limit"]
+        total_records <- map["total_records"]
         total_draft <- map["total_draft"]
         total_sold <- map["total_sold"]
         total_earning <- map["total_earning"]

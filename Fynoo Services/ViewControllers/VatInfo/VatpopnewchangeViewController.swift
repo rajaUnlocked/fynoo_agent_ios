@@ -86,7 +86,7 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
             yesCheck.isUserInteractionEnabled = false
             
         }
-        
+        txtField.setLeftPaddingPoints(10)
     }
     var mobilNoos = ""
     var values = ""
@@ -104,6 +104,11 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
             
         }
         textField.text = values
+        if self.txtField.text!.count > 0 && pfurl != nil
+        {
+                    saveBtn.layer.borderColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1).cgColor
+                    saveBtn.setTitleColor(UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1), for: .normal)
+        }
         // vat = values
         print(values ,"vatno")
         
@@ -145,19 +150,19 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
         //                    let value = ModalController.customStringFormatting(of: mobilNoo)
         //                txtField.text = value
         
-        let currentCount =  textField.text!.count
-        let textCount = textField.text?.replacingOccurrences(of: " ", with: "").count
-        let val = currentCount-textCount!
+        let currentCount =  textstr.count
+        let textCount = textstr.replacingOccurrences(of: " ", with: "").count
+        let val = currentCount-textCount
         
         
         // var lenght  = 15
         let str = textField.text
         
-        //         if selectedCountryDict.count > 0{
-        //             lenght = self.selectedCountryDict.object(forKey: "mobile_length") as! Int
-        //         }else{
-        //             lenght = self.userData?.data?.mobile_length ?? 0
-        //         }
+        guard let stringRange = Range(range,in: str!) else{
+            return false
+        }
+        let updateText =  str!.replacingCharacters(in: stringRange, with: string)
+        
         if textstr.count > 0
         {
             if !textstr.containArabicNumber
@@ -166,7 +171,14 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
                 
             }
             else{
-                txtField.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+               if (updateText.count) < vatlength+val
+                {
+                   txtField.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+               }
+                else{
+                    txtField.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+                   
+                }
                 
             }
             
@@ -178,17 +190,9 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
             
         }
         
-        guard let stringRange = Range(range,in: str!) else{
-            return false
-        }
-        
-        
-        let updateText =  str!.replacingCharacters(in: stringRange, with: string)
-        return (updateText.count) < vatlength+val+1
-        
-        
-        
-        return true;
+       
+        return (updateText.count) <= vatlength+val
+      
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
@@ -202,11 +206,7 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
     
     @IBAction func save(_ sender: Any) {
         
-        
-        
-        
-        
-        
+   
         if yesCheck.isSelected == false && noCheck.isSelected == false
         {
             ModalController.showNegativeCustomAlertWith(title: "Please select atleast one option", msg: "")
@@ -233,7 +233,7 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
                 
                 
                 if mobilNoo.count != vatlength{
-                    ModalController.showNegativeCustomAlertWith(title: "Please enter a valid Vat Number", msg: "")
+                    ModalController.showNegativeCustomAlertWith(title: "VAT number should be \(vatlength) digits", msg: "")
                     return
                 }
                 
@@ -280,6 +280,7 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
         
     }
     @IBAction func yesChkBox(_ sender: Any) {
+        closeBtn.isHidden = (pfurl != nil ? false:true)
         if yesCheck.isSelected == true {
             yesCheck.isSelected  = false
             noCheck.isSelected  = true
@@ -291,6 +292,7 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
             topconst.constant = -30
             vwheight.constant = 250
             innervwheight.constant = 120
+          
         }
         else {
             yesCheck.isSelected  = true
@@ -305,18 +307,22 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
             innervwheight.constant = 300
         }
         
-        saveBtn.layer.borderColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1).cgColor
-        saveBtn.setTitleColor(UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1), for: .normal)
+//        saveBtn.layer.borderColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1).cgColor
+//        saveBtn.setTitleColor(UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1), for: .normal)
     }
     
     @IBAction func noChkbox(_ sender: Any) {
+        pfurl = nil
+        img.image = UIImage(named: "dottedrectangle")
+        txtField.text = ""
         if noCheck.isSelected == true {
             noCheck.isSelected  = false
             yesCheck.isSelected = true
             txtField.isHidden = true
-            
+            closeBtn.isHidden = false
         }
         else {
+            closeBtn.isHidden = true
             noCheck.isSelected  = true
             yesCheck.isSelected = false
             txtField.isHidden = true
@@ -409,7 +415,11 @@ extension VatpopnewchangeViewController:UIDocumentPickerDelegate
         add.isHidden = true
         closeBtn.isHidden = false
         img.image = pdfThumbnail(url: pfurl!)
-        
+         if self.txtField.text!.count > 0 && pfurl != nil
+         {
+                     saveBtn.layer.borderColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1).cgColor
+                     saveBtn.setTitleColor(UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1), for: .normal)
+         }
      }
      
      func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {

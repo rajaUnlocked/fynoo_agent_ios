@@ -189,6 +189,9 @@
 		CE2EFB42251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */; };
 		CE2EFB43251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2EFB41251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib */; };
 		CE3E9A59251E0B0300B60038 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E9A58251E0B0300B60038 /* ServiceModel.swift */; };
+		CE4E20C0276222DB00BD0932 /* ReturnPolicyNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E20BE276222DA00BD0932 /* ReturnPolicyNewViewController.swift */; };
+		CE4E20C1276222DB00BD0932 /* ReturnPolicyNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4E20BF276222DA00BD0932 /* ReturnPolicyNewViewController.xib */; };
+		CE4FBB1927634C0B005C60F9 /* GlobalSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4FBB1827634C0B005C60F9 /* GlobalSearch.swift */; };
 		CE8E8595250F4C3800B74A9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE8E8597250F4C3800B74A9E /* Localizable.strings */; };
 		CE96D3B226B51820002CB24F /* TimeSheetPOpUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE96D3B426B51820002CB24F /* TimeSheetPOpUpViewController.xib */; };
 		CE9CCD3F264BAA14005AE619 /* TimingShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CCC89264BAA13005AE619 /* TimingShowTableViewCell.swift */; };
@@ -625,6 +628,16 @@
 		CEE72CBE251B76AF00B02DAF /* BottomPopupEditProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE72CBA251B76AF00B02DAF /* BottomPopupEditProductViewController.swift */; };
 		CEE72CC0251B795100B02DAF /* OpenGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE72CBF251B795100B02DAF /* OpenGallery.swift */; };
 		CEF3F71E268198AB00BA0C49 /* MultipleBranchHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF3F720268198AB00BA0C49 /* MultipleBranchHeader.xib */; };
+		CEF415082764CBAA00084ADB /* NotificationNewsTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEF414FB2764CBA900084ADB /* NotificationNewsTableViewCell.strings */; };
+		CEF415092764CBAA00084ADB /* NotificationNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF414FE2764CBA900084ADB /* NotificationNewViewController.xib */; };
+		CEF4150A2764CBAA00084ADB /* NotificationApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF414FF2764CBA900084ADB /* NotificationApiModel.swift */; };
+		CEF4150B2764CBAA00084ADB /* NotificationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF415002764CBA900084ADB /* NotificationList.swift */; };
+		CEF4150C2764CBAA00084ADB /* NofifyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF415012764CBA900084ADB /* NofifyModel.swift */; };
+		CEF4150D2764CBAA00084ADB /* NotificationHeadernewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF415022764CBA900084ADB /* NotificationHeadernewTableViewCell.swift */; };
+		CEF4150E2764CBAA00084ADB /* NotificationNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF415032764CBA900084ADB /* NotificationNewsTableViewCell.xib */; };
+		CEF4150F2764CBAA00084ADB /* NotificationNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF415052764CBA900084ADB /* NotificationNewsTableViewCell.swift */; };
+		CEF415102764CBAA00084ADB /* NotificationNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF415062764CBA900084ADB /* NotificationNewViewController.swift */; };
+		CEF415112764CBAA00084ADB /* NotificationHeadernewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF415072764CBA900084ADB /* NotificationHeadernewTableViewCell.xib */; };
 		F415E772250A221900DEF755 /* ProfileModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F415E771250A221900DEF755 /* ProfileModal.swift */; };
 		F438605325230BF200DE0BED /* AddAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438605125230BF200DE0BED /* AddAmountViewController.swift */; };
 		F438605425230BF200DE0BED /* AddAmountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438605225230BF200DE0BED /* AddAmountViewController.xib */; };
@@ -1091,6 +1104,9 @@
 		CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVehicleImageTableViewCell.swift; sourceTree = "<group>"; };
 		CE2EFB41251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadVehicleImageTableViewCell.xib; sourceTree = "<group>"; };
 		CE3E9A58251E0B0300B60038 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
+		CE4E20BE276222DA00BD0932 /* ReturnPolicyNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnPolicyNewViewController.swift; sourceTree = "<group>"; };
+		CE4E20BF276222DA00BD0932 /* ReturnPolicyNewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReturnPolicyNewViewController.xib; sourceTree = "<group>"; };
+		CE4FBB1827634C0B005C60F9 /* GlobalSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSearch.swift; sourceTree = "<group>"; };
 		CE8E8594250F4C1B00B74A9E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		CE8E8596250F4C3800B74A9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE8E8598250F4C4200B74A9E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1603,6 +1619,17 @@
 		CEF3F71F268198AB00BA0C49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MultipleBranchHeader.xib; sourceTree = "<group>"; };
 		CEF3F722268198B600BA0C49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MultipleBranchHeader.strings; sourceTree = "<group>"; };
 		CEF3F724268198BB00BA0C49 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/MultipleBranchHeader.strings; sourceTree = "<group>"; };
+		CEF414FC2764CBA900084ADB /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/NotificationNewsTableViewCell.strings; sourceTree = "<group>"; };
+		CEF414FD2764CBA900084ADB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NotificationNewsTableViewCell.strings; sourceTree = "<group>"; };
+		CEF414FE2764CBA900084ADB /* NotificationNewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationNewViewController.xib; sourceTree = "<group>"; };
+		CEF414FF2764CBA900084ADB /* NotificationApiModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationApiModel.swift; sourceTree = "<group>"; };
+		CEF415002764CBA900084ADB /* NotificationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationList.swift; sourceTree = "<group>"; };
+		CEF415012764CBA900084ADB /* NofifyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NofifyModel.swift; sourceTree = "<group>"; };
+		CEF415022764CBA900084ADB /* NotificationHeadernewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHeadernewTableViewCell.swift; sourceTree = "<group>"; };
+		CEF415042764CBA900084ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NotificationNewsTableViewCell.xib; sourceTree = "<group>"; };
+		CEF415052764CBA900084ADB /* NotificationNewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationNewsTableViewCell.swift; sourceTree = "<group>"; };
+		CEF415062764CBA900084ADB /* NotificationNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationNewViewController.swift; sourceTree = "<group>"; };
+		CEF415072764CBA900084ADB /* NotificationHeadernewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationHeadernewTableViewCell.xib; sourceTree = "<group>"; };
 		E5221FCBE85158F2A6A17ACB /* Pods_Fynoo_AgentTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fynoo_AgentTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F415E771250A221900DEF755 /* ProfileModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModal.swift; sourceTree = "<group>"; };
 		F438605125230BF200DE0BED /* AddAmountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAmountViewController.swift; sourceTree = "<group>"; };
@@ -2298,6 +2325,9 @@
 		2FFDE23C2501221B006C5EBD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CEF414FA2764CBA900084ADB /* NewNotification */,
+				CE4FBB1727634C0B005C60F9 /* GlobalSearch */,
+				CE4E20BD276222DA00BD0932 /* BottomPopup */,
 				CEBCD6DF2664A7FE001BF767 /* WalletNewDesignVC */,
 				F68B78E02653ADE800B1E69E /* UserPolicyVC */,
 				CE9CCC77264BAA13005AE619 /* DataSellingNewVC */,
@@ -2488,6 +2518,23 @@
 				CEDA6C402525C4C800301F82 /* ServiceUpload.swift */,
 			);
 			path = servicemodel;
+			sourceTree = "<group>";
+		};
+		CE4E20BD276222DA00BD0932 /* BottomPopup */ = {
+			isa = PBXGroup;
+			children = (
+				CE4E20BE276222DA00BD0932 /* ReturnPolicyNewViewController.swift */,
+				CE4E20BF276222DA00BD0932 /* ReturnPolicyNewViewController.xib */,
+			);
+			path = BottomPopup;
+			sourceTree = "<group>";
+		};
+		CE4FBB1727634C0B005C60F9 /* GlobalSearch */ = {
+			isa = PBXGroup;
+			children = (
+				CE4FBB1827634C0B005C60F9 /* GlobalSearch.swift */,
+			);
+			path = GlobalSearch;
 			sourceTree = "<group>";
 		};
 		CE9CCC77264BAA13005AE619 /* DataSellingNewVC */ = {
@@ -3428,6 +3475,23 @@
 			path = Bottompopup;
 			sourceTree = "<group>";
 		};
+		CEF414FA2764CBA900084ADB /* NewNotification */ = {
+			isa = PBXGroup;
+			children = (
+				CEF414FB2764CBA900084ADB /* NotificationNewsTableViewCell.strings */,
+				CEF414FE2764CBA900084ADB /* NotificationNewViewController.xib */,
+				CEF414FF2764CBA900084ADB /* NotificationApiModel.swift */,
+				CEF415002764CBA900084ADB /* NotificationList.swift */,
+				CEF415012764CBA900084ADB /* NofifyModel.swift */,
+				CEF415022764CBA900084ADB /* NotificationHeadernewTableViewCell.swift */,
+				CEF415032764CBA900084ADB /* NotificationNewsTableViewCell.xib */,
+				CEF415052764CBA900084ADB /* NotificationNewsTableViewCell.swift */,
+				CEF415062764CBA900084ADB /* NotificationNewViewController.swift */,
+				CEF415072764CBA900084ADB /* NotificationHeadernewTableViewCell.xib */,
+			);
+			path = NewNotification;
+			sourceTree = "<group>";
+		};
 		F419CA55250B6F4B008087FA /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -4345,6 +4409,7 @@
 				CEE72CB1251B586400B02DAF /* DocHeaderTableViewCell.xib in Resources */,
 				CECEFA982577A2C90090D459 /* ExteriorTableViewCell.xib in Resources */,
 				F680D672259B7C2C007EB12C /* DECancellationTableViewCell.strings in Resources */,
+				CEF4150E2764CBAA00084ADB /* NotificationNewsTableViewCell.xib in Resources */,
 				CEDD333425765BBA00023977 /* SelectSubCat.xib in Resources */,
 				2F8463DC250F6EBC0084EB32 /* LoginIntroSecond.strings in Resources */,
 				F6547ABB25DE594A00171862 /* DEClearFilterTableViewCell.xib in Resources */,
@@ -4475,6 +4540,7 @@
 				F680D636259B7C2C007EB12C /* DEInprogressShowInstructionTableViewCell.xib in Resources */,
 				CEDD31F72576206500023977 /* ProductImgCollectionViewCell.xib in Resources */,
 				F680D64C259B7C2C007EB12C /* DataEntryFromTopTableViewCell.xib in Resources */,
+				CEF415112764CBAA00084ADB /* NotificationHeadernewTableViewCell.xib in Resources */,
 				CEE3578B250740800097069D /* sst-arabic-bold.ttf in Resources */,
 				CECEF9F52577575C0090D459 /* CollectionViewTableViewCell.xib in Resources */,
 				4EDB8D92268CC8F400A034CF /* PopUpReduceQuantityViewController.xib in Resources */,
@@ -4528,6 +4594,7 @@
 				F680D63D259B7C2C007EB12C /* DataEntryAgentRatingViewController.strings in Resources */,
 				F680D681259B7C2C007EB12C /* CompleteDataEntryListTableViewCell.xib in Resources */,
 				CECEF9E92577575C0090D459 /* LogoTableViewCell.strings in Resources */,
+				CEF415082764CBAA00084ADB /* NotificationNewsTableViewCell.strings in Resources */,
 				F62E4B0125148EC60021CEE0 /* CompanyAgentBasicInformationTableViewCell.xib in Resources */,
 				CECEF9EE2577575C0090D459 /* CreateBranchFirstStepViewController.xib in Resources */,
 				4E758345268442BC002EFB30 /* CommonPopViewC.xib in Resources */,
@@ -4583,6 +4650,7 @@
 				CEDAF67525283DF900B846E5 /* ReasonForChangeTableViewCell.xib in Resources */,
 				F635979D25C67F82003BF9E2 /* DeliveryDashboardHeaderCollectionViewCell.xib in Resources */,
 				CEBCD74A2664A7FE001BF767 /* SearchBankTableViewCell.xib in Resources */,
+				CEF415092764CBAA00084ADB /* NotificationNewViewController.xib in Resources */,
 				CEDD32EC25763C8E00023977 /* ProductHeader2TableViewCell.xib in Resources */,
 				2FEB12092511EC930012FE98 /* SideMenuViewController.xib in Resources */,
 				CEDD32E525763C8E00023977 /* ProductHeaderTableViewCell.xib in Resources */,
@@ -4649,6 +4717,7 @@
 				CEAD29FA2506A43D008B1F9C /* VideoTableViewCell.xib in Resources */,
 				CE9CCD52264BAA14005AE619 /* ProductVariantCollectionViewCell.xib in Resources */,
 				CE96D3B226B51820002CB24F /* TimeSheetPOpUpViewController.xib in Resources */,
+				CE4E20C1276222DB00BD0932 /* ReturnPolicyNewViewController.xib in Resources */,
 				CEDD33CB257676F100023977 /* InventoryDetailTableViewCell.xib in Resources */,
 				CEBCD74F2664A7FE001BF767 /* BankListAddCell.xib in Resources */,
 				CEDBFDB6266DF71E00A8D318 /* DashboardWalletTableViewCell.xib in Resources */,
@@ -4852,8 +4921,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF4150D2764CBAA00084ADB /* NotificationHeadernewTableViewCell.swift in Sources */,
 				CEDD31F42576206500023977 /* SelectProductTypeTableViewCell.swift in Sources */,
 				CEDD32F325763C8E00023977 /* ProductDimentionTableViewCell.swift in Sources */,
+				CEF4150B2764CBAA00084ADB /* NotificationList.swift in Sources */,
 				CEAD29F125069D58008B1F9C /* DescriptionTableViewCells.swift in Sources */,
 				F680D62C259B7C2C007EB12C /* DataEntryWorkConfirmationPopUpViewController.swift in Sources */,
 				F4828CA42508DFA9006B85D8 /* ProfileServiceViewCell.swift in Sources */,
@@ -4877,6 +4948,7 @@
 				2F74CB58250A365F00DE21EF /* LogoAnimationView.swift in Sources */,
 				CE9CCE1C264BF0B6005AE619 /* FilterModel.swift in Sources */,
 				CEE72CAC251B405F00B02DAF /* ServiceHeaderTableViewCell.swift in Sources */,
+				CE4FBB1927634C0B005C60F9 /* GlobalSearch.swift in Sources */,
 				F68A0316269D2D5F0045D9EA /* ServicesBasicDetailTableViewCell.swift in Sources */,
 				4EE631A0267F758900D5ED01 /* CancelReasonViewController.swift in Sources */,
 				CEDD33D82576975400023977 /* BranchMapModel.swift in Sources */,
@@ -5008,6 +5080,7 @@
 				CEBCD7372664A7FE001BF767 /* WalletNewSimpleTableViewCell.swift in Sources */,
 				CE9CCDC2264BE2D7005AE619 /* DeleteBranchPopupViewController.swift in Sources */,
 				CECEFA4A25779E8F0090D459 /* ViewImagesViewController.swift in Sources */,
+				CEF4150C2764CBAA00084ADB /* NofifyModel.swift in Sources */,
 				CEDD33B0257674BA00023977 /* WholesaleListViewCell.swift in Sources */,
 				F680D64B259B7C2C007EB12C /* DataEntryFormWorkPlaceTableViewCell.swift in Sources */,
 				CECEFA1725779A2E0090D459 /* nextTableViewCell.swift in Sources */,
@@ -5051,6 +5124,7 @@
 				CEDD333025765BBA00023977 /* SelectCategoryCell.swift in Sources */,
 				CECEF9B92577575B0090D459 /* BusinessLocationSearch2TableViewCell.swift in Sources */,
 				F4C4DC5E250794B20075F520 /* ProfileDetailTableViewCell.swift in Sources */,
+				CEF415102764CBAA00084ADB /* NotificationNewViewController.swift in Sources */,
 				2FFDE20F25012166006C5EBD /* SceneDelegate.swift in Sources */,
 				4E1DA09B26839FB00055D201 /* UIColor+Extension.swift in Sources */,
 				CEBCD73E2664A7FE001BF767 /* ShowMoreViewCell.swift in Sources */,
@@ -5207,6 +5281,7 @@
 				CEDD32F225763C8E00023977 /* InstorePaymentTableViewCell.swift in Sources */,
 				2F07D1AF2505FD7700193658 /* HeaderHeightSingleton.swift in Sources */,
 				F4CEC2FF2511D9FF003C35E8 /* UploadImage.swift in Sources */,
+				CE4E20C0276222DB00BD0932 /* ReturnPolicyNewViewController.swift in Sources */,
 				CEDD330225763DAB00023977 /* OCRViewController.swift in Sources */,
 				CE9CCD45264BAA14005AE619 /* ProductListNewViewController.swift in Sources */,
 				CECEFAC22577B18C0090D459 /* MallMarket.swift in Sources */,
@@ -5225,8 +5300,10 @@
 				CEDD330925765A7400023977 /* ScannerNewViewController.swift in Sources */,
 				CEDD32E225763C8E00023977 /* CreateProductSecondViewController.swift in Sources */,
 				CEE3579F250751020097069D /* CommisionsViewController.swift in Sources */,
+				CEF4150A2764CBAA00084ADB /* NotificationApiModel.swift in Sources */,
 				CEAD29F92506A43D008B1F9C /* VideoTableViewCell.swift in Sources */,
 				CECEF9F42577575C0090D459 /* BusinessTableViewCell.swift in Sources */,
+				CEF4150F2764CBAA00084ADB /* NotificationNewsTableViewCell.swift in Sources */,
 				CECEF9E12577575C0090D459 /* BranchTimingTableViewCell.swift in Sources */,
 				F680D623259B7C2C007EB12C /* DataEntryTypelistingViewController.swift in Sources */,
 				F4828CA02508DF3E006B85D8 /* ProfileServiceTableViewCell.swift in Sources */,
@@ -6758,6 +6835,23 @@
 				CEF3F724268198BB00BA0C49 /* ar */,
 			);
 			name = MultipleBranchHeader.xib;
+			sourceTree = "<group>";
+		};
+		CEF414FB2764CBA900084ADB /* NotificationNewsTableViewCell.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEF414FC2764CBA900084ADB /* ar */,
+				CEF414FD2764CBA900084ADB /* en */,
+			);
+			name = NotificationNewsTableViewCell.strings;
+			sourceTree = "<group>";
+		};
+		CEF415032764CBA900084ADB /* NotificationNewsTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEF415042764CBA900084ADB /* Base */,
+			);
+			name = NotificationNewsTableViewCell.xib;
 			sourceTree = "<group>";
 		};
 		F62E2425269C193700600BC4 /* SignOutViewController.xib */ = {

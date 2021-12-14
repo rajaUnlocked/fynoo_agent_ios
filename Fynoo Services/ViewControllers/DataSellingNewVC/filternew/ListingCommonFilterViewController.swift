@@ -401,6 +401,21 @@ class ListingCommonFilterViewController: UIViewController, TTRangeSliderDelegate
             pro.subcataIdselltemp.removeAll()
             pro.daterangesell.removeAll()
             pro.primaryKeyss = ""
+         
+            
+            pro.datapriceselltemp = pro.datapricesell
+            pro.numsoldsell = pro.numsoldselltemp
+            pro.numphotosell = pro.numphotoselltemp
+            pro.statussell = pro.statusselltemp
+            pro.cataIdsell = pro.cataIdselltemp
+            pro.subcataIdsell = pro.subcataIdselltemp
+            if pro.daterangesell.count > 0
+            {
+                let fullNameArr = pro.daterangesell.components(separatedBy: "-")
+                self.fromDateTimeStamp =  fullNameArr[0]
+                self.toDateTimeStamp =  fullNameArr[1]
+            }
+            dalasellinglist_API()
         }
         else if isFilterType == "orderFilter"{
             self.pro.statusOrder.removeAllObjects()
@@ -443,7 +458,7 @@ class ListingCommonFilterViewController: UIViewController, TTRangeSliderDelegate
         
         
         
-        self.navigationController?.popViewController(animated: true)
+        //self.navigationController?.popViewController(animated: true)
     }
     @IBAction func apply(_ sender: Any) {
         if isFilterType == "dataSell"  {
@@ -891,11 +906,11 @@ extension ListingCommonFilterViewController: UITableViewDelegate,UITableViewData
                     
                     if  pro?.radio_list?[indexPath.row].is_selected ?? false
                     {
-                        cell.checkBox.setImage(UIImage(named: "selected"), for: .normal)
+                        cell.checkBox.setImage(UIImage(named: "selected_new"), for: .normal)
                         
                     }
                     else{
-                        cell.checkBox.setImage(UIImage(named: "unselected"), for: .normal)
+                        cell.checkBox.setImage(UIImage(named: "unselected_new"), for: .normal)
                     }
                     
                     
@@ -976,21 +991,21 @@ extension ListingCommonFilterViewController: UITableViewDelegate,UITableViewData
                     if self.pro.cataIdsell == "" || iscategory
                     {
                         cell.nameLbl.text = pro?.complex_radio_list?[indexPath.row].key ?? ""
-                        cell.checkBox.setImage(UIImage(named: "unselected"), for: .normal)
+                        cell.checkBox.setImage(UIImage(named: "unselected_new"), for: .normal)
                         
                         if self.pro.cataIdsell ==  "\((pro?.complex_radio_list?[indexPath.row].value)!)"
                         {
-                            cell.checkBox .setImage(UIImage(named: "selected"), for: .normal)
+                            cell.checkBox .setImage(UIImage(named: "selected_new"), for: .normal)
                         }
                         else
                         {
-                            cell.checkBox.setImage(UIImage(named: "unselected"), for: .normal)
+                            cell.checkBox.setImage(UIImage(named: "unselected_new"), for: .normal)
                         }
                         
                         
                     }
                     else{
-                        cell.checkBox.setImage(UIImage(named: "unselected"), for: .normal)
+                        cell.checkBox.setImage(UIImage(named: "unselected_new"), for: .normal)
                         
                         
                         if indexPath.row == 0
@@ -1006,11 +1021,11 @@ extension ListingCommonFilterViewController: UITableViewDelegate,UITableViewData
                         else{
                             if self.pro.subcataIdsell ==  "\((pro?.complex_radio_list?[selectedRow1].value_list?[indexPath.row - 1].value)!)"
                             {
-                                cell.checkBox.setImage(UIImage(named: "selected"), for: .normal)
+                                cell.checkBox.setImage(UIImage(named: "selected_new"), for: .normal)
                             }
                             else
                             {
-                                cell.checkBox.setImage(UIImage(named: "unselected"), for: .normal)
+                                cell.checkBox.setImage(UIImage(named: "unselected_new"), for: .normal)
                             }
                             cell.nameLbl.text = pro?.complex_radio_list?[selectedRow1].value_list?[indexPath.row - 1].key
                         }
@@ -1595,7 +1610,7 @@ extension ListingCommonFilterViewController: UITableViewDelegate,UITableViewData
                             }
                             else
                             {
-                                self.pro.subcataIdsell.append("\((pro?.complex_radio_list?[indexPath.row].value)!)")
+                                self.pro.subcataIdsell.append("\((pro?.complex_radio_list?[selectedRow1].value_list?[indexPath.row - 1].value)!)")
                             }
                         }
                         

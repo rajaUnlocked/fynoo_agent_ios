@@ -12,7 +12,8 @@ import PopupDialog
 import SideMenu
 import AMShimmer
 import BarcodeScanner
-class ProductListNewViewController: UIViewController {
+class ProductListNewViewController: UIViewController, GlobalsearchDelegate {
+   
     var isBool = true
     var isCreate = false
     var productmodel = AddProductModel()
@@ -54,7 +55,16 @@ class ProductListNewViewController: UIViewController {
        
         
     }
-
+    func resultscancode(search: String, content: String) {
+        print(search,content)
+        textSTR = search
+        DataBankSellingModel.issearchfrom = content
+        self.dataselllist.removeAll()
+        pageno = 0
+       databankSellingListAPI()
+      
+    }
+    
     @objc func goback(_ sender : UIButton) {
    self.navigationController?.popViewController(animated: true)
     }
@@ -130,7 +140,7 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
             {
                 return 2
             }
-            return self.dataselllist.count
+            return self.dataselllist.count == 0 ? 1 : self.dataselllist.count
         }
     }
   
@@ -173,10 +183,10 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
                 let cell = tabView.dequeueReusableCell(withIdentifier: "NoDataFoundTableViewCell", for: indexPath) as! NoDataFoundTableViewCell
                            
                           let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
-                             cell.titleLbl.text = "Sorry! No Data Found"
+                cell.titleLbl.text = "No Data Found".localized
                              cell.titleLbl.font =  UIFont(name:"\(fontNameBold)",size:20)
                              cell.goBackTop.constant = 10
-                             cell.gobackBtn.isHidden = false
+                             cell.gobackBtn.isHidden = true
                              cell.gobackBtn.addTarget(self, action: #selector(goback(_ :)), for: .touchUpInside)
                              return cell
             }
@@ -201,9 +211,9 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
     
     @objc private func textFieldDidChange(_ textField: UITextField)
     {
+        textField.textAlignment =  ("\(textField.text!.first)".isArabic ? .right:.left)
         textSTR = textField.text!
-        
-              if textField.text == "" {
+          if textField.text == "" {
                    pageno = 0
                 dataselllist.removeAll()
                  databankSellingListAPI()
@@ -282,7 +292,7 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
             }
          
             view.filter.addTarget(self, action: #selector(filterClicked), for: .touchUpInside)
-            view.scanBtn.addTarget(self, action: #selector(scanClicked), for: .touchUpInside)
+            view.scanBtn.addTarget(self, action: #selector(scanClicked(_:)), for: .touchUpInside)
             view.add.addTarget(self, action: #selector(addProductClicked), for: .touchUpInside)
             view.searchbtn.addTarget(self, action: #selector(searchclicked), for: .touchUpInside)
              view.searchTxtField.addTarget(self, action: #selector(ProductListNewViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
@@ -316,8 +326,8 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
          isDataLoading = false
      }
      func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        if ((self.data_bank_list?.data?.total_records ?? 0) as NSString).doubleValue / ((self.data_bank_list?.data?.page_limit ?? 0) as NSString).doubleValue > ("\(pageno)" as NSString).doubleValue + 1.0
-//        {
+        if Double(self.data_bank_list?.data?.total_records ?? 0) / Double(self.data_bank_list?.data?.page_limit ?? 0) > Double(pageno) + 1.0
+        {
                    if ((tabView.contentOffset.y + tabView.frame.size.height) >= tabView.contentSize.height)
                    {
                        if !isDataLoading{
@@ -329,7 +339,7 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
                          }
 
                        }
-        //}
+        }
 
      }
     @objc func filterClicked() {
@@ -344,12 +354,9 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
-    @objc func scanClicked() {
-        let vc = QRCOdeViewController(nibName: "QRCOdeViewController", bundle: nil)
-        vc.delegate = self
-        isCreate = false
-        self.navigationController?.pushViewController(vc, animated: true)
-           
+    @objc func scanClicked(_ sender:Globalsearch) {
+        sender.delegate = self
+        sender.scanqrcode(self)
        }
     @objc func searchclicked()
     {
@@ -417,12 +424,8 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
             return swipeAction
             
         }
-        
-        
-        
+    
     }
-    
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
@@ -459,49 +462,12 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
     }
     
 }
-extension ProductListNewViewController : BottomPopupEditProductViewControllerDelegate,QRCOdeViewControllerDelegate,DeleteBranchPopupViewControllerDelegate{
+extension ProductListNewViewController : BottomPopupEditProductViewControllerDelegate,DeleteBranchPopupViewControllerDelegate{
     func reloadPage() {
         pageno = 0
       dataselllist.removeAll()
       databankSellingListAPI()
     
-    }
-    
-    func QRCodeScanner(str: String) {
-        if isCreate
-        {
-          ProductModel.shared.barcode = str
-        }
-        else{
-        
-           if ModalController.verifyUrl(urlString: str)
-           {
-               if str.contains("type")
-               {
-                   let url = URL(string:str)!
-                  let id = url["type"]!.split(separator: "-")
-                   product.contentid = String(id[1])
-                   product.contenttype = "DATABANK"
-                          ModalClass.startLoading(self.view)
-                          product.getnameapi { (success, response) in
-                                     if success {
-                                         ModalClass.stopLoading()
-                                      let rep:NSDictionary = response?.value(forKey: "data") as! NSDictionary
-                                      self.textSTR = rep.value(forKey: "keyword") as! String
-                                      
-                                     }
-                                 }
-               }
-               else{
-            self.textSTR = str
-               }
-           }
-               else{
-                   self.textSTR = str
-               }
-           }
-       
-       
     }
     
     func information(Value: String) {
@@ -583,11 +549,11 @@ extension ProductListNewViewController : BottomPopupEditProductViewControllerDel
                                               productmodel.databankDetails { (success, response) in
                                                   ModalClass.stopLoading()
                           
-                                                  if success {
+                                 if success {
                           
-                                                      let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
-                                                    vc.isDataBank = true
-                                                    self.navigationController?.pushViewController(vc, animated: true)
+                              let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                              vc.isDataBank = true
+                                self.navigationController?.pushViewController(vc, animated: true)
                                                   }
                                   }
                     
@@ -635,32 +601,3 @@ extension ProductListNewViewController : BottomPopupEditProductViewControllerDel
 }
 
 
-extension ProductListNewViewController : BarcodeScannerCodeDelegate,BarcodeScannerErrorDelegate,BarcodeScannerDismissalDelegate {
-
- func scanner(_ controller: BarcodeScannerViewController, didReceiveError error: Error) {
-    print(error)
-    controller.dismiss(animated: true, completion: nil)
-  }
-
-  func scannerDidDismiss(_ controller: BarcodeScannerViewController) {
-     controller.dismiss(animated: true) {
-               if self.isCreate
-                            {
-                                ProductModel.shared.remove()
-                                ProductModel.shared.isedit = true
-                                let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
-                            self.navigationController?.pushViewController(vc, animated: true)
-                               self.isCreate = !self.isCreate
-                                return
-                            }
-           }
-  }
-
-    func scanner(_ controller: BarcodeScannerViewController, didCaptureCode code: String, type: String) {
-        self.QRCodeScanner(str: code)
-       controller.dismiss(animated: true, completion: nil)
-       
-        
-        }
-
-}
