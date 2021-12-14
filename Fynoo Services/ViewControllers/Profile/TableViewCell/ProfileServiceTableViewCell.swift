@@ -149,8 +149,13 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
                 cell.imgCheck.image = UIImage(named: "uncheck")
             }
             cell.serviceName.text = serviceList?[indexPath.row].service_name ?? ""
-
+            if agentinfo.serviceArr.count == 0
+            {
+                cell.imgCheck.image = UIImage(named: "uncheck_red")
+            }
         }
+        
+       
         return cell
         
     }

@@ -1924,6 +1924,7 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
     
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+      
         if !text.containArabicNumber
         {
             return false
@@ -1940,6 +1941,7 @@ extension CreateProductSecondViewController:UITableViewDelegate,UITableViewDataS
             let txtAfterUpdate = text1.replacingCharacters(in: range, with: text)
             textstr = txtAfterUpdate
         }
+        textView.textAlignment =  ("\(textstr.first)".isArabic ? .right:.left)
         if textView.tag == 10
         {
             

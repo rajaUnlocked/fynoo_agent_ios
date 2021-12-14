@@ -424,12 +424,8 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
             return swipeAction
             
         }
-        
-        
-        
+    
     }
-    
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
@@ -553,11 +549,11 @@ extension ProductListNewViewController : BottomPopupEditProductViewControllerDel
                                               productmodel.databankDetails { (success, response) in
                                                   ModalClass.stopLoading()
                           
-                                                  if success {
+                                 if success {
                           
-                                                      let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
-                                                    vc.isDataBank = true
-                                                    self.navigationController?.pushViewController(vc, animated: true)
+                              let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                              vc.isDataBank = true
+                                self.navigationController?.pushViewController(vc, animated: true)
                                                   }
                                   }
                     
