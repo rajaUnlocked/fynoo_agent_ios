@@ -97,8 +97,8 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         let currentDate = Date()
         var components = DateComponents()
         components.calendar = calendar
-        //                  components.year = -18
-        //                  components.month = 12
+                          components.year = -18
+                          components.month = 0
         var maxDate : Date?
         maxDate = calendar.date(byAdding: components, to: currentDate)!
         var minDate = Date()
@@ -113,7 +113,10 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 return
             }
             title = "Select - Date of Expiry".localized
-            minDate =  self.fdate
+            components.year = 0
+            components.month = 0
+            components.day = self.servicelist?.data?.document_expiry_day ?? 0
+            minDate =  calendar.date(byAdding: components, to: currentDate)!
             maxDate = nil
         }
         print(minDate as Any)
@@ -128,6 +131,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     self.fdate = dt
                 }
                 let formatter = DateFormatter()
+                formatter.locale = Locale(identifier: "en_US_POSIX")
                 formatter.dateFormat = "MMM dd, yyyy"
                 print(formatter.string(from: dt))
                 self.toptxtArr[tag] = formatter.string(from: dt)
@@ -139,14 +143,20 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     
     func vehicleKind_API(brandid:Int)
     {
-        
+        txtArr[5] = ""
         ModalClass.startLoading(self.view)
         service.vehicleId = 10
+        service.restrationid = brandid
         service.getvehicleKind { (success, response) in
             ModalClass.stopLoading()
             if success
             {
                 self.vehiclekind = response
+                self.vehiclekindArr.removeAll()
+                self.vehiclekindidArr.removeAll()
+                self.vehiclekindimageArr.removeAll()
+                self.vehiclenameArr.removeAll()
+                self.vehiclenameidArr.removeAll()
                 for i in 0...(self.vehiclekind?.data?.vehicle_kind?.count ?? 0) - 1
                 {
                     self.vehiclekindArr.append(self.vehiclekind?.data?.vehicle_kind?[i].name ?? "")
@@ -159,7 +169,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     }
     func vehicleName_API(brandid:Int)
     {
-        
+        txtArr[2] = ""
         ModalClass.startLoading(self.view)
         service.vehicleId = brandid
         service.getvehicleName { (success, response) in
@@ -167,6 +177,8 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             if success
             {
                 self.vehiclenamelist = response
+                self.vehiclenameArr.removeAll()
+                self.vehiclenameidArr.removeAll()
                 for i in 0...(self.vehiclenamelist?.data?.vehicle_kind?.count ?? 0) - 1
                 {
                     self.vehiclenameArr.append(self.vehiclenamelist?.data?.vehicle_kind?[i].name ?? "")
@@ -204,6 +216,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         }
     }
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+     
         if servicelist?.data?.status ?? 0 == 1
                {
                    ModalController.showNegativeCustomAlertWith(title: " You cannot edit the form when it is pending for approval", msg: "")
@@ -219,6 +232,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             let txtAfterUpdate = text1.replacingCharacters(in: range, with: text)
             textstr = txtAfterUpdate
         }
+        textView.textAlignment =  ("\(textstr.first)".isArabic ? .right:.left)
         let cell = tabvw.cellForRow(at: IndexPath(row: row, section: section)) as! ReasonForChangeTableViewCell
         
         
@@ -229,7 +243,8 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             cell.txtvw.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
         }
         reasonforvehicle = textstr
-        
+        service.reasonchange = reasonforvehicle
+        tabvw.reloadRows(at: [IndexPath(row: 0, section: section)], with: .none)
         return true
     }
     
@@ -345,13 +360,13 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             if success
             {
                 self.servicelist = response
-               
+                ModalClass.stopLoadingAllLoaders(self.view)
                 if self.servicelist?.data?.front_side ?? "" != ""{
                     self.vehicleKind_API(brandid: (self.servicelist?.data?.registration_type_id)!)
                     self.vehicleName_API(brandid: (self.servicelist?.data?.vehicle_brand_id)!)
 
                 }
-
+                self.reasonforvehicle = self.servicelist?.data?.reason_for_change ?? ""
                 self.imgArr = [self.servicelist?.data?.national_id ?? "",self.servicelist?.data?.driving_license ?? "",self.servicelist?.data?.registration ?? "",self.servicelist?.data?.insurance ?? "",self.servicelist?.data?.authorization ?? "",self.servicelist?.data?.front_side ?? ""]
                 for i in 0...self.imgArr.count - 1
                 {
@@ -392,13 +407,14 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     self.submit.setTitle("Pending for approval".localized, for: .normal)
                 }
               
-                ModalClass.stopLoadingAllLoaders(self.view)
+              
                 self.tabvw.reloadData()
                
             }
         }
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+     
         if servicelist?.data?.status ?? 0 == 1
                {
                    ModalController.showNegativeCustomAlertWith(title: " You cannot edit the form when it is pending for approval", msg: "")
@@ -414,6 +430,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             let txtAfterUpdate = text1.replacingCharacters(in: range, with: string)
             textstr = txtAfterUpdate
         }
+        textField.textAlignment =  ("\(textstr.first)".isArabic ? .right:.left)
         let cell = tabvw.cellForRow(at: IndexPath(row: row, section: section)) as! VehicleDescriptionTableViewCell
         if section == 1
         {
@@ -850,12 +867,18 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             
             service.isType = 6
             if imglocalArr[sender.tag] == nil{
-               
+               if documentlocalArr[sender.tag] != nil
+                {
                 service.docfilereg.append(documentlocalArr[sender.tag]!)
+               }
+                else{
+                    ModalController.showNegativeCustomAlertWith(title: "Please Upload the Front side Photo", msg: "")
+                    return
+                }
             }
             else{
-               
                 service.imagefile.append(imglocalArr[sender.tag]!)
+                
             }
               service.sendforapproval = "0"
         }
@@ -887,18 +910,22 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             }
             
             }
-            if !imgIdArr[4]
-            {
-            if !imgIdUploadedArr[4]
-            {
-                    ModalController.showNegativeCustomAlertWith(title: "Upload Driving Authorization ", msg: "")
-                    return
-            }
-            }
+          //  if !imgIdArr[4]
+//            {
+//            if !imgIdUploadedArr[4]
+//            {
+//                    ModalController.showNegativeCustomAlertWith(title: "Upload Driving Authorization ", msg: "")
+//                    return
+//            }
+//            }
+             
             service.isType = sender.tag + 1
             service.sendforapproval = "0"
             imglocalArr[2] == nil ? service.docfilereg.append(documentlocalArr[2]!) :  service.imagefile.append(imglocalArr[2]!)
+            if imgIdUploadedArr[4]
+            {
             imglocalArr[4] == nil ? service.docfilereg.append(documentlocalArr[4]!) :  service.imagefile.append(imglocalArr[4]!)
+            }
         }
         else
         {
@@ -982,7 +1009,10 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 self.descriparr = [self.servicelist?.data?.national_id_content ?? "", "",self.servicelist?.data?.registration_content ?? "", "",self.servicelist?.data?.authorization_content ?? ""]
                 self.toptxtArr = [self.servicelist?.data?.full_name ?? "",self.servicelist?.data?.dob ?? "",self.servicelist?.data?.iqama_no ?? "",self.servicelist?.data?.doe ?? ""]
                 self.txtArr = [self.servicelist?.data?.registration_type ?? "",self.servicelist?.data?.vehicle_brand ?? "",self.servicelist?.data?.vehicle_name ?? "",self.servicelist?.data?.production_year ?? "",self.servicelist?.data?.vehicle_color ?? "",self.servicelist?.data?.vehicle_kind ?? "",self.servicelist?.data?.maximum_load ?? "",self.servicelist?.data?.plate_no ?? ""]
+                if sender.tag == 8
+                {
             self.servicedocList_API()
+                }
                 self.tabvw.reloadData()
             }
         }
@@ -1063,7 +1093,16 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         {
             cell.edit.image = UIImage(named: "greenTick")
         }
-        
+        if index.section == 7
+        {
+        if reasonforvehicle.count > 0
+        {
+            cell.edit.image = UIImage(named: "greenTick")
+        }
+        else{
+            cell.edit.image = UIImage(named: "edit_red")
+    }
+        }
         return cell
     }
     func vehicle_DescriptionCell(index:IndexPath) ->UITableViewCell
@@ -1394,7 +1433,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 {
                       cell.txtvw.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
                 }
-               
+                cell.upload.isHidden = true
                 return cell
             }
         case headerarr.count + 1 :
@@ -1552,7 +1591,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             
             if indexPath.row == 1
             {
-                return 255
+                return 200
             }
             return 57
         }

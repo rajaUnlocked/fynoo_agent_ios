@@ -14,6 +14,7 @@ class DataBankSellingListModel : NSObject{
     var pageno = ""
     var filterid = ""
     var search = ""
+    var issearchfrom = ""
     func getDataBankSellingList(completion:@escaping(Bool, DataBankSellingList?) -> ()) {
         
         var list : DataBankSellingList?
@@ -61,7 +62,7 @@ class DataBankSellingListModel : NSObject{
                       }
         pro.salecount = filtercount
      
-        let  param = ["user_id":userId,"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"next_page_no":pageno,"filter_pks":filterid,"search_value":search] as [String : Any]
+        let  param = ["user_id":userId,"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"next_page_no":pageno,"filter_pks":filterid,"search_value":search,"is_search_from":issearchfrom] as [String : Any]
         url = Authentication.dataBankSelling
         print(url,param)
         ServerCalls.postRequest(url, withParameters: param, completion: { (response, success) in

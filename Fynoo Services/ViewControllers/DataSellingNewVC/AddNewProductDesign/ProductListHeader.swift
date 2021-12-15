@@ -16,7 +16,7 @@ class ProductListHeader: UIView {
     @IBOutlet weak var addproductlbl: UILabel!
     @IBOutlet weak var searchbtn: UIButton!
     
-    @IBOutlet weak var scanBtn: UIButton!
+    @IBOutlet weak var scanBtn: Globalsearch!
     @IBOutlet weak var filter: UIButton!
     @IBOutlet weak var searchTxtField: UITextField!
     @IBOutlet weak var add: UIButton!

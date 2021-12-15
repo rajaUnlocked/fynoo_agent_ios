@@ -38,8 +38,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
 
    @objc func cancel() {
         isEdit = false
-        tableVw.reloadData()
-        print("dgd")
+       getProfileData()
     }
     
   
@@ -114,7 +113,11 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
         return page.thumbnail(of: screenSize, for: .mediaBox)
     }
     @objc func saveChange() {
-            
+        if agentInfo.serviceArr.count == 0
+        {
+            ModalController.showNegativeCustomAlertWith(title: "Please select at least one service", msg: "")
+            return
+        }
             
             var ACTIVATION = ""
             if agentInfo.serviceArr.count > 0
@@ -283,6 +286,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
 //                        self.agentInfo.serviceArr = (value.object(forKey: "data") as! NSDictionary).object(forKey: "service_list_data") as! NSArray as! NSMutableArray
 //
 //
+                        agentInfo.langArr.removeAllObjects()
                         print(self.agentInfo.serviceArr.count,"services")
                         
                         self.profileInfo  = Mapper<ProfileModal>().map(JSON: body)
@@ -745,11 +749,20 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     func LanguageCell(indexPath:IndexPath) -> UITableViewCell{
         if indexPath.row == 1{
             let cell = self.tableVw.dequeueReusableCell(withIdentifier: "TwoButtonsTableViewCell",for: indexPath) as! TwoButtonsTableViewCell
+            
             cell.isUserInteractionEnabled = false
                        if isEdit
                        {
                            cell.isUserInteractionEnabled = true
                        }
+            if agentInfo.serviceArr.count == 0{
+                cell.save.setTitleColor(#colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1), for: .normal)
+                cell.save.borderColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
+            }else{
+                cell.save.setTitleColor(#colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1), for: .normal)
+                cell.save.borderColor = #colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1)
+                
+            }
             cell.save.addTarget(self, action: #selector(saveChange), for: .touchUpInside)
             cell.cancel.addTarget(self, action: #selector(cancel), for: .touchUpInside)
             cell.selectionStyle = .none
@@ -793,6 +806,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         cell.genderHorizantal.constant = 0
         cell.genderWidth.constant = 0
         cell.genderHorizantal.constant = 0
+        cell.selectBtn.isHidden = true
         cell.headingLbl.text = "* * * * * * * *"
         cell.headingLbl.isUserInteractionEnabled = false
         cell.selectionStyle = .none

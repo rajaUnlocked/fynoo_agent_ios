@@ -79,7 +79,38 @@ class ModalController: NSObject {
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
     }
-    
+    static func setEngArbicFontStyle(str: String,lineHeight:CGFloat,FontSize:CGFloat) -> NSMutableAttributedString{
+    let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+    let paragraphStyle = NSMutableParagraphStyle()
+    paragraphStyle.minimumLineHeight = CGFloat(lineHeight)
+    paragraphStyle.maximumLineHeight = CGFloat(lineHeight)
+    let attriText = NSMutableAttributedString(
+        string: str,
+        attributes: [
+            .paragraphStyle : paragraphStyle,.font:UIFont(name: "\(fontNameLight)", size: FontSize)!
+        ]
+    )
+        return attriText
+    }
+    static  func setProductStricColor(str: String,str1:String,str2:String,fontsize:CGFloat,fontfamily:String,txtcolor:UIColor) -> NSMutableAttributedString{
+        let fontNameLight = NSLocalizedString(fontfamily, comment: "")
+        if str1.contains("\n")
+        {
+            let components = str.components(separatedBy: "\n")
+            
+            let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: components[0], attributes: [NSAttributedString.Key.font:UIFont(name: fontNameLight, size: fontsize)!])
+            attributedString.append(NSMutableAttributedString(string:"\n\(components[1])", attributes: [NSAttributedString.Key.font:UIFont(name: fontNameLight, size: 8)!]))
+            attributedString.setColor(color: #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1), forText: str2)
+            attributedString.setColor(color: txtcolor, forText: str1)
+            return attributedString
+        }
+  
+        let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: str, attributes: [NSAttributedString.Key.font:UIFont(name: fontNameLight, size: fontsize)!])
+        attributedString.setColor(color: #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1), forText: str2)
+        attributedString.setColor(color: txtcolor, forText: str1)
+        return attributedString
+        
+    }
   static func isValidURL(url: String) -> Bool {
            let regex = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
            let test = NSPredicate(format:"SELF MATCHES %@", regex)

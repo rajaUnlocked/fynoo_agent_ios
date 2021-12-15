@@ -96,6 +96,8 @@ enum ValidationMessages {
 class Constant: NSObject {
      static let currency : String = "SAR".localized
     //wallet
+    static let notiList : String = "common/notification_list/";
+    static let notideleteList : String = "common/deleteusernotification/";
     static let viewinvoice : String = "invoice/download_invoice/"
     static let DeleteBankURL: String = "businessapi/v2/bankdelete/"
     static let allWalletTransactionsAPI : String = "wallet/wallet_balance_list/"
@@ -179,7 +181,7 @@ class Constant: NSObject {
 
     //static var BASE_URL : String = "https://dev.fynoo.com/"   //live
 //     static var BASE_URL : String = "http://uat.sendan.com.sa:9003/"  // dev
-    static var BASE_URL : String = "https://dev.fynoo.com/"   //live
+    static var BASE_URL : String = "https://www.fynoo.com/"   //live
    
     
     //      static var BASE_URL : String = "http://43.241.61.141:9003/"

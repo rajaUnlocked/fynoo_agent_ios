@@ -67,8 +67,7 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
         self.customHeader.titleHeader.textColor = Constant.Black_TEXT_COLOR
         
         customHeader.viewControl = self
-        
-        
+        self.selectLanguageStr = self.selectedArray.componentsJoined(by: ",")
         if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
             if value[0]=="ar"
             {
@@ -102,7 +101,7 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
     @IBAction func customerBckClicked(_ sender: Any) {
         
         if isFrom {
-            languageSelect!("hgf")
+           languageSelect!("hgf")
             self.navigationController?.popViewController(animated: true)
             return
         }
@@ -184,9 +183,10 @@ class LanguageSelectionViewController: UIViewController, UITableViewDelegate, UI
     }
     
     @IBAction func signUpBtnClicked(_ sender: Any) {
-        
+        ModalClass.startLoading(self.view)
         IBANinformationModal.savedSelectedLanguage(languageID:self.selectLanguageStr) { (success, response) in
             if success{
+                ModalClass.stopLoadingAllLoaders(self.view)
                 if let value = (response?.object(forKey: "error_description") as? String) {
                     ModalController.showSuccessCustomAlertWith(title: "", msg: value)
                     

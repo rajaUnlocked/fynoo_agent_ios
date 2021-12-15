@@ -2123,7 +2123,7 @@
 
                    let option = PHImageRequestOptions()
 
-                   option.deliveryMode = .highQualityFormat
+                  option.deliveryMode = .highQualityFormat
 
                    option.resizeMode = .exact
 

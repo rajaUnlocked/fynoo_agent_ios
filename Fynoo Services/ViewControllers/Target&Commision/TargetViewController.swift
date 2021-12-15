@@ -110,8 +110,7 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
             }
             else{
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
-                
-                
+            
                 return cell
             }
         }
@@ -132,8 +131,8 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
         {
             if indexPath.row == 1
             {
-                if self.targetlist?.data?.media_type ?? 0 == 2
-                {
+//                if self.targetlist?.data?.media_type ?? 0 == 2
+//                {
                     if let url = URL(string: "http://techslides.com/demos/sample-videos/small.3gp"){
                         
                         player = AVPlayer(url: url)
@@ -160,13 +159,13 @@ extension TargetViewController:UITableViewDelegate,UITableViewDataSource
                         //                       player.play()
                         
                     }
-                }
-                else
-                {
-                    if let url = URL(string: self.targetlist?.data?.video_url ?? "") {
-                        UIApplication.shared.open(url)
-                    }
-                }
+               // }
+//                else
+//                {
+//                    if let url = URL(string: self.targetlist?.data?.video_url ?? "") {
+//                        UIApplication.shared.open(url)
+//                    }
+//                }
             }
         }
     }

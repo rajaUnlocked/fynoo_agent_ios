@@ -646,6 +646,18 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
         }
         productValArr[4] = str1
          ProductModel.shared.productDecription = str1
+        if ProductModel.shared.productDecription.count > 0
+                   {
+                    if !ProductModel.shared.productDecription.containArabicNumber
+                    {
+                        borderColor[4] = "#EC4A53"
+                    }
+                    else
+                    {
+                        borderColor[4] = "#B2B2B2"
+                    }
+                      
+                   }
         UITableView.performWithoutAnimation({
                self.tabvw.reloadSections(IndexSet(integer: 1), with: .none)
                })
@@ -693,7 +705,11 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
    
     @objc private func textFieldDidChange(_ textField: UITextField)
           {
-          
+              textField.textAlignment =  ("\(textField.text!.first)".isArabic ? .right:.left)
+              if textField.tag == 100
+              {
+                  return
+              }
             ProductModel.shared.productTitle = textField.text!
             productValArr[textField.tag - 1] = textField.text!
              let cell = tabvw.cellForRow(at: IndexPath(row: 3, section: 1)) as! BusinessTableViewCell
@@ -884,13 +900,14 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
                 cell.leadingConstvw.constant = 15
                 cell.trailingConstvw.constant = 15
                 
-                
-                cell.counlbl.text = "\(ProductModel.shared.productDecription.count)/\(ProductModel.shared.productDecriptionVal)"
+                cell.counlbl.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
+
+                cell.counlbl.attributedText = ModalController.setProductStricColor(str: "\(ProductModel.shared.productDecription.count)/\(ProductModel.shared.productDecriptionVal)", str1: "\(ProductModel.shared.productDecription.count)", str2: " /\(ProductModel.shared.productDecriptionVal)", fontsize: 12, fontfamily: "LightFontName", txtcolor: #colorLiteral(red: 97/255, green: 192/255, blue: 136/255, alpha: 1))
+
                 cell.vw.addBorder(.right, color: UIColor.init(red: 178/255, green: 178/255, blue: 178/255, alpha: 1), thickness: 0.5)
                 cell.vw.addBorder(.left, color: UIColor.init(red: 178/255, green: 178/255, blue: 178/255, alpha: 1), thickness: 0.5)
                 cell.vw.addBorder(.bottom, color: .white, thickness: 0.5)
-                cell.counlbl.textColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1)
-                               if ProductModel.shared.productDecription.count == ProductModel.shared.productDecriptionVal
+              if ProductModel.shared.productDecription.count == ProductModel.shared.productDecriptionVal
                                {
                                   cell.counlbl.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
                                    
@@ -977,13 +994,16 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
                 cell.vw.layer.borderWidth = 0
                 cell.topConst.constant = -10
                 cell.trailConst.constant = 40
-                 cell.counlbl.textColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1)
+               
+                cell.counlbl.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
+                
                 if imgcount == ProductModel.shared.productImageVal
                                           {
                                              cell.counlbl.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
                                               
                                           }
-                cell.counlbl.text = "\(imgcount)/10"
+//                cell.counlbl.text = "\(imgcount)/10"
+                cell.counlbl.attributedText = ModalController.setProductStricColor(str: "\(imgcount)/10", str1: "\(imgcount)", str2: "/10", fontsize: 12, fontfamily: "LightFontName", txtcolor: #colorLiteral(red: 97/255, green: 192/255, blue: 136/255, alpha: 1))
                 return cell
             }
                 
@@ -1016,18 +1036,22 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
              cell.bordertxt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
             cell.bordertxt.setAllSideShadowForFields(shadowShowSize: 0.0, sizeFloat:0)
             cell.downarrow.isHidden = true
-            cell.txtView.isHidden = false
+            cell.txtView.isHidden = true
             cell.widthconst.constant = 0
             cell.ocrtrailing.constant = 20
-            cell.nameTextField.isHidden = true
+            cell.nameTextField.isHidden = false
+            cell.nameTextField.tag = 100
+            cell.nameTextField.placeholder = "www.example.com"
+            cell.img.image = UIImage(named:"abc")
+            cell.nameTextField.isUserInteractionEnabled = true
             cell.lblk.text = "Video URL".localized
             cell.leadingConstlbl.constant = 35
             cell.leadingConst.constant = 20
             cell.trailingConst.constant = 20
             cell.outerVw.isHidden = true
             cell.ocrbtn.isHidden = true
-            cell.txtView.delegate = self
-            cell.txtView.tag = 100
+//            cell.txtView.delegate = self
+//            cell.txtView.tag = 100
             cell.txtView.text = ProductModel.shared.videoUrl
             return cell
         default:
@@ -1191,13 +1215,20 @@ extension CreateProductFirstViewController:UITableViewDelegate,UITextViewDelegat
     
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-       
-    
+      
+        if textView.text.count == 0
+        {
+            if text == " "
+            {
+            return false
+            }
+        }
         var textstr = ""
         if let text1 = textView.text as NSString? {
             let txtAfterUpdate = text1.replacingCharacters(in: range, with: text)
             textstr = txtAfterUpdate
         }
+        textView.textAlignment =  ("\(textstr.first)".isArabic ? .right:.left)
         if textView.tag == 10
         {
             if !text.containArabicNumber
@@ -1347,9 +1378,47 @@ extension CreateProductFirstViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
+        
         if !string.containArabicNumber
         {
          return false
+        }
+        var textstr = ""
+        if let text1 = textField.text as NSString? {
+            let txtAfterUpdate = text1.replacingCharacters(in: range, with: string)
+            textstr = txtAfterUpdate
+        }
+        if textField.tag == 100
+        {
+            if string.isArabic
+                         {
+                             return false
+                         }
+         ProductModel.shared.videoUrl = textstr
+            let cell = tabvw.cellForRow(at: IndexPath(row: 0, section: 3)) as! BusinessTableViewCell
+                       if textstr.count > 0
+                                  {
+
+                                    if !textstr.isValidURL()
+                                        
+                                   {
+                                     
+                                        cell.bordertxt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                                   }
+                                   else
+                                   {
+                                     
+                                        cell.bordertxt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+                                   }
+                                     
+                                  }
+                                  else
+                                  {
+                                     
+                                        cell.bordertxt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+                                  }
+            checkMadatory()
+            return true
         }
         return true
     }

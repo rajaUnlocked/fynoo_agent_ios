@@ -702,41 +702,15 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     @IBAction func qrcodeBtn(_ sender: Any) {
         let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)
-        
-        
-        //        let vc = BranchQrCodePopupViewController(nibName: "BranchQrCodePopupViewController", bundle: nil)
-        //        vc.isType = true
-        //        vc.url = homeGraph?.data?.bo_qr_code ?? ""
-        //        vc.urlPass =  homeGraph?.data?.main_branch_url ?? ""
-        //        vc.businessName = homeGraph?.data?.main_branch_name ?? ""
-        //        let popup = PopupDialog(viewController: vc,
-        //                                buttonAlignment: .horizontal,
-        //                                transitionStyle: .bounceDown,
-        //                                tapGestureDismissal: true,
-        //                                panGestureDismissal: false)
-        //
-        //        self.present(popup, animated: true, completion: nil)
+       
     }
     
     @IBAction func notificationBtnClicked(_ sender: Any) {
         
-//        let vc = NotificationNewViewController(nibName: "NotificationNewViewController", bundle: nil)
-//        //vc.showBack = true
-//        self.navigationController?.pushViewController(vc, animated: true)
-//        AddBranch.shared.removeall()
-//         Singleton.shared.setBoId(BoId: "1159")
-//              branchmodel.branchid = "41562"
-//        branchmodel.lat = 0.0
-//        branchmodel.long = 0.0
-//              ModalClass.startLoading(self.view)
-//              branchmodel.branchDetail { (success, response) in
-//                  ModalClass.stopLoading()
-//                  if success {
-//                    let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
-//                                   //vc.showBack = true
-//                           ProductModel.shared.remove()
-//                           self.navigationController?.pushViewController(vc, animated: true)
-//                }}
+        let vc = NotificationNewViewController(nibName: "NotificationNewViewController", bundle: nil)
+        //vc.showBack = true
+        self.navigationController?.pushViewController(vc, animated: true)
+       
 
     }
     @IBAction func cameraClicked(_ sender: Any) {

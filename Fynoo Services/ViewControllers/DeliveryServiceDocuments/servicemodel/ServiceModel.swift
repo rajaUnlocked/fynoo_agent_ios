@@ -12,6 +12,7 @@ import ObjectMapper
 
 
 class ServiceModel: NSObject {
+    var restrationid = 1
     var istypeimage = false
      var vehicleId = 1
     var isType = 1
@@ -78,7 +79,7 @@ class ServiceModel: NSObject {
                                userId = ""
 
                              }
-              let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"registration_type_id":1] as [String : Any]
+              let parameters = ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,"registration_type_id":restrationid] as [String : Any]
                  print(str,parameters)
                  ServerCalls.postRequest(str, withParameters: parameters) { (response, success) in
 
@@ -540,6 +541,7 @@ struct SeviceDocument : Mappable {
    }
 
 struct SeviceDocumentData : Mappable  {
+    var document_expiry_day:Int?
     var new_upload_enable : Bool?
     var new_upload_id : Int?
     var id : Int?
@@ -605,6 +607,7 @@ struct SeviceDocumentData : Mappable  {
     }
 
     mutating func mapping(map: Map) {
+        document_expiry_day <- map["document_expiry_day"]
         maximum_load_allowed <- map["maximum_load_allowed"]
           notes <- map["notes"]
         new_upload_enable <- map["new_upload_enable"]
