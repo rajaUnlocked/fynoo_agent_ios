@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificationNewsTableViewCell" rowHeight="177" id="KGk-i7-Jjw" customClass="NotificationNewsTableViewCell" customModule="Fynoo_Business" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="330" height="177"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="330" height="177"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rz8-RD-fWb">
+                        <rect key="frame" x="0.0" y="0.0" width="330" height="177"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wellicon" translatesAutoresizingMaskIntoConstraints="NO" id="jen-3p-2cd">
+                                <rect key="frame" x="15" y="12" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="4dW-xP-PkN"/>
+                                    <constraint firstAttribute="width" constant="37" id="YRA-wN-Fo6"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7v3-Yn-kCk">
+                                <rect key="frame" x="62" y="17" width="258" height="125"/>
+                                <string key="text">xyzxyxnnvfnn vvjjhffhkhffhfhfhfhjfhjfjhfhjfjhjfhfjhfjhfjhfjhjfhjfjffjhfhfhfhfh xyzxyxnnvfnn vvjjhffhkhffhfhfhfhjfhjfjhfhjfjhjfhfjhfjhfjhfjhjfhjfjffjhfhfhfhfh xyzxyxnnvfnn vvjjhffhkhffhfhfhfhjfhjfjhfhjfjhjfhfjhfjhfjhfjhjfhjfjffjhfhfhfhfhxyzxyxnnvfnn vvjjhffhkhffhfhfhfhjfhjfjhfhjfjhjfhfjhfjhfjhfjhjfhjfjffjhfhfhfhfh xyzxyxnnvfnn vvjjhffhkhffhfhfhfhjfhjfjhfhjfjhjfhfjhfjhfjhfjhjfhjfjffjhfhfhfhfh xyzxyxnnvfnn vvjjhffhkhffhfhfhfhjfhjfjhfhjfjhjfhfjhfjhfjhfjhjfhjfjffjhfhfhfhfh</string>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFA-hN-LFk">
+                                <rect key="frame" x="0.0" y="174" width="330" height="1"/>
+                                <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="iNO-L3-UEe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5Y-F1-7HP">
+                                <rect key="frame" x="264" y="152" width="26" height="12"/>
+                                <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="10"/>
+                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notify_new" translatesAutoresizingMaskIntoConstraints="NO" id="unH-i8-gDq">
+                                <rect key="frame" x="26.5" y="23.5" width="14" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="14" id="Mwg-dJ-yBv"/>
+                                    <constraint firstAttribute="height" constant="14" id="btB-3N-GoC"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mFA-hN-LFk" firstAttribute="leading" secondItem="rz8-RD-fWb" secondAttribute="leading" id="2qL-qd-Lu7"/>
+                            <constraint firstAttribute="trailing" secondItem="D5Y-F1-7HP" secondAttribute="trailing" constant="40" id="A7f-3s-6KZ"/>
+                            <constraint firstAttribute="trailing" secondItem="mFA-hN-LFk" secondAttribute="trailing" id="Fw7-tH-AmT"/>
+                            <constraint firstItem="D5Y-F1-7HP" firstAttribute="top" secondItem="7v3-Yn-kCk" secondAttribute="bottom" constant="10" id="NEn-gN-nbg"/>
+                            <constraint firstAttribute="trailing" secondItem="7v3-Yn-kCk" secondAttribute="trailing" constant="10" id="UUW-ex-yW8"/>
+                            <constraint firstItem="jen-3p-2cd" firstAttribute="leading" secondItem="rz8-RD-fWb" secondAttribute="leading" constant="15" id="VVd-p3-odt"/>
+                            <constraint firstItem="unH-i8-gDq" firstAttribute="centerY" secondItem="jen-3p-2cd" secondAttribute="centerY" id="XRF-le-F8L"/>
+                            <constraint firstItem="7v3-Yn-kCk" firstAttribute="leading" secondItem="jen-3p-2cd" secondAttribute="trailing" constant="10" id="ZwO-jH-xL5"/>
+                            <constraint firstItem="mFA-hN-LFk" firstAttribute="top" secondItem="D5Y-F1-7HP" secondAttribute="bottom" constant="10" id="gWv-Kf-p8u"/>
+                            <constraint firstItem="jen-3p-2cd" firstAttribute="top" secondItem="rz8-RD-fWb" secondAttribute="top" constant="12" id="iwC-p5-F7i"/>
+                            <constraint firstItem="7v3-Yn-kCk" firstAttribute="top" secondItem="jen-3p-2cd" secondAttribute="top" constant="5" id="u1b-aU-q5b"/>
+                            <constraint firstAttribute="bottom" secondItem="mFA-hN-LFk" secondAttribute="bottom" constant="2" id="y9w-wq-xZw"/>
+                            <constraint firstItem="unH-i8-gDq" firstAttribute="centerX" secondItem="jen-3p-2cd" secondAttribute="centerX" id="yZh-VL-pJd"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="rz8-RD-fWb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="AEt-TD-ILc"/>
+                    <constraint firstAttribute="bottom" secondItem="rz8-RD-fWb" secondAttribute="bottom" id="aOe-OZ-3Fc"/>
+                    <constraint firstItem="rz8-RD-fWb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="sx2-yt-di8"/>
+                    <constraint firstAttribute="trailing" secondItem="rz8-RD-fWb" secondAttribute="trailing" id="xiu-fy-ugk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="days" destination="D5Y-F1-7HP" id="9Jy-3l-qH2"/>
+                <outlet property="msg" destination="7v3-Yn-kCk" id="vWd-OV-RIj"/>
+            </connections>
+            <point key="canvasLocation" x="140.57971014492756" y="114.84375"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="notify_new" width="17" height="16.5"/>
+        <image name="wellicon" width="174" height="174"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
