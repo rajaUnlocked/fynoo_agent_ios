@@ -46,6 +46,7 @@ class CreateProductFirstViewController: UIViewController {
   
     var isFromBranch = ""
     override func viewDidLoad() {
+        
         ModalController.watermark(self.view)
         super.viewDidLoad()
         print("Device Gallery".localized)
@@ -692,8 +693,9 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
     
    
     @objc private func textFieldDidChange(_ textField: UITextField)
+    
           {
-          
+            textField.textAlignment =  ("\(textField.text!.first)".isArabic ? .right:.left)
             ProductModel.shared.productTitle = textField.text!
             productValArr[textField.tag - 1] = textField.text!
              let cell = tabvw.cellForRow(at: IndexPath(row: 3, section: 1)) as! BusinessTableViewCell

@@ -72,6 +72,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     var selectedMajorEducation : NSMutableDictionary = NSMutableDictionary()
 
     override func viewDidLoad() {
+        
         ModalController.watermark(self.view)
         
         tableVw.register(UINib(nibName: "ProfileNameTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileNameTableViewCell");
@@ -1307,8 +1308,9 @@ extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
 
 
 extension UserProfileDetailsViewController : UITextFieldDelegate{
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
+
         
         if textField.tag == 0{
             let allowedCharecter = CharacterSet.letters
@@ -1404,7 +1406,7 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
     }
     
     @objc func textFieldDidChange(textField: UITextField){
-        
+//        textField.textAlignment =  ("\(textField.text!.first)".isArabic ? .right:.left)
         switch textField.tag  {
         case 0:
             

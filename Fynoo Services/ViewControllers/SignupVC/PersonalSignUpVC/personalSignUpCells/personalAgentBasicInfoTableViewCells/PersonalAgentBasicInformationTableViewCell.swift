@@ -147,6 +147,14 @@ class PersonalAgentBasicInformationTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
     }
+    
+    
+    
+    
+    @IBAction func BtnCountry(_ sender: Any) {
+        self.delegate?.AgentselectCountry(self)
+    }
+    
     @IBAction func countryBtnClicked(_ sender: Any) {
         self.delegate?.AgentselectCountry(self)
     }

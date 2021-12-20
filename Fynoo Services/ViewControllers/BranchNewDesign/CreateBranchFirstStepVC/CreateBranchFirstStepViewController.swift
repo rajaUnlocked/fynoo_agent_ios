@@ -84,6 +84,7 @@
         
         override func viewDidLoad() {
         ModalController.watermark(self.view)
+         
             super.viewDidLoad()
         
             self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
@@ -2268,6 +2269,7 @@
             
         }
         func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+         
             if textField.tag == 4
             {
              if string.isArabic
@@ -2284,6 +2286,7 @@
                 let txtAfterUpdate = text.replacingCharacters(in: range, with: string)
                 textstr = txtAfterUpdate
             }
+         
             let num = textstr.replacingOccurrences(of: " ", with: "")
             if textField.tag == 5 || textField.tag == 6 || textField.tag == 7
             {

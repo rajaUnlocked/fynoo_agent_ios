@@ -143,6 +143,7 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
               
         self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
         self.headerView.titleHeader.textColor = Constant.Black_TEXT_COLOR
+        
 
     }
     
@@ -582,6 +583,7 @@ func uploadProfileImagesAPI(){
     }
     
     func selectedCountryCodeMethod(mobileCodeDict: NSMutableDictionary) {
+        
         self.selectedCountryCodeDict = mobileCodeDict
         personalAgentSignUPModal.personalAgentmobileLength = self.selectedCountryCodeDict.object(forKey: "mobile_length") as? Int ?? 0
         
@@ -649,6 +651,7 @@ func showHideConfirmPassword(_ sender: Any){
         }
         
     func mobileCodeClicked(_ sender: Any) {
+        
          let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
          vc.delegate = self
          vc.isFromCountryMobileCode = true
@@ -1590,6 +1593,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
+
         switch  textField.tag {
             
         case 1000:
@@ -1769,9 +1773,10 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
     }    
     @objc func textFieldDidChange(_ textField: UITextField) {
         
+        textField.textAlignment =  ("\(textField.text!.first)".isArabic ? .right:.left)
         switch  textField.tag {
-        
         case 1000:
+          
             let   cell = tabView.cellForRow(at: IndexPath(row:1 , section: 2)) as! agentPersonalDetailsTableViewCell
             if ModalController.isValidName(title: textField.text!) == false {
                 ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validName)
