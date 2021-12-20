@@ -2,8 +2,8 @@
 /* Class = "UILabel"; text = "Name"; ObjectID = "001-AV-Fnk"; */
 "001-AV-Fnk.text" = "Name";
 
-/* Class = "UILabel"; text = "Gender(Optional)"; ObjectID = "3ki-cB-gP8"; */
-"3ki-cB-gP8.text" = "Gender(Optional)";
+/* Class = "UILabel"; text = "Gender"; ObjectID = "3ki-cB-gP8"; */
+"3ki-cB-gP8.text" = "Gender";
 
 /* Class = "UILabel"; text = "Education"; ObjectID = "4kc-d6-Vjx"; */
 "4kc-d6-Vjx.text" = "Education";
@@ -11,5 +11,5 @@
 /* Class = "UILabel"; text = "Major"; ObjectID = "HPb-BV-IZB"; */
 "HPb-BV-IZB.text" = "Major";
 
-/* Class = "UILabel"; text = "DOB(Optional)"; ObjectID = "O01-S1-zxE"; */
-"O01-S1-zxE.text" = "DOB(Optional)";
+/* Class = "UILabel"; text = "DOB"; ObjectID = "O01-S1-zxE"; */
+"O01-S1-zxE.text" = "DOB";

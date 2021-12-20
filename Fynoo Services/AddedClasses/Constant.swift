@@ -186,7 +186,7 @@ class Constant: NSObject {
     
     //      static var BASE_URL : String = "http://43.241.61.141:9003/"
     //  static var BASE_URL : String = "http://43.241.61.141:9005/"
-        
+    static let privacy_url : String = "customer/privacy_policy/";
     static let getAppVersion : String = "common/getAppVersion/";
     static let ForgotPswd: String = "customerapi/v2/forgot_password/"
     static let ResetPswd: String = "customerapi/v2/reset_password/"

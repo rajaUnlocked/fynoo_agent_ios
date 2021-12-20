@@ -1130,7 +1130,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.mobileCodeWidth.constant = 0
             cell.selectBtn.isHidden = true
             
-            
+            cell.headingLbl.delegate = self
             //            cell.headingLbl.tag = 1
             //            print(agentInfo.Email)
             //            cell.headingLbl.text = agentInfo.Email
@@ -1325,6 +1325,9 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
             
             return allowedCharecter.isSuperset(of: characterSet) || allowedCharacter1.isSuperset(of: characterSet)
         }
+        if textField.tag == 1{
+            return false
+        }
             
         if textField.tag == 5{
             let textStr = "https://www.maroof.com/"
@@ -1422,7 +1425,6 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
             
         case 1:
             agentInfo.Email = textField.text!
-            
         case 5:
             agentInfo.maroof = textField.text!
             
