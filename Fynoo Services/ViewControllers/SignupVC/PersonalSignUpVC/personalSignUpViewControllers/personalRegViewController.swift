@@ -605,10 +605,17 @@ func uploadProfileImagesAPI(){
 
     
     func AgentselectCountry(_ sender: Any){
-        
+        print("fhjgdgk3fhvhjhjf\((sender as AnyObject).tag)")
         let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
         vc.delegate = self
         vc.isForCountry = true
+        if (sender as AnyObject).tag  == 10
+        {
+            vc.isForCountry = false
+            vc.isFromCountryMobileCode = true
+        }
+        
+    
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

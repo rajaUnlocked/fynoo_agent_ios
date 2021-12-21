@@ -152,7 +152,7 @@ class PersonalAgentBasicInformationTableViewCell: UITableViewCell {
     
     
     @IBAction func BtnCountry(_ sender: Any) {
-        self.delegate?.AgentselectCountry(self)
+        self.delegate?.AgentselectCountry(sender)
     }
     
     @IBAction func countryBtnClicked(_ sender: Any) {
