@@ -49,6 +49,7 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
     var selectedCountryID  = ""
     
     override func viewDidLoad() {
+        
         ModalController.watermark(self.view)
         super.viewDidLoad()
         setupUiMethod()

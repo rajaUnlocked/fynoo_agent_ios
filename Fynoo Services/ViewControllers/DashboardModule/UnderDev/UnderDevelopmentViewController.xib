@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +17,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UnderDevelopmentViewController" customModule="Fynoo_Services" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UnderDevelopmentViewController" customModule="Fynoo_Agent" customModuleProvider="target">
             <connections>
                 <outlet property="comeSoonOutlet" destination="nPF-OT-EC6" id="xQY-5Y-bVo"/>
                 <outlet property="downImage" destination="evg-8n-Tky" id="y5n-kz-8gd"/>
@@ -31,24 +31,24 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDz-li-s5b" customClass="NavigationView" customModule="Fynoo_Services" customModuleProvider="target">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDz-li-s5b" customClass="NavigationView" customModule="Fynoo_Agent" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="ZHA-Rf-Ysf"/>
                     </constraints>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="evg-8n-Tky">
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="evg-8n-Tky">
                     <rect key="frame" x="0.0" y="279" width="285" height="201"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="285" id="cnk-jJ-WY7"/>
                         <constraint firstAttribute="height" constant="201" id="sgc-GF-AOB"/>
                     </constraints>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="underConstructionIcon" translatesAutoresizingMaskIntoConstraints="NO" id="zY2-aL-82I">
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="underConstructionIcon" translatesAutoresizingMaskIntoConstraints="NO" id="zY2-aL-82I">
                     <rect key="frame" x="15" y="90" width="290" height="100"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Under Construction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13q-pd-Npv">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Under Construction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13q-pd-Npv">
                     <rect key="frame" x="20" y="215" width="280" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="9O3-1X-0da"/>
@@ -57,7 +57,7 @@
                     <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Currently Under Construction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1e9-FW-7r1">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Currently Under Construction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1e9-FW-7r1">
                     <rect key="frame" x="20" y="252" width="280" height="17"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="17" id="F8b-ng-ZZB"/>
@@ -66,7 +66,7 @@
                     <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPF-OT-EC6">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPF-OT-EC6">
                     <rect key="frame" x="94" y="296" width="132" height="24"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -92,11 +92,16 @@
                         <action selector="comeSoonBtn:" destination="-1" eventType="touchUpInside" id="wfE-Sv-Rr8"/>
                     </connections>
                 </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="commingsoon" translatesAutoresizingMaskIntoConstraints="NO" id="IPc-RK-CCN">
+                    <rect key="frame" x="0.0" y="90" width="320" height="390"/>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="IPc-RK-CCN" secondAttribute="bottom" id="E59-xK-hb0"/>
                 <constraint firstItem="zY2-aL-82I" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="Jdj-Ld-7lC"/>
+                <constraint firstItem="IPc-RK-CCN" firstAttribute="top" secondItem="SDz-li-s5b" secondAttribute="bottom" constant="10" id="O5G-XL-xD4"/>
                 <constraint firstItem="evg-8n-Tky" firstAttribute="top" secondItem="1e9-FW-7r1" secondAttribute="bottom" constant="10" id="Pur-i0-8uR"/>
                 <constraint firstItem="evg-8n-Tky" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="QM2-be-Y02"/>
                 <constraint firstItem="SDz-li-s5b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Uzt-Pv-xix"/>
@@ -108,6 +113,8 @@
                 <constraint firstItem="1e9-FW-7r1" firstAttribute="top" secondItem="13q-pd-Npv" secondAttribute="bottom" constant="7" id="g5h-UH-tta"/>
                 <constraint firstItem="13q-pd-Npv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="j9P-vj-bsd"/>
                 <constraint firstItem="SDz-li-s5b" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mpy-pZ-aGR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IPc-RK-CCN" secondAttribute="trailing" id="mvn-27-30J"/>
+                <constraint firstItem="IPc-RK-CCN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pPg-xe-lFi"/>
                 <constraint firstItem="1e9-FW-7r1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="uJY-LF-Ptx"/>
                 <constraint firstItem="evg-8n-Tky" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="vVA-9D-ESz"/>
                 <constraint firstItem="zY2-aL-82I" firstAttribute="top" secondItem="SDz-li-s5b" secondAttribute="bottom" constant="10" id="vZ8-n1-cH3"/>
@@ -115,11 +122,12 @@
                 <constraint firstItem="nPF-OT-EC6" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="zZk-94-dzS"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="139" y="129"/>
+            <point key="canvasLocation" x="137.68115942028987" y="128.57142857142856"/>
         </view>
     </objects>
     <resources>
         <image name="backgroundImage" width="297" height="208"/>
+        <image name="commingsoon" width="750" height="1520"/>
         <image name="underConstructionIcon" width="949" height="859"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

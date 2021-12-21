@@ -63,6 +63,7 @@ class agentPersonalDetailsTableViewCell: UITableViewCell {
         
     }
     
+    
     func SetFontAndTextColor(){
         
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
@@ -112,6 +113,9 @@ class agentPersonalDetailsTableViewCell: UITableViewCell {
         self.majorView.setAllSideShadowForFields(shadowShowSize: 2.0, sizeFloat: UIScreen.main.bounds.size.width - 36)
     }
 
+    
+
+    
     @IBAction func dobClicked(_ sender: Any) {
         self.delegate?.AgentselectDOB(self)
     }

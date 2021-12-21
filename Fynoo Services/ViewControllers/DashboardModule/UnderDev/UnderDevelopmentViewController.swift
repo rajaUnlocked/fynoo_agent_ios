@@ -24,15 +24,15 @@ class UnderDevelopmentViewController: UIViewController {
     func setupUIMethod(){
 //         downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
             self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-            headerView.titleHeader.text = "Under Construction"
+            headerView.titleHeader.text = ""
             self.headerView.viewControl = self
-        if showBack{
-            self.headerView.isHidden  = false
-            self.headerView.backButton.isHidden = false
-        }else{
-              self.headerView.isHidden  = true
-        self.headerView.backButton.isHidden = true
-        }
+//        if showBack{
+//            self.headerView.isHidden  = false
+//            self.headerView.backButton.isHidden = false
+//        }else{
+//              self.headerView.isHidden  = true
+//        self.headerView.backButton.isHidden = true
+//        }
           self.comeSoonOutlet.setAllSideShadowForFields(shadowShowSize: 2.0, sizeFloat: 132)
         self.headerView.isHidden  = false
         self.headerView.backButton.isHidden = false

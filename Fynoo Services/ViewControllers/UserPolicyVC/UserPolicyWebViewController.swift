@@ -32,9 +32,8 @@ class UserPolicyWebViewController: UIViewController, WKNavigationDelegate, WKUID
         self.headerView.titleHeader.text = "User Policy".localized;
         self.headerView.viewControl = self
         self.headerHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-        
-        let url = "https://dev.fynoo.com/customer/privacy_policy/"
-        
+        let url = Constant.BASE_URL+Constant.privacy_url
+        debugPrint(url)
         webView.load(URLRequest(url: URL(string: "\(url)")!))
     }
     
