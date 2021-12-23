@@ -326,6 +326,11 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.sideMenudropShippingBtnClicked), name: NSNotification.Name(rawValue: "dropShippingBtnClicked"), object: nil)
                 
+        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationIssued(_:)), name: NSNotification.Name(rawValue: "issued"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationReceived(_:)), name: NSNotification.Name(rawValue: "received"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationFynooReciept(_:)), name: NSNotification.Name(rawValue: "fynoo_reciept"), object: nil)
+
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.sideMenuaddProductDataForSaleBtnClicked), name: NSNotification.Name(rawValue: "addProductDataForSaleBtnClicked"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.sideMenuwalletClicked), name: NSNotification.Name(rawValue: "walletClicked"), object: nil)
@@ -518,7 +523,27 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         
         @objc func sideMenudropShippingBtnClicked(_ notification: NSNotification) {
         }
-        
+    @objc func methodOfReceivedNotificationIssued(_ notification: NSNotification) {
+        let vc = InvoiceNewViewController(nibName: "InvoiceNewViewController", bundle: nil)
+//        vc.tabID = 1
+        vc.invoiceType = "issued"
+        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
+//        vc.showBack = true
+//        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc func methodOfReceivedNotificationReceived(_ notification: NSNotification) {
+        let vc = InvoiceNewViewController(nibName: "InvoiceNewViewController", bundle: nil)
+        vc.invoiceType = "received"
+//        vc.tabID = 2
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc func methodOfReceivedNotificationFynooReciept(_ notification: NSNotification) {
+        let vc = InvoiceNewViewController(nibName: "InvoiceNewViewController", bundle: nil)
+        vc.invoiceType = "fynooreceipts"
+//        vc.tabID = 3
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
         @objc func sideMenuaddProductDataForSaleBtnClicked(_ notification: NSNotification) {
             let vc = ProductListNewViewController(nibName: "ProductListNewViewController", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)

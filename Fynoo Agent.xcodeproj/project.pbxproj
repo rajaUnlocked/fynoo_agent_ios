@@ -182,6 +182,11 @@
 		4EDB8D99268CC96600A034CF /* ReasonForDeleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EDB8D9B268CC96600A034CF /* ReasonForDeleteViewController.xib */; };
 		4EE49DD72673825400E5640C /* ReasonForDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE49DD52673825400E5640C /* ReasonForDeleteViewController.swift */; };
 		4EE631A0267F758900D5ED01 /* CancelReasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE6319E267F758900D5ED01 /* CancelReasonViewController.swift */; };
+		5354CE7E2772F1E2002223B2 /* InvoicingHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5354CE792772F1E2002223B2 /* InvoicingHeader.xib */; };
+		5354CE7F2772F1E2002223B2 /* InvoiceNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5354CE7A2772F1E2002223B2 /* InvoiceNewViewController.swift */; };
+		5354CE802772F1E2002223B2 /* InvoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5354CE7B2772F1E2002223B2 /* InvoiceModel.swift */; };
+		5354CE812772F1E2002223B2 /* InvoicingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5354CE7C2772F1E2002223B2 /* InvoicingHeader.swift */; };
+		5354CE822772F1E2002223B2 /* InvoiceNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5354CE7D2772F1E2002223B2 /* InvoiceNewViewController.xib */; };
 		5E5216B0923EFDB527AF8FA7 /* Pods_Fynoo_AgentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5221FCBE85158F2A6A17ACB /* Pods_Fynoo_AgentTests.framework */; };
 		CE1D84A426906CC300763385 /* ServiceSingleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1D84A626906CC300763385 /* ServiceSingleCollectionViewCell.xib */; };
 		CE2EFB3E251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EFB3C251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift */; };
@@ -1094,6 +1099,11 @@
 		4EDB8D9F268CC97100A034CF /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ReasonForDeleteViewController.strings; sourceTree = "<group>"; };
 		4EE49DD52673825400E5640C /* ReasonForDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForDeleteViewController.swift; sourceTree = "<group>"; };
 		4EE6319E267F758900D5ED01 /* CancelReasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelReasonViewController.swift; sourceTree = "<group>"; };
+		5354CE792772F1E2002223B2 /* InvoicingHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoicingHeader.xib; sourceTree = "<group>"; };
+		5354CE7A2772F1E2002223B2 /* InvoiceNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceNewViewController.swift; sourceTree = "<group>"; };
+		5354CE7B2772F1E2002223B2 /* InvoiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceModel.swift; sourceTree = "<group>"; };
+		5354CE7C2772F1E2002223B2 /* InvoicingHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoicingHeader.swift; sourceTree = "<group>"; };
+		5354CE7D2772F1E2002223B2 /* InvoiceNewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoiceNewViewController.xib; sourceTree = "<group>"; };
 		72554F0E68CC689867FF3DAE /* Pods-Fynoo AgentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo AgentTests.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo AgentTests/Pods-Fynoo AgentTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9818335E34AF2E38CE82B320 /* Pods-Fynoo Agent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Agent.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Agent/Pods-Fynoo Agent.release.xcconfig"; sourceTree = "<group>"; };
 		AF143F289007712A5BF7B904 /* Pods-Fynoo AgentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo AgentTests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo AgentTests/Pods-Fynoo AgentTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -2325,6 +2335,7 @@
 		2FFDE23C2501221B006C5EBD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5354CE782772F1E2002223B2 /* InvoiceNew */,
 				CE9CB6A02769F1D700D12499 /* BottomPopup */,
 				CE9CB69D2769F1A200D12499 /* GlobalSearch */,
 				CE9CB6852769F16A00D12499 /* NewNotification */,
@@ -2509,6 +2520,18 @@
 				4E1DA08E2683841E0055D201 /* CancelReasonViewController.xib */,
 			);
 			path = CancelReason;
+			sourceTree = "<group>";
+		};
+		5354CE782772F1E2002223B2 /* InvoiceNew */ = {
+			isa = PBXGroup;
+			children = (
+				5354CE792772F1E2002223B2 /* InvoicingHeader.xib */,
+				5354CE7A2772F1E2002223B2 /* InvoiceNewViewController.swift */,
+				5354CE7B2772F1E2002223B2 /* InvoiceModel.swift */,
+				5354CE7C2772F1E2002223B2 /* InvoicingHeader.swift */,
+				5354CE7D2772F1E2002223B2 /* InvoiceNewViewController.xib */,
+			);
+			path = InvoiceNew;
 			sourceTree = "<group>";
 		};
 		CE3E9A57251E0AE300B60038 /* servicemodel */ = {
@@ -4597,6 +4620,7 @@
 				CECEF9E92577575C0090D459 /* LogoTableViewCell.strings in Resources */,
 				CE9CB6932769F16A00D12499 /* NotificationNewsTableViewCell.strings in Resources */,
 				F62E4B0125148EC60021CEE0 /* CompanyAgentBasicInformationTableViewCell.xib in Resources */,
+				5354CE822772F1E2002223B2 /* InvoiceNewViewController.xib in Resources */,
 				CECEF9EE2577575C0090D459 /* CreateBranchFirstStepViewController.xib in Resources */,
 				4E758345268442BC002EFB30 /* CommonPopViewC.xib in Resources */,
 				CECEF9E42577575C0090D459 /* BranchTimingTableViewCell.xib in Resources */,
@@ -4634,6 +4658,7 @@
 				CECEFA962577A2C90090D459 /* BranchBottomPopUpController.xib in Resources */,
 				F68A031B269D50820045D9EA /* ServicesBasicDetailTableViewCell.xib in Resources */,
 				2FEB12082511EC930012FE98 /* SideMenuTableViewCell.xib in Resources */,
+				5354CE7E2772F1E2002223B2 /* InvoicingHeader.xib in Resources */,
 				2F964B762513751B005FFEDC /* MultiBannerVw.xib in Resources */,
 				CEDD32EE25763C8E00023977 /* SendForAPProvalTableViewCell.xib in Resources */,
 				CEE35798250740800097069D /* Roboto-Bold.ttf in Resources */,
@@ -5153,6 +5178,7 @@
 				F680D686259B7C2C007EB12C /* DataEntryListingTopTableViewCell.swift in Sources */,
 				4E7B73F226807454003405B7 /* SampleNotificationDelegate.swift in Sources */,
 				CE9CCD4C264BAA14005AE619 /* DataBankSellingList.swift in Sources */,
+				5354CE802772F1E2002223B2 /* InvoiceModel.swift in Sources */,
 				CECEFA992577A2C90090D459 /* BranchImageUploadController.swift in Sources */,
 				CE9CCE1D264BF0B6005AE619 /* ListingnewTableViewCell.swift in Sources */,
 				2FEB12132511F0010012FE98 /* UnderDevelopmentViewController.swift in Sources */,
@@ -5240,6 +5266,7 @@
 				CEBCD74E2664A7FE001BF767 /* BankListAddCell.swift in Sources */,
 				CECEFA0C257773D00090D459 /* GetLocationViewController.swift in Sources */,
 				2FEB12072511EC930012FE98 /* SideMenuSecondTableViewCell.swift in Sources */,
+				5354CE7F2772F1E2002223B2 /* InvoiceNewViewController.swift in Sources */,
 				CEDD31F22576206500023977 /* CreateProductFirstViewController.swift in Sources */,
 				F62E4B0325148EC60021CEE0 /* ImageSelectPopUpDialogViewController.swift in Sources */,
 				CEBCD7322664A7FE001BF767 /* PaymentProgressTableViewCell.swift in Sources */,
@@ -5262,6 +5289,7 @@
 				CEBCD74D2664A7FE001BF767 /* BankListTableViewCell.swift in Sources */,
 				F6D92725268AC1ED0067C486 /* ConfirmToreceiveItemTableViewCell.swift in Sources */,
 				F4E772AA252D9F930045BD86 /* ChangePasswordViewController.swift in Sources */,
+				5354CE812772F1E2002223B2 /* InvoicingHeader.swift in Sources */,
 				2F8463E1250F6EBC0084EB32 /* LoginIntroFourth.swift in Sources */,
 				CECEFAC62577C3790090D459 /* otherTableViewCell.swift in Sources */,
 				CEBCD7482664A7FE001BF767 /* BankModal.swift in Sources */,
