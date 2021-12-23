@@ -254,8 +254,9 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
                 self.agentIbanInfoDatas = response
                 self.personalAgentSignUPModal.personalAgentIBanLength = self.agentIbanInfoDatas?.data?.bank_number_length ?? 0
             }else{
-                ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.agentIbanInfoDatas?.error_description! ?? "")")
                 
+                self.ibanPrefix = ""
+                self.tabView.reloadData()
             }
         }
     }
@@ -270,6 +271,7 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
         ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
             let ResponseDict : NSDictionary = (response as? NSDictionary)!
             ModalClass.stopLoading()
+            
             if success == true {
                 self.bankNameIdentifierList = try! JSONDecoder().decode(bankIdentifier_list.self, from: resp as! Data )
                 if self.bankNameIdentifierList!.error! {
@@ -300,11 +302,14 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
                     //                    self.tabView.reloadRows(at: [IndexPath(row: 1, section: 3)], with: .none)
                 }
             }else{
+
                 if response == nil
                 {
                     print ("connection error")
                     ModalController.showNegativeCustomAlertWith(title: "Connection Error".localized, msg: "")
                 }else{
+//                    self.ibanPrefix = ""
+//                    self.tabView.reloadData()
                     print ("data not in proper json")
                 }
             }
@@ -1448,6 +1453,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         cell.ibanNumberTxtFld.text = ibanPrefix
         cell.accountHolderNameTxtFld.addTarget(self, action: #selector(PersonalRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         cell.ibanNumberTxtFld.addTarget(self, action: #selector(PersonalRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        cell.ibanNumberTxtFld.keyboardType = .asciiCapable
          cell.ibanNumberTxtFld.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         
         if self.bankNameIdentifierList?.data?.count ?? 0 > 0 {
@@ -2042,6 +2048,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
             
             
         case 1010:
+            
             let   cell = tabView.cellForRow(at: IndexPath(row:1 , section: 4)) as! CompanyAgentBankDetailsTableViewCell
             
             let str = cell.ibanNumberTxtFld.text!.uppercased()

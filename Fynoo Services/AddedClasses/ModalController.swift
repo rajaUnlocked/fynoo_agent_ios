@@ -111,6 +111,7 @@ class ModalController: NSObject {
     }
     
     static func isValidIBAN(ibanStr: String, length: Int, countryType : String) -> Bool {
+        
     let str1 = ibanStr
     if str1.count > 2 {
     let result = String(str1.prefix(2))
