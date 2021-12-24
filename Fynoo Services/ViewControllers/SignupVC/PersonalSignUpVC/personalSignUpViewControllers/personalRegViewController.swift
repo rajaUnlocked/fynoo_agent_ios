@@ -691,9 +691,10 @@ func showHideConfirmPassword(_ sender: Any){
     }
            
     func AgentselectNoOnVat(_ sender: Any) {
+        
         isFromVatDocument = false
         self.personalAgentSignUPModal.personalVatDocumentUrl = nil
-        
+        self.personalAgentSignUPModal.personalAgentVatNumber = ""
         if(isVatNoClicked){
             isVatNoClicked = false
         }else{
