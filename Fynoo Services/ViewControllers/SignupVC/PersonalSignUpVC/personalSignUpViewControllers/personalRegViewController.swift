@@ -1378,6 +1378,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         }
         cell.maroofTxtFld.text = maroofLink
         cell.passwordTxtFld.text = personalAgentSignUPModal.personalAgentPassword
+        
         cell.confirmPasswordTxtFld.text = personalAgentSignUPModal.personalAgentConfirmPswd
         
         if self.selectedCountryCodeDict.count > 0 {
@@ -1662,6 +1663,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
             return true
             
         case 1007:
+          
             var letters = string.map { String($0) }
             for i in 0..<string.count{
                 
@@ -1950,7 +1952,6 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         case 1006:
             let   cell = tabView.cellForRow(at: IndexPath(row:1 , section: 3)) as! PersonalAgentBasicInformationTableViewCell
             personalAgentSignUPModal.personalAgentPassword = textField.text!
-            
             if  personalAgentSignUPModal.personalAgentPassword != "" && personalAgentSignUPModal.personalAgentConfirmPswd  != "" {
                 if (personalAgentSignUPModal.personalAgentPassword == personalAgentSignUPModal.personalAgentConfirmPswd) && (personalAgentSignUPModal.personalAgentPassword.count >= 8 && personalAgentSignUPModal.personalAgentConfirmPswd.count  >= 8) && cell.passwordTxtFld.text!.containArabicNumber   {
                     ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.passwordView)
@@ -1988,7 +1989,10 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
             // confirm
             let   cell = tabView.cellForRow(at: IndexPath(row:1 , section: 3)) as! PersonalAgentBasicInformationTableViewCell
             personalAgentSignUPModal.personalAgentConfirmPswd = textField.text!
-            
+            if textField.text! == " "
+            {
+                
+            }
             if  personalAgentSignUPModal.personalAgentPassword != "" && personalAgentSignUPModal.personalAgentConfirmPswd  != "" {
                 if (personalAgentSignUPModal.personalAgentPassword == personalAgentSignUPModal.personalAgentConfirmPswd) && (personalAgentSignUPModal.personalAgentPassword.count >= 8 && personalAgentSignUPModal.personalAgentConfirmPswd.count  >= 8) && cell.confirmPasswordTxtFld.text!.containArabicNumber {
                     ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.passwordView)
@@ -2142,7 +2146,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         }
         
     }
-    
+   
     @objc func handleTextChange(_ textField: UITextField) {
         if textField.text!.count < 2 {
       textField.keyboardType = .asciiCapable
