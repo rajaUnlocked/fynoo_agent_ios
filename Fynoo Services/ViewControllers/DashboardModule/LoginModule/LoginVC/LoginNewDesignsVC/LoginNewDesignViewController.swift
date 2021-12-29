@@ -35,8 +35,11 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var arabicText: UILabel!
     @IBOutlet weak var centers: NSLayoutConstraint!
     override func viewDidLoad() {
+        
         ModalController.watermark(self.view)
         super.viewDidLoad()
+        
+        
         
         setupScrollUI()
         

@@ -357,12 +357,12 @@ class PersonalAgentSignUPModal: NSObject {
         if ModalController.isValidName(title: personalAgentName) == false {
             return (isFilled, ValidationMessages.validName)
         }
-//        if personalAgentGender == "" {
-//            return (isFilled, ValidationMessages.Gender)
-//        }
-//        if personalAgentDob == "" {
-//           return (isFilled, ValidationMessages.Dob)
-//        }
+        if personalAgentGender == "" {
+            return (isFilled, ValidationMessages.Gender)
+        }
+        if personalAgentDob == "" {
+           return (isFilled, ValidationMessages.Dob)
+        }
         if !personalAgentDob.containArabicNumber {
             
             return (isFilled, ValidationMessages.dobArabicNumber)
@@ -450,7 +450,7 @@ class PersonalAgentSignUPModal: NSObject {
         }
          personalAgentAccountNbr = personalAgentAccountNbr.replacingOccurrences(of: " ", with: "")
         if personalAgentAccountNbr.count != personalAgentIBanLength {
-              return (isFilled, ValidationMessages.validIbanNumber)
+              return (isFilled, ValidationMessages.ValidIBANNumber)
         }
          let bankCode =  personalAgentAccountNbr.substring(from: 0, to: 1)
         let ibanBool = ModalController.isValidIBAN(ibanStr: personalAgentAccountNbr, length: personalAgentIBanLength, countryType: bankCode)

@@ -732,7 +732,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     
     @IBAction func notificationBtnClicked(_ sender: Any) {
         
-        let vc = NotificationNewViewController(nibName: "NotificationNewViewController", bundle: nil)
+        let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
         //vc.showBack = true
         self.navigationController?.pushViewController(vc, animated: true)
        

@@ -71,6 +71,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     var selectedMajorEducation : NSMutableDictionary = NSMutableDictionary()
 
     override func viewDidLoad() {
+        
         ModalController.watermark(self.view)
         
         tableVw.register(UINib(nibName: "ProfileNameTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileNameTableViewCell");
@@ -1130,7 +1131,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.mobileCodeWidth.constant = 0
             cell.selectBtn.isHidden = true
             
-            
+            cell.headingLbl.delegate = self
             //            cell.headingLbl.tag = 1
             //            print(agentInfo.Email)
             //            cell.headingLbl.text = agentInfo.Email
@@ -1187,11 +1188,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             return cell
         }
     }
-    
-    
-    
 }
-
 
 extension UserProfileDetailsViewController : ProfileDetailTableViewCellDelegate{
     func edit() {
@@ -1215,9 +1212,7 @@ extension UserProfileDetailsViewController : ProfileDetailTableViewCellDelegate{
     func likesClicked() {
         
     }
-    
-    
-    
+        
 }
 
 extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
@@ -1321,8 +1316,9 @@ extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
 
 
 extension UserProfileDetailsViewController : UITextFieldDelegate{
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
+
         
         if textField.tag == 0{
             let allowedCharecter = CharacterSet.letters
@@ -1330,6 +1326,9 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
             let allowedCharacter1 = CharacterSet.whitespaces
             
             return allowedCharecter.isSuperset(of: characterSet) || allowedCharacter1.isSuperset(of: characterSet)
+        }
+        if textField.tag == 1{
+            return false
         }
             
         if textField.tag == 5{
@@ -1418,7 +1417,7 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
     }
     
     @objc func textFieldDidChange(textField: UITextField){
-        
+//        textField.textAlignment =  ("\(textField.text!.first)".isArabic ? .right:.left)
         switch textField.tag  {
         case 0:
             
@@ -1428,7 +1427,6 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
             
         case 1:
             agentInfo.Email = textField.text!
-            
         case 5:
             agentInfo.maroof = textField.text!
             
