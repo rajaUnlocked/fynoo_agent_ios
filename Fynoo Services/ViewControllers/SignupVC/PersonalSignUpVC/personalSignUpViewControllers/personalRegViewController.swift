@@ -18,28 +18,28 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
     }
     
     func loginClickedd(_ sender: Any) {
-         var isLoginThere = false
-               
-               if var viewControllers = self.navigationController?.viewControllers
-               {
-                   for controller in viewControllers
-                   {
-                       if controller is LoginNewDesignViewController
-                       {
-                           isLoginThere = true
-                           for controller in self.navigationController!.viewControllers as Array {
-                               if controller.isKind(of: LoginNewDesignViewController.self) {
-                                   self.navigationController!.popToViewController(controller, animated: true)
-                                   break
-                               }
-                           }
-                       }
-                   }
-               }
-               if isLoginThere == false{
-                   let vc = LoginNewDesignViewController(nibName: "LoginNewDesignViewController", bundle: nil)
-                   self.navigationController?.pushViewController(vc, animated: true)
-               }
+        var isLoginThere = false
+        
+        if var viewControllers = self.navigationController?.viewControllers
+        {
+            for controller in viewControllers
+            {
+                if controller is LoginNewDesignViewController
+                {
+                    isLoginThere = true
+                    for controller in self.navigationController!.viewControllers as Array {
+                        if controller.isKind(of: LoginNewDesignViewController.self) {
+                            self.navigationController!.popToViewController(controller, animated: true)
+                            break
+                        }
+                    }
+                }
+            }
+        }
+        if isLoginThere == false{
+            let vc = LoginNewDesignViewController(nibName: "LoginNewDesignViewController", bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     @IBOutlet var bgImage: UIImageView!
     func selectedCheckBox(_ sender: Any) {
@@ -48,9 +48,9 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
     var AgentSERVICE:AgentService?
     var bankNameIdentifierList:bankIdentifier_list?
     
-   @IBOutlet var headerView: NavigationView!
-   @IBOutlet weak var tabView: UITableView!
-  
+    @IBOutlet var headerView: NavigationView!
+    @IBOutlet weak var tabView: UITableView!
+    
     var   tempImage: UIImage!
     var selectedImage: UIImage!
     var imageupload:ImageUpload?
@@ -67,7 +67,7 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
     var selectedCountryCodeDict : NSMutableDictionary = NSMutableDictionary()
     var sectionHeaderTextArray = ["Services".localized,"Personal Details".localized,"Basic Information".localized,"Bank Details".localized,"Vat Information".localized]
     var maroofLink = ""
-     var ibanPrefix = ""
+    var ibanPrefix = ""
     var ispassword:Bool = true
     var isConfirmPassword:Bool = true
     
@@ -76,20 +76,20 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
     var isCountryChangeAgain:Bool = true
     
     var isUserPolicySelected:Bool = false
-     var everythingFilled:Bool = false
+    var everythingFilled:Bool = false
     var personalAgentGender: String? = ""
     var personalAgentDOB: String? = ""
     var signupDobOnlyToDisplay: String? = ""
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var downImage: UIImageView!
-     var isImageUploaded:Bool = false
+    var isImageUploaded:Bool = false
     
-     var personalAgentSignUPModal = PersonalAgentSignUPModal()
+    var personalAgentSignUPModal = PersonalAgentSignUPModal()
     var mobileValue = ""
     var MobileNumber = ""
-      
-      var vatValue = ""
-      var VatNumber = ""
+    
+    var vatValue = ""
+    var VatNumber = ""
     
     var accountValue = ""
     var accountNumber = ""
@@ -97,61 +97,61 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
     var mobileNumberWithoutGap = ""
     
     var isFromVatDocument:Bool = false
-        var documentImageSize = NSMutableArray()
-       var size = 0.0
-        var vatInformationModal = AgentVatInformationModal()
-        var agentVatInfoDatas : VatInfoModal?
-       
-       var IBANinformationModal = AgentIbanLengthModal()
-        var agentIbanInfoDatas : IbanLengthInfoModal?
+    var documentImageSize = NSMutableArray()
+    var size = 0.0
+    var vatInformationModal = AgentVatInformationModal()
+    var agentVatInfoDatas : VatInfoModal?
+    
+    var IBANinformationModal = AgentIbanLengthModal()
+    var agentIbanInfoDatas : IbanLengthInfoModal?
     
     
     override func viewDidLoad() {
         ModalController.watermark(self.view)
         super.viewDidLoad()
         appDelegate.selectServiceStr = ""
-           self.serviceAPI()
+        self.serviceAPI()
         self.getVatInfoAPI()
         self.tabView.delegate = self
         self.tabView.dataSource = self
-//        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
+        //        downImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)
         self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         self.view.bringSubviewToFront(headerView)
         maroofLink = "https://www.maroof.com/".localized;
-//         ibanPrefix = "SA".localized;
+        //         ibanPrefix = "SA".localized;
         self.registerAgentNotifications()
-      tabView.register(UINib(nibName: "CompanyRegTableViewCell", bundle: nil), forCellReuseIdentifier: "CompanyRegTableViewCell")
-      tabView.register(UINib(nibName: "AgentCompanyServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "AgentCompanyServicesTableViewCell")
-      tabView.register(UINib(nibName: "AgentProfileImageTableViewCell", bundle: nil), forCellReuseIdentifier: "AgentProfileImageTableViewCell")
-           tabView.register(UINib(nibName: "PersonalAgentBasicInformationTableViewCell", bundle: nil), forCellReuseIdentifier: "PersonalAgentBasicInformationTableViewCell")
-      tabView.register(UINib(nibName: "AgentCompanyUserPolicyTableViewCell", bundle: nil), forCellReuseIdentifier: "AgentCompanyUserPolicyTableViewCell")
-      tabView.register(UINib(nibName: "CompanyAgentBankDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: "CompanyAgentBankDetailsTableViewCell")
-      tabView.register(UINib(nibName: "CompanyAgentVatDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "CompanyAgentVatDetailTableViewCell")
+        tabView.register(UINib(nibName: "CompanyRegTableViewCell", bundle: nil), forCellReuseIdentifier: "CompanyRegTableViewCell")
+        tabView.register(UINib(nibName: "AgentCompanyServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "AgentCompanyServicesTableViewCell")
+        tabView.register(UINib(nibName: "AgentProfileImageTableViewCell", bundle: nil), forCellReuseIdentifier: "AgentProfileImageTableViewCell")
+        tabView.register(UINib(nibName: "PersonalAgentBasicInformationTableViewCell", bundle: nil), forCellReuseIdentifier: "PersonalAgentBasicInformationTableViewCell")
+        tabView.register(UINib(nibName: "AgentCompanyUserPolicyTableViewCell", bundle: nil), forCellReuseIdentifier: "AgentCompanyUserPolicyTableViewCell")
+        tabView.register(UINib(nibName: "CompanyAgentBankDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: "CompanyAgentBankDetailsTableViewCell")
+        tabView.register(UINib(nibName: "CompanyAgentVatDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "CompanyAgentVatDetailTableViewCell")
         
         tabView.register(UINib(nibName: "agentPersonalDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: "agentPersonalDetailsTableViewCell")
-
-          self.showButton.addTarget(self, action: #selector(showPassword(_:)), for: .touchUpInside)
-              self.showConfirmButton.addTarget(self, action: #selector(showPassword(_:)), for: .touchUpInside)
-          self.showButton.tag = 1001
-          self.showConfirmButton.tag = 1002
-          self.tabView.separatorStyle = .none
+        
+        self.showButton.addTarget(self, action: #selector(showPassword(_:)), for: .touchUpInside)
+        self.showConfirmButton.addTarget(self, action: #selector(showPassword(_:)), for: .touchUpInside)
+        self.showButton.tag = 1001
+        self.showConfirmButton.tag = 1002
+        self.tabView.separatorStyle = .none
         self.headerView.titleHeader.text = "Welcome, Let's Create An Account".localized
         headerView.viewControl = self
         
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-              
+        
         self.headerView.titleHeader.font = UIFont(name:"\(fontNameLight)",size:16)
         self.headerView.titleHeader.textColor = Constant.Black_TEXT_COLOR
-
+        
     }
     
     @objc func showPassword(_ sender: UIButton) {
         if sender.tag == 1001{
             if sender.isSelected == true{
                 sender.isSelected = false
-              }else{
+            }else{
                 sender.isSelected = false
-              }
+            }
         }else{
             if sender.isSelected == true{
                 sender.isSelected = false
@@ -159,20 +159,20 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
                 sender.isSelected = false
             }
         }
-      }
+    }
     func registerAgentNotifications() {
-    NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationChangeServiceIconClicked(_:)), name: NSNotification.Name(rawValue: "changeServiceIcon"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationChangeServiceIconClicked(_:)), name: NSNotification.Name(rawValue: "changeServiceIcon"), object: nil)
     }
     @objc func methodOfReceivedNotificationChangeServiceIconClicked(_ notification: NSNotification) {
         self.tabView.reloadData()
-      }
-
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         guard let image = info[UIImagePickerController.InfoKey.originalImage]
-            as? UIImage else {
-                return
-        }
+                as? UIImage else {
+                    return
+                }
         
         tempImage = image.resizeWithWidth(width: 700)!
         self.tabView.reloadData()
@@ -182,9 +182,9 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
         
         personalAgentSignUPModal.ProfileImage = compressedImage
         self.isImageUploaded = true
-      
-//        self.uploadProfileImagesAPI()
-        dismiss(animated:true, completion: nil) 
+        
+        //        self.uploadProfileImagesAPI()
+        dismiss(animated:true, completion: nil)
         
         
         self.dismiss(animated: true, completion: nil)
@@ -197,7 +197,7 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
     }
-   
+    
     func serviceAPI(){
         ModalClass.startLoading(self.view)
         let str = "\(Constant.BASE_URL)\(Constant.Service_List)"
@@ -243,7 +243,7 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
             self.tabView.reloadData()
         }
     }
-     
+    
     func getIbanLengthAPI(countryCode:String) {
         
         IBANinformationModal.getAgentIbanInfoApi(CountryCode: countryCode ) { (success, response) in
@@ -308,7 +308,7 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
             }
         }
     }
-
+    
     @IBAction func nextbtnAction(_ sender: UIButton) {
         
         if personalAgentSignUPModal.personalAgentImageID == 0 {
@@ -316,36 +316,36 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
             ModalController.showNegativeCustomAlertWith(title: "", msg: "please select logo.".localized)
             
         }
-       else if personalAgentSignUPModal.personalAgentImageID == 0 && personalAgentSignUPModal.personalAgentserviceIDstr.count == 0 {
+        else if personalAgentSignUPModal.personalAgentImageID == 0 && personalAgentSignUPModal.personalAgentserviceIDstr.count == 0 {
             ModalController.showNegativeCustomAlertWith(title: "", msg: "please select a service.".localized)
-
+            
         } else if personalAgentSignUPModal.personalAgentserviceIDstr.count == 0 {
-
+            
             ModalController.showNegativeCustomAlertWith(title: "", msg: "please select minimum one service.".localized)
         }else{
-        
-//            let view = personalRegNextViewController(nibName: "personalRegNextViewController", bundle: nil)
-//            self.navigationController?.pushViewController(view, animated: true)
-       }
+            
+            //            let view = personalRegNextViewController(nibName: "personalRegNextViewController", bundle: nil)
+            //            self.navigationController?.pushViewController(view, animated: true)
+        }
     }
     // profileImageUpload
-func uploadProfileImagesAPI(){
+    func uploadProfileImagesAPI(){
         
-  ModalClass.startLoading(self.view)
-  ServerCalls.fileUploadAPI(Imgtype:"",imagefrom:"user",img: tempImage) { (response, success, resp) in
-    ModalClass.stopLoading()
-        if success == true {
-        self.imageupload = try! JSONDecoder().decode(ImageUpload.self, from: resp as! Data )
-        if self.imageupload!.error {
-            ModalController.showNegativeCustomAlertWith(title:" Error", msg: "")
+        ModalClass.startLoading(self.view)
+        ServerCalls.fileUploadAPI(Imgtype:"",imagefrom:"user",img: tempImage) { (response, success, resp) in
+            ModalClass.stopLoading()
+            if success == true {
+                self.imageupload = try! JSONDecoder().decode(ImageUpload.self, from: resp as! Data )
+                if self.imageupload!.error {
+                    ModalController.showNegativeCustomAlertWith(title:" Error", msg: "")
                     
-            }else{
+                }else{
                     print("response:-", self.imageupload)
-            self.isImageUploaded = true
+                    self.isImageUploaded = true
                     if let profileImageID = self.imageupload?.data?.image_id  {
                         self.personalAgentSignUPModal.personalAgentImageID = profileImageID
                     }
-            self.tabView.reloadData()
+                    self.tabView.reloadData()
                 }
             }else{
                 if response == nil{
@@ -359,8 +359,8 @@ func uploadProfileImagesAPI(){
     }
     
     func selectHeader(tag:Int) {
-            
-        }
+        
+    }
     
     func profileImageSelected(){
         let vc = DiscountTypePopUpViewController(nibName: "DiscountTypePopUpViewController", bundle: nil)
@@ -394,7 +394,7 @@ func uploadProfileImagesAPI(){
             self.gallerySelected()
         }
     }
-
+    
     func cameraSelected() {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let cam = UIImagePickerController()
@@ -407,7 +407,7 @@ func uploadProfileImagesAPI(){
         }
         
     }
-          
+    
     func gallerySelected() {
         let gal = UIImagePickerController()
         gal.delegate = self
@@ -418,31 +418,31 @@ func uploadProfileImagesAPI(){
     
     func AgentselectDOB(_ sender: Any){
         let calendar = Calendar(identifier: .gregorian)
-                let currentDate = Date()
-                var components = DateComponents()
-                components.calendar = calendar
-//               components.year = -18
+        let currentDate = Date()
+        var components = DateComponents()
+        components.calendar = calendar
+        //               components.year = -18
         components.year = -(Int(personalAgentSignUPModal.PersonalAgentAge_limit) ?? 18)
-                components.month = 12
-                let maxDate = calendar.date(byAdding: components, to: currentDate)!
-
-                let minDate = Calendar.current.date(from: DateComponents(year: 1900 , month: 1, day: 1))
-                
-                print(minDate as Any)
-                 print(maxDate as Any)
-                        
+        components.month = 12
+        let maxDate = calendar.date(byAdding: components, to: currentDate)!
+        
+        let minDate = Calendar.current.date(from: DateComponents(year: 1900 , month: 1, day: 1))
+        
+        print(minDate as Any)
+        print(maxDate as Any)
+        
         DatePickerDialog().show("Select - Date of Birth".localized, doneButtonTitle: "Done".localized, cancelButtonTitle: "Cancel".localized,  minimumDate: minDate, maximumDate: maxDate,  datePickerMode: .date){
             (date) -> Void in
-         
             
-//            let RFC3339DateFormatter = DateFormatter()
-//            RFC3339DateFormatter.locale = Locale(localeIdentifier: "en_US_POSIX")
-//            RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-//            RFC3339DateFormatter.timeZone = TimeZone(forSecondsFromGMT: 0)
-//
-//            let date = Date()
-//            let string = RFC3339DateFormatter.stringFromDate(date)
-//            
+            
+            //            let RFC3339DateFormatter = DateFormatter()
+            //            RFC3339DateFormatter.locale = Locale(localeIdentifier: "en_US_POSIX")
+            //            RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+            //            RFC3339DateFormatter.timeZone = TimeZone(forSecondsFromGMT: 0)
+            //
+            //            let date = Date()
+            //            let string = RFC3339DateFormatter.stringFromDate(date)
+            //
             if let dt = date {
                 let formatter = DateFormatter()
                 formatter.locale = Locale(identifier: "en_US_POSIX")
@@ -477,10 +477,10 @@ func uploadProfileImagesAPI(){
         self.tabView.reloadData()
     }
     func agentEducationClicked(_ sender: Any){
-    let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
-    vc.delegate = self
-    vc.isForEducationList = true
-     self.navigationController?.pushViewController(vc, animated: true)
+        let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
+        vc.delegate = self
+        vc.isForEducationList = true
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     func agentMajorEductionClicked(_ sender: Any){
@@ -529,43 +529,43 @@ func uploadProfileImagesAPI(){
         personalAgentSignUPModal.personalmobileCodeImage = ModalController.toString(self.selectedAgentCountryDict.object(forKey: "country_flag") as Any)
         tabView.reloadData()
     }
-        
-        func selectedCityMethod(cityDict : NSMutableDictionary){
-            self.selectedCityDict = cityDict
+    
+    func selectedCityMethod(cityDict : NSMutableDictionary){
+        self.selectedCityDict = cityDict
         if let value = selectedCityDict.object(forKey: "city_id") as? Int{
-        personalAgentSignUPModal.personalAgentCity = "\(value)"
+            personalAgentSignUPModal.personalAgentCity = "\(value)"
             personalAgentSignUPModal.personalAgentCityName = ModalController.toString(selectedCityDict.object(forKey: "city_name") as Any)
         }
         self.tabView.reloadSections(NSIndexSet(index: 3) as IndexSet, with: .none)
-        }
-
-        func selectedEducationMethod(educationDict: NSMutableDictionary) {
-            if self.selectedAgentEducationDict != educationDict {
+    }
+    
+    func selectedEducationMethod(educationDict: NSMutableDictionary) {
+        if self.selectedAgentEducationDict != educationDict {
             self.selectedAgentMajorEducationDict.removeAllObjects()
             self.personalAgentSignUPModal.personalAgentMajorEducation = ""
             if let value =  selectedAgentEducationDict.object(forKey: "education_id") as? Int{
-            personalAgentSignUPModal.personalAgentEducation = "\(value)"
-              }
-
+                personalAgentSignUPModal.personalAgentEducation = "\(value)"
+            }
+            
             self.tabView.reloadSections(NSIndexSet(index: 2) as IndexSet, with: .none)
         }
         self.selectedAgentEducationDict = educationDict
         if let value =  selectedAgentEducationDict.object(forKey: "education_id") as? Int{
             personalAgentSignUPModal.personalAgentEducation = "\(value)"
         }
-             self.tabView.reloadSections(NSIndexSet(index: 2) as IndexSet, with: .none)
-        }
-        func selectedMajorEducationMethod(educationDict: NSMutableDictionary) {
-            self.selectedAgentMajorEducationDict = educationDict
-            if let value =  selectedAgentMajorEducationDict.object(forKey: "education_major_id") as? Int{
-            personalAgentSignUPModal.personalAgentMajorEducation = "\(value)"
-                
-               self.tabView.reloadSections(NSIndexSet(index: 2) as IndexSet, with: .none)
-            }
+        self.tabView.reloadSections(NSIndexSet(index: 2) as IndexSet, with: .none)
     }
-        func selectedCurrency(currency: NSMutableDictionary) {
+    func selectedMajorEducationMethod(educationDict: NSMutableDictionary) {
+        self.selectedAgentMajorEducationDict = educationDict
+        if let value =  selectedAgentMajorEducationDict.object(forKey: "education_major_id") as? Int{
+            personalAgentSignUPModal.personalAgentMajorEducation = "\(value)"
             
+            self.tabView.reloadSections(NSIndexSet(index: 2) as IndexSet, with: .none)
         }
+    }
+    func selectedCurrency(currency: NSMutableDictionary) {
+        
+    }
     func selectetCourierCompanyMethod(courierCompanyDict: NSMutableDictionary) {
         
     }
@@ -591,15 +591,15 @@ func uploadProfileImagesAPI(){
         self.tabView.reloadData()
         
     }
-       
+    
     func selectPhoneCodeMethod(phoneCodeDict: NSMutableDictionary) {
-       
+        
         
     }
     func selectetBranchMethod(BranchDict : NSMutableDictionary){
         
     }
-
+    
     
     func AgentselectCountry(_ sender: Any){
         
@@ -627,39 +627,39 @@ func uploadProfileImagesAPI(){
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
-        func showHidePassword(_ sender: Any){
-                   if(ispassword)
-                  {
-                    ispassword = false
-                  }else{
-                       ispassword = true
-                  }
-                  self.tabView.reloadRows(at: [IndexPath(row: 1, section: 3)], with: .none)
+    func showHidePassword(_ sender: Any){
+        if(ispassword)
+        {
+            ispassword = false
+        }else{
+            ispassword = true
         }
-func showHideConfirmPassword(_ sender: Any){
-
-            if(isConfirmPassword)
-            {
-              isConfirmPassword = false
-            }else{
-                 isConfirmPassword = true
-            }
-            self.tabView.reloadRows(at: [IndexPath(row: 1, section: 3)], with: .none)
-        }
+        self.tabView.reloadRows(at: [IndexPath(row: 1, section: 3)], with: .none)
+    }
+    func showHideConfirmPassword(_ sender: Any){
         
+        if(isConfirmPassword)
+        {
+            isConfirmPassword = false
+        }else{
+            isConfirmPassword = true
+        }
+        self.tabView.reloadRows(at: [IndexPath(row: 1, section: 3)], with: .none)
+    }
+    
     func mobileCodeClicked(_ sender: Any) {
-         let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
-         vc.delegate = self
-         vc.isFromCountryMobileCode = true
-          vc.selectedCountryDict = self.selectedCountryCodeDict
-         self.navigationController?.pushViewController(vc, animated: true)
-         
-         
-     }
-     func phoneCodeClicked(_ sender: Any) {
+        let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
+        vc.delegate = self
+        vc.isFromCountryMobileCode = true
+        vc.selectedCountryDict = self.selectedCountryCodeDict
+        self.navigationController?.pushViewController(vc, animated: true)
         
-     }
-
+        
+    }
+    func phoneCodeClicked(_ sender: Any) {
+        
+    }
+    
     func AgentselectYesOnVat(_ sender: Any) {
         
         if(isVatYesClicked) {
@@ -673,7 +673,7 @@ func showHideConfirmPassword(_ sender: Any){
         self.tabView.reloadRows(at: [IndexPath(row: 0, section: 5)], with: .none)
         self.tabView.reloadRows(at: [IndexPath(row: 0, section: 6)], with: .none)
     }
-           
+    
     func AgentselectNoOnVat(_ sender: Any) {
         isFromVatDocument = false
         self.personalAgentSignUPModal.personalVatDocumentUrl = nil
@@ -704,66 +704,66 @@ func showHideConfirmPassword(_ sender: Any){
         present(importMenu, animated: true)
         
     }
-      
-      func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-          print("document:-", urls.first as Any)
-
-          
-          size = 0.0
-          let siz = fileSize(forURL:  urls.first!)
-          documentImageSize.add(siz)
-          if documentImageSize.count > 0
-          {
-              for i in 0...(documentImageSize.count - 1)
-              {
-                  let si = documentImageSize[i] as! Double
-                  size = size + si
-              }
-          }
-          print(".......\(size)")
-          if size > agentVatInfoDatas?.data?.vat_file_size ?? 0.0
-          {
-              ModalController.showNegativeCustomAlertWith(title: "File Size is Greater Than \(agentVatInfoDatas?.data?.vat_file_size ?? 0.0) Mb Upload a lower size File.", msg: "")
-              return
-          }else{
-              self.isFromVatDocument = true
-              personalAgentSignUPModal.personalVatDocumentUrl = urls.first
-               self.tabView.reloadRows(at: [IndexPath(row: 0, section: 5)], with: .none)
-               self.tabView.reloadRows(at: [IndexPath(row: 1, section: 5)], with: .none)
-          }
-
-      }
-      
-      func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-          controller.dismiss(animated: true, completion: nil)
-      }
-      
-      func fileSize(forURL url: Any) -> Double {
-          var fileURL: URL?
-          var fileSize: Double = 0.0
-          if (url is URL) || (url is String)
-          {
-              if (url is URL) {
-                  fileURL = url as? URL
-              }
-              else {
-                  fileURL = URL(fileURLWithPath: url as! String)
-              }
-              var fileSizeValue = 0.0
-              try? fileSizeValue = (fileURL?.resourceValues(forKeys: [URLResourceKey.fileSizeKey]).allValues.first?.value as! Double?)!
-              if fileSizeValue > 0.0 {
-                  fileSize = (Double(fileSizeValue) / (1024 * 1024))
-              }
-          }
-          return fileSize
-      }
-       
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        print("document:-", urls.first as Any)
+        
+        
+        size = 0.0
+        let siz = fileSize(forURL:  urls.first!)
+        documentImageSize.add(siz)
+        if documentImageSize.count > 0
+        {
+            for i in 0...(documentImageSize.count - 1)
+            {
+                let si = documentImageSize[i] as! Double
+                size = size + si
+            }
+        }
+        print(".......\(size)")
+        if size > agentVatInfoDatas?.data?.vat_file_size ?? 0.0
+        {
+            ModalController.showNegativeCustomAlertWith(title: "File Size is Greater Than \(agentVatInfoDatas?.data?.vat_file_size ?? 0.0) Mb Upload a lower size File.", msg: "")
+            return
+        }else{
+            self.isFromVatDocument = true
+            personalAgentSignUPModal.personalVatDocumentUrl = urls.first
+            self.tabView.reloadRows(at: [IndexPath(row: 0, section: 5)], with: .none)
+            self.tabView.reloadRows(at: [IndexPath(row: 1, section: 5)], with: .none)
+        }
+        
+    }
+    
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func fileSize(forURL url: Any) -> Double {
+        var fileURL: URL?
+        var fileSize: Double = 0.0
+        if (url is URL) || (url is String)
+        {
+            if (url is URL) {
+                fileURL = url as? URL
+            }
+            else {
+                fileURL = URL(fileURLWithPath: url as! String)
+            }
+            var fileSizeValue = 0.0
+            try? fileSizeValue = (fileURL?.resourceValues(forKeys: [URLResourceKey.fileSizeKey]).allValues.first?.value as! Double?)!
+            if fileSizeValue > 0.0 {
+                fileSize = (Double(fileSizeValue) / (1024 * 1024))
+            }
+        }
+        return fileSize
+    }
+    
     func RemoveVatDocumentClicked(_ sender: Any) {
         isFromVatDocument = false
         self.personalAgentSignUPModal.personalVatDocumentUrl = nil
         self.tabView.reloadRows(at: [IndexPath(row: 1, section: 5)], with: .none)
     }
-       
+    
     func userPolicySelected(_ sender: Any) {
         if(isUserPolicySelected){
             isUserPolicySelected = false
@@ -775,7 +775,7 @@ func showHideConfirmPassword(_ sender: Any){
     
     func userPolicyClicked(_ sender: Any){
         
-      let vc = UserPolicyWebViewController()
+        let vc = UserPolicyWebViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -789,7 +789,7 @@ func showHideConfirmPassword(_ sender: Any){
         if maroofLink == "https://www.maroof.com/".localized {
             personalAgentSignUPModal.personalAgentMaroofLink = ""
         }
-     
+        
         let(isFilled, message) = personalAgentSignUPModal.personalAgentValidation()
         
         if isFilled{
@@ -819,13 +819,13 @@ func showHideConfirmPassword(_ sender: Any){
         }
     }
     
-        var cellHeights = [IndexPath: CGFloat]()
-        func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-            cellHeights[indexPath] = cell.frame.size.height
-        }
-        func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-            return cellHeights[indexPath] ?? UITableView.automaticDimension
-        }
+    var cellHeights = [IndexPath: CGFloat]()
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cellHeights[indexPath] = cell.frame.size.height
+    }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return cellHeights[indexPath] ?? UITableView.automaticDimension
+    }
 }
 extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -926,10 +926,10 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         let vatStr = personalAgentSignUPModal.personalAgentVatNumber.replacingOccurrences(of: " ", with: "")
         
         if   appDelegate.selectServiceStr != ""  && personalAgentSignUPModal.personalAgentName != ""  &&
-            personalAgentSignUPModal.personalAgentGender != ""  &&
-            personalAgentSignUPModal.personalAgentDob != ""  && personalAgentSignUPModal.personalAgentEducation != ""  &&  personalAgentSignUPModal.personalAgentMajorEducation != "" && personalAgentSignUPModal.personalAgentEmail != ""  && personalAgentSignUPModal.personalAgentConfirmEmail != ""  &&
-            personalAgentSignUPModal.personalAgentCountry != ""  && personalAgentSignUPModal.personalAgentCity != ""  && personalAgentSignUPModal.personalAgentContactNbr != "" &&
-            personalAgentSignUPModal.personalAgentPassword != ""  && personalAgentSignUPModal.personalAgentConfirmPswd != "" && personalAgentSignUPModal.personalAgentbankName != ""  && personalAgentSignUPModal.personalAgentbankAccountHolderName != ""  && personalAgentSignUPModal.personalAgentAccountNbr != "" && str.count >= personalAgentSignUPModal.personalAgentIBanLength && ((isVatYesClicked == true && vatStr.count >= personalAgentSignUPModal.personalVatLength  && personalAgentSignUPModal.personalAgentVatNumber.containArabicNumber && personalAgentSignUPModal.personalVatDocumentUrl != nil)  || isVatNoClicked == true) && isUserPolicySelected == true && companyEmail && companyConfirmEmail && (companyEmail == companyConfirmEmail) && (mobileLength == mobileNumberWithoutGap.count) && (personalAgentSignUPModal.personalAgentPassword == personalAgentSignUPModal.personalAgentConfirmPswd) && (personalAgentSignUPModal.personalAgentPassword.count >= 8 && personalAgentSignUPModal.personalAgentConfirmPswd.count  >= 8)  {
+                personalAgentSignUPModal.personalAgentGender != ""  &&
+                personalAgentSignUPModal.personalAgentDob != ""  && personalAgentSignUPModal.personalAgentEducation != ""  &&  personalAgentSignUPModal.personalAgentMajorEducation != "" && personalAgentSignUPModal.personalAgentEmail != ""  && personalAgentSignUPModal.personalAgentConfirmEmail != ""  &&
+                personalAgentSignUPModal.personalAgentCountry != ""  && personalAgentSignUPModal.personalAgentCity != ""  && personalAgentSignUPModal.personalAgentContactNbr != "" &&
+                personalAgentSignUPModal.personalAgentPassword != ""  && personalAgentSignUPModal.personalAgentConfirmPswd != "" && personalAgentSignUPModal.personalAgentbankName != ""  && personalAgentSignUPModal.personalAgentbankAccountHolderName != ""  && personalAgentSignUPModal.personalAgentAccountNbr != "" && str.count >= personalAgentSignUPModal.personalAgentIBanLength && ((isVatYesClicked == true && vatStr.count >= personalAgentSignUPModal.personalVatLength  && personalAgentSignUPModal.personalAgentVatNumber.containArabicNumber && personalAgentSignUPModal.personalVatDocumentUrl != nil)  || isVatNoClicked == true) && isUserPolicySelected == true && companyEmail && companyConfirmEmail && (companyEmail == companyConfirmEmail) && (mobileLength == mobileNumberWithoutGap.count) && (personalAgentSignUPModal.personalAgentPassword == personalAgentSignUPModal.personalAgentConfirmPswd) && (personalAgentSignUPModal.personalAgentPassword.count >= 8 && personalAgentSignUPModal.personalAgentConfirmPswd.count  >= 8)  {
             everythingFilled = true
             self.tabView.reloadRows(at: [IndexPath(row: 0, section: 6)], with: .none)
         }else{
@@ -1060,11 +1060,11 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
             
             //Add below cooment line if gender and dob required in if condition
             
-//            personalAgentSignUPModal.personalAgentGender != ""  &&
-//            personalAgentSignUPModal.personalAgentDob != ""  &&
+            //            personalAgentSignUPModal.personalAgentGender != ""  &&
+            //            personalAgentSignUPModal.personalAgentDob != ""  &&
             
             if personalAgentSignUPModal.personalAgentName != ""  &&
-                 personalAgentSignUPModal.personalAgentEducation != ""  &&  personalAgentSignUPModal.personalAgentMajorEducation != "" &&  personalAgentSignUPModal.personalAgentName.containArabicNumber  {
+                personalAgentSignUPModal.personalAgentEducation != ""  &&  personalAgentSignUPModal.personalAgentMajorEducation != "" &&  personalAgentSignUPModal.personalAgentName.containArabicNumber  {
                 cell.editImageView.image = UIImage(named: "section_filled.png")
             }else {
                 cell.editImageView.image = UIImage(named: "edit_red")
@@ -1076,24 +1076,24 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
             let mobileLength  = personalAgentSignUPModal.personalAgentmobileLength
             
             if  personalAgentSignUPModal.personalAgentEmail != "" && personalAgentSignUPModal.personalAgentConfirmEmail != "" &&
-                personalAgentSignUPModal.personalAgentCountry != ""  && personalAgentSignUPModal.personalAgentCity != "" && personalAgentSignUPModal.personalAgentContactNbr != "" &&
-                personalAgentSignUPModal.personalAgentPassword != "" && personalAgentSignUPModal.personalAgentConfirmPswd != "" && companyEmail && companyConfirmEmail && (companyEmail == companyConfirmEmail) && (mobileLength == mobileNumberWithoutGap.count) && (personalAgentSignUPModal.personalAgentPassword == personalAgentSignUPModal.personalAgentConfirmPswd) && (personalAgentSignUPModal.personalAgentPassword.count >= 8 && personalAgentSignUPModal.personalAgentConfirmPswd.count  >= 8)   {
+                    personalAgentSignUPModal.personalAgentCountry != ""  && personalAgentSignUPModal.personalAgentCity != "" && personalAgentSignUPModal.personalAgentContactNbr != "" &&
+                    personalAgentSignUPModal.personalAgentPassword != "" && personalAgentSignUPModal.personalAgentConfirmPswd != "" && companyEmail && companyConfirmEmail && (companyEmail == companyConfirmEmail) && (mobileLength == mobileNumberWithoutGap.count) && (personalAgentSignUPModal.personalAgentPassword == personalAgentSignUPModal.personalAgentConfirmPswd) && (personalAgentSignUPModal.personalAgentPassword.count >= 8 && personalAgentSignUPModal.personalAgentConfirmPswd.count  >= 8)   {
                 
                 cell.editImageView.image = UIImage(named: "section_filled.png")
             }else{
                 cell.editImageView.image = UIImage(named: "edit_red")
             }
         }else if index.section == 4 {
-             let str = personalAgentSignUPModal.personalAgentAccountNbr.replacingOccurrences(of: " ", with: "")
+            let str = personalAgentSignUPModal.personalAgentAccountNbr.replacingOccurrences(of: " ", with: "")
             if personalAgentSignUPModal.personalAgentbankName != ""  && personalAgentSignUPModal.personalAgentbankAccountHolderName != ""  && personalAgentSignUPModal.personalAgentAccountNbr != "" && str.count >= personalAgentSignUPModal.personalAgentIBanLength {
-            
-                    cell.editImageView.image = UIImage(named: "section_filled.png")
+                
+                cell.editImageView.image = UIImage(named: "section_filled.png")
                 
             }else{
                 cell.editImageView.image = UIImage(named: "edit_red")
             }
         }else if index.section == 5 {
-             let str = personalAgentSignUPModal.personalAgentVatNumber.replacingOccurrences(of: " ", with: "")
+            let str = personalAgentSignUPModal.personalAgentVatNumber.replacingOccurrences(of: " ", with: "")
             if (isVatYesClicked == true && str.count >= personalAgentSignUPModal.personalVatLength  && personalAgentSignUPModal.personalAgentVatNumber.containArabicNumber && personalAgentSignUPModal.personalVatDocumentUrl != nil)  || isVatNoClicked == true {
                 cell.editImageView.image = UIImage(named: "section_filled.png")
             }else{
@@ -1156,22 +1156,22 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         cell.genderDropDown.text = personalAgentGender
         cell.dobTxtFld.text = signupDobOnlyToDisplay
         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.nameView)
-          ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.genderView)
-          ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.dobView)
+        ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.genderView)
+        ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.dobView)
         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.educationView)
         ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.educationView)
-       
+        
         if cell.nametxtFld.text == ""  {
-                  ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.nameView)
-              }else{
+            ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.nameView)
+        }else{
             if  ModalController.isValidName(title: cell.nametxtFld.text!) == false {
-                 ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.nameView)
+                ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.nameView)
             }else{
                 ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.nameView)
             }
-              }
+        }
         
-       if cell.genderDropDown.text == "" {
+        if cell.genderDropDown.text == "" {
             ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.genderView)
         }else{
             ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.genderView)
@@ -1198,7 +1198,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                 ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.majorView)
             }
         }else{
-             ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.majorView)
+            ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.majorView)
             cell.majorEducationTxtFld.text = ""
         }
         cell.tag = index.row
@@ -1257,7 +1257,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                 cell.rotateView.semanticContentAttribute = .forceLeftToRight
                 cell.mobileCodeTxtFld.semanticContentAttribute = .forceLeftToRight
                 cell.mobileCodeFlagImageView.semanticContentAttribute = .forceLeftToRight
-//                cell.paymentmodeLbl.textAlignment = .left
+                //                cell.paymentmodeLbl.textAlignment = .left
             }
         }
         
@@ -1266,31 +1266,31 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         }else{
             ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.passwordView)
         }
-            
+        
         if personalAgentSignUPModal.personalAgentConfirmPswd != "" && personalAgentSignUPModal.personalAgentConfirmPswd.count >= 8 {
             ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.confirmPasswordView)
         }else{
             ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.confirmPasswordView)
         }
         if personalAgentSignUPModal.personalAgentEmail != "" &&  personalAgentSignUPModal.personalAgentConfirmEmail != ""  {
-        let confirmEmail = personalAgentSignUPModal.personalAgentConfirmEmail.lowercased()
-        let email = personalAgentSignUPModal.personalAgentEmail.lowercased()
-        let companyEmail = ModalController.isValidEmail(testStr: email)
-        let companyConfirmEmail = ModalController.isValidEmail(testStr: confirmEmail)
+            let confirmEmail = personalAgentSignUPModal.personalAgentConfirmEmail.lowercased()
+            let email = personalAgentSignUPModal.personalAgentEmail.lowercased()
+            let companyEmail = ModalController.isValidEmail(testStr: email)
+            let companyConfirmEmail = ModalController.isValidEmail(testStr: confirmEmail)
             
             if  (email ==  confirmEmail) && (companyEmail && companyConfirmEmail) {
                 if let imageView = self.view.viewWithTag(203) as? UIImageView{
                     imageView.isHidden = false
-                     cell.confirmPasswordGreenTickWIdhtConstant.constant = 22
+                    cell.confirmPasswordGreenTickWIdhtConstant.constant = 22
                     cell.confirmTxtFldTrailingConstant.constant = 8
                     imageView.image = UIImage(named:"greenTick")
-                     ModalController.setViewBorderColor(color:#colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.emailView)
-                     ModalController.setViewBorderColor(color:#colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.confirmEmailView)
+                    ModalController.setViewBorderColor(color:#colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.emailView)
+                    ModalController.setViewBorderColor(color:#colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.confirmEmailView)
                 }
             }else{
                 if let imageView = self.view.viewWithTag(203) as? UIImageView{
                     imageView.isHidden = true
-                     cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
+                    cell.confirmPasswordGreenTickWIdhtConstant.constant = 0
                     cell.confirmTxtFldTrailingConstant.constant = 0
                     ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.emailView)
                     ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.confirmEmailView)
@@ -1305,16 +1305,16 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         }
         
         let count  = personalAgentSignUPModal.personalAgentmobileLength
-                let str = cell.mobileTxtFld.text?.replacingOccurrences(of: " ", with: "")
-                if str!.count == count && count != 0 {
-                    ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.mobileNumberView)
-                }else{
-                    ModalController.setViewBorderColor(color: #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.mobileNumberView)
-                }
-           
-            if !cell.mobileTxtFld.text!.containArabicNumber {
-                ModalController.setViewBorderColor(color: #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.mobileNumberView)
-            }
+        let str = cell.mobileTxtFld.text?.replacingOccurrences(of: " ", with: "")
+        if str!.count == count && count != 0 {
+            ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.mobileNumberView)
+        }else{
+            ModalController.setViewBorderColor(color: #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.mobileNumberView)
+        }
+        
+        if !cell.mobileTxtFld.text!.containArabicNumber {
+            ModalController.setViewBorderColor(color: #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.mobileNumberView)
+        }
         
         
         if personalAgentSignUPModal.personalAgentPassword != "" && personalAgentSignUPModal.personalAgentConfirmPswd  != "" {
@@ -1360,7 +1360,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                 ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.cityView)
             }
         }else{
-             ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.cityView)
+            ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.cityView)
             cell.cityBtn.setTitle("", for: .normal)
             personalAgentSignUPModal.personalAgentCityName = ""
             personalAgentSignUPModal.personalAgentCity = ""
@@ -1384,7 +1384,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                 }
             }
         }
-             
+        
         
         
         if ispassword {
@@ -1406,17 +1406,17 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         showButton = cell.hideShowPassword
         showConfirmButton = cell.confirmPasswordMatchBtn
         
-//        if self.isCountryChangeAgain == false {
-//            self.isCountryChangeAgain = true
-//            cell.mobileTxtFld.text = ""
-//            self.mobileNumberWithoutGap = ""
-//            personalAgentSignUPModal.personalAgentContactNbr = ""
-//            ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.mobileNumberView)
-//        }else{
-//            cell.mobileTxtFld.text = personalAgentSignUPModal.personalAgentContactNbr
-//            let str = personalAgentSignUPModal.personalAgentContactNbr.replacingOccurrences(of: " ", with: "")
-//            self.mobileNumberWithoutGap = str
-//        }
+        //        if self.isCountryChangeAgain == false {
+        //            self.isCountryChangeAgain = true
+        //            cell.mobileTxtFld.text = ""
+        //            self.mobileNumberWithoutGap = ""
+        //            personalAgentSignUPModal.personalAgentContactNbr = ""
+        //            ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.mobileNumberView)
+        //        }else{
+        //            cell.mobileTxtFld.text = personalAgentSignUPModal.personalAgentContactNbr
+        //            let str = personalAgentSignUPModal.personalAgentContactNbr.replacingOccurrences(of: " ", with: "")
+        //            self.mobileNumberWithoutGap = str
+        //        }
         
         cell.tag = index.row
         cell.delegate = self
@@ -1437,7 +1437,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         cell.ibanNumberTxtFld.text = ibanPrefix
         cell.accountHolderNameTxtFld.addTarget(self, action: #selector(PersonalRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         cell.ibanNumberTxtFld.addTarget(self, action: #selector(PersonalRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-         cell.ibanNumberTxtFld.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
+        cell.ibanNumberTxtFld.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         
         if self.bankNameIdentifierList?.data?.count ?? 0 > 0 {
             let bankIdentifier  = self.bankNameIdentifierList?.data![0]
@@ -1477,7 +1477,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         cell.deleteDocuementBtn.isHidden = true
         cell.vatDocumentImageView.contentMode = .scaleToFill
         
-         cell.vatNumberTxtFld.text = personalAgentSignUPModal.personalAgentVatNumber
+        cell.vatNumberTxtFld.text = personalAgentSignUPModal.personalAgentVatNumber
         cell.vatNumberTxtFld.addTarget(self, action: #selector(PersonalRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
         if isVatYesClicked {
@@ -1592,10 +1592,10 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         switch  textField.tag {
             
         case 1000:
-              let allowedCharecter = CharacterSet.letters
-                      let characterSet = CharacterSet(charactersIn: string)
-                      let allowedCharacter1 = CharacterSet.whitespaces
-                      return allowedCharecter.isSuperset(of: characterSet) || allowedCharacter1.isSuperset(of: characterSet)
+            let allowedCharecter = CharacterSet.letters
+            let characterSet = CharacterSet(charactersIn: string)
+            let allowedCharacter1 = CharacterSet.whitespaces
+            return allowedCharecter.isSuperset(of: characterSet) || allowedCharacter1.isSuperset(of: characterSet)
             
         case 1003:
             var lenght  = 2
@@ -1603,10 +1603,10 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
             let str = cell.mobileTxtFld.text
             
             if personalAgentSignUPModal.personalAgentmobileLength == 0 {
-                  ModalController.showNegativeCustomAlertWith(title: "please select country code first.", msg: "")
-               return false
+                ModalController.showNegativeCustomAlertWith(title: "please select country code first.", msg: "")
+                return false
             }
-
+            
             lenght = personalAgentSignUPModal.personalAgentmobileLength
             guard let stringRange = Range(range,in: str!) else {
                 return false
@@ -1662,41 +1662,41 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
             return true
             
         case 1009:
-              let allowedCharecter = CharacterSet.letters
-              let characterSet = CharacterSet(charactersIn: string)
-              let allowedCharacter1 = CharacterSet.whitespaces
+            let allowedCharecter = CharacterSet.letters
+            let characterSet = CharacterSet(charactersIn: string)
+            let allowedCharacter1 = CharacterSet.whitespaces
             return allowedCharecter.isSuperset(of: characterSet) || allowedCharacter1.isSuperset(of: characterSet)
             
         case 1010:
             var textstr = ""
-              var lenght = 4
-                 if personalAgentSignUPModal.personalAgentIBanLength > 0 {
-                     lenght = personalAgentSignUPModal.personalAgentIBanLength
-                 }
-                 
-                 let   cell = tabView.cellForRow(at: IndexPath(row:1 , section: 4)) as! CompanyAgentBankDetailsTableViewCell
-                 
-                 // fixed SA
-                 if let text = textField.text as NSString? {
-                     let txtAfterUpdate = text.replacingCharacters(in: range, with: string)
-                     textstr = txtAfterUpdate
-                 }
-                
-                 personalAgentSignUPModal.personalAgentAccountNbr = textstr
-                 
-                 // block enter char after 24
-                 let str = cell.ibanNumberTxtFld.text
-                 
-                 guard let stringRange = Range(range,in: str!) else {
-                     return false
-                 }
-                 print(stringRange)
-                 print(str as Any)
-                 let updateText =  str!.replacingCharacters(in: stringRange, with: string)
-                 
-                 ibanPrefix = textstr
-                 personalAgentSignUPModal.personalAgentAccountNbr = textstr
-                 return (updateText.count) < lenght+1
+            var lenght = 4
+            if personalAgentSignUPModal.personalAgentIBanLength > 0 {
+                lenght = personalAgentSignUPModal.personalAgentIBanLength
+            }
+            
+            let   cell = tabView.cellForRow(at: IndexPath(row:1 , section: 4)) as! CompanyAgentBankDetailsTableViewCell
+            
+            // fixed SA
+            if let text = textField.text as NSString? {
+                let txtAfterUpdate = text.replacingCharacters(in: range, with: string)
+                textstr = txtAfterUpdate
+            }
+            
+            personalAgentSignUPModal.personalAgentAccountNbr = textstr
+            
+            // block enter char after 24
+            let str = cell.ibanNumberTxtFld.text
+            
+            guard let stringRange = Range(range,in: str!) else {
+                return false
+            }
+            print(stringRange)
+            print(str as Any)
+            let updateText =  str!.replacingCharacters(in: stringRange, with: string)
+            
+            ibanPrefix = textstr
+            personalAgentSignUPModal.personalAgentAccountNbr = textstr
+            return (updateText.count) < lenght+1
             
         case 1011:
             let lenght  = self.personalAgentSignUPModal.personalVatLength
@@ -1752,8 +1752,8 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
             self.tabView.reloadRows(at: [IndexPath(row: 0, section: 2)], with: .none)
         }
         if  personalAgentSignUPModal.personalAgentEmail != "" && personalAgentSignUPModal.personalAgentConfirmEmail != "" &&
-            personalAgentSignUPModal.personalAgentCountry != ""  && personalAgentSignUPModal.personalAgentCity != "" && personalAgentSignUPModal.personalAgentContactNbr != "" &&
-            personalAgentSignUPModal.personalAgentPassword != "" && personalAgentSignUPModal.personalAgentConfirmPswd != "" {
+                personalAgentSignUPModal.personalAgentCountry != ""  && personalAgentSignUPModal.personalAgentCity != "" && personalAgentSignUPModal.personalAgentContactNbr != "" &&
+                personalAgentSignUPModal.personalAgentPassword != "" && personalAgentSignUPModal.personalAgentConfirmPswd != "" {
             self.tabView.reloadRows(at: [IndexPath(row: 0, section: 3)], with: .none)
             
         }else{
@@ -1765,11 +1765,11 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         }else{
             self.tabView.reloadRows(at: [IndexPath(row: 0, section: 4)], with: .none)
         }
-    }    
+    }
     @objc func textFieldDidChange(_ textField: UITextField) {
         
         switch  textField.tag {
-        
+            
         case 1000:
             let   cell = tabView.cellForRow(at: IndexPath(row:1 , section: 2)) as! agentPersonalDetailsTableViewCell
             if ModalController.isValidName(title: textField.text!) == false {
@@ -1839,8 +1839,8 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                     ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.confirmEmailView)
                 }
             }
-        //            personalAgentSignUPModal.personalAgentEmail = textField.text!
-        
+            //            personalAgentSignUPModal.personalAgentEmail = textField.text!
+            
         case 1002:
             let   cell = tabView.cellForRow(at: IndexPath(row:1 , section: 3)) as! PersonalAgentBasicInformationTableViewCell
             personalAgentSignUPModal.personalAgentConfirmEmail = textField.text!.lowercased()
@@ -1888,7 +1888,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                     ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.confirmEmailView)
                 }
             }
-        //            personalAgentSignUPModal.personalAgentConfirmEmail = textField.text!
+            //            personalAgentSignUPModal.personalAgentConfirmEmail = textField.text!
         case 1003:
             let   cell = tabView.cellForRow(at: IndexPath(row:1 , section: 3)) as! PersonalAgentBasicInformationTableViewCell
             
@@ -1923,7 +1923,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
             personalAgentSignUPModal.personalmobileCodeImage = textField.text!
             mobileNumberWithoutGap = str!
             
-        //            }
+            //            }
         case 1005:
             
             let   cell = tabView.cellForRow(at: IndexPath(row:1 , section: 3)) as! PersonalAgentBasicInformationTableViewCell
@@ -2029,6 +2029,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
             
             
         case 1010:
+            
             let   cell = tabView.cellForRow(at: IndexPath(row:1 , section: 4)) as! CompanyAgentBankDetailsTableViewCell
             
             let str = cell.ibanNumberTxtFld.text!.uppercased()
@@ -2132,12 +2133,12 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
     
     @objc func handleTextChange(_ textField: UITextField) {
         if textField.text!.count < 2 {
-      textField.keyboardType = .asciiCapable
-      textField.reloadInputViews() // need to reload the input view for this to work
-    } else if textField.text!.count > 2 || textField.text!.count == 2 {
-      textField.keyboardType = .asciiCapableNumberPad
-      textField.reloadInputViews()
+            textField.keyboardType = .asciiCapable
+            textField.reloadInputViews() // need to reload the input view for this to work
+        } else if textField.text!.count > 2 || textField.text!.count == 2 {
+            textField.keyboardType = .asciiCapableNumberPad
+            textField.reloadInputViews()
+        }
     }
-    }
-
+    
 }
