@@ -174,6 +174,7 @@ class Constant: NSObject {
     static let City_List : String = "common/getCity/";
     static let Bank_List : String = "businessapi/v2/bank_list/";
     static let Education_List : String = "businessapi/v3/education_list/";
+    static let Major_Education_List : String = "businessapi/v3/major_list/";
     static let Service_List : String = "agentapi/v1/agentservices/";
   
 //         static var BASE_URL : String = "http://61.95.220.248:9092/"

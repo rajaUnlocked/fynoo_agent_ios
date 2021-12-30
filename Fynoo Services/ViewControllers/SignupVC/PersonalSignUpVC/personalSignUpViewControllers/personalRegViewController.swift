@@ -487,10 +487,10 @@ func uploadProfileImagesAPI(){
     }
     func agentMajorEductionClicked(_ sender: Any){
         let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
-        if self.selectedAgentEducationDict.count == 0 {
-            ModalController.showNegativeCustomAlertWith(title: "Please select education first".localized, msg: "")
-            return
-        }
+//        if self.selectedAgentEducationDict.count == 0 {
+//            ModalController.showNegativeCustomAlertWith(title: "Please select education first".localized, msg: "")
+//            return
+//        }
         vc.delegate = self
         vc.isForMajorEducationList = true
         vc.selectedOLDCountryDict = self.selectedAgentEducationDict
@@ -544,7 +544,7 @@ func uploadProfileImagesAPI(){
         func selectedEducationMethod(educationDict: NSMutableDictionary) {
             if self.selectedAgentEducationDict != educationDict {
             self.selectedAgentMajorEducationDict.removeAllObjects()
-            self.personalAgentSignUPModal.personalAgentMajorEducation = ""
+            //self.personalAgentSignUPModal.personalAgentMajorEducation = ""
             if let value =  selectedAgentEducationDict.object(forKey: "education_id") as? Int{
             personalAgentSignUPModal.personalAgentEducation = "\(value)"
               }
