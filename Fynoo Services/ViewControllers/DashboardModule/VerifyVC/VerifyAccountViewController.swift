@@ -124,8 +124,8 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
         otp.font = UIFont(name:"\(fontNameLight)",size:12)
         counterrText.font = UIFont(name:"\(fontNameLight)",size:12)
         resendOtp.titleLabel?.font=UIFont(name:"\(fontNameLight)",size:12)
-//        resendOtps()
-        
+       
+        resendOtps()
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
