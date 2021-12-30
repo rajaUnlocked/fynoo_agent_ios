@@ -548,7 +548,7 @@ func uploadProfileImagesAPI(){
 
         func selectedEducationMethod(educationDict: NSMutableDictionary) {
             if self.selectedAgentEducationDict != educationDict {
-            self.selectedAgentMajorEducationDict.removeAllObjects()
+            //self.selectedAgentMajorEducationDict.removeAllObjects()
             //self.personalAgentSignUPModal.personalAgentMajorEducation = ""
             if let value =  selectedAgentEducationDict.object(forKey: "education_id") as? Int{
             personalAgentSignUPModal.personalAgentEducation = "\(value)"
