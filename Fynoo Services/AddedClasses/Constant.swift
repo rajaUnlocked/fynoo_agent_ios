@@ -182,10 +182,13 @@ class Constant: NSObject {
     //static var BASE_URL : String = "https://dev.fynoo.com:8001/"
 
     //static var BASE_URL : String = "https://dev.fynoo.com/"   //live
+
      static var BASE_URL : String = "http://uat.sendan.com.sa:9003/"  // dev
-   // static var BASE_URL : String = "https://www.fynoo.com/"   //live
-   
-    
+    //static var BASE_URL : String = "https://www.fynoo.com/"   //live
+    // MARK: - Invoices
+    static let invoiceApi : String = "invoice/invoice_list/";
+    static let invoiceDownloadApi : String = "invoice/download_invoice/";
+    static let viewinvoiceDC : String = "invoice/print_debit_credit_notes/"
     //      static var BASE_URL : String = "http://43.241.61.141:9003/"
     //  static var BASE_URL : String = "http://43.241.61.141:9005/"
     static let privacy_url : String = "customer/privacy_policy/";
