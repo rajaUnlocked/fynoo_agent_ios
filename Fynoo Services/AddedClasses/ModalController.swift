@@ -565,7 +565,16 @@ static func isStringValid(_ str: String?) -> Bool {
                return false
            }
       }
-    
+    static func isValidNameDocs(title:String)->Bool{
+        let  Regex = "[a-z A-Z]+"
+           let predicate = NSPredicate.init(format: "SELF MATCHES %@", Regex)
+
+           if predicate.evaluate(with: title) || title == "" {
+               return true
+           }else{
+               return false
+           }
+      }
     static func isValidNameWithEnglishNumber(title:String)->Bool{
          var  Regex = "[a-z A-Z 0-9 ء-ي]+"
          let predicate = NSPredicate.init(format: "SELF MATCHES %@", Regex)
