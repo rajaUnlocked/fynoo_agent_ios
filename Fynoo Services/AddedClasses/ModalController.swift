@@ -142,6 +142,7 @@ class ModalController: NSObject {
     }
     
     static func isValidIBAN(ibanStr: String, length: Int, countryType : String) -> Bool {
+        
     let str1 = ibanStr
     if str1.count > 2 {
     let result = String(str1.prefix(2))
@@ -565,7 +566,16 @@ static func isStringValid(_ str: String?) -> Bool {
                return false
            }
       }
-    
+    static func isValidNameDocs(title:String)->Bool{
+        let  Regex = "[a-z A-Z]+"
+           let predicate = NSPredicate.init(format: "SELF MATCHES %@", Regex)
+
+           if predicate.evaluate(with: title) || title == "" {
+               return true
+           }else{
+               return false
+           }
+      }
     static func isValidNameWithEnglishNumber(title:String)->Bool{
          var  Regex = "[a-z A-Z 0-9 ء-ي]+"
          let predicate = NSPredicate.init(format: "SELF MATCHES %@", Regex)

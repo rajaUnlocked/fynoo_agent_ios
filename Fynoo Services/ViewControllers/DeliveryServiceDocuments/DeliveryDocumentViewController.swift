@@ -438,9 +438,14 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             
            if row == 1
            {
-            if !ModalController.isValidName(title: textstr)
+//            if !ModalController.isValidNameDocs(title: textstr)
+//            {
+//             return false
+//            }
+            
+            if !textstr.containArabicNumber
             {
-             return false
+              return false
             }
             if textstr.count > 0
                        {

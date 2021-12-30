@@ -174,6 +174,7 @@ class Constant: NSObject {
     static let City_List : String = "common/getCity/";
     static let Bank_List : String = "businessapi/v2/bank_list/";
     static let Education_List : String = "businessapi/v3/education_list/";
+    static let Major_Education_List : String = "businessapi/v3/major_list/";
     static let Service_List : String = "agentapi/v1/agentservices/";
   
 //         static var BASE_URL : String = "http://61.95.220.248:9092/"
@@ -181,8 +182,8 @@ class Constant: NSObject {
     //static var BASE_URL : String = "https://dev.fynoo.com:8001/"
 
     //static var BASE_URL : String = "https://dev.fynoo.com/"   //live
-//     static var BASE_URL : String = "http://uat.sendan.com.sa:9003/"  // dev
-    static var BASE_URL : String = "https://www.fynoo.com/"   //live
+     static var BASE_URL : String = "http://uat.sendan.com.sa:9003/"  // dev
+   // static var BASE_URL : String = "https://www.fynoo.com/"   //live
    
     
     //      static var BASE_URL : String = "http://43.241.61.141:9003/"

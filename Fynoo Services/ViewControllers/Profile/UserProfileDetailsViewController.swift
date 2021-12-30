@@ -454,10 +454,10 @@ extension UserProfileDetailsViewController : UITableViewDelegate {
                 
                 if indexPath.row == 4{
                     let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
-                    if self.selectedEducation.count == 0 {
-                        ModalController.showNegativeCustomAlertWith(title: "Please select education first".localized, msg: "")
-                        return
-                    }
+//                    if self.selectedEducation.count == 0 {
+//                        ModalController.showNegativeCustomAlertWith(title: "Please select education first".localized, msg: "")
+//                        return
+//                    }
                     vc.delegate = self
                     vc.isForMajorEducationList = true
                     vc.selectedOLDCountryDict = self.selectedEducation
@@ -1284,7 +1284,7 @@ extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
         selectedEducation = educationDict
         agentInfo.education = educationDict.object(forKey: "education_type") as! String
         agentInfo.educationId = educationDict.object(forKey: "education_id") as! Int
-        agentInfo.major = ""
+       // agentInfo.major = ""
         tableVw.reloadData()
         
         

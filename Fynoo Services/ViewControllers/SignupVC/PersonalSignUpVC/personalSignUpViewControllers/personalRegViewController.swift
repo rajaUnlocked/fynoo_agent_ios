@@ -254,8 +254,9 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
                 self.agentIbanInfoDatas = response
                 self.personalAgentSignUPModal.personalAgentIBanLength = self.agentIbanInfoDatas?.data?.bank_number_length ?? 0
             }else{
-                ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.agentIbanInfoDatas?.error_description! ?? "")")
                 
+                self.ibanPrefix = ""
+                self.tabView.reloadData()
             }
         }
     }
@@ -270,6 +271,7 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
         ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
             let ResponseDict : NSDictionary = (response as? NSDictionary)!
             ModalClass.stopLoading()
+            
             if success == true {
                 self.bankNameIdentifierList = try! JSONDecoder().decode(bankIdentifier_list.self, from: resp as! Data )
                 if self.bankNameIdentifierList!.error! {
@@ -300,11 +302,14 @@ class PersonalRegViewController: UIViewController,UIImagePickerControllerDelegat
                     //                    self.tabView.reloadRows(at: [IndexPath(row: 1, section: 3)], with: .none)
                 }
             }else{
+
                 if response == nil
                 {
                     print ("connection error")
                     ModalController.showNegativeCustomAlertWith(title: "Connection Error".localized, msg: "")
                 }else{
+//                    self.ibanPrefix = ""
+//                    self.tabView.reloadData()
                     print ("data not in proper json")
                 }
             }
@@ -487,10 +492,10 @@ func uploadProfileImagesAPI(){
     }
     func agentMajorEductionClicked(_ sender: Any){
         let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
-        if self.selectedAgentEducationDict.count == 0 {
-            ModalController.showNegativeCustomAlertWith(title: "Please select education first".localized, msg: "")
-            return
-        }
+//        if self.selectedAgentEducationDict.count == 0 {
+//            ModalController.showNegativeCustomAlertWith(title: "Please select education first".localized, msg: "")
+//            return
+//        }
         vc.delegate = self
         vc.isForMajorEducationList = true
         vc.selectedOLDCountryDict = self.selectedAgentEducationDict
@@ -543,8 +548,8 @@ func uploadProfileImagesAPI(){
 
         func selectedEducationMethod(educationDict: NSMutableDictionary) {
             if self.selectedAgentEducationDict != educationDict {
-            self.selectedAgentMajorEducationDict.removeAllObjects()
-            self.personalAgentSignUPModal.personalAgentMajorEducation = ""
+            //self.selectedAgentMajorEducationDict.removeAllObjects()
+            //self.personalAgentSignUPModal.personalAgentMajorEducation = ""
             if let value =  selectedAgentEducationDict.object(forKey: "education_id") as? Int{
             personalAgentSignUPModal.personalAgentEducation = "\(value)"
               }
@@ -686,9 +691,10 @@ func showHideConfirmPassword(_ sender: Any){
     }
            
     func AgentselectNoOnVat(_ sender: Any) {
+        
         isFromVatDocument = false
         self.personalAgentSignUPModal.personalVatDocumentUrl = nil
-        
+        self.personalAgentSignUPModal.personalAgentVatNumber = ""
         if(isVatNoClicked){
             isVatNoClicked = false
         }else{
@@ -1378,6 +1384,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         }
         cell.maroofTxtFld.text = maroofLink
         cell.passwordTxtFld.text = personalAgentSignUPModal.personalAgentPassword
+        
         cell.confirmPasswordTxtFld.text = personalAgentSignUPModal.personalAgentConfirmPswd
         
         if self.selectedCountryCodeDict.count > 0 {
@@ -1448,6 +1455,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         cell.ibanNumberTxtFld.text = ibanPrefix
         cell.accountHolderNameTxtFld.addTarget(self, action: #selector(PersonalRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         cell.ibanNumberTxtFld.addTarget(self, action: #selector(PersonalRegViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        cell.ibanNumberTxtFld.keyboardType = .asciiCapable
          cell.ibanNumberTxtFld.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         
         if self.bankNameIdentifierList?.data?.count ?? 0 > 0 {
@@ -1662,6 +1670,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
             return true
             
         case 1007:
+          
             var letters = string.map { String($0) }
             for i in 0..<string.count{
                 
@@ -1950,7 +1959,6 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         case 1006:
             let   cell = tabView.cellForRow(at: IndexPath(row:1 , section: 3)) as! PersonalAgentBasicInformationTableViewCell
             personalAgentSignUPModal.personalAgentPassword = textField.text!
-            
             if  personalAgentSignUPModal.personalAgentPassword != "" && personalAgentSignUPModal.personalAgentConfirmPswd  != "" {
                 if (personalAgentSignUPModal.personalAgentPassword == personalAgentSignUPModal.personalAgentConfirmPswd) && (personalAgentSignUPModal.personalAgentPassword.count >= 8 && personalAgentSignUPModal.personalAgentConfirmPswd.count  >= 8) && cell.passwordTxtFld.text!.containArabicNumber   {
                     ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.passwordView)
@@ -1988,7 +1996,10 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
             // confirm
             let   cell = tabView.cellForRow(at: IndexPath(row:1 , section: 3)) as! PersonalAgentBasicInformationTableViewCell
             personalAgentSignUPModal.personalAgentConfirmPswd = textField.text!
-            
+            if textField.text! == " "
+            {
+                
+            }
             if  personalAgentSignUPModal.personalAgentPassword != "" && personalAgentSignUPModal.personalAgentConfirmPswd  != "" {
                 if (personalAgentSignUPModal.personalAgentPassword == personalAgentSignUPModal.personalAgentConfirmPswd) && (personalAgentSignUPModal.personalAgentPassword.count >= 8 && personalAgentSignUPModal.personalAgentConfirmPswd.count  >= 8) && cell.confirmPasswordTxtFld.text!.containArabicNumber {
                     ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.passwordView)
@@ -2042,6 +2053,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
             
             
         case 1010:
+            
             let   cell = tabView.cellForRow(at: IndexPath(row:1 , section: 4)) as! CompanyAgentBankDetailsTableViewCell
             
             let str = cell.ibanNumberTxtFld.text!.uppercased()
@@ -2142,7 +2154,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
         }
         
     }
-    
+   
     @objc func handleTextChange(_ textField: UITextField) {
         if textField.text!.count < 2 {
       textField.keyboardType = .asciiCapable

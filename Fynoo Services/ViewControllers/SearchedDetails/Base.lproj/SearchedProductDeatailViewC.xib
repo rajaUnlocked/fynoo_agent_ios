@@ -357,13 +357,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size : 177 cm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwl-g9-rnN">
-                                            <rect key="frame" x="2" y="9" width="56" height="12"/>
+                                            <rect key="frame" x="9" y="9" width="56" height="12"/>
                                             <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dd2-fk-VY5">
-                                            <rect key="frame" x="59" y="6.5" width="5.5" height="12"/>
+                                            <rect key="frame" x="66" y="6.5" width="5.5" height="12"/>
                                             <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -373,7 +373,7 @@
                                     <constraints>
                                         <constraint firstItem="K2L-lE-4fE" firstAttribute="centerY" secondItem="2E9-YC-2zq" secondAttribute="centerY" id="9HC-Ij-ufm"/>
                                         <constraint firstItem="K2L-lE-4fE" firstAttribute="leading" secondItem="2E9-YC-2zq" secondAttribute="leading" id="Oay-kI-Dkj"/>
-                                        <constraint firstItem="nwl-g9-rnN" firstAttribute="leading" secondItem="K2L-lE-4fE" secondAttribute="trailing" id="cF2-B1-yh8"/>
+                                        <constraint firstItem="nwl-g9-rnN" firstAttribute="leading" secondItem="K2L-lE-4fE" secondAttribute="trailing" constant="7" id="cF2-B1-yh8"/>
                                         <constraint firstItem="nwl-g9-rnN" firstAttribute="centerY" secondItem="2E9-YC-2zq" secondAttribute="centerY" id="dyB-Ir-PIh"/>
                                         <constraint firstItem="dd2-fk-VY5" firstAttribute="leading" secondItem="nwl-g9-rnN" secondAttribute="trailing" constant="1" id="s6t-gf-iJ3"/>
                                         <constraint firstItem="dd2-fk-VY5" firstAttribute="centerY" secondItem="nwl-g9-rnN" secondAttribute="centerY" constant="-2.5" id="vQn-Vw-RRH"/>
