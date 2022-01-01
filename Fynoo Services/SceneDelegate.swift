@@ -42,8 +42,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
 
-     let vc = BasedUrlViewController(nibName: "BasedUrlViewController", bundle: nil)
-//     let vc = SplashAnimatedViewController(nibName: "SplashAnimatedViewController", bundle: nil)
+    // let vc = BasedUrlViewController(nibName: "BasedUrlViewController", bundle: nil)
+    let vc = SplashAnimatedViewController(nibName: "SplashAnimatedViewController", bundle: nil)
         nav = UINavigationController.init(rootViewController: vc)
         IQKeyboardManager.shared.enable = true
         nav.interactivePopGestureRecognizer?.isEnabled = true
