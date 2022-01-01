@@ -7804,7 +7804,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.1;
-				DEVELOPMENT_TEAM = 94V2SEBR29;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Fynoo Services/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
