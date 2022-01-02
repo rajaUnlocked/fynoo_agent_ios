@@ -201,29 +201,30 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: - TableView Cells Return
     func profileCell(index : IndexPath) -> UITableViewCell {
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "SideMenuTableViewCell",for: index) as! SideMenuTableViewCell
+        cell.leadingConst.constant = 38
         cell.selectionStyle = .none
         cell.arrowImage.isHidden = true
         if index.section == 0{
             cell.cellTextLbl.text = "\(cellTextArray[index.row])"
         }
-        else if index.section == 1 {
-//            if index.row != 0
-//            {
-//                cell.arrowImage.image = image
-//                cell.leadingConst.constant = 40
-//            }
-//            else{
-//                cell.arrowImage.image = (isOpen ? UIImage(named: "downarrownew"):UIImage(named: "DownArror_new"))
-//                cell.leadingConst.constant = 20
-            cell.cellTextLbl.text = "\(cellTextArray1[index.row])"
+
+         else if index.section == 1 {
+            if index.row != 0
+            {
+               // cell.arrowImage.image = image
+                cell.leadingConst.constant = 48
+            }
+            else{
+                cell.arrowImage.isHidden = false
+                cell.arrowImage.image = (isOpen ? UIImage(named: "up-arrow-3"):UIImage(named: "down-arrow-2"))
+                cell.leadingConst.constant = 38
+        }
+             cell.cellTextLbl.text = "\(cellTextArray1[index.row])"
         }
         else{
             cell.cellTextLbl.text = "\(cellTextArray2[index.row])"
         }
-        if index.section == 1 && index.row == 0 {
-            cell.arrowImage.isHidden = false
-        }
-//        cell.cellTextLbl.text = "\(cellTextArray[index.row])"
+       
         return cell
     }
     
