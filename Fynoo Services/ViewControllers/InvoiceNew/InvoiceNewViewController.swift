@@ -184,7 +184,9 @@ class InvoiceNewViewController: UIViewController {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1{
-            invoiceDownload(index: indexPath.row)
+            if totalRequestListArray?[indexPath.row].txnEntryType == 1{
+                invoiceDownload(index: indexPath.row)
+            }
         }
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
@@ -471,6 +473,9 @@ extension InvoiceNewViewController : UITableViewDataSource{
                     let cell = tableView.dequeueReusableCell(withIdentifier: "WalletNewSimpleTableViewCell", for: indexPath) as! WalletNewSimpleTableViewCell
                     cell.walletIcon.isHidden = true
                     cell.holdingLbl.isHidden = true
+                if totalRequestListArray?[indexPath.row].txnEntryType == 1{
+                    cell.underline.isHidden = false
+                }
                     let requestData = totalRequestListArray?[indexPath.row]
                     cell.titleLbl.text = requestData?.txnRemarks ?? ""
                     cell.orderIdLbl.text = "\(requestData?.txnTransID ?? "") | \(requestData?.txnDate ?? "")"
