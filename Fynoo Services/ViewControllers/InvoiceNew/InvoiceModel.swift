@@ -47,6 +47,7 @@ struct TxnList: Codable {
     let txnDate, txnRejectDate, txnTransferredDate, txnStatus: String
     let txnDRCRFlag: String
     let txnType: String
+    let txnSellerId: String
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -67,6 +68,7 @@ struct TxnList: Codable {
         case txnStatus = "txn_status"
         case txnDRCRFlag = "txn_dr_cr_flag"
         case txnType = "txn_type"
+        case txnSellerId = "txn_seller_id"
     }
 }
 

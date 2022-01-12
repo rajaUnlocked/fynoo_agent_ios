@@ -67,6 +67,7 @@ class InvoiceNewViewController: UIViewController {
         let invoce = totalRequestListArray?[index].txnInvoiceFor
         let fyid = totalRequestListArray?[index].txnTransID
         let orderid = totalRequestListArray?[index].txnOrderID
+        let sellerid = totalRequestListArray?[index].txnSellerId
         var str: String = ""
         var noteType: Int = 0
         var parameters : Dictionary<String,Any> = [:]
@@ -86,6 +87,7 @@ class InvoiceNewViewController: UIViewController {
                 "order_id": orderid ?? "",
                 "invoice_for": invoce ?? "",
                 "fynoo_id": fyid ?? "",
+                "seller_id": sellerid ?? "",
                 "lang_code":HeaderHeightSingleton.shared.LanguageSelected
             ] as [String : Any]
         }
