@@ -475,6 +475,10 @@ extension BankAllListViewController : UITableViewDataSource{
                    let orderIds = "\((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_order_id") as! String)"
                     cell.transactionLbl.text = orderIds
                     cell.underline.isHidden = false
+                    if (self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_entry_type") as! Int != 1
+                     {
+                        cell.underline.isHidden = true
+                    }
                     
                     cell.orderIdLbl.text = "\((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_trans_id") as! String) |  \((self.transactionListArray.object(at: indexPath.row) as! NSDictionary).object(forKey: "txn_date") as! String)"
                     
@@ -631,12 +635,14 @@ extension BankAllListViewController : UITableViewDataSource{
         let invoce = (self.transactionListArray.object(at: sender.tag) as! NSDictionary).object(forKey: "txn_invoice_for") as! Int
         let fyid = (self.transactionListArray.object(at: sender.tag) as! NSDictionary).object(forKey: "fynoo_id") as! String
         let orderid = (self.transactionListArray.object(at: sender.tag) as! NSDictionary).object(forKey: "txn_order_id") as! String
+        let sellerid = (self.transactionListArray.object(at: sender.tag) as! NSDictionary).object(forKey: "txn_seller_id") as! String
         ModalClass.startLoading(self.view)
         let str = "\(Constant.BASE_URL)\(Constant.viewinvoice)"
         let parameters = [
             "order_id": orderid,
             "invoice_for": invoce,
             "fynoo_id": fyid,
+            "seller_id":sellerid,
             "lang_code":HeaderHeightSingleton.shared.LanguageSelected
         ] as [String : Any]
         print("request -",parameters)
