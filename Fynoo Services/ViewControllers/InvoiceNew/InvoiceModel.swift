@@ -41,11 +41,13 @@ struct TxnList: Codable {
     let fynooID: String
     let txnTransID, txnOrderID: String
     let txnInvoiceFor: Int
+    let txnEntryType: Int
     let txnCurrency: String
     let txnAmount, txnRemarks, txnRejectionReason, txnTransferNote: String
     let txnDate, txnRejectDate, txnTransferredDate, txnStatus: String
     let txnDRCRFlag: String
     let txnType: String
+    let txnSellerId: String
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -54,6 +56,7 @@ struct TxnList: Codable {
         case txnTransID = "txn_trans_id"
         case txnOrderID = "txn_order_id"
         case txnInvoiceFor = "txn_invoice_for"
+        case txnEntryType = "txn_entry_type"
         case txnCurrency = "txn_currency"
         case txnAmount = "txn_amount"
         case txnRemarks = "txn_remarks"
@@ -65,6 +68,7 @@ struct TxnList: Codable {
         case txnStatus = "txn_status"
         case txnDRCRFlag = "txn_dr_cr_flag"
         case txnType = "txn_type"
+        case txnSellerId = "txn_seller_id"
     }
 }
 
