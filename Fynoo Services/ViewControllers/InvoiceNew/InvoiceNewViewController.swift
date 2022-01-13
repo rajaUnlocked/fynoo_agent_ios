@@ -67,6 +67,7 @@ class InvoiceNewViewController: UIViewController {
         let invoce = totalRequestListArray?[index].txnInvoiceFor
         let fyid = totalRequestListArray?[index].txnTransID
         let orderid = totalRequestListArray?[index].txnOrderID
+        let sellerid = totalRequestListArray?[index].txnSellerId
         var str: String = ""
         var noteType: Int = 0
         var parameters : Dictionary<String,Any> = [:]
@@ -86,6 +87,7 @@ class InvoiceNewViewController: UIViewController {
                 "order_id": orderid ?? "",
                 "invoice_for": invoce ?? "",
                 "fynoo_id": fyid ?? "",
+                "seller_id": sellerid ?? "",
                 "lang_code":HeaderHeightSingleton.shared.LanguageSelected
             ] as [String : Any]
         }
@@ -184,7 +186,9 @@ class InvoiceNewViewController: UIViewController {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1{
-            invoiceDownload(index: indexPath.row)
+            if totalRequestListArray?[indexPath.row].txnEntryType == 1{
+                invoiceDownload(index: indexPath.row)
+            }
         }
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
@@ -471,6 +475,9 @@ extension InvoiceNewViewController : UITableViewDataSource{
                     let cell = tableView.dequeueReusableCell(withIdentifier: "WalletNewSimpleTableViewCell", for: indexPath) as! WalletNewSimpleTableViewCell
                     cell.walletIcon.isHidden = true
                     cell.holdingLbl.isHidden = true
+                if totalRequestListArray?[indexPath.row].txnEntryType == 1{
+                    cell.underline.isHidden = false
+                }
                     let requestData = totalRequestListArray?[indexPath.row]
                     cell.titleLbl.text = requestData?.txnRemarks ?? ""
                     cell.orderIdLbl.text = "\(requestData?.txnTransID ?? "") | \(requestData?.txnDate ?? "")"
