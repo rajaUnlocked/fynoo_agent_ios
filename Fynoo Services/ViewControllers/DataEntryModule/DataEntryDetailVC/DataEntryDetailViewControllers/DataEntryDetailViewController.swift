@@ -100,7 +100,7 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
             ModalClass.stopLoading()
             if success{
                 self.serviceDetailData = response
-                
+               
                 if  self.serviceDetailData?.data?.work_place == 2 {
                     
                     self.BranchLat = ModalController.convertInToDouble(str: self.serviceDetailData?.data?.branch_lat as AnyObject)

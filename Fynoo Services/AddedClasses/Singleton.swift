@@ -15,10 +15,10 @@ class Singleton {
     var userProfileImageStr:String = ""
     var selectedTab:Int = 1
     var delServiceID:String = ""
-    
     static let shared = Singleton()
     private init(){}
     
+  
     func getUserId() -> String{
         return UserId;
     }
