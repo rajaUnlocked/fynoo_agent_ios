@@ -9,7 +9,6 @@
 import UIKit
 
 class DataEntryTypelistingViewController: UIViewController {
-    
     @IBOutlet weak var customHeader: NavigationView!
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchVw: UIView!
@@ -25,7 +24,7 @@ class DataEntryTypelistingViewController: UIViewController {
     var apiManagerModal = DataEntryApiManager()
     var serviceTypeList  : ServiceTypeData?
     var searchBoxEntryText:String = ""
-    
+  
     override func viewDidLoad() {
         ModalController.watermark(self.view)
         super.viewDidLoad()
@@ -187,6 +186,10 @@ extension DataEntryTypelistingViewController : UITableViewDataSource {
                 let vc = CreateBranchFirstStepViewController(nibName: "CreateBranchFirstStepViewController", bundle: nil)
                 Singleton.shared.setBoId(BoId: self.boID)
                 vc.serviceid = "\(typeData?.form_id ?? 0 )"
+                vc.boemail = serviceTypeList?.data?.bo_email ?? ""
+                vc.bonumber = serviceTypeList?.data?.bo_number ?? ""
+                vc.bonumbercode = serviceTypeList?.data?.bo_mob_code ?? ""
+                vc.flagimg = serviceTypeList?.data?.country_flag ?? ""
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }

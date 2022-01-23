@@ -32,7 +32,12 @@ class TypeDatas : Mappable {
     var data_entry_lines : [Data_lines]?
     var bo_id : Int?
     var agent_id : Int?
-
+    var bo_email : String?
+    var bo_mob_code : String?
+    var bo_name : String?
+    var bo_number : String?
+    var country_flag : String?
+  
     required init?(map: Map) {}
     
     func mapping(map: Map) {
@@ -40,6 +45,12 @@ class TypeDatas : Mappable {
      data_entry_lines <- map["data_entry_lines"]
       bo_id <- map["bo_id"]
       agent_id <- map["agent_id"]
+        bo_email <- map["bo_email"]
+        bo_mob_code <- map["bo_mob_code"]
+        bo_name <- map["bo_name"]
+        bo_number <- map["bo_number"]
+        country_flag <- map["country_flag"]
+      
         
     }
 }
