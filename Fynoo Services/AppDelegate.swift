@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var longitudeStr = Double()
     var locationManager: CLLocationManager!
 //    var agentSignUPModal = AgentSignUPModal()
-//     var personalAgentSignUPModal = PersonalAgentSignUPModal()
+//    var personalAgentSignUPModal = PersonalAgentSignUPModal()
      var selectServiceStr:String = ""
 
     let gcmMessageIDKey = "gcm.message_id"

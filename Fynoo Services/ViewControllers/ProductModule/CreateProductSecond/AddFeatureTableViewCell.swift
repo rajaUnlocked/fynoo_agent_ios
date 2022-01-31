@@ -12,6 +12,7 @@ class AddFeatureTableViewCell: UITableViewCell {
     @IBOutlet weak var downarrow: UIImageView!
     @IBOutlet weak var vw: UIView!
     
+    @IBOutlet weak var heighttopConst: NSLayoutConstraint!
     @IBOutlet weak var whatlbl: UILabel!
     @IBOutlet weak var addfeturelbl: UILabel!
     @IBOutlet weak var addfilter: UIButton!

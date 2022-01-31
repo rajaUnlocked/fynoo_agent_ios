@@ -3,7 +3,7 @@
 "001-AV-Fnk.text" = "الاسم";
 
 /* Class = "UILabel"; text = "Gender"; ObjectID = "3ki-cB-gP8"; */
-"3ki-cB-gP8.text" = "الجنس(خياري)";
+"3ki-cB-gP8.text" = "الجنس";
 
 /* Class = "UILabel"; text = "Education"; ObjectID = "4kc-d6-Vjx"; */
 "4kc-d6-Vjx.text" = "مستوى التعليم";
@@ -11,5 +11,5 @@
 /* Class = "UILabel"; text = "Major"; ObjectID = "HPb-BV-IZB"; */
 "HPb-BV-IZB.text" = "التخصص";
 
-/* Class = "UILabel"; text = "DOB(Optional)"; ObjectID = "O01-S1-zxE"; */
-"O01-S1-zxE.text" = "تاريخ الميلاد(خياري) ";
+/* Class = "UILabel"; text = "DOB"; ObjectID = "O01-S1-zxE"; */
+"O01-S1-zxE.text" = "تاريخ الميلاد";

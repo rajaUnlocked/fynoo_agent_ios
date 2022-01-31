@@ -81,9 +81,13 @@
         @IBOutlet weak var headervw: NavigationView!
         @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
         @IBOutlet weak var tableVw: UITableView!
-        
+       var boemail = ""
+       var bonumber = ""
+       var bonumbercode = ""
+       var flagimg = ""
         override func viewDidLoad() {
         ModalController.watermark(self.view)
+         
             super.viewDidLoad()
         
             self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
@@ -114,9 +118,9 @@
             {
                 headerImgArr = ["edit_feature","btype","ptype","btime","loc","cameras-1"]
                 let userid:UserData = AuthorisedUser.shared.getAuthorisedUser()
-                AddBranch.shared.mail = "\(userid.data!.email)"
-                AddBranch.shared.mobileCode = "\(userid.data!.mobile_code)"
-                AddBranch.shared.MobileNo = "\(userid.data!.mobile_number)"
+                AddBranch.shared.mail = boemail
+                AddBranch.shared.mobileCode = bonumbercode
+                AddBranch.shared.MobileNo = bonumber
                 
                 tableVw.reloadData()
             }
@@ -426,27 +430,23 @@
                 {
                     
                     return 2
-                    
-                    
-                    
+            
                 }
                 
             case 4:
                 if AddBranch.shared.platformType.contains(48)
                                    {
                                      if isLoc
-                                                     {
-                                                         return 3
-                                                     }
-                                                     else
-                                                     {
-                                                         return 2
-                                                     }
+                                      {
+                                  return 3
+                                         }
+                              else
+                                      {
+                                     return 2
+                                    }
                                    }
                 return 0
-               
-                
-            case 5:
+               case 5:
                 
                 return 7
                
@@ -546,12 +546,10 @@
                         ModalController.showNegativeCustomAlertWith(title: "Please Enter Valid Mobile Number", msg: "" )
                         return
                     }
-                    
-                    
+                
                     
                 }
-                
-                
+        
                 
                 if br.whatsappCode.count > 0
                 {
@@ -851,7 +849,6 @@
                             cell.checkMain.isSelected = false
                         }
                     }
-                    
                     cell.checkMain.addTarget(self, action: #selector(checkmain), for: .touchUpInside)
                     return cell
                 case 3,4,8:
@@ -1291,7 +1288,7 @@
                     cell.rightarrow.isHidden = true
                     cell.rgtlbl.isHidden = false
                     cell.rgtlbl.textColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1)
-                                  if AddBranch.shared.showImgId.count == (self.descriplist?.data?.branch_img_limit ?? 0)
+                           if AddBranch.shared.showImgId.count == (self.descriplist?.data?.branch_img_limit ?? 0)
                                                             {
                                                                cell.rgtlbl.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
                                                                 
@@ -2123,7 +2120,7 @@
 
                    let option = PHImageRequestOptions()
 
-                   option.deliveryMode = .highQualityFormat
+                  option.deliveryMode = .highQualityFormat
 
                    option.resizeMode = .exact
 
@@ -2268,6 +2265,7 @@
             
         }
         func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+         
             if textField.tag == 4
             {
              if string.isArabic
@@ -2284,6 +2282,7 @@
                 let txtAfterUpdate = text.replacingCharacters(in: range, with: string)
                 textstr = txtAfterUpdate
             }
+         
             let num = textstr.replacingOccurrences(of: " ", with: "")
             if textField.tag == 5 || textField.tag == 6 || textField.tag == 7
             {

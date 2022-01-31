@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AgentDeliveryDetailViewController" customModule="Fynoo_Services" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AgentDeliveryDetailViewController" customModule="Fynoo_Agent" customModuleProvider="target">
             <connections>
                 <outlet property="HeaderView" destination="Tgm-q7-3bW" id="OR2-Pg-t2L"/>
                 <outlet property="containerMapView" destination="vhE-Pj-iET" id="Ypu-l9-vfh"/>
@@ -40,10 +40,10 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhE-Pj-iET">
-                    <rect key="frame" x="0.0" y="90" width="320" height="338"/>
+                    <rect key="frame" x="0.0" y="45" width="320" height="383"/>
                     <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tgm-q7-3bW" customClass="NavigationView" customModule="Fynoo_Services" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tgm-q7-3bW" customClass="NavigationView" customModule="Fynoo_Agent" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -196,7 +196,7 @@
                 <constraint firstItem="bcc-FC-kAm" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="dl9-ny-VjR"/>
                 <constraint firstItem="vhE-Pj-iET" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="eiM-4C-J6x"/>
                 <constraint firstItem="Vjf-Ql-oqU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="i7U-ga-XSz"/>
-                <constraint firstItem="vhE-Pj-iET" firstAttribute="top" secondItem="Tgm-q7-3bW" secondAttribute="bottom" id="mxO-Mi-SzZ"/>
+                <constraint firstItem="vhE-Pj-iET" firstAttribute="top" secondItem="Tgm-q7-3bW" secondAttribute="bottom" constant="-45" id="mxO-Mi-SzZ"/>
                 <constraint firstItem="bcc-FC-kAm" firstAttribute="top" secondItem="vhE-Pj-iET" secondAttribute="bottom" constant="-20" id="nhx-9e-45q"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bcc-FC-kAm" secondAttribute="trailing" id="uez-kS-brx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Vjf-Ql-oqU" secondAttribute="bottom" id="xCX-eK-ZA3"/>

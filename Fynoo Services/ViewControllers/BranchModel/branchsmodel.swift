@@ -10,6 +10,7 @@ import Foundation
 import ObjectMapper
 
 class branchsmodel:NSObject {
+    var isUploadfrom = ""
     var vatnumber = ""
     var specialbranch = ""
     var pfurl:URL?
@@ -241,7 +242,7 @@ class branchsmodel:NSObject {
         var imgname = ""
           str = "\(Constant.BASE_URL)\(Constant.pdfupload)"
        imgname = "document"
-         parameters = ["user_id":Singleton.shared.getUserId(),"lang_code": HeaderHeightSingleton.shared.LanguageSelected]
+        parameters = ["user_id":Singleton.shared.getUserId(),"lang_code": HeaderHeightSingleton.shared.LanguageSelected,"image_from":isUploadfrom]
         
          print(parameters)
          
@@ -268,7 +269,7 @@ class branchsmodel:NSObject {
         str = "\(Constant.BASE_URL)\(Constant.pdfupload)"
      
      parameters =
-        ["user_id":Singleton.shared.getUserId(),"lang_code": HeaderHeightSingleton.shared.LanguageSelected]
+        ["user_id":Singleton.shared.getUserId(),"lang_code": HeaderHeightSingleton.shared.LanguageSelected,"image_from":isUploadfrom]
        
 //        if isproduct
 //        {

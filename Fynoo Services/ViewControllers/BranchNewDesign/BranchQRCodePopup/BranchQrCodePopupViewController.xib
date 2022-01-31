@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -13,7 +14,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BranchQrCodePopupViewController" customModule="Fynoo_Business" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BranchQrCodePopupViewController" customModule="Fynoo_Agent" customModuleProvider="target">
             <connections>
                 <outlet property="nameLbl" destination="Un2-bT-Liu" id="aa9-sz-DfZ"/>
                 <outlet property="qrCodeImg" destination="cDa-qw-zeJ" id="USC-wg-QDP"/>
@@ -63,7 +64,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="cDa-qw-zeJ" firstAttribute="centerX" secondItem="ElW-ZN-o1i" secondAttribute="centerX" id="1Ko-me-9sb"/>
                         <constraint firstItem="cDa-qw-zeJ" firstAttribute="width" secondItem="ElW-ZN-o1i" secondAttribute="width" multiplier="0.94012" id="1ZG-yk-uw2"/>
@@ -78,6 +79,7 @@
                     </constraints>
                 </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="qmf-SJ-7kK" secondAttribute="trailing" constant="5" id="dEq-cC-xmQ"/>
@@ -87,7 +89,6 @@
                 <constraint firstItem="qmf-SJ-7kK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="5" id="vop-AV-PKd"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="131.8840579710145" y="54.575892857142854"/>
         </view>
     </objects>
@@ -95,5 +96,8 @@
         <image name="backgro" width="167" height="167"/>
         <image name="qrcode_new_design" width="600" height="600"/>
         <image name="share_newIcon" width="50" height="59.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

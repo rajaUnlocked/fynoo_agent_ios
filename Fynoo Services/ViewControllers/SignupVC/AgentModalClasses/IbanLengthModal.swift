@@ -30,6 +30,7 @@ class AgentIbanLengthModal: NSObject {
                 let msg = value.object(forKey: "error_description") as! String
                 let error = value.object(forKey: "error_code") as! Int
                 if error == 100 {
+                    ModalController.showNegativeCustomAlertWith(title: msg, msg: "")
                     completion(false,nil)
                 }else{
                     if let body = response as? [String: Any] {

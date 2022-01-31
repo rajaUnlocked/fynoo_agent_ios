@@ -60,7 +60,7 @@ class ServicesDashboardTableViewCell: UITableViewCell, UICollectionViewDelegate,
 //            if  serviceStatus == "1" {
 //                ModalController.showNegativeCustomAlertWith(title: "This service is disabled. Please contact Fynoo Admin for more information.".localized, msg: "")
 //            }else{
-                let nameStr = ((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_name") as! NSString) as String
+                let nameStr = ((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_code") as! NSString) as String
                 let idInt = Int((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber)
                 self.delegate?.addServiceClickedHome(id: idInt, name: nameStr,index: indexPath.item)
            // }

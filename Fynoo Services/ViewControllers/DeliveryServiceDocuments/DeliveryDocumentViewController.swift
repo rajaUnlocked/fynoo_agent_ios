@@ -131,6 +131,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     self.fdate = dt
                 }
                 let formatter = DateFormatter()
+                formatter.locale = Locale(identifier: "en_US_POSIX")
                 formatter.dateFormat = "MMM dd, yyyy"
                 print(formatter.string(from: dt))
                 self.toptxtArr[tag] = formatter.string(from: dt)
@@ -215,6 +216,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         }
     }
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+     
         if servicelist?.data?.status ?? 0 == 1
                {
                    ModalController.showNegativeCustomAlertWith(title: " You cannot edit the form when it is pending for approval", msg: "")
@@ -230,6 +232,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             let txtAfterUpdate = text1.replacingCharacters(in: range, with: text)
             textstr = txtAfterUpdate
         }
+        textView.textAlignment =  ("\(textstr.first)".isArabic ? .right:.left)
         let cell = tabvw.cellForRow(at: IndexPath(row: row, section: section)) as! ReasonForChangeTableViewCell
         
         
@@ -411,6 +414,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         }
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+     
         if servicelist?.data?.status ?? 0 == 1
                {
                    ModalController.showNegativeCustomAlertWith(title: " You cannot edit the form when it is pending for approval", msg: "")
@@ -426,6 +430,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             let txtAfterUpdate = text1.replacingCharacters(in: range, with: string)
             textstr = txtAfterUpdate
         }
+        textField.textAlignment =  ("\(textstr.first)".isArabic ? .right:.left)
         let cell = tabvw.cellForRow(at: IndexPath(row: row, section: section)) as! VehicleDescriptionTableViewCell
         if section == 1
         {
@@ -433,9 +438,14 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             
            if row == 1
            {
-            if !ModalController.isValidName(title: textstr)
+//            if !ModalController.isValidNameDocs(title: textstr)
+//            {
+//             return false
+//            }
+            
+            if !textstr.containArabicNumber
             {
-             return false
+              return false
             }
             if textstr.count > 0
                        {

@@ -277,6 +277,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
                
             }else{
                 ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.tripList?.error_description ?? "")")
+                ModalClass.stopLoadingAllLoaders(self.view)
                 self.currentPageNumber = 0
                 self.isMoreDataAvailable = false
                 self.tableView.reloadData()
@@ -375,9 +376,17 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     
     func callClicked(_ sender: Any) {
         
-        guard let number = URL(string: "tel://" + (tripListListArray?[(sender as AnyObject).tag].cust_mobile ?? "")!) else { return }
+        guard let number = URL(string: "tel://" + (tripListListArray?[(sender as AnyObject).tag].cust_mobile ?? "").replacingOccurrences(of: " ", with: "")) else { return }
         UIApplication.shared.open(number)
+        
     }
+    
+    func RemoveWhiteSpace(aString:String) -> String
+        {
+            let replaced = aString.trimmingCharacters(in: NSCharacterSet.whitespaces)
+            let replacedd = replaced.trimmingCharacters(in: NSCharacterSet.whitespaces)
+            return replacedd
+        }
     
     func messageClicked(_ sender: Any) {
         
@@ -622,9 +631,11 @@ extension AgentDeliveryViewController : UITableViewDataSource {
        
         cell.callBtn.isHidden = false
         cell.messageBtn.isHidden = false
+        cell.navigationBtn.isHidden = false
         if selectedTab == "1" {
             cell.callBtn.isHidden = true
             cell.messageBtn.isHidden = true
+            cell.navigationBtn.isHidden = true
             cell.statusLbl.text = "Tap to accept".localized
             cell.statusView.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
             cell.statusLbl.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -632,7 +643,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
            cell.statusView.backgroundColor = #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.9176470588, alpha: 1)
             cell.statusLbl.textColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
         }
-        cell.navigationBtn.isHidden = false
+//        cell.navigationBtn.isHidden = false
         cell.widthconst.constant = 40
         if selectedTab == "4" || selectedTab == "3"
         {

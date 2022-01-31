@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-ExtraBold.otf">
+            <string>Gilroy-ExtraBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotificationNewViewController" customModule="Fynoo_Business" customModuleProvider="target">
+            <connections>
+                <outlet property="bgimg" destination="FI7-03-07K" id="SmN-yg-9kW"/>
+                <outlet property="headerVw" destination="BpY-cf-tEN" id="Bw4-pX-WLn"/>
+                <outlet property="heighConst" destination="Do9-iS-alx" id="UNo-3H-lZY"/>
+                <outlet property="noDataFound" destination="r8B-RC-m53" id="slJ-Vl-GUd"/>
+                <outlet property="noDataImg" destination="tmh-6K-zds" id="hqy-9G-6QC"/>
+                <outlet property="tabvw" destination="GMk-3p-a4r" id="zyJ-um-fex"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="FI7-03-07K">
+                    <rect key="frame" x="0.0" y="661" width="285" height="201"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="201" id="PRa-GM-qUX"/>
+                        <constraint firstAttribute="width" constant="285" id="Xad-5P-GZF"/>
+                    </constraints>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GMk-3p-a4r">
+                    <rect key="frame" x="0.0" y="50" width="414" height="812"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpY-cf-tEN" customClass="NavigationView" customModule="Fynoo_Business" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="Do9-iS-alx"/>
+                    </constraints>
+                </view>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8B-RC-m53">
+                    <rect key="frame" x="137" y="391" width="140" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="xiG-8o-is4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Gilroy-ExtraBold" family="Gilroy" pointSize="20"/>
+                    <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nodatafound" translatesAutoresizingMaskIntoConstraints="NO" id="tmh-6K-zds">
+                    <rect key="frame" x="131" y="209" width="152" height="152"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="152" id="MQ0-ou-teo"/>
+                        <constraint firstAttribute="width" constant="152" id="ZxJ-rM-h6e"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GMk-3p-a4r" secondAttribute="trailing" id="7pE-ny-WgB"/>
+                <constraint firstItem="r8B-RC-m53" firstAttribute="centerX" secondItem="tmh-6K-zds" secondAttribute="centerX" id="B4x-Sa-VBj"/>
+                <constraint firstItem="GMk-3p-a4r" firstAttribute="top" secondItem="BpY-cf-tEN" secondAttribute="bottom" constant="-40" id="IFB-hS-Bi6"/>
+                <constraint firstItem="tmh-6K-zds" firstAttribute="centerX" secondItem="GMk-3p-a4r" secondAttribute="centerX" id="JOX-l1-4Eg"/>
+                <constraint firstItem="FI7-03-07K" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NPd-hG-nya"/>
+                <constraint firstItem="tmh-6K-zds" firstAttribute="top" secondItem="BpY-cf-tEN" secondAttribute="bottom" constant="119" id="Nuw-fK-ZVH"/>
+                <constraint firstItem="GMk-3p-a4r" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="R8w-Gg-sZY"/>
+                <constraint firstItem="BpY-cf-tEN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZSj-51-kFV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="FI7-03-07K" secondAttribute="bottom" id="da8-47-v5t"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="GMk-3p-a4r" secondAttribute="bottom" id="eMO-oy-Pov"/>
+                <constraint firstAttribute="trailing" secondItem="BpY-cf-tEN" secondAttribute="trailing" id="kAm-vj-9BM"/>
+                <constraint firstItem="r8B-RC-m53" firstAttribute="top" secondItem="tmh-6K-zds" secondAttribute="bottom" constant="30" id="u8u-8y-Abp"/>
+                <constraint firstItem="BpY-cf-tEN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wUL-1s-pyv"/>
+            </constraints>
+            <point key="canvasLocation" x="141" y="84"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backgroundImage" width="297" height="208"/>
+        <image name="nodatafound" width="456" height="456"/>
+    </resources>
+</document>

@@ -56,6 +56,7 @@ enum ValidationMessages {
     static let agentName_compare = "Your Business Name & Acount Holder Name Does Not Match"
     static let bankAccountNumber = "Please enter your IBAN No."
     static let validIbanNumber = "IBAN number does not belong to any bank."
+    static let ValidIBANNumber = "IBAN number should be 24 char"
     static let vatNumber = "Please enter valid vat Number."
      static let vatNumberDoc = "Please enter valid vat Number/vat certificate."
      static let vat_certificate = "Please submit vat certificate."
@@ -96,6 +97,8 @@ enum ValidationMessages {
 class Constant: NSObject {
      static let currency : String = "SAR".localized
     //wallet
+    static let notiList : String = "common/notification_list/";
+    static let notideleteList : String = "common/deleteusernotification/";
     static let viewinvoice : String = "invoice/download_invoice/"
     static let DeleteBankURL: String = "businessapi/v2/bankdelete/"
     static let allWalletTransactionsAPI : String = "wallet/wallet_balance_list/"
@@ -171,6 +174,7 @@ class Constant: NSObject {
     static let City_List : String = "common/getCity/";
     static let Bank_List : String = "businessapi/v2/bank_list/";
     static let Education_List : String = "businessapi/v3/education_list/";
+    static let Major_Education_List : String = "businessapi/v3/major_list/";
     static let Service_List : String = "agentapi/v1/agentservices/";
   
 //         static var BASE_URL : String = "http://61.95.220.248:9092/"
@@ -178,14 +182,16 @@ class Constant: NSObject {
     //static var BASE_URL : String = "https://dev.fynoo.com:8001/"
 
     //static var BASE_URL : String = "https://dev.fynoo.com/"   //live
-//     static var BASE_URL : String = "http://uat.sendan.com.sa:9003/"  // dev
-//    static var BASE_URL : String = "https://dev.fynoo.com/"   //live
-    static var BASE_URL : String = "https://fynoo.com/"  //New live url
-   
-    
+
+     static var BASE_URL : String = "http://uat.sendan.com.sa:9003/"  // dev
+   // static var BASE_URL : String = "https://www.fynoo.com/"   //live
+    // MARK: - Invoices
+    static let invoiceApi : String = "invoice/invoice_list/";
+    static let invoiceDownloadApi : String = "invoice/download_invoice/";
+    static let viewinvoiceDC : String = "invoice/print_debit_credit_notes/"
     //      static var BASE_URL : String = "http://43.241.61.141:9003/"
     //  static var BASE_URL : String = "http://43.241.61.141:9005/"
-        
+    static let privacy_url : String = "customer/privacy_policy/";
     static let getAppVersion : String = "common/getAppVersion/";
     static let ForgotPswd: String = "customerapi/v2/forgot_password/"
     static let ResetPswd: String = "customerapi/v2/reset_password/"

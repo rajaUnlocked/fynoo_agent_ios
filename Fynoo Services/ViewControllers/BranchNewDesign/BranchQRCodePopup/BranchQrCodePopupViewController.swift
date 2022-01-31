@@ -39,7 +39,7 @@ class BranchQrCodePopupViewController: UIViewController {
         if isType == true {
             nameLbl.isHidden = false
         }
-        
+       
         // Do any additional setup after loading the view.
         self.SetFont()
     }
@@ -48,6 +48,9 @@ class BranchQrCodePopupViewController: UIViewController {
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         
         self.nameLbl.font = UIFont(name:"\(fontNameLight)",size:16)
+        if isFrom == "PRODUCTVIEW" {
+        shareBtn.isHidden = true
+        }
     }
 
    

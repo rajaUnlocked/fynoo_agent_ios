@@ -34,7 +34,11 @@ class BasedUrlViewController: UIViewController {
         self.localUrlEntryTxtFld.isHidden = true
         self.otherUrlView.isHidden = true
         
+<<<<<<< HEAD
         self.selectedUrlTxtFld.optionArray = ["https://dev.fynoo.com/","http://uat.sendan.com.sa:9003/","https://fynoo.com/","Local Pointing"]
+=======
+        self.selectedUrlTxtFld.optionArray = ["https://dev.fynoo.com/","https://www.fynoo.com/","http://uat.sendan.com.sa:9003/","Local Pointing"]
+>>>>>>> a2abc3cf1bc5b4a69895bcd96363308a6966ecd2
         //Its Id Values and its optional
         self.selectedUrlTxtFld.optionIds = [1,2,3,4]
         self.selectedUrlTxtFld.isSearchEnable = false

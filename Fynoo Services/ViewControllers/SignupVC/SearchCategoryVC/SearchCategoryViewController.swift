@@ -49,6 +49,7 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
     var selectedCountryID  = ""
     
     override func viewDidLoad() {
+        
         ModalController.watermark(self.view)
         super.viewDidLoad()
         setupUiMethod()
@@ -82,8 +83,12 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
         else if isForMajorEducationList {
             self.customHeader.titleHeader.text = "Select Major".localized
             print("majorDict-", self.selectedOLDCountryDict)
-            let array =  selectedOLDCountryDict.object(forKey: "list_value") as! NSArray
-            self.countryListArray = NSMutableArray(array: array)
+            EducationListAPI()
+//            if selectedOLDCountryDict.count > 0
+//            {
+//            let array =  selectedOLDCountryDict.object(forKey: "list_value") as! NSArray
+//            self.countryListArray = NSMutableArray(array: array)
+//            }
             self.tableVw.reloadData()
             
         }else if isFromCountryMobileCode {
@@ -530,10 +535,18 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
     // MARK: - Education API
     func EducationListAPI(){
         ModalClass.startLoading(self.view)
-        let str = "\(Constant.BASE_URL)\(Constant.Education_List)"
+        var str = ""
+        if isForEducationList
+        {
+             str = "\(Constant.BASE_URL)\(Constant.Education_List)"
+        }
+        else{
+             str = "\(Constant.BASE_URL)\(Constant.Major_Education_List)"
+        }
         let parameters = [
             "lang_code": HeaderHeightSingleton.shared.LanguageSelected
         ]
+        print(str,parameters)
         ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
             ModalClass.stopLoading()
             if success == true {
@@ -545,11 +558,21 @@ class SearchCategoryViewController: UIViewController, UITableViewDelegate, UITab
                     ModalController.showNegativeCustomAlertWith(title:(ResponseDict.object(forKey: "msg") as? String)!, msg: "")
                 }
                 else{
+                    if self.isForEducationList
+                    {
                     let results = (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "education_list") as! NSArray
                     for var i in (0..<results.count){
                         let dict : NSDictionary = NSDictionary(dictionary: results.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
                         self.countryListArray.add(dict)
                     }
+                    }
+                    else{
+                        let results = (ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "list_value") as! NSArray
+                        for var i in (0..<results.count){
+                            let dict : NSDictionary = NSDictionary(dictionary: results.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
+                            self.countryListArray.add(dict)
+                        }
+                        }
                     self.tableVw.reloadData()
                 }
             }else{

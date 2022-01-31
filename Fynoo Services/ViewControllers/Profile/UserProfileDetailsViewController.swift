@@ -38,8 +38,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
 
    @objc func cancel() {
         isEdit = false
-        tableVw.reloadData()
-        print("dgd")
+       getProfileData()
     }
     
   
@@ -72,6 +71,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     var selectedMajorEducation : NSMutableDictionary = NSMutableDictionary()
 
     override func viewDidLoad() {
+        
         ModalController.watermark(self.view)
         
         tableVw.register(UINib(nibName: "ProfileNameTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileNameTableViewCell");
@@ -114,7 +114,11 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
         return page.thumbnail(of: screenSize, for: .mediaBox)
     }
     @objc func saveChange() {
-            
+        if agentInfo.serviceArr.count == 0
+        {
+            ModalController.showNegativeCustomAlertWith(title: "Please select at least one service", msg: "")
+            return
+        }
             
             var ACTIVATION = ""
             if agentInfo.serviceArr.count > 0
@@ -283,6 +287,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
 //                        self.agentInfo.serviceArr = (value.object(forKey: "data") as! NSDictionary).object(forKey: "service_list_data") as! NSArray as! NSMutableArray
 //
 //
+                        agentInfo.langArr.removeAllObjects()
                         print(self.agentInfo.serviceArr.count,"services")
                         
                         self.profileInfo  = Mapper<ProfileModal>().map(JSON: body)
@@ -449,10 +454,10 @@ extension UserProfileDetailsViewController : UITableViewDelegate {
                 
                 if indexPath.row == 4{
                     let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
-                    if self.selectedEducation.count == 0 {
-                        ModalController.showNegativeCustomAlertWith(title: "Please select education first".localized, msg: "")
-                        return
-                    }
+//                    if self.selectedEducation.count == 0 {
+//                        ModalController.showNegativeCustomAlertWith(title: "Please select education first".localized, msg: "")
+//                        return
+//                    }
                     vc.delegate = self
                     vc.isForMajorEducationList = true
                     vc.selectedOLDCountryDict = self.selectedEducation
@@ -745,11 +750,20 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
     func LanguageCell(indexPath:IndexPath) -> UITableViewCell{
         if indexPath.row == 1{
             let cell = self.tableVw.dequeueReusableCell(withIdentifier: "TwoButtonsTableViewCell",for: indexPath) as! TwoButtonsTableViewCell
+            
             cell.isUserInteractionEnabled = false
                        if isEdit
                        {
                            cell.isUserInteractionEnabled = true
                        }
+            if agentInfo.serviceArr.count == 0{
+                cell.save.setTitleColor(#colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1), for: .normal)
+                cell.save.borderColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
+            }else{
+                cell.save.setTitleColor(#colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1), for: .normal)
+                cell.save.borderColor = #colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1)
+                
+            }
             cell.save.addTarget(self, action: #selector(saveChange), for: .touchUpInside)
             cell.cancel.addTarget(self, action: #selector(cancel), for: .touchUpInside)
             cell.selectionStyle = .none
@@ -793,6 +807,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         cell.genderHorizantal.constant = 0
         cell.genderWidth.constant = 0
         cell.genderHorizantal.constant = 0
+        cell.selectBtn.isHidden = true
         cell.headingLbl.text = "* * * * * * * *"
         cell.headingLbl.isUserInteractionEnabled = false
         cell.selectionStyle = .none
@@ -1116,7 +1131,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.mobileCodeWidth.constant = 0
             cell.selectBtn.isHidden = true
             
-            
+            cell.headingLbl.delegate = self
             //            cell.headingLbl.tag = 1
             //            print(agentInfo.Email)
             //            cell.headingLbl.text = agentInfo.Email
@@ -1173,11 +1188,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             return cell
         }
     }
-    
-    
-    
 }
-
 
 extension UserProfileDetailsViewController : ProfileDetailTableViewCellDelegate{
     func edit() {
@@ -1201,9 +1212,7 @@ extension UserProfileDetailsViewController : ProfileDetailTableViewCellDelegate{
     func likesClicked() {
         
     }
-    
-    
-    
+        
 }
 
 extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
@@ -1275,7 +1284,7 @@ extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
         selectedEducation = educationDict
         agentInfo.education = educationDict.object(forKey: "education_type") as! String
         agentInfo.educationId = educationDict.object(forKey: "education_id") as! Int
-        agentInfo.major = ""
+       // agentInfo.major = ""
         tableVw.reloadData()
         
         
@@ -1307,8 +1316,9 @@ extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
 
 
 extension UserProfileDetailsViewController : UITextFieldDelegate{
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
+
         
         if textField.tag == 0{
             let allowedCharecter = CharacterSet.letters
@@ -1316,6 +1326,9 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
             let allowedCharacter1 = CharacterSet.whitespaces
             
             return allowedCharecter.isSuperset(of: characterSet) || allowedCharacter1.isSuperset(of: characterSet)
+        }
+        if textField.tag == 1{
+            return false
         }
             
         if textField.tag == 5{
@@ -1404,7 +1417,7 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
     }
     
     @objc func textFieldDidChange(textField: UITextField){
-        
+//        textField.textAlignment =  ("\(textField.text!.first)".isArabic ? .right:.left)
         switch textField.tag  {
         case 0:
             
@@ -1414,7 +1427,6 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
             
         case 1:
             agentInfo.Email = textField.text!
-            
         case 5:
             agentInfo.maroof = textField.text!
             

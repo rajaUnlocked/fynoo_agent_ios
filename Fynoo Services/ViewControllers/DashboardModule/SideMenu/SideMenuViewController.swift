@@ -9,12 +9,30 @@
 import UIKit
 
 class SideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SideMenuSecondTableViewCellDelegate, SideMenuEarningTableViewCellDelegate {
+//    func dropShippingBtnClicked() {
+//        <#code#>
+//    }
+//
+//    func addProductDataForSaleBtnClicked() {
+//        <#code#>
+//    }
+//
+//    func commissionBtnClicked() {
+//        <#code#>
+//    }
+//
+//    func targetBtnClicked() {
+//        <#code#>
+//    }
+//
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var tableVw: UITableView!
-    var cellTextArray = ["Home".localized, "Manage Services".localized, "Service Requests".localized,"Notification".localized, "", "", "Wallet".localized, "User Profile".localized,  "Change Language".localized, "Sign out".localized]
-
+    var cellTextArray = ["Home".localized, "Manage Services".localized, "Service Requests".localized,"Notification".localized, "", "", "Wallet".localized]
+    var cellTextArray1 = ["Invoices".localized,"Issued".localized, "Received".localized ,"Fynoo Receipts".localized]
+    var cellTextArray2 = ["User Profile".localized,  "Change Language".localized, "Sign out".localized]
+    var isOpen = false
     override func viewDidLoad() {
         super.viewDidLoad()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
@@ -62,19 +80,35 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
     
     //MARK:-- TABLE DATA SOURCE DELEGATES
     func numberOfSections(in tableView: UITableView) -> Int{
-        return 1
+        return 3
     }
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        switch section {
+        case 0:
+            return cellTextArray.count
+        case 1:
+            if isOpen
+            {
+                return cellTextArray1.count
+            }
+            return 1
+        default:
+            return cellTextArray2.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 5 {
-            return dropShippingCell(index: indexPath)
-        }
-        else if indexPath.row == 4 {
-            return earningCell(index: indexPath)
+        if indexPath.section == 0{
+            if indexPath.row == 5 {
+                return dropShippingCell(index: indexPath)
+            }
+            else if indexPath.row == 4 {
+                return earningCell(index: indexPath)
+            }
+            else{
+                return profileCell(index: indexPath)
+            }
         }
         else{
             return profileCell(index: indexPath)
@@ -84,42 +118,71 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        switch indexPath.row {
+        switch indexPath.section{
         case 0:
+            if indexPath.row == 0{
            dismiss(animated: true, completion: nil)
+            }
             
-        case 1:
+            if indexPath.row == 1{
             dismiss(animated: true, completion: nil)
              NotificationCenter.default.post(name: Notification.Name("manageServiceClicked"), object: nil, userInfo: nil)
+            }
             
-        case 2:
+            if indexPath.row == 2{
             
               dismiss(animated: true, completion: nil)
           NotificationCenter.default.post(name: Notification.Name("serviceRequestClicked"), object: nil, userInfo: nil)
-        case 3:
+            }
+            if indexPath.row == 3{
             
               dismiss(animated: true, completion: nil)
           NotificationCenter.default.post(name: Notification.Name("notificationRequestClicked"), object: nil, userInfo: nil)
-
-        case 6:
+            }
+            if indexPath.row == 6{
             dismiss(animated: true, completion: nil)
             NotificationCenter.default.post(name: Notification.Name("walletClicked"), object: nil, userInfo: nil)
+            }
+        case 1:
+            if indexPath.row == 0
+            {
+                isOpen = !isOpen
+                tableView.reloadData()
+              
+            }
+           else if indexPath.row == 1
+            {
+                dismiss(animated: true, completion: nil)
+                NotificationCenter.default.post(name: Notification.Name("issued"), object: nil, userInfo: nil)
+            }
+            else if indexPath.row == 2
+             {
+                 dismiss(animated: true, completion: nil)
+                 NotificationCenter.default.post(name: Notification.Name("received"), object: nil, userInfo: nil)
+             }
+            else
+             {
+                 dismiss(animated: true, completion: nil)
+                 NotificationCenter.default.post(name: Notification.Name("fynoo_reciept"), object: nil, userInfo: nil)
+             }
+        case 2:
+            if indexPath.row == 0{
+                dismiss(animated: true, completion: nil)
+                NotificationCenter.default.post(name: Notification.Name("userProfileClicked"), object: nil, userInfo: nil)
+            }
             
-        case 7:
-            dismiss(animated: true, completion: nil)
-            NotificationCenter.default.post(name: Notification.Name("userProfileClicked"), object: nil, userInfo: nil)
-            
-//        case 7:
+//        if indexPath.row == 0:
 //            dismiss(animated: true, completion: nil)
 //            NotificationCenter.default.post(name: Notification.Name("settingsClicked"), object: nil, userInfo: nil)
             
-        case 8:
+            if indexPath.row == 1{
             dismiss(animated: true, completion: nil)
             NotificationCenter.default.post(name: Notification.Name("changeLanguageClicked"), object: nil, userInfo: nil)
-            
-        case 9:
+            }
+            if indexPath.row == 2{
             dismiss(animated: true, completion: nil)
             NotificationCenter.default.post(name: Notification.Name("signOutClicked"), object: nil, userInfo: nil)
+            }
         default:
             print("hd")
         }
@@ -127,11 +190,8 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        if indexPath.row == 4 {
-            return 130
-        }
-        if indexPath.row == 5 {
-            return 136
+        if indexPath.section == 0 && (indexPath.row == 4 || indexPath.row == 5){
+            return 135
         }
         else{
             return 40
@@ -141,8 +201,30 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: - TableView Cells Return
     func profileCell(index : IndexPath) -> UITableViewCell {
         let cell = self.tableVw.dequeueReusableCell(withIdentifier: "SideMenuTableViewCell",for: index) as! SideMenuTableViewCell
+        cell.leadingConst.constant = 38
         cell.selectionStyle = .none
-        cell.cellTextLbl.text = "\(cellTextArray[index.row])"
+        cell.arrowImage.isHidden = true
+        if index.section == 0{
+            cell.cellTextLbl.text = "\(cellTextArray[index.row])"
+        }
+
+         else if index.section == 1 {
+            if index.row != 0
+            {
+               // cell.arrowImage.image = image
+                cell.leadingConst.constant = 48
+            }
+            else{
+                cell.arrowImage.isHidden = false
+                cell.arrowImage.image = (isOpen ? UIImage(named: "up-arrow-3"):UIImage(named: "down-arrow-2"))
+                cell.leadingConst.constant = 38
+        }
+             cell.cellTextLbl.text = "\(cellTextArray1[index.row])"
+        }
+        else{
+            cell.cellTextLbl.text = "\(cellTextArray2[index.row])"
+        }
+       
         return cell
     }
     
