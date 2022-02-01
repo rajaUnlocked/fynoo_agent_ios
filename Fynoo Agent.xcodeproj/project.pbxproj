@@ -187,6 +187,7 @@
 		5354CE802772F1E2002223B2 /* InvoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5354CE7B2772F1E2002223B2 /* InvoiceModel.swift */; };
 		5354CE812772F1E2002223B2 /* InvoicingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5354CE7C2772F1E2002223B2 /* InvoicingHeader.swift */; };
 		5354CE822772F1E2002223B2 /* InvoiceNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5354CE7D2772F1E2002223B2 /* InvoiceNewViewController.xib */; };
+		5389B11827A96044008C1871 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5389B11727A96044008C1871 /* PasswordTextField.swift */; };
 		5E5216B0923EFDB527AF8FA7 /* Pods_Fynoo_AgentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5221FCBE85158F2A6A17ACB /* Pods_Fynoo_AgentTests.framework */; };
 		CE1D84A426906CC300763385 /* ServiceSingleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1D84A626906CC300763385 /* ServiceSingleCollectionViewCell.xib */; };
 		CE2EFB3E251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EFB3C251C6620006F1B36 /* VehicleDescriptionTableViewCell.swift */; };
@@ -1104,6 +1105,7 @@
 		5354CE7B2772F1E2002223B2 /* InvoiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceModel.swift; sourceTree = "<group>"; };
 		5354CE7C2772F1E2002223B2 /* InvoicingHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoicingHeader.swift; sourceTree = "<group>"; };
 		5354CE7D2772F1E2002223B2 /* InvoiceNewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoiceNewViewController.xib; sourceTree = "<group>"; };
+		5389B11727A96044008C1871 /* PasswordTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		72554F0E68CC689867FF3DAE /* Pods-Fynoo AgentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo AgentTests.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo AgentTests/Pods-Fynoo AgentTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9818335E34AF2E38CE82B320 /* Pods-Fynoo Agent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Agent.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Agent/Pods-Fynoo Agent.release.xcconfig"; sourceTree = "<group>"; };
 		AF143F289007712A5BF7B904 /* Pods-Fynoo AgentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo AgentTests.release.xcconfig"; path = "Target Support Files/Pods-Fynoo AgentTests/Pods-Fynoo AgentTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -3229,6 +3231,7 @@
 		CEDD323E2576307400023977 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5389B11727A96044008C1871 /* PasswordTextField.swift */,
 				CEDD32B62576389700023977 /* ProductModel.swift */,
 				CEDD323F2576307400023977 /* AddProductModel.swift */,
 				CEDD32B42576341700023977 /* ProductModels.swift */,
@@ -5273,6 +5276,7 @@
 				F680D673259B7C2C007EB12C /* DECancellationTableViewCell.swift in Sources */,
 				2F07D1B32505FE1C00193658 /* Singleton.swift in Sources */,
 				2F846421250F81F10084EB32 /* ForgotPassword.swift in Sources */,
+				5389B11827A96044008C1871 /* PasswordTextField.swift in Sources */,
 				F635979825C66DFD003BF9E2 /* TripAchivementCollectionViewCell.swift in Sources */,
 				CE9CCDF9264BEDBD005AE619 /* ProductTechnicalSpecificationsTableViewCell.swift in Sources */,
 				F680D66B259B7C2C007EB12C /* DataEntryServiceListModal.swift in Sources */,
