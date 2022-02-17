@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,6 +23,7 @@
                 <outlet property="bankView" destination="d6y-ej-S9W" id="Mih-hm-qZV"/>
                 <outlet property="banknamelbl" destination="xkl-je-5pY" id="cfS-yi-rVU"/>
                 <outlet property="bgImage" destination="DWA-EG-yhz" id="cpg-fy-yba"/>
+                <outlet property="btnCheck" destination="eat-Ex-f7N" id="W11-Hv-vU7"/>
                 <outlet property="cancel" destination="1qM-gk-MdB" id="QBO-IN-DRb"/>
                 <outlet property="currency" destination="xqZ-xA-yQw" id="dFB-CC-a12"/>
                 <outlet property="currencylbl" destination="SCD-Mh-Zxs" id="6gn-vM-lw5"/>
@@ -31,6 +32,7 @@
                 <outlet property="ibanView" destination="nG9-6K-j10" id="SGZ-tf-wYm"/>
                 <outlet property="ibanlbl" destination="2a3-Jc-nsm" id="Rn9-hC-1rw"/>
                 <outlet property="infoFilled" destination="eSj-YH-pXA" id="bsp-qp-VXc"/>
+                <outlet property="lblAgrredTerm" destination="QNU-Vl-lMn" id="hHD-pa-goA"/>
                 <outlet property="nameofacclbl" destination="P6q-Sg-eqb" id="nGv-in-5v5"/>
                 <outlet property="nickName" destination="xqZ-xA-yQw" id="lT1-Qx-zBy"/>
                 <outlet property="nickNameView" destination="A5r-iN-7Ng" id="mag-su-aIX"/>
@@ -117,7 +119,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Uf-xy-97w">
-                                    <rect key="frame" x="10" y="132" width="316" height="400"/>
+                                    <rect key="frame" x="10" y="132" width="316" height="440"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkl-je-5pY">
                                             <rect key="frame" x="26" y="159" width="64.5" height="14"/>
@@ -396,17 +398,39 @@
                                             <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eat-Ex-f7N">
+                                            <rect key="frame" x="1" y="380" width="34" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="34" id="e4S-mn-P0S"/>
+                                                <constraint firstAttribute="height" constant="34" id="vC4-zM-i34"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="check_red_new"/>
+                                            <state key="selected" image="check"/>
+                                            <connections>
+                                                <action selector="btnCheckClicked:" destination="-1" eventType="touchUpInside" id="24c-xS-srf"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I have agreed that i have enter the right information of IBAN." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNU-Vl-lMn">
+                                            <rect key="frame" x="36" y="383" width="272" height="28"/>
+                                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="nG9-6K-j10" firstAttribute="leading" secondItem="gnc-OQ-Q27" secondAttribute="leading" id="282-0D-dq5"/>
                                         <constraint firstItem="SCD-Mh-Zxs" firstAttribute="leading" secondItem="P6q-Sg-eqb" secondAttribute="leading" id="4GT-90-qGi"/>
                                         <constraint firstItem="P6q-Sg-eqb" firstAttribute="leading" secondItem="xkl-je-5pY" secondAttribute="leading" id="5QU-Ck-F7j"/>
+                                        <constraint firstItem="QNU-Vl-lMn" firstAttribute="leading" secondItem="eat-Ex-f7N" secondAttribute="trailing" constant="1" id="6Jp-nT-7I2"/>
                                         <constraint firstItem="3Un-en-e2O" firstAttribute="leading" secondItem="DbL-IS-mVz" secondAttribute="leading" id="6gF-Wu-avM"/>
+                                        <constraint firstItem="eat-Ex-f7N" firstAttribute="leading" secondItem="4Uf-xy-97w" secondAttribute="leading" constant="1" id="711-m5-H6H"/>
                                         <constraint firstItem="d6y-ej-S9W" firstAttribute="top" secondItem="xkl-je-5pY" secondAttribute="bottom" constant="4" id="97I-jM-tKn"/>
                                         <constraint firstItem="3Un-en-e2O" firstAttribute="top" secondItem="7xk-MS-D6z" secondAttribute="bottom" id="9fU-DK-hf5"/>
                                         <constraint firstItem="Ieo-ax-6jb" firstAttribute="top" secondItem="P6q-Sg-eqb" secondAttribute="bottom" constant="4" id="Afb-RD-iUS"/>
                                         <constraint firstItem="nG9-6K-j10" firstAttribute="trailing" secondItem="gnc-OQ-Q27" secondAttribute="trailing" id="CgV-XJ-4kh"/>
+                                        <constraint firstItem="eat-Ex-f7N" firstAttribute="top" secondItem="A5r-iN-7Ng" secondAttribute="bottom" constant="35" id="G2z-hZ-CGl"/>
                                         <constraint firstItem="tTB-nn-9sf" firstAttribute="leading" secondItem="xkl-je-5pY" secondAttribute="leading" id="Gbx-JN-i8g"/>
                                         <constraint firstItem="7xk-MS-D6z" firstAttribute="trailing" secondItem="nG9-6K-j10" secondAttribute="trailing" id="L2p-t3-bvN"/>
                                         <constraint firstItem="A5r-iN-7Ng" firstAttribute="leading" secondItem="Ieo-ax-6jb" secondAttribute="leading" id="L3s-i7-hRn"/>
@@ -418,13 +442,15 @@
                                         <constraint firstItem="uAC-af-ul0" firstAttribute="leading" secondItem="DbL-IS-mVz" secondAttribute="leading" id="YVT-Hv-0Hc"/>
                                         <constraint firstItem="xkl-je-5pY" firstAttribute="top" secondItem="3Un-en-e2O" secondAttribute="bottom" constant="15" id="Yyn-go-8gG"/>
                                         <constraint firstItem="SCD-Mh-Zxs" firstAttribute="top" secondItem="Ieo-ax-6jb" secondAttribute="bottom" constant="15" id="ZyX-Rx-UrC"/>
-                                        <constraint firstAttribute="height" constant="400" id="b1D-7d-BRD"/>
+                                        <constraint firstAttribute="height" constant="440" id="b1D-7d-BRD"/>
                                         <constraint firstItem="P6q-Sg-eqb" firstAttribute="top" secondItem="d6y-ej-S9W" secondAttribute="bottom" constant="12" id="bVZ-pu-xNY"/>
                                         <constraint firstItem="2a3-Jc-nsm" firstAttribute="leading" secondItem="xkl-je-5pY" secondAttribute="leading" id="cnw-bj-Yhk"/>
                                         <constraint firstItem="DbL-IS-mVz" firstAttribute="top" secondItem="nG9-6K-j10" secondAttribute="bottom" constant="12" id="d0X-OJ-b0b"/>
                                         <constraint firstAttribute="trailing" secondItem="d6y-ej-S9W" secondAttribute="trailing" constant="8" id="dj6-kD-10J"/>
                                         <constraint firstItem="7xk-MS-D6z" firstAttribute="top" secondItem="DbL-IS-mVz" secondAttribute="bottom" constant="4" id="f2n-VZ-krv"/>
+                                        <constraint firstAttribute="trailing" secondItem="QNU-Vl-lMn" secondAttribute="trailing" constant="8" id="hc9-ol-yI1"/>
                                         <constraint firstItem="Ieo-ax-6jb" firstAttribute="leading" secondItem="d6y-ej-S9W" secondAttribute="leading" id="jeK-6j-5l9"/>
+                                        <constraint firstItem="QNU-Vl-lMn" firstAttribute="top" secondItem="A5r-iN-7Ng" secondAttribute="bottom" constant="38" id="mHw-y3-qS9"/>
                                         <constraint firstItem="A5r-iN-7Ng" firstAttribute="trailing" secondItem="Ieo-ax-6jb" secondAttribute="trailing" id="nS6-aF-hjJ"/>
                                         <constraint firstItem="A5r-iN-7Ng" firstAttribute="top" secondItem="SCD-Mh-Zxs" secondAttribute="bottom" constant="4" id="pdf-tg-OnE"/>
                                         <constraint firstItem="2a3-Jc-nsm" firstAttribute="top" secondItem="4Uf-xy-97w" secondAttribute="top" constant="12" id="sLc-4k-g61"/>
@@ -446,7 +472,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MhU-yw-io7">
-                                    <rect key="frame" x="211" y="552" width="100" height="24"/>
+                                    <rect key="frame" x="211" y="592" width="100" height="24"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="EG1-Xg-yBt"/>
@@ -469,7 +495,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qM-gk-MdB">
-                                    <rect key="frame" x="86" y="552" width="100" height="24"/>
+                                    <rect key="frame" x="86" y="592" width="100" height="24"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="0ku-sN-cbo"/>
@@ -550,6 +576,8 @@
         <image name="backgroundImage" width="297" height="208"/>
         <image name="bank_new" width="13" height="16"/>
         <image name="banknote_new" width="66" height="66"/>
+        <image name="check" width="102" height="102"/>
+        <image name="check_red_new" width="102" height="102"/>
         <image name="dropDown_icon" width="12" height="7"/>
         <image name="edit-new" width="60" height="60"/>
         <image name="greenTick" width="150" height="150"/>
