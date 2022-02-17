@@ -50,6 +50,7 @@ class users_banks : Mappable {
     var currency_code = ""
     var currency_id = 0
     var short_name = ""
+    var is_agreed = false
     required init?(map: Map) {}
     
     func mapping(map: Map) {
@@ -64,6 +65,7 @@ class users_banks : Mappable {
         full_name <- map["full_name"]
         full_name_ar <- map["full_name_ar"]
         id <- map["id"]
+        is_agreed <- map["is_agreed"]
         
     }
     
