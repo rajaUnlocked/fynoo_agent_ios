@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -539,7 +539,7 @@
                                             <constraint firstAttribute="height" constant="16" id="gMX-QJ-VxZ"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" tag="1006" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n4K-EK-46U">
+                                    <textField opaque="NO" tag="1006" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n4K-EK-46U" customClass="PasswordTextField" customModule="Fynoo_Agent" customModuleProvider="target">
                                         <rect key="frame" x="48" y="11" width="214" height="17"/>
                                         <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
@@ -600,7 +600,7 @@
                                             <constraint firstAttribute="width" constant="16" id="mCX-j4-tCl"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" tag="1007" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O39-xQ-V9G">
+                                    <textField opaque="NO" tag="1007" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O39-xQ-V9G" customClass="PasswordTextField" customModule="Fynoo_Agent" customModuleProvider="target">
                                         <rect key="frame" x="48" y="11" width="214" height="17"/>
                                         <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="14"/>
@@ -730,7 +730,7 @@
                 <outlet property="confirmPassHeaderLbl" destination="5Bn-Dk-buo" id="qlb-DW-vPq"/>
                 <outlet property="confirmPasswordGreenTickWIdhtConstant" destination="Cas-ya-pNN" id="pWu-zZ-GO2"/>
                 <outlet property="confirmPasswordMatchBtn" destination="MG2-28-RMU" id="Xrx-Gp-JZF"/>
-                <outlet property="confirmPasswordTxtFld" destination="O39-xQ-V9G" id="DiW-TY-T2V"/>
+                <outlet property="confirmPasswordTxtFld" destination="O39-xQ-V9G" id="Hiz-OP-ieO"/>
                 <outlet property="confirmPasswordView" destination="QDq-no-EoB" id="XkZ-CV-cfS"/>
                 <outlet property="confirmTxtFld" destination="v1t-ts-kBu" id="UkP-4K-ik6"/>
                 <outlet property="contactNumberView" destination="0iP-V2-JmY" id="xjV-Pj-NBQ"/>
@@ -753,7 +753,7 @@
                 <outlet property="nameHeaderLbl" destination="wNQ-7u-SDJ" id="R6v-ve-B2s"/>
                 <outlet property="nameTxtFld" destination="SAX-mz-bDt" id="SxG-N2-Lh3"/>
                 <outlet property="passwordHeaderLbl" destination="5cZ-56-Dbz" id="qCT-a2-Kdc"/>
-                <outlet property="passwordTxtFld" destination="n4K-EK-46U" id="EB1-XI-fDw"/>
+                <outlet property="passwordTxtFld" destination="n4K-EK-46U" id="a01-fV-xgV"/>
                 <outlet property="passwordView" destination="F3q-8y-kgz" id="MYB-iW-dlz"/>
                 <outlet property="phoneCodeDropDownBtn" destination="FrU-xL-bNt" id="fHt-hd-DM2"/>
                 <outlet property="phoneCodeImageView" destination="Yca-z9-JN1" id="eNu-Hq-d1u"/>

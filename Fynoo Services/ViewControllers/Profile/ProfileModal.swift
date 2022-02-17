@@ -15,6 +15,8 @@ import ObjectMapper
 class AgentProfile : NSObject {
     //basic Info
     var name = ""
+    var middle_name = ""
+    var last_name = ""
     var businessName = "ffjdfgh"
     var Email = ""
     var country = ""
@@ -142,6 +144,8 @@ class ProfileData : Mappable{
     var mobile_code = ""
     var mobile_number = ""
     var name = ""
+    var middle_name = ""
+    var last_name = ""
     var phone_code = ""
     var phone_number = ""
     var vat_certificate = ""
@@ -197,6 +201,8 @@ class ProfileData : Mappable{
         mobile_number <- map["mobile_number"]
         
         name <- map["name"]
+        middle_name <- map["middle_name"]
+        last_name <- map["last_name"]
         phone_code <- map["phone_code"]
         phone_number <- map["phone_number"]
     }
@@ -369,6 +375,8 @@ class agentInfo : Mappable{
     var great_attitude = 0
     var id = 0
     var name = ""
+    var middle_name = ""
+    var last_name = ""
     var service_icon = ""
     var total_earnings = 0
     var total_rating = "0"
@@ -395,6 +403,8 @@ class agentInfo : Mappable{
         fynoo_id <- map["fynoo_id"]
         id <- map["id"]
         name <- map["name"]
+        middle_name <- map["middle_name"]
+        last_name <- map["last_name"]
         service_icon <- map["service_icon"]
         total_earnings <- map["total_earnings"]
         total_rating <- map["total_rating"]

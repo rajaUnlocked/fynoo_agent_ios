@@ -1667,6 +1667,13 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                     return false
                 }
             }
+            let maxLength = 16
+            let currentString: NSString = (textField.text ?? "") as NSString
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            if newString.length > maxLength{
+                return false
+            }
+            
             return true
             
         case 1007:
@@ -1798,7 +1805,7 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
                 ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validName)
                 ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.nameView)
             }else{
-                if cell.nametxtFld.text == "" {
+                if cell.nametxtFld.text == "" || cell.nametxtFld.text!.count > 50 {
                     ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.nameView)
                 }else{
                     ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.nameView)

@@ -63,6 +63,8 @@ enum ValidationMessages {
     static let NickName = "Please enter your Nick Name."
     static let Name = "Please enter your name."
     static let validName = "Please enter valid name."
+    static let validMiddleName = "Please enter valid Middle name."
+    static let validLastName = "Please enter valid Last name."
     static let validAccountName = "Please enter valid Account Holder Name."
     static let Gender = "Please select your gender."
     static let Dob = "Please enter your DOB."

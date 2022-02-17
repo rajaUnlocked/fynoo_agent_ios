@@ -57,8 +57,8 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     var agentInfo = AgentProfile()
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
     var pdfImage =  UIImage()
-
-    var personalDetail = ["Name","Gender","Dob","Education","Major"]
+    var myString = ""
+    var personalDetail = ["First Name","Middle Name","Last Name","Gender","Dob","Education","Major"]
     var basicInfo = ["Business Name","Email","Country","City","Mobile Number","Phone Number","Maroof Link"]
     var bankDetail = ["IBAN Number","Bank Name","Card Holder Name"]
     var sectionHeading = ["","Services ","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
@@ -114,6 +114,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
         return page.thumbnail(of: screenSize, for: .mediaBox)
     }
     @objc func saveChange() {
+        
         if agentInfo.serviceArr.count == 0
         {
             ModalController.showNegativeCustomAlertWith(title: "Please select at least one service", msg: "")
@@ -144,6 +145,19 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
             let mobile = agentInfo.mobileNo.replacingOccurrences(of: " ", with: "")
             let phone = agentInfo.phoneNo.replacingOccurrences(of: " ", with: "")
             
+        if (agentInfo.name == "") || ModalController.isValidName(title: agentInfo.name) == false{
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please Enter Name")
+            return
+        }
+        if (agentInfo.last_name == "") || ModalController.isValidName(title: agentInfo.last_name) == false{
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please Enter Last Name")
+            return
+        }
+        
+        
+        
+        
+        
             if agentInfo.dob != ""{
                 print(agentInfo.dob,"date")
                 
@@ -166,12 +180,42 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                 
             }
             var name = ""
+        var last_name = ""
+        var middle_name = ""
             if userType == "AC"{
                 name = agentInfo.businessName
             }else{
                 name = agentInfo.name
+                middle_name = agentInfo.middle_name
+                last_name = agentInfo.last_name
             }
-            let parameter = ["user_id":"\(Singleton.shared.getUserId())","lang_code":"EN","user_type":"\(userType)","service_id":ACTIVATION,"name":name,"email":agentInfo.Email,"country_id":agentInfo.countryId,"dob":self.agentInfo.dob,"city_id":agentInfo.cityId,"mobile_code":agentInfo.mobileCode,"mobile_number":mobile,"phone_code":agentInfo.phCode,"phone_number":phone,"maroof_link":last,"bank_details_id":agentInfo.bankId,"bank_id":agentInfo.bankId,"bank_name":agentInfo.bankname,"card_holder_name":agentInfo.cardHolderName,"iban_no":agentInfo.iban,"vat_no":agentInfo.vatNo,"password":"","education_id":agentInfo.educationId,"major_id":agentInfo.majorId,"is_vat_upload":"\(isvatUpload)","gender":agentInfo.gender] as [String : Any]
+        let parameter = ["user_id":"\(Singleton.shared.getUserId())",
+                         "lang_code":"EN",
+                         "user_type":"\(userType)",
+                         "service_id":ACTIVATION,
+                         "name":name,
+                         "middle_name":middle_name,
+                         "last_name":last_name,
+                         "email":agentInfo.Email,
+                         "country_id":agentInfo.countryId,
+                         "dob":self.agentInfo.dob,
+                         "city_id":agentInfo.cityId,
+                         "mobile_code":agentInfo.mobileCode,
+                         "mobile_number":mobile,
+                         "phone_code":agentInfo.phCode,
+                         "phone_number":phone,
+                         "maroof_link":last,
+                         "bank_details_id":agentInfo.bankId,
+                         "bank_id":agentInfo.bankId,
+                         "bank_name":agentInfo.bankname,
+                         "card_holder_name":agentInfo.cardHolderName,
+                         "iban_no":agentInfo.iban,
+                         "vat_no":agentInfo.vatNo,
+                         "password":"",
+                         "education_id":agentInfo.educationId,
+                         "major_id":agentInfo.majorId,
+                         "is_vat_upload":"\(isvatUpload)",
+                         "gender":agentInfo.gender] as [String : Any]
             
             print(parameter)
             
@@ -284,20 +328,20 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                 if error == 0{
                     if let body = response as? [String: Any] {
                         
-//                        self.agentInfo.serviceArr = (value.object(forKey: "data") as! NSDictionary).object(forKey: "service_list_data") as! NSArray as! NSMutableArray
-//
-//
+                        //                        self.agentInfo.serviceArr = (value.object(forKey: "data") as! NSDictionary).object(forKey: "service_list_data") as! NSArray as! NSMutableArray
+                        //
+                        //
                         agentInfo.langArr.removeAllObjects()
                         print(self.agentInfo.serviceArr.count,"services")
                         
                         self.profileInfo  = Mapper<ProfileModal>().map(JSON: body)
                         self.agentInfo.businessName = self.profileInfo?.data?.user_data?.business_name ?? ""
-                            let val = self.profileInfo?.data?.service_list_data?.count
+                        let val = self.profileInfo?.data?.service_list_data?.count
                         
                         for i in 0..<val!{
-                        if self.profileInfo?.data?.service_list_data?[i].is_opt ?? 0 == 1
+                            if self.profileInfo?.data?.service_list_data?[i].is_opt ?? 0 == 1
                             {
-    self.agentInfo.serviceArr.add( self.profileInfo?.data?.service_list_data?[i].service_id ?? 0)  } }
+                                self.agentInfo.serviceArr.add( self.profileInfo?.data?.service_list_data?[i].service_id ?? 0)  } }
                         let lang = self.profileInfo?.data?.language_list?.count
                         for i in 0..<lang!{
                             print(self.profileInfo?.data?.language_list?[i].lang_id ?? 0,"jldkj")
@@ -305,23 +349,26 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                         }
                         
                         print(self.agentInfo.langArr,"jnff")
-                                                
+                        
                         self.userType = self.profileInfo?.data?.user_data?.user_type ?? ""
-
+                        
                         if self.userType == "AC"{
                             self.isPersonal = false
                         }else{
-                             self.isPersonal = true
+                            self.isPersonal = true
                         }
                         
                         if self.isPersonal{
                             self.basicInfo = ["Email","Country","City","Mobile Number","Maroof Link"]
                             self.sectionHeading = ["","Services ","Personal Information","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
-                             }
+                        }
                         
                         self.agentInfo.name = self.profileInfo?.data?.user_data?.name ?? ""
-                        
-                        print(self.agentInfo.name,"nameddd")
+                        self.agentInfo.middle_name = self.profileInfo?.data?.user_data?.middle_name ?? ""
+                        self.agentInfo.last_name = self.profileInfo?.data?.user_data?.last_name ?? ""
+                        print(self.agentInfo.name,"-:nameddd")
+                        print(self.agentInfo.middle_name,"-:middlename")
+                        print(self.agentInfo.last_name,"-:lastnameddd")
                         self.agentInfo.Email = self.profileInfo?.data?.user_data?.email ?? ""
                         self.agentInfo.country = self.profileInfo?.data?.user_data?.country ?? ""
                         self.agentInfo.countryId = self.profileInfo?.data?.user_data?.country_id ?? 0
@@ -334,7 +381,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                         let phone = self.profileInfo?.data?.user_data?.phone_number ?? ""
                         self.agentInfo.phoneNo =  self.customStringFormatting(of: phone)
                         self.agentInfo.businessName = self.profileInfo?.data?.user_data?.company_name ?? ""
-
+                        
                         
                         self.agentInfo.phCode = self.profileInfo?.data?.user_data?.phone_code ?? ""
                         self.agentInfo.phFlag = self.profileInfo?.data?.user_data?.phone_flag ?? ""
@@ -348,14 +395,14 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                         print(self.profileInfo?.data?.user_data?.account_iban_nbr ?? "","kjkjkjjkj")
                         let vals = self.profileInfo?.data?.user_data?.vat_no ?? ""
                         self.agentInfo.vatNo =  self.customStringFormatting(of: vals)
-
+                        
                         
                         self.pdfVat = self.profileInfo?.data?.user_data?.vat_certificate ?? ""
                         
                         self.agentInfo.gender = self.profileInfo?.data?.user_data?.gender ?? ""
                         
                         self.agentInfo.dob = self.profileInfo?.data?.user_data?.dob ?? ""
-                       
+                        
                         let dateString = self.agentInfo.dob
                         let dateFormatter = DateFormatter()
                         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
@@ -363,27 +410,27 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                         let date = dateFormatter.date(from: dateString)!
                         dateFormatter.dateFormat = "YYYY-MM-dd"
                         self.agentInfo.dob = dateFormatter.string(from:date)
-                       
+                        
                         self.agentInfo.education = self.profileInfo?.data?.user_data?.education ?? ""
                         self.agentInfo.educationId = self.profileInfo?.data?.user_data?.education_new ?? 0
-
+                        
                         self.agentInfo.major = self.profileInfo?.data?.user_data?.education_major ?? ""
                         self.agentInfo.majorId = self.profileInfo?.data?.user_data?.education_major_id ?? 0
-
+                        
                         self.agentInfo.mobileFlag = self.profileInfo?.data?.user_data?.mobile_flag ?? ""
                         
                         self.agentInfo.mobileLength = self.profileInfo?.data?.user_data?.mobile_length ?? 0
                         
                         self.agentInfo.phoneLength = self.profileInfo?.data?.user_data?.phone_length ?? 0
-
-                       
+                        
+                        
                         if self.pdfVat != ""{
                             let url = URL(string: self.pdfVat)
                             self.pdfImage = self.pdfThumbnail(url: url!)!
                         }else{
                             self.pdfImage = UIImage(named:"vatSample_image")!
                         }
-        
+                        
                         self.tableVw.delegate = self
                         self.tableVw.dataSource = self
                         self.tableVw.reloadData()
@@ -764,6 +811,14 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                 cell.save.borderColor = #colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1)
                 
             }
+            if agentInfo.name != "" && ModalController.isValidName(title: agentInfo.name) == true && agentInfo.last_name != "" && ModalController.isValidName(title: agentInfo.last_name) == true{
+                
+                cell.save.borderColor =  #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+                cell.save.setTitleColor( #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1), for: .normal)
+            }else{
+                cell.save.borderColor =  #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1)
+                cell.save.setTitleColor( #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), for: .normal)
+            }
             cell.save.addTarget(self, action: #selector(saveChange), for: .touchUpInside)
             cell.cancel.addTarget(self, action: #selector(cancel), for: .touchUpInside)
             cell.selectionStyle = .none
@@ -851,8 +906,22 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         if indexPath.row == 0{
             cell.headingLbl.isHidden = false
             cell.headingLbl.text = agentInfo.name
+            cell.headingLbl.tag = 9997
             cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         }else if indexPath.row == 1{
+            cell.entryLbl.attributedText = ModalController.setprofileStricColor(str: "\("\(personalDetail[indexPath.row])".localized)", str1: "\(personalDetail[indexPath.row])".localized, str2:"" )
+            cell.headingLbl.isHidden = false
+            cell.headingLbl.text = agentInfo.middle_name
+            cell.headingLbl.tag = 9998
+            cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        }
+        else if indexPath.row == 2{
+            cell.headingLbl.isHidden = false
+            cell.headingLbl.tag = 9999
+            cell.headingLbl.text = agentInfo.last_name
+            cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        }
+        else if indexPath.row == 3{
             cell.genderWidth.constant = (self.tableVw.frame.width)/2 + 10
             cell.genderHorizantal.constant = 0
             if isEdit{
@@ -875,18 +944,18 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
                 self.agentInfo.gender = "\(selectedText)"
             }
         }
-        else if indexPath.row == 2 {
+        else if indexPath.row == 4 {
             cell.headingLbl.isHidden = false
             cell.headingLbl.isUserInteractionEnabled = false
             cell.headingLbl.text = agentInfo.dob
             
         }
-        else if indexPath.row == 3{
+        else if indexPath.row == 5{
             cell.headingLbl.isHidden = false
             cell.headingLbl.text = agentInfo.education
             cell.headingLbl.isUserInteractionEnabled = false
         }
-        else if indexPath.row == 4{
+        else if indexPath.row == 6{
             cell.headingLbl.isHidden = false
             cell.headingLbl.text = agentInfo.major
             cell.headingLbl.isUserInteractionEnabled = false
@@ -1073,7 +1142,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         
         if "Maroof Link" ==  basicInfo[indexPath.row]{
             
-            cell.headingLbl.tag = 5
+            cell.headingLbl.tag = 500
             cell.headingLbl.delegate = self
             cell.headingLbl.text = agentInfo.maroof
             cell.codeBtnWidth.constant = 0
@@ -1124,7 +1193,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
         if "Email" == basicInfo[indexPath.row]{
             
             //  cell.contentView.insertSubview(cell.rotateVw, aboveSubview:cell.selectBtn )
-            cell.headingLbl.tag = 1
+            cell.headingLbl.tag = 100
             cell.headingLbl.isHidden = false
             cell.codeBtnWidth.constant = 0
             cell.widthImg.constant = 0
@@ -1320,18 +1389,18 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
         
-        if textField.tag == 0{
+        if textField.tag == 0 || textField.tag == 1 || textField.tag == 2{
             let allowedCharecter = CharacterSet.letters
             let characterSet = CharacterSet(charactersIn: string)
             let allowedCharacter1 = CharacterSet.whitespaces
             
             return allowedCharecter.isSuperset(of: characterSet) || allowedCharacter1.isSuperset(of: characterSet)
         }
-        if textField.tag == 1{
+        if textField.tag == 100{
             return false
         }
             
-        if textField.tag == 5{
+        if textField.tag == 500{
             let textStr = "https://www.maroof.com/"
             
             if range.location < textStr.count
@@ -1419,15 +1488,41 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
     @objc func textFieldDidChange(textField: UITextField){
 //        textField.textAlignment =  ("\(textField.text!.first)".isArabic ? .right:.left)
         switch textField.tag  {
-        case 0:
-            
+        case 9997:
+            if ModalController.isValidName(title: textField.text!) == false {
+                ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validName)
+                return
+            }else{
+                 myString = textField.text!
+                agentInfo.name = myString.trimmingCharacters(in: .whitespacesAndNewlines)
+                print("name",agentInfo.name)
+            }
             //agentInfo.businessName = textField.text!
-            agentInfo.name = textField.text!
+//            agentInfo.name = textField.text!
             
-            
-        case 1:
+        case 9998:
+            if ModalController.isValidName(title: textField.text!) == false {
+                ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validMiddleName)
+                return
+            }else{
+                 myString = textField.text!
+                agentInfo.middle_name = myString.trimmingCharacters(in: .whitespacesAndNewlines)
+                print("middlename",agentInfo.middle_name)
+            }
+//            agentInfo.middle_name = textField.text!
+        case 9999   :
+            if ModalController.isValidName(title: textField.text!) == false {
+                ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validName)
+                return
+            }else{
+                 myString = textField.text!
+                agentInfo.last_name = myString.trimmingCharacters(in: .whitespacesAndNewlines)
+                print("lastname",agentInfo.last_name)
+            }
+//            agentInfo.last_name = textField.text!
+        case 100:
             agentInfo.Email = textField.text!
-        case 5:
+        case 500:
             agentInfo.maroof = textField.text!
             
         case 1002:

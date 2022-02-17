@@ -412,7 +412,12 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
                     letters[i] = ""
                     return false
                 }
-                
+            }
+            let maxLength = 16
+            let currentString: NSString = (textField.text ?? "") as NSString
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            if newString.length > maxLength{
+                return false
             }
             return true
             
@@ -568,6 +573,7 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
     }
 
     func ResetPasswordAPI(){
+        
         ModalClass.startLoading(self.view)
         
         let device_id = UIDevice.current.identifierForVendor!.uuidString
@@ -606,6 +612,10 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
                     }
                     else{
                         ModalController.showNegativeCustomAlertWith(title: "", msg: (self.Reset_Password?.error_description)!)
+                        self.text1.text = ""
+                        self.text2.text = ""
+                        self.text3.text = ""
+                        self.text4.text = ""
                     }
                 
             }else{

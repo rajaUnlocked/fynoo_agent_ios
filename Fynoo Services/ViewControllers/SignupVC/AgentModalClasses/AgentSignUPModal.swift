@@ -351,7 +351,7 @@ class PersonalAgentSignUPModal: NSObject {
         if appDelegate?.selectServiceStr.count == 0 {
             return (isFilled, ValidationMessages.services)
         }
-        if personalAgentName == "" {
+        if personalAgentName == "" || personalAgentName.count > 50 {
             return (isFilled, ValidationMessages.Name)
         }
         if ModalController.isValidName(title: personalAgentName) == false {
