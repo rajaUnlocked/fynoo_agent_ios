@@ -9,7 +9,8 @@
 import UIKit
 
 class AddNewBankViewController: UIViewController, UITextFieldDelegate{
-        
+    @IBOutlet weak var lblAgrredTerm: UILabel!
+    @IBOutlet weak var btnCheck: UIButton!
     @IBOutlet weak var sendmoneylbl: UILabel!
     @IBOutlet weak var bankView: UIView!
     @IBOutlet weak var ibanView: UIView!
@@ -54,6 +55,7 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
         ModalController.watermark(self.view)
         super.viewDidLoad()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+        lblAgrredTerm.font = UIFont(name:"\(fontNameLight)",size:12)
     sendmoneylbl.font = UIFont(name:"\(fontNameLight)",size:12)
         accountinfo.font = UIFont(name:"\(fontNameLight)",size:12)
         ibanlbl.font = UIFont(name:"\(fontNameLight)",size:12)
@@ -113,8 +115,8 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
         if isForEdit{
             accountName.text =  bankDetail.object(forKey: "full_name") as? String
             nickName.text = "SAR"
-            ibanNo.text = (bankDetail.object(forKey: "account_iban_nbr") as! String)
-            reIban.text = (bankDetail.object(forKey: "account_iban_nbr") as! String)
+            ibanNo.text = ModalController.customStringFormattingForAccountNumber(of: (bankDetail.object(forKey: "account_iban_nbr") as! String))
+            reIban.text = ModalController.customStringFormattingForAccountNumber(of: (bankDetail.object(forKey: "account_iban_nbr") as! String))
             bankName.text = (bankDetail.object(forKey: "bank_name") as! String)
      //       currency.text = "SAR"
             save.borderColor = #colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1)
@@ -124,6 +126,12 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
             validIbanTick.isHidden = false
     //        self.ibanNo.keyboardType = .asciiCapableNumberPad
             self.ibanNo.keyboardType = .asciiCapable
+            guard let agree = (bankDetail.object(forKey: "is_agreed")) else { return }
+            if  agree as! Bool == true {
+                btnCheck.isSelected = true
+            }else{
+                btnCheck.isSelected = false
+            }
         }else{
             bankView.borderColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
             accountView.borderColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
@@ -262,8 +270,8 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
                 accountNumber = accountValue.replacingOccurrences(of: " ", with: "")
                 accountValue = ModalController.customStringFormattingForAccountNumber(of: accountNumber)
             }else{
-                accountValue =  ModalController.customStringFormattingForAccountNumber(of: textField.text!)
-                accountNumber = accountValue.replacingOccurrences(of: " ", with: "")
+                accountNumber = textField.text!.replacingOccurrences(of: " ", with: "")
+                accountValue =  ModalController.customStringFormattingForAccountNumber(of: accountNumber)
             }
 
             let str = self.ibanNo.text?.replacingOccurrences(of: " ", with: "")
@@ -305,8 +313,8 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
                 accountNumbers = accountValues.replacingOccurrences(of: " ", with: "")
                 accountValues = ModalController.customStringFormattingForAccountNumber(of: accountNumbers)
             }else{
-                accountValues =  ModalController.customStringFormattingForAccountNumber(of: textField.text!)
-                accountNumbers = accountValues.replacingOccurrences(of: " ", with: "")
+                accountNumbers = textField.text!.replacingOccurrences(of: " ", with: "")
+                accountValues =  ModalController.customStringFormattingForAccountNumber(of: accountNumbers)
             }
             
             textField.text = accountValues
@@ -331,7 +339,7 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
         }
 
         print(ibanNo.text!.count,"dsd")
-        if  nickName.text!.isEmpty || bankName.text!.isEmpty || ibanNo.text!.count != 29 ||  reIban.text!.isEmpty ||  accountName.text!.isEmpty ||  validIbanTick.isHidden == true{
+        if  nickName.text!.isEmpty || bankName.text!.isEmpty || ibanNo.text!.count != 29 ||  reIban.text!.isEmpty ||  accountName.text!.isEmpty ||  validIbanTick.isHidden == true || btnCheck.isSelected == false{
             save.borderColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
             save.setTitleColor(#colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1), for: .normal)
             infoFilled.image = UIImage(named:"edit-new")
@@ -412,6 +420,27 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
         }
     }
     
+    @IBAction func btnCheckClicked(_ sender: UIButton) {
+        
+        if btnCheck.isSelected == true {
+            btnCheck.isSelected = false
+        }else{
+            btnCheck.isSelected = true
+        }
+        
+        if  nickName.text!.isEmpty || bankName.text!.isEmpty || ibanNo.text!.count != 29 ||  reIban.text!.isEmpty ||  accountName.text!.isEmpty ||  validIbanTick.isHidden == true || btnCheck.isSelected == false{
+            save.borderColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
+            save.setTitleColor(#colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1), for: .normal)
+            infoFilled.image = UIImage(named:"edit-new")
+            
+        }
+        else{
+            save.borderColor = #colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1)
+            save.setTitleColor(#colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1), for: .normal)
+            infoFilled.image = UIImage(named:"greenTick")
+        }
+    }
+    
 
     
     @IBAction func saveBtn(_ sender: Any) {
@@ -433,6 +462,10 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
         }
         if accountName.text == ""{
             ModalController.showNegativeCustomAlertWith(title: "Please enter name on account".localized, msg: "")
+            return
+        }
+        if btnCheck.isSelected == false {
+            ModalController.showNegativeCustomAlertWith(title: "Please select terms & conditions.".localized, msg: "")
             return
         }
                
@@ -489,17 +522,18 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
     }
     
     func addNewAPI(){
-        
+        let ibnNo = self.ibanNo.text!.replacingOccurrences(of: " ", with: "")
         ModalClass.startLoading(self.view)
         let str = "\(Constant.BASE_URL)\(Constant.addNewBankAPI)"
         let parameters = [
             "user_id":Singleton.shared.getUserId(),
             "bank_id":"\(selectedBankDict.object(forKey:"id") as! Int)",
             "name_on_account":self.accountName.text!,
-            "iban_number":self.ibanNo.text!,
-            "c_iban_number":self.ibanNo.text!,
+            "iban_number":ibnNo,
+            "c_iban_number":ibnNo,
             "currency":"2",
-            "lang_code":HeaderHeightSingleton.shared.LanguageSelected
+            "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
+            "is_agreed":"\(btnCheck.isSelected)"
         ]
         print("request -",parameters)
         ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in
@@ -518,7 +552,7 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
     }
     
     func updateBankNewAPI(){
-        
+        let ibnNo = self.ibanNo.text!.replacingOccurrences(of: " ", with: "")
         var banID = 0
         if selectedBankDict.count == 0 {
             banID = selectedID
@@ -534,11 +568,12 @@ class AddNewBankViewController: UIViewController, UITextFieldDelegate{
                    "user_id":Singleton.shared.getUserId(),
                    "bank_id":"\(bankDetail.object(forKey: "bank_id") as! NSNumber)",
                    "name_on_account":self.accountName.text!,
-                   "iban_number":self.ibanNo.text!,
-                   "c_iban_number":self.ibanNo.text!,
+                   "iban_number":ibnNo,
+                   "c_iban_number":ibnNo,
                    "currency":"2",
                    "user_bank_pk":"\(banID)",
-                   "lang_code":HeaderHeightSingleton.shared.LanguageSelected
+                   "lang_code":HeaderHeightSingleton.shared.LanguageSelected,
+                   "is_agreed":"\(btnCheck.isSelected)"
                ]
                print("request -",parameters)
                ServerCalls.postRequest(str, withParameters: parameters) { (response, success, resp) in

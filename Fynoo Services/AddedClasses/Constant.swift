@@ -63,6 +63,8 @@ enum ValidationMessages {
     static let NickName = "Please enter your Nick Name."
     static let Name = "Please enter your name."
     static let validName = "Please enter valid name."
+    static let validMiddleName = "Please enter valid Middle name."
+    static let validLastName = "Please enter valid Last name."
     static let validAccountName = "Please enter valid Account Holder Name."
     static let Gender = "Please select your gender."
     static let Dob = "Please enter your DOB."
@@ -183,8 +185,8 @@ class Constant: NSObject {
 
     //static var BASE_URL : String = "https://dev.fynoo.com/"   //live
 
-     static var BASE_URL : String = "http://uat.sendan.com.sa:9003/"  // dev
-   // static var BASE_URL : String = "https://www.fynoo.com/"   //live
+     //static var BASE_URL : String = "http://uat.sendan.com.sa:9003/"  // dev
+    static var BASE_URL : String = "https://www.fynoo.com/"   //live
     // MARK: - Invoices
     static let invoiceApi : String = "invoice/invoice_list/";
     static let invoiceDownloadApi : String = "invoice/download_invoice/";

@@ -363,7 +363,7 @@ extension ChangePasswordViewController : UITableViewDataSource{
 }
 extension String{
     func isValidPassword() -> Bool {
-              let passwordRegex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*()\\-_=+{}|?>.<,:;~`’]{8,}$"
+              let passwordRegex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*()\\-_=+{}|?>.<,:;~`’]{8,64}$"
               return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: self)
           }
 }
