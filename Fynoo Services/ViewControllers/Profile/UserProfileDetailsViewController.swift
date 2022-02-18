@@ -908,18 +908,21 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.headingLbl.text = agentInfo.name
             cell.headingLbl.tag = 9997
             cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+            cell.headingLbl.delegate = self
         }else if indexPath.row == 1{
             cell.entryLbl.attributedText = ModalController.setprofileStricColor(str: "\("\(personalDetail[indexPath.row])".localized)", str1: "\(personalDetail[indexPath.row])".localized, str2:"" )
             cell.headingLbl.isHidden = false
             cell.headingLbl.text = agentInfo.middle_name
             cell.headingLbl.tag = 9998
             cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+            cell.headingLbl.delegate = self
         }
         else if indexPath.row == 2{
             cell.headingLbl.isHidden = false
             cell.headingLbl.tag = 9999
             cell.headingLbl.text = agentInfo.last_name
             cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+            cell.headingLbl.delegate = self
         }
         else if indexPath.row == 3{
             cell.genderWidth.constant = (self.tableVw.frame.width)/2 + 10
@@ -1387,6 +1390,14 @@ extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
 extension UserProfileDetailsViewController : UITextFieldDelegate{
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        
+        if textField.text!.count == 0{
+                    if string == " "
+                    {
+                    return false
+                    }
+                }
 
         
         if textField.tag == 0 || textField.tag == 1 || textField.tag == 2{
@@ -1490,7 +1501,7 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
         switch textField.tag  {
         case 9997:
             if ModalController.isValidName(title: textField.text!) == false {
-                ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validName)
+//                ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validName)
                 return
             }else{
                  myString = textField.text!
@@ -1502,7 +1513,7 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
             
         case 9998:
             if ModalController.isValidName(title: textField.text!) == false {
-                ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validMiddleName)
+//                ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validMiddleName)
                 return
             }else{
                  myString = textField.text!
@@ -1512,7 +1523,7 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
 //            agentInfo.middle_name = textField.text!
         case 9999   :
             if ModalController.isValidName(title: textField.text!) == false {
-                ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validName)
+//                ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validName)
                 return
             }else{
                  myString = textField.text!

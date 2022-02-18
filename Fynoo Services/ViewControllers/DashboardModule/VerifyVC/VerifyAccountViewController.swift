@@ -28,13 +28,13 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var email: UILabel!
     var isFromAgent : Bool = true
     var verifyAccountModal = VerifyAccountModal()
-    var timer: Timer?
+    var timer:Timer?
     var counter = 60
     var fynooId = ""
     var mobile = ""
     var emailId = ""
     var mobileCode = ""
-    
+    var isfromLogin = false
     @IBOutlet weak var otp: UILabel!
     @IBAction func backbutton(_ sender: UIButton) {
     }
@@ -115,7 +115,9 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
             otpView.semanticContentAttribute = .forceLeftToRight
         }
         self.resendView.setAllSideShadow(shadowShowSize: 2.0)
+       
         self.otpTime()
+        
         let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
 
@@ -124,8 +126,11 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
         otp.font = UIFont(name:"\(fontNameLight)",size:12)
         counterrText.font = UIFont(name:"\(fontNameLight)",size:12)
         resendOtp.titleLabel?.font=UIFont(name:"\(fontNameLight)",size:12)
-       
-        resendOtps()
+       if isfromLogin
+        {
+           resendOtps()
+        }
+   
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
@@ -151,10 +156,13 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
         ServerCalls.postRequest(url, withParameters: param) { (response,success) in
             if success{
                 if let value = response as? NSDictionary{
-                    let time = value.object(forKey: "otp_time") as! String
-                    self.counter = Int(time)!
+                    
+                    if let time = value.object(forKey: "otp_time")
+                    {
+                        self.counter = Int(time as! String)!
+                    }
+                   
                     self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.action), userInfo: nil, repeats: true)
-        
                 }
             }
                 
@@ -321,6 +329,11 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
                            
                        }else{
                            ModalController.showNegativeCustomAlertWith(title: "", msg: msg!)
+                           self.text1.text = ""
+                           self.text2.text = ""
+                           self.text3.text = ""
+                           self.text4.text = ""
+                           
                        }
                    }
                }else{
@@ -382,9 +395,9 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
         
     }
     
-    @objc func action () {
+    @objc func action() {
         
-        counter -= 1
+        counter = counter - 1
         let minutes = Int(counter) / 60 % 60
          let seconds = Int(counter) % 60
         
@@ -397,7 +410,7 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
          counterrText.text="\(please) \(str) \(before)"
           counterTime.text = "\(str)"
         if counter == 0{
-            timer?.invalidate()
+            self.timer?.invalidate()
             resendOtp.setTitleColor(#colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1), for: .normal)
             if let imageView = self.view.viewWithTag(1009) as? UIImageView{
                 imageView.tintColor = #colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1)

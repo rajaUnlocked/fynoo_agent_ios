@@ -104,8 +104,88 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         tabBarController?.delegate = self
         
         doBackgroundTask()
+        getVersion()
     }
-    
+    @objc func getVersion()
+    {
+        let appVersion = appUpdateAvailable()
+        if appVersion.0 {
+            alertController(controller: self, title: "New Update", message: "New version \(appVersion.1 ?? "") is available")
+          }
+       
+          func  alertController(controller:UIViewController,title: String,message: String){
+           let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Update", style: .default, handler: { alert in
+            
+            guard let url = URL(string: "https://apps.apple.com/sa/app/fynoo-agent/id1531299470") else { return }
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }))
+        DispatchQueue.main.async {
+            controller.present(alertController, animated: true)
+        }
+          }
+        
+    }
+    func appUpdateAvailable() -> (Bool,String?) {
+      
+      guard let info = Bundle.main.infoDictionary,
+            let identifier = info["CFBundleIdentifier"] as? String else {
+          return (false,nil)
+      }
+      
+   //        let storeInfoURL: String = "http://itunes.apple.com/lookupbundleId=\(identifier)&country=IN"
+      let storeInfoURL:String = "https://itunes.apple.com/IN/lookup?bundleId=\(identifier)"
+      var upgradeAvailable = false
+      var versionAvailable = ""
+      // Get the main bundle of the app so that we can determine the app's
+   //version number
+      let bundle = Bundle.main
+      if let infoDictionary = bundle.infoDictionary {
+            // The URL for this app on the iTunes store uses the Apple ID
+  //for the  This never changes, so it is a constant
+          let urlOnAppStore = NSURL(string: storeInfoURL)
+          if let dataInJSON = NSData(contentsOf: urlOnAppStore! as URL) {
+              // Try to deserialize the JSON that we got
+              if let dict: NSDictionary = try?
+     JSONSerialization.jsonObject(with: dataInJSON as Data, options:
+     JSONSerialization.ReadingOptions.allowFragments) as! [String:
+       AnyObject] as NSDictionary? {
+                  if let results:NSArray = dict["results"] as? NSArray {
+                      if let version = (results[0] as! [String:Any])["version"] as? String {
+                          // Get the version number of the current version
+          // installed on device
+                          if let currentVersion =
+          infoDictionary["CFBundleShortVersionString"] as? String {
+                              // Check if they are the same. If not, an
+           // upgrade is available.
+                              print("\(version)")
+                              let appversion = version.components(separatedBy: ".")
+                              let currversion = currentVersion.components(separatedBy: ".")
+                              for i in 0..<appversion.count
+                              {
+                                 if appversion[i] > currversion[i]
+                                  {
+                                     upgradeAvailable = true
+                                     versionAvailable = version
+                                     return (upgradeAvailable,versionAvailable)
+                                 }
+                                  else{
+                                      upgradeAvailable = false
+                                      versionAvailable = version
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      }
+      return (upgradeAvailable,versionAvailable)
+   }
     @IBAction func walletBalanceClicked(_ sender: UIButton) {
         
         let vc = BankAllListViewController(nibName: "BankAllListViewController", bundle: nil)
