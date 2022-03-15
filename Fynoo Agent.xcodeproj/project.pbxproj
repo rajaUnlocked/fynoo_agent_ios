@@ -190,11 +190,6 @@
 		4EE03B2D27A7B42E005C8173 /* GlobalSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE03B2527A7B42D005C8173 /* GlobalSearch.swift */; };
 		4EE49DD72673825400E5640C /* ReasonForDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE49DD52673825400E5640C /* ReasonForDeleteViewController.swift */; };
 		4EE631A0267F758900D5ED01 /* CancelReasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE6319E267F758900D5ED01 /* CancelReasonViewController.swift */; };
-		5354CE7E2772F1E2002223B2 /* InvoicingHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5354CE792772F1E2002223B2 /* InvoicingHeader.xib */; };
-		5354CE7F2772F1E2002223B2 /* InvoiceNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5354CE7A2772F1E2002223B2 /* InvoiceNewViewController.swift */; };
-		5354CE802772F1E2002223B2 /* InvoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5354CE7B2772F1E2002223B2 /* InvoiceModel.swift */; };
-		5354CE812772F1E2002223B2 /* InvoicingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5354CE7C2772F1E2002223B2 /* InvoicingHeader.swift */; };
-		5354CE822772F1E2002223B2 /* InvoiceNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5354CE7D2772F1E2002223B2 /* InvoiceNewViewController.xib */; };
 		5389B11827A96044008C1871 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5389B11727A96044008C1871 /* PasswordTextField.swift */; };
 		5E5216B0923EFDB527AF8FA7 /* Pods_Fynoo_AgentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5221FCBE85158F2A6A17ACB /* Pods_Fynoo_AgentTests.framework */; };
 		CE1D84A426906CC300763385 /* ServiceSingleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1D84A626906CC300763385 /* ServiceSingleCollectionViewCell.xib */; };
@@ -1103,11 +1098,6 @@
 		4EE03B2527A7B42D005C8173 /* GlobalSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSearch.swift; sourceTree = "<group>"; };
 		4EE49DD52673825400E5640C /* ReasonForDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForDeleteViewController.swift; sourceTree = "<group>"; };
 		4EE6319E267F758900D5ED01 /* CancelReasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelReasonViewController.swift; sourceTree = "<group>"; };
-		5354CE792772F1E2002223B2 /* InvoicingHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoicingHeader.xib; sourceTree = "<group>"; };
-		5354CE7A2772F1E2002223B2 /* InvoiceNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceNewViewController.swift; sourceTree = "<group>"; };
-		5354CE7B2772F1E2002223B2 /* InvoiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceModel.swift; sourceTree = "<group>"; };
-		5354CE7C2772F1E2002223B2 /* InvoicingHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoicingHeader.swift; sourceTree = "<group>"; };
-		5354CE7D2772F1E2002223B2 /* InvoiceNewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoiceNewViewController.xib; sourceTree = "<group>"; };
 		5389B11727A96044008C1871 /* PasswordTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		72554F0E68CC689867FF3DAE /* Pods-Fynoo AgentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo AgentTests.debug.xcconfig"; path = "Target Support Files/Pods-Fynoo AgentTests/Pods-Fynoo AgentTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9818335E34AF2E38CE82B320 /* Pods-Fynoo Agent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fynoo Agent.release.xcconfig"; path = "Target Support Files/Pods-Fynoo Agent/Pods-Fynoo Agent.release.xcconfig"; sourceTree = "<group>"; };
@@ -7751,8 +7741,6 @@
 				CODE_SIGN_ENTITLEMENTS = "Fynoo Services/Fynoo Services.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
-				DEVELOPMENT_TEAM = 94V2SEBR29;
 				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_TEAM = 94V2SEBR29;
 				INFOPLIST_FILE = "Fynoo Services/Info.plist";
