@@ -383,6 +383,9 @@ class PersonalAgentSignUPModal: NSObject {
         if !personalAgentEmail.containArabicNumber {
             return (isFilled, ValidationMessages.emailArabicNumber)
         }
+        if personalAgentConfirmEmail == "" {
+            return (isFilled, ValidationMessages.confirmEmail)
+        }
         if !personalAgentConfirmEmail.containArabicNumber {
             return (isFilled, ValidationMessages.emailArabicNumber)
         }
@@ -412,6 +415,9 @@ class PersonalAgentSignUPModal: NSObject {
         if  personalAgentMaroofLink.count > 0 && !personalAgentMaroofLink.containArabicNumber {
             return (isFilled, ValidationMessages.maroofArabicNumber)
         }
+        if personalAgentPassword == "" {
+            return (isFilled, ValidationMessages.password)
+        }
         if personalAgentPassword.count < 8 {
             
             return (isFilled, ValidationMessages.passwordCount)
@@ -419,9 +425,7 @@ class PersonalAgentSignUPModal: NSObject {
         if !personalAgentPassword.containArabicNumber {
             return (isFilled, ValidationMessages.passArabicNumber)
         }
-        if personalAgentPassword == "" {
-            return (isFilled, ValidationMessages.password)
-        }
+       
         if personalAgentConfirmPswd == "" {
             return (isFilled, ValidationMessages.agentConfirmPassword)
         }
@@ -431,17 +435,6 @@ class PersonalAgentSignUPModal: NSObject {
         if personalAgentPassword != personalAgentConfirmPswd {
             return (isFilled, ValidationMessages.compareConfirmPassword)
         }
-       
-        if personalAgentbankAccountHolderName == "" {
-              return (isFilled, ValidationMessages.bankAccountHolderName)
-        }
-        
-        if (personalAgentName_CompareCode == "YES".uppercased()) && (personalAgentName != personalAgentbankAccountHolderName) {
-            return (isFilled, ValidationMessages.agentName_compare)
-        }
-        if ModalController.isValidName(title: personalAgentbankAccountHolderName) == false {
-        return (isFilled, ValidationMessages.validAccountName)
-         }
         if personalAgentAccountNbr == "" {
             return (isFilled, ValidationMessages.bankAccountNumber)
         }
@@ -471,6 +464,45 @@ class PersonalAgentSignUPModal: NSObject {
             return (isFilled, ValidationMessages.validIbanNumber)
         }
         
+        if personalAgentbankAccountHolderName == "" {
+              return (isFilled, ValidationMessages.bankAccountHolderName)
+        }
+        
+        if (personalAgentName_CompareCode == "YES".uppercased()) && (personalAgentName != personalAgentbankAccountHolderName) {
+            return (isFilled, ValidationMessages.agentName_compare)
+        }
+        if ModalController.isValidName(title: personalAgentbankAccountHolderName) == false {
+        return (isFilled, ValidationMessages.validAccountName)
+         }
+//        if personalAgentAccountNbr == "" {
+//            return (isFilled, ValidationMessages.bankAccountNumber)
+//        }
+//        if !personalAgentAccountNbr.containArabicNumber {
+//            return (isFilled, ValidationMessages.ibanArabicNumber)
+//        }
+//         personalAgentAccountNbr = personalAgentAccountNbr.replacingOccurrences(of: " ", with: "")
+//        if personalAgentAccountNbr.count != personalAgentIBanLength {
+//              return (isFilled, ValidationMessages.ValidIBANNumber)
+//        }
+//         let bankCode =  personalAgentAccountNbr.substring(from: 0, to: 1)
+//        let ibanBool = ModalController.isValidIBAN(ibanStr: personalAgentAccountNbr, length: personalAgentIBanLength, countryType: bankCode)
+//          if ibanBool == false {
+//
+//            ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validIbanNumber)
+//            return (isFilled, ValidationMessages.validIbanNumber)
+//          }
+//        if personalAgentAccountNbr != "" {
+//            personalAgentAccountNbr = personalAgentAccountNbr.replacingOccurrences(of: " ", with: "")
+//            if personalAgentAccountNbr.count !=  personalAgentIBanLength {
+//                ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validIbanNumber)
+//                return (isFilled, ValidationMessages.validIbanNumber)
+//            }
+//        }
+//
+//        if personalAgentbankName == "" {
+//            return (isFilled, ValidationMessages.validIbanNumber)
+//        }
+//
           if !isVatSelected && !isVatNotSelected {
             return (isFilled, ValidationMessages.vat)
             }
@@ -478,8 +510,12 @@ class PersonalAgentSignUPModal: NSObject {
             return (isFilled, ValidationMessages.vatNumber)
         }
         
+        if isVatSelected == true && personalAgentVatNumber.count < 15 {
+            return (isFilled, ValidationMessages.validVatNumber)
+        }
+        
         if isVatSelected == true && personalVatDocumentUrl == nil {
-            return (isFilled, ValidationMessages.vat_certificate)
+            return (isFilled, ValidationMessages.uploadVat_certificate)
         }
         
         if isVatSelected == true && (personalAgentVatNumber == "" || personalVatDocumentUrl == nil) {

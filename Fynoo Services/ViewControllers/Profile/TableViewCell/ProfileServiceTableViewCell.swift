@@ -149,6 +149,7 @@ class ProfileServiceTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
                 cell.imgCheck.image = UIImage(named: "uncheck")
             }
             cell.serviceName.text = serviceList?[indexPath.row].service_name ?? ""
+            cell.imgService.setImageSDWebImage(imgURL: serviceList?[indexPath.row].service_icon ?? "", placeholder: "placeholder")
             if agentinfo.serviceArr.count == 0
             {
                 cell.imgCheck.image = UIImage(named: "uncheck_red")

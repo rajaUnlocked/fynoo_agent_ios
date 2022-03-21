@@ -503,6 +503,13 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         else{
             if row == 4
             {
+                
+                if textField.text!.count == 0{
+                            if string == " " || string == "0"
+                            {
+                            return false
+                            }
+                        }
                 if textstr.count > 0
                 {
                     
@@ -537,6 +544,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             }
             if  row == 7
             {
+                if textField.text!.count == 0{
+                            if string == " " || string == "0"
+                            {
+                            return false
+                            }
+                        }
                 if textstr.count > 0
                 {
                     
@@ -910,7 +923,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             {
             if !imgIdUploadedArr[2]
             {
-                ModalController.showNegativeCustomAlertWith(title: "Please Upload Vehicle Registration", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please upload Vehicle Registration by clicking on Sample image", msg: "")
                 return
             }
             
@@ -940,17 +953,17 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             {
                 if sender.tag == 1
                 {
-                    ModalController.showNegativeCustomAlertWith(title: "Please Upload Driving License Front", msg: "")
+                    ModalController.showNegativeCustomAlertWith(title: "Please upload driving license font by clicking on Sample image", msg: "")
                     return
                 }
                 if sender.tag == 2
                 {
-                    ModalController.showNegativeCustomAlertWith(title: "Please Upload Vehicle Registration", msg: "")
+                    ModalController.showNegativeCustomAlertWith(title: "Please upload Vehicle Registration by clicking on Sample image", msg: "")
                     return
                 }
                 if sender.tag == 3
                 {
-                    ModalController.showNegativeCustomAlertWith(title: "Please Upload Vehicle Insurance", msg: "")
+                    ModalController.showNegativeCustomAlertWith(title: "Please upload Vehicle Insurance by clicking on Sample image", msg: "")
                     return
                 }
                 
@@ -1208,6 +1221,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         cell.crossclicked.addTarget(self, action: #selector(clickcrossed(_:)), for: .touchUpInside)
         cell.uploadbtn.setTitle("Upload & Save".localized, for: .normal)
         cell.crossclicked.isHidden =  true
+        cell.lblsampletext.isHidden =  false
         cell.uploadimg.isUserInteractionEnabled = true
 //        if imgArr[section - 1] != ""
 //        {
@@ -1233,6 +1247,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         if imgIdArr[section - 1] || imgIdUploadedArr[section - 1]
         {
           cell.crossclicked.isHidden =  false
+          cell.lblsampletext.isHidden =  true
         cell.uploadimg.isUserInteractionEnabled = false
         }
        

@@ -82,7 +82,7 @@ class CompanyAgentVatDetailTableViewCell: UITableViewCell {
         self.documentHeaderLbl.textColor = Constant.Black_TEXT_COLOR
         self.addDocumentLbl.textColor = Constant.Black_TEXT_COLOR
         self.vatNumberTxtFld.textColor = Constant.Black_TEXT_COLOR
-        
+        self.documentHeaderLbl.text = "Upload VAT registration certificate".localized
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

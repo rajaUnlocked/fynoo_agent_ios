@@ -20,11 +20,13 @@ class ServiceDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var uploadbtn: UIButton!
     @IBOutlet weak var detaillbl: UILabel!
     @IBOutlet weak var uploadimg: UIButton!
+    @IBOutlet weak var lblsampletext:UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
        title.font = UIFont(name:"\(fontNameLight)",size:12)
         uploadbtn.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:16)
+        lblsampletext.font = UIFont(name:"\(fontNameLight)",size:12)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

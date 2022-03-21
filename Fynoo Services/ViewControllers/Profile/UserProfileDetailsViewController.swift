@@ -28,8 +28,10 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
         self.agentInfo.vatNo = vat
               self.pdfVat = Str
               
-              let url = URL(string: self.pdfVat)
-              self.pdfImage = self.pdfThumbnail(url: url!)!
+        if let url = URL(string: self.pdfVat){
+            self.pdfImage = self.pdfThumbnail(url: url) ?? UIImage(named:"vatSample_image")!
+        }
+             
               print( self.pdfVat,"hsdhj")
               tableVw.reloadData()
               print(Str,vat)
@@ -58,7 +60,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
     var pdfImage =  UIImage()
     var myString = ""
-    var personalDetail = ["First Name","Middle Name","Last Name","Gender","Dob","Education","Major"]
+    var personalDetail = ["First Name","Middle Name","Last Name","Gender","DOB","Education","Major"]
     var basicInfo = ["Business Name","Email","Country","City","Mobile Number","Phone Number","Maroof Link"]
     var bankDetail = ["IBAN Number","Bank Name","Card Holder Name"]
     var sectionHeading = ["","Services ","Basic Information","Bank Detail","Vat Information","Password Information","Language Information"]
@@ -146,11 +148,11 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
             let phone = agentInfo.phoneNo.replacingOccurrences(of: " ", with: "")
             
         if (agentInfo.name == "") || ModalController.isValidName(title: agentInfo.name) == false{
-            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please Enter Name")
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter name")
             return
         }
         if (agentInfo.last_name == "") || ModalController.isValidName(title: agentInfo.last_name) == false{
-            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please Enter Last Name")
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter last name")
             return
         }
         
@@ -332,6 +334,7 @@ class UserProfileDetailsViewController: UIViewController ,VatPopupNewViewControl
                         //
                         //
                         agentInfo.langArr.removeAllObjects()
+                        agentInfo.serviceArr.removeAllObjects()
                         print(self.agentInfo.serviceArr.count,"services")
                         
                         self.profileInfo  = Mapper<ProfileModal>().map(JSON: body)
@@ -456,7 +459,7 @@ extension UserProfileDetailsViewController : UITableViewDelegate {
         if isPersonal == true && isEdit == true {
             
             if indexPath.section == 2{
-                if indexPath.row == 2{
+                if indexPath.row == 4{
                     let calendar = Calendar(identifier: .gregorian)
                             let currentDate = Date()
                             var components = DateComponents()
@@ -491,7 +494,7 @@ extension UserProfileDetailsViewController : UITableViewDelegate {
                     
                     
                 }
-                if indexPath.row == 3{
+                if indexPath.row == 5{
                     let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
                   
                     vc.delegate = self
@@ -499,7 +502,7 @@ extension UserProfileDetailsViewController : UITableViewDelegate {
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
                 
-                if indexPath.row == 4{
+                if indexPath.row == 6{
                     let vc = SearchCategoryViewController(nibName: "SearchCategoryViewController", bundle: nil)
 //                    if self.selectedEducation.count == 0 {
 //                        ModalController.showNegativeCustomAlertWith(title: "Please select education first".localized, msg: "")
@@ -908,18 +911,21 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.headingLbl.text = agentInfo.name
             cell.headingLbl.tag = 9997
             cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+            cell.headingLbl.delegate = self
         }else if indexPath.row == 1{
             cell.entryLbl.attributedText = ModalController.setprofileStricColor(str: "\("\(personalDetail[indexPath.row])".localized)", str1: "\(personalDetail[indexPath.row])".localized, str2:"" )
             cell.headingLbl.isHidden = false
             cell.headingLbl.text = agentInfo.middle_name
             cell.headingLbl.tag = 9998
             cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+            cell.headingLbl.delegate = self
         }
         else if indexPath.row == 2{
             cell.headingLbl.isHidden = false
             cell.headingLbl.tag = 9999
             cell.headingLbl.text = agentInfo.last_name
             cell.headingLbl.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+            cell.headingLbl.delegate = self
         }
         else if indexPath.row == 3{
             cell.genderWidth.constant = (self.tableVw.frame.width)/2 + 10
@@ -1146,10 +1152,14 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.headingLbl.delegate = self
             cell.headingLbl.text = agentInfo.maroof
             cell.codeBtnWidth.constant = 0
-            cell.widthImg.constant = 0
+            cell.widthImg.constant = 20
+            cell.flagImg.isHidden = false
             cell.mobileCodeWidth.constant = 0
             cell.headingLbl.keyboardType = .asciiCapableNumberPad
+            
+            cell.entryLbl.text = "\(basicInfo[indexPath.row].localized)"
            
+            cell.flagImg.image = UIImage(named: "maroof")
         }
         if "Business Name" == basicInfo[indexPath.row]{
             cell.headingLbl.tag = 0
@@ -1187,6 +1197,8 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.headingLbl.keyboardType = .phonePad
             
         }else if indexPath.row == 6{
+            
+          
             
         }
         
@@ -1241,7 +1253,7 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             cell.imgView.image = self.pdfImage
             cell.selectionStyle = .none
             cell.isUserInteractionEnabled = false
-            cell.vatcertlbl.text = "Vat Certificate".localized
+            cell.vatcertlbl.text = "Upload VAT registration certificate".localized
             if isEdit
             {
             cell.isUserInteractionEnabled = true
@@ -1249,10 +1261,12 @@ extension UserProfileDetailsViewController : UITableViewDataSource{
             if pdfVat != "" {
                 cell.addIon.isHidden = true
                 cell.addText.isHidden = true
+                cell.samplelbl.isHidden = true
                 
             }else{
                 cell.addIon.isHidden = false
                 cell.addText.isHidden = false
+                cell.samplelbl.isHidden = false
             }
             return cell
         }
@@ -1353,7 +1367,8 @@ extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
         selectedEducation = educationDict
         agentInfo.education = educationDict.object(forKey: "education_type") as! String
         agentInfo.educationId = educationDict.object(forKey: "education_id") as! Int
-       // agentInfo.major = ""
+//        agentInfo.major = ""
+//        agentInfo.majorId = 0
         tableVw.reloadData()
         
         
@@ -1387,6 +1402,21 @@ extension UserProfileDetailsViewController:SearchCategoryViewControllerDelegate{
 extension UserProfileDetailsViewController : UITextFieldDelegate{
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        
+        if textField.text!.count == 0{
+                    if string == " "
+                    {
+                    return false
+                    }
+                }
+        
+        
+        if textField.tag == 9997 || textField.tag == 9998 || textField.tag == 9999 {
+            if string.rangeOfCharacter(from: CharacterSet.letters.inverted) != nil{
+                return false
+            }
+        }
 
         
         if textField.tag == 0 || textField.tag == 1 || textField.tag == 2{
@@ -1490,7 +1520,7 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
         switch textField.tag  {
         case 9997:
             if ModalController.isValidName(title: textField.text!) == false {
-                ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validName)
+//                ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validName)
                 return
             }else{
                  myString = textField.text!
@@ -1502,7 +1532,7 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
             
         case 9998:
             if ModalController.isValidName(title: textField.text!) == false {
-                ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validMiddleName)
+//                ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validMiddleName)
                 return
             }else{
                  myString = textField.text!
@@ -1512,7 +1542,7 @@ extension UserProfileDetailsViewController : UITextFieldDelegate{
 //            agentInfo.middle_name = textField.text!
         case 9999   :
             if ModalController.isValidName(title: textField.text!) == false {
-                ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validName)
+//                ModalController.showNegativeCustomAlertWith(title: "", msg: ValidationMessages.validName)
                 return
             }else{
                  myString = textField.text!

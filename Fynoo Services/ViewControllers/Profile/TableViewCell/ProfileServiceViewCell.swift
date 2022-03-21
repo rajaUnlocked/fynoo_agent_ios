@@ -11,6 +11,7 @@ import UIKit
 class ProfileServiceViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imgCheck: UIImageView!
+    @IBOutlet weak var imgService:UIImageView!
     @IBOutlet weak var serviceName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

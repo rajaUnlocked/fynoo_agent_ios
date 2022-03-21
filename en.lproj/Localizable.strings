@@ -1203,6 +1203,7 @@
 "Male" = "Male";
 "Female" = "Female" ;
 "Uploaded VAT Certificate" = "Uploaded VAT Certificate";
+"Upload VAT registration certificate" = "Upload VAT registration certificate";
 
 
 // sorting
