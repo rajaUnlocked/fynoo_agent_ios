@@ -700,6 +700,7 @@
 //SignUp Agent company
 "Agent Company Registration" = "تسجيل شركة الوكيل";
 "Uploaded VAT Certificate" = "Uploaded VAT Certificate";
+"Upload VAT registration certificate" = "ارفع شهادة التسجيل بضريبة القيمة المضافة";
 
 //Profile Page
 "VAT Number" = "الرقم الضريبي";

@@ -431,8 +431,8 @@ func uploadProfileImagesAPI(){
 //               components.year = -18
         components.year = -(Int(personalAgentSignUPModal.PersonalAgentAge_limit) ?? 18)
                 components.month = 12
-                let maxDate = calendar.date(byAdding: components, to: currentDate)!
-
+//                let maxDate = calendar.date(byAdding: components, to: currentDate)!
+        let maxDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())
                 let minDate = Calendar.current.date(from: DateComponents(year: 1900 , month: 1, day: 1))
                 
                 print(minDate as Any)
@@ -595,6 +595,7 @@ func uploadProfileImagesAPI(){
         personalAgentSignUPModal.personalAgentmobileCode = ModalController.toString(self.selectedCountryCodeDict.object(forKey: "mobile_code") as Any)
         
         personalAgentSignUPModal.personalmobileCodeImage = ModalController.toString(self.selectedCountryCodeDict.object(forKey: "country_flag") as Any)
+        personalAgentSignUPModal.personalAgentContactNbr = ""
         
         self.tabView.reloadData()
         
@@ -1189,12 +1190,12 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
               }
         
        if cell.genderDropDown.text == "" {
-            ModalController.setViewBorderColor(color:#colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.genderView)
+            ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.genderView)
         }else{
             ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.genderView)
         }
         if cell.dobTxtFld.text == "" {
-            ModalController.setViewBorderColor(color:#colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.dobView)
+            ModalController.setViewBorderColor(color:#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: cell.dobView)
         }else{
             ModalController.setViewBorderColor(color: #colorLiteral(red: 0.4677127004, green: 0.4716644287, blue: 0.4717406631, alpha: 1), view: cell.dobView)
         }
@@ -1607,6 +1608,15 @@ extension PersonalRegViewController : UITableViewDelegate,UITableViewDataSource{
     
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField.text!.count == 0{
+            if string == " "{
+                    return false
+            }
+            if textField.tag == 1003 && string == "0"{
+                return false
+            }
+        }
         
 
         switch  textField.tag {

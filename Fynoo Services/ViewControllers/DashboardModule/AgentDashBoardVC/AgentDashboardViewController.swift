@@ -72,6 +72,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        walletLbl.textColor = UIColor.AppThemeGreenTextColor()
+        holdingLBl.textColor = UIColor.AppThemeGreenTextColor()
+        inprocessLbl.textColor = UIColor.AppThemeGreenTextColor()
+        
         print("hjgjkkgjjjg\(self.navigationController?.viewControllers)")
         sar1.font = UIFont(name:"\(fontNameLight)",size:8)
         sar2.font = UIFont(name:"\(fontNameLight)",size:8)

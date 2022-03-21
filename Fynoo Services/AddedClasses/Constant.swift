@@ -9,7 +9,8 @@ import UIKit
 
 enum ValidationMessages {
     
-    static let passwordCount  = "Please enter 8 digit password"
+//    static let passwordCount  = "Please enter 8 digit password"
+    static let passwordCount = "The password should be minimum 8 to maximum 16 digit and character"
     static var WrongemailAddress = "Please enter valid Email"
     static let emailAddress = "Please enter Email"
     static var OnlyEmail = "Please enter Email"
@@ -26,7 +27,7 @@ enum ValidationMessages {
      static let confPassss = "Please enter confirm password"
     static let confPass = "Please enter 8 digit confirm password"
     static let policy = "Please check user policy"
-    static let vat = "Please select vat option."
+    static let vat = "Please select the VAT option Yes or No."
     static let mobileLength = "Please enter valid mobile number"
     static let mobileContainArabic = "Mobile Number must not contain Arabic Numbers"
     static let phoneNumber = "Please enter valid phone number"
@@ -47,19 +48,22 @@ enum ValidationMessages {
     static let businessName = "Please enter your business name."
     static let services = "please select minimum one service."
     static let businessEmail = "Please enter email id."
+    static let confirmEmail = "Please enter confirm email id."
     static let compareConfirmEmail = "Email and confirm email do not match"
     static let maroofLink = "Please enter your maroof link."
     static let agentConfirmPassword = "Please enter your confirm password."
-    static let compareConfirmPassword = "Your Password & Confirm Password Does Not Match"
+    static let compareConfirmPassword = "Password & Confirm Password Does Not Match"
     static let bankName = "Please select your bank name."
     static let bankAccountHolderName = "Please enter your bank account holder name."
     static let agentName_compare = "Your Business Name & Acount Holder Name Does Not Match"
     static let bankAccountNumber = "Please enter your IBAN No."
     static let validIbanNumber = "IBAN number does not belong to any bank."
     static let ValidIBANNumber = "IBAN number should be 24 char"
-    static let vatNumber = "Please enter valid vat Number."
+    static let vatNumber = "Please enter vat Number."
+    static let validVatNumber = "Please enter valid vat Number."
      static let vatNumberDoc = "Please enter valid vat Number/vat certificate."
      static let vat_certificate = "Please submit vat certificate."
+    static let uploadVat_certificate = "Please click on the sample image to upload the VAT certificate."
     static let NickName = "Please enter your Nick Name."
     static let Name = "Please enter your name."
     static let validName = "Please enter valid name."
@@ -188,6 +192,7 @@ class Constant: NSObject {
      static var BASE_URL : String = "http://uat.sendan.com.sa:9003/"  // dev
     //static var BASE_URL : String = "https://www.fynoo.com/"   //live
     // MARK: - Invoices
+    
     static let invoiceApi : String = "invoice/invoice_list/";
     static let invoiceDownloadApi : String = "invoice/download_invoice/";
     static let viewinvoiceDC : String = "invoice/print_debit_credit_notes/"

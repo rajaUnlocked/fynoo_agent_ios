@@ -103,11 +103,21 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
             mobilNoos = values.replacingOccurrences(of: " ", with: "")
             
         }
+        let currentCount =  textField.text!.count
         textField.text = values
-        if self.txtField.text!.count > 0 && pfurl != nil
+        let val = currentCount-mobilNoos.count
+        if !(self.txtField.text!.count < vatlength+val) && pfurl != nil
         {
-                    saveBtn.layer.borderColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1).cgColor
-                    saveBtn.setTitleColor(UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1), for: .normal)
+            
+            saveBtn.layer.borderColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1).cgColor
+            saveBtn.setTitleColor(UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1), for: .normal)
+            
+                   
+        }else{
+            
+            saveBtn.layer.borderColor = UIColor.init(red: 236/255, green: 73/255, blue: 84/255, alpha: 1).cgColor
+            saveBtn.setTitleColor(UIColor.init(red: 236/255, green: 73/255, blue: 84/255, alpha: 1), for: .normal)
+           
         }
         // vat = values
         print(values ,"vatno")
@@ -174,6 +184,8 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
                if (updateText.count) < vatlength+val
                 {
                    txtField.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                       saveBtn.layer.borderColor = UIColor.init(red: 236/255, green: 73/255, blue: 84/255, alpha: 1).cgColor
+                       saveBtn.setTitleColor(UIColor.init(red: 236/255, green: 73/255, blue: 84/255, alpha: 1), for: .normal)
                }
                 else{
                     txtField.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
@@ -227,7 +239,7 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
                 let mobilNoo = txt.replacingOccurrences(of: " ", with: "")
                 if self.pfurl == nil
                 {
-                    ModalController.showNegativeCustomAlertWith(title: "vat certificate is mandatory", msg: "")
+                    ModalController.showNegativeCustomAlertWith(title: "VAT certificate is mandatory", msg: "")
                     return
                 }
                 
@@ -264,7 +276,7 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
             }
             else
             {
-                ModalController.showNegativeCustomAlertWith(title: "Vat number is mandatory", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "VAT number is mandatory", msg: "")
                 return
             }
             
@@ -346,6 +358,8 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
         closeBtn.isHidden = true
         img.image = UIImage(named: "dottedrectangle")
         pfurl = nil
+        saveBtn.layer.borderColor = UIColor.init(red: 236/255, green: 73/255, blue: 84/255, alpha: 1).cgColor
+        saveBtn.setTitleColor(UIColor.init(red: 236/255, green: 73/255, blue: 84/255, alpha: 1), for: .normal)
     }
     @IBAction func uploadimage(_ sender: Any)
     {
@@ -419,7 +433,11 @@ extension VatpopnewchangeViewController:UIDocumentPickerDelegate
          {
                      saveBtn.layer.borderColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1).cgColor
                      saveBtn.setTitleColor(UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1), for: .normal)
+         }else{
+             saveBtn.layer.borderColor = UIColor.init(red: 236/255, green: 73/255, blue: 84/255, alpha: 1).cgColor
+             saveBtn.setTitleColor(UIColor.init(red: 236/255, green: 73/255, blue: 84/255, alpha: 1), for: .normal)
          }
+             
      }
      
      func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {

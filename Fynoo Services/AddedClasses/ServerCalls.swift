@@ -16,10 +16,15 @@ class ServerCalls: NSObject {
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             
             if pdfurl != ""{
-                let url = URL(string: pdfurl)
-                let pdfData = try! Data(contentsOf: url!.asURL())
                 
-                multipartFormData.append(pdfData, withName: pdfname, fileName: pdfname, mimeType:"application/pdf")
+                do{
+                let url = URL(string: pdfurl)
+                let pdfData = try? Data(contentsOf: url!.asURL())
+                
+                multipartFormData.append(pdfData!, withName: pdfname, fileName: pdfname, mimeType:"application/pdf")
+                }catch let error{
+                    print(error)
+                }
             }
                         
             for (key, value) in parameters {
@@ -129,8 +134,16 @@ class ServerCalls: NSObject {
             if pdfurl != "" {
                 let url = URL(string: pdfurl)
 //                let url = URL(fileURLWithPath: pdfurl)
-                let pdfData = try! Data(contentsOf: url!.asURL())
-                multipartFormData.append(pdfData, withName: pdfname, fileName: pdfname, mimeType:"application/pdf")
+                
+                do {
+                    
+                    let pdfData = try? Data(contentsOf: url!.asURL())
+                    multipartFormData.append(pdfData!, withName: pdfname, fileName: pdfname, mimeType:"application/pdf")
+                }
+                catch let error{
+                   print(error)
+                }
+          
             }
             for (key, value) in parameters {
                 let val = "\(value)"
