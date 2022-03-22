@@ -104,6 +104,7 @@ class AddProductModel: NSObject {
              }
         var parameters =
             ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,
+             "pro_main_image":pro.galleryFeatureId,
              "pro_user_id":userId,
              "pro_filled_step":step,
              "pro_id":proid,
@@ -187,6 +188,7 @@ class AddProductModel: NSObject {
        
         let parameters =
             ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,
+             "pro_main_image":pro.galleryFeatureId,
              "pro_bo_id":Singleton.shared.getBoId(),
                "pro_agent_id":Singleton.shared.getUserId(),
              "pro_barcode":pro.barcode,
@@ -692,6 +694,7 @@ class AddProductModel: NSObject {
         
         var parameters =
             ["lang_code": HeaderHeightSingleton.shared.LanguageSelected,
+             "pro_main_image":pro.galleryFeatureId,
              "pro_agent_id":Singleton.shared.getUserId(),
              "pro_bo_id":Singleton.shared.getBoId(),
              "service_id":serviceid,
@@ -838,29 +841,40 @@ class AddProductModel: NSObject {
                             
                         }
                         
-                        pro.galleryId = ["","","","","","","","","",""]
-                        pro.galleryIdImageNew = [#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder")]
-                        if (pr?.pro_image?.count ?? 0) > 0
+//                        pro.galleryId = ["","","","","","","","","",""]
+//                        pro.galleryIdImageNew = [#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder")]
+//                        if (pr?.pro_image?.count ?? 0) > 0
+//                        {
+//
+//                            for i in 0...(pr?.pro_image?.count ?? 0) - 1
+//                            {
+//                                let br:Pro_image = (pr?.pro_image![i])!
+//
+//                                let url = URL(string:br.image!)
+//                                    if let data = try? Data(contentsOf: url!)
+//                                    {
+//                                        let image: UIImage = UIImage(data: data)!
+//                                        pro.galleryIdImageNew[br.index!] = image
+//                                        pro.galleryFeatureImage = br.image ?? ""
+//                                    }
+//                                    pro.galleryId.replaceObject(at: br.index!, with: br.id!)
+//
+//                                }
+//
+//
+//
+//
+//                        }
+                        
+                        for i in 0..<(pr?.pro_image?.count ?? 0)
                         {
-                            
-                            for i in 0...(pr?.pro_image?.count ?? 0) - 1
+                            if pr?.pro_image?[i].is_featured ?? false == true
                             {
-                                let br:Pro_image = (pr?.pro_image![i])!
-                              
-                                let url = URL(string:br.image!)
-                                    if let data = try? Data(contentsOf: url!)
-                                    {
-                                        let image: UIImage = UIImage(data: data)!
-                                        pro.galleryIdImageNew[br.index!] = image
-                                        pro.galleryFeatureImage = br.image ?? ""
-                                    }
-                                    pro.galleryId.replaceObject(at: br.index!, with: br.id!)
-                                    
-                                }
-                                
-                            
-                            
-                            
+                                pro.galleryFeatureId = pr?.pro_image?[i].id ?? 0
+                                pro.galleryFeatureImage = pr?.pro_image?[i].image ?? ""
+                            }
+                            pro.galleryIdImage.add(pr?.pro_image?[i].image ?? "")
+                            pro.galleryId.add(pr?.pro_image?[i].id ?? 0)
                         }
                         pro.productcode = pr?.pro_code ?? ""
                         pro.productDecription = pr?.pro_description ?? ""
@@ -1047,29 +1061,40 @@ class AddProductModel: NSObject {
                         pro.branchIdnew.removeAllObjects()
                        
 
-                        pro.galleryId = ["","","","","","","","","",""]
-                      pro.galleryIdImageNew = [#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder")]
-                        if (pr?.pro_image?.count ?? 0) > 0
+                      //  pro.galleryId = ["","","","","","","","","",""]
+                      //pro.galleryIdImageNew = [#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder")]
+                     //   if (pr?.pro_image?.count ?? 0) > 0
+//                        {
+//
+//                            for i in 0...(pr?.pro_image?.count ?? 0) - 1
+//                            {
+//                                let br:Pro_image1 = (pr?.pro_image![i])!
+//
+//                                let url = URL(string:br.image!)
+//                                    if let data = try? Data(contentsOf: url!)
+//                                    {
+//                                        let image: UIImage = UIImage(data: data)!
+//                                        pro.galleryIdImageNew[br.index!] = image
+//                                        pro.galleryFeatureImage = br.image ?? ""
+//                                    }
+//                                    pro.galleryId.replaceObject(at: br.index!, with: br.id!)
+//
+//                                }
+//
+//
+//
+//
+//                        }
+                        
+                        for i in 0..<(pr?.pro_image?.count ?? 0)
                         {
-
-                            for i in 0...(pr?.pro_image?.count ?? 0) - 1
+                            if pr?.pro_image?[i].is_featured ?? false == true
                             {
-                                let br:Pro_image1 = (pr?.pro_image![i])!
-
-                                let url = URL(string:br.image!)
-                                    if let data = try? Data(contentsOf: url!)
-                                    {
-                                        let image: UIImage = UIImage(data: data)!
-                                        pro.galleryIdImageNew[br.index!] = image
-                                        pro.galleryFeatureImage = br.image ?? ""
-                                    }
-                                    pro.galleryId.replaceObject(at: br.index!, with: br.id!)
-
-                                }
-
-
-
-
+                                pro.galleryFeatureId = pr?.pro_image?[i].id ?? 0
+                                pro.galleryFeatureImage = pr?.pro_image?[i].image ?? ""
+                            }
+                            pro.galleryIdImage.add(pr?.pro_image?[i].image ?? "")
+                            pro.galleryId.add(pr?.pro_image?[i].id ?? 0)
                         }
                         pro.productcode = pr?.pro_code ?? ""
                        pro.productDecription = pr?.pro_description ?? ""

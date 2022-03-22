@@ -689,7 +689,7 @@ class LoginNewDesignViewController: UIViewController, UITableViewDelegate, UITab
                                     
                                     if (userType == "AI" || userType == "AC") &&  value == "Verification Pending"{
                                         let vc = VerifyAccountViewController(nibName: "VerifyAccountViewController", bundle: nil)
-                                        
+                                        vc.isfromLogin = true
                                         vc.mobile = (response?.object(forKey: "data") as! NSDictionary).object(forKey: "mobile_number") as! String
                                         vc.emailId = (response?.object(forKey: "data") as! NSDictionary).object(forKey: "email") as! String
                                         vc.fynooId = (response!.object(forKey: "data") as? NSDictionary)?.object(forKey: "fynoo_id") as! String

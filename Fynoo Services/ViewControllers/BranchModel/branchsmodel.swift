@@ -236,6 +236,25 @@ class branchsmodel:NSObject {
             }
         }
     }
+    func uploadProductImage(url:String,imageFile:[UIImage],param:[String:Any],completion:@escaping(Bool, GalleryMultiple?) -> ()) {
+     
+        print(url,param)
+        
+        ServerCalls.fileUploadAPINewMultipleImage(inputUrl: url, parameters: param, imageName: "image", imageFile: imageFile) { (response, success, resp) in
+            
+            if let value = response as? NSDictionary{
+               
+                    if let body = response as? [String: Any] {
+                        let val = try! JSONDecoder().decode(GalleryMultiple.self, from: resp as! Data )
+                        completion(true, val)
+                        return
+                    }
+                    completion(false,nil)
+               
+                
+            }
+        }
+    }
     func uploadDocumentImage(completion:@escaping(Bool, UploadDocument?) -> ()) {
        var str = ""
         var parameters = [String:Any]()
@@ -742,3 +761,43 @@ class branchsmodel:NSObject {
 
 }
 
+struct GalleryMultiple : Codable {
+    let error : Bool?
+    let error_code : Int?
+    let error_description : String?
+    let data : [Dataas]?
+
+    enum CodingKeys: String, CodingKey {
+
+        case error = "error"
+        case error_code = "error_code"
+        case error_description = "error_description"
+        case data = "data"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        error = try values.decodeIfPresent(Bool.self, forKey: .error)
+        error_code = try values.decodeIfPresent(Int.self, forKey: .error_code)
+        error_description = try values.decodeIfPresent(String.self, forKey: .error_description)
+        data = try values.decodeIfPresent([Dataas].self, forKey: .data)
+    }
+
+}
+struct Dataas : Codable {
+    let image_id : Int?
+    let image_url : String?
+
+    enum CodingKeys: String, CodingKey {
+
+        case image_id = "image_id"
+        case image_url = "image_url"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        image_id = try values.decodeIfPresent(Int.self, forKey: .image_id)
+        image_url = try values.decodeIfPresent(String.self, forKey: .image_url)
+    }
+
+}
