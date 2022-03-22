@@ -198,6 +198,11 @@
 		CE2EFB42251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */; };
 		CE2EFB43251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2EFB41251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib */; };
 		CE3E9A59251E0B0300B60038 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E9A58251E0B0300B60038 /* ServiceModel.swift */; };
+		CE81A59327E8521B00818745 /* ViewAllImgOfProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE81A58E27E8521A00818745 /* ViewAllImgOfProductCollectionViewCell.xib */; };
+		CE81A59427E8521B00818745 /* ViewAllImagesOfProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE81A58F27E8521A00818745 /* ViewAllImagesOfProductViewController.xib */; };
+		CE81A59527E8521B00818745 /* GSImageViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81A59027E8521A00818745 /* GSImageViewerController.swift */; };
+		CE81A59627E8521B00818745 /* ViewAllImgOfProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81A59127E8521A00818745 /* ViewAllImgOfProductCollectionViewCell.swift */; };
+		CE81A59727E8521B00818745 /* ViewAllImagesOfProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81A59227E8521A00818745 /* ViewAllImagesOfProductViewController.swift */; };
 		CE8E8595250F4C3800B74A9E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE8E8597250F4C3800B74A9E /* Localizable.strings */; };
 		CE96D3B226B51820002CB24F /* TimeSheetPOpUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE96D3B426B51820002CB24F /* TimeSheetPOpUpViewController.xib */; };
 		CE9CCD3F264BAA14005AE619 /* TimingShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CCC89264BAA13005AE619 /* TimingShowTableViewCell.swift */; };
@@ -1109,6 +1114,11 @@
 		CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVehicleImageTableViewCell.swift; sourceTree = "<group>"; };
 		CE2EFB41251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadVehicleImageTableViewCell.xib; sourceTree = "<group>"; };
 		CE3E9A58251E0B0300B60038 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
+		CE81A58E27E8521A00818745 /* ViewAllImgOfProductCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewAllImgOfProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		CE81A58F27E8521A00818745 /* ViewAllImagesOfProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewAllImagesOfProductViewController.xib; sourceTree = "<group>"; };
+		CE81A59027E8521A00818745 /* GSImageViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSImageViewerController.swift; sourceTree = "<group>"; };
+		CE81A59127E8521A00818745 /* ViewAllImgOfProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAllImgOfProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE81A59227E8521A00818745 /* ViewAllImagesOfProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAllImagesOfProductViewController.swift; sourceTree = "<group>"; };
 		CE8E8594250F4C1B00B74A9E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		CE8E8596250F4C3800B74A9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE8E8598250F4C4200B74A9E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -2316,6 +2326,7 @@
 		2FFDE23C2501221B006C5EBD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CE81A58D27E8521A00818745 /* ViewallImageOfProductVC */,
 				4EE03B1B27A7B42C005C8173 /* BottomPopup */,
 				4EE03B2427A7B42D005C8173 /* GlobalSearch */,
 				4EE03B1E27A7B42C005C8173 /* InvoiceNew */,
@@ -2538,6 +2549,18 @@
 				CEDA6C402525C4C800301F82 /* ServiceUpload.swift */,
 			);
 			path = servicemodel;
+			sourceTree = "<group>";
+		};
+		CE81A58D27E8521A00818745 /* ViewallImageOfProductVC */ = {
+			isa = PBXGroup;
+			children = (
+				CE81A58E27E8521A00818745 /* ViewAllImgOfProductCollectionViewCell.xib */,
+				CE81A58F27E8521A00818745 /* ViewAllImagesOfProductViewController.xib */,
+				CE81A59027E8521A00818745 /* GSImageViewerController.swift */,
+				CE81A59127E8521A00818745 /* ViewAllImgOfProductCollectionViewCell.swift */,
+				CE81A59227E8521A00818745 /* ViewAllImagesOfProductViewController.swift */,
+			);
+			path = ViewallImageOfProductVC;
 			sourceTree = "<group>";
 		};
 		CE9CCC77264BAA13005AE619 /* DataSellingNewVC */ = {
@@ -4371,6 +4394,7 @@
 				CEA24F63265BD00D00B3227D /* BottomPopCellsNewTableViewCell.xib in Resources */,
 				CECEF8B525774F9B0090D459 /* AddWholeSlabViewCell.xib in Resources */,
 				F680D661259B7C2C007EB12C /* DataEntryFormItemPopUpViewController.strings in Resources */,
+				CE81A59427E8521B00818745 /* ViewAllImagesOfProductViewController.xib in Resources */,
 				CE9CCD47264BAA14005AE619 /* ProductListNewViewController.xib in Resources */,
 				CECEFAD42577D3140090D459 /* AllfiterHeaderTableViewCell.strings in Resources */,
 				CEDD32DE25763C8E00023977 /* SpecificationTableViewCell.xib in Resources */,
@@ -4552,6 +4576,7 @@
 				F44E35B2251C72C6002E41E2 /* AgentServiceList.xib in Resources */,
 				CEE3578D250740800097069D /* Roboto-Regular.ttf in Resources */,
 				2F846415250F7F1C0084EB32 /* ResetPasswordViewController.xib in Resources */,
+				CE81A59327E8521B00818745 /* ViewAllImgOfProductCollectionViewCell.xib in Resources */,
 				F680D625259B7C2C007EB12C /* AddedServicesInDataEntryViewController.strings in Resources */,
 				2F8463DE250F6EBC0084EB32 /* LoginIntroFirst.strings in Resources */,
 				CEDD33A12576705A00023977 /* AddFilterInfoTableViewCell.strings in Resources */,
@@ -5057,6 +5082,7 @@
 				CECEF8B625774F9B0090D459 /* AddWholeSlabViewCell.swift in Sources */,
 				CEDD32E625763C8E00023977 /* ProductSecondTableViewCell.swift in Sources */,
 				CE9CCE15264BF0B6005AE619 /* ListingCommonFilterViewController.swift in Sources */,
+				CE81A59527E8521B00818745 /* GSImageViewerController.swift in Sources */,
 				CE9CCDFA264BEDBD005AE619 /* ProductWarrentySupportTableViewCell.swift in Sources */,
 				4EE03B2927A7B42E005C8173 /* InvoiceNewViewController.swift in Sources */,
 				F4C4DC622507952C0075F520 /* ProfileNameTableViewCell.swift in Sources */,
@@ -5117,6 +5143,7 @@
 				2F8463CF250F6EBC0084EB32 /* LoginNewFirstTableViewCell.swift in Sources */,
 				F680D655259B7C2C007EB12C /* DataEntryPricePayTableViewCell.swift in Sources */,
 				F62E4B142514983A0021CEE0 /* ImageUpload.swift in Sources */,
+				CE81A59727E8521B00818745 /* ViewAllImagesOfProductViewController.swift in Sources */,
 				CEBCD72D2664A7FE001BF767 /* BankList.swift in Sources */,
 				CECEF98F2577575B0090D459 /* TimeSheetPOpUpViewController.swift in Sources */,
 				CEBCD7462664A7FE001BF767 /* TransactionNewPopupViewController.swift in Sources */,
@@ -5159,6 +5186,7 @@
 				CEDD32ED25763C8E00023977 /* AddFeatureTableViewCell.swift in Sources */,
 				F4828C9B2508C574006B85D8 /* ProfileVatTableViewCell.swift in Sources */,
 				CEAD29E42506324F008B1F9C /* TargetViewController.swift in Sources */,
+				CE81A59627E8521B00818745 /* ViewAllImgOfProductCollectionViewCell.swift in Sources */,
 				2F8463D4250F6EBC0084EB32 /* LoginNewSecondTableViewCell.swift in Sources */,
 				CECEFA862577A22F0090D459 /* NodatafoundCollectionViewCell.swift in Sources */,
 				CECEFA972577A2C90090D459 /* ExteriorTableViewCell.swift in Sources */,

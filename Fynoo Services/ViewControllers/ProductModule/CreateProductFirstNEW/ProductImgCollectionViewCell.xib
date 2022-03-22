@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -71,6 +71,19 @@
                                 <color key="textColor" red="0.92549019610000005" green="0.2901960784" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSw-GP-vhe">
+                                <rect key="frame" x="38" y="39.5" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="blb-TZ-Kjh"/>
+                                    <constraint firstAttribute="width" constant="25" id="pce-zd-v1N"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="check_red_small"/>
+                                <state key="selected" image="check"/>
+                                <connections>
+                                    <action selector="checked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="6tq-eO-CXH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -79,32 +92,37 @@
                             <constraint firstItem="nr5-mc-MTN" firstAttribute="centerX" secondItem="tGH-bX-kff" secondAttribute="centerX" id="PnJ-qk-hxu"/>
                             <constraint firstItem="Uhf-K6-any" firstAttribute="bottom" secondItem="tGH-bX-kff" secondAttribute="bottom" constant="5" id="RWb-NH-zqL"/>
                             <constraint firstItem="Uhf-K6-any" firstAttribute="trailing" secondItem="tGH-bX-kff" secondAttribute="trailing" constant="5" id="aqF-l6-2iy"/>
+                            <constraint firstItem="QSw-GP-vhe" firstAttribute="centerX" secondItem="tGH-bX-kff" secondAttribute="centerX" id="hgj-h9-PrZ"/>
                             <constraint firstItem="PTV-dn-F9a" firstAttribute="top" secondItem="tGH-bX-kff" secondAttribute="top" constant="-2" id="ipc-eJ-9HK"/>
                             <constraint firstItem="tGH-bX-kff" firstAttribute="centerX" secondItem="orW-gO-r0p" secondAttribute="centerX" id="kV3-vD-NBw"/>
+                            <constraint firstItem="QSw-GP-vhe" firstAttribute="top" secondItem="tGH-bX-kff" secondAttribute="bottom" constant="2" id="l6O-qr-RYR"/>
                             <constraint firstItem="tGH-bX-kff" firstAttribute="centerY" secondItem="orW-gO-r0p" secondAttribute="centerY" constant="-10" id="sm2-Kb-vQX"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="orW-gO-r0p" secondAttribute="trailing" constant="10" id="IEB-yv-XWh"/>
                 <constraint firstAttribute="bottom" secondItem="orW-gO-r0p" secondAttribute="bottom" id="jyw-oH-9pi"/>
                 <constraint firstItem="orW-gO-r0p" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="t1f-en-l09"/>
                 <constraint firstItem="orW-gO-r0p" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="vxs-CR-dxZ"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="239" height="293"/>
             <connections>
                 <outlet property="add" destination="Uhf-K6-any" id="oJx-x9-bzw"/>
+                <outlet property="checkbtn" destination="QSw-GP-vhe" id="5eb-RF-gvv"/>
                 <outlet property="delete" destination="PTV-dn-F9a" id="BWm-3X-n4q"/>
                 <outlet property="img" destination="tGH-bX-kff" id="Z90-oH-BAD"/>
                 <outlet property="mainlbl" destination="nr5-mc-MTN" id="UTV-4x-LOT"/>
             </connections>
-            <point key="canvasLocation" x="128.2608695652174" y="183.48214285714286"/>
+            <point key="canvasLocation" x="128.2608695652174" y="183.14732142857142"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="addimg" width="24" height="24"/>
+        <image name="check" width="102" height="102"/>
+        <image name="check_red_small" width="74" height="74"/>
         <image name="closed_new" width="8" height="8"/>
         <image name="pro_img" width="120" height="120"/>
     </resources>

@@ -95,24 +95,24 @@ class CreateProductFirstViewController: UIViewController {
         if pro.productId == ""
         {
             borderColor = ["#B2B2B2","#EC4A53","#EC4A53","#EC4A53","#EC4A53"]
-            pro.galleryId = ["","","","","","","","","",""]
+          //  pro.galleryId = ["","","","","","","","","",""]
             productValArr = ["","","","",""]
-          ProductModel.shared.galleryIdImageNew = [#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder")]
+          //ProductModel.shared.galleryIdImageNew = [#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder")]
            
         }
         else
         {
              borderColor = ["#B2B2B2","#B2B2B2","#B2B2B2","#B2B2B2","#B2B2B2"]
-            for i in 0...ProductModel.shared.galleryId.count - 1 {
-                                     if "\(ProductModel.shared.galleryId[i])" == ""
-                                     {
-                                      
-                                     }
-                                     else{
-                                     imgcount = imgcount + 1
-                                     }
-                               
-                                 }
+//            for i in 0...ProductModel.shared.galleryId.count - 1 {
+//                                     if "\(ProductModel.shared.galleryId[i])" == ""
+//                                     {
+//
+//                                     }
+//                                     else{
+//                                     imgcount = imgcount + 1
+//                                     }
+//
+//                                 }
         }
         if isPurchaseData
         {
@@ -221,7 +221,7 @@ class CreateProductFirstViewController: UIViewController {
         let pro = ProductModel.shared
       if isDataBank
              {
-             if  pro.productTitle.count > 0 && pro.productDecription.count > 0   && "\(ProductModel.shared.galleryId[0])" != ""
+          if  pro.productTitle.count > 0 && pro.productDecription.count > 0   && pro.galleryFeatureId != 0
              {
                  headerImg[1] = "green_checked"
                             isNextColor = true
@@ -234,7 +234,7 @@ class CreateProductFirstViewController: UIViewController {
              }
         else
       {
-        if pro.currencyId.count > 0 && pro.productTitle.count > 0 &&  pro.branchIdnew.count > 0 && pro.productDecription.count > 0 && (isOnline || isStore) && "\(ProductModel.shared.galleryId[0])" != ""
+          if pro.currencyId.count > 0 && pro.productTitle.count > 0 &&  pro.branchIdnew.count > 0 && pro.productDecription.count > 0 && (isOnline || isStore) && pro.galleryFeatureId != 0
         {
             headerImg[1] = "green_checked"
             isNextColor = true
@@ -327,7 +327,7 @@ class CreateProductFirstViewController: UIViewController {
                               }
                              
                           }
-            if "\(ProductModel.shared.galleryId[0])" == ""
+        if pro.galleryFeatureId == 0
                  {
                 ModalController.showNegativeCustomAlertWith(title: "Please add product main picture".localized, msg: "")
 
@@ -810,7 +810,7 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "BusinessTableViewCell", for: indexPath) as! BusinessTableViewCell
                
                 
-                
+                cell.nameTextField.placeholder = ""
                 cell.outerVw.isHidden = false
                 cell.nameTextField.text = productValArr[indexPath.row - 1];
                 cell.bordertxt.setAllSideShadowForFields(shadowShowSize: 0.0, sizeFloat: 0)
@@ -999,13 +999,15 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
                
                 cell.counlbl.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
                 
-                if imgcount == ProductModel.shared.productImageVal
+              
+                    cell.counlbl.attributedText = ModalController.setProductStricColor(str: "\(ProductModel.shared.galleryIdImage.count)/10", str1: "\(ProductModel.shared.galleryIdImage.count)", str2: "/10", fontsize: 12, fontfamily: "LightFontName", txtcolor: #colorLiteral(red: 97/255, green: 192/255, blue: 136/255, alpha: 1))
+                
+//                cell.counlbl.text = "\(imgcount)/10"
+                if ProductModel.shared.galleryIdImage.count == ProductModel.shared.productImageVal
                                           {
                                              cell.counlbl.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
                                               
                                           }
-//                cell.counlbl.text = "\(imgcount)/10"
-                cell.counlbl.attributedText = ModalController.setProductStricColor(str: "\(imgcount)/10", str1: "\(imgcount)", str2: "/10", fontsize: 12, fontfamily: "LightFontName", txtcolor: #colorLiteral(red: 97/255, green: 192/255, blue: 136/255, alpha: 1))
                 return cell
             }
                 
@@ -1017,8 +1019,9 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
                 cell.isDataBank = isDataBank
                 cell.view = self.view
                 cell.istype = "Product"
+                cell.collview.isHidden = false
                 cell.isDataBank = isDataBank || isPurchaseData
-              cell.productImgArr = ProductModel.shared.galleryIdImageNew
+              //cell.productImgArr = ProductModel.shared.galleryIdImageNew
                 cell.collectionVIEW.isScrollEnabled = false
                 if let flowLayout =  cell.collectionVIEW.collectionViewLayout as? UICollectionViewFlowLayout {
                     flowLayout.scrollDirection = .vertical
@@ -1054,7 +1057,9 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
             cell.ocrbtn.isHidden = true
 //            cell.txtView.delegate = self
 //            cell.txtView.tag = 100
-            cell.txtView.text = ProductModel.shared.videoUrl
+            cell.nameTextField.text = ProductModel.shared.videoUrl
+            //cell.txtView.text = ProductModel.shared.videoUrl
+           
             return cell
         default:
             let cell = tabvw.dequeueReusableCell(withIdentifier: "nextTableViewCell", for: indexPath) as! nextTableViewCell
@@ -1165,27 +1170,14 @@ extension CreateProductFirstViewController:UITableViewDelegate,UITextViewDelegat
     }
     
     func cancelBtn() {
-        imgcount = 0
-        for i in 0...ProductModel.shared.galleryId.count - 1 {
-                   if "\(ProductModel.shared.galleryId[i])" == ""
-                   {
-                    
-                   }
-                   else{
-                   imgcount = imgcount + 1
-                   }
-             
-               }
-        UITableView.performWithoutAnimation({
-             tabvw.reloadRows(at: [IndexPath(row: 2, section: 2)], with: .none)
-               })
+  
       
-        if "\(ProductModel.shared.galleryId[0])" != ""
+        if ProductModel.shared.galleryId.count > 0
         {
           headerImg[2] = "cam_green"
             UITableView.performWithoutAnimation({
                 tabvw.reloadRows(at: [IndexPath(row: 0, section: 2)], with: .none)
-                
+                tabvw.reloadRows(at: [IndexPath(row: 2, section: 2)], with: .none)
             })
             
         }
@@ -1193,7 +1185,7 @@ extension CreateProductFirstViewController:UITableViewDelegate,UITextViewDelegat
             headerImg[2] = "cameras-1"
         UITableView.performWithoutAnimation({
                        tabvw.reloadRows(at: [IndexPath(row: 0, section: 2)], with: .none)
-                       
+            tabvw.reloadRows(at: [IndexPath(row: 2, section: 2)], with: .none)
                    })
         }
        checkMadatory()
@@ -1366,7 +1358,8 @@ extension CreateProductFirstViewController:UITableViewDelegate,UITextViewDelegat
                 
             }
             else{
-                return 150
+                return 215
+               // return 150
             }
         case 3:
             return 70

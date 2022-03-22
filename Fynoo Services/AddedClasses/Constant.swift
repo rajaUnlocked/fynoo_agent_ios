@@ -140,8 +140,11 @@ class Constant: NSObject {
      static let ptatformList: String = "businessapi/v2/platform_type/"
     static let displayTYpe: String = "businessapi/v2/time_display_type/"
        static let uploadBranchImage: String = "businessapi/v2/uploadimage/"
+    static let uploadproductImages: String = "product_api/uploadimage/"
+ 
          static let uploadgalleryImage: String = "product_api/uploadGalleryImages/"
        static let uploadbranchgalleryImage: String = "businessapi/v2/upload_fynoo_gallery_images/"
+    static let uploaddatasaleImage: String = "product_api/uploadDataBankImage/"
          static let pdfupload : String = "product_api/uploadDocument/";
        static let showimglist: String = "businessapi/v2/uploaded_images_list/"
        static let contentname : String = "common/get_content_name/";
