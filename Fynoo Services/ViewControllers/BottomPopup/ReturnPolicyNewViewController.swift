@@ -15,9 +15,7 @@ class ReturnPolicyNewViewController: UIViewController , UITableViewDelegate,UITa
     @IBOutlet weak var cardVieww: UIView!
     
     @IBOutlet weak var tabView: UITableView!
-  
     var productdesp = ""
- 
     override func viewDidLoad() {
         ModalController.watermark(self.view)
         super.viewDidLoad()

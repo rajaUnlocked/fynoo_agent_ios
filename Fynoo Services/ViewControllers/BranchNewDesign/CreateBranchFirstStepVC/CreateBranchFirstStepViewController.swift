@@ -1018,7 +1018,7 @@ class CreateBranchFirstStepViewController: UIViewController, UITableViewDelegate
             cell.isUserInteractionEnabled = true
             contentborder(vw: cell.contentView)
             cell.delegate = self
-            cell.topConst.constant = 0
+            //cell.topConst.constant = 0
             cell.isType = true
             cell.SelectedName = selectedTypeArrays
             cell.SelectedId = selectedTypeId
@@ -1347,7 +1347,7 @@ class CreateBranchFirstStepViewController: UIViewController, UITableViewDelegate
                   flowLayout.scrollDirection = .horizontal
                }
                
-               cell.topConst.constant = -1
+              // cell.topConst.constant = -1
                cell.isType = false
                if AddBranch.shared.platformType.contains(48)
                {
@@ -1395,7 +1395,7 @@ class CreateBranchFirstStepViewController: UIViewController, UITableViewDelegate
                cell.delegate = self
                
                contentborder(vw: cell.contentView)
-               cell.topConst.constant = -1
+               //cell.topConst.constant = -1
                cell.isType = false
                cell.istype = "Interior"
                if AddBranch.shared.platformType.contains(48)
