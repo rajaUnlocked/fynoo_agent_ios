@@ -490,7 +490,6 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                               
                            }
                        }
-                           
                        else
                        {
                            
