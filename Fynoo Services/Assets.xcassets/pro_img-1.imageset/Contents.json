@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "Group 759@2x.png",
+      "filename" : "pro_img.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Group 759@3x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

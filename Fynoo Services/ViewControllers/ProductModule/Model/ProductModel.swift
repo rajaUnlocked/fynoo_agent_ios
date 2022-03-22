@@ -100,7 +100,7 @@ class ProductModel
     var isdraft:Bool = false
     var isedit:Bool = false
     var deliverycharge:String = ""
-    var galleryFeatureId:String = ""
+    var galleryFeatureId:Int = 0
     var galleryFeatureImage:String = ""
     var galleryId:NSMutableArray = NSMutableArray()
     var galleryIdImageNew = [UIImage]()
@@ -396,7 +396,7 @@ class ProductModel
         isdraft = false
         isedit = false
         deliverycharge = ""
-        galleryFeatureId = ""
+        galleryFeatureId = 0
         galleryFeatureImage = ""
         galleryId.removeAllObjects()
         galleryIdImage.removeAllObjects()

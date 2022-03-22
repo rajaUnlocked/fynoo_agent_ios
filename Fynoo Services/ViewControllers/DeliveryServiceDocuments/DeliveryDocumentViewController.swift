@@ -489,9 +489,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                             }
                               
                            }
-                           
                        }
-                           
                        else
                        {
                            
@@ -592,7 +590,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     }
                     if textstr.count > self.servicelist?.data?.plate_no_max_length ?? 0
                     {
-                        return false
+                      
                     }
                     if !textstr.containArabicNumber
                     {
@@ -809,21 +807,21 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         {
             if txtArr[0] == ""
             {
-                ModalController.showNegativeCustomAlertWith(title: "Select Registration Type".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Select Registration Type".localized, msg: "")
                 return
             }
              if txtArr[1] == ""
             {
-                ModalController.showNegativeCustomAlertWith(title: "Select Vehicle Brand".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Select Vehicle Brand".localized, msg: "")
                 return
             }
              if txtArr[2] == ""
             {
-                ModalController.showNegativeCustomAlertWith(title: "Select Vehicle Name".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Select Vehicle Name".localized, msg: "")
                 return
             }
             if txtArr[3] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "Production Year".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Enter Production Year".localized, msg: "")
                 return
             }
               if txtArr[3].count > 0
@@ -834,11 +832,11 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                            }
             }
             if txtArr[4] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "Select Vehicle Color".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Select Vehicle Color".localized, msg: "")
                 return
             }
             if txtArr[5] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "Select Vehicle kind".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Select Vehicle kind".localized, msg: "")
                 return
             }
             if txtArr[6] == ""{
