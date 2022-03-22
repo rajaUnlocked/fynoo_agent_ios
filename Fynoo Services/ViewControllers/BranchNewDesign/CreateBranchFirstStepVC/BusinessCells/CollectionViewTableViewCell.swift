@@ -81,8 +81,18 @@ class CollectionViewTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
     }
     func checkedImg(tag: Int)
     {
-    ProductModel.shared.galleryFeatureId = ProductModel.shared.galleryId[tag] as! Int
-    ProductModel.shared.galleryFeatureImage = ProductModel.shared.galleryIdImage[tag] as! String
+        if  ProductModel.shared.galleryFeatureId == ProductModel.shared.galleryId[tag] as! Int
+        {
+            ProductModel.shared.galleryFeatureId = 0
+            ProductModel.shared.galleryFeatureImage = ""
+        }
+        else
+        {
+            ProductModel.shared.galleryFeatureId = ProductModel.shared.galleryId[tag] as! Int
+            ProductModel.shared.galleryFeatureImage = ProductModel.shared.galleryIdImage[tag] as! String
+
+        }
+        
         self.delegate?.cancelBtn()
         collectionVIEW.reloadData()
     }
@@ -196,7 +206,7 @@ class CollectionViewTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
                    let vc = ViewAllImagesOfProductViewController(nibName: "ViewAllImagesOfProductViewController", bundle: nil)
                                 //vc.hidesBottomBarWhenPushed = true
                  vc.cellImagesArray = ProductModel.shared.galleryIdImage as! [String]
-                        vc.selectedIndex = SelectedINdex
+                 vc.selectedIndex = indexPath.row
                  vc.checkSelect = true
                     viewcontrol.navigationController?.pushViewController(vc, animated: true)
                   }

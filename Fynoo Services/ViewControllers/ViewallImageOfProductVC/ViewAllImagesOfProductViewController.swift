@@ -46,7 +46,11 @@ class ViewAllImagesOfProductViewController: UIViewController, UICollectionViewDe
 //        }
         //cellImagesArray.reverse()
     }
-    
+    override func viewWillLayoutSubviews(){
+        super.viewWillLayoutSubviews()
+        let indpath = IndexPath(item: selectedIndex, section: 0)
+        self.collectionVw.scrollToItem(at: indpath, at: .centeredHorizontally, animated: true)
+     }
     
     func registerNib(){
         collectionVw.register(UINib(nibName: "ViewAllImagesNewDesignCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ViewAllImagesNewDesignCollectionViewCell")
