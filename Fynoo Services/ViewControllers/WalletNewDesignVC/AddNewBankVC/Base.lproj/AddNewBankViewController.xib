@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -64,7 +64,7 @@
                     <rect key="frame" x="0.0" y="70" width="342" height="595"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TjV-4d-419">
-                            <rect key="frame" x="0.0" y="0.0" width="336" height="600"/>
+                            <rect key="frame" x="0.0" y="0.0" width="336" height="700"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gr3-r0-g79">
                                     <rect key="frame" x="0.0" y="30" width="336" height="50"/>
@@ -524,7 +524,7 @@
                                 <constraint firstItem="gr3-r0-g79" firstAttribute="leading" secondItem="TjV-4d-419" secondAttribute="leading" id="Bfk-S9-3QN"/>
                                 <constraint firstAttribute="trailing" secondItem="gr3-r0-g79" secondAttribute="trailing" id="Czy-qq-peu"/>
                                 <constraint firstItem="4Uf-xy-97w" firstAttribute="leading" secondItem="lGq-4s-qLf" secondAttribute="leading" id="Dt0-EG-ART"/>
-                                <constraint firstAttribute="height" constant="600" id="M6j-v4-QDm"/>
+                                <constraint firstAttribute="height" constant="700" id="M6j-v4-QDm"/>
                                 <constraint firstAttribute="trailing" secondItem="lGq-4s-qLf" secondAttribute="trailing" constant="10" id="MkQ-f3-VUC"/>
                                 <constraint firstItem="lGq-4s-qLf" firstAttribute="leading" secondItem="TjV-4d-419" secondAttribute="leading" constant="10" id="TJo-tZ-8Mm"/>
                                 <constraint firstItem="gr3-r0-g79" firstAttribute="top" secondItem="TjV-4d-419" secondAttribute="top" constant="30" id="Tuc-fW-EkQ"/>
