@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -55,7 +55,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_white" translatesAutoresizingMaskIntoConstraints="NO" id="RIS-O1-NSE">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_white" translatesAutoresizingMaskIntoConstraints="NO" id="RIS-O1-NSE">
                                     <rect key="frame" x="4" y="8" width="30" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="30" id="Wzx-TV-zmW"/>
@@ -314,6 +314,7 @@ otherwise order will be automatically cancelled.</string>
                         <constraint firstItem="8QV-YD-pMu" firstAttribute="top" secondItem="aXV-JP-G0S" secondAttribute="top" constant="14" id="BAl-g4-x8e"/>
                         <constraint firstItem="Sy1-3I-4ZL" firstAttribute="centerX" secondItem="8QV-YD-pMu" secondAttribute="centerX" id="Er6-iI-F8j"/>
                         <constraint firstAttribute="height" constant="400" id="Gcg-go-IBR"/>
+                        <constraint firstItem="czD-u6-R2c" firstAttribute="top" secondItem="86u-Oa-uVl" secondAttribute="bottom" constant="15" id="Kq1-rh-Mxg"/>
                         <constraint firstItem="mCx-1y-I7v" firstAttribute="top" secondItem="aXV-JP-G0S" secondAttribute="top" constant="0.10000000000000001" id="NJc-AV-Jw0"/>
                         <constraint firstAttribute="trailing" secondItem="v73-N8-sLx" secondAttribute="trailing" constant="17" id="PTe-Ha-gqu"/>
                         <constraint firstAttribute="trailing" secondItem="mCx-1y-I7v" secondAttribute="trailing" constant="0.10000000000000001" id="PuP-6G-t7h"/>
@@ -324,7 +325,6 @@ otherwise order will be automatically cancelled.</string>
                         <constraint firstItem="gKr-RY-TMp" firstAttribute="leading" secondItem="aXV-JP-G0S" secondAttribute="leading" constant="20" id="c5i-Ab-ZWN"/>
                         <constraint firstItem="v73-N8-sLx" firstAttribute="top" secondItem="aXV-JP-G0S" secondAttribute="top" constant="37" id="dyv-Qw-NuD"/>
                         <constraint firstItem="86u-Oa-uVl" firstAttribute="leading" secondItem="aXV-JP-G0S" secondAttribute="leading" constant="20" id="eug-rj-Wgm"/>
-                        <constraint firstItem="XGR-vZ-fFy" firstAttribute="top" secondItem="czD-u6-R2c" secondAttribute="bottom" constant="19" id="gny-6z-USK"/>
                         <constraint firstAttribute="bottom" secondItem="mCx-1y-I7v" secondAttribute="bottom" id="hGm-ek-Tc1"/>
                         <constraint firstItem="XGR-vZ-fFy" firstAttribute="top" secondItem="gKr-RY-TMp" secondAttribute="bottom" constant="70.5" id="ktb-bB-Jgo"/>
                         <constraint firstItem="mCx-1y-I7v" firstAttribute="leading" secondItem="aXV-JP-G0S" secondAttribute="leading" constant="0.10000000000000001" id="lWX-so-eYL"/>

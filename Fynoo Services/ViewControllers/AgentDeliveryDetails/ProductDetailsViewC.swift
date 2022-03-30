@@ -1262,7 +1262,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         cell.lblOrderPrice.text = "\(orderDetailData?.data?.delivery_price ?? "0.00")"
         cell.imgPaymentIcon.sd_setImage(with: URL(string: orderDetailData?.data?.payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
         cell.lblCurrency.text = orderDetailData?.data?.currency_code
-        
+        cell.lblExpDelTime.text = "\(orderDetailData?.data?.expected_time ?? "")"
 //        switch orderDetailData?.data?.is_agent_reached {
 //        case 0:
 //            self.btnChangeStatus.setTitle("I have reached BO's store".localized, for: .normal)
@@ -1364,11 +1364,12 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         cell.lblSize.text = "\(totalSize):  \(orderDetailData?.data?.total_size ?? 0.0)\(cm)"
 
         
+        
         cell.lblCurrencyCode.text = "\(orderDetailData?.data?.currency_code ?? "")"
         cell.order_price.text = "\(orderDetailData?.data?.delivery_price ?? "")"
         let cancellationReason = "Cancellation Reason".localized
         cell.lblCancelReason.text = "\(cancellationReason):\(orderDetailData?.data?.cancellation_reason ?? "")"
-        
+       
         
         
             return cell
@@ -1667,7 +1668,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     
                     let timeSTAMP = "\(orderDetailData?.data?.order_date ?? 0)"
                     
-                    cell.lblOrderDate.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: timeSTAMP, format: "dd-MMM-yyyy HH:mm a")
+                    cell.lblOrderDate.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: timeSTAMP, format: "EE dd-MMM-yyyy HH:mm a")
                     
                     cell.lblCustrating.text = orderDetailData?.data?.cust_rating ?? "0"
                     cell.lblCusttotalrating.text = "(\(orderDetailData?.data?.cust_total_rating ?? "0"))"
@@ -1707,8 +1708,8 @@ extension ProductDetailsViewC : UITableViewDataSource {
 
 
                     }
-                  
-                    cell.lblTime.text = lblWatingTime
+//                    cell.lblExpDelTime.text = "\(orderDetailData?.data?.expected_time)"
+//                    cell.lblTime.text = "\(orderDetailData?.data?.expected_time ?? "")"
                     
                     return cell
                 }else if indexPath.section == 3{

@@ -637,7 +637,11 @@ extension DataEntryDetailViewController : UITableViewDataSource {
     func dataEntryFirstTopCell(index : IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DataEntryFormFirstTopTableViewCell", for: index) as! DataEntryFormFirstTopTableViewCell
         cell.selectionStyle = .none
+        if self.serviceName == "Photography"{
+            cell.createLbl.text = "Photography Order".localized
+        }else{
         cell.createLbl.text = self.serviceName
+        }
         cell.bttomLbl.isHidden = true
         
         return cell

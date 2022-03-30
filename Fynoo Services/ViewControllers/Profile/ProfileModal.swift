@@ -536,7 +536,7 @@ class triplist : Mappable{
     var payment_icon : String?
     var avg_rating : String?
     var total_rating : String?
-    var order_date : String?
+    var order_date : Int?
     var status : Int?
     var status_desc : String?
     var lat : String?
