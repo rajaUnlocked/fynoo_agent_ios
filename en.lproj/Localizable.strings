@@ -418,7 +418,7 @@
 "Address" = "Address";
 "Delivery Services" = "Delivery Services";
 "No Trips Found" = "No Trips Found";
-
+"No Order Found" = "No Order Found";
 // sercice document
 "Upload National Id / Iqama" = "Upload National Id / Iqama";
 "Upload Driving License Front" = "Upload Driving License Front";
@@ -523,7 +523,7 @@
 "Please enter branch name" = "Please enter branch name";
 "Please add description" = "Please add description";
 "Please select business type" = "Please select business type";
-"Please select atleast one business type" = "Please select atleast one business type";
+"Please select atleast one business type" = "Please select at least one business type";
 "Please select platform type" = "Please select platform type";
 "Please select business timing" = "Please select business timing";
 "Please select the days and fill the time" = "Please select the days and fill the time";

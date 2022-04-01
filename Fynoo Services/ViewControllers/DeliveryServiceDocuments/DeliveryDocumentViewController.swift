@@ -807,21 +807,21 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         {
             if txtArr[0] == ""
             {
-                ModalController.showNegativeCustomAlertWith(title: "Please Select Registration Type".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please select registration type".localized, msg: "")
                 return
             }
              if txtArr[1] == ""
             {
-                ModalController.showNegativeCustomAlertWith(title: "Please Select Vehicle Brand".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please select vehicle brand".localized, msg: "")
                 return
             }
              if txtArr[2] == ""
             {
-                ModalController.showNegativeCustomAlertWith(title: "Please Select Vehicle Name".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please select vehicle name".localized, msg: "")
                 return
             }
             if txtArr[3] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "Please Enter Production Year".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please enter production year".localized, msg: "")
                 return
             }
               if txtArr[3].count > 0
@@ -832,11 +832,11 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                            }
             }
             if txtArr[4] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "Please Select Vehicle Color".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please select vehicle color".localized, msg: "")
                 return
             }
             if txtArr[5] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "Please Select Vehicle kind".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please select vehicle kind".localized, msg: "")
                 return
             }
             if txtArr[6] == ""{

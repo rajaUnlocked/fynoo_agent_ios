@@ -928,8 +928,19 @@ class CreateBranchFirstStepViewController: UIViewController, UITableViewDelegate
             contentborder(vw: cell.vw)
             cell.vw.layer.cornerRadius = 0
             cell.bottomConst.constant = -4
-            cell.counlbl.text = "\(AddBranch.shared.Descrip.count) / \(self.descriplist?.data?.br_limit_list?[0].value ?? 0)"
-            cell.counlbl.textColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1)
+            
+            cell.counlbl.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
+            
+            cell.counlbl.attributedText = ModalController.setProductStricColor(str: "\(AddBranch.shared.Descrip.count)/\(self.descriplist?.data?.br_limit_list?[0].value ?? 0)", str1: "\(AddBranch.shared.Descrip.count)", str2: " /\(self.descriplist?.data?.br_limit_list?[0].value ?? 0)", fontsize: 12, fontfamily: "LightFontName", txtcolor: #colorLiteral(red: 97/255, green: 192/255, blue: 136/255, alpha: 1))
+            
+            if AddBranch.shared.Descrip.count == self.descriplist?.data?.br_limit_list?[0].value
+            {
+               cell.counlbl.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
+                
+            }
+            
+//            cell.counlbl.text = "\(AddBranch.shared.Descrip.count) / \(self.descriplist?.data?.br_limit_list?[0].value ?? 0)"
+//            cell.counlbl.textColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1)
             if AddBranch.shared.Descrip.count == self.descriplist?.data?.br_limit_list?[0].value ?? 0
             {
                cell.counlbl.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
@@ -1650,7 +1661,7 @@ class CreateBranchFirstStepViewController: UIViewController, UITableViewDelegate
             }
             else
             {
-               return 85
+               return 0
             }
             
             
@@ -2181,6 +2192,13 @@ extension CreateBranchFirstStepViewController:UITextFieldDelegate,UITextViewDele
          let txtAfterUpdate = text1.replacingCharacters(in: range, with: text)
          textstr = txtAfterUpdate
       }
+      if textView.text?.count == 0
+      {
+         if text == " "
+         {
+            return false
+         }
+      }
       if textView.tag == 10
       {
          if text.isArabic
@@ -2269,6 +2287,13 @@ extension CreateBranchFirstStepViewController:UITextFieldDelegate,UITextViewDele
       if textField.tag == 4
       {
          if string.isArabic
+         {
+            return false
+         }
+      }
+      if textField.text?.count == 0
+      {
+         if string == " "
          {
             return false
          }

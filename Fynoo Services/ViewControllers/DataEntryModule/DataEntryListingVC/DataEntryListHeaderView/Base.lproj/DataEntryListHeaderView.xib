@@ -32,13 +32,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="380" height="68.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" tag="106" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Data Entry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="If9-Ih-Iuz">
-                            <rect key="frame" x="79" y="24" width="108" height="19"/>
+                            <rect key="frame" x="70" y="24" width="108" height="19"/>
                             <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1011" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dataEntry_symbol" translatesAutoresizingMaskIntoConstraints="NO" id="1Zf-nV-EIe">
-                            <rect key="frame" x="24" y="8.5" width="50" height="50"/>
+                            <rect key="frame" x="15" y="8.5" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="8Eg-YD-yx0"/>
                                 <constraint firstAttribute="width" constant="50" id="Xww-8Y-GPu"/>
@@ -116,7 +116,7 @@
                     <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="L4s-EZ-XwV" firstAttribute="leading" secondItem="kOP-Ve-tQW" secondAttribute="leading" id="6Fo-Ph-0Cz"/>
-                        <constraint firstItem="1Zf-nV-EIe" firstAttribute="leading" secondItem="kOP-Ve-tQW" secondAttribute="leading" constant="24" id="C81-uu-cKq"/>
+                        <constraint firstItem="1Zf-nV-EIe" firstAttribute="leading" secondItem="kOP-Ve-tQW" secondAttribute="leading" constant="15" id="C81-uu-cKq"/>
                         <constraint firstItem="1qv-4d-6e8" firstAttribute="leading" secondItem="kOP-Ve-tQW" secondAttribute="leading" id="MZk-QS-ay8"/>
                         <constraint firstItem="1qv-4d-6e8" firstAttribute="top" secondItem="L4s-EZ-XwV" secondAttribute="bottom" constant="3" id="NnR-YA-0B6"/>
                         <constraint firstItem="98R-ye-czp" firstAttribute="centerY" secondItem="If9-Ih-Iuz" secondAttribute="centerY" id="OBU-xU-ekC"/>

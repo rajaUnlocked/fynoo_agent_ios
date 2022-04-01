@@ -1041,7 +1041,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "AddInvoiceInformationTableViewCell",for: index) as! AddInvoiceInformationTableViewCell
         cell.selectionStyle = .none
         cell.delegate = self
-        
+        cell.txtVatAmt.text = "0.0"
 //        cell.emailField.isUserInteractionEnabled = false
         cell.txtTotalAmtWithoughtVat.keyboardType = .decimalPad
         cell.txtVatAmt.keyboardType = .decimalPad

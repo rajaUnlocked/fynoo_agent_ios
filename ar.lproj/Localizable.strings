@@ -509,7 +509,7 @@
 "Delivery Services" = "خدمة التوصيل";
 "No Trips Found" = "لاتوجد رحلات";
 "Order Id " = "رقم الطلب";
-
+"No Order Found" = "لاتوجد طلبات";
 //Arv
 "Actual Total Amount" = "المبلغ الإجمالي الفعلي";
 "Trips" = "الرحلات";

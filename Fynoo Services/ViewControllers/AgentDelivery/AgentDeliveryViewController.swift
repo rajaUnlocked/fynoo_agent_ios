@@ -472,7 +472,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             if tripListListArray?.count ?? 0 == 0
             {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NoTripFoundTableViewCell",for: indexPath) as! NoTripFoundTableViewCell
-                cell.notripfoundlbl.text = "No Trips Found".localized
+                cell.notripfoundlbl.text = "No Order Found".localized
             return cell
             }
             else if indexPath.row < (tripListListArray!.count) {
