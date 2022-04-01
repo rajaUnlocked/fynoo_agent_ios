@@ -628,8 +628,12 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         cell.address.text = "\("Address".localized):\(tripListListArray?[index.row].address ?? "")"
        
         cell.walletIcon.sd_setImage(with: URL(string: tripListListArray?[index.row].payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
-        cell.statusLbl.text = tripListListArray?[index.row].status_desc
-       
+        if tripListListArray?[index.row].status_desc == "Cancelled"{
+            cell.statusLbl.text = "\("Reason".localized): \(tripListListArray?[index.row].reason ?? "")"
+        }else{
+            cell.statusLbl.text = tripListListArray?[index.row].status_desc
+        }
+//            cell.statusLbl.text = "\("Reason".localized): \(tripListListArray?[index.row].reason ?? "")"
         cell.callBtn.isHidden = false
         cell.messageBtn.isHidden = false
         cell.navigationBtn.isHidden = false
@@ -641,7 +645,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
             cell.statusView.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
             cell.statusLbl.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }else{
-           cell.statusView.backgroundColor = #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.9176470588, alpha: 1)
+            cell.statusView.backgroundColor = #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.9176470588, alpha: 1)
             cell.statusLbl.textColor = #colorLiteral(red: 0.2196078431, green: 0.2196078431, blue: 0.2196078431, alpha: 1)
         }
 //        cell.navigationBtn.isHidden = false

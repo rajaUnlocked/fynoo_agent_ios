@@ -182,7 +182,7 @@ class DataEntryDetailViewController: UIViewController, MFMessageComposeViewContr
                     vc.delegate =  self
                     self.present(vc, animated: true, completion: nil)
                 }else{
-                    ModalController.showNegativeCustomAlertWith(title: "Please complete all task before submit your work.".localized, msg: "")
+                    ModalController.showNegativeCustomAlertWith(title: "You can submit your final work after filling all data entry items.".localized, msg: "")
                     return
                 }
             }
@@ -526,7 +526,7 @@ extension DataEntryDetailViewController : UITableViewDelegate {
                 }
             }
         }else if indexPath.section == 4 {
-            return UITableView.automaticDimension
+            return 50//UITableView.automaticDimension
         }else if indexPath.section == 5 {
             return UITableView.automaticDimension
         }else  {
@@ -639,6 +639,8 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         cell.selectionStyle = .none
         if self.serviceName == "Photography"{
             cell.createLbl.text = "Photography Order".localized
+        }else if self.serviceName == "Data Entry"{
+            cell.createLbl.text = "Data Entry Order".localized
         }else{
         cell.createLbl.text = self.serviceName
         }
@@ -681,7 +683,8 @@ extension DataEntryDetailViewController : UITableViewDataSource {
         
         cell.dateLbl.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: "\(requestData?.order_date ?? 0)", format: "E, MMM dd, yyyy h:mm")
         cell.priceValueLbl.text = "\(Constant.currency) \(requestData?.service_price ?? 0.00)"
-        cell.agentProfileImgView.sd_setImage(with: URL(string:(requestData?.bo_name ?? "")), placeholderImage: UIImage(named: "agent_indivdual.png"))
+        cell.agentProfileImgView.sd_setImage(with: URL(string:(requestData?.bo_pic ?? "")), placeholderImage: UIImage(named: "agent_indivdual.png"))
+        cell.agentProfileImgView.layer.cornerRadius = 15
         cell.agentNameLbl.text = requestData?.bo_name
         cell.ratingLbl.text = requestData?.rating_avg
         cell.totalRatingLbl.text = "(\(requestData?.rating_count ?? 0))"
@@ -827,6 +830,7 @@ extension DataEntryDetailViewController : UITableViewDataSource {
     func dataEntryOrderInformationSecondCell(index : IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DEInprogressOrderInformationSecondTableViewCell", for: index) as! DEInprogressOrderInformationSecondTableViewCell
         cell.selectionStyle = .none
+        cell.orderInstructionHeaderLbl.isHidden = true
         cell.orderInstructionValueLbl.text = serviceDetailData?.data?.rem_days_text
         
         if mainServiceID == "1" {

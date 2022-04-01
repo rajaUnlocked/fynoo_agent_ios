@@ -883,12 +883,12 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             return
         }
         if self.amoutnWithoutVat == ""{
-            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter total amount without vat".localized)
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter total amount without VAT".localized)
             return
         }
         if orderDetailData?.data?.is_vat_available == true  {
             if self.vatAmount == "" {
-                ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter vat amount".localized)
+                ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter VAT amount".localized)
                 return
             }
            
@@ -911,11 +911,11 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             return
         }
         if self.amoutnWithoutVat == ""{
-            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter total amount without vat".localized)
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter total amount without VAT".localized)
             return
         }
         if orderDetailData?.data?.is_vat_available == true{
-            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter vat amount".localized)
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter VAT amount".localized)
             return
         }
         

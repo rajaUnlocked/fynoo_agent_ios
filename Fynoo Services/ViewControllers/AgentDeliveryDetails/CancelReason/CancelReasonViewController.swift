@@ -71,7 +71,7 @@ class CancelReasonViewController: UIViewController, CancelReasonViewCellDelegate
                 self.navigationController?.popViewController(animated: true)
                 
             }else{
-                ModalController.showNegativeCustomAlertWith(title: "", msg: "Please select one Reason...".localized)
+                ModalController.showNegativeCustomAlertWith(title: "", msg: "Please select one reason type".localized)
                 return
                 
             }

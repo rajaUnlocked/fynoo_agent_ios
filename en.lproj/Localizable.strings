@@ -333,6 +333,7 @@
 "Are you sure you want to deactivate this service?" = "Are you sure you want to deactivate this service?";
 "Rejection Reason:" = "Rejection Reason:";
 "Are you sure you want accept the order?" = "Are you sure you want accept the order?";
+"Are you sure you want to accept this order?" = "Are you sure you want to accept this order?";
 "Are you sure you want to start the work?" = "Are you sure you want to start the work?";
 "Data Entry Sevice" = "Data Entry Sevice";
 "Welcome, Let's Select Your Location" = "Welcome, Let's Select Your Location";
@@ -1085,7 +1086,7 @@
 "Are your sure you want to reject?" = "Are your sure you want to reject?" ;
 "Are you sure you want to cancel this product?" = "Are you sure you want to cancel this product?" ;
 "Please select one Reason..." = "Please select one Reason..." ;
-
+"Please select one reason type" = "Please select one reason type";
 
 // Drop Shipping
 "Commission Name"="Commission Name";
