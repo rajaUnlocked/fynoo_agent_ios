@@ -188,7 +188,7 @@ addrowssDelegate,deleterowssDelegate {
                    }
                    else
                    {
-                    ModalController.showNegativeCustomAlertWith(title: "Please fill the time slot for selected day", msg: "")
+                       ModalController.showNegativeCustomAlertWith(title: "Please select the days and fill the time".localized, msg: "")
                        return
                    }
            

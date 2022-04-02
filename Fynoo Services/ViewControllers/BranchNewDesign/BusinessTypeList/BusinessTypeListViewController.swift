@@ -43,11 +43,15 @@ class BusinessTypeListViewController: UIViewController ,UITableViewDelegate,UITa
         if selectedIndexs.count > 0
         {
             img.image = UIImage(named: "btype_green")
+            saveBtn.layer.borderColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1).cgColor
+                      saveBtn.setTitleColor(UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1), for: .normal)
             
         }
         else
         {
               img.image = UIImage(named: "btype")
+            saveBtn.layer.borderColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1).cgColor
+                        saveBtn.setTitleColor(UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1), for: .normal)
         }
          self.BusinessTypeList_API()
 //           bgImage.image = ModalController.rotateImagesOnLanguageMethod(img: UIImage(named:"backgroundImage")!)

@@ -434,7 +434,7 @@ class CreateBranchFirstStepViewController: UIViewController, UITableViewDelegate
          }
          
       case 4:
-         if AddBranch.shared.platformType.contains(48)
+         if AddBranch.shared.platformType.contains(48) || AddBranch.shared.platformType.count == 0
          {
             if isLoc
             {

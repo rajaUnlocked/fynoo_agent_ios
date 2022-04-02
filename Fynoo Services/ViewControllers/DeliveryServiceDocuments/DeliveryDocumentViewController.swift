@@ -17,7 +17,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     var primaryid = 0
     var isReasonForVehicle = false
     var upload:ServiceUpload?
-    var topArr = ["Full Name","Date of Birth","National ID / Iqama ID","Date of Expiry"]
+    var topArr = ["Full Name","Date of Birth","National ID / Iqama ID","Expiry Date"]
     var headertitlearr = ["Upload National Id / Iqama","Upload Driving License Front","Upload Vehicle Registration","Upload Vehicle Insurance","Upload Driving Authorization(Not Required for the Owner)".localized,"Upload Vehicle Description"]
     var toptxtArr = ["","","",""]
     var txtArr = ["","","","","","","",""]
@@ -298,28 +298,28 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         {
         if !imgIdArr[0]
         {
-           ModalController.showNegativeCustomAlertWith(title: "Please filled National Id / Iqama", msg: "")
+           ModalController.showNegativeCustomAlertWith(title: "Please click 'Upload and Save' on National ID/Iqama ID section", msg: "")
             return
         }
         }
         if !imgIdArr[1]
         {
-           ModalController.showNegativeCustomAlertWith(title: "Please filled Driving License Front ", msg: "")
+           ModalController.showNegativeCustomAlertWith(title: "Please click 'Upload and Save' on Driving License Front section", msg: "")
              return
         }
         if !imgIdArr[2]
         {
-           ModalController.showNegativeCustomAlertWith(title: "Please filled Vehicle Registration", msg: "")
+           ModalController.showNegativeCustomAlertWith(title: "Please click 'Upload and Save' on Vehicle Registration section", msg: "")
              return
         }
         if !imgIdArr[3]
         {
-           ModalController.showNegativeCustomAlertWith(title: "Please filled Vehicle Insurance", msg: "")
+           ModalController.showNegativeCustomAlertWith(title: "Please click 'Upload and Save' on Vehicle Insurance section", msg: "")
              return
         }
         if !imgIdArr[5]
         {
-           ModalController.showNegativeCustomAlertWith(title: "Please filled Vehicle Description", msg: "")
+           ModalController.showNegativeCustomAlertWith(title: "Please click 'Upload and Save' on Vehicle Description section", msg: "")
              return
         }
             
@@ -753,7 +753,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         {
             if toptxtArr[0] == ""
             {
-                ModalController.showNegativeCustomAlertWith(title: "Please Enter User Name", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please enter full name", msg: "")
                 return
             }
            if toptxtArr[1] == ""
@@ -776,7 +776,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 }
                 }
             if toptxtArr[3] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "Please Select DOE", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please select date of expiry", msg: "")
                 return
             }
             
