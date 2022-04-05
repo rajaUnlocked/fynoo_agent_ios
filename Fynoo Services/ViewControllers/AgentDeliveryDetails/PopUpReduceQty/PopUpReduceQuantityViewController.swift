@@ -128,7 +128,7 @@ class PopUpReduceQuantityViewController: UIViewController,CancelReasonViewCellDe
             }
             
         }else{
-            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please select one Reason...")
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please select one reason type")
             return
             
         }

@@ -291,7 +291,7 @@ class CreateProductFirstViewController: UIViewController {
         
             if ProductModel.shared.productTitle == ""
                    {
-                ModalController.showNegativeCustomAlertWith(title: "Please Add Product Name".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please enter product name".localized, msg: "")
 
                        return
                    }
@@ -310,7 +310,7 @@ class CreateProductFirstViewController: UIViewController {
             }
             if ProductModel.shared.productDecription == ""
                    {
-                ModalController.showNegativeCustomAlertWith(title: "Please Add description".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please add product description".localized, msg: "")
 
                        return
                    }
@@ -1307,7 +1307,7 @@ extension CreateProductFirstViewController:UITableViewDelegate,UITextViewDelegat
                 return 50
             }
             else{
-                return 40
+                return 60
             }
         case 1:
             if isDataBank
@@ -1373,7 +1373,12 @@ extension CreateProductFirstViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
-        
+        if textField.text!.count == 0{
+            if string == " "
+            {
+                return false
+            }
+        }
         if !string.containArabicNumber
         {
          return false
