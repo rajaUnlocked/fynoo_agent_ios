@@ -74,7 +74,7 @@
                                     <color key="textColor" red="0.96470588239999999" green="0.70980392160000005" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view tag="1002" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EAt-Mi-9Bm" customClass="CosmosView" customModule="Cosmos">
+                                <view userInteractionEnabled="NO" tag="1002" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EAt-Mi-9Bm" customClass="CosmosView" customModule="Cosmos">
                                     <rect key="frame" x="45" y="9" width="78" height="12"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>

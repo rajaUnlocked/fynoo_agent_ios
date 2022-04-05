@@ -601,7 +601,7 @@ class CreateBranchFirstStepViewController: UIViewController, UITableViewDelegate
          }
          if br.Descrip.count == 0
          {
-            ModalController.showNegativeCustomAlertWith(title: "Please add description".localized, msg: "" )
+            ModalController.showNegativeCustomAlertWith(title: "Please add product description".localized, msg: "" )
             return
          }
          if br.Descrip.count > 0
