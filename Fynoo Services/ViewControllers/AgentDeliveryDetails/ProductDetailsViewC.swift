@@ -1800,6 +1800,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.btnReduceQuantity.setTitle(orderDetailData?.data?.item_detail? [indexPath.row].reason, for: .normal)
                         cell.lblLineReduceQty.isHidden = true
                         cell.btnReduceQuantity.isUserInteractionEnabled = false
+//                        cell.btnReduceQuantity.isHidden = true
                         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
 
                         cell.btnReduceQuantity.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
@@ -1851,8 +1852,13 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     }
                         
                         if checkInvoiceUploaded == true || orderDetailData?.data?.order_status == 3 || orderDetailData?.data?.order_status == 2 || orderDetailData?.data?.item_detail?[indexPath.row].item_status == 3  {
+                            
                             cell.btnDelete.isUserInteractionEnabled = false
                             cell.btnReduceQuantity.isUserInteractionEnabled = false
+                            if orderDetailData?.data?.order_status == 3{
+                                cell.btnReduceQuantity.isHidden = true
+                            }
+                            cell.lblLineReduceQty.isHidden = true
                             cell.btnCart.isEnabled = false
                         }
                         
