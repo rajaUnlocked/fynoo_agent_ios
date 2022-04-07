@@ -54,7 +54,7 @@ class CollectionViewTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
 //        {
 //          productImgArr = [#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder")]
 //        }
-       
+        circleimg.image = UIImage(named: "redcircle")
         collectionVIEW.register(UINib(nibName: "StoreImagesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "StoreImagesCollectionViewCell");
         collectionVIEW.register(UINib(nibName: "SEPhotographyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SEPhotographyCollectionViewCell");
          collectionVIEW.register(UINib(nibName: "ProductImgCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProductImgCollectionViewCell");
