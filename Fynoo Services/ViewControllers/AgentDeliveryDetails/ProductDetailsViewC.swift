@@ -1757,7 +1757,6 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.btnAccept.setTitle("Accepted".localized, for: .normal)
                         cell.imgaccepted.image = #imageLiteral(resourceName: "accepted-1")
                     }
-                    
                     if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 2 || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 0 && orderDetailData?.data?.order_status == 3) || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 1 && orderDetailData?.data?.order_status == 3){
                         cell.imgCart.image = #imageLiteral(resourceName: "shopping-cartgrayCross")
 //                        cell.btnReduceQuantity.isHidden = true
