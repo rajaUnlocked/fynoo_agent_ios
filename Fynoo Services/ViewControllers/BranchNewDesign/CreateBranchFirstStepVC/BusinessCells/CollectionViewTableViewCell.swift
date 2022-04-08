@@ -531,6 +531,11 @@ extension CollectionViewTableViewCell:OpenGalleryDelegate,BottomPopupEditProduct
     
     func gallery(img: UIImage, imgtype: String) {
         if imgtype == "Product"{
+            if ProductModel.shared.galleryId.count == 10
+            {
+                ModalController.showNegativeCustomAlertWith(title: "You can not more than 10 images", msg: "")
+                return
+            }
             if tag1 == 0{
                 branch.isproduct = true
             }

@@ -317,6 +317,7 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
             topconst.constant = 15
             vwheight.constant = 422
             innervwheight.constant = 300
+            img.image = UIImage(named: "vatSample_image")
         }
         
 //        saveBtn.layer.borderColor = UIColor.init(red: 97/255, green: 192/255, blue: 136/255, alpha: 1).cgColor
@@ -326,6 +327,7 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
     @IBAction func noChkbox(_ sender: Any) {
         pfurl = nil
         img.image = UIImage(named: "dottedrectangle")
+//          img.image = UIImage(named: "vatSample_image")
         txtField.text = ""
         if noCheck.isSelected == true {
             noCheck.isSelected  = false
@@ -356,7 +358,8 @@ class VatpopnewchangeViewController: UIViewController,UITextFieldDelegate {
         addlbl.isHidden = false
         add.isHidden = false
         closeBtn.isHidden = true
-        img.image = UIImage(named: "dottedrectangle")
+//      img.image = UIImage(named: "dottedrectangle")
+        img.image = UIImage(named: "vatSample_image")
         pfurl = nil
         saveBtn.layer.borderColor = UIColor.init(red: 236/255, green: 73/255, blue: 84/255, alpha: 1).cgColor
         saveBtn.setTitleColor(UIColor.init(red: 236/255, green: 73/255, blue: 84/255, alpha: 1), for: .normal)
