@@ -1312,6 +1312,8 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
                 cell.btnReduceQuantity.isHidden = true
                 cell.lblLineReduceQty.isHidden = true
                 cell.btnAccept.isHidden = true
+                cell.imgaccepted.isHidden = true
+                cell.acceptStackVw.isHidden = true
         let ItemQty = "Item Qty".localized
         
         cell.lblQty.text = "\(ItemQty): 0\(orderDetailData?.data?.item_detail? [index.row].qty ?? 0)"
@@ -1755,7 +1757,6 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.btnAccept.setTitle("Accepted".localized, for: .normal)
                         cell.imgaccepted.image = #imageLiteral(resourceName: "accepted-1")
                     }
-                    
                     if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 2 || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 0 && orderDetailData?.data?.order_status == 3) || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 1 && orderDetailData?.data?.order_status == 3){
                         cell.imgCart.image = #imageLiteral(resourceName: "shopping-cartgrayCross")
 //                        cell.btnReduceQuantity.isHidden = true
@@ -1763,6 +1764,8 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.btnDelete.isHidden = true
                         cell.lblCancelReasonn.isHidden = false
                         cell.btnAccept.isHidden = true
+                        cell.imgaccepted.isHidden = true
+                        cell.acceptStackVw.isHidden = true
 
                     }
                     
@@ -1796,11 +1799,15 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.btnReduceQuantity.setTitle(orderDetailData?.data?.item_detail? [indexPath.row].reason, for: .normal)
                         cell.lblLineReduceQty.isHidden = true
                         cell.btnReduceQuantity.isUserInteractionEnabled = false
+//                        cell.btnReduceQuantity.isHidden = true
                         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
 
                         cell.btnReduceQuantity.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
-                        cell.btnReduceQuantity.titleLabel?.textColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
+                        //cell.btnReduceQuantity.titleLabel?.textColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
+                        cell.btnReduceQuantity.setTitleColor(#colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1), for: .normal)
                         cell.btnAccept.isHidden = true
+                        cell.imgaccepted.isHidden = true
+                        cell.acceptStackVw.isHidden = true
                         cell.imgCart.image = #imageLiteral(resourceName: "Accepted")
                         cell.btnDelete.isHidden = false
                         cell.btnDelete.alpha = 0.5
@@ -1844,8 +1851,13 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     }
                         
                         if checkInvoiceUploaded == true || orderDetailData?.data?.order_status == 3 || orderDetailData?.data?.order_status == 2 || orderDetailData?.data?.item_detail?[indexPath.row].item_status == 3  {
+                            
                             cell.btnDelete.isUserInteractionEnabled = false
                             cell.btnReduceQuantity.isUserInteractionEnabled = false
+                            if orderDetailData?.data?.order_status == 3{
+                                cell.btnReduceQuantity.isHidden = true
+                            }
+                            cell.lblLineReduceQty.isHidden = true
                             cell.btnCart.isEnabled = false
                         }
                         

@@ -467,8 +467,8 @@ extension UserProfileDetailsViewController : UITableViewDelegate {
                           components.year = -18
                    // components.year = -(Int(personalAgentSignUPModal.PersonalAgentAge_limit) ?? 18)
                             components.month = 12
-                            let maxDate = calendar.date(byAdding: components, to: currentDate)!
-
+//                            let maxDate = calendar.date(byAdding: components, to: currentDate)!
+                    let maxDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())
                             let minDate = Calendar.current.date(from: DateComponents(year: 1900 , month: 1, day: 1))
                             
                             print(minDate as Any)

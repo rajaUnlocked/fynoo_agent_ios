@@ -54,7 +54,7 @@ class CollectionViewTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
 //        {
 //          productImgArr = [#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder"),#imageLiteral(resourceName: "category_placeholder")]
 //        }
-       
+        circleimg.image = UIImage(named: "redcircle")
         collectionVIEW.register(UINib(nibName: "StoreImagesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "StoreImagesCollectionViewCell");
         collectionVIEW.register(UINib(nibName: "SEPhotographyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SEPhotographyCollectionViewCell");
          collectionVIEW.register(UINib(nibName: "ProductImgCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProductImgCollectionViewCell");
@@ -531,6 +531,11 @@ extension CollectionViewTableViewCell:OpenGalleryDelegate,BottomPopupEditProduct
     
     func gallery(img: UIImage, imgtype: String) {
         if imgtype == "Product"{
+            if ProductModel.shared.galleryId.count == 10
+            {
+                ModalController.showNegativeCustomAlertWith(title: "You can not more than 10 images", msg: "")
+                return
+            }
             if tag1 == 0{
                 branch.isproduct = true
             }
