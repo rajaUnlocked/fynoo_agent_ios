@@ -883,12 +883,12 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             return
         }
         if self.amoutnWithoutVat == ""{
-            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter total amount without vat".localized)
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter total amount without VAT".localized)
             return
         }
         if orderDetailData?.data?.is_vat_available == true  {
             if self.vatAmount == "" {
-                ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter vat amount".localized)
+                ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter VAT amount".localized)
                 return
             }
            
@@ -911,11 +911,11 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
             return
         }
         if self.amoutnWithoutVat == ""{
-            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter total amount without vat".localized)
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter total amount without VAT".localized)
             return
         }
         if orderDetailData?.data?.is_vat_available == true{
-            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter vat amount".localized)
+            ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter VAT amount".localized)
             return
         }
         
@@ -1041,7 +1041,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "AddInvoiceInformationTableViewCell",for: index) as! AddInvoiceInformationTableViewCell
         cell.selectionStyle = .none
         cell.delegate = self
-        
+        cell.txtVatAmt.text = "0.0"
 //        cell.emailField.isUserInteractionEnabled = false
         cell.txtTotalAmtWithoughtVat.keyboardType = .decimalPad
         cell.txtVatAmt.keyboardType = .decimalPad
@@ -1262,7 +1262,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         cell.lblOrderPrice.text = "\(orderDetailData?.data?.delivery_price ?? "0.00")"
         cell.imgPaymentIcon.sd_setImage(with: URL(string: orderDetailData?.data?.payment_icon ?? ""), placeholderImage: UIImage(named: "profile_white.png"))
         cell.lblCurrency.text = orderDetailData?.data?.currency_code
-        
+        cell.lblExpDelTime.text = "\(orderDetailData?.data?.expected_time ?? "")"
 //        switch orderDetailData?.data?.is_agent_reached {
 //        case 0:
 //            self.btnChangeStatus.setTitle("I have reached BO's store".localized, for: .normal)
@@ -1312,6 +1312,8 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
                 cell.btnReduceQuantity.isHidden = true
                 cell.lblLineReduceQty.isHidden = true
                 cell.btnAccept.isHidden = true
+                cell.imgaccepted.isHidden = true
+                cell.acceptStackVw.isHidden = true
         let ItemQty = "Item Qty".localized
         
         cell.lblQty.text = "\(ItemQty): 0\(orderDetailData?.data?.item_detail? [index.row].qty ?? 0)"
@@ -1364,11 +1366,12 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         cell.lblSize.text = "\(totalSize):  \(orderDetailData?.data?.total_size ?? 0.0)\(cm)"
 
         
+        
         cell.lblCurrencyCode.text = "\(orderDetailData?.data?.currency_code ?? "")"
         cell.order_price.text = "\(orderDetailData?.data?.delivery_price ?? "")"
         let cancellationReason = "Cancellation Reason".localized
         cell.lblCancelReason.text = "\(cancellationReason):\(orderDetailData?.data?.cancellation_reason ?? "")"
-        
+       
         
         
             return cell
@@ -1667,7 +1670,7 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     
                     let timeSTAMP = "\(orderDetailData?.data?.order_date ?? 0)"
                     
-                    cell.lblOrderDate.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: timeSTAMP, format: "dd-MMM-yyyy HH:mm a")
+                    cell.lblOrderDate.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: timeSTAMP, format: "EE dd-MMM-yyyy HH:mm a")
                     
                     cell.lblCustrating.text = orderDetailData?.data?.cust_rating ?? "0"
                     cell.lblCusttotalrating.text = "(\(orderDetailData?.data?.cust_total_rating ?? "0"))"
@@ -1707,8 +1710,8 @@ extension ProductDetailsViewC : UITableViewDataSource {
 
 
                     }
-                  
-                    cell.lblTime.text = lblWatingTime
+//                    cell.lblExpDelTime.text = "\(orderDetailData?.data?.expected_time)"
+//                    cell.lblTime.text = "\(orderDetailData?.data?.expected_time ?? "")"
                     
                     return cell
                 }else if indexPath.section == 3{
@@ -1754,7 +1757,6 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.btnAccept.setTitle("Accepted".localized, for: .normal)
                         cell.imgaccepted.image = #imageLiteral(resourceName: "accepted-1")
                     }
-                    
                     if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 2 || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 0 && orderDetailData?.data?.order_status == 3) || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 1 && orderDetailData?.data?.order_status == 3){
                         cell.imgCart.image = #imageLiteral(resourceName: "shopping-cartgrayCross")
 //                        cell.btnReduceQuantity.isHidden = true
@@ -1762,6 +1764,8 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.btnDelete.isHidden = true
                         cell.lblCancelReasonn.isHidden = false
                         cell.btnAccept.isHidden = true
+                        cell.imgaccepted.isHidden = true
+                        cell.acceptStackVw.isHidden = true
 
                     }
                     
@@ -1795,11 +1799,15 @@ extension ProductDetailsViewC : UITableViewDataSource {
                         cell.btnReduceQuantity.setTitle(orderDetailData?.data?.item_detail? [indexPath.row].reason, for: .normal)
                         cell.lblLineReduceQty.isHidden = true
                         cell.btnReduceQuantity.isUserInteractionEnabled = false
+//                        cell.btnReduceQuantity.isHidden = true
                         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
 
                         cell.btnReduceQuantity.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:12)
-                        cell.btnReduceQuantity.titleLabel?.textColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
+                        //cell.btnReduceQuantity.titleLabel?.textColor = #colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1)
+                        cell.btnReduceQuantity.setTitleColor(#colorLiteral(red: 0.9254901961, green: 0.2901960784, blue: 0.3254901961, alpha: 1), for: .normal)
                         cell.btnAccept.isHidden = true
+                        cell.imgaccepted.isHidden = true
+                        cell.acceptStackVw.isHidden = true
                         cell.imgCart.image = #imageLiteral(resourceName: "Accepted")
                         cell.btnDelete.isHidden = false
                         cell.btnDelete.alpha = 0.5
@@ -1843,8 +1851,13 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     }
                         
                         if checkInvoiceUploaded == true || orderDetailData?.data?.order_status == 3 || orderDetailData?.data?.order_status == 2 || orderDetailData?.data?.item_detail?[indexPath.row].item_status == 3  {
+                            
                             cell.btnDelete.isUserInteractionEnabled = false
                             cell.btnReduceQuantity.isUserInteractionEnabled = false
+                            if orderDetailData?.data?.order_status == 3{
+                                cell.btnReduceQuantity.isHidden = true
+                            }
+                            cell.lblLineReduceQty.isHidden = true
                             cell.btnCart.isEnabled = false
                         }
                         

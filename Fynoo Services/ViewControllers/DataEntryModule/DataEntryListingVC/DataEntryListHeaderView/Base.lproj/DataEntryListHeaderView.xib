@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DataEntryListHeaderView" customModule="Fynoo_Services" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DataEntryListHeaderView" customModule="Fynoo_Agent" customModuleProvider="target">
             <connections>
                 <outlet property="avergeRatingLbl" destination="Ziq-ov-uzW" id="VbY-rF-UnE"/>
                 <outlet property="collectionView" destination="Uwv-It-EBd" id="tIC-9b-Eer"/>
@@ -31,14 +31,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOP-Ve-tQW">
                     <rect key="frame" x="0.0" y="0.0" width="380" height="68.5"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" tag="106" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Entry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="If9-Ih-Iuz">
-                            <rect key="frame" x="79" y="24" width="75" height="19"/>
+                        <label opaque="NO" userInteractionEnabled="NO" tag="106" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Data Entry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="If9-Ih-Iuz">
+                            <rect key="frame" x="70" y="24" width="108" height="19"/>
                             <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1011" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dataEntry_symbol" translatesAutoresizingMaskIntoConstraints="NO" id="1Zf-nV-EIe">
-                            <rect key="frame" x="24" y="8.5" width="50" height="50"/>
+                            <rect key="frame" x="15" y="8.5" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="8Eg-YD-yx0"/>
                                 <constraint firstAttribute="width" constant="50" id="Xww-8Y-GPu"/>
@@ -74,7 +74,7 @@
                                     <color key="textColor" red="0.96470588239999999" green="0.70980392160000005" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view tag="1002" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EAt-Mi-9Bm" customClass="CosmosView" customModule="Cosmos">
+                                <view userInteractionEnabled="NO" tag="1002" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EAt-Mi-9Bm" customClass="CosmosView" customModule="Cosmos">
                                     <rect key="frame" x="45" y="9" width="78" height="12"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -116,7 +116,7 @@
                     <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="L4s-EZ-XwV" firstAttribute="leading" secondItem="kOP-Ve-tQW" secondAttribute="leading" id="6Fo-Ph-0Cz"/>
-                        <constraint firstItem="1Zf-nV-EIe" firstAttribute="leading" secondItem="kOP-Ve-tQW" secondAttribute="leading" constant="24" id="C81-uu-cKq"/>
+                        <constraint firstItem="1Zf-nV-EIe" firstAttribute="leading" secondItem="kOP-Ve-tQW" secondAttribute="leading" constant="15" id="C81-uu-cKq"/>
                         <constraint firstItem="1qv-4d-6e8" firstAttribute="leading" secondItem="kOP-Ve-tQW" secondAttribute="leading" id="MZk-QS-ay8"/>
                         <constraint firstItem="1qv-4d-6e8" firstAttribute="top" secondItem="L4s-EZ-XwV" secondAttribute="bottom" constant="3" id="NnR-YA-0B6"/>
                         <constraint firstItem="98R-ye-czp" firstAttribute="centerY" secondItem="If9-Ih-Iuz" secondAttribute="centerY" id="OBU-xU-ekC"/>

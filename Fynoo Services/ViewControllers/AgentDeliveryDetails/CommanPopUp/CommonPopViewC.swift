@@ -18,7 +18,13 @@ class CommonPopViewC: UIViewController {
 //            self.lblNotes.text = "Customer has requested cancellation. Please confirm or reject the request within 15 mins,otherwise order will be automatically cancelled.".localized
         }
     }
-    @IBOutlet weak var imgUser: UIImageView!
+    @IBOutlet weak var imgUser: UIImageView!{
+        didSet {
+            imgUser.bounds.size.height = 40
+            imgUser.bounds.size.width = 40
+            imgUser.layer.cornerRadius = 20
+        }
+    }
     @IBOutlet weak var lblName: UILabel!{
         didSet {
             lblName.font = UIFont(name:"\(Constant.FONT_Light)",size:12)
@@ -268,15 +274,16 @@ class CommonPopViewC: UIViewController {
                     self.lblName.text = cancelpDetail?.data?.cus_name ?? ""
                     
                     let timeSTAMP = "\(cancelpDetail?.data?.order_date ?? 0)"
-                    lblDate.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: timeSTAMP, format: "dd-MMM-yyyy HH:mm a")
-                    
+                    lblDate.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: timeSTAMP, format: "EE dd-MMM-yyyy HH:mm a")
+//                    self.imgUser.image =
+                    self.imgUser.setImageSDWebImage(imgURL: cancelpDetail?.data?.cus_pic ?? "", placeholder: "")
                     
                     self.lblProductQty.text = "0\(cancelpDetail?.data?.order_qty ?? 0)"
                     let orderId = "Order Id:".localized
                     self.lblOrderId.text = "\(orderId)\(cancelpDetail?.data?.order_id ?? "")"
                     self.lblAddress.text = cancelpDetail?.data?.address
                     self.lblNotes.text = cancelpDetail?.data?.note
-                    self.lblTotalPrice.text =  "\(cancelpDetail?.data?.currency_code ?? "")" + "\(cancelpDetail?.data?.order_price ?? 0)"
+                    self.lblTotalPrice.text =  "\(cancelpDetail?.data?.currency_code ?? "") " +  "\(cancelpDetail?.data?.order_price ?? 0)"
                     
                     
                 }

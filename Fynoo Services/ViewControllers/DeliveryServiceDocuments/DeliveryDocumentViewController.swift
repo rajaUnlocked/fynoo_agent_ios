@@ -17,7 +17,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     var primaryid = 0
     var isReasonForVehicle = false
     var upload:ServiceUpload?
-    var topArr = ["Full Name","Date of Birth","National ID / Iqama ID","Date of Expiry"]
+    var topArr = ["Full Name","Date of Birth","National ID / Iqama ID","Expiry Date"]
     var headertitlearr = ["Upload National Id / Iqama","Upload Driving License Front","Upload Vehicle Registration","Upload Vehicle Insurance","Upload Driving Authorization(Not Required for the Owner)".localized,"Upload Vehicle Description"]
     var toptxtArr = ["","","",""]
     var txtArr = ["","","","","","","",""]
@@ -41,7 +41,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
     var registrationtypeidArr = [Int]()
     var vehiclebrandidArr = [Int]()
     var vehicleColoridArr = [Int]()
-    var vehicledescriparr = ["Registration Type","Vehicle Brand","Vehicle Name","Production Year","Vehicle Color","Vehicle kind","Maximum Load","Plate Number"]
+    var vehicledescriparr = ["Registration Type","Vehicle Brand","Vehicle Name","Production Year","Vehicle Color","Vehicle kind","Maximum Load (Kgs)","Plate Number"]
     var service = ServiceModel()
     var headerarr = ["National Id / Iqama","Driving License Front","Vehicle Registration","Vehicle Insurance","Driving Authorization","Vehicle Description","Reason For Vehicle Change"]
     var vehiclenamelist:VehicleName?
@@ -298,28 +298,28 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         {
         if !imgIdArr[0]
         {
-           ModalController.showNegativeCustomAlertWith(title: "Please filled National Id / Iqama", msg: "")
+           ModalController.showNegativeCustomAlertWith(title: "Please click 'Upload and Save' on National ID/Iqama ID section", msg: "")
             return
         }
         }
         if !imgIdArr[1]
         {
-           ModalController.showNegativeCustomAlertWith(title: "Please filled Driving License Front ", msg: "")
+           ModalController.showNegativeCustomAlertWith(title: "Please click 'Upload and Save' on Driving License Front section", msg: "")
              return
         }
         if !imgIdArr[2]
         {
-           ModalController.showNegativeCustomAlertWith(title: "Please filled Vehicle Registration", msg: "")
+           ModalController.showNegativeCustomAlertWith(title: "Please click 'Upload and Save' on Vehicle Registration section", msg: "")
              return
         }
         if !imgIdArr[3]
         {
-           ModalController.showNegativeCustomAlertWith(title: "Please filled Vehicle Insurance", msg: "")
+           ModalController.showNegativeCustomAlertWith(title: "Please click 'Upload and Save' on Vehicle Insurance section", msg: "")
              return
         }
         if !imgIdArr[5]
         {
-           ModalController.showNegativeCustomAlertWith(title: "Please filled Vehicle Description", msg: "")
+           ModalController.showNegativeCustomAlertWith(title: "Please click 'Upload and Save' on Vehicle Description section", msg: "")
              return
         }
             
@@ -489,9 +489,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                             }
                               
                            }
-                           
                        }
-                           
                        else
                        {
                            
@@ -544,12 +542,13 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             }
             if  row == 7
             {
-                if textField.text!.count == 0{
+                if textField.text!.count == 0
+                {
                             if string == " " || string == "0"
                             {
                             return false
                             }
-                        }
+                }
                 if textstr.count > 0
                 {
                     
@@ -563,13 +562,17 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     }
                     else
                     {
-                        if textstr.count == self.servicelist?.data?.maximum_load_allowed ?? 0
-                        {
+                        
+                            
                             cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
-                        }
-                        else{
-                            cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
-                        }
+                        
+//                        if textstr.count == self.servicelist?.data?.maximum_load_allowed ?? 0
+//                        {
+//                            cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+//                        }
+//                        else{
+//                            cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+//                        }
                     }
                     
                 }
@@ -577,7 +580,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 else
                 {
                     
-                    cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                    cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
                 }
                 txtArr[row - 1] = "\(textstr)"
                 
@@ -592,7 +595,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     }
                     if textstr.count > self.servicelist?.data?.plate_no_max_length ?? 0
                     {
-                        return false
+                      
                     }
                     if !textstr.containArabicNumber
                     {
@@ -755,7 +758,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         {
             if toptxtArr[0] == ""
             {
-                ModalController.showNegativeCustomAlertWith(title: "Please Enter User Name", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please enter full name", msg: "")
                 return
             }
            if toptxtArr[1] == ""
@@ -778,7 +781,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 }
                 }
             if toptxtArr[3] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "Please Select DOE", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please select date of expiry", msg: "")
                 return
             }
             
@@ -791,7 +794,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             {
             if !imgIdUploadedArr[sender.tag]
             {
-                ModalController.showNegativeCustomAlertWith(title: "Please Upload National Id / Iqama", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please upload nation id/Iqama by clicking on Sample image", msg: "")
                 return
             }
             }
@@ -809,21 +812,21 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         {
             if txtArr[0] == ""
             {
-                ModalController.showNegativeCustomAlertWith(title: "Select Registration Type".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please select registration type".localized, msg: "")
                 return
             }
              if txtArr[1] == ""
             {
-                ModalController.showNegativeCustomAlertWith(title: "Select Vehicle Brand".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please select vehicle brand".localized, msg: "")
                 return
             }
              if txtArr[2] == ""
             {
-                ModalController.showNegativeCustomAlertWith(title: "Select Vehicle Name".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please select vehicle name".localized, msg: "")
                 return
             }
             if txtArr[3] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "Production Year".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please enter production year".localized, msg: "")
                 return
             }
               if txtArr[3].count > 0
@@ -834,17 +837,17 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                            }
             }
             if txtArr[4] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "Select Vehicle Color".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please select vehicle color".localized, msg: "")
                 return
             }
             if txtArr[5] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "Select Vehicle kind".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please select vehicle kind".localized, msg: "")
                 return
             }
-            if txtArr[6] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "Maximum Load".localized, msg: "")
-                return
-            }
+//            if txtArr[6] == ""{
+//                ModalController.showNegativeCustomAlertWith(title: "Maximum Load".localized, msg: "")
+//                return
+//            }
                  if txtArr[6].count > 0
             {
              if txtArr[6].count != (self.servicelist?.data?.maximum_load_allowed ?? 0){
@@ -853,7 +856,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                           }
             }
             if txtArr[7] == ""{
-                ModalController.showNegativeCustomAlertWith(title: "Plate Number".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please enter plat number".localized, msg: "")
                 return
             }
                 if txtArr[7].count > 0
@@ -870,7 +873,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             {
             if !imgIdUploadedArr[sender.tag]
             {
-                ModalController.showNegativeCustomAlertWith(title: "Please Upload the Front side Photo", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please upload vehicle front side photo", msg: "")
                 return
             }
             }
@@ -1256,7 +1259,16 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         //                     cell.crossclicked.isHidden =  true
         //                     cell.uploadimg.isUserInteractionEnabled = true
         //                 }
-        let html = descriparr[index.section - 1]
+        var html = descriparr[index.section - 1]
+        
+        if index.section == 3
+        {
+            if index.row == 2
+            {
+                html = descriparr[4]
+            }
+        }
+        
         let data = Data(html.utf8)
         if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
             
@@ -1521,6 +1533,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
    
                 if indexPath.row == 1
                 {
+                    vc.header = "registration type"
                     vc.nameAr = registrationtypeArr
                     vc.nameArId = registrationtypeidArr
                     vc.namelock = registrationtypeidArr
@@ -1528,6 +1541,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 }
                 else if indexPath.row == 2
                 {
+                    vc.header = "vehicle brand"
                     vc.nameAr = vehiclebrandArr
                     vc.nameArId = vehiclebrandidArr
                     vc.namelock = vehiclebrandidArr
@@ -1539,18 +1553,21 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                         ModalController.showNegativeCustomAlertWith(title: "Please Select Brand First", msg: "")
                         return
                     }
+                    vc.header = "vehicle name"
                     vc.nameAr = vehiclenameArr
                     vc.nameArId = vehiclenameidArr
                     vc.namelock = vehiclenameidArr
                 }
                 else if indexPath.row == 5
                 {
+                    vc.header = "vehicle color"
                     vc.nameAr = vehicleColorArr
                     vc.nameArId = vehicleColoridArr
                     vc.namelock = vehicleColoridArr
                 }
                 else if indexPath.row == 6
                 {
+                    vc.header = "vehicle kind"
                     vc.isType = true
                     vc.nameAr = vehiclekindArr
                     vc.nameArId = vehiclekindidArr

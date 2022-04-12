@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "Cancellation Reason"; ObjectID = "VLo-Iw-6mc"; */
-"VLo-Iw-6mc.text" = "Cancellation Reason";
+"VLo-Iw-6mc.text" = "Rejection Reason";
 
 /* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "hgm-tC-173"; */
 "hgm-tC-173.normalTitle" = "Submit";

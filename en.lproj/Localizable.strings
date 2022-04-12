@@ -333,6 +333,7 @@
 "Are you sure you want to deactivate this service?" = "Are you sure you want to deactivate this service?";
 "Rejection Reason:" = "Rejection Reason:";
 "Are you sure you want accept the order?" = "Are you sure you want accept the order?";
+"Are you sure you want to accept this order?" = "Are you sure you want to accept this order?";
 "Are you sure you want to start the work?" = "Are you sure you want to start the work?";
 "Data Entry Sevice" = "Data Entry Sevice";
 "Welcome, Let's Select Your Location" = "Welcome, Let's Select Your Location";
@@ -417,7 +418,7 @@
 "Address" = "Address";
 "Delivery Services" = "Delivery Services";
 "No Trips Found" = "No Trips Found";
-
+"No Order Found" = "No Order Found";
 // sercice document
 "Upload National Id / Iqama" = "Upload National Id / Iqama";
 "Upload Driving License Front" = "Upload Driving License Front";
@@ -429,6 +430,7 @@
 "Date of Birth" = "Date of Birth";
 "National ID / Iqama ID" = "National ID / Iqama ID";
 "Date of Expiry" = "Date of Expiry";
+"Expiry Date" = "Expiry Date";
 "Registration Type" = "Registration Type";
 "Vehicle Brand" = "Vehicle Brand";
 "Vehicle Name" = "Vehicle Name";
@@ -522,10 +524,13 @@
 "Please enter branch name" = "Please enter branch name";
 "Please add description" = "Please add description";
 "Please select business type" = "Please select business type";
-"Please select atleast one business type" = "Please select atleast one business type";
+"Please select atleast one business type" = "Please select at least one business type";
 "Please select platform type" = "Please select platform type";
 "Please select business timing" = "Please select business timing";
 "Please select the days and fill the time" = "Please select the days and fill the time";
+"Please enter product name" = "Please enter product name";
+"Please add product description" = "Please add product description";
+"Select Registration Type." = "Select Registration Type.";
 "Please fill the time slot for selected day" = "Please fill the time slot for selected day";
 "Slot already created" = "Slot already created";
 "Please add location" = "Please add location";
@@ -1085,7 +1090,7 @@
 "Are your sure you want to reject?" = "Are your sure you want to reject?" ;
 "Are you sure you want to cancel this product?" = "Are you sure you want to cancel this product?" ;
 "Please select one Reason..." = "Please select one Reason..." ;
-
+"Please select one reason type" = "Please select one reason type";
 
 // Drop Shipping
 "Commission Name"="Commission Name";

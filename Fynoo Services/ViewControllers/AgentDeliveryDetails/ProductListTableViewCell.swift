@@ -27,6 +27,7 @@ class ProductListTableViewCell: UITableViewCell,UITableViewDelegate {
     @IBOutlet weak var imgProduct: UIImageView!
     @IBOutlet weak var btnDelete: UIButton!
     @IBOutlet weak var btnReduceQuantity: UIButton!
+    @IBOutlet weak var acceptStackVw: UIStackView!
     @IBOutlet weak var btnCart: UIButton!
     @IBOutlet weak var lblLineReduceQty : UILabel!
     @IBOutlet weak var imgCart: UIImageView!

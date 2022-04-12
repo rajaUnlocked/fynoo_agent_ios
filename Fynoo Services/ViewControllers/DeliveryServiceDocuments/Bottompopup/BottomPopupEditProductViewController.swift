@@ -27,6 +27,7 @@ class BottomPopupEditProductViewController: UIViewController ,UITableViewDelegat
     @IBOutlet weak var tabView: UITableView!
     var isproduct = false
      var isproductlist = false
+    var header = ""
      var isfiletr = false
     @IBOutlet weak var chooselbl: UILabel!
     var delegate : BottomPopupEditProductViewControllerDelegate?
@@ -38,7 +39,24 @@ class BottomPopupEditProductViewController: UIViewController ,UITableViewDelegat
     override func viewDidLoad() {
         ModalController.watermark(self.view)
         super.viewDidLoad()
+        if header == "registration type"
+        {
+            self.chooselbl.text = "Select Registration Type.".localized
+        }else if header == "vehicle brand"{
+            self.chooselbl.text = "Select Vehicle Brand.".localized
+        }else if header == "vehicle name"{
+            self.chooselbl.text = "Select Vehicle Name.".localized
+            
+        }else if header == "vehicle color"{
+            self.chooselbl.text = "Select Vehicle Color.".localized
+            
+        }else if header == "vehicle kind"{
+            self.chooselbl.text = "Select Vehicle Kind.".localized
+            
+        }
+        else{
         self.chooselbl.text = "Choose your option".localized
+        }
         if isVarient
         {
             nameAr  = ["Edit Product".localized, "Add Variant Product".localized,"Add Similar Product".localized,"Add Product".localized]

@@ -106,7 +106,11 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
         tableView.register(UINib(nibName: "CompleteDataEntryListTableViewCell", bundle: nil), forCellReuseIdentifier: "CompleteDataEntryListTableViewCell")
         
         self.headerView.menuBtn.isHidden = false
-        self.headerView.titleHeader.text = "\(serviceName)".localized;
+        if serviceName == "Data Entry"{
+            self.headerView.titleHeader.text = "Data Entry Service".localized;
+        }else{
+            self.headerView.titleHeader.text = "\(serviceName)".localized;
+        }
         self.headerView.viewControl = self
         
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
@@ -378,8 +382,13 @@ extension DataEntryListingViewController : UITableViewDelegate {
                 searchTxtFld.font = UIFont(name:"\(fontNameLight)",size:12)
                 
                 filterCount.isHidden = true
-                
-                dataEntryLbl.text = self.serviceName
+                if serviceName == "Photography"{
+                    dataEntryLbl.text = "Photography Order".localized;
+                }else if serviceName == "Data Entry"{
+                    dataEntryLbl.text = "Data Entry Order".localized
+                }else{
+                    dataEntryLbl.text = self.serviceName
+                }
                 serviceIcon.setImageSDWebImage(imgURL: "\(self.serviceIcon)", placeholder: "")
                 
                 avgLbl.text = self.boServicesList?.data?.rating_avg
@@ -637,7 +646,7 @@ extension DataEntryListingViewController : UITableViewDataSource {
             
             if workStatus == 1 {
                 cell.StatusLbl.text = "Start Work".localized
-                cell.StatusLbl.textColor = #colorLiteral(red: 0.3803921569, green: 0.7529411765, blue: 0.5333333333, alpha: 1)
+                cell.StatusLbl.textColor = #colorLiteral(red: 0.9207288623, green: 0.2887031138, blue: 0.32501477, alpha: 1)
                 // green color
             }else if workStatus == 2 {
                 // green

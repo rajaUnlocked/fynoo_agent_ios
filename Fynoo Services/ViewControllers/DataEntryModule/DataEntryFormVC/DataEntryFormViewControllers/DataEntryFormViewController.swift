@@ -154,7 +154,7 @@ class DataEntryFormViewController: UIViewController, DataEntryFormItemPopUpViewC
     @IBAction func placeOrderClicked(_ sender: Any) {
         
         let vc = DataEntryWorkConfirmationPopUpViewController(nibName: "DataEntryWorkConfirmationPopUpViewController", bundle: nil)
-        vc.messageTxtStr = "Are you sure you want accept the order?".localized
+        vc.messageTxtStr = "Are you sure you want to accept this order?".localized
         vc.comeFromStr = "acceptOrder"
         vc.modalPresentationStyle = .overFullScreen
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
@@ -378,7 +378,13 @@ extension DataEntryFormViewController : UITableViewDataSource {
     func dataEntryFirstTopCell(index : IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DataEntryFormFirstTopTableViewCell", for: index) as! DataEntryFormFirstTopTableViewCell
         cell.selectionStyle = .none
+        if self.serviceName == "Photography"{
+            cell.createLbl.text = "Photography Order".localized
+        }else if self.serviceName == "Data Entry"{
+            cell.createLbl.text = "Data Entry Order".localized
+        }else{
         cell.createLbl.text = self.serviceName
+        }
         
         return cell
     }

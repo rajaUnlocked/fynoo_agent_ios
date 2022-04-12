@@ -356,6 +356,7 @@
 "Are you sure you want to deactivate this service?" = "هل تريد إيقاف استقبال طلبات هذه الخدمة؟";
 "Rejection Reason:" = ":سبب الرفض";
 "Are you sure you want accept the order?" = "هل تريد قبول هذا الطلب؟";
+"Are you sure you want to accept this order?" = "هل تريد قبول هذا الطلب؟";
 "Are you sure you want to start the work?" = "هل تريد البدء في العمل؟";
 "Data Entry Sevice" = "خدمة إدخال البيانات";
 "Welcome, Let's Select Your Location" = "مرجباً، قم بتحديد موقع المتجر";
@@ -508,7 +509,7 @@
 "Delivery Services" = "خدمة التوصيل";
 "No Trips Found" = "لاتوجد رحلات";
 "Order Id " = "رقم الطلب";
-
+"No Order Found" = "لاتوجد طلبات";
 //Arv
 "Actual Total Amount" = "المبلغ الإجمالي الفعلي";
 "Trips" = "الرحلات";
@@ -583,6 +584,7 @@
 "Date of Birth" = "تاريخ الميلاد";
 "National ID / Iqama ID" = "رقم الهوية الوطنية أو الإقامة";
 "Date of Expiry" = "تاريخ الإنتهاء";
+"Expiry Date" = "تاريخ الإنتهاء";
 "Registration Type" = "نوع تسجيل المركبة";
 "Vehicle Brand" = "ماركة المركبة";
 "Vehicle Name" = "فئة المركبة";
@@ -803,12 +805,14 @@
 "Personal Details" = "البيانات الشخصية";
 "Basic Information" = "المعلومات الأساسية";
 "Bank Details" = "تفاصيل الحساب البنكي";
-
+"Please enter product name" = "الرجاء إدخال اسم المنتج";
+"Please add product description" = "الرجاء إضافة وصف المنتج";
 "https://www.maroof.com/" = "https://www.maroof.com/";
 "Error" = "Error";
 "Connection Error" = "Connection Error";
 "please select logo." = "please select logo." ;
 "please select a service." = "please select a service.";
+"Select Registration Type." = "إختر نوع تسجيل المركبة";
 "please select minimum one service." = "please select minimum one service." ;
 "Select - Date of Birth" = "تحديد تاريخ الميلاد";
 "Done" = "تم" ;
@@ -1227,6 +1231,7 @@
 "Are your sure you want to reject?" = "Are your sure you want to reject?";
 "Are you sure you want to cancel this product?" = "Are you sure you want to cancel this product?";
 "Please select one Reason..." = "Please select one Reason...";
+"Please select one reason type" = "Please select one reason type";
 
 // Drop Shipping
 "Commission Name"="Commission Name";

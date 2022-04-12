@@ -4285,7 +4285,7 @@ extension CreateProductSecondViewController: UITextFieldDelegate {
             return false
         }
         if string.contains(".")
-        {4
+        {
             if textField.text!.contains(".")
             {
                 return false

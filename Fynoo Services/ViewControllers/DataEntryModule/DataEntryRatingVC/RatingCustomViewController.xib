@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Light.otf">
+            <string>Gilroy-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RatingCustomViewController" customModule="Fynoo_Agent" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="Y6J-bw-r3X" id="gut-Dm-8q2"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Y6J-bw-r3X">
+            <rect key="frame" x="0.0" y="0.0" width="394" height="371"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="42a-9z-ZQA">
+                    <rect key="frame" x="12.5" y="43" width="369" height="329"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ratingViewBg" translatesAutoresizingMaskIntoConstraints="NO" id="qEX-gM-Pww">
+                            <rect key="frame" x="0.0" y="34.5" width="369" height="260"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="260" id="9Za-vh-g2i"/>
+                                <constraint firstAttribute="width" constant="369" id="PqF-m3-IoX"/>
+                            </constraints>
+                        </imageView>
+                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="agent_indivdual" translatesAutoresizingMaskIntoConstraints="NO" id="rwy-Fo-bLo">
+                            <rect key="frame" x="20" y="60" width="60" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="Rqz-2R-zow"/>
+                                <constraint firstAttribute="width" constant="60" id="bVM-8C-xnk"/>
+                            </constraints>
+                        </imageView>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Samsung Galaxy Prime 16GB J327 J3 ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9x-Zh-8kO">
+                            <rect key="frame" x="90" y="60" width="224" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="ZSi-uG-72w"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="16"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Samsung Galaxy Prime 16GB J327 J3 ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwn-mV-pLZ">
+                            <rect key="frame" x="90" y="81" width="259" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="16" id="WLQ-jE-JFF"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="12"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How was your experience with BO ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKA-me-DrH">
+                            <rect key="frame" x="20" y="140" width="329" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="aA4-xW-KgX"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Gilroy-Light" family="Gilroy" pointSize="15"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JpF-Fk-JgN" customClass="CosmosView" customModule="Cosmos">
+                            <rect key="frame" x="72" y="119" width="225" height="50"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="225" id="K09-Zk-bih"/>
+                                <constraint firstAttribute="height" constant="50" id="qbF-Jz-YJs"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                    <real key="value" value="40"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZ9-sS-zPG">
+                            <rect key="frame" x="20" y="171" width="329" height="30"/>
+                            <color key="backgroundColor" red="0.3803921569" green="0.75294117650000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="ZUR-33-X5T"/>
+                            </constraints>
+                            <state key="normal" title="Submit">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6J-nC-fxg">
+                            <rect key="frame" x="324" y="51" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="69J-wL-iyL"/>
+                                <constraint firstAttribute="width" constant="30" id="XZv-xB-2ya"/>
+                            </constraints>
+                            <state key="normal" image="cross_new"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="lwn-mV-pLZ" firstAttribute="top" secondItem="g9x-Zh-8kO" secondAttribute="bottom" id="0wo-yo-N7b"/>
+                        <constraint firstItem="rwy-Fo-bLo" firstAttribute="leading" secondItem="42a-9z-ZQA" secondAttribute="leading" constant="20" id="3Nx-db-75e"/>
+                        <constraint firstItem="JpF-Fk-JgN" firstAttribute="top" secondItem="jKA-me-DrH" secondAttribute="bottom" constant="-42" id="Bxd-M1-zmb"/>
+                        <constraint firstAttribute="height" constant="329" id="DEc-kD-90E"/>
+                        <constraint firstItem="rwy-Fo-bLo" firstAttribute="top" secondItem="42a-9z-ZQA" secondAttribute="top" constant="60" id="GRL-ei-IKd"/>
+                        <constraint firstItem="x6J-nC-fxg" firstAttribute="top" secondItem="42a-9z-ZQA" secondAttribute="top" constant="51" id="QvE-4N-K9i"/>
+                        <constraint firstItem="JpF-Fk-JgN" firstAttribute="centerX" secondItem="42a-9z-ZQA" secondAttribute="centerX" id="SW8-Yr-g6v"/>
+                        <constraint firstItem="qEX-gM-Pww" firstAttribute="centerY" secondItem="42a-9z-ZQA" secondAttribute="centerY" id="X1z-ca-z47"/>
+                        <constraint firstAttribute="trailing" secondItem="lwn-mV-pLZ" secondAttribute="trailing" constant="20" id="Y19-9i-M1Y"/>
+                        <constraint firstItem="jKA-me-DrH" firstAttribute="centerX" secondItem="42a-9z-ZQA" secondAttribute="centerX" id="cGL-HN-Smb"/>
+                        <constraint firstItem="x6J-nC-fxg" firstAttribute="leading" secondItem="g9x-Zh-8kO" secondAttribute="trailing" constant="10" id="d5P-dM-Ykw"/>
+                        <constraint firstItem="g9x-Zh-8kO" firstAttribute="leading" secondItem="rwy-Fo-bLo" secondAttribute="trailing" constant="10" id="g6L-dg-68B"/>
+                        <constraint firstAttribute="trailing" secondItem="jZ9-sS-zPG" secondAttribute="trailing" constant="20" id="hB6-Ov-DqG"/>
+                        <constraint firstItem="jKA-me-DrH" firstAttribute="leading" secondItem="42a-9z-ZQA" secondAttribute="leading" constant="20" id="hEq-Aj-c00"/>
+                        <constraint firstItem="qEX-gM-Pww" firstAttribute="centerX" secondItem="42a-9z-ZQA" secondAttribute="centerX" id="lCj-0c-a2x"/>
+                        <constraint firstAttribute="width" constant="369" id="njK-qU-8HZ"/>
+                        <constraint firstItem="jZ9-sS-zPG" firstAttribute="leading" secondItem="42a-9z-ZQA" secondAttribute="leading" constant="20" id="p15-hA-hk2"/>
+                        <constraint firstItem="lwn-mV-pLZ" firstAttribute="leading" secondItem="rwy-Fo-bLo" secondAttribute="trailing" constant="10" id="rTK-Wp-0vc"/>
+                        <constraint firstAttribute="trailing" secondItem="jKA-me-DrH" secondAttribute="trailing" constant="20" id="sO3-YK-dig"/>
+                        <constraint firstAttribute="trailing" secondItem="x6J-nC-fxg" secondAttribute="trailing" constant="15" id="sVX-uP-eis"/>
+                        <constraint firstItem="jZ9-sS-zPG" firstAttribute="top" secondItem="JpF-Fk-JgN" secondAttribute="bottom" constant="2" id="xYU-Us-X8v"/>
+                        <constraint firstItem="jKA-me-DrH" firstAttribute="top" secondItem="rwy-Fo-bLo" secondAttribute="bottom" constant="20" id="yaJ-JO-ryV"/>
+                        <constraint firstItem="g9x-Zh-8kO" firstAttribute="top" secondItem="42a-9z-ZQA" secondAttribute="top" constant="60" id="zLE-0f-5IY"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Lwz-WH-NFY"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="42a-9z-ZQA" firstAttribute="centerX" secondItem="Lwz-WH-NFY" secondAttribute="centerX" id="3hM-wr-G5W"/>
+                <constraint firstItem="42a-9z-ZQA" firstAttribute="centerY" secondItem="Lwz-WH-NFY" secondAttribute="centerY" id="w3M-Ir-PWM"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="149.27536231884059" y="136.94196428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="agent_indivdual" width="80" height="80"/>
+        <image name="cross_new" width="43" height="43"/>
+        <image name="ratingViewBg" width="360" height="307"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

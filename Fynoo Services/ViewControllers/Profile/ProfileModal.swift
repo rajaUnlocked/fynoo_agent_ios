@@ -536,8 +536,9 @@ class triplist : Mappable{
     var payment_icon : String?
     var avg_rating : String?
     var total_rating : String?
-    var order_date : String?
+    var order_date : Int?
     var status : Int?
+    var reason : String?
     var status_desc : String?
     var lat : String?
     var long : String?
@@ -567,6 +568,7 @@ class triplist : Mappable{
         total_rating <- map["total_rating"]
         order_date <- map["order_date"]
         status <- map["status"]
+        reason <- map["reason"]
         status_desc <- map["status_desc"]
         lat <- map["lat"]
         long <- map["long"]

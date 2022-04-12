@@ -47,7 +47,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     @IBOutlet weak var availableBalanceLbl: UILabel!
     var showWallet = false
     @IBOutlet weak var arrowImg: UIImageView!
-     var productmodel = AddProductModel()
+    var productmodel = AddProductModel()
     var agentInfoArray = NSMutableArray()
     var bannerArray = NSMutableArray()
     var servicesArray = NSMutableArray()
@@ -64,12 +64,12 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     var ResponseDict : NSDictionary = NSDictionary()
     
     let delegate = UIApplication.shared.delegate as! AppDelegate
-//    var lati : Double?
-//    var longi : Double?
+    //    var lati : Double?
+    //    var longi : Double?
     var apiTimer: Timer?
     let fontNameLight = NSLocalizedString("LightFontName", comment: "")
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         walletLbl.textColor = UIColor.AppThemeGreenTextColor()
@@ -89,8 +89,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         holdingamtlbl.text = "Holding Amount".localized
         walletballbl.text = "Wallet Balance".localized
         progresslbl.text = "Payment in progress".localized
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapWalletView(_:)))
-//        walletvw.addGestureRecognizer(tapGestureRecognizer)
+        //        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapWalletView(_:)))
+        //        walletvw.addGestureRecognizer(tapGestureRecognizer)
         getUserLocation()
         registerNotifications()
         sideMenuCode()
@@ -115,95 +115,95 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         let appVersion = appUpdateAvailable()
         if appVersion.0 {
             alertController(controller: self, title: "New Update", message: "New version \(appVersion.1 ?? "") is available")
-          }
-       
-          func  alertController(controller:UIViewController,title: String,message: String){
-           let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Update", style: .default, handler: { alert in
-            
-            guard let url = URL(string: "https://apps.apple.com/sa/app/fynoo-agent/id1531299470") else { return }
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
-        }))
-        DispatchQueue.main.async {
-            controller.present(alertController, animated: true)
         }
-          }
+        
+        func  alertController(controller:UIViewController,title: String,message: String){
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Update", style: .default, handler: { alert in
+                
+                guard let url = URL(string: "https://apps.apple.com/sa/app/fynoo-agent/id1531299470") else { return }
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }))
+            DispatchQueue.main.async {
+                controller.present(alertController, animated: true)
+            }
+        }
         
     }
     func appUpdateAvailable() -> (Bool,String?) {
-      
-      guard let info = Bundle.main.infoDictionary,
-            let identifier = info["CFBundleIdentifier"] as? String else {
-          return (false,nil)
-      }
-      
-   //        let storeInfoURL: String = "http://itunes.apple.com/lookupbundleId=\(identifier)&country=IN"
-      let storeInfoURL:String = "https://itunes.apple.com/IN/lookup?bundleId=\(identifier)"
-      var upgradeAvailable = false
-      var versionAvailable = ""
-      // Get the main bundle of the app so that we can determine the app's
-   //version number
-      let bundle = Bundle.main
-      if let infoDictionary = bundle.infoDictionary {
-            // The URL for this app on the iTunes store uses the Apple ID
-  //for the  This never changes, so it is a constant
-          let urlOnAppStore = NSURL(string: storeInfoURL)
-          if let dataInJSON = NSData(contentsOf: urlOnAppStore! as URL) {
-              // Try to deserialize the JSON that we got
-              if let dict: NSDictionary = try?
-     JSONSerialization.jsonObject(with: dataInJSON as Data, options:
-     JSONSerialization.ReadingOptions.allowFragments) as! [String:
-       AnyObject] as NSDictionary? {
-                  if let results:NSArray = dict["results"] as? NSArray {
-                      if let version = (results[0] as! [String:Any])["version"] as? String {
-                          // Get the version number of the current version
-          // installed on device
-                          if let currentVersion =
-          infoDictionary["CFBundleShortVersionString"] as? String {
-                              // Check if they are the same. If not, an
-           // upgrade is available.
-                              print("\(version)")
-                              let appversion = version.components(separatedBy: ".")
-                              let currversion = currentVersion.components(separatedBy: ".")
-                              for i in 0..<appversion.count
-                              {
-                                 if appversion[i] > currversion[i]
-                                  {
-                                     upgradeAvailable = true
-                                     versionAvailable = version
-                                     return (upgradeAvailable,versionAvailable)
-                                 }
-                                  else{
-                                      upgradeAvailable = false
-                                      versionAvailable = version
-                                  }
-                              }
-                          }
-                      }
-                  }
+        
+        guard let info = Bundle.main.infoDictionary,
+              let identifier = info["CFBundleIdentifier"] as? String else {
+                  return (false,nil)
               }
-          }
-      }
-      return (upgradeAvailable,versionAvailable)
-   }
+        
+        //        let storeInfoURL: String = "http://itunes.apple.com/lookupbundleId=\(identifier)&country=IN"
+        let storeInfoURL:String = "https://itunes.apple.com/IN/lookup?bundleId=\(identifier)"
+        var upgradeAvailable = false
+        var versionAvailable = ""
+        // Get the main bundle of the app so that we can determine the app's
+        //version number
+        let bundle = Bundle.main
+        if let infoDictionary = bundle.infoDictionary {
+            // The URL for this app on the iTunes store uses the Apple ID
+            //for the  This never changes, so it is a constant
+            let urlOnAppStore = NSURL(string: storeInfoURL)
+            if let dataInJSON = NSData(contentsOf: urlOnAppStore! as URL) {
+                // Try to deserialize the JSON that we got
+                if let dict: NSDictionary = try?
+                    JSONSerialization.jsonObject(with: dataInJSON as Data, options:
+                                                    JSONSerialization.ReadingOptions.allowFragments) as! [String:
+                                                                                                            AnyObject] as NSDictionary? {
+                    if let results:NSArray = dict["results"] as? NSArray {
+                        if let version = (results[0] as! [String:Any])["version"] as? String {
+                            // Get the version number of the current version
+                            // installed on device
+                            if let currentVersion =
+                                infoDictionary["CFBundleShortVersionString"] as? String {
+                                // Check if they are the same. If not, an
+                                // upgrade is available.
+                                print("\(version)")
+                                let appversion = version.components(separatedBy: ".")
+                                let currversion = currentVersion.components(separatedBy: ".")
+                                for i in 0..<appversion.count
+                                {
+                                    if appversion[i] > currversion[i]
+                                    {
+                                        upgradeAvailable = true
+                                        versionAvailable = version
+                                        return (upgradeAvailable,versionAvailable)
+                                    }
+                                    else{
+                                        upgradeAvailable = false
+                                        versionAvailable = version
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return (upgradeAvailable,versionAvailable)
+    }
     @IBAction func walletBalanceClicked(_ sender: UIButton) {
         
         let vc = BankAllListViewController(nibName: "BankAllListViewController", bundle: nil)
         vc.selectedVl = Int("100\(sender.tag)")!
         self.navigationController?.pushViewController(vc, animated: true)
     }
-  
     
-//    @objc private func didTapWalletView(_ sender: UITapGestureRecognizer) {
-//        if sender.isEnabled
-//        {
-//
-//        }
-//    }
+    
+    //    @objc private func didTapWalletView(_ sender: UITapGestureRecognizer) {
+    //        if sender.isEnabled
+    //        {
+    //
+    //        }
+    //    }
     override func viewWillAppear(_ animated: Bool) {
         //registerNotifications()
         self.dashboardAPI()
@@ -218,23 +218,23 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         //NotificationCenter.default.removeObserver(self)
     }
     func addUIRefreshToTable() {
-            refreshControl = UIRefreshControl()
-            tableVw.addSubview(refreshControl)
-            refreshControl.backgroundColor = UIColor.clear
-            refreshControl.tintColor = UIColor.lightGray
-            refreshControl.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
-        }
+        refreshControl = UIRefreshControl()
+        tableVw.addSubview(refreshControl)
+        refreshControl.backgroundColor = UIColor.clear
+        refreshControl.tintColor = UIColor.lightGray
+        refreshControl.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
+    }
     @objc func refreshTable() {
         let x = ResponseDict.object(forKey: "error") as! Bool
-           if x{
-               if self.refreshControl.isRefreshing {
-                   self.refreshControl.endRefreshing()
-               }
-           }else{
-              
-             dashboardAPI()
-           }
-       }
+        if x{
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+        }else{
+            
+            dashboardAPI()
+        }
+    }
     
     
     // Mark : - update location
@@ -251,30 +251,30 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     
     
     @objc func callUpdateLocation(){
-    
-            
+        
+        
         let parameters = [
             "user_id":Singleton.shared.getUserId(),
             "lat":Double.getDouble(delegate.latitudeStr),
             "long":Double.getDouble(delegate.longitudeStr),
             "lang_code":HeaderHeightSingleton.shared.LanguageSelected
         ] as [String : Any]
-            
-            print("request -",parameters)
+        
+        print("request -",parameters)
         ServerCalls.postRequest(Service.agentSetLatLong, withParameters: parameters) { (response, success, resp) in
-                if let value = response as? NSDictionary{
-                    let msg = value.object(forKey: "error_description") as! String
-                    let error = value.object(forKey: "error_code") as! Int
-                    if error == 100{
-                       // print(msg)
-                    }else{
-                       //print(msg)
-                    }
+            if let value = response as? NSDictionary{
+                let msg = value.object(forKey: "error_description") as! String
+                let error = value.object(forKey: "error_code") as! Int
+                if error == 100{
+                    // print(msg)
+                }else{
+                    //print(msg)
                 }
             }
+        }
         
     }
-
+    
     // MARK: - save fcm Token
     
     func saveFcmTokenToServer_API()
@@ -317,13 +317,13 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-//        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        //        print("locations = \(locValue.latitude) \(locValue.longitude)")
         latitude = locValue.latitude
         longitude = locValue.longitude
         
-            HeaderHeightSingleton.shared.longitude = longitude
-            HeaderHeightSingleton.shared.latitude = latitude
-           
+        HeaderHeightSingleton.shared.longitude = longitude
+        HeaderHeightSingleton.shared.latitude = latitude
+        
         getAddressFromLatLon(pdblLatitude: "\(latitude)", withLongitude: "\(longitude)")
         locationManager.stopUpdatingLocation()
     }
@@ -334,7 +334,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         HeaderHeightSingleton.shared.longitude = 0.0
         HeaderHeightSingleton.shared.latitude = 0.0
         HeaderHeightSingleton.shared.address = ""
-    
+        
     }
     
     func getAddressFromLatLon(pdblLatitude: String, withLongitude pdblLongitude: String) {
@@ -348,51 +348,51 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
         
         ceo.reverseGeocodeLocation(loc, completionHandler:
-            {(placemarks, error) in
-                if (error != nil)
-                {
-                    print("reverse geodcode fail: \(error!.localizedDescription)")
-                    return
+                                    {(placemarks, error) in
+            if (error != nil)
+            {
+                print("reverse geodcode fail: \(error!.localizedDescription)")
+                return
+            }
+            
+            let pm = placemarks! as [CLPlacemark]
+            
+            if pm.count > 0 {
+                let pm = placemarks![0]
+                
+                var addressString : String = ""
+                if pm.name != nil {
+                    addressString = addressString + pm.name! + ", "
                 }
-                
-                let pm = placemarks! as [CLPlacemark]
-                
-                if pm.count > 0 {
-                    let pm = placemarks![0]
-                    
-                    var addressString : String = ""
-                    if pm.name != nil {
-                        addressString = addressString + pm.name! + ", "
-                    }
-                    if pm.subAdministrativeArea != nil {
-                        addressString = addressString + pm.subAdministrativeArea! + ", "
-                    }
-                    if pm.subLocality != nil {
-                        addressString = addressString + pm.subLocality! + ", "
-                    }
-                    if pm.thoroughfare != nil {
-                        addressString = addressString + pm.thoroughfare! + ", "
-                    }
-                    if pm.locality != nil {
-                        addressString = addressString + pm.locality! + ", "
-                    }
-                    if pm.country != nil {
-                        addressString = addressString + pm.country! + ", "
-                  //      self.country = pm.country!
+                if pm.subAdministrativeArea != nil {
+                    addressString = addressString + pm.subAdministrativeArea! + ", "
+                }
+                if pm.subLocality != nil {
+                    addressString = addressString + pm.subLocality! + ", "
+                }
+                if pm.thoroughfare != nil {
+                    addressString = addressString + pm.thoroughfare! + ", "
+                }
+                if pm.locality != nil {
+                    addressString = addressString + pm.locality! + ", "
+                }
+                if pm.country != nil {
+                    addressString = addressString + pm.country! + ", "
+                    //      self.country = pm.country!
                     //     HeaderHeightSingleton.shared.countrySingleton = pm.country!
-                    }
-                    if pm.postalCode != nil {
-                        addressString = addressString + pm.postalCode! + " "
-                    }
-                    
-                    
-                    //               self.addressField.text = addressString
-                    
-                    HeaderHeightSingleton.shared.address = addressString
-                    
-                    //                    self.currentLocation.setTitle(addressString, for: .normal)
-                    print(addressString)
                 }
+                if pm.postalCode != nil {
+                    addressString = addressString + pm.postalCode! + " "
+                }
+                
+                
+                //               self.addressField.text = addressString
+                
+                HeaderHeightSingleton.shared.address = addressString
+                
+                //                    self.currentLocation.setTitle(addressString, for: .normal)
+                print(addressString)
+            }
         })
         
     }
@@ -409,11 +409,11 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         NotificationCenter.default.addObserver(self, selector: #selector(self.sideMenutargetClicked), name: NSNotification.Name(rawValue: "targetClicked"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.sideMenudropShippingBtnClicked), name: NSNotification.Name(rawValue: "dropShippingBtnClicked"), object: nil)
-                
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationIssued(_:)), name: NSNotification.Name(rawValue: "issued"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationReceived(_:)), name: NSNotification.Name(rawValue: "received"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationFynooReciept(_:)), name: NSNotification.Name(rawValue: "fynoo_reciept"), object: nil)
-
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.sideMenuaddProductDataForSaleBtnClicked), name: NSNotification.Name(rawValue: "addProductDataForSaleBtnClicked"), object: nil)
         
@@ -429,9 +429,9 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationclickMenuClicked(_:)), name: NSNotification.Name(rawValue: "clickMenuFromAnywhere"), object: nil)
     }
-//    func applicationWillResign(notification : NSNotification) {
-//        NotificationCenter.default.removeObserver(self)
-//     }
+    //    func applicationWillResign(notification : NSNotification) {
+    //        NotificationCenter.default.removeObserver(self)
+    //     }
     // MARK: - SIDE MENU
     func sideMenuCode()
     {
@@ -456,7 +456,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
     
     func configureHeaderUI() {
- //       self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
+        //       self.topViewHeightConstraint.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         var heightCon = CGFloat(HeaderHeightSingleton.shared.headerHeight)
         if heightCon < 106 {
             self.topVwHeightCons.constant = 185
@@ -490,152 +490,152 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
     
     // MARK: - Notifications Actions
-        
-        @objc func sideMenumanageServiceClicked(_ notification: NSNotification) {
-        }
-        
-        @objc func sideMenuserviceRequestClicked(_ notification: NSNotification) {
-        }
-        
-        @objc func sideMenucommissionClicked(_ notification: NSNotification) {
+    
+    @objc func sideMenumanageServiceClicked(_ notification: NSNotification) {
+    }
+    
+    @objc func sideMenuserviceRequestClicked(_ notification: NSNotification) {
+    }
+    
+    @objc func sideMenucommissionClicked(_ notification: NSNotification) {
         let vc = CommisionsViewController(nibName: "CommisionsViewController", bundle: nil)
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        
-        @objc func sideMenutargetClicked(_ notification: NSNotification) {
-            let vc = TargetViewController(nibName: "TargetViewController", bundle: nil)
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        
-        @objc func sideMenuwalletClicked(_ notification: NSNotification) {
-            if isOpen
-            {
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func sideMenutargetClicked(_ notification: NSNotification) {
+        let vc = TargetViewController(nibName: "TargetViewController", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func sideMenuwalletClicked(_ notification: NSNotification) {
+//        if isOpen
+//        {
             let vc = BankAllListViewController(nibName: "BankAllListViewController", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
-                isOpen = false
-            }
-        }
-        
+//            isOpen = false
+//        }
+    }
+    
     @objc func sideMenuuserProfileClicked(_ notification: NSNotification) {
         let vc = UserProfileDetailsViewController(nibName: "UserProfileDetailsViewController", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @objc func sideMenusettingsClicked(_ notification: NSNotification) {
         
-        @objc func sideMenusettingsClicked(_ notification: NSNotification) {
-        
-        }
-        
-        @objc func sideMenuChangeLanguageClicked(_ notification: NSNotification) {
-            let alert = UIAlertController(title: "Language", message: "Please Select Your Language", preferredStyle: .actionSheet)
-              alert.addAction(UIAlertAction(title: "English", style: .default , handler:{ (UIAlertAction)in
-                  print("User click Approve button")
-                  self.selectStore(store: "english")
-              }))
-              alert.addAction(UIAlertAction(title: "Arabic", style: .default , handler:{ (UIAlertAction)in
-                  print("User click Edit button")
-                  self.selectStore(store: "arabic")
-              }))
-            
-              alert.addAction(UIAlertAction(title: "Dismiss", style: .destructive, handler:{ (UIAlertAction)in
-                  print("User click Dismiss button")
-              }))
-              self.present(alert, animated: true, completion: {
-                  print("completion block")
-              })
-        }
-        
-        
-        func selectStore(store:String?){
-            if store=="arabic"
-            {
-                UserDefaults.standard.set(["ar","en"], forKey: "AppleLanguages")
-                HeaderHeightSingleton.shared.LanguageSelected = "AR"
-                //        HeaderHeightSingleton.shared.Currency="SAR".localized
-                self.view.reloadInputViews()
-                UIView.appearance().semanticContentAttribute = .forceRightToLeft
-            }
-            else
-            {
-                UserDefaults.standard.set(["en","ar"], forKey: "AppleLanguages")
-                self.view.reloadInputViews()
-                HeaderHeightSingleton.shared.LanguageSelected = "EN"
-                //           HeaderHeightSingleton.shared.Currency="SAR".localized
-                
-                UIView.appearance().semanticContentAttribute = .forceLeftToRight
-            }
-            load_app()
-        }
-        
-        func load_app(){
-            let rootviewcontroller: UIWindow = (SceneDelegate.shared?.window)!
-            let appDelegate = SceneDelegate()
-          
-            let obj = AgentDashboardViewController()
-            
-            appDelegate.nav = UINavigationController.init(rootViewController: obj)
-            appDelegate.nav.navigationBar.isHidden = true
-            rootviewcontroller.rootViewController = appDelegate.nav
-            rootviewcontroller.backgroundColor = UIColor(hue: 0.6477, saturation: 0.6314, brightness: 0.6077, alpha: 0.8)
-            UIView.transition(with: rootviewcontroller, duration: 0.55001, options: .transitionFlipFromLeft, animations: { () -> Void in
-            }) { (finished) -> Void in
-                }
     }
+    
+    @objc func sideMenuChangeLanguageClicked(_ notification: NSNotification) {
+        let alert = UIAlertController(title: "Language", message: "Please Select Your Language", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "English", style: .default , handler:{ (UIAlertAction)in
+            print("User click Approve button")
+            self.selectStore(store: "english")
+        }))
+        alert.addAction(UIAlertAction(title: "Arabic", style: .default , handler:{ (UIAlertAction)in
+            print("User click Edit button")
+            self.selectStore(store: "arabic")
+        }))
         
-        @objc func sideMenusignOutClicked(_ notification: NSNotification) {
-                let vc = SignOutViewController(nibName: "SignOutViewController", bundle: nil)
-                vc.modalPresentationStyle = .overFullScreen
-                vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-                vc.delegate =  self
-                self.present(vc, animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .destructive, handler:{ (UIAlertAction)in
+            print("User click Dismiss button")
+        }))
+        self.present(alert, animated: true, completion: {
+            print("completion block")
+        })
+    }
+    
+    
+    func selectStore(store:String?){
+        if store=="arabic"
+        {
+            UserDefaults.standard.set(["ar","en"], forKey: "AppleLanguages")
+            HeaderHeightSingleton.shared.LanguageSelected = "AR"
+            //        HeaderHeightSingleton.shared.Currency="SAR".localized
+            self.view.reloadInputViews()
+            UIView.appearance().semanticContentAttribute = .forceRightToLeft
         }
+        else
+        {
+            UserDefaults.standard.set(["en","ar"], forKey: "AppleLanguages")
+            self.view.reloadInputViews()
+            HeaderHeightSingleton.shared.LanguageSelected = "EN"
+            //           HeaderHeightSingleton.shared.Currency="SAR".localized
             
-            @objc func methodOfReceivedNotificationclickMenuClicked(_ notification: NSNotification) {
-              //  self.view.alpha = 0.4
-
-                if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
-                    if value[0]=="ar"{
-                        
-                        present(SideMenuManager.default.menuRightNavigationController!, animated: true, completion: nil)
-                    }
-                    else {
-                        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
-                    }
-                }else{
-                    present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
-                }
+            UIView.appearance().semanticContentAttribute = .forceLeftToRight
         }
+        load_app()
+    }
+    
+    func load_app(){
+        let rootviewcontroller: UIWindow = (SceneDelegate.shared?.window)!
+        let appDelegate = SceneDelegate()
         
-        @objc func sideMenudropShippingBtnClicked(_ notification: NSNotification) {
+        let obj = AgentDashboardViewController()
+        
+        appDelegate.nav = UINavigationController.init(rootViewController: obj)
+        appDelegate.nav.navigationBar.isHidden = true
+        rootviewcontroller.rootViewController = appDelegate.nav
+        rootviewcontroller.backgroundColor = UIColor(hue: 0.6477, saturation: 0.6314, brightness: 0.6077, alpha: 0.8)
+        UIView.transition(with: rootviewcontroller, duration: 0.55001, options: .transitionFlipFromLeft, animations: { () -> Void in
+        }) { (finished) -> Void in
         }
+    }
+    
+    @objc func sideMenusignOutClicked(_ notification: NSNotification) {
+        let vc = SignOutViewController(nibName: "SignOutViewController", bundle: nil)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        vc.delegate =  self
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func methodOfReceivedNotificationclickMenuClicked(_ notification: NSNotification) {
+        //  self.view.alpha = 0.4
+        
+        if let value = UserDefaults.standard.value(forKey: "AppleLanguages") as? [String]{
+            if value[0]=="ar"{
+                
+                present(SideMenuManager.default.menuRightNavigationController!, animated: true, completion: nil)
+            }
+            else {
+                present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+            }
+        }else{
+            present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func sideMenudropShippingBtnClicked(_ notification: NSNotification) {
+    }
     @objc func methodOfReceivedNotificationIssued(_ notification: NSNotification) {
         let vc = InvoiceNewViewController(nibName: "InvoiceNewViewController", bundle: nil)
-//        vc.tabID = 1
+        //        vc.tabID = 1
         vc.invoiceType = "issued"
         self.navigationController?.pushViewController(vc, animated: true)
-//        let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
-//        vc.showBack = true
-//        self.navigationController?.pushViewController(vc, animated: true)
+        //        let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
+        //        vc.showBack = true
+        //        self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc func methodOfReceivedNotificationReceived(_ notification: NSNotification) {
         let vc = InvoiceNewViewController(nibName: "InvoiceNewViewController", bundle: nil)
         vc.invoiceType = "received"
-//        vc.tabID = 2
+        //        vc.tabID = 2
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc func methodOfReceivedNotificationFynooReciept(_ notification: NSNotification) {
         let vc = InvoiceNewViewController(nibName: "InvoiceNewViewController", bundle: nil)
         vc.invoiceType = "fynooreceipts"
-//        vc.tabID = 3
+        //        vc.tabID = 3
         self.navigationController?.pushViewController(vc, animated: true)
     }
-        @objc func sideMenuaddProductDataForSaleBtnClicked(_ notification: NSNotification) {
-            let vc = ProductListNewViewController(nibName: "ProductListNewViewController", bundle: nil)
-            self.navigationController?.pushViewController(vc, animated: true)
-//
-//            let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
-//            self.navigationController?.pushViewController(vc, animated: true)
-        }
-   
+    @objc func sideMenuaddProductDataForSaleBtnClicked(_ notification: NSNotification) {
+        let vc = ProductListNewViewController(nibName: "ProductListNewViewController", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+        //
+        //            let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
+        //            self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     // MARK: - LOGOUT DELEGATE
     func popViewController() {
         let vc = LoginNewDesignViewController(nibName: "LoginNewDesignViewController", bundle: nil)
@@ -646,15 +646,15 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     //MARK:-- TABLE DATA SOURCE DELEGATES
     func numberOfSections(in tableView: UITableView) -> Int{
         if dataDict.count == 0 {
-         return 0
+            return 0
         }else{
-        return 5
+            return 5
         }
     }
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-             return 1
+            return 1
         }
         else if section == 3 {
             return mandatoryArray.count
@@ -666,10 +666,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
             }
         }
         else{
-        return 1
+            return 1
         }
     }
-   
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
@@ -695,10 +695,10 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-//            if showWallet
-//            {
-//                return 170
-//            }
+            //            if showWallet
+            //            {
+            //                return 170
+            //            }
             return 0
             
         }else if indexPath.section == 1{
@@ -743,7 +743,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         
         let start =  (startStr as NSString).floatValue
         let end = (endStr as NSString).floatValue
-                
+        
         let per = (start*100)/end
         let perToSet = per/100
         
@@ -811,7 +811,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     @IBAction func qrcodeBtn(_ sender: Any) {
         let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)
-       
+        
     }
     
     @IBAction func notificationBtnClicked(_ sender: Any) {
@@ -819,12 +819,12 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         let vc = UnderDevelopmentViewController(nibName: "UnderDevelopmentViewController", bundle: nil)
         //vc.showBack = true
         self.navigationController?.pushViewController(vc, animated: true)
-       
-
+        
+        
     }
     @IBAction func cameraClicked(_ sender: Any) {
         let vc = GalleryPopUpViewController(nibName: "GalleryPopUpViewController", bundle: nil)
-       
+        
         vc.choosenOption = { (str) in
             OpenGallery.shared.delegate = self
             OpenGallery.shared.viewControl = self
@@ -881,70 +881,70 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         }
     }
     
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            self.dismiss(animated: true, completion: nil)
-        }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            self.dismiss(animated: true, completion: nil)
-            guard let selectedImage = info[.originalImage] as? UIImage else {
-                print("Image not found!")
-                return
-            }
-          
-           let selectedImageNew = selectedImage.resizeWithWidth(width: 700)!
-            let compressData = selectedImageNew.jpegData(compressionQuality: 0.8) //max value is 1.0 and minimum is 0.0
-            let compressedImage = UIImage(data: compressData!)
-            
-            self.profileImg.image = compressedImage
-            UploadProfileImage_API()
-            
-    //        self.profileImg.image = selectedImage
-    //        UploadProfileImage_API(img: selectedImage)
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        self.dismiss(animated: true, completion: nil)
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            print("Image not found!")
+            return
         }
         
-        func gallery(img: UIImage, imgtype: String) {
-            self.profileImg.image = img
-            UploadProfileImage_API()
-        }
+        let selectedImageNew = selectedImage.resizeWithWidth(width: 700)!
+        let compressData = selectedImageNew.jpegData(compressionQuality: 0.8) //max value is 1.0 and minimum is 0.0
+        let compressedImage = UIImage(data: compressData!)
+        
+        self.profileImg.image = compressedImage
+        UploadProfileImage_API()
+        
+        //        self.profileImg.image = selectedImage
+        //        UploadProfileImage_API(img: selectedImage)
+    }
     
-        func UploadProfileImage_API()
-        {
-            let str = "\(Constant.BASE_URL)\(Constant.UpdateProfile_Image)"
+    func gallery(img: UIImage, imgtype: String) {
+        self.profileImg.image = img
+        UploadProfileImage_API()
+    }
+    
+    func UploadProfileImage_API()
+    {
+        let str = "\(Constant.BASE_URL)\(Constant.UpdateProfile_Image)"
+        
+        let param = [
+            "user_id":Singleton.shared.getUserId(),"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"image_id":imageId
+        ]
+        
+        
+        ModalClass.startLoading(self.view)
+        
+        ServerCalls.fileUploadAPINew(inputUrl: str, parameters: param, imageName: "image", imageFile: self.profileImg.image!) { (response, success, resp) in
             
-            let param = [
-                "user_id":Singleton.shared.getUserId(),"lang_code":HeaderHeightSingleton.shared.LanguageSelected,"image_id":imageId
-            ]
-            
-            
-            ModalClass.startLoading(self.view)
-       
-            ServerCalls.fileUploadAPINew(inputUrl: str, parameters: param, imageName: "image", imageFile: self.profileImg.image!) { (response, success, resp) in
-                
-                ModalClass.stopLoading()
-                if let value = response as? NSDictionary{
-                    let msg = value.object(forKey: "error_description") as! String
-                    let error = value.object(forKey: "error_code") as! Int
-                    if error == 100{
-                        ModalController.showNegativeCustomAlertWith(title:msg, msg: "")
-                    }else{
-                        self.imageId = ""
-                        ModalController.showSuccessCustomAlertWith(title:msg, msg: "")
-                        AuthorisedUser.shared.user?.data?.profile_image = value.object(forKey: "user_photo") as! String
-                        
-                        let strIMage = value.object(forKey: "user_photo") as! String
-          //              let strIMage = value.object(forKey: "user_photo") as! String
-                        self.profileImg.sd_setImage(with: URL(string: strIMage), placeholderImage: UIImage(named: "profile_white"))
-                        
-                        ModalController.saveTheContent(strIMage as AnyObject, WithKey: "profile_img")
-                    }
-                }
-                else{
-                    ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+            ModalClass.stopLoading()
+            if let value = response as? NSDictionary{
+                let msg = value.object(forKey: "error_description") as! String
+                let error = value.object(forKey: "error_code") as! Int
+                if error == 100{
+                    ModalController.showNegativeCustomAlertWith(title:msg, msg: "")
+                }else{
+                    self.imageId = ""
+                    ModalController.showSuccessCustomAlertWith(title:msg, msg: "")
+                    AuthorisedUser.shared.user?.data?.profile_image = value.object(forKey: "user_photo") as! String
+                    
+                    let strIMage = value.object(forKey: "user_photo") as! String
+                    //              let strIMage = value.object(forKey: "user_photo") as! String
+                    self.profileImg.sd_setImage(with: URL(string: strIMage), placeholderImage: UIImage(named: "profile_white"))
+                    
+                    ModalController.saveTheContent(strIMage as AnyObject, WithKey: "profile_img")
                 }
             }
-            
+            else{
+                ModalController.showNegativeCustomAlertWith(title: "Connection Error", msg: "")
+            }
         }
+        
+    }
     
     // MARK: - AGENT DASHBOARD API
     func dashboardAPI()
@@ -962,8 +962,8 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
             ModalClass.stopLoadingAllLoaders(self.view)
             if success == true {
                 if self.refreshControl.isRefreshing {
-                           self.refreshControl.endRefreshing()
-                       }
+                    self.refreshControl.endRefreshing()
+                }
                 self.ResponseDict = (response as? NSDictionary)!
                 print("ResponseDictionary %@",self.ResponseDict)
                 let x = self.ResponseDict.object(forKey: "error") as! Bool
@@ -989,13 +989,13 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                         let dict : NSDictionary = NSDictionary(dictionary: results1.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
                         self.agentInfoArray.add(dict)
                     }
-
+                    
                     let results2 = (self.ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "banner_list") as! NSArray
                     for var i in (0..<results2.count){
                         let dict : NSDictionary = NSDictionary(dictionary: results2.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
                         self.bannerArray.add(dict)
                     }
-
+                    
                     let results3 = (self.ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "services") as! NSArray
                     for var i in (0..<results3.count){
                         let dict : NSDictionary = NSDictionary(dictionary: results3.object(at: i) as! NSDictionary).RemoveNullValueFromDic()
@@ -1027,7 +1027,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                     let val2 = "ID".localized
                     self.userDetails.text = "\(val1) \(nameStr)\n \(val2): \(idStr)"
                     self.userDetails.font = UIFont(name:"\(self.fontNameLight)",size:13)
-                   
+                    
                     self.walletLbl.text = ModalController.convertInString(str: self.dataDict.object(forKey: "wallet_balance") as AnyObject)
                     self.holdingLBl.text = ModalController.convertInString(str: self.dataDict.object(forKey: "holding_amount") as AnyObject)
                     self.inprocessLbl.text = ModalController.convertInString(str: self.dataDict.object(forKey: "payment_in_progress") as AnyObject)
@@ -1193,13 +1193,13 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
                 else{
                     ModalController.showSuccessCustomAlertWith(title: "", msg: (ResponseDict.object(forKey: "error_description") as? String)!)
                     
-                   if name == "DELIVERY"
-                   {
-                    let vc = DeliveryDocumentViewController(nibName: "DeliveryDocumentViewController", bundle: nil)
-                    vc.primaryid = (self.ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "dsd_id") as! Int
-                    self.navigationController?.pushViewController(vc, animated: true)
-                    return
-                   }
+                    if name == "DELIVERY"
+                    {
+                        let vc = DeliveryDocumentViewController(nibName: "DeliveryDocumentViewController", bundle: nil)
+                        vc.primaryid = (self.ResponseDict.object(forKey: "data") as! NSDictionary).object(forKey: "dsd_id") as! Int
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        return
+                    }
                     
                     self.dashboardAPI()
                 }
@@ -1216,287 +1216,287 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     
     
     @objc func getNotification( _ userInfo:NSNotification)  {
-               
-           print(userInfo)
-           var nf_type = ""
-           if let pushMessage = userInfo.object as? Dictionary<String,Any>{
-                           if let nftype = pushMessage["nf_type"] as? String{
-                              nf_type = nftype
-                           }
-                          switch (nf_type) {
-                                      case "1": //An agent accept new request {'nf_type': 2,'agent_id': 1205,'order_id': OD94031610329279}/
-                                       NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-                                        let vc = SearchedProductDeatailViewC()
-                                        let searchId = pushMessage["search_id"] as? String
-                                        vc.searchId = searchId ?? ""
-                                        self.navigationController?.pushViewController(vc, animated: true)
-                                        
-                                        
-                                         break;
-                                      case "4": //When No agent found for customer delivery request. when close the searching popup and open the no data found {'nf_type': 3}/
-                                        
-                                        if(application.applicationState == .active){
-                                            let vc = CommonPopViewC(nibName: "CommonPopViewC", bundle: nil)
-                                //          vc.delegate = self
-                                            let orderId = pushMessage["order_id"] as? String
-                                            vc.orderId = orderId ?? ""
-                                            vc.modalPresentationStyle = .overFullScreen
-                                            vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-                                                self.present(vc, animated: true, completion: nil)
-                                            
-                                        }
-                                        if(application.applicationState == .inactive)
-                                          {
-                                            NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-                                            let vc = ProductDetailsViewC()
-                                            let orderId = pushMessage["order_id"] as? String
-                                            vc.orderId = orderId ?? ""
-                                            self.navigationController?.pushViewController(vc, animated: true)
-                                          }
-                                          break;
-                                      case "8": //An agent accept your product item individual need to refresh the details page {'nf_type': 5,'agent_id': 1205,'order_id': OD94031610329279}/
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-                                        let vc = ProductDetailsViewC()
-                                        let orderId = pushMessage["order_id"] as? String
-                                        vc.orderId = orderId ?? ""
-                                        self.navigationController?.pushViewController(vc, animated: true)
-                                          break;
-                                      case "13": //An agent cancel your individual product  need to refresh the details page {'nf_type': 6,'agent_id': 1205,'order_id': OD94031610329279}
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-                                        
-                                        let vc = ProductDetailsViewC()
-                                        let orderId = pushMessage["order_id"] as? String
-                                        vc.orderId = orderId ?? ""
-                                        self.navigationController?.pushViewController(vc, animated: true)
-//                                          
-                                          break;
-                                      case "15":
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-                                        let vc = ProductDetailsViewC()
-                                        let orderId = pushMessage["order_id"] as? String
-                                        vc.orderId = orderId ?? ""
-                                        self.navigationController?.pushViewController(vc, animated: true)
-
-                                          break;
-                                      case "16":
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-                                        let vc = ProductDetailsViewC()
-                                        let orderId = pushMessage["order_id"] as? String
-                                        vc.orderId = orderId ?? ""
-                                        self.navigationController?.pushViewController(vc, animated: true)
-                                          break;
-                                        
-                                      case "17":
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-                                        let vc = ProductDetailsViewC()
-                                        let orderId = pushMessage["order_id"] as? String
-                                        vc.orderId = orderId ?? ""
-                                        self.navigationController?.pushViewController(vc, animated: true)
-                                        break;
-
-                                      case "20":
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-                                        let vc = ProductDetailsViewC()
-                                        let orderId = pushMessage["order_id"] as? String
-                                        vc.orderId = orderId ?? ""
-                                        self.navigationController?.pushViewController(vc, animated: true)
-
-                                          break;
-                                      case "26":
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-                                        let vc = ProductDetailsViewC()
-                                        let orderId = pushMessage["order_id"] as? String
-                                        vc.orderId = orderId ?? ""
-                                        self.navigationController?.pushViewController(vc, animated: true)
-                                          break;
-                                      case "28":
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-                                        let vc = ProductDetailsViewC()
-                                        let orderId = pushMessage["order_id"] as? String
-                                        vc.orderId = orderId ?? ""
-                                        self.navigationController?.pushViewController(vc, animated: true)
-
-                                         break;
-
-                                      case "29":
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-                                        let vc = ProductDetailsViewC()
-                                        let orderId = pushMessage["order_id"] as? String
-                                        vc.orderId = orderId ?? ""
-                                        self.navigationController?.pushViewController(vc, animated: true)
-                                          break;
-                                      case "31":
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-                                        let vc = ProductDetailsViewC()
-                                        let orderId = pushMessage["order_id"] as? String
-                                        vc.orderId = orderId ?? ""
-                                        self.navigationController?.pushViewController(vc, animated: true)
-                                        break;
-
-
-                                          break;
-                                      default:
-                                                print("")
-                                            }
-                                  
-                           }
-              
-           
-       }
+        
+        print(userInfo)
+        var nf_type = ""
+        if let pushMessage = userInfo.object as? Dictionary<String,Any>{
+            if let nftype = pushMessage["nf_type"] as? String{
+                nf_type = nftype
+            }
+            switch (nf_type) {
+            case "1": //An agent accept new request {'nf_type': 2,'agent_id': 1205,'order_id': OD94031610329279}/
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                let vc = SearchedProductDeatailViewC()
+                let searchId = pushMessage["search_id"] as? String
+                vc.searchId = searchId ?? ""
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+                
+                break;
+            case "4": //When No agent found for customer delivery request. when close the searching popup and open the no data found {'nf_type': 3}/
+                
+                if(application.applicationState == .active){
+                    let vc = CommonPopViewC(nibName: "CommonPopViewC", bundle: nil)
+                    //          vc.delegate = self
+                    let orderId = pushMessage["order_id"] as? String
+                    vc.orderId = orderId ?? ""
+                    vc.modalPresentationStyle = .overFullScreen
+                    vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+                    self.present(vc, animated: true, completion: nil)
+                    
+                }
+                if(application.applicationState == .inactive)
+                {
+                    NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                    let vc = ProductDetailsViewC()
+                    let orderId = pushMessage["order_id"] as? String
+                    vc.orderId = orderId ?? ""
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                break;
+            case "8": //An agent accept your product item individual need to refresh the details page {'nf_type': 5,'agent_id': 1205,'order_id': OD94031610329279}/
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                let vc = ProductDetailsViewC()
+                let orderId = pushMessage["order_id"] as? String
+                vc.orderId = orderId ?? ""
+                self.navigationController?.pushViewController(vc, animated: true)
+                break;
+            case "13": //An agent cancel your individual product  need to refresh the details page {'nf_type': 6,'agent_id': 1205,'order_id': OD94031610329279}
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                
+                let vc = ProductDetailsViewC()
+                let orderId = pushMessage["order_id"] as? String
+                vc.orderId = orderId ?? ""
+                self.navigationController?.pushViewController(vc, animated: true)
+                //
+                break;
+            case "15":
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                let vc = ProductDetailsViewC()
+                let orderId = pushMessage["order_id"] as? String
+                vc.orderId = orderId ?? ""
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+                break;
+            case "16":
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                let vc = ProductDetailsViewC()
+                let orderId = pushMessage["order_id"] as? String
+                vc.orderId = orderId ?? ""
+                self.navigationController?.pushViewController(vc, animated: true)
+                break;
+                
+            case "17":
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                let vc = ProductDetailsViewC()
+                let orderId = pushMessage["order_id"] as? String
+                vc.orderId = orderId ?? ""
+                self.navigationController?.pushViewController(vc, animated: true)
+                break;
+                
+            case "20":
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                let vc = ProductDetailsViewC()
+                let orderId = pushMessage["order_id"] as? String
+                vc.orderId = orderId ?? ""
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+                break;
+            case "26":
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                let vc = ProductDetailsViewC()
+                let orderId = pushMessage["order_id"] as? String
+                vc.orderId = orderId ?? ""
+                self.navigationController?.pushViewController(vc, animated: true)
+                break;
+            case "28":
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                let vc = ProductDetailsViewC()
+                let orderId = pushMessage["order_id"] as? String
+                vc.orderId = orderId ?? ""
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+                break;
+                
+            case "29":
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                let vc = ProductDetailsViewC()
+                let orderId = pushMessage["order_id"] as? String
+                vc.orderId = orderId ?? ""
+                self.navigationController?.pushViewController(vc, animated: true)
+                break;
+            case "31":
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                let vc = ProductDetailsViewC()
+                let orderId = pushMessage["order_id"] as? String
+                vc.orderId = orderId ?? ""
+                self.navigationController?.pushViewController(vc, animated: true)
+                break;
+                
+                
+                break;
+            default:
+                print("")
+            }
+            
+        }
+        
+        
+    }
     
     
     @objc func getNotificationARV( _ userInfo:NSNotification)  {
-               
-           print(userInfo)
-           var nf_type = ""
-           if let pushMessage = userInfo.object as? Dictionary<String,Any>{
-                           if let nftype = pushMessage["nf_type"] as? String{
-                              nf_type = nftype
-                           }
-                          switch (nf_type) {
-                                      case "1": //An agent accept new request {'nf_type': 2,'agent_id': 1205,'order_id': OD94031610329279}/
-                                       NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-                                      
-                                        
-                                        
-                                         break;
-                                      case "4": //When No agent found for customer delivery request. when close the searching popup and open the no data found {'nf_type': 3}/
-                                        
-                                        if(application.applicationState == .active){
-                                            let vc = CommonPopViewC(nibName: "CommonPopViewC", bundle: nil)
-                                //          vc.delegate = self
-                                            let orderId = pushMessage["order_id"] as? String
-                                            vc.orderId = orderId ?? ""
-                                            vc.modalPresentationStyle = .overFullScreen
-                                            vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-                                                self.present(vc, animated: true, completion: nil)
-                                            
-                                        }
-                                        if(application.applicationState == .inactive)
-                                          {
-                                            NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-//                                            let vc = ProductDetailsViewC()
-//                                            let orderId = pushMessage["order_id"] as? String
-//                                            vc.orderId = orderId ?? ""
-//                                            self.navigationController?.pushViewController(vc, animated: true)
-                                          }
-                                          break;
-                                      case "8": //An agent accept your product item individual need to refresh the details page {'nf_type': 5,'agent_id': 1205,'order_id': OD94031610329279}/
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-//                                        let vc = ProductDetailsViewC()
-//                                        let orderId = pushMessage["order_id"] as? String
-//                                        vc.orderId = orderId ?? ""
-//                                        self.navigationController?.pushViewController(vc, animated: true)
-                                          break;
-                                      case "13": //An agent cancel your individual product  need to refresh the details page {'nf_type': 6,'agent_id': 1205,'order_id': OD94031610329279}
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-                                        
-//                                        let vc = ProductDetailsViewC()
-//                                        let orderId = pushMessage["order_id"] as? String
-//                                        vc.orderId = orderId ?? ""
-//                                        self.navigationController?.pushViewController(vc, animated: true)
-//
-                                          break;
-                                      case "15":
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-//                                        let vc = ProductDetailsViewC()
-//                                        let orderId = pushMessage["order_id"] as? String
-//                                        vc.orderId = orderId ?? ""
-//                                        self.navigationController?.pushViewController(vc, animated: true)
-
-                                          break;
-                                      case "16":
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-//                                        let vc = ProductDetailsViewC()
-//                                        let orderId = pushMessage["order_id"] as? String
-//                                        vc.orderId = orderId ?? ""
-//                                        self.navigationController?.pushViewController(vc, animated: true)
-                                          break;
-                                        
-                                      case "17":
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-//                                        let vc = ProductDetailsViewC()
-//                                        let orderId = pushMessage["order_id"] as? String
-//                                        vc.orderId = orderId ?? ""
-//                                        self.navigationController?.pushViewController(vc, animated: true)
-                                        break;
-
-                                      case "20":
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-//                                        let vc = ProductDetailsViewC()
-//                                        let orderId = pushMessage["order_id"] as? String
-//                                        vc.orderId = orderId ?? ""
-//                                        self.navigationController?.pushViewController(vc, animated: true)
-
-                                          break;
-                                      case "26":
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-//                                        let vc = ProductDetailsViewC()
-//                                        let orderId = pushMessage["order_id"] as? String
-//                                        vc.orderId = orderId ?? ""
-//                                        self.navigationController?.pushViewController(vc, animated: true)
-                                          break;
-                                      case "28":
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-//                                        let vc = ProductDetailsViewC()
-//                                        let orderId = pushMessage["order_id"] as? String
-//                                        vc.orderId = orderId ?? ""
-//                                        self.navigationController?.pushViewController(vc, animated: true)
-
-                                         break;
-
-                                      case "29":
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-//                                        let vc = ProductDetailsViewC()
-//                                        let orderId = pushMessage["order_id"] as? String
-//                                        vc.orderId = orderId ?? ""
-//                                        self.navigationController?.pushViewController(vc, animated: true)
-                                          break;
-                                      case "31":
-                                        NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
-//                                        let vc = ProductDetailsViewC()
-//                                        let orderId = pushMessage["order_id"] as? String
-//                                        vc.orderId = orderId ?? ""
-//                                        self.navigationController?.pushViewController(vc, animated: true)
-                                        break;
-
-
-                                          break;
-                                      default:
-                                                print("")
-                                            }
-                                  
-                           }
-              
-           
-       }
+        
+        print(userInfo)
+        var nf_type = ""
+        if let pushMessage = userInfo.object as? Dictionary<String,Any>{
+            if let nftype = pushMessage["nf_type"] as? String{
+                nf_type = nftype
+            }
+            switch (nf_type) {
+            case "1": //An agent accept new request {'nf_type': 2,'agent_id': 1205,'order_id': OD94031610329279}/
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                
+                
+                
+                break;
+            case "4": //When No agent found for customer delivery request. when close the searching popup and open the no data found {'nf_type': 3}/
+                
+                if(application.applicationState == .active){
+                    let vc = CommonPopViewC(nibName: "CommonPopViewC", bundle: nil)
+                    //          vc.delegate = self
+                    let orderId = pushMessage["order_id"] as? String
+                    vc.orderId = orderId ?? ""
+                    vc.modalPresentationStyle = .overFullScreen
+                    vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+                    self.present(vc, animated: true, completion: nil)
+                    
+                }
+                if(application.applicationState == .inactive)
+                {
+                    NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                    //                                            let vc = ProductDetailsViewC()
+                    //                                            let orderId = pushMessage["order_id"] as? String
+                    //                                            vc.orderId = orderId ?? ""
+                    //                                            self.navigationController?.pushViewController(vc, animated: true)
+                }
+                break;
+            case "8": //An agent accept your product item individual need to refresh the details page {'nf_type': 5,'agent_id': 1205,'order_id': OD94031610329279}/
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                //                                        let vc = ProductDetailsViewC()
+                //                                        let orderId = pushMessage["order_id"] as? String
+                //                                        vc.orderId = orderId ?? ""
+                //                                        self.navigationController?.pushViewController(vc, animated: true)
+                break;
+            case "13": //An agent cancel your individual product  need to refresh the details page {'nf_type': 6,'agent_id': 1205,'order_id': OD94031610329279}
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                
+                //                                        let vc = ProductDetailsViewC()
+                //                                        let orderId = pushMessage["order_id"] as? String
+                //                                        vc.orderId = orderId ?? ""
+                //                                        self.navigationController?.pushViewController(vc, animated: true)
+                //
+                break;
+            case "15":
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                //                                        let vc = ProductDetailsViewC()
+                //                                        let orderId = pushMessage["order_id"] as? String
+                //                                        vc.orderId = orderId ?? ""
+                //                                        self.navigationController?.pushViewController(vc, animated: true)
+                
+                break;
+            case "16":
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                //                                        let vc = ProductDetailsViewC()
+                //                                        let orderId = pushMessage["order_id"] as? String
+                //                                        vc.orderId = orderId ?? ""
+                //                                        self.navigationController?.pushViewController(vc, animated: true)
+                break;
+                
+            case "17":
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                //                                        let vc = ProductDetailsViewC()
+                //                                        let orderId = pushMessage["order_id"] as? String
+                //                                        vc.orderId = orderId ?? ""
+                //                                        self.navigationController?.pushViewController(vc, animated: true)
+                break;
+                
+            case "20":
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                //                                        let vc = ProductDetailsViewC()
+                //                                        let orderId = pushMessage["order_id"] as? String
+                //                                        vc.orderId = orderId ?? ""
+                //                                        self.navigationController?.pushViewController(vc, animated: true)
+                
+                break;
+            case "26":
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                //                                        let vc = ProductDetailsViewC()
+                //                                        let orderId = pushMessage["order_id"] as? String
+                //                                        vc.orderId = orderId ?? ""
+                //                                        self.navigationController?.pushViewController(vc, animated: true)
+                break;
+            case "28":
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                //                                        let vc = ProductDetailsViewC()
+                //                                        let orderId = pushMessage["order_id"] as? String
+                //                                        vc.orderId = orderId ?? ""
+                //                                        self.navigationController?.pushViewController(vc, animated: true)
+                
+                break;
+                
+            case "29":
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                //                                        let vc = ProductDetailsViewC()
+                //                                        let orderId = pushMessage["order_id"] as? String
+                //                                        vc.orderId = orderId ?? ""
+                //                                        self.navigationController?.pushViewController(vc, animated: true)
+                break;
+            case "31":
+                NotificationCenter.default.post(name: Notification.Name(Constant.SEARCH_AGENT_NOTIFICATION), object: pushMessage)
+                //                                        let vc = ProductDetailsViewC()
+                //                                        let orderId = pushMessage["order_id"] as? String
+                //                                        vc.orderId = orderId ?? ""
+                //                                        self.navigationController?.pushViewController(vc, animated: true)
+                break;
+                
+                
+                break;
+            default:
+                print("")
+            }
+            
+        }
+        
+        
+    }
     
     
 }
 
 extension UIImage {
-func resizeWithPercent(percentage: CGFloat) -> UIImage? {
-    let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: size.width * percentage, height: size.height * percentage)))
-    imageView.contentMode = .scaleAspectFit
-    imageView.image = self
-    UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
-    guard let context = UIGraphicsGetCurrentContext() else { return nil }
-    imageView.layer.render(in: context)
-    guard let result = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
-    UIGraphicsEndImageContext()
-    return result
-}
-func resizeWithWidth(width: CGFloat) -> UIImage? {
-    let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))))
-    imageView.contentMode = .scaleAspectFit
-    imageView.image = self
-    UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
-    guard let context = UIGraphicsGetCurrentContext() else { return nil }
-    imageView.layer.render(in: context)
-    guard let result = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
-    UIGraphicsEndImageContext()
-    return result
-}
+    func resizeWithPercent(percentage: CGFloat) -> UIImage? {
+        let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: size.width * percentage, height: size.height * percentage)))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = self
+        UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        imageView.layer.render(in: context)
+        guard let result = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+        UIGraphicsEndImageContext()
+        return result
+    }
+    func resizeWithWidth(width: CGFloat) -> UIImage? {
+        let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = self
+        UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        imageView.layer.render(in: context)
+        guard let result = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+        UIGraphicsEndImageContext()
+        return result
+    }
 }
 
 extension Collection {
