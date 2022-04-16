@@ -1759,8 +1759,8 @@ extension ProductDetailsViewC : UITableViewDataSource {
                     }
                     if orderDetailData?.data?.item_detail? [indexPath.row].item_status == 2 || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 0 && orderDetailData?.data?.order_status == 3) || (orderDetailData?.data?.item_detail? [indexPath.row].item_status == 1 && orderDetailData?.data?.order_status == 3){
                         cell.imgCart.image = #imageLiteral(resourceName: "shopping-cartgrayCross")
-//                        cell.btnReduceQuantity.isHidden = true
-//                        cell.lblLineReduceQty.isHidden = true
+//                        cell.btnReduceQua ntity.isHidden = true
+//                        cell.lblLineRedu ceQty.isHidden = true
                         cell.btnDelete.isHidden = true
                         cell.lblCancelReasonn.isHidden = false
                         cell.btnAccept.isHidden = true

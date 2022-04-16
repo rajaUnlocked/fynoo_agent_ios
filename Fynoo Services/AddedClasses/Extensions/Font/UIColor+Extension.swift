@@ -30,4 +30,7 @@ extension UIColor{
     static func AppThemeBlueTextColor() -> UIColor {
         return #colorLiteral(red: 0.1098039216, green: 0.6156862745, blue: 0.8352941176, alpha: 1)
     }
+    static func AppThemeWhiteTextColor() -> UIColor {
+        return #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    }
 }

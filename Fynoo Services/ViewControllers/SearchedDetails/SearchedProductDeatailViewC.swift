@@ -83,7 +83,7 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
         ModalController.watermark(self.view)
         super.viewDidLoad()
         self.headerHeightConstant.constant = CGFloat(HeaderHeightSingleton.shared.headerHeight)
-        self.headerView.titleHeader.text = "Product Details".localized
+        self.headerView.titleHeader.text = "Order Details".localized
         self.headerView.menuBtn.isHidden = true
         self.headerView.viewControl = self
         //        var timer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(UIMenuController.update), userInfo: nil, repeats: true)

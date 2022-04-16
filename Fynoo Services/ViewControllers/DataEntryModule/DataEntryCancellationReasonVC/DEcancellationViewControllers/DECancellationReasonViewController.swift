@@ -45,6 +45,8 @@ var delegate : DECancellationReasonViewControllerDelegate?
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CancelReasonViewCell", bundle: nil), forCellReuseIdentifier: "CancelReasonViewCell")
         cancelBtn.addTarget(self, action: #selector(closePopUp(_:)), for: .touchUpInside)
+        submitBtn.backgroundColor = UIColor.AppThemeRedTextColor()
+        submitBtn.setTitleColor(UIColor.AppThemeWhiteTextColor(), for: .normal)
     }
 
 
@@ -148,10 +150,13 @@ extension DECancellationReasonViewController : UITableViewDataSource {
         
         if SelectedIndex.contains(reasonID) {
             cell.selectBtn.isSelected = true
+            submitBtn.backgroundColor = UIColor.AppThemeGreenTextColor()
         }else {
             cell.selectBtn.isSelected = false
         }
-        
+        if SelectedIndex.count == 0{
+        submitBtn.backgroundColor = UIColor.AppThemeRedTextColor()
+        }
         cell.delegate = self
         return cell
         

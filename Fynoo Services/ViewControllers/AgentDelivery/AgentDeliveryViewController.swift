@@ -623,7 +623,7 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         cell.totalRate.text = "(\(tripListListArray?[index.row].total_rating ?? ""))"
         cell.totalCount.text = "\(tripListListArray?[index.row].qty ?? 0)"
         cell.orderId.text = "\("Order Id ".localized):\(tripListListArray?[index.row].order_id ?? "")"
-        cell.date.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: "\(tripListListArray?[index.row].order_date ?? 0)", format: "E, MMM dd, yyyy h:mm")
+        cell.date.text = ModalController.convert13DigitTimeStampIntoDate(timeStamp: "\(tripListListArray?[index.row].order_date ?? 0)", format: "E, MMM dd, yyyy h:mm a")
 //        cell.date.text  = "\(tripListListArray?[index.row].order_date ?? "")"
         cell.address.text = "\("Address".localized):\(tripListListArray?[index.row].address ?? "")"
        

@@ -39,6 +39,7 @@ class ReasonForDeleteViewController: UIViewController, CancelReasonViewCellDeleg
         tableView.register(UINib(nibName: "CancelReasonViewCell", bundle: nil), forCellReuseIdentifier: "CancelReasonViewCell")
         getPopupHeight()
         SetFont()
+        btnREduceQtyOutlet.backgroundColor = UIColor.AppThemeRedTextColor()
 
     }
     
@@ -167,8 +168,14 @@ extension ReasonForDeleteViewController : UITableViewDataSource {
         
         if SelectedIndex.contains(reasonID) {
             cell.selectBtn.isSelected = true
+            btnREduceQtyOutlet.backgroundColor = UIColor.AppThemeGreenTextColor()
+            
         }else {
             cell.selectBtn.isSelected = false
+        }
+        
+        if SelectedIndex.count == 0{
+            btnREduceQtyOutlet.backgroundColor = UIColor.AppThemeRedTextColor()
         }
         
         cell.delegate = self

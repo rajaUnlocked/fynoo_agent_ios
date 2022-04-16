@@ -508,12 +508,12 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
     
     @objc func sideMenuwalletClicked(_ notification: NSNotification) {
-        if isOpen
-        {
+//        if isOpen
+//        {
             let vc = BankAllListViewController(nibName: "BankAllListViewController", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
-            isOpen = false
-        }
+//            isOpen = false
+//        }
     }
     
     @objc func sideMenuuserProfileClicked(_ notification: NSNotification) {
