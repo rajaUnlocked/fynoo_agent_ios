@@ -30,6 +30,8 @@ class ProductListDataBankSellingTableViewCell: UITableViewCell {
     @IBOutlet weak var datapricelbl: UILabel!
     @IBOutlet weak var infoimgWidth: NSLayoutConstraint!
     @IBOutlet weak var infoImg: UIImageView!
+    @IBOutlet weak var backgrounddView:UIView!
+    @IBOutlet weak var imgDelete:UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,9 +49,11 @@ class ProductListDataBankSellingTableViewCell: UITableViewCell {
         self.statusl.font = UIFont(name:"\(fontNameLight)",size:10)
         self.statusLbl.font = UIFont(name:"\(fontNameLight)",size:10)
          self.nameLbl.textAlignment = .left
+        imgDelete.image = UIImage(named: "deleteproen")
         if HeaderHeightSingleton.shared.LanguageSelected == "AR"
         {
             self.nameLbl.textAlignment = .right
+            imgDelete.image = UIImage(named: "deleteproar")
         }
         
     }

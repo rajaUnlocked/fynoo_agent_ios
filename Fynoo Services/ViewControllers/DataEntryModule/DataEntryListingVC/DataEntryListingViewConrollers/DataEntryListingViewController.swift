@@ -231,6 +231,13 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
                 self.isMoreDataAvailable = false
                 self.tableView.reloadData()
             }
+            
+            if  self.selectedTab == "2" {
+                if self.tableView.visibleCells.count > 0 {
+                               let cell = self.tableView.visibleCells[1] as! DataEntryListingTableViewCell
+                    cell.animateSwipeHint(bg: cell.backgrounddView)
+                           }
+            }
         }
     }
     func selectedCancelReason(reasonID: String) {
@@ -495,7 +502,7 @@ extension DataEntryListingViewController : UITableViewDataSource {
                     
                     success(true)
                 })
-                closeAction.backgroundColor = #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1)
+                closeAction.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.3882352941, blue: 0.3960784314, alpha: 1)
                 if HeaderHeightSingleton.shared.LanguageSelected == "AR"
                 {
                     closeAction.image = UIImage(named: "reject_arabic")
