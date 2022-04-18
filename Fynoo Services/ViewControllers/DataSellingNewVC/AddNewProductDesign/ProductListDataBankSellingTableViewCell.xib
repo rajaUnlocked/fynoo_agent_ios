@@ -23,6 +23,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="172"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deleteproen" translatesAutoresizingMaskIntoConstraints="NO" id="QCa-9n-gns">
+                        <rect key="frame" x="20" y="39" width="50" height="94"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="pbG-Kc-wlm"/>
+                        </constraints>
+                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMR-A7-mSt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="172"/>
                         <subviews>
@@ -260,7 +266,10 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" red="0.92549019607843142" green="0.29019607843137252" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
+                    <constraint firstItem="QCa-9n-gns" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1Bj-MS-e7D"/>
+                    <constraint firstItem="QCa-9n-gns" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="K70-Un-6V5"/>
                     <constraint firstAttribute="trailing" secondItem="TMR-A7-mSt" secondAttribute="trailing" id="Val-Ld-AGk"/>
                     <constraint firstAttribute="bottom" secondItem="TMR-A7-mSt" secondAttribute="bottom" id="aQK-Sc-zcn"/>
                     <constraint firstItem="TMR-A7-mSt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dhR-Jb-Epz"/>
@@ -269,6 +278,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="backgrounddView" destination="TMR-A7-mSt" id="2g0-5y-E7G"/>
                 <outlet property="categoryLbl" destination="V2k-uS-7Qc" id="0om-vY-cWC"/>
                 <outlet property="currImg" destination="toS-jj-mbE" id="bX2-BR-OzK"/>
                 <outlet property="currLbl" destination="YoQ-Oy-2nk" id="D8g-J6-mZk"/>
@@ -276,6 +286,7 @@
                 <outlet property="dateLbl" destination="5Ac-bv-AnK" id="1xD-xE-JI7"/>
                 <outlet property="editBtn" destination="4Cq-XP-HxR" id="seE-vl-eZm"/>
                 <outlet property="firstSeparatorImg" destination="Gxq-ly-DrJ" id="ZWb-Yv-CFX"/>
+                <outlet property="imgDelete" destination="QCa-9n-gns" id="EK7-yZ-hze"/>
                 <outlet property="infoImg" destination="cjt-yN-JGm" id="n8Q-yl-i6r"/>
                 <outlet property="infoimgWidth" destination="RMR-dY-mSE" id="46T-Ox-8P7"/>
                 <outlet property="langLbl" destination="NjT-yE-LDW" id="hOQ-i1-8DO"/>
@@ -287,12 +298,13 @@
                 <outlet property="statusl" destination="fs3-gN-ePw" id="18H-UU-XOS"/>
                 <outlet property="subCatlbl" destination="eHX-mB-P4S" id="Em6-su-ENg"/>
             </connections>
-            <point key="canvasLocation" x="223.91304347826087" y="174.77678571428569"/>
+            <point key="canvasLocation" x="223.18840579710147" y="174.77678571428569"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="SAR" width="10" height="10"/>
         <image name="calenderNew_icon" width="50" height="57.5"/>
+        <image name="deleteproen" width="72" height="94"/>
         <image name="edit_green" width="16" height="16"/>
         <image name="info_icon" width="16" height="16"/>
         <image name="separatorIcon" width="1" height="12"/>

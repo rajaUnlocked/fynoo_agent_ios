@@ -121,6 +121,12 @@ class ProductListNewViewController: UIViewController, GlobalsearchDelegate {
             }
             self.tabView.delegate = self
             self.tabView.dataSource = self
+            
+         
+               if self.tabView.visibleCells.count > 0 {
+                let cell = self.tabView.visibleCells[1] as! ProductListDataBankSellingTableViewCell
+                   cell.animateSwipeHint(bg: cell.backgrounddView)
+            }
         }
         
     }

@@ -315,8 +315,9 @@ extension ProductDetailNewViewController : UITableViewDataSource {
         }
             
         else  {
-             return ProductDescriptionSupportCell(index: indexPath)
-            //return ProductSimilarCell(index: indexPath)
+//             return ProductDescriptionSupportCell(index: indexPath)
+//            return UITableViewCell()
+            return ProductSimilarCell(index: indexPath)
         }
         
     
@@ -543,20 +544,20 @@ extension ProductDetailNewViewController : UITableViewDataSource {
            cell.tag = index.row
            return cell
        }
-//       func ProductSimilarCell(index : IndexPath) -> UITableViewCell {
-//               let cell = tableView.dequeueReusableCell(withIdentifier: "SimiilarProductTableViewCell", for: index) as! SimiilarProductTableViewCell
-//        cell.headerLbl.text = "Similar Product".localized
-//        cell.viewAllBtn.setTitle("View All".localized, for: .normal)
-//               cell.selectionStyle = .none
-//               cell.similarProductList = self.viewNewPoductDetailData
-//               cell.collectionView.reloadData()
-//            cell.parent = self
-//        cell.catID = "\((self.viewNewPoductDetailData?.data?.pro_parent_category_id)!)"
-//        cell.subcatID = "\((self.viewNewPoductDetailData?.data?.pro_sub_category_id)!)"
-//
-//               cell.tag = index.row
-//               return cell
-//           }
+       func ProductSimilarCell(index : IndexPath) -> UITableViewCell {
+               let cell = tableView.dequeueReusableCell(withIdentifier: "SimiilarProductTableViewCell", for: index) as! SimiilarProductTableViewCell
+        cell.headerLbl.text = "Similar Product".localized
+        cell.viewAllBtn.setTitle("View All".localized, for: .normal)
+               cell.selectionStyle = .none
+               cell.similarProductList = self.viewNewPoductDetailData
+               cell.collectionView.reloadData()
+            cell.parent = self
+        cell.catID = "\((self.viewNewPoductDetailData?.data?.pro_parent_category_id)!)"
+        cell.subcatID = "\((self.viewNewPoductDetailData?.data?.pro_sub_category_id)!)"
+
+               cell.tag = index.row
+               return cell
+           }
     
     @objc func openMoreSpecification(_ sender:UIButton){
          if self.isOpenMoreSpecifications == true {

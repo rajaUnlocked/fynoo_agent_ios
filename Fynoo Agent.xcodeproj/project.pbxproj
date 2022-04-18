@@ -198,6 +198,11 @@
 		CE2EFB42251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */; };
 		CE2EFB43251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2EFB41251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib */; };
 		CE3E9A59251E0B0300B60038 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E9A58251E0B0300B60038 /* ServiceModel.swift */; };
+		CE76178E28082FA800DC9316 /* SimiilarProductTableViewCell.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE76178628082FA700DC9316 /* SimiilarProductTableViewCell.strings */; };
+		CE76178F28082FA800DC9316 /* SimilarProItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE76178928082FA700DC9316 /* SimilarProItemCollectionViewCell.xib */; };
+		CE76179028082FA800DC9316 /* SimiilarProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76178A28082FA700DC9316 /* SimiilarProductTableViewCell.swift */; };
+		CE76179128082FA800DC9316 /* SimiilarProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE76178B28082FA700DC9316 /* SimiilarProductTableViewCell.xib */; };
+		CE76179228082FA800DC9316 /* SimilarProItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76178D28082FA700DC9316 /* SimilarProItemCollectionViewCell.swift */; };
 		CE81A59327E8521B00818745 /* ViewAllImgOfProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE81A58E27E8521A00818745 /* ViewAllImgOfProductCollectionViewCell.xib */; };
 		CE81A59427E8521B00818745 /* ViewAllImagesOfProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE81A58F27E8521A00818745 /* ViewAllImagesOfProductViewController.xib */; };
 		CE81A59527E8521B00818745 /* GSImageViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81A59027E8521A00818745 /* GSImageViewerController.swift */; };
@@ -1114,6 +1119,12 @@
 		CE2EFB40251C834F006F1B36 /* UploadVehicleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVehicleImageTableViewCell.swift; sourceTree = "<group>"; };
 		CE2EFB41251C834F006F1B36 /* UploadVehicleImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadVehicleImageTableViewCell.xib; sourceTree = "<group>"; };
 		CE3E9A58251E0B0300B60038 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
+		CE76178728082FA700DC9316 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/SimiilarProductTableViewCell.strings; sourceTree = "<group>"; };
+		CE76178828082FA700DC9316 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SimiilarProductTableViewCell.strings; sourceTree = "<group>"; };
+		CE76178928082FA700DC9316 /* SimilarProItemCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimilarProItemCollectionViewCell.xib; sourceTree = "<group>"; };
+		CE76178A28082FA700DC9316 /* SimiilarProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimiilarProductTableViewCell.swift; sourceTree = "<group>"; };
+		CE76178C28082FA700DC9316 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SimiilarProductTableViewCell.xib; sourceTree = "<group>"; };
+		CE76178D28082FA700DC9316 /* SimilarProItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimilarProItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE81A58E27E8521A00818745 /* ViewAllImgOfProductCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewAllImgOfProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		CE81A58F27E8521A00818745 /* ViewAllImagesOfProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewAllImagesOfProductViewController.xib; sourceTree = "<group>"; };
 		CE81A59027E8521A00818745 /* GSImageViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSImageViewerController.swift; sourceTree = "<group>"; };
@@ -2551,6 +2562,18 @@
 			path = servicemodel;
 			sourceTree = "<group>";
 		};
+		CE76178528082FA700DC9316 /* SimilarProductCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE76178628082FA700DC9316 /* SimiilarProductTableViewCell.strings */,
+				CE76178928082FA700DC9316 /* SimilarProItemCollectionViewCell.xib */,
+				CE76178A28082FA700DC9316 /* SimiilarProductTableViewCell.swift */,
+				CE76178B28082FA700DC9316 /* SimiilarProductTableViewCell.xib */,
+				CE76178D28082FA700DC9316 /* SimilarProItemCollectionViewCell.swift */,
+			);
+			path = SimilarProductCell;
+			sourceTree = "<group>";
+		};
 		CE81A58D27E8521A00818745 /* ViewallImageOfProductVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -2665,6 +2688,7 @@
 		CE9CCCC7264BAA13005AE619 /* ProductDetailNewVC */ = {
 			isa = PBXGroup;
 			children = (
+				CE76178528082FA700DC9316 /* SimilarProductCell */,
 				CE9CCE22264BFF67005AE619 /* CustomerProductViewModel.swift */,
 				CE9CCDCD264BEDBC005AE619 /* ProductDetailCells */,
 				CE9CCCED264BAA13005AE619 /* ProductDetailNewViewController.xib */,
@@ -4345,6 +4369,7 @@
 				CEDD33A72576705A00023977 /* AddFilterInfoTableViewCell.xib in Resources */,
 				CEDD337E257663C800023977 /* StoreImagesCollectionViewCell.xib in Resources */,
 				CE9CCD51264BAA14005AE619 /* VariantSpecificationTableViewCell.xib in Resources */,
+				CE76178F28082FA800DC9316 /* SimilarProItemCollectionViewCell.xib in Resources */,
 				F62E4B0525148EC60021CEE0 /* PersonalAgentBasicInformationTableViewCell.strings in Resources */,
 				CEE3579B250740800097069D /* RobotoSlab-Regular.ttf in Resources */,
 				2FEB1228251215F50012FE98 /* ProgressDashboardTableViewCell.xib in Resources */,
@@ -4590,6 +4615,7 @@
 				F680D68C259B7F27007EB12C /* CancelReasonViewCell.xib in Resources */,
 				CECEF9AE2577575B0090D459 /* BusinessLocation1ViewController.strings in Resources */,
 				4E1DA085268364DE0055D201 /* SearchedProductDeatailViewC.xib in Resources */,
+				CE76179128082FA800DC9316 /* SimiilarProductTableViewCell.xib in Resources */,
 				CECEFA5B25779E8F0090D459 /* UploadImageViewController.xib in Resources */,
 				CE9CCD4E264BAA14005AE619 /* AddProductHeaderTableViewCell.xib in Resources */,
 				CE9CCD4A264BAA14005AE619 /* ProductSpecificationsTableViewCell.xib in Resources */,
@@ -4715,6 +4741,7 @@
 				4E19EB87267A1909003510BC /* OrderSuccessViewC.xib in Resources */,
 				CE9CCD55264BAA14005AE619 /* VariantPRoductsViewController.xib in Resources */,
 				CECEFA9A2577A2C90090D459 /* BranchImageUploadController.xib in Resources */,
+				CE76178E28082FA800DC9316 /* SimiilarProductTableViewCell.strings in Resources */,
 				2F8463E7250F6EBC0084EB32 /* LoginIntroThird.xib in Resources */,
 				CECEF9FB2577575C0090D459 /* PhoneNumberTableViewCell.xib in Resources */,
 				CECEFA5225779E8F0090D459 /* GalleryItemCollectionViewCell.xib in Resources */,
@@ -5038,6 +5065,7 @@
 				2FFDE2412501225A006C5EBD /* AgentDashboardViewController.swift in Sources */,
 				CEA24F5B265BCC9C00B3227D /* GalleryPopUpViewController.swift in Sources */,
 				F680D627259B7C2C007EB12C /* AddedServicesInDataEntryViewController.swift in Sources */,
+				CE76179028082FA800DC9316 /* SimiilarProductTableViewCell.swift in Sources */,
 				CEDD333525765BBA00023977 /* SelectSubCat.swift in Sources */,
 				CEE72CC0251B795100B02DAF /* OpenGallery.swift in Sources */,
 				4E85ED6726720A4300785110 /* Geocoded_waypoints.swift in Sources */,
@@ -5059,6 +5087,7 @@
 				CEDAF67825285ACC00B846E5 /* BottomLblTableViewCell.swift in Sources */,
 				4E85ED502671FEBC00785110 /* MapPath.swift in Sources */,
 				CEE72CB0251B586400B02DAF /* DocHeaderTableViewCell.swift in Sources */,
+				CE76179228082FA800DC9316 /* SimilarProItemCollectionViewCell.swift in Sources */,
 				CEDD32DF25763C8E00023977 /* ProductHeader2TableViewCell.swift in Sources */,
 				185373DF266646E3001E0C2A /* String+Utilities.swift in Sources */,
 				2FEB1227251215F50012FE98 /* ProgressDashboardTableViewCell.swift in Sources */,
@@ -5840,6 +5869,23 @@
 				CE1D84A526906CC300763385 /* Base */,
 			);
 			name = ServiceSingleCollectionViewCell.xib;
+			sourceTree = "<group>";
+		};
+		CE76178628082FA700DC9316 /* SimiilarProductTableViewCell.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE76178728082FA700DC9316 /* ar */,
+				CE76178828082FA700DC9316 /* en */,
+			);
+			name = SimiilarProductTableViewCell.strings;
+			sourceTree = "<group>";
+		};
+		CE76178B28082FA700DC9316 /* SimiilarProductTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE76178C28082FA700DC9316 /* Base */,
+			);
+			name = SimiilarProductTableViewCell.xib;
 			sourceTree = "<group>";
 		};
 		CE8E8597250F4C3800B74A9E /* Localizable.strings */ = {
