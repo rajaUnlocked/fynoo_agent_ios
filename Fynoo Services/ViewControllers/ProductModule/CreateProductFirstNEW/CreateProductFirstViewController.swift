@@ -327,9 +327,15 @@ class CreateProductFirstViewController: UIViewController {
                               }
                              
                           }
+        if pro.galleryIdImage.count == 0
+                 {
+                ModalController.showNegativeCustomAlertWith(title: "Please add Product/Service image".localized, msg: "")
+
+                     return
+                 }
         if pro.galleryFeatureId == 0
                  {
-                ModalController.showNegativeCustomAlertWith(title: "Please add product main picture".localized, msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please select product main image".localized, msg: "")
 
                      return
                  }

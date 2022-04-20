@@ -181,7 +181,7 @@ class BusinessLocation1ViewController: UIViewController,UITableViewDelegate,UITa
                         
                     }
                     else{
-                        cell.txtField.text = " \(AddBranch.shared.BusName)"
+                        cell.txtField.text = "\(AddBranch.shared.BusName)"
                         if radiocheck == 4
                         {
                             cell.txtField.isHidden = false

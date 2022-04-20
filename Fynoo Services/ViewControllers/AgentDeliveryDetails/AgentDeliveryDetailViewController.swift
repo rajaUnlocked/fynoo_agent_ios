@@ -53,7 +53,13 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
     var mapVw:GMSMapView?
     
     var acceptedtripDetail : deliveryTripDetail?
-    
+    var agentViewModel = AgentModel()
+    var agentToBoDistance : Int = 0
+    var boToCustomerDistance : Int = 0
+    var agentToBoDeliveryTime : Int = 0
+    var boToCustomerDeliveryTime : Int = 0
+    var agentToCustomerDeliveryTime : Int = 0
+    var agentToCustomerDistance : Int = 0
     override func viewDidLoad() {
         ModalController.watermark(self.view)
         super.viewDidLoad()
@@ -175,7 +181,8 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
         self.setMarkerBoundsOnMap()
         self.mapVw?.drawPolygon(from: cust_location, to: branch_location)
         self.mapVw?.drawPolygon(from: branch_location, to: agent_location)
-        
+       
+        self.callGetDistance()
     }
     
     
@@ -226,6 +233,9 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
         
         self.setMarkerBoundsOnMap()
         self.mapVw?.drawPolygon(from: agent_location, to: cust_location)
+        
+        
+        self.callGetDistance()
         
     }
     
@@ -388,6 +398,118 @@ class AgentDeliveryDetailViewController: UIViewController,GMSMapViewDelegate,CLL
             
         }
     }
+    
+    
+    func callGetDistance(){
+        let dispatchGroup = DispatchGroup()
+        
+        let agentLat = self.acceptedtripDetail?.data?.trip_details?.agent_lat
+        let agentLng = self.acceptedtripDetail?.data?.trip_details?.agent_long
+        let boLat = self.acceptedtripDetail?.data?.trip_details?.bo_lat
+        let boLng = self.acceptedtripDetail?.data?.trip_details?.bo_long
+        let custLat = self.acceptedtripDetail?.data?.trip_details?.cust_lat
+        let custLng = self.acceptedtripDetail?.data?.trip_details?.cust_long
+
+        dispatchGroup.enter()   // <<---
+        let distanceUrlFromAgentToBO = "\(Constant.GOOGLE_API_DISTANCE)origin=\(agentLat!),\(agentLng!)&destination=\(boLat!),\(boLng!)&key=\(Constant.GOOGLE_API_KEY)"
+        agentViewModel.getDistance(distanceUrlFromAgentToBO) { (succes, response) in
+            if succes{
+//                self.lblBoLocation.text = "\(response?.routes?.first?.legs?.first?.distance?.text ?? "")".uppercased()
+                self.agentToBoDistance = (response.routes?.first?.legs?.first?.distance?.value ?? 0)
+                
+                self.agentToBoDeliveryTime = (response.routes?.first?.legs?.first?.duration?.value ?? 0)
+                
+//                let km = "km".localized
+//                let value = String(format:"%.1f", ((Double(self.agentToBoDistance)/1000)))
+//                self.lblBoLocation.text = "\(value)\(km)".uppercased()
+                
+                DispatchQueue.main.async {
+                             
+                               dispatchGroup.leave()   // <<----
+                           }
+             
+            }
+        }
+
+        dispatchGroup.enter()   // <<---
+        let distanceUrlFromBOToCustomer = "\(Constant.GOOGLE_API_DISTANCE)origin=\(boLat!),\(boLng!)&destination=\(custLat!),\(custLng!)&key=\(Constant.GOOGLE_API_KEY)"
+        agentViewModel.getDistance(distanceUrlFromBOToCustomer) { (succes, response) in
+                   if succes{
+                    
+//                    self.lblCustomerLocation.text = "\(response?.routes?.first?.legs?.first?.distance?.text ?? "")".uppercased()
+                       self.boToCustomerDistance = (response.routes?.first?.legs?.first?.distance?.value ?? 0)
+                       self.boToCustomerDeliveryTime = (response.routes?.first?.legs?.first?.duration?.value ?? 0)
+                    
+//                    let km = "km".localized
+//                    let value = String(format:"%.1f", ((Double(self.boToCustomerDistance)/1000)))
+//                    self.lblCustomerLocation.text = "\(value)\(km)".uppercased()
+                    
+                    DispatchQueue.main.async {
+                                 
+                                   dispatchGroup.leave()   // <<----
+                               }
+                   }
+               }
+        
+        // Mark- calculate Delivery Time----
+        
+        dispatchGroup.enter()   // <<---
+        let timeUrlFromAgentToCustomer = "\(Constant.GOOGLE_API_DISTANCE)origin=\(boLat!),\(boLng!)&destination=\(custLat!),\(custLng!)&key=\(Constant.GOOGLE_API_KEY)"
+        agentViewModel.getDistance(timeUrlFromAgentToCustomer) { (succes, response) in
+                   if succes{
+                       self.agentToCustomerDistance = (response.routes?.first?.legs?.first?.distance?.value ?? 0)
+                       self.agentToCustomerDeliveryTime = (response.routes?.first?.legs?.first?.duration?.value ?? 0)
+                    
+                    DispatchQueue.main.async {
+                                 
+                                   dispatchGroup.leave()   // <<----
+                               }
+                   }
+               }
+
+        dispatchGroup.notify(queue: .main) {
+            // whatever you want to do when both are done
+            self.calculateExpectedDelTime()
+        }
+    }
+    
+    func calculateExpectedDelTime()  {
+        guard let order_status = self.acceptedtripDetail?.data?.trip_details?.status else {return}
+        let waiting_time = 10
+//        guard let waiting_time = self.acceptedtripDetail?.data?.trip_details?.waiting_time else {return}
+        let km = "km".localized
+        let valueAgtoBO = String(format:"%.1f", ((Double(self.agentToBoDistance)/1000)))
+        let valueBOtoCust = String(format:"%.1f", ((Double(self.boToCustomerDistance)/1000)))
+        let valueAgentToCust = String(format:"%.1f", ((Double(self.agentToCustomerDistance)/1000)))
+        let agenttoCustDis:Double = Double(valueAgentToCust) ?? 0.0
+        let agtoBODis:Double = Double(valueAgtoBO) ?? 0.0
+        let botoCustDis:Double = Double(valueBOtoCust) ?? 0.0
+        
+        if order_status == 1 {
+            
+            let totalTime:Int = (Int((agentToCustomerDeliveryTime+waiting_time)/60))
+            if totalTime < 60{
+                lblDuration.text = "\(totalTime) mins" + "(\(agenttoCustDis)\(km))".uppercased()
+            }else{
+                let hour = Int(totalTime / 60)
+                let min = Int(totalTime % 60)
+                lblDuration.text = "\(hour) hour \(min) mins" + "(\(agenttoCustDis)\(km))"
+            }
+        }else{
+        
+        let totalTime = (Int((agentToBoDeliveryTime + boToCustomerDeliveryTime+waiting_time)/60))
+            let totalDistance = agtoBODis + botoCustDis
+            if totalTime < 60{
+                lblDuration.text = "\(totalTime) mins" + "(\(totalDistance)\(km))".uppercased()
+            }else{
+                let hour = Int(totalTime / 60)
+                let min = Int(totalTime % 60)
+                lblDuration.text = "\(hour) hour \(min) mins" + "(\(totalDistance)\(km))".uppercased()
+            }
+            
+        }
+    }
+
     
     /*
      

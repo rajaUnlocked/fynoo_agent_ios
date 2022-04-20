@@ -33,6 +33,7 @@ class ProductListNewViewController: UIViewController, GlobalsearchDelegate {
     var textSTR = ""
   var count = 0
 //    @IBOutlet weak var headerVw: NavigationView!
+    var rejectTabindex: Int = 10000
     override func viewDidLoad() {
         ModalController.watermark(self.view)
         super.viewDidLoad()
@@ -202,8 +203,12 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
                       
                             cell.editBtn.tag = indexPath.row
                                  cell.editBtn.addTarget(self, action: #selector(editClicked(_ :)), for: .touchUpInside)
+                cell.btninfo.tag = indexPath.row
+                cell.btninfo.addTarget(self, action: #selector(imageTapped(_ :)), for: .touchUpInside)
+               
+                
                              let product_list = dataselllist
-                                 cell.setCellData(productList: product_list, index: indexPath.row)
+                cell.setCellData(productList: product_list, index: indexPath.row, selectedIndex: rejectTabindex)
                                  
                                  return cell
             }
@@ -214,6 +219,29 @@ extension ProductListNewViewController: UITableViewDataSource,UITableViewDelegat
      
         
     }
+    
+    @objc func imageTapped(_ sender :UIButton)
+    {
+//        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        print(sender.tag)
+        let indexpath = IndexPath(row: sender.tag, section: 2)
+        let data = dataselllist[sender.tag].pro_reject_desc
+        print(data)
+        rejectTabindex = sender.tag
+//        self.tabView.reloadData()
+        
+        self.view.showToast(toastMessage: "  \((dataselllist[sender.tag].pro_reject_desc) ?? "")  ", duration: 1.1)
+        
+//        let alert = UIAlertController(title: "Subscribed!", message: "\(data ?? "")", preferredStyle: .alert)
+//          let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//          alert.addAction(okAction)
+//
+//          self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+   
+    
     
     @objc private func textFieldDidChange(_ textField: UITextField)
     {
