@@ -107,7 +107,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         NotificationCenter.default.addObserver(self, selector: #selector(getNotificationARV(_:)), name: NSNotification.Name(Constant.GET_NOTIFICATIONARV), object: nil)
         tabBarController?.delegate = self
         
-        doBackgroundTask()
+//        doBackgroundTask()
         getVersion()
     }
     @objc func getVersion()
@@ -260,7 +260,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
             "lang_code":HeaderHeightSingleton.shared.LanguageSelected
         ] as [String : Any]
         
-        print("request -",parameters)
+//        print("request -",parameters)
         ServerCalls.postRequest(Service.agentSetLatLong, withParameters: parameters) { (response, success, resp) in
             if let value = response as? NSDictionary{
                 let msg = value.object(forKey: "error_description") as! String

@@ -446,6 +446,7 @@ class tripDetailInfo : Mappable{
     var agent_long : String?
     var status : Int?
     var status_des : String?
+    var waiting_time : Int?
 
     required init?(map: Map) {
 
@@ -481,6 +482,7 @@ class tripDetailInfo : Mappable{
         agent_long <- map["agent_long"]
         status <- map["status"]
         status_des <- map["status_des"]
+        waiting_time <- map["waiting_time"]
     }
 
 }
