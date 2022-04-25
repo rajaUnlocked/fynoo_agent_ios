@@ -39,6 +39,7 @@ class BusinessLocation1ViewController: UIViewController,UITableViewDelegate,UITa
     var placeHolderAr = ["","Add Select Market","Add Select Mall"]
     var nameAr = ["Store on Road","Store in Market","Store in Mall"]
     let fontNameLight = NSLocalizedString("LightFontName", comment: "")
+    var nxtButtonStatus:Bool = false
     override func viewDidLoad() {
         ModalController.watermark(self.view)
         super.viewDidLoad()
@@ -235,6 +236,7 @@ class BusinessLocation1ViewController: UIViewController,UITableViewDelegate,UITa
                 cell.txtView.delegate = self
                 cell.txtView.text = AddBranch.shared.locationdetails
                 cell.txtView.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+                nxtButtonStatus = true
                 if radiocheck == 2
                 {
                     if AddBranch.shared.locationdetails.count > 0
@@ -242,15 +244,19 @@ class BusinessLocation1ViewController: UIViewController,UITableViewDelegate,UITa
                         if !AddBranch.shared.locationdetails.containArabicNumber
                         {
                             cell.txtView.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                            nxtButtonStatus = false
                         }
                         else
                         {
                             cell.txtView.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+                            nxtButtonStatus = true
                         }
                     }
                     else
                     {
-                        cell.txtView.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor                }
+                        cell.txtView.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                        nxtButtonStatus = false
+                    }
                 }
                 cell.selectionStyle = .none
                 
@@ -275,7 +281,48 @@ class BusinessLocation1ViewController: UIViewController,UITableViewDelegate,UITa
                 cell.savedraft.addTarget(self, action: #selector(cancelClick(_ :)), for: .touchUpInside)
                 cell.nextbtn.tag = indexPath.row - 3
                 cell.nextbtn.addTarget(self, action: #selector(saveClick(_ :)), for: .touchUpInside)
-                
+                cell.nextbtn.setTitleColor(UIColor.AppThemeGreenTextColor(), for: .normal)
+                cell.nextbtn.setBorder(cornerRadius: 3.0, borderColor: UIColor.AppThemeGreenTextColor(), borderWidth: 0.5)
+
+                     if AddBranch.shared.location == "" {
+                         cell.nextbtn.setTitleColor(UIColor.AppThemeRedTextColor(), for: .normal)
+                         cell.nextbtn.setBorder(cornerRadius: 3.0, borderColor: UIColor.AppThemeRedTextColor(), borderWidth: 0.5)
+                     }
+                     if radiocheck == 0
+                     {
+                         cell.nextbtn.setTitleColor(UIColor.AppThemeRedTextColor(), for: .normal)
+                         cell.nextbtn.setBorder(cornerRadius: 3.0, borderColor: UIColor.AppThemeRedTextColor(), borderWidth: 0.5)
+                     }
+                     if radiocheck == 3
+                     {
+                         if self.mall_market_name.count == 0
+                         {
+                             cell.nextbtn.setTitleColor(UIColor.AppThemeRedTextColor(), for: .normal)
+                             cell.nextbtn.setBorder(cornerRadius: 3.0, borderColor: UIColor.AppThemeRedTextColor(), borderWidth: 0.5)
+                         }
+                     }
+                     if radiocheck == 4
+                     {
+                         if self.mall_market_name.count == 0
+                         {
+                             cell.nextbtn.setTitleColor(UIColor.AppThemeRedTextColor(), for: .normal)
+                             cell.nextbtn.setBorder(cornerRadius: 3.0, borderColor: UIColor.AppThemeRedTextColor(), borderWidth: 0.5)
+                         }
+                     }
+                     if radiocheck == 2 {
+                         
+                         if  nxtButtonStatus == false
+                         {
+                             cell.nextbtn.setTitleColor(UIColor.AppThemeRedTextColor(), for: .normal)
+                             cell.nextbtn.setBorder(cornerRadius: 3.0, borderColor: UIColor.AppThemeRedTextColor(), borderWidth: 0.5)
+                         }else
+                         {
+                             
+                             cell.nextbtn.setTitleColor(UIColor.AppThemeGreenTextColor(), for: .normal)
+                             cell.nextbtn.setBorder(cornerRadius: 3.0, borderColor: UIColor.AppThemeGreenTextColor(), borderWidth: 0.5)
+                             
+                         }
+                     }
                 
                 return cell
                 
@@ -462,17 +509,22 @@ class BusinessLocation1ViewController: UIViewController,UITableViewDelegate,UITa
                 if !AddBranch.shared.locationdetails.containArabicNumber
                 {
                     cell.txtView.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                    nxtButtonStatus = false
                 }
                 else
                 {
                     cell.txtView.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+                    nxtButtonStatus = true
                 }
             }
             else
             {
-                cell.txtView.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor                }
+                cell.txtView.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                nxtButtonStatus = false
+            }
         }
         tabView.reloadRows(at: [IndexPath(row: 1, section: 2)], with: .none)
+        tabView.reloadRows(at: [IndexPath(row: 3, section: 2)], with: .none)
         return true
     }
     
