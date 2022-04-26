@@ -434,33 +434,28 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         let cell = tabvw.cellForRow(at: IndexPath(row: row, section: section)) as! VehicleDescriptionTableViewCell
         if section == 1
         {
-          
-            
-           if row == 1
-           {
-//            if !ModalController.isValidNameDocs(title: textstr)
-//            {
-//             return false
-//            }
-            
-            if !textstr.containArabicNumber
+            if row == 1
             {
-              return false
-            }
-            if textstr.count > 0
-                       {
-                
-                             cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
-                           
-                           
-                       }
-                           
-                       else
-                       {
-                           
-                           cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
-                       }
-            }
+                if !ModalController.isValidName(title: textstr)
+                {
+                    return false
+                }
+               
+               if !textstr.containArabicNumber
+               {
+                   return false
+               }
+               if textstr.count > 0
+               {
+                   
+                   cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+               }
+               
+               else
+               {
+                   cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+               }
+           }
             else if row == 3
            {
 
@@ -595,7 +590,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     }
                     if textstr.count > self.servicelist?.data?.plate_no_max_length ?? 0
                     {
-                      
+                        return false
                     }
                     if !textstr.containArabicNumber
                     {
@@ -625,7 +620,18 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         }
         return true
     }
-    
+    func textFieldDidChange(textField: UITextField){
+        let touchPoint = textField.convert(CGPoint.zero, to: tabvw)
+        let clickedBtn = tabvw.indexPathForRow(at: touchPoint)
+        let row = Int(clickedBtn!.row)
+        if row == 8{
+            if textField.text == "00000000"
+            {
+                textField.text = ""
+                return
+            }
+        }
+    }
     func registernibs() {
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         submit.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:16)
@@ -1149,7 +1155,8 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         
         if index.row == 8
         {
-         cell.txt.isUserInteractionEnabled = true
+            cell.txt.isUserInteractionEnabled = true
+            cell.txt.autocapitalizationType = .allCharacters
             cell.downarrow.isHidden = true
         }
         cell.toplbl.text = vehicledescriparr[index.row - 1].localized
@@ -1157,8 +1164,16 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
         if txtArr[index.row - 1] == ""
         {
+            if index.row == 7{
+                cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+            }else{
             cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+            }
         }
+//        if txtArr[6] == ""{
+//            cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#B2B2B2").cgColor
+//        }
+        
         return cell
     }
     func service_DetailCell(index:IndexPath) ->UITableViewCell
@@ -1381,7 +1396,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 cell.txt.isUserInteractionEnabled = true
                 if indexPath.row == 1
                 {
-                    cell.txt.keyboardType = .default
+                    cell.txt.keyboardType = .asciiCapable
                 }
                 if indexPath.row == 2 || indexPath.row == 4
                 {
