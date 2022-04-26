@@ -63,7 +63,7 @@ addrowssDelegate,deleterowssDelegate {
 //        toplevel.text =  "\(n1) \(name) \(n2)".localized
         let branchname = (AddBranch.shared.bName == "" ? "Branch Name" : AddBranch.shared.bName)
         let businessHours = "Add your business hours to".localized
-        let people = "it's easy for people to plan a visit.".localized
+        let people = "so it's easy for people to plan a visit.".localized
         let string = NSMutableAttributedString(string: "\(businessHours) \(branchname) \(people)")
         string.setColor(color: .systemRed, forText: branchname)
         toplevel.attributedText = string
@@ -506,6 +506,14 @@ extension BusinessTimesheet1PopupViewController: UITableViewDelegate,UITableView
               {
                 cell1.checkbtn.isSelected = false
               }
+                if arr1.count == 2
+                {
+                    cell1.plusbtn.isHidden = true
+                }
+                else
+                {
+                  cell1.plusbtn.isHidden = false
+                }
               cell1.checkbtn.addTarget(self, action: #selector(clickedChecked(_:)), for: .touchUpInside)
                  cell1.delegate = self
                  return cell1
