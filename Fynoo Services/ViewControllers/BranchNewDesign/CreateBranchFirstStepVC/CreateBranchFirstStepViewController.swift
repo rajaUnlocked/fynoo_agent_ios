@@ -627,6 +627,15 @@ class CreateBranchFirstStepViewController: UIViewController, UITableViewDelegate
             ModalController.showNegativeCustomAlertWith(title: "Please select business timing".localized, msg: "" )
             return
          }
+         
+         if AddBranch.shared.platformType.contains(48)
+         {
+         if br.location.count == 0
+         {
+            ModalController.showNegativeCustomAlertWith(title: "Please add  business location".localized, msg: "" )
+            return
+         }
+      }
          if br.showImgId.count == 0
          {
             ModalController.showNegativeCustomAlertWith(title: "Please add store pictures".localized, msg: "" )
