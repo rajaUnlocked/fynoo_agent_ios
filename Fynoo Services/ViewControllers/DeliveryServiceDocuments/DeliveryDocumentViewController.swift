@@ -620,14 +620,19 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         }
         return true
     }
-    func textFieldDidChange(textField: UITextField){
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
         let touchPoint = textField.convert(CGPoint.zero, to: tabvw)
         let clickedBtn = tabvw.indexPathForRow(at: touchPoint)
         let row = Int(clickedBtn!.row)
-        if row == 8{
-            if textField.text == "00000000"
+        let section = Int(clickedBtn!.section)
+        let cell = tabvw.cellForRow(at: IndexPath(row: row, section: section)) as! VehicleDescriptionTableViewCell
+        if row == 8
+        {
+            if textField.text == "00000000" || textField.text == "0000000" || textField.text == "000000"
             {
                 textField.text = ""
+                cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
                 return
             }
         }
@@ -1472,13 +1477,21 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "ReasonForChangeTableViewCell", for: indexPath) as! ReasonForChangeTableViewCell
                 cell.vehiclelbl.text = "Reason for different vehicle registration".localized
                 cell.upload.setTitle("Upload & Save".localized, for: .normal)
+                cell.count.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
                 cell.upload.tag = 7
                 cell.upload.addTarget(self, action: #selector(clickuploadclicked(_:)), for: .touchUpInside)
+                cell.count.attributedText = ModalController.setProductStricColor(str: "\(reasonforvehicle.count)/200", str1: "\(reasonforvehicle.count)", str2: " /200", fontsize: 12, fontfamily: "LightFontName", txtcolor: #colorLiteral(red: 97/255, green: 192/255, blue: 136/255, alpha: 1))
+
                 cell.txtvw.delegate = self
                 cell.txtvw.text = reasonforvehicle
                 if reasonforvehicle == ""
                 {
                       cell.txtvw.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                }
+                if reasonforvehicle.count == 200
+                {
+                    cell.count.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
+                                   
                 }
                 cell.upload.isHidden = true
                 return cell

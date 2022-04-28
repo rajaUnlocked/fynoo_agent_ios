@@ -68,6 +68,7 @@ class ListingCommonFilterViewController: UIViewController, TTRangeSliderDelegate
     var orderFilter : orderFilterModel?
     var choosenFilter : ((String) -> Void)?
     override func viewDidLoad() {
+        
         ModalController.watermark(self.view)
         super.viewDidLoad()
         close.setTitle("Close".localized, for: .normal)
@@ -462,6 +463,7 @@ class ListingCommonFilterViewController: UIViewController, TTRangeSliderDelegate
     }
     @IBAction func apply(_ sender: Any) {
         if isFilterType == "dataSell"  {
+            
             pro.datapriceselltemp = pro.datapricesell
             pro.numsoldselltemp = pro.numsoldsell
             pro.numphotoselltemp = pro.numphotosell
@@ -477,6 +479,10 @@ class ListingCommonFilterViewController: UIViewController, TTRangeSliderDelegate
                 {
                     pro.daterangesell = "\(self.fromDateTimeStamp == "" ? fullNameArr[0] :self.fromDateTimeStamp )-\(self.toDateTimeStamp == "" ? fullNameArr[1] :self.toDateTimeStamp )"
                 }
+            }
+            if pro.datapricesell.count == 0 && pro.numsoldsell == "" && pro.numphotosell == "" && pro.statussell == "" && pro.cataIdsell == "" && pro.subcataIdsell == "" {
+                ModalController.showNegativeCustomAlertWith(title: "Select at least one filte type".localized, msg: "")
+                return
             }
             isTrue = true
             self.dalasellinglist_API()

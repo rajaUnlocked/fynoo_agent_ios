@@ -225,12 +225,47 @@
                                     <action selector="messageClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="boU-Pm-oRo"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="bRt-QN-zcG" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="64" y="134" width="82" height="12"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="ZgN-ms-KnS"/>
+                                    <constraint firstAttribute="height" constant="12" id="dlO-u1-nLH"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                        <color key="value" red="0.96470588239999999" green="0.70980392160000005" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                        <color key="value" systemColor="systemYellowColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="emptyBorderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Cpt-KT-V0C" firstAttribute="top" secondItem="sTd-GG-K4i" secondAttribute="top" id="0ZS-0V-R6e"/>
                             <constraint firstItem="BW0-zI-P7G" firstAttribute="centerY" secondItem="A36-AX-Ea9" secondAttribute="centerY" id="1ML-sw-QG4"/>
                             <constraint firstItem="oRz-4M-4v5" firstAttribute="leading" secondItem="l0Y-oS-MD7" secondAttribute="trailing" constant="7.5" id="4Ob-fa-Sgz"/>
+                            <constraint firstItem="bRt-QN-zcG" firstAttribute="leading" secondItem="LbT-ZD-hOn" secondAttribute="leading" constant="64" id="5x6-xA-lgx"/>
                             <constraint firstItem="oRz-4M-4v5" firstAttribute="centerY" secondItem="l0Y-oS-MD7" secondAttribute="centerY" id="6sp-AI-ZCI"/>
                             <constraint firstItem="sTd-GG-K4i" firstAttribute="top" secondItem="NPY-Ag-UGq" secondAttribute="bottom" constant="5" id="8DZ-PO-qcr"/>
                             <constraint firstItem="AYs-kU-4yi" firstAttribute="top" secondItem="hcS-ns-sJQ" secondAttribute="bottom" constant="10" id="9QG-v5-Lnd"/>
@@ -257,6 +292,7 @@
                             <constraint firstAttribute="trailing" secondItem="EO7-Bv-hfR" secondAttribute="trailing" constant="8" id="bFz-Na-DoV"/>
                             <constraint firstItem="gXp-6k-gq4" firstAttribute="centerY" secondItem="NPY-Ag-UGq" secondAttribute="centerY" id="cnT-Ws-TMu"/>
                             <constraint firstItem="NPY-Ag-UGq" firstAttribute="leading" secondItem="27R-Pg-PVb" secondAttribute="leading" id="e6C-Dv-HSR"/>
+                            <constraint firstItem="bRt-QN-zcG" firstAttribute="top" secondItem="l0Y-oS-MD7" secondAttribute="bottom" constant="10" id="eNP-Yn-Ies"/>
                             <constraint firstItem="27R-Pg-PVb" firstAttribute="leading" secondItem="ajv-mq-bld" secondAttribute="trailing" constant="15" id="f2l-cZ-GKl"/>
                             <constraint firstItem="XdB-Eh-KUl" firstAttribute="top" secondItem="Cpt-KT-V0C" secondAttribute="bottom" constant="5" id="fR2-pR-AG0"/>
                             <constraint firstItem="kY9-4A-7gT" firstAttribute="centerY" secondItem="cQL-fw-XEP" secondAttribute="centerY" id="fmR-aE-kfU"/>
@@ -298,6 +334,7 @@
                 <outlet property="avgRating" destination="kY9-4A-7gT" id="OW6-bj-7SF"/>
                 <outlet property="callBtn" destination="Tpr-1X-lLK" id="R70-DS-r9t"/>
                 <outlet property="cardView" destination="LbT-ZD-hOn" id="epw-tA-Nyj"/>
+                <outlet property="cosmicRatingView" destination="bRt-QN-zcG" id="fra-GO-CaI"/>
                 <outlet property="date" destination="pbD-6t-HKI" id="xOr-w8-Vwb"/>
                 <outlet property="messageBtn" destination="hcS-ns-sJQ" id="isj-K7-STW"/>
                 <outlet property="name" destination="27R-Pg-PVb" id="hSA-e7-aGD"/>
@@ -331,6 +368,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
