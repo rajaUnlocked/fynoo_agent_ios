@@ -125,7 +125,7 @@ class ProductListNewViewController: UIViewController, GlobalsearchDelegate {
             self.tabView.dataSource = self
             
             
-            if self.tabView.visibleCells.count > 0 {
+            if self.tabView.visibleCells.count > 0 && self.dataselllist.count != 0 {
                 let cell = self.tabView.visibleCells[1] as! ProductListDataBankSellingTableViewCell
                 cell.animateSwipeHint(bg: cell.backgrounddView)
             }

@@ -547,8 +547,9 @@ class triplist : Mappable{
     var cust_mobile : String?
     var user_type : String?
     var delivery_price : String?
-    
-    
+    var bo_id : Int?
+    var bo_image : String?
+    var bo_name : String?
     
     required init?(map: Map) {}
     
@@ -575,7 +576,9 @@ class triplist : Mappable{
         lat <- map["lat"]
         long <- map["long"]
         cust_mobile <- map["cust_mobile"]
-        
+        bo_id <- map["bo_id"]
+        bo_image <- map["bo_image"]
+        bo_name <- map["bo_name"]
     }
     
 }

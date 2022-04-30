@@ -34,7 +34,7 @@ class DataEntryAgentRatingViewController: UIViewController {
     var agentLanguage:String = ""
     var agentProfilePic:String = "" 
 
-    
+    var complete = ""
     var CustProfilePic:String = ""
     var BoProfilePic:String = ""
     var usertype:String = ""
@@ -118,7 +118,12 @@ class DataEntryAgentRatingViewController: UIViewController {
     }
 
     @IBAction func submitClicked(_ sender: Any) {
-        self.ratingserviceAPI(rating: self.ratingval)
+        if complete == "complete"{
+            self.ratingAPI(rating: self.ratingval)
+        }else{
+            self.ratingserviceAPI(rating: self.ratingval)
+        }
+        
     }
     func ratingserviceAPI(rating:Double)
     {

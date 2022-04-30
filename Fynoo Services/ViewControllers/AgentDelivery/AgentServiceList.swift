@@ -34,6 +34,7 @@ class AgentServiceList: UITableViewCell,UITableViewDelegate {
     @IBOutlet weak var orderId: UILabel!
     @IBOutlet weak var name: UILabel!
     
+    @IBOutlet weak var btnRating: UIButton!
     @IBOutlet weak var ratingCosmosView: CosmosView!
     @IBOutlet weak var navigationBtn: UIButton!
     @IBOutlet weak var callBtn: UIButton!
