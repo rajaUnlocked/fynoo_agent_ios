@@ -75,6 +75,7 @@ class CreateProductSecondViewController: UIViewController{
     let fontNameBold = NSLocalizedString("BoldFontName", comment: "")
     var isFromBranch = ""
     override func viewDidLoad() {
+        
         ModalController.watermark(self.view)
         super.viewDidLoad()
         UINibs()

@@ -287,6 +287,7 @@
 "Please enter technical description or attach files" = "Please enter technical description or attach files";
 "Please select category and sub category" = "Please select category and sub category";
 "Please add product main picture" = "Please add product main picture";
+"Select at least one filte type" = "Select at least one filte type";
 "Please enter valid video link" = "Please enter valid video link";
 "Please select one from Online or In Store." = "Please select one from Online or In Store.";
 "Please Add description" = "Please Add description";
@@ -438,7 +439,7 @@
 "Vehicle Color" = "Vehicle Color";
 "Vehicle kind" = "Vehicle kind";
 "Maximum Load" = "Maximum Load";
-"Plat Number" = "Plat Number";
+"Plat Number" = "Plate Number";
 "National Id / Iqama" = "National Id / Iqama";
 "Driving License Front" = "Driving License Front";
 "Vehicle Registration" = "Vehicle Registration";

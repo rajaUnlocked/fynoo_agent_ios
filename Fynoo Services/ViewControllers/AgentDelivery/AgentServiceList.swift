@@ -21,6 +21,7 @@ class AgentServiceList: UITableViewCell,UITableViewDelegate {
     @IBOutlet weak var widthconst: NSLayoutConstraint!
     var  delegate : AgentServiceListDelegate?
     
+    @IBOutlet weak var cosmicRatingView: CosmosView!
     @IBOutlet weak var nexttabbtn: UIButton!
     @IBOutlet weak var cardView: CardView!
     @IBOutlet weak var statusView: UIView!
@@ -33,6 +34,7 @@ class AgentServiceList: UITableViewCell,UITableViewDelegate {
     @IBOutlet weak var orderId: UILabel!
     @IBOutlet weak var name: UILabel!
     
+    @IBOutlet weak var btnRating: UIButton!
     @IBOutlet weak var ratingCosmosView: CosmosView!
     @IBOutlet weak var navigationBtn: UIButton!
     @IBOutlet weak var callBtn: UIButton!

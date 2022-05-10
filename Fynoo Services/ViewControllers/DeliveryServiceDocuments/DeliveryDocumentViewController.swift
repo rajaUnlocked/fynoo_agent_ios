@@ -620,14 +620,19 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         }
         return true
     }
-    func textFieldDidChange(textField: UITextField){
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
         let touchPoint = textField.convert(CGPoint.zero, to: tabvw)
         let clickedBtn = tabvw.indexPathForRow(at: touchPoint)
         let row = Int(clickedBtn!.row)
-        if row == 8{
-            if textField.text == "00000000"
+        let section = Int(clickedBtn!.section)
+        let cell = tabvw.cellForRow(at: IndexPath(row: row, section: section)) as! VehicleDescriptionTableViewCell
+        if row == 8
+        {
+            if textField.text == "00000000" || textField.text == "0000000" || textField.text == "000000"
             {
                 textField.text = ""
+                cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
                 return
             }
         }
@@ -758,7 +763,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         if servicelist?.data?.status ?? 0 == 1
         {
             ModalController.showNegativeCustomAlertWith(title: " You cannot edit the form when it is pending for approval", msg: "")
-                           return
+            return
         }
         if sender.tag == 0
         {
@@ -767,25 +772,25 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 ModalController.showNegativeCustomAlertWith(title: "Please enter full name", msg: "")
                 return
             }
-           if toptxtArr[1] == ""
+            if toptxtArr[1] == ""
             {
                 ModalController.showNegativeCustomAlertWith(title: "Please Select DOB", msg: "")
                 return
             }
-             if toptxtArr[2] == ""
+            if toptxtArr[2] == ""
             {
-              
+                
                 ModalController.showNegativeCustomAlertWith(title: "Please Enter National ID", msg: "")
                 return
             }
-                 if toptxtArr[2].count > 0
+            if toptxtArr[2].count > 0
+            {
+                if toptxtArr[2].count != (self.servicelist?.data?.iqama_length ?? 0)
                 {
-            if toptxtArr[2].count != (self.servicelist?.data?.iqama_length ?? 0)
-                {
-                   ModalController.showNegativeCustomAlertWith(title: "Please Check National ID", msg: "")
+                    ModalController.showNegativeCustomAlertWith(title: "Please Check National ID", msg: "")
                     return
                 }
-                }
+            }
             if toptxtArr[3] == ""{
                 ModalController.showNegativeCustomAlertWith(title: "Please select date of expiry", msg: "")
                 return
@@ -798,21 +803,21 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             service.isType = sender.tag + 1
             if !imgIdArr[sender.tag]
             {
-            if !imgIdUploadedArr[sender.tag]
-            {
-                ModalController.showNegativeCustomAlertWith(title: "Please upload nation id/Iqama by clicking on Sample image", msg: "")
-                return
-            }
+                if !imgIdUploadedArr[sender.tag]
+                {
+                    ModalController.showNegativeCustomAlertWith(title: "Please upload nation id/Iqama by clicking on Sample image", msg: "")
+                    return
+                }
             }
             if imglocalArr[sender.tag] == nil{
-              
+                
                 service.docfilereg.append(documentlocalArr[sender.tag]!)
             }
             else{
                 
                 service.imagefile.append(imglocalArr[sender.tag]!)
             }
-              service.sendforapproval = "0"
+            service.sendforapproval = "0"
         }
         else if sender.tag == 5
         {
@@ -821,12 +826,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 ModalController.showNegativeCustomAlertWith(title: "Please select registration type".localized, msg: "")
                 return
             }
-             if txtArr[1] == ""
+            if txtArr[1] == ""
             {
                 ModalController.showNegativeCustomAlertWith(title: "Please select vehicle brand".localized, msg: "")
                 return
             }
-             if txtArr[2] == ""
+            if txtArr[2] == ""
             {
                 ModalController.showNegativeCustomAlertWith(title: "Please select vehicle name".localized, msg: "")
                 return
@@ -835,12 +840,12 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 ModalController.showNegativeCustomAlertWith(title: "Please enter production year".localized, msg: "")
                 return
             }
-              if txtArr[3].count > 0
+            if txtArr[3].count > 0
             {
-             if txtArr[3].count != 4{
-                              ModalController.showNegativeCustomAlertWith(title: "Please Check Production Year", msg: "")
-                               return
-                           }
+                if txtArr[3].count != 4{
+                    ModalController.showNegativeCustomAlertWith(title: "Please Check Production Year", msg: "")
+                    return
+                }
             }
             if txtArr[4] == ""{
                 ModalController.showNegativeCustomAlertWith(title: "Please select vehicle color".localized, msg: "")
@@ -850,38 +855,38 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 ModalController.showNegativeCustomAlertWith(title: "Please select vehicle kind".localized, msg: "")
                 return
             }
-//            if txtArr[6] == ""{
-//                ModalController.showNegativeCustomAlertWith(title: "Maximum Load".localized, msg: "")
-//                return
-//            }
-                 if txtArr[6].count > 0
+            //            if txtArr[6] == ""{
+            //                ModalController.showNegativeCustomAlertWith(title: "Maximum Load".localized, msg: "")
+            //                return
+            //            }
+            if txtArr[6].count > 0
             {
-             if txtArr[6].count != (self.servicelist?.data?.maximum_load_allowed ?? 0){
-                             ModalController.showNegativeCustomAlertWith(title: "Please Check Maximum Load ", msg: "")
-                              return
-                          }
+                if txtArr[6].count != (self.servicelist?.data?.maximum_load_allowed ?? 0){
+                    ModalController.showNegativeCustomAlertWith(title: "Please Check Maximum Load ", msg: "")
+                    return
+                }
             }
             if txtArr[7] == ""{
                 ModalController.showNegativeCustomAlertWith(title: "Please enter plat number".localized, msg: "")
                 return
             }
-                if txtArr[7].count > 0
+            if txtArr[7].count > 0
             {
                 print("vnknnjjknk \(self.servicelist?.data?.plate_no_min_length ?? 0)")
-            if txtArr[7].count < (self.servicelist?.data?.plate_no_min_length ?? 0)  {
-                   ModalController.showNegativeCustomAlertWith(title: "Please Check Plat Number", msg: "")
+                if txtArr[7].count < (self.servicelist?.data?.plate_no_min_length ?? 0)  {
+                    ModalController.showNegativeCustomAlertWith(title: "Please Check Plat Number", msg: "")
                     return
                 }
             }
             
-        
+            
             if !imgIdArr[sender.tag]
             {
-            if !imgIdUploadedArr[sender.tag]
-            {
-                ModalController.showNegativeCustomAlertWith(title: "Please upload vehicle front side photo", msg: "")
-                return
-            }
+                if !imgIdUploadedArr[sender.tag]
+                {
+                    ModalController.showNegativeCustomAlertWith(title: "Please upload vehicle front side photo", msg: "")
+                    return
+                }
             }
             service.regtype = "\(txtIdArr[0])"
             service.vehicleBrand = "\(txtIdArr[1])"
@@ -894,10 +899,10 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
             
             service.isType = 6
             if imglocalArr[sender.tag] == nil{
-               if documentlocalArr[sender.tag] != nil
+                if documentlocalArr[sender.tag] != nil
                 {
-                service.docfilereg.append(documentlocalArr[sender.tag]!)
-               }
+                    service.docfilereg.append(documentlocalArr[sender.tag]!)
+                }
                 else{
                     ModalController.showNegativeCustomAlertWith(title: "Please Upload the Front side Photo", msg: "")
                     return
@@ -907,80 +912,80 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 service.imagefile.append(imglocalArr[sender.tag]!)
                 
             }
-              service.sendforapproval = "0"
+            service.sendforapproval = "0"
         }
-            else if sender.tag == 7
+        else if sender.tag == 7
+        {
+            service.sendforapproval = "0"
+            service.isType = 7
+            if reasonforvehicle == ""
             {
-              service.sendforapproval = "0"
-                service.isType = 7
-                if reasonforvehicle == ""
-                {
-                    ModalController.showNegativeCustomAlertWith(title: "Please Fill Reason For Vehicle Change", msg: "")
+                ModalController.showNegativeCustomAlertWith(title: "Please Fill Reason For Vehicle Change", msg: "")
                 return
-                }
-                service.reasonchange = reasonforvehicle
             }
+            service.reasonchange = reasonforvehicle
+        }
         else if sender.tag == 8
         {
-          service.sendforapproval = "1"
+            service.sendforapproval = "1"
             service.isType = 8
         }
         else if sender.tag == 4
         {
-           
+            
             if !imgIdArr[2]
             {
-            if !imgIdUploadedArr[2]
-            {
-                ModalController.showNegativeCustomAlertWith(title: "Please upload Vehicle Registration by clicking on Sample image", msg: "")
-                return
+                if !imgIdUploadedArr[2]
+                {
+                    ModalController.showNegativeCustomAlertWith(title: "Please upload Vehicle Registration by clicking on Sample image", msg: "")
+                    return
+                }
+                
             }
+            //  if !imgIdArr[4]
+            //            {
+            //            if !imgIdUploadedArr[4]
+            //            {
+            //                    ModalController.showNegativeCustomAlertWith(title: "Upload Driving Authorization ", msg: "")
+            //                    return
+            //            }
+            //            }
             
-            }
-          //  if !imgIdArr[4]
-//            {
-//            if !imgIdUploadedArr[4]
-//            {
-//                    ModalController.showNegativeCustomAlertWith(title: "Upload Driving Authorization ", msg: "")
-//                    return
-//            }
-//            }
-             
             service.isType = sender.tag + 1
             service.sendforapproval = "0"
             imglocalArr[2] == nil ? service.docfilereg.append(documentlocalArr[2]!) :  service.imagefile.append(imglocalArr[2]!)
             if imgIdUploadedArr[4]
             {
-            imglocalArr[4] == nil ? service.docfilereg.append(documentlocalArr[4]!) :  service.imagefile.append(imglocalArr[4]!)
+                imglocalArr[4] == nil ? service.docfilereg.append(documentlocalArr[4]!) :  service.imagefile.append(imglocalArr[4]!)
             }
         }
         else
         {
             if !imgIdArr[sender.tag]
             {
-            if  !imgIdUploadedArr[sender.tag]
-            {
-                if sender.tag == 1
+                if  !imgIdUploadedArr[sender.tag]
                 {
-                    ModalController.showNegativeCustomAlertWith(title: "Please upload driving license font by clicking on Sample image", msg: "")
-                    return
+                    if sender.tag == 1
+                    {
+                        ModalController.showNegativeCustomAlertWith(title: "Please upload driving license font by clicking on Sample image", msg: "")
+                        return
+                    }
+                    if sender.tag == 2
+                    {
+                        ModalController.showNegativeCustomAlertWith(title: "Please upload Vehicle Registration by clicking on Sample image", msg: "")
+                        return
+                    }
+                    if sender.tag == 3
+                    {
+                        ModalController.showNegativeCustomAlertWith(title: "Please upload Vehicle Insurance by clicking on Sample image", msg: "")
+                        return
+                    }
+                    
+                    else{
+                        ModalController.showNegativeCustomAlertWith(title: "Upload Driving Authorization ", msg: "")
+                        return
+                    }
                 }
-                if sender.tag == 2
-                {
-                    ModalController.showNegativeCustomAlertWith(title: "Please upload Vehicle Registration by clicking on Sample image", msg: "")
-                    return
-                }
-                if sender.tag == 3
-                {
-                    ModalController.showNegativeCustomAlertWith(title: "Please upload Vehicle Insurance by clicking on Sample image", msg: "")
-                    return
-                }
-                
-                else{
-                    ModalController.showNegativeCustomAlertWith(title: "Upload Driving Authorization ", msg: "")
-                    return
-                }
-            }
             }
             service.isType = sender.tag + 1
             service.sendforapproval = "0"
@@ -998,7 +1003,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         service.primaryid = primaryid
         if service.docfilereg.count > 0 && service.imagefile.count > 0
         {
-        service.istypeimage = (imglocalArr[2] == nil ? false : true)
+            service.istypeimage = (imglocalArr[2] == nil ? false : true)
         }
         service.uploadImage { (success, response) in
             ModalClass.stopLoadingAllLoaders(self.view)
@@ -1008,13 +1013,13 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                 self.servicelist = response
                 ModalController.showSuccessCustomAlertWith(title: self.servicelist?.error_description ?? "", msg: "")
                 self.primaryid = self.servicelist?.data?.id ?? 0
-              self.imgArr = [self.servicelist?.data?.national_id ?? "",self.servicelist?.data?.driving_license ?? "",self.servicelist?.data?.registration ?? "",self.servicelist?.data?.insurance ?? "",self.servicelist?.data?.authorization ?? "",self.servicelist?.data?.front_side ?? ""]
+                self.imgArr = [self.servicelist?.data?.national_id ?? "",self.servicelist?.data?.driving_license ?? "",self.servicelist?.data?.registration ?? "",self.servicelist?.data?.insurance ?? "",self.servicelist?.data?.authorization ?? "",self.servicelist?.data?.front_side ?? ""]
                 for i in 0...self.imgArr.count - 1
                 {
                     if self.imgArr[i] != ""
                     {
                         let imageUrl = URL(string: self.imgArr[i])!
-
+                        
                         do {
                             let imageData = try Data(contentsOf: imageUrl)
                             self.imglocalArr[i] = UIImage(data: imageData)
@@ -1032,13 +1037,13 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     }
                 }
                 
-                 self.imgIdArr = [self.servicelist?.data?.national_id_uploaded ?? false,self.servicelist?.data?.driving_license_uploaded ?? false,self.servicelist?.data?.registration_uploaded ?? false,self.servicelist?.data?.insurance_uploaded ?? false,self.servicelist?.data?.authorization_uploaded ?? false,self.servicelist?.data?.front_side ?? "" == "" ? false : true,self.servicelist?.data?.reason_for_change ?? "" == "" ? false : true]
+                self.imgIdArr = [self.servicelist?.data?.national_id_uploaded ?? false,self.servicelist?.data?.driving_license_uploaded ?? false,self.servicelist?.data?.registration_uploaded ?? false,self.servicelist?.data?.insurance_uploaded ?? false,self.servicelist?.data?.authorization_uploaded ?? false,self.servicelist?.data?.front_side ?? "" == "" ? false : true,self.servicelist?.data?.reason_for_change ?? "" == "" ? false : true]
                 self.descriparr = [self.servicelist?.data?.national_id_content ?? "", "",self.servicelist?.data?.registration_content ?? "", "",self.servicelist?.data?.authorization_content ?? ""]
                 self.toptxtArr = [self.servicelist?.data?.full_name ?? "",self.servicelist?.data?.dob ?? "",self.servicelist?.data?.iqama_no ?? "",self.servicelist?.data?.doe ?? ""]
                 self.txtArr = [self.servicelist?.data?.registration_type ?? "",self.servicelist?.data?.vehicle_brand ?? "",self.servicelist?.data?.vehicle_name ?? "",self.servicelist?.data?.production_year ?? "",self.servicelist?.data?.vehicle_color ?? "",self.servicelist?.data?.vehicle_kind ?? "",self.servicelist?.data?.maximum_load ?? "",self.servicelist?.data?.plate_no ?? ""]
                 if sender.tag == 8
                 {
-            self.servicedocList_API()
+                    self.servicedocList_API()
                 }
                 self.tabvw.reloadData()
             }
@@ -1303,6 +1308,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         return headerarr.count + 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if section == 0
         {
             return 1
@@ -1311,13 +1317,13 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         {
             if self.servicelist?.data?.show_iqama_section ?? false
             {
-               if SelectedIndex.contains(section)
-                           {
-                               return 6
-                           }
-                           return 1
+                if SelectedIndex.contains(section)
+                {
+                    return 6
+                }
+                return 1
             }
-           return 0
+            return 0
         }
         else if section == headerarr.count - 1
         {
@@ -1333,7 +1339,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             {
                 if SelectedIndex.contains(section)
                 {
-                return 2
+                    return 2
                 }
                 return 1
             }
@@ -1359,11 +1365,11 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         }
         else
         {
-        if SelectedIndex.contains(section)
-        {
-            return 2
-        }
-        return 1
+            if SelectedIndex.contains(section)
+            {
+                return 2
+            }
+            return 1
         }
     }
     
@@ -1472,13 +1478,21 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
                 let cell = tabvw.dequeueReusableCell(withIdentifier: "ReasonForChangeTableViewCell", for: indexPath) as! ReasonForChangeTableViewCell
                 cell.vehiclelbl.text = "Reason for different vehicle registration".localized
                 cell.upload.setTitle("Upload & Save".localized, for: .normal)
+                cell.count.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
                 cell.upload.tag = 7
                 cell.upload.addTarget(self, action: #selector(clickuploadclicked(_:)), for: .touchUpInside)
+                cell.count.attributedText = ModalController.setProductStricColor(str: "\(reasonforvehicle.count)/200", str1: "\(reasonforvehicle.count)", str2: " /200", fontsize: 12, fontfamily: "LightFontName", txtcolor: #colorLiteral(red: 97/255, green: 192/255, blue: 136/255, alpha: 1))
+
                 cell.txtvw.delegate = self
                 cell.txtvw.text = reasonforvehicle
                 if reasonforvehicle == ""
                 {
                       cell.txtvw.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                }
+                if reasonforvehicle.count == 200
+                {
+                    cell.count.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
+                                   
                 }
                 cell.upload.isHidden = true
                 return cell
@@ -1486,7 +1500,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
         case headerarr.count + 1 :
             let cell = tabvw.dequeueReusableCell(withIdentifier: "BottomLblTableViewCell", for: indexPath) as! BottomLblTableViewCell
             
-            let data = Data((self.servicelist?.data?.notes ?? "").utf8)
+            let data = Data((self.servicelist?.data?.note ?? "").utf8)
             if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
                 
                 let font = UIFont(name: "Gilroy-Light", size: 12)

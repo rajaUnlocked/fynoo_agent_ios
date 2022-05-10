@@ -31,22 +31,22 @@ class ProductDetailNewViewController: UIViewController,UIImagePickerControllerDe
     
     func addProductClicked(tag: Int) {
         let vc = BottomPopupEditProductViewController(nibName: "BottomPopupEditProductViewController", bundle: nil)
-                     vc.delegate = self
-                      vc.isproductlist = true
-                       vc.isVarient = isVarient
-                     let popupController = MTPopupController(rootViewController: vc)
-                     popupController.autoAdjustKeyboardEvent = false
-                     popupController.backgroundView?.backgroundColor = .clear
-                     popupController.style = .bottomSheet
-                     popupController.navigationBarHidden = true
-                     popupController.hidesCloseButton = false
-                     let blurEffect = UIBlurEffect(style: .dark)
-                     popupController.backgroundView = UIVisualEffectView(effect: blurEffect)
-                     popupController.backgroundView?.alpha = 0.6
-                     popupController.backgroundView?.onClick {
-                         popupController.dismiss()
-                     }
-                     popupController.present(in: self)
+        vc.delegate = self
+        vc.isproductlist = true
+        vc.isVarient = isVarient
+        let popupController = MTPopupController(rootViewController: vc)
+        popupController.autoAdjustKeyboardEvent = false
+        popupController.backgroundView?.backgroundColor = .clear
+        popupController.style = .bottomSheet
+        popupController.navigationBarHidden = true
+        popupController.hidesCloseButton = false
+        let blurEffect = UIBlurEffect(style: .dark)
+        popupController.backgroundView = UIVisualEffectView(effect: blurEffect)
+        popupController.backgroundView?.alpha = 0.6
+        popupController.backgroundView?.onClick {
+            popupController.dismiss()
+        }
+        popupController.present(in: self)
         
     }
     func qrCodeClicked(tag: Int) {
@@ -58,8 +58,8 @@ class ProductDetailNewViewController: UIViewController,UIImagePickerControllerDe
     var bbannerView : BBannerView!
     @IBOutlet weak var headerView: NavigationView!
     @IBOutlet weak var tableView: UITableView!
-
-   var refreshControl = UIRefreshControl()
+    
+    var refreshControl = UIRefreshControl()
     var productdetailmodel = DataBankSellingProductModel()
     var viewNewPoductDetailData: viewProductDetailNew?
     var productID:String = ""
@@ -68,7 +68,7 @@ class ProductDetailNewViewController: UIViewController,UIImagePickerControllerDe
     var isProductStoreAvailable:Bool = false
     var isFeature:String = ""
     var isOpenMoreSpecifications:Bool = false
-     var isOpenMoreTechSpecifications:Bool = false
+    var isOpenMoreTechSpecifications:Bool = false
     var selectedIndex:String = ""
     var storeTypeStr:String = ""
     var discountedOfferTimer: Timer?
@@ -90,16 +90,16 @@ class ProductDetailNewViewController: UIViewController,UIImagePickerControllerDe
     override func viewWillDisappear (_ animated: Bool) {
         discountedOfferTimer?.invalidate()
         
-       }
+    }
     override func viewDidAppear(_ animated: Bool) {
-                 tableView.isHidden = false
-         self.newProductDetailAPI()
-
+        tableView.isHidden = false
+        self.newProductDetailAPI()
+        
     }
     
-   
     
-   
+    
+    
     func setUpUI(){
         self.tableView.estimatedRowHeight = 170
         self.tableView.rowHeight = UITableView.automaticDimension
@@ -107,7 +107,7 @@ class ProductDetailNewViewController: UIViewController,UIImagePickerControllerDe
         self.headerView.titleHeader.text = "Product Details".localized
         self.headerView.viewControl = self
         tableView.register(UINib(nibName: "ProductDetailBannerTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductDetailBannerTableViewCell")
-       
+        
         tableView.register(UINib(nibName: "ProductVarientNewTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductVarientNewTableViewCell")
         
         
@@ -119,52 +119,52 @@ class ProductDetailNewViewController: UIViewController,UIImagePickerControllerDe
         
         tableView.register(UINib(nibName: "ProductWarrentySupportTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductWarrentySupportTableViewCell")
         
-       
+        
         
         tableView.register(UINib(nibName: "SimiilarProductTableViewCell", bundle: nil), forCellReuseIdentifier: "SimiilarProductTableViewCell")
         
-         tableView.register(UINib(nibName: "TitleHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleHeaderTableViewCell")
-       
-         newProductDetailAPI()
+        tableView.register(UINib(nibName: "TitleHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleHeaderTableViewCell")
+        
+        newProductDetailAPI()
     }
-  func addUIRefreshToTable() {
-          refreshControl = UIRefreshControl()
-          tableView.addSubview(refreshControl)
-          refreshControl.backgroundColor = UIColor.clear
-          refreshControl.tintColor = UIColor.lightGray
-          refreshControl.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
-      }
-      
-      @objc func refreshTable() {
-          if self.viewNewPoductDetailData!.error! {
-              if self.refreshControl.isRefreshing {
-                  self.refreshControl.endRefreshing()
-              }
-          }else{
+    func addUIRefreshToTable() {
+        refreshControl = UIRefreshControl()
+        tableView.addSubview(refreshControl)
+        refreshControl.backgroundColor = UIColor.clear
+        refreshControl.tintColor = UIColor.lightGray
+        refreshControl.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
+    }
+    
+    @objc func refreshTable() {
+        if self.viewNewPoductDetailData!.error! {
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+        }else{
             newProductDetailAPI()
-          }
-      }
-       func newProductDetailAPI(){
+        }
+    }
+    func newProductDetailAPI(){
         ModalClass.startLoading(self.view)
         if self.refreshControl.isRefreshing {
             self.refreshControl.endRefreshing()
         }
         AMShimmer.start(for: self.tableView)
-              productdetailmodel.pro_id = productID
-              productdetailmodel.productDetail { (success, response) in
-                  if success {
-                    ModalClass.stopLoadingAllLoaders(self.view)
-                      AMShimmer.stop(for: self.tableView)
-                                 DispatchQueue.main.async {
-                                            AMShimmer.stop(for: self.view)
-                                            }
-                      self.viewNewPoductDetailData = response
-                    self.tableView.delegate = self
-                     self.tableView.dataSource = self
-                      self.tableView.reloadData()
-                  }
-              }
-          }
+        productdetailmodel.pro_id = productID
+        productdetailmodel.productDetail { (success, response) in
+            if success {
+                ModalClass.stopLoadingAllLoaders(self.view)
+                AMShimmer.stop(for: self.tableView)
+                DispatchQueue.main.async {
+                    AMShimmer.stop(for: self.view)
+                }
+                self.viewNewPoductDetailData = response
+                self.tableView.delegate = self
+                self.tableView.dataSource = self
+                self.tableView.reloadData()
+            }
+        }
+    }
 }
 
 extension ProductDetailNewViewController : UITableViewDelegate {
@@ -172,7 +172,7 @@ extension ProductDetailNewViewController : UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int{
         if self.viewNewPoductDetailData?.data?.similar_product?.count ?? 0 == 0
         {
-          return 5
+            return 5
         }
         return 6
     }
@@ -192,22 +192,22 @@ extension ProductDetailNewViewController : UITableViewDelegate {
             }
             
             
-      }
+        }
         //else if indexPath.section == 3 {
-//            return UITableView.automaticDimension
-//                     let varientCount = self.viewNewPoductDetailData?.data?.pro_variant?.count ?? 0
-//                                          let height = Float(varientCount) / 2
-//                                          let IntValue = height.rounded(.toNearestOrAwayFromZero)
-//                                          if (varientCount) >= 1 {
-//                                          if  varientCount % 2 != 0  {
-//                                              return  CGFloat(50 * IntValue)
-//                                          }else{
-//                                              return  CGFloat(50 * IntValue)
-//                                          }
-//                                           }else{
-//                                          return 0
-//                                      }
-//        }
+        //            return UITableView.automaticDimension
+        //                     let varientCount = self.viewNewPoductDetailData?.data?.pro_variant?.count ?? 0
+        //                                          let height = Float(varientCount) / 2
+        //                                          let IntValue = height.rounded(.toNearestOrAwayFromZero)
+        //                                          if (varientCount) >= 1 {
+        //                                          if  varientCount % 2 != 0  {
+        //                                              return  CGFloat(50 * IntValue)
+        //                                          }else{
+        //                                              return  CGFloat(50 * IntValue)
+        //                                          }
+        //                                           }else{
+        //                                          return 0
+        //                                      }
+        //        }
         else if indexPath.section == 3 || indexPath.section == 4  {
             
             return UITableView.automaticDimension
@@ -271,7 +271,7 @@ extension ProductDetailNewViewController : UITableViewDataSource {
         if indexPath.section == 0 {
             return productDetailBannerViewCell(index: indexPath)
         }
-            
+        
         else if indexPath.section == 1 {
             
             return showProductVarientCell(index: indexPath)
@@ -306,30 +306,30 @@ extension ProductDetailNewViewController : UITableViewDataSource {
                 }
             }
         }
-            
+        
         else if indexPath.section == 3 {
             return ProductTechnicalSpecificationsCell(index: indexPath)
         }
         else if indexPath.section == 4 {
             return ProductDescriptionSupportCell(index: indexPath)
         }
-            
+        
         else  {
-//             return ProductDescriptionSupportCell(index: indexPath)
-//            return UITableViewCell()
+            //             return ProductDescriptionSupportCell(index: indexPath)
+            //            return UITableViewCell()
             return ProductSimilarCell(index: indexPath)
         }
         
-    
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-          if indexPath.section == 1 {
-                  let vc = VariantPRoductsViewController(nibName: "VariantPRoductsViewController", bundle: nil)
+        if indexPath.section == 1 {
+            let vc = VariantPRoductsViewController(nibName: "VariantPRoductsViewController", bundle: nil)
             vc.productId = "\(self.viewNewPoductDetailData?.data?.pro_id ?? 0)"
-                  self.navigationController?.pushViewController(vc, animated: true)
-                  
-              }
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
     }
     func productDetailBannerViewCell(index : IndexPath) -> UITableViewCell {
         
@@ -413,7 +413,7 @@ extension ProductDetailNewViewController : UITableViewDataSource {
         cell.tag = index.row
         return cell
     }
-   
+    
     func showProductVarientCell(index : IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductVarientNewTableViewCell", for: index) as! ProductVarientNewTableViewCell
         cell.selectionStyle = .none
@@ -421,11 +421,11 @@ extension ProductDetailNewViewController : UITableViewDataSource {
         cell.varientProductList = self.viewNewPoductDetailData
         cell.collectionView.reloadData()
         cell.heightConst.constant = CGFloat(60 * ( self.viewNewPoductDetailData?.data?.pro_variant?.count ?? 0))
-
+        
         cell.tag = index.row
         return cell
     }
-   
+    
     func ProductHeaderSpecificationsCell(index : IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductSpecificationsTableViewCell", for: index) as! ProductSpecificationsTableViewCell
         cell.selectionStyle = .none
@@ -475,41 +475,41 @@ extension ProductDetailNewViewController : UITableViewDataSource {
     func ProductTechnicalSpecificationsCell(index : IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTechnicalSpecificationsTableViewCell", for: index) as! ProductTechnicalSpecificationsTableViewCell
         cell.selectionStyle = .none
-         cell.descriptionLbl.textAlignment = .left
+        cell.descriptionLbl.textAlignment = .left
         if HeaderHeightSingleton.shared.LanguageSelected == "AR"
         {
             cell.descriptionLbl.textAlignment = .right
         }
         cell.moreDetailsBtn.addTarget(self, action: #selector(openMoreTechnicalSpecification), for: .touchUpInside)
-
+        
         cell.firstDocBtn.addTarget(self, action: #selector(openFirstDocSpecification), for: .touchUpInside)
         cell.secondDocBtn.addTarget(self, action: #selector(openSecondDocSpecification), for: .touchUpInside)
-
+        
         let proDoc =  self.viewNewPoductDetailData?.data?.pro_pdf?.count
         if proDoc == 0 {
             cell.pdfLbl.isHidden = true
             cell.firstDocBtn.isHidden = true
             cell.secondDocBtn.isHidden = true
-
+            
         }else if proDoc == 1 {
             cell.pdfLbl.isHidden = false
             cell.firstDocBtn.isHidden = false
             cell.secondDocBtn.isHidden = true
             let btnTxt = self.viewNewPoductDetailData?.data?.pro_pdf![0]
             cell.firstDocBtn.setTitle("[ \(btnTxt?.type ?? "") ]", for: .normal)
-
-
+            
+            
         }else if proDoc == 2 {
             cell.pdfLbl.isHidden = false
             cell.firstDocBtn.isHidden = false
             cell.secondDocBtn.isHidden = false
-
-             let btnTxt1 = self.viewNewPoductDetailData?.data?.pro_pdf![0]
+            
+            let btnTxt1 = self.viewNewPoductDetailData?.data?.pro_pdf![0]
             let btnTxt = self.viewNewPoductDetailData?.data?.pro_pdf![1]
-
+            
             cell.firstDocBtn.setTitle("[ \(btnTxt1?.type ?? "") ]", for: .normal)
             cell.secondDocBtn.setTitle("[ \(btnTxt?.type ?? "") ]", for: .normal)
-
+            
         }
         
         
@@ -529,128 +529,128 @@ extension ProductDetailNewViewController : UITableViewDataSource {
         cell.tag = index.row
         return cell
     }
-   
+    
     func ProductDescriptionSupportCell(index : IndexPath) -> UITableViewCell {
-           let cell = tableView.dequeueReusableCell(withIdentifier: "ProductWarrentySupportTableViewCell", for: index) as! ProductWarrentySupportTableViewCell
-           cell.selectionStyle = .none
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductWarrentySupportTableViewCell", for: index) as! ProductWarrentySupportTableViewCell
+        cell.selectionStyle = .none
         cell.bottomLblHeight.constant  = 5
         cell.headerTxtLbl.text = "Product Description".localized
         cell.warrentyDiscriptionlbl.textAlignment = .left
-               if HeaderHeightSingleton.shared.LanguageSelected == "AR"
-               {
-                   cell.warrentyDiscriptionlbl.textAlignment = .right
-               }
+        if HeaderHeightSingleton.shared.LanguageSelected == "AR"
+        {
+            cell.warrentyDiscriptionlbl.textAlignment = .right
+        }
         cell.warrentyDiscriptionlbl.text = viewNewPoductDetailData?.data?.pro_description ?? ""
-           cell.tag = index.row
-           return cell
-       }
-       func ProductSimilarCell(index : IndexPath) -> UITableViewCell {
-               let cell = tableView.dequeueReusableCell(withIdentifier: "SimiilarProductTableViewCell", for: index) as! SimiilarProductTableViewCell
+        cell.tag = index.row
+        return cell
+    }
+    func ProductSimilarCell(index : IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SimiilarProductTableViewCell", for: index) as! SimiilarProductTableViewCell
         cell.headerLbl.text = "Similar Product".localized
         cell.viewAllBtn.setTitle("View All".localized, for: .normal)
-               cell.selectionStyle = .none
-               cell.similarProductList = self.viewNewPoductDetailData
-               cell.collectionView.reloadData()
-            cell.parent = self
+        cell.selectionStyle = .none
+        cell.similarProductList = self.viewNewPoductDetailData
+        cell.collectionView.reloadData()
+        cell.parent = self
         cell.catID = "\((self.viewNewPoductDetailData?.data?.pro_parent_category_id)!)"
         cell.subcatID = "\((self.viewNewPoductDetailData?.data?.pro_sub_category_id)!)"
-
-               cell.tag = index.row
-               return cell
-           }
+        
+        cell.tag = index.row
+        return cell
+    }
     
     @objc func openMoreSpecification(_ sender:UIButton){
-         if self.isOpenMoreSpecifications == true {
-             self.isOpenMoreSpecifications = false
-         }else{
-             self.isOpenMoreSpecifications = true
-         }
-         self.tableView.reloadData()
-         
-     }
-     @objc func openMoreTechnicalSpecification(_ sender:UIButton) {
-            if self.isOpenMoreTechSpecifications == true {
-              self.isOpenMoreTechSpecifications = false
-            }else{
-                 self.isOpenMoreTechSpecifications = true
-            }
-             self.tableView.reloadData()
-
+        if self.isOpenMoreSpecifications == true {
+            self.isOpenMoreSpecifications = false
+        }else{
+            self.isOpenMoreSpecifications = true
         }
-     
-     @objc func openFirstDocSpecification(_ sender:UIButton) {
-       let docUrl = self.viewNewPoductDetailData?.data?.pro_pdf![0]
-         guard let url = URL(string: "\(docUrl?.pdf ?? "")") else { return }
-         UIApplication.shared.open(url)
-         
-     }
-     @objc func openSecondDocSpecification(_ sender:UIButton) {
-         
-         let docUrl = self.viewNewPoductDetailData?.data?.pro_pdf![1]
-         guard let url = URL(string: "\(docUrl?.pdf ?? "")") else { return }
-         UIApplication.shared.open(url)
-
-     }
+        self.tableView.reloadData()
+        
+    }
+    @objc func openMoreTechnicalSpecification(_ sender:UIButton) {
+        if self.isOpenMoreTechSpecifications == true {
+            self.isOpenMoreTechSpecifications = false
+        }else{
+            self.isOpenMoreTechSpecifications = true
+        }
+        self.tableView.reloadData()
+        
+    }
+    
+    @objc func openFirstDocSpecification(_ sender:UIButton) {
+        let docUrl = self.viewNewPoductDetailData?.data?.pro_pdf![0]
+        guard let url = URL(string: "\(docUrl?.pdf ?? "")") else { return }
+        UIApplication.shared.open(url)
+        
+    }
+    @objc func openSecondDocSpecification(_ sender:UIButton) {
+        
+        let docUrl = self.viewNewPoductDetailData?.data?.pro_pdf![1]
+        guard let url = URL(string: "\(docUrl?.pdf ?? "")") else { return }
+        UIApplication.shared.open(url)
+        
+    }
 }
 extension ProductDetailNewViewController :  BottomPopupEditProductViewControllerDelegate{
     
-     func filterIdval(tag: Int, Value: String, id: Int) {
-           print("")
-      }
-      
-      func information(Value: String) {
-          print("Information Click")
-      }
-
+    func filterIdval(tag: Int, Value: String, id: Int) {
+        print("")
+    }
+    
+    func information(Value: String) {
+        print("Information Click")
+    }
+    
     func actionPerform(tag: Int, index: Int) {
         if isVarient
         {
             if tag == 0{
                 print("Edit Product")
-             ProductModel.shared.remove()
-                                  ModalClass.startLoading(self.view)
+                ProductModel.shared.remove()
+                ModalClass.startLoading(self.view)
                 ProductModel.shared.editproductsell = true
-                           productmodel.proid = productID
-                                       productmodel.productDetails { (success, response) in
-                                           ModalClass.stopLoading()
-                   
-                                           if success {
-                   
-                                               let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
-                                               self.navigationController?.pushViewController(vc, animated: true)
-                                           }
-                           }
+                productmodel.proid = productID
+                productmodel.productDetails { (success, response) in
+                    ModalClass.stopLoading()
+                    
+                    if success {
+                        
+                        let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
             }else if tag == 1 {
                 print("Varient Product")
-                 ProductModel.shared.remove()
-                                     ModalClass.startLoading(self.view)
-                      
-                               productmodel.proid = productID
-                                          productmodel.productDetails { (success, response) in
-                                              ModalClass.stopLoading()
-                      
-                                              if success {
-                      
-                                                  let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
-                                                vc.isVarient = true; self.navigationController?.pushViewController(vc, animated: true)
-                                              }
-                              }
+                ProductModel.shared.remove()
+                ModalClass.startLoading(self.view)
+                
+                productmodel.proid = productID
+                productmodel.productDetails { (success, response) in
+                    ModalClass.stopLoading()
+                    
+                    if success {
+                        
+                        let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                        vc.isVarient = true; self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
             }
             else if tag == 2{
                 print("Similar Product")
-               ProductModel.shared.remove()
-                                     ModalClass.startLoading(self.view)
-                      
-                               productmodel.proid = productID
-                                          productmodel.productDetails { (success, response) in
-                                              ModalClass.stopLoading()
-                      
-                                              if success {
-                      
-                                                  let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
-                                                vc.isSimilar = true; self.navigationController?.pushViewController(vc, animated: true)
-                                              }
-                              }
+                ProductModel.shared.remove()
+                ModalClass.startLoading(self.view)
+                
+                productmodel.proid = productID
+                productmodel.productDetails { (success, response) in
+                    ModalClass.stopLoading()
+                    
+                    if success {
+                        
+                        let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                        vc.isSimilar = true; self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
             }
             else {
                 ProductModel.shared.remove()
@@ -663,34 +663,34 @@ extension ProductDetailNewViewController :  BottomPopupEditProductViewController
         else{
             if tag == 0{
                 print("Edit Product")
-          ProductModel.shared.remove()
-                                     ModalClass.startLoading(self.view)
-                       ProductModel.shared.editproductsell = true
-                               productmodel.proid = productID
-                                          productmodel.productDetails { (success, response) in
-                                              ModalClass.stopLoading()
-                      
-                                              if success {
-                      
-                                                  let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
-                                                self.navigationController?.pushViewController(vc, animated: true)
-                                              }
-                              }
-                }else if tag == 1{
+                ProductModel.shared.remove()
+                ModalClass.startLoading(self.view)
+                ProductModel.shared.editproductsell = true
+                productmodel.proid = productID
+                productmodel.productDetails { (success, response) in
+                    ModalClass.stopLoading()
+                    
+                    if success {
+                        
+                        let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
+            }else if tag == 1{
                 print("Similar Product")
-                 ProductModel.shared.remove()
-                                     ModalClass.startLoading(self.view)
-                      
-                                productmodel.proid = productID
-                                          productmodel.productDetails { (success, response) in
-                                              ModalClass.stopLoading()
-                      
-                                              if success {
-                      
-                                                  let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
-                                                vc.isSimilar = true; self.navigationController?.pushViewController(vc, animated: true)
-                                              }
-                              }
+                ProductModel.shared.remove()
+                ModalClass.startLoading(self.view)
+                
+                productmodel.proid = productID
+                productmodel.productDetails { (success, response) in
+                    ModalClass.stopLoading()
+                    
+                    if success {
+                        
+                        let vc = CreateProductFirstViewController(nibName: "CreateProductFirstViewController", bundle: nil)
+                        vc.isSimilar = true; self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
             }
             else {
                 ProductModel.shared.remove()

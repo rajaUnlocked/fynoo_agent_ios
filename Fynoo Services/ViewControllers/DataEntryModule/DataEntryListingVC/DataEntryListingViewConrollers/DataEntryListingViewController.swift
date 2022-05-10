@@ -233,7 +233,7 @@ class DataEntryListingViewController: UIViewController,DataEntryListHeaderViewDe
             }
             
             if  self.selectedTab == "2" {
-                if self.tableView.visibleCells.count > 0 {
+                if self.tableView.visibleCells.count > 0 && self.totalRequestListArray?.count != 0{
                                let cell = self.tableView.visibleCells[1] as! DataEntryListingTableViewCell
                     cell.animateSwipeHint(bg: cell.backgrounddView)
                            }

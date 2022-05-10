@@ -29,20 +29,21 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
     var tripList : TripListInfo?
     var serviceID:String = ""
     var serviceStatus:String = ""
-    
+    var boID = ""
     var tripListListArray:[triplist]?
     var isMoreDataAvailable: Bool = false
     var currentPageNumber: Int = 0
     
     override func viewDidLoad() {
+        
         ModalController.watermark(self.view)
         super.viewDidLoad()
         self.tableView.separatorStyle = .none
         
-        tableView.register(UINib(nibName: "AgentDeliveryTableViewCell", bundle: nil), forCellReuseIdentifier: "AgentDeliveryTableViewCell");
-        tableView.register(UINib(nibName: "TripAchievementViewCell", bundle: nil), forCellReuseIdentifier: "TripAchievementViewCell");
-        tableView.register(UINib(nibName: "AgentServiceList", bundle: nil), forCellReuseIdentifier: "AgentServiceList");
-        tableView.register(UINib(nibName: "NoTripFoundTableViewCell", bundle: nil), forCellReuseIdentifier: "NoTripFoundTableViewCell");
+        tableView.register(UINib(nibName: "AgentDeliveryTableViewCell", bundle: nil), forCellReuseIdentifier: "AgentDeliveryTableViewCell")
+        tableView.register(UINib(nibName: "TripAchievementViewCell", bundle: nil), forCellReuseIdentifier: "TripAchievementViewCell")
+        tableView.register(UINib(nibName: "AgentServiceList", bundle: nil), forCellReuseIdentifier: "AgentServiceList")
+        tableView.register(UINib(nibName: "NoTripFoundTableViewCell", bundle: nil), forCellReuseIdentifier: "NoTripFoundTableViewCell")
         
         isMoreDataAvailable = false
         currentPageNumber = 0
@@ -58,7 +59,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         
         NotificationCenter.default.addObserver(self, selector: #selector(getOrderSuccessData(_:)), name: NSNotification.Name(Constant.NF_KEY_FOR_PASS_DATA_TO_DELIVERYDASHBOARD), object: nil)
         
-        print(orderSuccessData)
+        print("KASHISH RASTOGI",orderSuccessData)
         
 //        if isRating == true {
 //            self.headerView.backButton.isHidden = true
@@ -94,21 +95,16 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         getTripData()
         getAgentData()
     }
-    func ratingClicked(_ sender: Any) {
+    @objc func ratingClicked(_ sender: Any) {
         
         let vc = DataEntryAgentRatingViewController(nibName: "DataEntryAgentRatingViewController", bundle: nil)
         vc.isFromService = true
-       // vc.delegate =  self
-        vc.serviceID = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "del_service_id") as Any)
- vc.custID = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "cust_id") as Any)
-    vc.boID = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "bo_id") as Any)
-        vc.custName = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "cust_name") as Any)
-           vc.boName = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "bo_name") as Any)
-        vc.Orderid = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "order_id") as Any)
-        vc.CustProfilePic = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "cust_image") as Any)
-        vc.BoProfilePic = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "bo_image") as Any)
-        vc.usertype = ModalController.toString((orderSuccessData as NSDictionary).value(forKey: "user_type") as Any)
-        
+        vc.complete = "complete"
+        vc.serviceID = ModalController.toString(self.tripListListArray?[(sender as AnyObject).tag].id as Any)
+        vc.agentID = ModalController.toString(self.tripListListArray?[(sender as AnyObject).tag].bo_id as Any)
+        vc.boName = ModalController.toString(self.tripListListArray?[(sender as AnyObject).tag].bo_name as Any)
+        vc.BoProfilePic = ModalController.toString(self.tripListListArray?[(sender as AnyObject).tag].bo_image as Any)
+        vc.usertype = ModalController.toString(self.tripListListArray?[(sender as AnyObject).tag].user_type as Any)
         vc.modalPresentationStyle = .overFullScreen
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
@@ -116,6 +112,8 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         
     }
     override func viewWillAppear(_ animated: Bool) {
+        getTripData()
+        tableView.reloadData()
         print(Singleton.shared.getDelServiceID())
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -227,7 +225,7 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
         print("Url:-", Service.tripList)
         if currentPageNumber == 0
         {
-        ModalClass.startLoading(self.view)
+            ModalClass.startLoading(self.view)
         }
         ServerCalls.postRequest(Service.tripList, withParameters: param) { (response, success) in
             if success{
@@ -239,9 +237,9 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
                     if self.currentPageNumber == 0 {
                         self.tripListListArray?.removeAll()
                     }
-                   
+                    
                     if self.tripList?.data?.trip_list?.count ?? 0 > 0 {
-                       
+                        
                         guard let arr = self.tripList?.data?.trip_list as NSArray? else {
                             
                             self.isMoreDataAvailable = false
@@ -269,12 +267,12 @@ class AgentDeliveryViewController: UIViewController, DataEntryListHeaderViewDele
                             self.tripListListArray?.removeAll()
                         }
                         self.isMoreDataAvailable = false
-                       
+                        
                     }
                     
                     self.tableView.reloadData()
                 }
-               
+                
             }else{
                 ModalController.showNegativeCustomAlertWith(title: "", msg: "\(self.tripList?.error_description ?? "")")
                 ModalClass.stopLoadingAllLoaders(self.view)
@@ -574,12 +572,13 @@ extension AgentDeliveryViewController : UITableViewDataSource {
                 self.navigationController?.pushViewController(vc, animated: true)
             }else
             {
-            let vc = ProductDetailsViewC()
-            vc.orderId = tripListListArray?[indexPath.row].order_id ?? ""
+                let vc = ProductDetailsViewC()
+                vc.orderId = tripListListArray?[indexPath.row].order_id ?? ""
                 vc.tripId = tripListListArray?[indexPath.row].id ?? 0
-//                ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any)
-            self.navigationController?.pushViewController(vc, animated: true)
-         }
+                //                tripListListArray?[indexPath.row].id
+                //                ModalController.toString(((self.serviceArr.object(at: indexPath.item) as! NSDictionary).object(forKey: "service_id") as! NSNumber) as Any)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
              
         
@@ -605,7 +604,8 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         cell.statusView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         cell.cardView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         cell.price.text = "\(tripListListArray?[index.row].currency ?? "") \(ModalController.toString(tripListListArray?[index.row].almost_total_price ?? 0.0 as Any))"
-        
+        cell.cosmicRatingView.isHidden = true
+        cell.btnRating.isHidden = true
         if tripListListArray?[index.row].status == 0 || tripListListArray?[index.row].status == 3 {
             cell.almostPriceLbl.text = "Almost Total Amount".localized
         }else
@@ -654,6 +654,14 @@ extension AgentDeliveryViewController : UITableViewDataSource {
         {
             cell.widthconst.constant = 0
             cell.navigationBtn.isHidden = true
+        }
+        if selectedTab == "3"
+        {
+            cell.cosmicRatingView.isHidden = false
+            cell.btnRating.isHidden = false
+            cell.btnRating.addTarget(self, action: #selector(ratingClicked(_:)), for: .touchUpInside)
+            cell.btnRating.setTitle("", for: .normal)
+            cell.btnRating.tag = index.row
         }
         cell.delegate = self
         cell.tag = index.row
