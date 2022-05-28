@@ -63,8 +63,11 @@ class CommonPopupViewController: UIViewController {
             
             let opt = "Do you want to opt for".localized
             let service = "service?".localized
-            
-            self.titleLbl.text = "\(opt) \(name) \(service)"
+            if name == "Delivery Service"{
+                self.titleLbl.text = "\(opt) \(name)?"
+            }else{
+                self.titleLbl.text = "\(opt) \(name) \(service)"
+            }
         }
         
         if showActive {
