@@ -40,7 +40,7 @@ class InvoiceNewViewController: UIViewController {
         tableVw.contentInsetAdjustmentBehavior = .never
         tableVw.register(UINib(nibName: "BottomPopupTableViewCell", bundle: nil), forCellReuseIdentifier: "BottomPopupTableViewCell");
         tableVw.register(UINib(nibName: "WalletNewSimpleTableViewCell", bundle: nil), forCellReuseIdentifier: "WalletNewSimpleTableViewCell");
-        tableVw.register(UINib(nibName: "NodatafoundTableViewCell", bundle: nil), forCellReuseIdentifier: "NodatafoundTableViewCell");
+        tableVw.register(UINib(nibName: "NoDataFoundTableViewCell", bundle: nil), forCellReuseIdentifier: "NoDataFoundTableViewCell");
         tableVw.delegate = self
         tableVw.dataSource = self
         self.tableVw.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
@@ -257,12 +257,19 @@ class InvoiceNewViewController: UIViewController {
 extension InvoiceNewViewController :  UITableViewDelegate{
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        if self.totalRequestListArray?.count == 0 || self.totalRequestListArray == nil
+        {
+            return 3
+        }
         return 2
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0
         {
             return 50
+        }
+        if indexPath.section == 2{
+            return 300
         }
         return 100
     }
@@ -442,15 +449,7 @@ extension InvoiceNewViewController : UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0
-        {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BottomPopupTableViewCell", for: indexPath) as! BottomPopupTableViewCell
-            cell.nameLbl.text = "Invoicing".localized
-            cell.infoBtn.isHidden = true
-//            cell.img.
-            return cell
-        }
-        else if indexPath.section == 2
+        if indexPath.section == 2
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NoDataFoundTableViewCell", for: indexPath) as! NoDataFoundTableViewCell
 
@@ -463,6 +462,13 @@ extension InvoiceNewViewController : UITableViewDataSource{
             cell.gobackBtn.isHidden = true
 
 
+            return cell
+        }
+        if indexPath.section == 0
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BottomPopupTableViewCell", for: indexPath) as! BottomPopupTableViewCell
+            cell.nameLbl.text = "Invoicing".localized
+            cell.infoBtn.isHidden = true
             return cell
         }
         else

@@ -376,10 +376,10 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
         let minutes = Int(counter) / 60 % 60
         let seconds = Int(counter) % 60
         let please = "Please wait".localized
-        let before  = "before requesting\nanother Email Code".localized
+        let before  = "mins before requesting\nanother Email Code".localized
         let str = (String(format:"%02i:%02i", minutes, seconds))
         counterrText.text="\(please) \(str) \(before)"
-         counterTime.text = "\(str)"
+         counterTime.text = "\(str) mins"
         if counter == 0{
             timer?.invalidate()
             resendOtp.setTitleColor(#colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1), for: .normal)
@@ -616,6 +616,13 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
                         self.text2.text = ""
                         self.text3.text = ""
                         self.text4.text = ""
+                        ModalController.setViewBorderColor(color: #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: self.text1)
+                        ModalController.setViewBorderColor(color: #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: self.text2)
+                        ModalController.setViewBorderColor(color: #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: self.text3)
+                        ModalController.setViewBorderColor(color: #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), view: self.text4)
+                        self.saveBtnOutlet.borderColor = #colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1)
+                        self.saveBtnOutlet.setTitleColor(#colorLiteral(red: 0.9496089816, green: 0.3862835169, blue: 0.3978196979, alpha: 1), for: .normal)
+                        
                     }
                 
             }else{
