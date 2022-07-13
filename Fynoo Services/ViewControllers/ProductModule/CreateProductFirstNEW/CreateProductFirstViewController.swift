@@ -303,9 +303,12 @@ class CreateProductFirstViewController: UIViewController {
             ModalController.showNegativeCustomAlertWith(title: "Please Enter Valid Product Name  ", msg: "")
             return
         }
-        if selectedBranch.count == 0{
-            ModalController.showNegativeCustomAlertWith(title: "Please add branch/branches", msg: "")
-            return
+        if !isDataBank
+        {
+            if ProductModel.shared.branchIdnew.count == 0{
+                ModalController.showNegativeCustomAlertWith(title: "Please add branch/branches", msg: "")
+                return
+            }
         }
         if ProductModel.shared.productDecription == ""
         {
@@ -325,10 +328,12 @@ class CreateProductFirstViewController: UIViewController {
             }
             
         }
-        if !ProductModel.shared.isOnline && !ProductModel.shared.isoffline
-        {
-            ModalController.showNegativeCustomAlertWith(title: "Please select at least one option from the product availability", msg: "")
-            return
+        if !isDataBank{
+            if !ProductModel.shared.isOnline && !ProductModel.shared.isoffline
+            {
+                ModalController.showNegativeCustomAlertWith(title: "Please select at least one option from the product availability", msg: "")
+                return
+            }
         }
         if pro.galleryIdImage.count == 0
         {
