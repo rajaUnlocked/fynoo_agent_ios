@@ -135,6 +135,7 @@ class BusinessLocation1ViewController: UIViewController,UITableViewDelegate,UITa
         else if indexPath.section == 1 {
             if indexPath.row == 0{
                 let cell = tabView.dequeueReusableCell(withIdentifier: "BusinessLocationTableViewCell", for: indexPath) as! BusinessLocationTableViewCell
+                cell.txtField.placeholder = "Search Business Location "
                 if AddBranch.shared.location.count > 0
                 {
                     if !AddBranch.shared.location.containArabicNumber
@@ -267,6 +268,13 @@ class BusinessLocation1ViewController: UIViewController,UITableViewDelegate,UITa
                 cell.trailConst.constant = 35
                 cell.contentView.backgroundColor = UIColor.clear
                 cell.counlbl.text = "\(AddBranch.shared.locationdetails.count)/\(detaillength)"
+                cell.counlbl.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
+                cell.counlbl.attributedText = ModalController.setProductStricColor(str: "\(AddBranch.shared.locationdetails.count)/\(detaillength)", str1: "\(AddBranch.shared.locationdetails.count)", str2: " /\(detaillength)", fontsize: 12, fontfamily: "LightFontName", txtcolor: #colorLiteral(red: 97/255, green: 192/255, blue: 136/255, alpha: 1))
+                if AddBranch.shared.locationdetails.count == detaillength
+                {
+                    cell.counlbl.textColor = UIColor.init(red: 236/255, green: 74/255, blue: 83/255, alpha: 1)
+                }
+//                cell.counlbl.text = "\(AddBranch.shared.locationdetails.count)/\(detaillength)"
                 return cell
             }
             if indexPath.row == 2 {

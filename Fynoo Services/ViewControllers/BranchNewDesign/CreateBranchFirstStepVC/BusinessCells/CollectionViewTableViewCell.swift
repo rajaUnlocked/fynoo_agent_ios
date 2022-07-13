@@ -64,6 +64,7 @@ class CollectionViewTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
     }
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         if isAttach
         {
             return isAttachImg.count + 1
@@ -215,25 +216,25 @@ class CollectionViewTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
     }
     @IBAction func AddProductClicked(_ sender: UIButton) {
         let vc = BottomPopupEditProductViewController(nibName: "BottomPopupEditProductViewController", bundle: nil)
-                         vc.delegate = self
-                       vc.isproduct = true
-                      vc.iswarning = true
-                      vc.isproduct = true
-                       vc.index = tag1
-             vc.nameAr =  ["Camera".localized, "Device Gallery".localized]
-                        vc.imgAr  = ["camera_picture", "galery_Picture"]
-                         let popupController = MTPopupController(rootViewController: vc)
-                                popupController.autoAdjustKeyboardEvent = false
-                                popupController.style = .bottomSheet
-                                popupController.navigationBarHidden = true
-                                popupController.hidesCloseButton = false
-                                let blurEffect = UIBlurEffect(style: .dark)
-                                popupController.backgroundView = UIVisualEffectView(effect: blurEffect)
-                                popupController.backgroundView?.alpha = 0.6
-                                popupController.backgroundView?.onClick {
-                                    popupController.dismiss()
-                                }
-                                popupController.present(in: viewcontrol)
+        vc.delegate = self
+        vc.isproduct = true
+        vc.iswarning = true
+        vc.isproduct = true
+        vc.index = tag1
+        vc.nameAr =  ["Camera".localized, "Device Gallery".localized]
+        vc.imgAr  = ["camera_picture", "galery_Picture"]
+        let popupController = MTPopupController(rootViewController: vc)
+        popupController.autoAdjustKeyboardEvent = false
+        popupController.style = .bottomSheet
+        popupController.navigationBarHidden = true
+        popupController.hidesCloseButton = false
+        let blurEffect = UIBlurEffect(style: .dark)
+        popupController.backgroundView = UIVisualEffectView(effect: blurEffect)
+        popupController.backgroundView?.alpha = 0.6
+        popupController.backgroundView?.onClick {
+            popupController.dismiss()
+        }
+        popupController.present(in: viewcontrol)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenSize = collectionView.frame.width
@@ -297,28 +298,27 @@ class CollectionViewTableViewCell: UITableViewCell,UICollectionViewDelegate,UICo
         return 5
     }
     func uploadImg(tag: Int) {
-             tag1 = tag
-           let vc = BottomPopupEditProductViewController(nibName: "BottomPopupEditProductViewController", bundle: nil)
-                            vc.delegate = self
-                          vc.isproduct = true
-                         vc.iswarning = true
-                         vc.isproduct = true
-                          vc.index = tag1
+        tag1 = tag
+        let vc = BottomPopupEditProductViewController(nibName: "BottomPopupEditProductViewController", bundle: nil)
+        vc.delegate = self
+        vc.isproduct = true
+        vc.iswarning = true
+        vc.isproduct = true
+        vc.index = tag1
         vc.nameAr =  ["Camera".localized, "Device Gallery".localized]
-                           vc.imgAr  = ["camera_picture", "galery_Picture"]
-                            let popupController = MTPopupController(rootViewController: vc)
-                                   popupController.autoAdjustKeyboardEvent = false
-                                   popupController.style = .bottomSheet
-                                   popupController.navigationBarHidden = true
-                                   popupController.hidesCloseButton = false
-                                   let blurEffect = UIBlurEffect(style: .dark)
-                                   popupController.backgroundView = UIVisualEffectView(effect: blurEffect)
-                                   popupController.backgroundView?.alpha = 0.6
-                                   popupController.backgroundView?.onClick {
-                                       popupController.dismiss()
-                                   }
-                                   popupController.present(in: viewcontrol)
-                
+        vc.imgAr  = ["camera_picture", "galery_Picture"]
+        let popupController = MTPopupController(rootViewController: vc)
+        popupController.autoAdjustKeyboardEvent = false
+        popupController.style = .bottomSheet
+        popupController.navigationBarHidden = true
+        popupController.hidesCloseButton = false
+        let blurEffect = UIBlurEffect(style: .dark)
+        popupController.backgroundView = UIVisualEffectView(effect: blurEffect)
+        popupController.backgroundView?.alpha = 0.6
+        popupController.backgroundView?.onClick {
+            popupController.dismiss()
+        }
+        popupController.present(in: viewcontrol)
     }
 
     

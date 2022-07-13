@@ -686,6 +686,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if indexPath.section == 1
         {
             let vc = TargetViewController(nibName: "TargetViewController", bundle: nil)
@@ -1060,6 +1061,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
     }
     
     func addServiceClickedHome(id : Int, name : String, index : Int) {
+        
         let vc = CommonPopupViewController(nibName: "CommonPopupViewController", bundle: nil)
         vc.modalPresentationStyle = .overFullScreen
         vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)

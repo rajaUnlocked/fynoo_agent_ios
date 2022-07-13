@@ -267,9 +267,6 @@ class CreateProductFirstViewController: UIViewController {
             vc.delegate = self
             vc.selectedBranchArray = selectedBranch
             self.navigationController?.pushViewController(vc, animated: true)
-            
-       
-        
     }
     func UINibs()
     {
@@ -289,251 +286,256 @@ class CreateProductFirstViewController: UIViewController {
         ProductModel.shared.isOnline = isOnline
         ProductModel.shared.isoffline = isStore
         
-            if ProductModel.shared.productTitle == ""
-                   {
-                ModalController.showNegativeCustomAlertWith(title: "Please enter product name".localized, msg: "")
-
-                       return
-                   }
-                   if  ProductModel.shared.productTitle.count > 0
-                   {
-                       if !ProductModel.shared.productTitle.containArabicNumber{
-                          ModalController.showNegativeCustomAlertWith(title: "Should not accept Arbic Number", msg: "")
-                            return
-                       }
-                      
-                   }
-            if ProductModel.shared.productTitle.first!.isWhitespace ||  ProductModel.shared.productTitle.count > 70
-            {
-                ModalController.showNegativeCustomAlertWith(title: "Please Enter Valid Product Name  ", msg: "")
+        if ProductModel.shared.productTitle == ""
+        {
+            ModalController.showNegativeCustomAlertWith(title: "Please enter product name".localized, msg: "")
+            return
+        }
+        if  ProductModel.shared.productTitle.count > 0
+        {
+            if !ProductModel.shared.productTitle.containArabicNumber{
+                ModalController.showNegativeCustomAlertWith(title: "Should not accept Arbic Number", msg: "")
                 return
             }
-            if ProductModel.shared.productDecription == ""
-                   {
-                ModalController.showNegativeCustomAlertWith(title: "Please add product description".localized, msg: "")
-
-                       return
-                   }
-                   if ProductModel.shared.productDecription.first!.isWhitespace
-                   {
-                       ModalController.showNegativeCustomAlertWith(title: "Blank Space should not be allowed at the starting.", msg: "")
-                       return
-                   }
-            if  ProductModel.shared.productDecription.count > 0
-                          {
-                              if !ProductModel.shared.productDecription.containArabicNumber{
-                                 ModalController.showNegativeCustomAlertWith(title: "Should not accept Arbic Number", msg: "")
-                                return
-                              }
-                             
-                          }
+        }
+        if ProductModel.shared.productTitle.first!.isWhitespace ||  ProductModel.shared.productTitle.count > 70
+        {
+            ModalController.showNegativeCustomAlertWith(title: "Please Enter Valid Product Name  ", msg: "")
+            return
+        }
+        if !isDataBank
+        {
+            if ProductModel.shared.branchIdnew.count == 0{
+                ModalController.showNegativeCustomAlertWith(title: "Please add branch/branches", msg: "")
+                return
+            }
+        }
+        if ProductModel.shared.productDecription == ""
+        {
+            ModalController.showNegativeCustomAlertWith(title: "Please add product description".localized, msg: "")
+            return
+        }
+        if ProductModel.shared.productDecription.first!.isWhitespace
+        {
+            ModalController.showNegativeCustomAlertWith(title: "Blank Space should not be allowed at the starting.", msg: "")
+            return
+        }
+        if  ProductModel.shared.productDecription.count > 0
+        {
+            if !ProductModel.shared.productDecription.containArabicNumber{
+                ModalController.showNegativeCustomAlertWith(title: "Should not accept Arbic Number", msg: "")
+                return
+            }
+            
+        }
+        if !isDataBank{
+            if !ProductModel.shared.isOnline && !ProductModel.shared.isoffline
+            {
+                ModalController.showNegativeCustomAlertWith(title: "Please select at least one option from the product availability", msg: "")
+                return
+            }
+        }
         if pro.galleryIdImage.count == 0
-                 {
-                ModalController.showNegativeCustomAlertWith(title: "Please add Product/Service image".localized, msg: "")
-
-                     return
-                 }
+        {
+            ModalController.showNegativeCustomAlertWith(title: "Please add Product/Service image".localized, msg: "")
+            
+            return
+        }
         if pro.galleryFeatureId == 0
-                 {
-                ModalController.showNegativeCustomAlertWith(title: "Please select product main image".localized, msg: "")
-
-                     return
-                 }
-                  if  ProductModel.shared.videoUrl.count > 0
-                                {
-                                    if ProductModel.shared.videoUrl.isArabic{
-                                       ModalController.showNegativeCustomAlertWith(title: "Should not accept Arbic Char", msg: "")
-                                      return
-                                    }
-                                    if !ProductModel.shared.videoUrl.isValidURL()
-                                                                                                                                                                   {
-                                                                                                                                                                      ModalController.showNegativeCustomAlertWith(title: "Enter valid link".localized, msg: "" )
-                                                                                                                                                                                                                                              return
-                                                                                                                                                                                                        }
-                                   
-                                }
-     
-
-        
+        {
+            ModalController.showNegativeCustomAlertWith(title: "Please select product main image".localized, msg: "")
+            
+            return
+        }
+        if  ProductModel.shared.videoUrl.count > 0
+        {
+            if ProductModel.shared.videoUrl.isArabic{
+                ModalController.showNegativeCustomAlertWith(title: "Should not accept Arbic Char", msg: "")
+                return
+            }
+            if !ProductModel.shared.videoUrl.isValidURL()
+            {
+                ModalController.showNegativeCustomAlertWith(title: "Enter valid link".localized, msg: "" )
+                return
+            }
+            
+        }
         if !isDataBank
         {
             if ProductModel.shared.currencyId == ""
-                   {
-                       ModalController.showNegativeCustomAlertWith(title: "Please Select Currency  ", msg: "")
-                       return
-        }
-        
-        if ProductModel.shared.branchIdnew.count == 0
-               {
-                   ModalController.showNegativeCustomAlertWith(title: "Please Select Branch  ", msg: "")
-                   return
-               }
-        if !ProductModel.shared.isOnline && !ProductModel.shared.isoffline
-               {
-                   ModalController.showNegativeCustomAlertWith(title: "Please Select Online / In Store ", msg: "")
-                   return
-               }
-       
-        }
-        
-    if isDataBank
-    {
-        if isSimilar || isVarient || pro.productId != ""
-        {
-            let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
-                  vc.isDataBank = self.isDataBank
-                  vc.isSimilar = self.isSimilar
-                  vc.isVarient = self.isVarient
-                  vc.hidesBottomBarWhenPushed = true;
-                 self.navigationController?.pushViewController(vc, animated: true)
-            return
-        }
-    
-            ModalClass.startLoading(self.view)
-                       productmodel.isdraft = true
-                          productmodel.step = 1
-                     productmodel.proid = pro.productId
-                         productmodel.addDatasaleNew { (success, response) in
-                             ModalClass.stopLoading()
-                             self.editpronew = response
-                             if success {
-                                 if sender.tag == 0
-                                        {
-                                 self.navigationController?.popViewController(animated: true)
-                                 }
-                                 else
-                                 {
-                                  
-                        self.pro.finalStatus = self.editpronew?.data?.pro_status ?? 0
-                        self.pro.productcode = self.editpronew?.data?.pro_code ?? ""
-                         self.pro.productTitle = self.editpronew?.data?.pro_name ?? ""
-                          self.pro.statusActive = self.editpronew?.data?.pro_status ?? 0
-                            self.pro.productstatus = self.editpronew?.data?.product_status ?? ""
-                          self.pro.productDecription = self.editpronew?.data?.pro_description ?? ""
-                 self.pro.productId = "\(self.editpronew?.data?.pro_id ?? 0)"
-                      self.pro.galleryFeatureImage = "\(self.editpronew?.data?.pro_featured_image ?? "")"
-                     let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
-                                                     //vc.isFromBranch = self.isFromBranch
-                                                     vc.isDataBank = self.isDataBank
-                                                     vc.isSimilar = self.isSimilar
-                                                       vc.isVarient = self.isVarient
-                                                     //vc.isPurchaseData = self.isPurchaseData
-                                                      vc.hidesBottomBarWhenPushed = true;
-                                                     self.navigationController?.pushViewController(vc, animated: true)
-                                                 }
-                                                
-                                             }
-                                      
-                                     
-                                 
-                             
-                             else
-                             {
-                                 ModalController.showNegativeCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
-                             }
-                         }
-    }
-        else
-     {
-        if sender.tag == 0
-        {
-            if ProductModel.shared.productId == ""
             {
-                ModalClass.startLoading(self.view)
-                addproductmodel.serviceid = self.serviceid
-                addproductmodel.addProductNew { (success, response) in
-                    ModalClass.stopLoading()
-                    self.editpronew = response
-                    if success {
-                  self.navigationController?.backToViewController(viewController: DataEntryTypelistingViewController.self)
-                        }
-                    else
-                    {
-                 ModalController.showNegativeCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
-                    }
-                }
+                ModalController.showNegativeCustomAlertWith(title: "Please Select Currency  ", msg: "")
+                return
             }
-            else{
-                                 productmodel.isdraft = true
-                                   productmodel.step = 1
-                                   ModalClass.startLoading(self.view)
-                                   productmodel.editProductNew { (success, response) in
-                                       ModalClass.stopLoading()
-                                       if success
-                                       {
-                                           self.editpronew = response
-                                    
-                                        ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "");                                   self.navigationController?.backToViewController(viewController: DataEntryTypelistingViewController.self)
-                                           
-                                           
-                                       }
-                                   } }
-        }
-        else{
-            if ProductModel.shared.productId == ""
+            
+            if ProductModel.shared.branchIdnew.count == 0
             {
-                ModalClass.startLoading(self.view)
-                addproductmodel.serviceid = self.serviceid
-                addproductmodel.addProductNew { (success, response) in
-                    ModalClass.stopLoading()
-                    if success {
-                        self.editpronew = response
-                        let pro = ProductModel.shared
-                         pro.productcode = self.editpronew?.data?.pro_code ?? ""
-                        pro.productTitle = self.editpronew?.data?.pro_name ?? ""
-                        pro.statusActive = self.editpronew?.data?.pro_status ?? 0
-                        self.pro.productstatus = self.editpronew?.data?.product_status ?? ""
-                        pro.barcode = self.editpronew?.data?.pro_barcode ?? ""
-                        pro.Currencyname = self.editpronew?.data?.pro_currency_name ?? ""
-                        pro.BranchCount = self.editpronew?.data?.pro_no_of_branch ?? 0
-                        pro.productDecription = self.editpronew?.data?.pro_description ?? ""
-                        pro.productId = "\(self.editpronew?.data?.product_id ?? 0)"
-                        pro.galleryFeatureImage = "\(self.editpronew?.data?.pro_featured_image ?? "")"
-                        if self.isPurchaseData && pro.pro_reference_id.count > 0
-                                             {
-                                             if (self.editpronew?.data?.pro_pdf?.count ?? 0) > 0
-                                                                                          
-                                                                    {
-                                                  pro.documentId.removeAllObjects()
-                                                    pro.documentImage.removeAllObjects()
-                                                    pro.documentImageSize.removeAllObjects()
-                                                            for i in 0...(self.editpronew?.data?.pro_pdf?.count ?? 0) - 1
-                                                                        {
-                                                            let br:Pro_pdf1 = (self.editpronew?.data?.pro_pdf![i])!
-                                                             pro.documentId.add(br.id!)
-                                                             pro.documentImage.add(br.pdf!)
-                                                             pro.documentImageSize.add(br.size!)
-                                                                         }
-                                                                                            
-                                                                                               
-                                                             }
-                                             }
-                        let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
-                        vc.isFromBranch = self.isFromBranch
-                        vc.isPurchaseData = self.isPurchaseData
-                     
-                         vc.hidesBottomBarWhenPushed = true;
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    }
-                    else
-                    {
-                        ModalController.showNegativeCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
-                    }
-                }
+                ModalController.showNegativeCustomAlertWith(title: "Please Select Branch  ", msg: "")
+                return
             }
-            else
+            if !ProductModel.shared.isOnline && !ProductModel.shared.isoffline
+            {
+                ModalController.showNegativeCustomAlertWith(title: "Please Select Online / In Store ", msg: "")
+                return
+            }
+            
+        }
+        if isDataBank
+        {
+            if isSimilar || isVarient || pro.productId != ""
             {
                 let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
-                vc.isFromBranch = isFromBranch
-                 vc.hidesBottomBarWhenPushed = true;
-                vc.isDataBank = isDataBank
-                vc.isPurchaseData = isPurchaseData
-                vc.isVarient = isVarient
-                vc.isSimilar = isSimilar
+                vc.isDataBank = self.isDataBank
+                vc.isSimilar = self.isSimilar
+                vc.isVarient = self.isVarient
+                vc.hidesBottomBarWhenPushed = true;
                 self.navigationController?.pushViewController(vc, animated: true)
+                return
+            }
+            ModalClass.startLoading(self.view)
+            productmodel.isdraft = true
+            productmodel.step = 1
+            productmodel.proid = pro.productId
+            productmodel.addDatasaleNew { (success, response) in
+                ModalClass.stopLoading()
+                self.editpronew = response
+                if success {
+                    if sender.tag == 0
+                    {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    else
+                    {
+                        self.pro.finalStatus = self.editpronew?.data?.pro_status ?? 0
+                        self.pro.productcode = self.editpronew?.data?.pro_code ?? ""
+                        self.pro.productTitle = self.editpronew?.data?.pro_name ?? ""
+                        self.pro.statusActive = self.editpronew?.data?.pro_status ?? 0
+                        self.pro.productstatus = self.editpronew?.data?.product_status ?? ""
+                        self.pro.productDecription = self.editpronew?.data?.pro_description ?? ""
+                        self.pro.productId = "\(self.editpronew?.data?.pro_id ?? 0)"
+                        self.pro.galleryFeatureImage = "\(self.editpronew?.data?.pro_featured_image ?? "")"
+                        let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
+                        //vc.isFromBranch = self.isFromBranch
+                        vc.isDataBank = self.isDataBank
+                        vc.isSimilar = self.isSimilar
+                        vc.isVarient = self.isVarient
+                        //vc.isPurchaseData = self.isPurchaseData
+                        vc.hidesBottomBarWhenPushed = true;
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                    
+                }
+                
+                
+                
+                
+                else
+                {
+                    ModalController.showNegativeCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
+                }
             }
         }
-     }
+        else
+        {
+            if sender.tag == 0
+            {
+                if ProductModel.shared.productId == ""
+                {
+                    ModalClass.startLoading(self.view)
+                    addproductmodel.serviceid = self.serviceid
+                    addproductmodel.addProductNew { (success, response) in
+                        ModalClass.stopLoading()
+                        self.editpronew = response
+                        if success {
+                            self.navigationController?.backToViewController(viewController: DataEntryTypelistingViewController.self)
+                        }
+                        else
+                        {
+                            ModalController.showNegativeCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
+                        }
+                    }
+                }
+                else{
+                    productmodel.isdraft = true
+                    productmodel.step = 1
+                    ModalClass.startLoading(self.view)
+                    productmodel.editProductNew { (success, response) in
+                        ModalClass.stopLoading()
+                        if success
+                        {
+                            self.editpronew = response
+                            
+                            ModalController.showSuccessCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "");                                   self.navigationController?.backToViewController(viewController: DataEntryTypelistingViewController.self)
+                            
+                            
+                        }
+                    } }
+            }
+            else{
+                if ProductModel.shared.productId == ""
+                {
+                    ModalClass.startLoading(self.view)
+                    addproductmodel.serviceid = self.serviceid
+                    addproductmodel.addProductNew { (success, response) in
+                        ModalClass.stopLoading()
+                        if success {
+                            self.editpronew = response
+                            let pro = ProductModel.shared
+                            pro.productcode = self.editpronew?.data?.pro_code ?? ""
+                            pro.productTitle = self.editpronew?.data?.pro_name ?? ""
+                            pro.statusActive = self.editpronew?.data?.pro_status ?? 0
+                            self.pro.productstatus = self.editpronew?.data?.product_status ?? ""
+                            pro.barcode = self.editpronew?.data?.pro_barcode ?? ""
+                            pro.Currencyname = self.editpronew?.data?.pro_currency_name ?? ""
+                            pro.BranchCount = self.editpronew?.data?.pro_no_of_branch ?? 0
+                            pro.productDecription = self.editpronew?.data?.pro_description ?? ""
+                            pro.productId = "\(self.editpronew?.data?.product_id ?? 0)"
+                            pro.galleryFeatureImage = "\(self.editpronew?.data?.pro_featured_image ?? "")"
+                            if self.isPurchaseData && pro.pro_reference_id.count > 0
+                            {
+                                if (self.editpronew?.data?.pro_pdf?.count ?? 0) > 0
+                                    
+                                {
+                                    pro.documentId.removeAllObjects()
+                                    pro.documentImage.removeAllObjects()
+                                    pro.documentImageSize.removeAllObjects()
+                                    for i in 0...(self.editpronew?.data?.pro_pdf?.count ?? 0) - 1
+                                    {
+                                        let br:Pro_pdf1 = (self.editpronew?.data?.pro_pdf![i])!
+                                        pro.documentId.add(br.id!)
+                                        pro.documentImage.add(br.pdf!)
+                                        pro.documentImageSize.add(br.size!)
+                                    }
+                                    
+                                    
+                                }
+                            }
+                            let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
+                            vc.isFromBranch = self.isFromBranch
+                            vc.isPurchaseData = self.isPurchaseData
+                            
+                            vc.hidesBottomBarWhenPushed = true;
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
+                        else
+                        {
+                            ModalController.showNegativeCustomAlertWith(title:self.editpronew?.error_description ?? "", msg: "")
+                        }
+                    }
+                }
+                else
+                {
+                    let vc = CreateProductSecondViewController(nibName: "CreateProductSecondViewController", bundle: nil)
+                    vc.isFromBranch = isFromBranch
+                    vc.hidesBottomBarWhenPushed = true;
+                    vc.isDataBank = isDataBank
+                    vc.isPurchaseData = isPurchaseData
+                    vc.isVarient = isVarient
+                    vc.isSimilar = isSimilar
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        }
         
         
     }
@@ -568,6 +570,7 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
     }
     
     func selectedBranchesMethod(branchArray: NSMutableArray) {
+        
         ProductModel.shared.branchIdnew.removeAllObjects()
         ProductModel.shared.BranchNamenew.removeAllObjects()
         let branchArr = branchArray

@@ -592,6 +592,13 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     {
                         return false
                     }
+                    if textField.text == "00000"
+                    {
+                        textField.text = ""
+                        cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                        ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter valid plate number".localized)
+                        return false
+                    }
                     if !textstr.containArabicNumber
                     {
                         cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
@@ -620,8 +627,9 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         }
         return true
     }
-    func textFieldDidEndEditing(_ textField: UITextField)
-    {
+    
+    @objc private func textFieldDidChange(_ textField: UITextField){
+        
         let touchPoint = textField.convert(CGPoint.zero, to: tabvw)
         let clickedBtn = tabvw.indexPathForRow(at: touchPoint)
         let row = Int(clickedBtn!.row)
@@ -629,14 +637,37 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
         let cell = tabvw.cellForRow(at: IndexPath(row: row, section: section)) as! VehicleDescriptionTableViewCell
         if row == 8
         {
-            if textField.text == "00000000" || textField.text == "0000000" || textField.text == "000000"
+            if textField.text == "000000"
             {
                 textField.text = ""
                 cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+                ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter valid plate number".localized)
                 return
             }
         }
     }
+//    if textField.text == "000 000 000 000 000"{
+//        textField.text = ""
+//        ModalController.showNegativeCustomAlertWith(title: "", msg: "Please enter valid vat number".localized)
+//        return
+//    }
+//    func textFieldDidEndEditing(_ textField: UITextField)
+//    {
+//        let touchPoint = textField.convert(CGPoint.zero, to: tabvw)
+//        let clickedBtn = tabvw.indexPathForRow(at: touchPoint)
+//        let row = Int(clickedBtn!.row)
+//        let section = Int(clickedBtn!.section)
+//        let cell = tabvw.cellForRow(at: IndexPath(row: row, section: section)) as! VehicleDescriptionTableViewCell
+//        if row == 8
+//        {
+//            if textField.text == "00000000" || textField.text == "0000000" || textField.text == "000000"
+//            {
+//                textField.text = ""
+//                cell.txt.layer.borderColor =  ModalController.hexStringToUIColor(hex: "#EC4A53").cgColor
+//                return
+//            }
+//        }
+//    }
     func registernibs() {
         let fontNameLight = NSLocalizedString("LightFontName", comment: "")
         submit.titleLabel?.font = UIFont(name:"\(fontNameLight)",size:16)
@@ -904,7 +935,7 @@ class DeliveryDocumentViewController: UIViewController,BottomPopupEditProductVie
                     service.docfilereg.append(documentlocalArr[sender.tag]!)
                 }
                 else{
-                    ModalController.showNegativeCustomAlertWith(title: "Please Upload the Front side Photo", msg: "")
+                    ModalController.showNegativeCustomAlertWith(title: "Please upload vehicle front side photo", msg: "")
                     return
                 }
             }
@@ -1383,7 +1414,7 @@ extension DeliveryDocumentViewController:UITableViewDelegate,UITableViewDataSour
             if self.servicelist?.data?.new_upload_enable ?? false{
                 cell.clickednewcar.isHidden = false
                 cell.addimg.isHidden = false
-                cell.clickednewcar.sd_setImage(with: URL(string: self.servicelist?.data?.front_side ?? ""), for: .normal, placeholderImage: UIImage(named: "newcar"))
+//                cell.clickednewcar.sd_setImage(with: URL(string: self.servicelist?.data?.front_side ?? ""), for: .normal, placeholderImage: UIImage(named: "newcar"))
             }
             cell.clickednewcar.addTarget(self, action: #selector(clickedaddnewcar), for: .touchUpInside)
             return cell
