@@ -405,10 +405,10 @@ class VerifyAccountViewController: UIViewController,UITextFieldDelegate {
         
         let please = "Please wait".localized
         let before  = "before requesting\nanother Email Code".localized
+        let min = "mins".localized
         
-        
-         counterrText.text="\(please) \(str) \(before)"
-          counterTime.text = "\(str)"
+         counterrText.text="\(please) \(str) \(min) \(before)"
+          counterTime.text = "\(str) \(min)"
         if counter == 0{
             self.timer?.invalidate()
             resendOtp.setTitleColor(#colorLiteral(red: 0.4423058033, green: 0.7874479294, blue: 0.6033033729, alpha: 1), for: .normal)
