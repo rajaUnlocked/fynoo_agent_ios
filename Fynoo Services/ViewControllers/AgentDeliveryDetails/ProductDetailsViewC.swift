@@ -1017,7 +1017,7 @@ class ProductDetailsViewC: UIViewController,ProductListDelegate,PopUpAcceptProdu
         if orderDetailData?.data?.is_agent_reached == 2 && orderDetailData?.data?.order_status == 1 {
             self.btnChangeStatus.setTitle("Invoice Uploaded".localized, for: .normal)
             
-        }else if  orderDetailData?.data?.is_agent_reached == 2 && orderDetailData?.data?.order_status == 2 {
+        }else if orderDetailData?.data?.is_agent_reached == 2 || orderDetailData?.data?.is_agent_reached == 0  && orderDetailData?.data?.order_status == 2 {
             self.btnChangeStatus.setTitle("Delivered".localized, for: .normal)
             self.btnChangeStatus.isUserInteractionEnabled = false
             self.btnChangeStatus.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
