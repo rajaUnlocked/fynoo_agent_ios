@@ -312,17 +312,20 @@ class SearchedProductDeatailViewC: UIViewController,CLLocationManagerDelegate,GM
     
     func endTimer() {
         countdownTimer.invalidate()
-        let serviceID = String.getString((tripDetail?.data?.trip_details?.del_service_id)!)
-        let vc = AgentDeliveryViewController()
-        vc.isfrom = "700"
-        vc.selectedTrip = 2
-        //done
-        Singleton.shared.setDeliveryDashBoardTabID(tabId: 1)
-        Singleton.shared.setDelServiceID(delServiceId: serviceID)
-        vc.isRating = false
-        vc.serviceID = serviceID
-        vc.serviceStatus = "\(tripDetail?.data?.trip_details?.service_status ?? 0)"
-        self.navigationController?.pushViewController(vc, animated: true)
+        if let delServiceId = tripDetail?.data?.trip_details?.del_service_id {
+            let serviceID = String.getString((tripDetail?.data?.trip_details?.del_service_id)!)
+            let vc = AgentDeliveryViewController()
+            vc.isfrom = "700"
+            vc.selectedTrip = 2
+            //done
+            Singleton.shared.setDeliveryDashBoardTabID(tabId: 1)
+            Singleton.shared.setDelServiceID(delServiceId: serviceID)
+            vc.isRating = false
+            vc.serviceID = serviceID
+            vc.serviceStatus = "\(tripDetail?.data?.trip_details?.service_status ?? 0)"
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+       
     }
     
     func timeFormatted(_ totalSeconds: Int) -> String {

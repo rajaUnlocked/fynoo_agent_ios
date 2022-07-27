@@ -107,7 +107,7 @@ class AgentDashboardViewController: UIViewController, signOutDelegate, UITableVi
         NotificationCenter.default.addObserver(self, selector: #selector(getNotificationARV(_:)), name: NSNotification.Name(Constant.GET_NOTIFICATIONARV), object: nil)
         tabBarController?.delegate = self
         
-//        doBackgroundTask()
+        doBackgroundTask()
         getVersion()
     }
     @objc func getVersion()

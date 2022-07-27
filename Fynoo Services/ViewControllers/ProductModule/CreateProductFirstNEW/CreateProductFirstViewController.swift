@@ -970,6 +970,11 @@ extension CreateProductFirstViewController:UITableViewDataSource,OCRViewControll
                   cell.rgtbtn.tag = 1
                 cell.leftbtn.addTarget(self, action: #selector(clickAvailbility(_:)), for: .touchUpInside)
                   cell.rgtbtn.addTarget(self, action: #selector(clickAvailbility(_:)), for: .touchUpInside)
+                cell.leftbtn.isHidden = false
+                cell.rgtbtn.isHidden = false
+                cell.leftlbl.isHidden = false
+                cell.rgtlbl.isHidden = false
+                cell.lbl.isHidden = false
                if isDataBank{
                                   cell.leftbtn.isHidden = true
                                   cell.rgtbtn.isHidden = true
